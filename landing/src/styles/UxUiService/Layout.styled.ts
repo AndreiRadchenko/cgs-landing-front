@@ -45,6 +45,7 @@ export const Layout = styled.div`
     font-weight: inherit;
   }
 `;
+
 export const TeamMembersAlign = styled.div`
   margin-top: -10.32em;
   @media ${themes.primary.media.maxPCFullHD} {

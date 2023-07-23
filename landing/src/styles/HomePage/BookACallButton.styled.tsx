@@ -11,6 +11,7 @@ export const arrowOne = keyframes`
     transform: translate(0px, 0px);;
   }
 `;
+
 export const arrowTwo = keyframes`
   0% {
     transform: translate(0px, 0px);

@@ -61,21 +61,19 @@ export const Container = styled.div`
 `;
 
 export const DatesContainer = styled.div`
-  margin-top: 16px;
 
   @media ${themes.primary.media.maxMobile} {
-    margin-top: 12px;
   }
 `;
 
 export const StatisticWrapper = styled.div`
   display: flex;
   justify-content: flex-start;
-  column-gap: 15px;
-  margin-top: 10px;
+  column-gap: 16px;
 
   @media ${themes.primary.media.maxMobile} {
     width: 115px;
+    column-gap: 8px;
   }
 `;
 
@@ -83,19 +81,41 @@ export const SpaceBetween = styled.div`
   font-family: ${themes.primary.font.family.openSans};
   display: flex;
   justify-content: flex-start;
-  column-gap: 25px;
+  column-gap: 16px;
   align-items: center;
   flex-wrap: wrap;
+  width: 322px;
+  margin-top: 4px;
+  margin-bottom: 6px;
+
+  @media ${themes.primary.media.minPC} {
+    width: 370px;
+  }
+
+  @media ${themes.primary.media.minPCFullHD} {
+    width: 400px;
+    column-gap: 20px;
+    margin-bottom: 12px;
+    margin-top: 8px;
+  }
+
+  @media (min-width: 2400px) {
+    width: 500px;
+  }
 
   @media ${themes.primary.media.maxMobile} {
+    width: 285px;
+    column-gap: 8px;
     & > div:first-child {
       div {
-        font-size: 1.15em;
+        font-size: 12px;
+        font-weight: 400;
         white-space: nowrap;
       }
     }
     & > div:not(:first-child) div {
-      font-size: 1.16em;
+      font-size: 14px;
+      font-weight: 600;
     }
   }
 

@@ -10,7 +10,6 @@
     "deploy:stage:m1": "docker buildx build --platform linux/amd64 -t cd-landing-frontend-stg . && docker tag cd-landing-frontend-stg registry.heroku.com/cd-landing-frontend-stg/web && docker push registry.heroku.com/cd-landing-frontend-stg/web && heroku container:release web -a cd-landing-frontend-stg"
   },
   "dependencies": {
-    "@emotion/cache": "^11.7.1",
     "@emotion/react": "^11.7.1",
     "@emotion/styled": "^11.6.0",
     "@mui/material": "5.11.4",
@@ -21,7 +20,6 @@
     "@types/yup": "^0.29.14",
     "axios": "^0.25.0",
     "formik": "2.2.9",
-    "fs": "^0.0.1-security",
     "html-react-parser": "2.0.0",
     "next": "^12.0.8",
     "react": "17.0.2",
@@ -43,7 +41,6 @@
     "react-share": "^4.4.0",
     "react-stars": "^2.2.5",
     "react-transition-group": "^4.4.2",
-    "sharp": "^0.30.7",
     "styled-components": "^5.3.3",
     "swiper": "^9.3.2",
     "yup": "^0.32.11"

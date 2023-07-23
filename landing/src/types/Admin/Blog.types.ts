@@ -1,12 +1,11 @@
 import { ReactNode, RefObject } from "react";
-import { IArticle, ISitemapData, IView } from "./Response.types";
+import { IArticle, ISitemapData } from "./Response.types";
 
 export interface IArticleForm {
   article: number;
   articles: IArticle[];
   isNewArticle: boolean;
   setIsNewArticle: (val: boolean) => void;
-  views: IView[];
   setArticle: (val: number) => void;
   sitemap?: ISitemapData | void;
   scrollHandler: () => void;
@@ -27,7 +26,6 @@ export interface IArticles {
   article: number;
   isNewArticle: boolean;
   data?: IArticle[];
-  views?: IView[];
   disabled?: boolean;
   sitemap?: ISitemapData | void;
   scrollRef: RefObject<HTMLDivElement>;

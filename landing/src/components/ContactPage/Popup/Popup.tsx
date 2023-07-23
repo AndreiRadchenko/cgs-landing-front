@@ -1,7 +1,6 @@
 import React, { ReactNode, CSSProperties } from "react";
 
 import * as Styled from "./Popup.styled";
-import { useWindowDimension } from "../../../hooks/useWindowDimension";
 
 interface Props {
   style?: CSSProperties;
@@ -9,8 +8,6 @@ interface Props {
 }
 
 export const Popup = ({ children, style }: Props) => {
-  const { width } = useWindowDimension();
-
   return (
     <Styled.PointerPopup style={style} className="popup">
       <Styled.PopupText>{children}</Styled.PopupText>
@@ -19,8 +16,6 @@ export const Popup = ({ children, style }: Props) => {
 };
 
 export const EmailPopup = ({ children, style }: Props) => {
-  const { width } = useWindowDimension();
-
   return (
     <Styled.EmailPopup style={style} className="popup">
       <Styled.PopupText>{children}</Styled.PopupText>

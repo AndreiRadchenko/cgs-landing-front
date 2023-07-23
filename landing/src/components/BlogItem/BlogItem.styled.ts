@@ -107,11 +107,6 @@ export const BlogContentWrapper = styled.div`
   padding-right: 91px;
 `;
 
-interface IBlogItem {
-  isAdmin?: boolean;
-  disabled?: boolean;
-}
-
 export const BlogItem = styled.div<IAdmin>`
   display: flex;
   position: relative;

@@ -112,7 +112,6 @@ export const Subtitle = styled.h2`
   }
 `;
 
-
 export const SubTextContent = styled.div`
   display: grid;
   grid-template-columns: repeat(2, 1fr);

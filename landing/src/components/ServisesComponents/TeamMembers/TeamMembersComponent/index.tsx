@@ -48,7 +48,7 @@ const TeamMembers = ({ teamMembers, className }: ITeamMembersProps) => {
         ScrollListRef.current.removeEventListener("scroll", handleScroll);
       }
     };
-}, []);
+  }, []);
 
   return (
     <>
@@ -59,7 +59,7 @@ const TeamMembers = ({ teamMembers, className }: ITeamMembersProps) => {
         <Styled.TextContainer>
           <Styled.Title>{title}</Styled.Title>
           <Styled.Description>
-            <SplitBrackets text={description}/>
+            <SplitBrackets text={description} />
           </Styled.Description>
         </Styled.TextContainer>
         <Styled.ScrollbarContainer>

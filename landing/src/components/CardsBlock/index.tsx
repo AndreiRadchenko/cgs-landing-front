@@ -1,4 +1,4 @@
-﻿import React from "react";
+﻿import React, { useState } from "react";
 import { useQueryClient } from "@tanstack/react-query";
 import { queryKeys } from "../../consts/queryKeys";
 import { IDataResponse } from "../../types/Admin/Response.types";
@@ -12,10 +12,12 @@ const CardsBlock = () => {
     queryKeys.getFullHomePage,
   ])?.CardsBlock;
 
+  const title = "Our Process";
+  
   return (
     <>
-      <Styled.Title>FOLLOWING SUCH A FLOW:</Styled.Title>
-      <MobileInfiniteText title={"FOLLOWING SUCH A FLOW:"} />
+      <Styled.Title>{title}</Styled.Title>
+      <MobileInfiniteText title={title} />
       <Styled.CardsWrapper>
         {data &&
           Object.entries(data).map((item, idx) => (

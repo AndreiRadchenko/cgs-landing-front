@@ -6,7 +6,7 @@ import Image from "next/image";
 interface IDropdownProps {
   title: string;
   children: JSX.Element;
-  styles?: any;
+  styles?: object;
   isOpened?: boolean;
   id?: string;
 }

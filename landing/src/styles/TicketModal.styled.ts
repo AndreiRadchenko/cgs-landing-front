@@ -65,9 +65,8 @@ export const List = styled.ul`
   list-style-type: square;
   margin: 24px 5px 0 0;
 
-  &:first-child{
+  &:first-child {
     margin: 50px 5px 0 0;
-
   }
 
   @media (max-width: 570px) {
@@ -75,6 +74,7 @@ export const List = styled.ul`
     padding-left: 11px;
   }
 `;
+
 export const ListTitle = styled.span`
   position: relative;
   bottom: 10px;
@@ -88,6 +88,7 @@ export const ListTitle = styled.span`
     font-size: 1.5rem;
   }
 `;
+
 export const ListItem = styled.li`
   margin: 0;
   margin-top: 0px;
@@ -97,7 +98,7 @@ export const ListItem = styled.li`
   font-weight: ${themes.primary.font.weight.heavy};
   color: #535557;
 
-  span{
+  span {
     position: relative;
     top: -3px;
   }
@@ -130,7 +131,7 @@ export const SubmitButtonContainer = styled.div`
   width: 172px;
   position: relative;
   margin: 23px 0px 20px 36px;
-  
+
   & path {
     transition: all 1s ease-in-out;
   }
@@ -172,15 +173,6 @@ export const SubmitButton = styled.button`
   @media (max-width: 570px) {
     font-size: 1rem;
   }
-`;
-
-export const SubmitArrow = styled.img`
-  width: 35px;
-  height: 35px;
-  position: absolute;
-  right: -15px;
-  top: -12px;
-  cursor: pointer;
 `;
 
 export const CloseButton = styled.img`

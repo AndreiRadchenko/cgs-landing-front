@@ -354,10 +354,7 @@ const AddReview = ({
           <Styled.AdminPageFourthBlockLayout>
             <h3 style={{ margin: "0 0 15px 0" }}>Technology</h3>
             <DropdownTechnology
-              isError={
-                !!errors.technologies &&
-                (!values.technologies.length || values.technologies.length > 6)
-              }
+              isError={!!errors.technologies && !values.technologies.length}
               technologies={technologies}
             />
             {errorMsgTech && <p>{errorMsgTech}</p>}

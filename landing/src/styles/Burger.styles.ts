@@ -17,7 +17,7 @@ export const BurgerWrapper = styled.div`
     right: 0;
     top: 0;
     transition: transform 0.3s ease-in;
-    padding-top: 80px;
+    padding-top: 81px;
     background-color: ${themes.primary.colors.blogBackground};
     z-index: 35;
 
@@ -95,20 +95,6 @@ export const BurgerButton = styled.button<IButtonBurgerProps>`
 
 export const SocialLinksBurgerRow = styled.div`
   margin-top: 2.375rem;
-`;
-
-export const StyledLinksBurgerDecoration = styled.div`
-  display: flex;
-  align-items: center;
-  position: relative;
-`;
-
-export const StyledFooterLink = styled.a`
-  display: block;
-  margin-top: 1.3em;
-  font-size: 1.4em;
-  font-family: ${themes.primary.font.family.mulish};
-  text-align: center;
 `;
 
 export const FooterWrapper = styled.div`

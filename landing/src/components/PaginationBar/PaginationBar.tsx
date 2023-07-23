@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect } from "react";
+import React, { useCallback } from "react";
 import * as Styles from "./PaginationBar.styled";
 interface IPaginationBar {
   totalPages: number;

@@ -12,13 +12,6 @@ export const CareersContainer = styled.div`
   margin-top: 20px;
 `;
 
-export const Title = styled.h2`
-  font-size: 1.6rem;
-  line-height: 34px;
-  font-family: ${themes.primary.font.family.gilroy};
-  font-weight: ${themes.primary.font.weight.bold};
-`;
-
 export const SubTitle = styled.h3`
   font-size: 1.4rem;
   line-height: 26px;
@@ -28,17 +21,6 @@ export const SubTitle = styled.h3`
     margin-top: 70px;
     color: ${themes.primary.colors.headerBorder};
   }
-`;
-
-export const TitleInput = styled.input`
-  display: block;
-  width: 350px;
-  padding: 19px 14px;
-  border: none;
-  font-size: 1rem;
-  line-height: 19px;
-  font-family: ${themes.primary.font.family.gilroy};
-  font-weight: ${themes.primary.font.weight.normal};
 `;
 
 export const VacancyInput = styled.input`
@@ -56,19 +38,14 @@ export const VacancyInput = styled.input`
 export const AboutWork = styled.div`
   display: flex;
 `;
+
 export const Location = styled.div`
   width: 34.2%;
 `;
+
 export const TypeOfWork = styled.div`
   width: 34.2%;
   margin-left: 15px;
-`;
-
-
-export const TicketsContainer = styled.div`
-  display: flex;
-  justify-content: space-between;
-  margin-top: 20px;
 `;
 
 export const TicketsButton = styled.button`
@@ -107,24 +84,6 @@ export const TicketsButtonContainer = styled.div`
   }
 `;
 
-export const TicketContainer = styled.div`
-  width: 476px;
-  height: 348px;
-  border: 1px solid black;
-`;
-
-export const TitleTextArea = styled.textarea`
-  display: block;
-  width: 350px;
-  overflow-y: hidden;
-  padding: 19px 14px;
-  border: none;
-  font-size: 1rem;
-  line-height: 19px;
-  font-family: ${themes.primary.font.family.gilroy};
-  font-weight: ${themes.primary.font.weight.normal};
-`;
-
 export const ContactFormContainer = styled.div`
   width: 100%;
   display: flex;
@@ -134,11 +93,6 @@ export const FormContainer = styled.div`
   display: flex;
   flex-direction: column;
   width: 420px;
-`;
-
-export const ImageContainer = styled.div`
-  width: 486px;
-  height: 440px;
 `;
 
 export const FormInput = styled.input`
@@ -160,21 +114,6 @@ export const CvInput = styled.input`
   margin-right: 10px;
   padding: 19px 14px;
   border: 1px solid grey;
-  font-size: 1rem;
-  line-height: 19px;
-  font-family: ${themes.primary.font.family.gilroy};
-  font-weight: ${themes.primary.font.weight.normal};
-`;
-
-export const CvContainer = styled.div`
-  display: flex;
-`;
-
-export const FormTextArea = styled.textarea`
-  display: block;
-  overflow-y: hidden;
-  padding: 19px 14px;
-  border: none;
   font-size: 1rem;
   line-height: 19px;
   font-family: ${themes.primary.font.family.gilroy};
@@ -249,7 +188,6 @@ export const TicketEditAndDeleteButtons = styled.div`
   }
 `;
 
-
 export const DeleteBtn = styled.button`
   border: 0;
   background: transparent;
@@ -261,7 +199,7 @@ export const DeleteBtn = styled.button`
 `;
 
 export const TicketBox = styled.div`
-  display: flex;  
+  display: flex;
   flex-direction: column;
   font-family: ${themes.primary.font.family.namu};
 `;

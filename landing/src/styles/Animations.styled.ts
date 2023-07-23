@@ -42,6 +42,7 @@ export const rotateAnimationTabletPortraitLeft = keyframes`
     }
   `}
 `;
+
 export const rotateAnimationMobileLeft = keyframes`
   ${css`
     0% {
@@ -94,83 +95,6 @@ export const rotateAnimationTablerPortraitRight = keyframes`
     }
     100% {
       transform: scale(0.65) rotate(65deg);
-    }
-  `}
-`;
-
-export const floatAnimation = keyframes`
-  ${css`
-    0% {
-      transform: translatey(0px);
-    }
-    50% {
-      transform: translatey(-10px);
-    }
-    100% {
-      transform: translatey(0px);
-    }
-  `}
-`;
-
-export const glassJarAnimation = keyframes`
-  ${css`
-    10%,
-    90% {
-      transform: translate3d(-1px, 0, 0);
-    }
-
-    20%,
-    80% {
-      transform: translate3d(2px, 0, 0);
-    }
-
-    30%,
-    50%,
-    70% {
-      transform: translate3d(-2px, 0, 0);
-    }
-
-    40%,
-    60% {
-      transform: translate3d(2px, 0, 0);
-    }
-  `}
-`;
-
-export const spin = keyframes`	
-  ${css`
-    0% {
-      -webkit-transform: rotate(0deg);
-      transform: rotate(0deg);
-    }
-    25% {
-      -webkit-transform: rotate(-90deg);
-      transform: rotate(-90deg);
-    }
-    50% {
-      -webkit-transform: rotate(-180deg);
-      transform: rotate(-180deg);
-    }
-    75% {
-      -webkit-transform: rotate(-270deg);
-      transform: rotate(-270deg);
-    }
-    90% {
-      transform: rotate(-270deg) translate3d(50%, -50%, 0);
-    }
-    100% {
-      -webkit-transform: rotate(-360deg);
-      transform: rotate(-360deg);
-    }
-  `} `;
-
-export const scale = keyframes`
-  ${css`
-    30% {
-      transform: scale(0.5);
-    }
-    40% {
-      transform: scale(0.5);
     }
   `}
 `;
@@ -256,17 +180,6 @@ ${css`
   }
 `}`;
 
-export const infiniteText = keyframes` 
-${css`
-  from {
-    transform: translateX(-100%);
-  }
-  to {
-    transform: translateX(0);
-  }
-`}
-  `;
-
 export const float = (y: number) => keyframes` 
 ${css`
   from {
@@ -321,15 +234,6 @@ ${css`
   }
 `}
 `;
-
-export const blur = keyframes`${css`
-  0% {
-    filter: blur(10px);
-  }
-  100% {
-    filter: blur(0px);
-  }
-`}`;
 
 export const propeller = keyframes` 
   50% {

@@ -43,7 +43,7 @@ export const TicketModal = styled.div<IModalProps>`
     max-height: 0;
     width: 100%;
     transition: 0.3s;
-    margin-top: ${idx => idx ? "-7em" : "-5em"};
+    margin-top: ${(idx) => (idx ? "-7em" : "-5em")};
     border-bottom-left-radius: 8px;
     border-bottom-right-radius: 8px;
     border: solid 2.6px ${themes.primary.colors.primary};

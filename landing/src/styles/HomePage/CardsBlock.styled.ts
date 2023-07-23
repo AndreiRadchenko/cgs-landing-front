@@ -376,7 +376,7 @@ export const CardContainer = styled.article`
 
     &:nth-child(2) {
       margin-top: 0;
-      ::after  {
+      ::after {
         bottom: -1em;
       }
     }

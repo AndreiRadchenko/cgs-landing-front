@@ -1,7 +1,6 @@
 import themes from "../utils/themes";
 import styled from "styled-components";
 import { Field } from "formik";
-import Arrow from "../../public/upArrowSidebar.svg";
 
 export const TagsWrapper = styled.div`
   display: flex;
@@ -44,7 +43,7 @@ export const AddTag = styled.div`
   cursor: pointer;
   &:first-child {
     margin-left: 0;
-    background-color: #5869DD;
+    background-color: #5869dd;
     border: none;
     color: #fff;
   }
@@ -83,17 +82,6 @@ export const TagInputSubmit = styled.button`
   color: ${themes.primary.colors.secondary};
   background-color: ${themes.primary.colors.primary};
   border: 0;
-`;
-
-export const InputWrapper = styled.div`
-  display: flex;
-  align-items: center;
-  height: 100%;
-`;
-
-export const HiddenField = styled(Field)`
-  display: none;
-  visibility: hidden;
 `;
 
 export const DropdownBanner = styled.div`

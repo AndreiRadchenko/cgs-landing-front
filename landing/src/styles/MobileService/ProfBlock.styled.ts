@@ -52,6 +52,7 @@ export const ButtonWrapper = styled.div`
     }
   }
 `;
+
 export const ImageWrapper = styled.div`
   position: relative;
   width: 500px;
@@ -63,6 +64,7 @@ export const ImageWrapper = styled.div`
     margin-top: 20px;
   }
 `;
+
 export const Image = styled.img`
   width: 100%;
   height: 100%;

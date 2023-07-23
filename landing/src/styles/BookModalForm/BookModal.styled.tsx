@@ -48,7 +48,7 @@ export const BookModalContent = styled.div<IBookModalContent>`
       margin-top: 40px;
       height: 100vh;
       overflow: scroll;
-  }
+    }
   }
 
   @media ${themes.primary.media.minPCFullHD} {

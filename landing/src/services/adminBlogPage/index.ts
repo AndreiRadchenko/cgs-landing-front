@@ -2,7 +2,6 @@ import {
   IArticle,
   IBlogPageResponse,
   ISwapData,
-  IView,
 } from "../../types/Admin/Response.types";
 import { EnhancedWithAuthHttpService } from "../httpAuth.service";
 import { HttpServiceFactory } from "../index";
@@ -53,21 +52,6 @@ export class AdminBlogPage {
 
   public swapTwoElements(swapData: ISwapData) {
     return this.httpService.put(`api/blog/swap`, swapData);
-  }
-
-  public updateViews(views: IView) {
-    return this.httpService.put(`api/blog/view/${views._id}`, views);
-  }
-
-  public addViews(views: IView) {
-    return this.httpService.post(`api/blog/view`, views);
-  }
-
-  public deleteViewsById(id: string) {
-    return this.httpService.delete(`api/blog/view/${id}`);
-  }
-  public getViews() {
-    return this.httpService.get<IView[]>(`api/blog/view`);
   }
 }
 

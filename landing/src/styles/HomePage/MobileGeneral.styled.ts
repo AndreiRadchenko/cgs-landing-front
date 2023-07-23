@@ -1,17 +1,12 @@
 import styled from "styled-components";
 import themes from "../../utils/themes";
 import buttonHoverBg from "../../../public/HomePageDecoration/buttonHoverBg.png";
-import { buttonHover, cursorBlinking } from "../Animations.styled";
+import { buttonHover } from "../Animations.styled";
 
 export interface IFontSize {
   size: string;
   padding: string;
 }
-
-export const RowContainer = styled.div`
-  display: flex;
-  gap: 0.5em;
-`;
 
 export const BlackButton = styled.a<IFontSize>`
   font-family: inherit;
@@ -96,44 +91,6 @@ export const BlackButton = styled.a<IFontSize>`
     & path:nth-child(2) {
       transform: translate(36px, -36px);
     }
-  }
-`;
-
-export const LongArrow = styled.img`
-  display: inline-block;
-  margin-left: auto;
-  padding-top: 1%;
-  width: 30vw;
-  flex-grow: 1;
-
-  @media ${themes.primary.media.minLaptop} {
-    width: 20vw;
-  }
-
-  @media ${themes.primary.media.minPCFullHD} {
-    width: 524px;
-  }
-
-  @media (max-width: 1360px) {
-    width: 35vw;
-  }
-
-  @media (max-width: 1370px) {
-    width: 28vw;
-  }
-
-  @media ${themes.primary.media.maxTabletLandScape} {
-    width: 22vw;
-  }
-
-  @media ${themes.primary.media.maxLowScreenMobile} {
-    margin-left: 0;
-    width: 110px;
-    flex-grow: 0;
-  }
-
-  @media ${themes.primary.media.maxLowestScreenMobile} {
-    width: 28vw;
   }
 `;
 
@@ -226,10 +183,10 @@ export const Subtitle = styled.div`
 
     &.techMobile {
       line-height: 113%;
-      br{
+      br {
         display: none;
       }
-      p{
+      p {
         width: 450px;
       }
     }
@@ -237,12 +194,12 @@ export const Subtitle = styled.div`
     &.mobileTextOnFilm {
       margin-top: 66px;
       margin-bottom: 27px;
-      p{
+      p {
         margin: 0;
         font-size: 5vw;
         width: 100%;
         line-height: 132%;
-      }  
+      }
     }
 
     &.small {
@@ -273,7 +230,7 @@ export const Subtitle = styled.div`
 
   @media (max-width: 600px) {
     &.techMobile {
-      p{
+      p {
         width: 340px;
       }
     }
@@ -281,7 +238,7 @@ export const Subtitle = styled.div`
 
   @media (max-width: 500px) {
     &.techMobile {
-      p{
+      p {
         width: 320px;
       }
     }
@@ -300,11 +257,11 @@ export const Subtitle = styled.div`
     }
 
     &.mobileTextOnFilm {
-      p{
+      p {
         margin: 0;
         font-size: 32px;
         width: 353px;
-      }  
+      }
     }
 
     &.techMobile {
@@ -312,7 +269,7 @@ export const Subtitle = styled.div`
       width: 100%;
       line-height: 113%;
       letter-spacing: 1.6px;
-      p{
+      p {
         margin: 0;
         width: 280px;
       }
@@ -356,18 +313,6 @@ export const NextTech = styled.section`
 
   @media ${themes.primary.media.maxLowScreenMobile} {
     margin-top: 8.7em;
-  }
-`;
-
-export const FilmText = styled.div`
-  max-width: 42%;
-  font-size: ${themes.primary.font.size.feedbackName};
-  line-height: 160%;
-  margin-bottom: 0.5em;
-
-  @media ${themes.primary.media.maxMobile} {
-    max-width: 98.5%;
-    font-size: 1.6em;
   }
 `;
 

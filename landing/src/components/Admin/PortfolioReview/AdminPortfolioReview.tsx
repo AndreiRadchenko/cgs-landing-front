@@ -47,7 +47,7 @@ const AdminReview = ({
       <Styled.AdminPortfolioReviewHeader>
         <Styled.AdminPortfolioReviewHeaderTitle>
           <h4>{review.title}</h4>
-          <p>// {review.industry}</p>
+          <p>{`// ${review.industry}`}</p>
         </Styled.AdminPortfolioReviewHeaderTitle>
         <Styled.AdminPortfolioReviewHeaderLink>
           {review.button ? (

@@ -150,7 +150,7 @@ const TeamMembers = <T extends ITeamMembersComponent>() => {
               onClick={() => setIsOpen(!isOpen)}
               isOpen={isOpen}
             >
-              // Choose one member
+              {"// Choose one member"}
               <img width={9} height={5} src={Arrow.src} alt="Arrow" />
             </Styled.DropdownButton>
             <Styled.DropdownContent isOpen={isOpen}>

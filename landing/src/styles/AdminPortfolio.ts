@@ -9,6 +9,7 @@ export const DropdownWrapperTechnology = styled.div`
   position: relative;
   width: 275px;
 `;
+
 export const DropdownBanner = styled.div<{ isError?: boolean }>`
   display: flex;
   align-items: center;

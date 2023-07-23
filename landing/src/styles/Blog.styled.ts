@@ -53,6 +53,7 @@ export const ArticlePreview = styled(FlexRowContainer)`
     flex-direction: column-reverse;
   }
 `;
+
 export const BlogContainer = styled.article`
   font-family: ${themes.primary.font.family.openSans};
   font-weight: ${themes.primary.font.weight.normal};
@@ -151,18 +152,6 @@ export const ArrowContainer = styled.div`
   }
 `;
 
-export const Separator = styled.div`
-  width: 100%;
-  height: 1px;
-  background-color: ${themes.primary.colors.comment};
-
-  &.portfolio {
-    z-index: 5;
-    width: 100%;
-    position: absolute;
-  }
-`;
-
 export const GeneralInfo = styled.div`
   display: flex;
   justify-content: space-between;
@@ -204,6 +193,11 @@ export const Tag = styled.button<ITag>`
   span {
     cursor: pointer;
   }
+
+  &.preview {
+    font-size: ${themes.primary.font.size.articleDesktopTag};
+  }
+
   @media ${themes.primary.media.minPC} {
     height: 2.333em;
     padding: 0.5em ${themes.primary.font.size.primary};
@@ -211,12 +205,14 @@ export const Tag = styled.button<ITag>`
   }
 
   @media ${themes.primary.media.maxMobile} {
+    height: 26px;
     &.preview {
       position: absolute;
       top: 0;
       left: 0;
       border: 0;
-      font-size: 1.35em;
+      height: 26px;
+      font-size: 14px;
       margin-left: -1px;
     }
   }
@@ -242,7 +238,7 @@ export const MarginContainer = styled.div`
   margin-bottom: 44px;
 
   @media ${themes.primary.media.maxMobile} {
-    margin-bottom: 50px;
+    margin-bottom: 24px;
   }
 `;
 
@@ -310,7 +306,7 @@ export const BlogItemTitle = styled.p`
 
   font-weight: 700;
   font-size: 34px;
-  line-height: 99%;
+  line-height: 130%;
   @media ${themes.primary.media.minPCFullHD} {
     font-size: 2.3em;
   }
@@ -390,14 +386,30 @@ export const LoopContainer = styled.div`
 `;
 
 export const GrayText = styled.div`
-  color: ${themes.primary.colors.authorGrey};
+  color: #8F8E93;
   font-size: ${themes.primary.font.size.articleViews};
   &.big {
     font-size: 1.34em;
   }
 
+  @media ${themes.primary.media.minPCFullHD} {
+    font-size: 0.887em;
+  }
+
+  @media (min-width: 2400px) {
+    font-size: 1.1em;
+  }
+
+  @media ${themes.primary.media.onlyTabletLandScape} {
+    font-size: 1.05em;
+  }
+
   @media ${themes.primary.media.maxMobile} {
-    font-size: 0.875rem;
+    font-size: 12px;
+
+    &.big {
+      font-size: 14px;
+    }
   }
 `;
 
@@ -463,11 +475,11 @@ export const DataContainer = styled.div`
 export const ArticleTimerContainer = styled.div`
   display: flex;
   align-items: center;
-  column-gap: 5px;
-  margin-left: 70px;
+  column-gap: 8px;
 
   @media ${themes.primary.media.maxMobile} {
-    margin-left: 0;
+    column-gap: 8px;
+    min-width: 70px;
   }
 `;
 
@@ -487,7 +499,11 @@ export const WatchContainer = styled.div`
 export const ArticleWatchContainer = styled.div`
   display: flex;
   align-items: center;
-  column-gap: 5px;
+  column-gap: 8px;
+
+  @media ${themes.primary.media.maxMobile} {
+    column-gap: 8px;
+  }
 `;
 
 export const WatchCount = styled(GrayText)`
@@ -503,6 +519,18 @@ export const WatchCount = styled(GrayText)`
 
 export const WatchCountArticle = styled(GrayText)`
   font-size: ${themes.primary.font.size.articleViews};
+
+  @media ${themes.primary.media.minPCFullHD} {
+    font-size: 0.887em;
+  }
+
+  @media (min-width: 2400px) {
+    font-size: 1.1em;
+  }
+
+  @media ${themes.primary.media.onlyTabletLandScape} {
+    font-size: 1.05em;
+  }
 
   @media ${themes.primary.media.maxMobile} {
     font-size: 0.875rem;
@@ -566,26 +594,10 @@ export const RightLine = styled.img`
   bottom: -60px;
 
   @media ${themes.primary.media.maxMobile} {
-    transform-origin: 100% 50%;
-    transform: scale(0.65);
-    bottom: -144px;
+    width: 430px;
+    height: 930px;
+    bottom: -40px;
   }
-`;
-
-export const LoaderContainer = styled.div`
-  width: 100%;
-  height: 100vh;
-  position: sticky;
-  top: 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  z-index: 10;
-  background: linear-gradient(
-    180deg,
-    rgba(241, 239, 237, 0.8) 100%,
-    rgba(241, 239, 237, 0) 114.26%
-  );
 `;
 
 export const PodcastContainer = styled.section`
@@ -594,6 +606,7 @@ export const PodcastContainer = styled.section`
   display: flex;
   align-items: center;
   justify-content: center;
+  background-color: #f1efed;
   column-gap: 50px;
   border-block: 1px solid ${themes.primary.colors.comment};
 
@@ -986,27 +999,6 @@ export const MainContainer = styled.div`
   }
 `;
 
-export const MainBlogItemContainer = styled.div`
-  display: flex;
-  flex-direction: column;
-  padding: 31px 33px 32px 51px;
-  width: 67vw;
-  @media ${themes.primary.media.maxTabletLandScape} {
-    padding: 21px 23px 22px 41px;
-  }
-  @media ${themes.primary.media.maxTabletPortrait} {
-    padding: 15px 18px 17px 31px;
-  }
-  @media ${themes.primary.media.minPC} {
-    padding: 41px 43px 42px 71px;
-  }
-  @media ${themes.primary.media.maxMobile} {
-    position: relative;
-    padding: 50px 0.75rem 25px;
-    width: 100%;
-  }
-`;
-
 export const MainBlogItemImage = styled.img`
   max-width: 55vw;
   width: 100%;
@@ -1019,7 +1011,7 @@ export const MainBlogItemImage = styled.img`
 
 export const MainBlogItemTag = styled(Tag)`
   margin-top: 25px;
-  font-size: ${themes.primary.font.size.primary};
+  font-size: ${themes.primary.font.size.articleDesktopTag};
   padding: 0.5em 1em;
 
   @media ${themes.primary.media.maxMobile} {
@@ -1028,7 +1020,7 @@ export const MainBlogItemTag = styled(Tag)`
     position: absolute;
     top: -30px;
     left: -12px;
-    font-size: 0.875rem;
+    font-size: 14px;
     padding: 0.166em 0.835em;
     line-height: 160%;
     z-index: 100;
@@ -1061,10 +1053,6 @@ export const MainBlogItemDescription = styled(BlogItemDescription)`
 export const SmallArticleItemTitle = styled(BlogItemTitle)`
   font-size: ${themes.primary.font.size.menuElement};
   margin-top: 6.8px;
-
-  & a {
-    line-height: 27.3px;
-  }
 
   &:hover {
     color: ${themes.primary.colors.darkBlue};
@@ -1135,30 +1123,6 @@ export const SmallArticleContainer = styled.div`
   }
   @media ${themes.primary.media.minPC} {
     padding: 40px 60px 40px 40px;
-  }
-`;
-
-export const Arrow = styled.img``;
-
-export const SliderDot = styled.div`
-  height: 0.905em;
-  width: 0.83em;
-  border: 1px solid ${themes.primary.colors.primary};
-  &.current {
-    background-color: ${themes.primary.colors.primary};
-  }
-  @media ${themes.primary.media.maxTabletPortrait} {
-    height: 8.5px;
-    width: 8px;
-  }
-`;
-
-export const SliderDotsContainer = styled(FlexRowContainer)`
-  column-gap: 0.83em;
-  margin-top: 20px;
-
-  @media ${themes.primary.media.maxMobile} {
-    display: none;
   }
 `;
 

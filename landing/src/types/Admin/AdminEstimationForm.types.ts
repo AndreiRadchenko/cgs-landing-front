@@ -1,5 +1,3 @@
-import { Plugin } from "suneditor/src/plugins/Plugin";
-
 export interface IEstimationFormPage {
   _id: string;
   pageNumber: string;

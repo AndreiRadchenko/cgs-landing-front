@@ -61,6 +61,7 @@ export const Text = styled.p`
     margin-bottom: 28px;
   }
 `;
+
 export const Image = styled.img`
   position: absolute;
   right: 0;

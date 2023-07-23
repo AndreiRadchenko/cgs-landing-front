@@ -36,6 +36,7 @@ import { queryKeys } from "../../consts/queryKeys";
 
 import ButtonArrow from "../../utils/ButtonArrow";
 import { openInNewTab } from "../../utils/OpenInNewTab";
+import { SplitBrackets } from "../../utils/splitBrackets";
 
 import { useWindowDimension } from "../../hooks/useWindowDimension";
 import CalendlyInfoModal from "../../components/Calendly/CalendlyInfoModal";
@@ -276,7 +277,7 @@ const PortfolioProjectPage = () => {
                 // {project?.industry}
               </Styled.InfoContainerIndustry>
               <Styled.InfoContainerText>
-                {project?.text}
+                <SplitBrackets text={project?.text} />
               </Styled.InfoContainerText>
               <Styled.InfoWrapperTimeTeam>
                 <Styled.InfoContainerTimeTeam>

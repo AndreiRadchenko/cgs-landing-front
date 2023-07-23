@@ -1,4 +1,4 @@
-import React, { FC, RefObject, useEffect, useRef, useState } from "react";
+import React, { FC, useEffect, useRef, useState } from "react";
 import { Field, useFormik } from "formik";
 import * as Styled from "./Form.styled";
 import FormField from "./FormField2/index";
@@ -42,7 +42,7 @@ const Form: FC<FormProps> = ({ positions, data }) => {
     disabled: true,
     triedSubmit: false,
   });
-  const [cvText, setCvText] = useState(CV.place);
+  const [, setCvText] = useState(CV.place);
   const ref = useRef<HTMLInputElement>(null);
 
   const fieldContent = { name, contact };

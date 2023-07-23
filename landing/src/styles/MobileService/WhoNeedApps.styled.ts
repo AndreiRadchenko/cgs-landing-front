@@ -137,27 +137,6 @@ export const SubText = styled.div`
   }
 `;
 
-export const WhoNeedAppsWrapper = styled.div`
-  width: 37%;
-
-  & p {
-    margin-bottom: 0;
-  }
-  @media ${themes.primary.media.minPC} {
-    width: 40%;
-  }
-
-  @media (max-width: 1340px) {
-    width: 43%;
-  }
-  @media ${themes.primary.media.maxTabletLandScape} {
-    width: 100%;
-  }
-
-  @media ${themes.primary.media.maxMobile} {
-    margin-bottom: 2.1em;
-  }
-`;
 export const ImageWrapper = styled.div`
   position: relative;
   height: 689px;
@@ -186,6 +165,7 @@ export const ImageWrapper = styled.div`
     }
   }
 `;
+
 export const Image = styled.img`
   position: absolute;
   width: 855px;

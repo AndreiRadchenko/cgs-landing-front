@@ -27,7 +27,6 @@ const PublishedArticles: FC<IArticles> = ({
   isNewArticle,
   article,
   data,
-  views,
   sitemap,
   scrollRef,
 }) => {
@@ -41,11 +40,6 @@ const PublishedArticles: FC<IArticles> = ({
         queryClient.invalidateQueries([queryKeys.getBlogArticles]);
       },
     }
-  );
-
-  const { mutateAsync: deleteView } = useMutation(
-    [queryKeys.deleteArticle],
-    (id: string) => adminBlogService.deleteViewsById(id)
   );
 
   const { mutateAsync: updateArticle } = useMutation(
@@ -84,15 +78,7 @@ const PublishedArticles: FC<IArticles> = ({
   );
 
   const deleteArticle = async (i: number) => {
-    if (views && data) {
-      const viewToDelete = views.filter(
-        (view) => view.articleUrl === data[i].url
-      );
-      if (viewToDelete && Array.isArray(viewToDelete)) {
-        viewToDelete.map(
-          async (view) => view._id && (await deleteView(view._id))
-        );
-      }
+    if (data) {
       if (data[i].url !== "" && sitemap) {
         const updatedSitemap = sitemap;
         const index = updatedSitemap?.includedPages.indexOf(

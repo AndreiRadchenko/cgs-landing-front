@@ -12,6 +12,7 @@ import BtnPolyline from "./svg/BtnPolyline";
 
 import { openInNewTab } from "../../utils/OpenInNewTab";
 import { useWindowDimension } from "../../hooks/useWindowDimension";
+import { useMediaQuery } from "@mui/material";
 
 const PortfolioProjectComponent = ({
   project,
@@ -21,6 +22,9 @@ const PortfolioProjectComponent = ({
   loadedImagesCounter?: () => void;
 }) => {
   const { width } = useWindowDimension();
+  const is768px = useMediaQuery("(max-width:768px)");
+
+  const splited = is768px ? project.text?.split("^") : project.text?.split("|");
 
   const [isLoaded, setIsLoaded] = useState(false);
 
@@ -323,7 +327,7 @@ const PortfolioProjectComponent = ({
           }
         >
           <Styled.ProjectsContainerInfoText>
-            <p>{project.text}</p>
+            <p>{splited?.map((el) => el !== "" && el.replace(/[\^|]/g, ""))}</p>
           </Styled.ProjectsContainerInfoText>
           <Styled.ProjectsContainerInfoBtn
             onClick={() => navigateToProjectPage(project.title, project._id)}

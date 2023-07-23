@@ -1,15 +1,6 @@
 import styled from "styled-components";
 import themes from "../../utils/themes";
 
-export const LocalLayout = styled.div`
-  @media ${themes.primary.media.minPCFullHD} {
-    font-size: 1.2em;
-  }
-  @media (min-width: 2200px) {
-    font-size: 1.4rem;
-  }
-`;
-
 export const Subtitle = styled.h2`
   margin: 0;
   line-height: 140%;

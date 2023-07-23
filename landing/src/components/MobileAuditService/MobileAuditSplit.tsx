@@ -16,7 +16,8 @@ export const MobileAuditSplitBrackets = ({
 
   const splited = is768px ? text?.split("^") : text?.split("|");
 
-  const onMouseEnterDesktop = (event: any) => is768px ? undefined : onMouseEnter?.(text as string, event);
+  const onMouseEnterDesktop = (event: any) =>
+    is768px ? undefined : onMouseEnter?.(text as string, event);
   const onMouseOutDesktop = is768px ? undefined : onMouseOut;
 
   return (

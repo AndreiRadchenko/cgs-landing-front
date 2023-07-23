@@ -7,7 +7,6 @@ import { MobileInfiniteText } from "../MobileInfiniteText/MobileInfiniteText";
 import disk from "../../../public/MobileAuditService/disk.svg";
 import window from "../../../public/MobileAuditService/window.svg";
 import tree from "../../../public/MobileAuditService/tree.svg";
-import { handleRandomOffset } from "../../utils/getRandomAnimationOffset";
 import { SplitBrackets } from "../../utils/splitBrackets";
 
 const WhatAppBlock = () => {

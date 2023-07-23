@@ -8,6 +8,7 @@ export const Title = styled.h1`
   color: ${themes.primary.colors.blogDarkText};
   margin: 0;
   width: 90%;
+  line-height: 130%;
   @media ${themes.primary.media.minPCFullHD} {
     font-size: ${themes.primary.font.size.bigTitle};
   }
@@ -146,9 +147,25 @@ export const BannerWrapper = styled.div`
   column-gap: 20px;
   max-width: 965px;
   margin-top: 6px;
+
+  @media ${themes.primary.media.minPC} {
+    column-gap: 40px;
+  }
+
+
   @media ${themes.primary.media.minPCFullHD} {
     max-width: 70.416em;
+    column-gap: 20px;
   }
+
+  @media (min-width: 2400px) {
+    column-gap: 40px;
+  }
+
+  @media (max-width: 1199px) {
+    column-gap: 40px;
+  }
+
   @media ${themes.primary.media.maxTabletPortrait} {
     flex-direction: column;
     align-items: center;

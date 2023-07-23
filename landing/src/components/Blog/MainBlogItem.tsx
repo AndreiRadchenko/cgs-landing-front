@@ -8,7 +8,6 @@ import { IMainBlogItem } from "../../types/Blog.types";
 
 const MainBlogItem = ({
   article,
-  views,
   filters,
   setIsMainSliderImageLoaded,
 }: IMainBlogItem) => {
@@ -65,7 +64,7 @@ const MainBlogItem = ({
             <Styled.MainBlogAuthor>{`By ${article.author.name} / ${article.author.specialization}`}</Styled.MainBlogAuthor>
             <Styled.WatchContainer>
               <Styled.BlogItemWatchIcon src={Watch.src} alt="views icon" />
-              <Styled.WatchCount>{views || 0}</Styled.WatchCount>
+              <Styled.WatchCount>{article.views || 0}</Styled.WatchCount>
             </Styled.WatchContainer>
           </Styled.BlogItemRowContainer>
           <Styled.WatchContainer className="timer">

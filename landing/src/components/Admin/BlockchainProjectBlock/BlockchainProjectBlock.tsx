@@ -47,7 +47,7 @@ const BlockchainProjectBlock = () => {
             console.log("submit");
           }}
         />
-        {values.LogosBlock.images?.map((i, ind) => (
+        {values.LogosBlock.images?.map((i) => (
           // eslint-disable-next-line @typescript-eslint/no-empty-function
           <LogoElement image={i} key={Math.random()} deleteLogo={() => {}} />
         ))}
@@ -62,7 +62,7 @@ const BlockchainProjectBlock = () => {
             console.log("submit");
           }}
         />
-        {values.LogosBlock.images?.map((i, ind) => (
+        {values.LogosBlock.images?.map((i) => (
           // eslint-disable-next-line @typescript-eslint/no-empty-function
           <LogoElement image={i} key={Math.random()} deleteLogo={() => {}} />
         ))}

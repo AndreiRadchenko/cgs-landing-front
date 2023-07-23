@@ -1,7 +1,5 @@
-import React, { FC, useEffect, useRef, useState } from "react";
-import {
-  Navigationwrapper,
-} from "../../styles/HomePage/Feedback.styled";
+import React, { FC, useRef } from "react";
+import { Navigationwrapper } from "../../styles/HomePage/Feedback.styled";
 import FeedbackCard from "../FeedbackCard/FeedbackCard";
 import SwiperCore, { Autoplay, Navigation } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -30,17 +28,19 @@ const CarouselFeedback: FC = () => {
   if (data?.feedBacks) {
     feedbacks = data.feedBacks;
     const duplicatedSlides = [...feedbacks];
-    renderSliderSlides = duplicatedSlides.concat(feedbacks).map(({ name, text, link, companyName, stars }, idx) => (
-      <SwiperSlide key={idx}>
-        <FeedbackCard
-          name={name}
-          description={text}
-          company={companyName}
-          link={link}
-          rates={stars}
-        />
-      </SwiperSlide>
-    ));
+    renderSliderSlides = duplicatedSlides
+      .concat(feedbacks)
+      .map(({ name, text, link, companyName, stars }, idx) => (
+        <SwiperSlide key={idx}>
+          <FeedbackCard
+            name={name}
+            description={text}
+            company={companyName}
+            link={link}
+            rates={stars}
+          />
+        </SwiperSlide>
+      ));
   }
 
   return (

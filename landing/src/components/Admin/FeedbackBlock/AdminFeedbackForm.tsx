@@ -41,6 +41,7 @@ const AdminFeedbackForm = ({ submit, isNewFeedback }: IFeedbackFormProps) => {
   const { values, handleChange } = useFormikContext<IFeedback>();
   const starsChange = (newValue: number) => (values.stars = newValue);
   const submitForm = (e: React.SyntheticEvent) => submitFunc(e, submit);
+  // const submitText = 
 
   const renderState = {
     companyName: values.companyName,
@@ -68,7 +69,9 @@ const AdminFeedbackForm = ({ submit, isNewFeedback }: IFeedbackFormProps) => {
             />
           </Styled.AdminStarsFlex>
         </Styled.AdminStarsGrid>
-        <div>
+        <div 
+          style={{display: "flex", flexDirection: "column"}}
+        >
           {render(renderState, handleChange)}
 
           <BlackButton
@@ -78,7 +81,18 @@ const AdminFeedbackForm = ({ submit, isNewFeedback }: IFeedbackFormProps) => {
             padding={"1.11em 3em"}
             style={{ margin: "2em 0" }}
           >
-            {isNewFeedback ? "Add Review" : "Save changes"}
+            {isNewFeedback ? "Add Review" : "Save Review"}
+            <ArrowContainer>
+              <ButtonArrow />
+            </ArrowContainer>
+          </BlackButton>
+          <BlackButton
+            type="submit"
+            onClick={submit}
+            size={"1.5em"}
+            padding={"1.11em 3em"}
+          >
+            Save changes
             <ArrowContainer>
               <ButtonArrow />
             </ArrowContainer>
