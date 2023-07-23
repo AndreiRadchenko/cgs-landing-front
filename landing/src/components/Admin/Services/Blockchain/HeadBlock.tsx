@@ -35,6 +35,7 @@ const HeadBlock = () => {
           uploadFunction={(image: IImage) => uploadMainImage(image)}
           style={{ maxWidth: "364px", maxHeight: "364px" }}
           deleteFlag={true}
+          unchangeable
         />
       </AdminHalfGrid>
       <BlackButton

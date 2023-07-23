@@ -65,6 +65,7 @@ const TeamProvides = () => {
             photo={values.whatAppInclude.image}
             uploadFunction={uploadFunc}
             deleteFunction={deleteFunc}
+            unchangeable
           />
         </Styled.ProjectInfo>
       </Styled.AdminMobileAuditWhatAppWrapper>

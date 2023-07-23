@@ -21,6 +21,7 @@ export interface IPhotoBlock extends IPropsWithImage {
   className?: string;
   style?: CSSProperties;
   imageStyle?: CSSProperties;
+  unchangeable?: boolean;
 }
 
 export interface InputPropsInterface {
