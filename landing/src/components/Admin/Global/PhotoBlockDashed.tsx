@@ -1,10 +1,13 @@
 import React from "react";
-import useUploadModal from "../../../hooks/useUploadModal";
-import * as Styled from "../../../styles/AdminPage";
-import { IPhotoBlock } from "../../../types/Admin/Admin.types";
+
 import AdminUploadModal from "../UploadModal";
 import AdminEmptyImage from "./AdminEmptyImage";
 import AdminImage from "./AdminImage";
+import PhotoBlockStub from "./PhotoBlockStub";
+
+import useUploadModal from "../../../hooks/useUploadModal";
+import * as Styled from "../../../styles/AdminPage";
+import { IPhotoBlock } from "../../../types/Admin/Admin.types";
 
 const PhotoBlockDashed = ({
   photo,
@@ -15,11 +18,14 @@ const PhotoBlockDashed = ({
   className,
   imageStyle,
   style,
+  unchangeable,
 }: IPhotoBlock) => {
   const { modal, toggleModal } = useUploadModal();
   const deleteFunc = () => deleteFunction!();
 
-  return photo !== null && photo !== undefined ? (
+  return unchangeable ? (
+    <PhotoBlockStub />
+  ) : photo !== null && photo !== undefined ? (
     <Styled.AdminPhotoBlock className={className} style={style}>
       {modal ? (
         <AdminUploadModal func={uploadFunction} back={toggleModal} />

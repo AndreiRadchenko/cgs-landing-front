@@ -40,6 +40,7 @@ const BringYourAppBlock = () => {
             uploadFunction={uploadFunc}
             deleteFunction={deleteFunc}
             deleteFlag={true}
+            unchangeable
           />
         </AdminWebAuditPhotoWrapper>
         <AdminWebAuditInputsWrapper>

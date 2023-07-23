@@ -36,6 +36,7 @@ const HeaderBlock = () => {
               deleteFlag={true}
               uploadFunction={uploadFunc}
               deleteFunction={deleteFunc}
+              unchangeable
             />
           </Styled.AdminHeaderPhotoWrapper>
           <Styled.MobileAuditHeaderInputsWrapper>
