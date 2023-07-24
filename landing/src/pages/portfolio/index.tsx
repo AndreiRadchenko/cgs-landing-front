@@ -18,6 +18,9 @@ import ScrambleText from "../../components/HomePage/ScrambleText";
 import { Pagination } from "../../components/Portfolio/Pagination";
 import { useWindowDimension } from "../../hooks/useWindowDimension";
 import Dropdown from "../../utils/Select/Dropdown";
+import { calendlyPopupInfoHandler } from "../../utils/calendlyPopupInfoHandler";
+import { highestPagePointDisplayer } from "../../utils/highestPagePointDisplayer";
+import CalendlyInfoModal from "../../components/Calendly/CalendlyInfoModal";
 
 import {
   IPortfolioResponse,
@@ -30,8 +33,6 @@ import * as Styles from "../../styles/Portfolio.styled";
 import * as CSS from "../../styles/Portfolio/title.styled";
 import { DropdownContainer } from "../../styles/HomePage/General.styled";
 import longArrow from "../../../public/HomePageDecoration/longArrow.svg";
-import CalendlyInfoModal from "../../components/Calendly/CalendlyInfoModal";
-import { calendlyPopupInfoHandler } from "../../utils/calendlyPopupInfoHandler";
 
 const PortfolioPage: NextPage = () => {
   const { width } = useWindowDimension();
@@ -323,17 +324,7 @@ const PortfolioPage: NextPage = () => {
     }
   }, [selectedIndustries]);
 
-  useEffect(() => {
-    const handleRouteChange = () => {
-      window.scroll(0, 0);
-    };
-
-    router.events.on("routeChangeComplete", handleRouteChange);
-
-    return () => {
-      router.events.off("routeChangeComplete", handleRouteChange);
-    };
-  }, []);
+  highestPagePointDisplayer();
 
   calendlyPopupInfoHandler(() => setIsCalendlySuccessfull(true));
 
