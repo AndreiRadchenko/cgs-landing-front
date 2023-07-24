@@ -18,6 +18,7 @@ import MainBlogItem from "../../components/Blog/MainBlogItem";
 import SmallArticleItem from "../../components/Blog/SmallArticleItem";
 import { BlogSwiper } from "../../components/Blog/BlogSlider/BlogSlider";
 import { Loader, LoaderStub } from "../../components/Loader";
+import { highestPagePointDisplayer } from "../../utils/highestPagePointDisplayer";
 
 import {
   IArticlesDataResponse,
@@ -108,17 +109,7 @@ const BlogPage = () => {
     setLoadedImagesCount(0);
   };
 
-  useEffect(() => {
-    const handleRouteChange = () => {
-      window.scroll(0, 0);
-    };
-
-    router.events.on("routeChangeComplete", handleRouteChange);
-
-    return () => {
-      router.events.off("routeChangeComplete", handleRouteChange);
-    };
-  }, []);
+  highestPagePointDisplayer();
 
   useEffect(() => {
     scrollFunc();
