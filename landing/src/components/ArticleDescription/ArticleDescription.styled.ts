@@ -140,7 +140,7 @@ export const Description = styled.p`
   h5,
   h6 {
     line-height: 150%;
-    margin-block: 100px 32px;
+    margin-block: 70px 24px;
     font-size: 2.5rem;
 
     & span {
@@ -148,15 +148,6 @@ export const Description = styled.p`
       font-weight: ${themes.primary.font.weight.heavy};
       font-size: 2.1875rem;
     }
-  }
-
-  & > h2:first-child,
-  & > h2:nth-child(2),
-  h3:first-child,
-  h4:first-child,
-  h5:first-child,
-  h6:first-child {
-    margin-top: 83px;
   }
 
   & .__se__float-left {
@@ -184,8 +175,29 @@ export const Description = styled.p`
   @media ${themes.primary.media.minPCFullHD} {
     p {
       margin-top: 1.25em;
+      font-size: 1.05em;
     }
     font-size: ${themes.primary.font.size.vistaco};
+
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+      line-height: 150%;
+      margin-block: 80px 30px;
+      font-size: 3.13rem;
+
+      & span {
+        font-family: ${themes.primary.font.family.namu};
+        font-weight: ${themes.primary.font.weight.heavy};
+        font-size: 2.75rem;
+        margin-right: 20px;
+      } 
+    }
+    li {
+      font-size: 1.05em;
+    }
   }
 
   @media ${themes.primary.media.maxTabletPortrait} {

@@ -6,8 +6,12 @@ export const Wrapper = styled.section`
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-top: 65px;
+  margin-top: 94px;
   margin-bottom: 130px;
+
+  @media ${themes.primary.media.minPCFullHD} {
+    margin-top: 114px;
+  }
 
   @media ${themes.primary.media.maxMobile} {
     margin-top: 100px;
@@ -16,10 +20,15 @@ export const Wrapper = styled.section`
 `;
 
 export const Title = styled.p`
-  font-size: ${themes.primary.font.size.secondary};
+  font-size: 2.1em;
   font-weight: ${themes.primary.font.weight.bold};
   font-family: ${themes.primary.font.family.openSans};
   color: ${themes.primary.colors.blogDarkText};
+  margin: 0;
+
+  @media ${themes.primary.media.minPCFullHD} {
+    font-size: 1.67em;
+  }
 
   @media ${themes.primary.media.maxMobile} {
     margin: 0 0 30px;
@@ -48,4 +57,9 @@ export const Space = styled.div`
 
 export const TitleWrapper = styled.div`
   width: 100%;
+  margin-bottom: 56px;
+
+  @media ${themes.primary.media.minPCFullHD} {
+    margin-bottom: 70px;
+  }
 `;

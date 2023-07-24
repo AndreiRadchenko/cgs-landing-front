@@ -990,6 +990,12 @@ export const DropdownButton = styled.button<{ isHeader?: boolean }>`
   &.blog {
     font-size: 1.1667em;
 
+    @media ${themes.primary.media.minPCFullHD} {
+    font-size: 0.75em;
+    padding: 0 15px;
+    height: 2.45em;
+    }
+
     @media ${themes.primary.media.maxMobile} {
       font-size: 0.875rem;
     }
@@ -1057,11 +1063,17 @@ export const DropdownContent = styled.div`
 export const DropdownContainer = styled.div`
   display: flex;
   justify-content: right;
-  margin-bottom: 25px;
+  margin-bottom: 32px;
   align-items: flex-end;
   column-gap: 20px;
   flex-wrap: wrap;
   row-gap: 12px;
+
+  @media ${themes.primary.media.minPCFullHD} {
+    &.blog {
+      margin-bottom: 40px;
+    }
+  }
 
   @media ${themes.primary.media.maxMobile} {
     margin-bottom: 1.375rem;

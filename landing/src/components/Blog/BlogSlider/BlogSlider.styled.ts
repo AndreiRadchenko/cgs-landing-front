@@ -5,7 +5,7 @@ export const SliderWrapper = styled("div")`
   position: relative;
   overflow: hidden;
   display: flex;
-  padding: 30px 30px 30px 50px;
+  padding: 40px 32px 30px 51px;
   width: 67vw;
   height: 100%;
 

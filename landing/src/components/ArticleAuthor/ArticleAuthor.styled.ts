@@ -49,6 +49,10 @@ export const AuthorName = styled.div`
   font-size: 1.333em;
   margin-top: 6px;
 
+  @media ${themes.primary.media.minPCFullHD} {
+    font-size: 1.05em;
+  }
+
   @media ${themes.primary.media.maxMobile} {
     font-size: 0.875rem;
   }
