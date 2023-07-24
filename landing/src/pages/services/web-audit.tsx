@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { NextPage } from "next";
 import Head from "next/head";
+import * as Styled from "../../styles/WebService/Layout";
+
 import { dehydrate, QueryClient, useQuery } from "@tanstack/react-query";
 import parse from "html-react-parser";
 import { queryKeys } from "../../consts/queryKeys";
@@ -91,7 +93,9 @@ const WebAuditPage: NextPage = () => {
           <HeaderNavNew />
           <PageArticle>
             <Layout>
-              <HeadBlock />
+              <Styled.Layout>
+                <HeadBlock />
+              </Styled.Layout>
               <WhatIsAuditBlock />
               <WhichProblemBlock />
               <TypesOfAuditBlock />

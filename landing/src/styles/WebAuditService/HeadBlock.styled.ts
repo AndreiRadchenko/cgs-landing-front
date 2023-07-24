@@ -96,10 +96,10 @@ export const Description = styled.div`
 export const Image = styled.img`
   width: 61em;
   position: relative;
-  height: 47.6em;
+  height: 35.7em;
 
   @media (min-width: 1560px) {
-    height: 48.4em;
+    height: 36.5em;
   }
 
   @media (min-width: 2400px) {

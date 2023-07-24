@@ -1,18 +1,17 @@
-import React, { useRef } from "react";
-import * as Styled from "../../styles/DappAuditService/HeadBlock.styled";
+import React from "react";
 import Image from "next/image";
-import TextTypingAnimation from "../Typewrite";
-import { SplitBrackets } from "../../utils/splitBrackets";
-import GetEstimationButton from "../GetEstimationButton";
-import ButtonShareComponent from "../HomePage/ButtonShareComponent";
-import { IServiceAi } from "../../types/Admin/Response.types";
-import { queryKeys } from "../../consts/queryKeys";
 import { useQueryClient } from "@tanstack/react-query";
+
+import { HeaderTextBlockServices } from "../ServisesComponents";
+
+import * as Styled from "../../styles/DappAuditService/HeadBlock.styled";
+
+import { IServiceAi } from "../../types/Admin/Response.types";
+
+import { queryKeys } from "../../consts/queryKeys";
 
 const HeadBlockDapp = () => {
   const queryClient = useQueryClient();
-
-  const elRef = useRef<HTMLDivElement>(null);
   const data = queryClient.getQueryData<IServiceAi>([
     queryKeys.getServiceAiPage,
   ])?.headerBlock;
@@ -21,23 +20,12 @@ const HeadBlockDapp = () => {
     <Styled.Wrapper>
       <Styled.TextContent>
         {data && (
-          <Styled.Title className="dappAuditTitle">
-            <TextTypingAnimation text={data.title} />
-          </Styled.Title>
-        )}
-        <Styled.Text>
-          <SplitBrackets text={data?.text} />
-        </Styled.Text>
-        {data && (
-          <Styled.ButtonWrapper ref={elRef}>
-            <GetEstimationButton
-              buttonLink={data?.buttonLink}
-              withEstimation
-              buttonText={data.button}
-              buttonClassName="social-button services"
-            />
-            <ButtonShareComponent className="dappAuditShare" />
-          </Styled.ButtonWrapper>
+          <HeaderTextBlockServices
+            title={data.title}
+            text={data.text}
+            btnText={data.button}
+            btnLink={data.buttonLink}
+          />
         )}
       </Styled.TextContent>
       <Styled.ImageWrapper>

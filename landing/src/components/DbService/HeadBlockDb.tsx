@@ -1,23 +1,20 @@
-import React, { useRef } from "react";
-import { IServiceDb } from "../../types/Admin/Response.types";
+import React from "react";
 import { useQueryClient } from "@tanstack/react-query";
-import { queryKeys } from "../../consts/queryKeys";
-import { SplitBrackets } from "../../utils/splitBrackets";
+
+import { HeaderTextBlockServices } from "../ServisesComponents";
+
 import {
   Container,
   ContentContainer,
-  Title,
-  Description,
   Image,
-  ButtonWrapper,
 } from "../../styles/DbService/HeadBlock.styled";
-import TextTypingAnimation from "../Typewrite";
-import GetEstimationButton from "../GetEstimationButton";
-import ButtonShareComponent from "../HomePage/ButtonShareComponent";
+
+import { IServiceDb } from "../../types/Admin/Response.types";
+
+import { queryKeys } from "../../consts/queryKeys";
 
 const HeadBlockDb = () => {
   const queryClient = useQueryClient();
-  const elRef = useRef<HTMLDivElement>(null);
   const data = queryClient.getQueryData<IServiceDb>([
     queryKeys.getServiceDbPage,
   ])?.headerBlock;
@@ -29,20 +26,13 @@ const HeadBlockDb = () => {
   return (
     <Container>
       <ContentContainer>
-        <Title>{data && <TextTypingAnimation text={title} />}</Title>
-        <Description>
-          <SplitBrackets text={data?.text} />
-        </Description>
         {data && (
-          <ButtonWrapper ref={elRef}>
-            <GetEstimationButton
-              buttonLink={data?.buttonLink}
-              withEstimation
-              buttonText={data.button}
-              buttonClassName="social-button"
-            />
-            <ButtonShareComponent />
-          </ButtonWrapper>
+          <HeaderTextBlockServices
+            title={title}
+            text={data.text}
+            btnText={data.button}
+            btnLink={data.buttonLink}
+          />
         )}
       </ContentContainer>
       <Image src={data?.image.url} alt="hero image" />

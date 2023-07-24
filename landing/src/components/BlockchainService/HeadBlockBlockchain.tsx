@@ -1,19 +1,19 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useQueryClient } from "@tanstack/react-query";
-import { queryKeys } from "../../consts/queryKeys";
-import { IBlockchainService } from "../../types/Admin/Response.types";
+
+import { HeaderTextBlockServices } from "../ServisesComponents";
+
 import * as Styled from "../../styles/BlockchainService/HeadBlock.styled";
-import TextTypingAnimation from "../Typewrite";
-import GetEstimationButton from "../GetEstimationButton";
-import ButtonShareComponent from "../HomePage/ButtonShareComponent";
+
+import { queryKeys } from "../../consts/queryKeys";
+import { cryptoTVImages } from "../../consts/cryptoTV";
+
+import { IBlockchainService } from "../../types/Admin/Response.types";
 
 import TV from "../../../public/BlockchainServicePage/HeadImage/TV.svg";
-import { cryptoTVImages } from "../../consts/cryptoTV";
-import { SplitBrackets } from "../../utils/splitBrackets";
 
 const HeadBlockBlockchain = () => {
   const queryClient = useQueryClient();
-  const elRef = useRef<HTMLDivElement>(null);
   const data = queryClient.getQueryData<IBlockchainService>([
     queryKeys.getServiceBlockchainPage,
   ])?.headerBlock;
@@ -46,22 +46,13 @@ const HeadBlockBlockchain = () => {
   return (
     <Styled.Container>
       <Styled.Content>
-        <Styled.Title>
-          {data && <TextTypingAnimation text={data?.title} />}
-        </Styled.Title>
-        <Styled.Description>
-          <SplitBrackets text={data?.text} />
-        </Styled.Description>
         {data && (
-          <Styled.ButtonWrapper ref={elRef}>
-            <GetEstimationButton
-              buttonLink={data?.buttonLink}
-              withEstimation
-              buttonText={data.button}
-              buttonClassName="social-button"
-            />
-            <ButtonShareComponent />
-          </Styled.ButtonWrapper>
+          <HeaderTextBlockServices
+            title={data.title}
+            text={data.text}
+            btnText={data.button}
+            btnLink={data.buttonLink}
+          />
         )}
       </Styled.Content>
       <Styled.Image>

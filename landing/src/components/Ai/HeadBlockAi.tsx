@@ -1,41 +1,30 @@
-import { useQueryClient } from "@tanstack/react-query";
-import React, { useRef } from "react";
-import * as Styled from "../../styles/AiService/HeadBlock.styled";
-import { queryKeys } from "../../consts/queryKeys";
-import { IServiceDappAudit } from "../../types/Admin/Response.types";
+import React from "react";
 import Image from "next/image";
-import TextTypingAnimation from "../Typewrite";
-import { SplitBrackets } from "../../utils/splitBrackets";
-import GetEstimationButton from "../GetEstimationButton";
-import ButtonShareComponent from "../HomePage/ButtonShareComponent";
+import { useQueryClient } from "@tanstack/react-query";
+
+import { HeaderTextBlockServices } from "../ServisesComponents";
+
+import * as Styled from "../../styles/AiService/HeadBlock.styled";
+
+import { queryKeys } from "../../consts/queryKeys";
+
+import { IServiceDappAudit } from "../../types/Admin/Response.types";
 
 const HeadBlockAi = () => {
   const queryClient = useQueryClient();
-  const elRef = useRef<HTMLDivElement>(null);
   const data = queryClient.getQueryData<IServiceDappAudit>([
     queryKeys.getServiceDappAuditPage,
   ])?.headerBlock;
 
   return (
     <Styled.Wrapper>
-      <Styled.TextContent>
-        <Styled.Title>
-          {data && <TextTypingAnimation text={data?.title} />}
-        </Styled.Title>
-        <Styled.Text>
-          <SplitBrackets text={data?.text} />
-        </Styled.Text>
-      </Styled.TextContent>
       {data && (
-        <Styled.ButtonWrapper ref={elRef}>
-          <GetEstimationButton
-            buttonLink={data?.buttonLink}
-            withEstimation
-            buttonText={data.button}
-            buttonClassName="social-button"
-          />
-          <ButtonShareComponent className="aiService" />
-        </Styled.ButtonWrapper>
+        <HeaderTextBlockServices
+          title={data.title}
+          text={data.text}
+          btnText={data.button}
+          btnLink={data.buttonLink}
+        />
       )}
       {data && (
         <Styled.ImageWrapper>

@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { NextPage } from "next";
+import * as Styled from "../../styles/WebService/Layout";
 import parse from "html-react-parser";
 import {
   dehydrate,
@@ -97,7 +98,9 @@ const MobileAppDevelopment: NextPage = () => {
           <HeaderNavNew />
           <>
             <Layout>
-              <HeadBlock />
+              <Styled.Layout>
+                <HeadBlock />
+              </Styled.Layout>
               {dataPerks && (
                 <PerksOfCoopComponent className="mobileDev" data={dataPerks} />
               )}

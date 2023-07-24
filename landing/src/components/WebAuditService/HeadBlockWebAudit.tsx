@@ -7,6 +7,7 @@ import TextTypingAnimation from "../Typewrite";
 import { SplitBrackets } from "../../utils/splitBrackets";
 import GetEstimationButton from "../GetEstimationButton";
 import ButtonShareComponent from "../HomePage/ButtonShareComponent";
+import { HeaderTextBlockServices } from "../ServisesComponents";
 
 const HeadBlockWebAudit = () => {
   const queryClient = useQueryClient();
@@ -19,22 +20,13 @@ const HeadBlockWebAudit = () => {
     <Styled.Wrapper>
       <Styled.ContentContainer>
         <Styled.TextContainer>
-          <Styled.Title>
-            {data && <TextTypingAnimation text={data?.title} />}
-          </Styled.Title>
-          <Styled.Description>
-            <SplitBrackets text={data?.text} />
-          </Styled.Description>
           {data && (
-            <Styled.ButtonWrapper ref={elRef}>
-              <GetEstimationButton
-                buttonLink={data?.buttonLink}
-                withEstimation
-                buttonText={data.button}
-                buttonClassName="social-button services"
-              />
-              <ButtonShareComponent className="webAudit" />
-            </Styled.ButtonWrapper>
+            <HeaderTextBlockServices
+              title={data.title}
+              text={data.text}
+              btnText={data.button}
+              btnLink={data.buttonLink}
+            />
           )}
         </Styled.TextContainer>
         {data?.image && (

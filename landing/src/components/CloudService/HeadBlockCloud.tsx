@@ -1,18 +1,16 @@
-import React, { useRef } from "react";
+import React from "react";
 import { useQueryClient } from "@tanstack/react-query";
 
-import { SplitBrackets } from "../../utils/splitBrackets";
-import TextTypingAnimation from "../Typewrite";
-import GetEstimationButton from "../GetEstimationButton";
-import ButtonShareComponent from "../HomePage/ButtonShareComponent";
+import { HeaderTextBlockServices } from "../ServisesComponents";
+
+import * as Styled from "../../styles/CloudService/HeaderBlock.styled";
 
 import { ICloudService } from "../../types/Admin/Response.types";
+
 import { queryKeys } from "../../consts/queryKeys";
-import * as Styled from "../../styles/CloudService/HeaderBlock.styled";
 
 const HeadBlockCloud = () => {
   const queryClient = useQueryClient();
-  const elRef = useRef<HTMLDivElement>(null);
   const data = queryClient.getQueryData<ICloudService>([
     queryKeys.getServiceCloudPage,
   ])?.headerBlock;
@@ -20,22 +18,13 @@ const HeadBlockCloud = () => {
   return (
     <Styled.Container>
       <Styled.ContentWrapper>
-        <Styled.Title>
-          {data && <TextTypingAnimation text={data?.title} />}
-        </Styled.Title>
-        <Styled.Description>
-          <SplitBrackets text={data?.text} />
-        </Styled.Description>
         {data && (
-          <Styled.ButtonWrapper ref={elRef}>
-            <GetEstimationButton
-              buttonLink={data?.buttonLink}
-              withEstimation
-              buttonText={data.button}
-              buttonClassName="social-button"
-            />
-            <ButtonShareComponent />
-          </Styled.ButtonWrapper>
+          <HeaderTextBlockServices
+            title={data.title}
+            text={data.text}
+            btnText={data.button}
+            btnLink={data.buttonLink}
+          />
         )}
       </Styled.ContentWrapper>
       <Styled.Image src={data?.image.url} />

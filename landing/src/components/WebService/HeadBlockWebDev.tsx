@@ -1,24 +1,21 @@
-﻿import React, { useRef } from "react";
-import { IServiceWeb } from "../../types/Admin/Response.types";
+﻿import React from "react";
+import Image from "next/image";
 import { useQueryClient } from "@tanstack/react-query";
-import { queryKeys } from "../../consts/queryKeys";
-import { SplitBrackets } from "../../utils/splitBrackets";
+
+import { HeaderTextBlockServices } from "../ServisesComponents";
+
 import {
   Container,
   ContentContainer,
-  Title,
-  Description,
-  ButtonWrapper,
   ImageWrapper,
 } from "../../styles/WebService/HeadBlock.styled";
-import TextTypingAnimation from "../Typewrite";
-import GetEstimationButton from "../GetEstimationButton";
-import ButtonShareComponent from "../HomePage/ButtonShareComponent";
-import Image from "next/image";
+
+import { IServiceWeb } from "../../types/Admin/Response.types";
+
+import { queryKeys } from "../../consts/queryKeys";
 
 const HeadBlockWebDev = () => {
   const queryClient = useQueryClient();
-  const elRef = useRef<HTMLDivElement>(null);
   const data = queryClient.getQueryData<IServiceWeb>([
     queryKeys.getServiceWebPage,
   ])?.headerBlock;
@@ -26,20 +23,13 @@ const HeadBlockWebDev = () => {
   return (
     <Container>
       <ContentContainer>
-        <Title>{data && <TextTypingAnimation text={data?.title} />}</Title>
-        <Description>
-          <SplitBrackets text={data?.text} />
-        </Description>
         {data && (
-          <ButtonWrapper ref={elRef}>
-            <GetEstimationButton
-              buttonLink={data?.buttonLink}
-              withEstimation
-              buttonText={data.button}
-              buttonClassName="social-button"
-            />
-            <ButtonShareComponent />
-          </ButtonWrapper>
+          <HeaderTextBlockServices
+            title={data?.title}
+            text={data?.text}
+            btnText={data.button}
+            btnLink={data?.buttonLink}
+          />
         )}
       </ContentContainer>
       <ImageWrapper>
