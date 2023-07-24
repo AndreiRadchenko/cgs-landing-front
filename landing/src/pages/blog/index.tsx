@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useMemo, useState } from "react";
 import { useRouter } from "next/router";
 import Head from "next/head";
 import parse from "html-react-parser";
@@ -141,6 +141,26 @@ const BlogPage = () => {
     if (window.innerWidth < 769) window.scroll(0, 0);
   }, [isMainSliderImageLoaded]);
 
+  const filteredSwiperData = useMemo(() => {
+    if (!articles || !articles.reviews) return [];
+    
+    const filteredArticles = articles.reviews.filter(
+      (article) =>
+        !article.scheduleArticle || new Date() >= new Date(article.scheduleArticle)
+    );
+    
+    return filteredArticles.slice(0, 3);
+  }, [articles]);
+
+const filteredReversedData = useMemo(() => {
+  if (!reversedArticles) return [];
+  return reversedArticles.filter(
+    (article) =>
+      !article.scheduleArticle || new Date() >= new Date(article.scheduleArticle)
+  );
+}, [reversedArticles]);
+
+
   return (
     <Loader active={!isMainSliderImageLoaded && isFirstLoad}>
       <Head>
@@ -159,9 +179,9 @@ const BlogPage = () => {
               <Styled.RightLine src={rightLine.src} />
               <Styled.HeaderBlock>
                 <Styled.MainContainer>
-                  {swiperData && (
+                  {filteredSwiperData && (
                     <BlogSwiper>
-                      {swiperData.reviews.map((article, idx) => (
+                      {filteredSwiperData.map((article, idx) => (
                         <SwiperSlide key={idx}>
                           <MainBlogItem
                             article={article}
@@ -176,8 +196,8 @@ const BlogPage = () => {
                   )}
                 </Styled.MainContainer>
                 <Styled.FlexColumnContainer className="header">
-                  {swiperData &&
-                    swiperData.reviews.map((article) => (
+                  {filteredSwiperData &&
+                    filteredSwiperData.map((article) => (
                       <SmallArticleItem
                         filters={filters}
                         article={article}
@@ -243,8 +263,8 @@ const BlogPage = () => {
                           <LoaderStub />
                         ) : articles.reviews.length ? (
                           <>
-                            {reversedArticles &&
-                              reversedArticles.map((article) => (
+                            {filteredReversedData &&
+                              filteredReversedData.map((article) => (
                                 <BlogItem
                                   article={article}
                                   key={article._id}
