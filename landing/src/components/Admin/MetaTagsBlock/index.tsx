@@ -33,7 +33,7 @@ interface IMetaBlockProps {
 
 const META_TITLE_MIN = 10;
 const META_TITLE_MAX = 60;
-const META_DESCRIPTION_MIN = 120;
+const META_DESCRIPTION_MIN = 20;
 const META_DESCRIPTION_MAX = 160;
 
 const MetaTagsBlock = ({
@@ -158,7 +158,7 @@ const MetaTagsBlock = ({
           <Message>
             {(descLength > META_DESCRIPTION_MAX ||
               descLength < META_DESCRIPTION_MIN) &&
-              "Description should be between 120 and 160 characters"}
+              "Description should be between 20 and 160 characters"}
           </Message>
           <Counter
             className={
