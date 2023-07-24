@@ -217,7 +217,7 @@ const BlogPage = () => {
                     ) : (
                       <Styled.AllArticlesContainer id="articles-container">
                         {articles && articles.tags && articles.tags.length && (
-                          <DropdownContainer>
+                          <DropdownContainer className="blog">
                             <>
                               {filters.length > 0 &&
                                 filters.map((filter, index) => (

@@ -84,14 +84,14 @@ const BlogItem = ({
                                 alt="timer icon"
                               />
                               <Styled.GrayText className={"big"}>
-                                <Styled.TimeText>
+                                <Styled.TimeText >
                                   {article.minutesToRead}
                                 </Styled.TimeText>
                                 min
                               </Styled.GrayText>
                             </Styled.WatchContainer>
                           </Styled.DataContainer>
-                          <Styled.Date>
+                          <Styled.Date className="blogItem">
                             {article.updatedOn === "" ? (
                               <Styled.TimeText>
                                 {parseDate(article.date)}
@@ -108,7 +108,7 @@ const BlogItem = ({
                         </Styled.StatisticWrapper>
                       </Styled.FlexColumnContainer>
                     )) || (
-                      <Styled.Date>
+                      <Styled.Date className="blogItem">
                         {article.updatedOn === "" ? (
                           <Styled.TimeText>
                             {parseDate(article.date)}
@@ -149,9 +149,7 @@ const BlogItem = ({
                 </Styled.BlogItemRowContainer>
                 <Styled.WatchContainer>
                   <Styled.TimerIcon src={Timer.src} alt="timer icon img" />
-                  <Styled.GrayText
-                    className={"big"}
-                  >{`${article.minutesToRead} min`}</Styled.GrayText>
+                  <Styled.GrayText>{`${article.minutesToRead} min`}</Styled.GrayText>
                 </Styled.WatchContainer>
               </Styled.GeneralInfo>
             </Styled.BlogItemContainer>

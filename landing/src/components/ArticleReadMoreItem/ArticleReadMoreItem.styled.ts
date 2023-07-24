@@ -43,26 +43,23 @@ export const TitleWrapper = styled.div`
   display: flex;
   align-items: center;
   @media ${themes.primary.media.minPC} {
-    height: 145px;
   }
   @media ${themes.primary.media.minPCFullHD} {
-    height: 170px;
   }
   @media ${themes.primary.media.onlyLaptop} {
-    height: 90px;
     margin-bottom: 0;
   }
   @media ${themes.primary.media.onlyTabletLandScape} {
-    height: 98px;
   }
   @media ${themes.primary.media.onlyTabletPortrait} {
-    height: 90px;
   }
 `;
 
 export const Title = styled.p`
+  margin-top: 0;
+  margin-bottom: 16px;
   & a {
-    font-size: ${themes.primary.font.size.quaternary};
+    font-size: 2.5em;
     font-weight: ${themes.primary.font.weight.extraBold};
     margin: 0;
     overflow: hidden;
@@ -79,18 +76,27 @@ export const Title = styled.p`
       color: ${themes.primary.colors.darkBlue};
     }
 
+    @media ${themes.primary.media.minPCFullHD} {
+      font-size: 1.98em;
+    }
+
     @media ${themes.primary.media.maxLaptop} {
       -webkit-line-clamp: 2;
       -webkit-box-orient: vertical;
     }
   }
+
+  @media ${themes.primary.media.minPCFullHD} {
+    margin-top: 10px;
+    margin-bottom: 20px;
+  }
 `;
 
 export const Description = styled.p`
-  font-size: ${themes.primary.font.size.oneAndHalf};
+  font-size: 1.7em;
   font-weight: ${themes.primary.font.weight.normal};
   line-height: 160%;
-  margin-bottom: 0;
+  margin: 0;
   overflow: hidden;
   width: 100%;
   height: 105px;
@@ -104,6 +110,7 @@ export const Description = styled.p`
 
   @media ${themes.primary.media.minPCFullHD} {
     height: 140px;
+    font-size: 1.31em;
   }
 
   @media ${themes.primary.media.onlyLaptop} {
@@ -122,8 +129,8 @@ export const ArticleWatchIcon = styled.img`
   height: 14px;
 
   @media ${themes.primary.media.minPCFullHD} {
-    width: 1.58em;
-    height: 1em;
+    width: 26px;
+    height: 23px;
   }
 `;
 
@@ -131,28 +138,36 @@ export const ViewsWrapper = styled.div`
   width: 58px;
   display: flex;
   align-items: center;
-  margin: 20px 0 12px 0;
+  margin: 24px 0 8px 0;
+
+  @media ${themes.primary.media.minPCFullHD} {
+    margin: 30px 0 10px 0;
+  }
 `;
 
 export const AmountViews = styled.span`
   font-size: ${themes.primary.font.size.tertiary};
   font-family: ${themes.primary.font.family.openSans};
   margin-left: 9px;
+
+  @media ${themes.primary.media.minPCFullHD} {
+    font-size: 0.9em;
+  }
 `;
 
 export const ReadMoreButton = styled.button`
-  margin-top: 30px;
+  margin-top: 32px;
   border: 2px solid ${themes.primary.colors.primary};
   outline: 0;
-  padding: 8px 15px;
+  padding: 8px 16px;
   background-color: ${themes.primary.colors.primary};
   color: ${themes.primary.colors.secondary};
   font-family: ${themes.primary.font.family.openSans};
   font-weight: ${themes.primary.font.weight.semiBold};
   letter-spacing: 0.7px;
   cursor: pointer;
-  max-width: 115px;
-  font-size: 14px;
+  max-width: 128px;
+  font-size: 1.335em;
   transition: all 0.3s;
 
   &:hover {
@@ -167,8 +182,8 @@ export const ReadMoreButton = styled.button`
   }
 
   @media ${themes.primary.media.minPCFullHD} {
-    max-width: 8.5em;
-    font-size: 1.166em;
-    padding: 0.66em 1.25em;
+    max-width: 160px;
+    font-size: 1.05em;
+    padding: 10px 20px;
   }
 `;

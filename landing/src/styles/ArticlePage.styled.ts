@@ -10,7 +10,7 @@ export const Title = styled.h1`
   width: 90%;
   line-height: 130%;
   @media ${themes.primary.media.minPCFullHD} {
-    font-size: ${themes.primary.font.size.bigTitle};
+    font-size: 3.91em;
   }
 
   @media ${themes.primary.media.maxTabletPortrait} {
@@ -115,6 +115,10 @@ export const BannerImageContainer = styled.figure`
 export const BannerImage = styled.img`
   width: 100%;
   height: auto;
+
+  @media ${themes.primary.media.onlyLaptop} {
+    width: 576px;
+  }
 `;
 
 export const TagWrapper = styled.div`
@@ -155,7 +159,7 @@ export const BannerWrapper = styled.div`
 
   @media ${themes.primary.media.minPCFullHD} {
     max-width: 70.416em;
-    column-gap: 20px;
+    column-gap: 10px;
   }
 
   @media (min-width: 2400px) {
@@ -228,7 +232,7 @@ export const HeaderBottomBg = styled.div`
 
 export const FirstHeaderBg = styled.figure`
   position: absolute;
-  top: 22%;
+  top: 11.3%;
   left: -750px;
   margin: 0;
   @media ${themes.primary.media.maxMobile} {
