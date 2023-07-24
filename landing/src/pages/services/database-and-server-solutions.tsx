@@ -20,6 +20,7 @@ import {
 } from "../../components/ServisesComponents";
 import CalendlyInfoModal from "../../components/Calendly/CalendlyInfoModal";
 import { Loader, LoaderStub } from "../../components/Loader";
+import { calendlyPopupInfoHandler } from "../../utils/calendlyPopupInfoHandler";
 
 import * as Styled from "../../styles/DbService/Layout";
 import { Layout, PageArticle } from "../../styles/Layout.styled";
@@ -58,25 +59,7 @@ const DbSolutions: NextPage = () => {
 
   const { metaTitle, metaDescription, customHead } = { ...data?.meta };
 
-  useEffect(() => {
-    const calendlyStatusFinder = (e: any) => {
-      window.dataLayer = window.dataLayer || [];
-
-      if (
-        e.data.event &&
-        e.data.event.indexOf("calendly") === 0 &&
-        e.data.event === "calendly.event_scheduled"
-      ) {
-        setIsCalendlySuccessfull(true);
-      }
-    };
-
-    window.addEventListener("message", calendlyStatusFinder);
-
-    return () => {
-      window.removeEventListener("message", calendlyStatusFinder);
-    };
-  }, []);
+  calendlyPopupInfoHandler(() => setIsCalendlySuccessfull(true));
 
   return (
     <Loader active={isLoading}>
@@ -115,7 +98,7 @@ const DbSolutions: NextPage = () => {
 
             <Layout>
               <Styled.BonusesAlign>
-              <BonusesComponent bonuses={data?.bonuses}/>
+                <BonusesComponent bonuses={data?.bonuses} />
               </Styled.BonusesAlign>
               <OtherServices otherServices={data?.otherServices} />
               <Styled.Layout>

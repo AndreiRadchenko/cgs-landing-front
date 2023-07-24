@@ -6,7 +6,7 @@ import { NextPage } from "next";
 import Head from "next/head";
 import parse from "html-react-parser";
 import HeaderNavNew from "../../components/HeaderNavNew/HeaderNavNew";
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import FooterNew from "../../components/FooterNew/FooterNew";
 import { Layout, PageArticle } from "../../styles/Layout.styled";
 import * as Styled from "../../styles/AiService/Common.styled";
@@ -17,6 +17,7 @@ import ShowCase from "../../components/ShowCase";
 import FooterBlock from "../../components/Ai/FooterBlock";
 import CalendlyInfoModal from "../../components/Calendly/CalendlyInfoModal";
 import { Loader, LoaderStub } from "../../components/Loader";
+import { calendlyPopupInfoHandler } from "../../utils/calendlyPopupInfoHandler";
 
 export async function getServerSideProps() {
   const queryClient = new QueryClient();
@@ -43,25 +44,7 @@ const DappAuditPage: NextPage = () => {
 
   const { metaTitle, metaDescription, customHead } = { ...data?.meta };
 
-  useEffect(() => {
-    const calendlyStatusFinder = (e: any) => {
-      window.dataLayer = window.dataLayer || [];
-
-      if (
-        e.data.event &&
-        e.data.event.indexOf("calendly") === 0 &&
-        e.data.event === "calendly.event_scheduled"
-      ) {
-        setIsCalendlySuccessfull(true);
-      }
-    };
-
-    window.addEventListener("message", calendlyStatusFinder);
-
-    return () => {
-      window.removeEventListener("message", calendlyStatusFinder);
-    };
-  }, []);
+  calendlyPopupInfoHandler(() => setIsCalendlySuccessfull(true));
 
   return (
     <Loader active={isLoading}>
