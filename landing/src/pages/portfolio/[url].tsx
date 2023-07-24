@@ -16,30 +16,25 @@ import SeeMoreProjects from "../../components/Portfolio/SeeMoreProjects";
 import ProjectCta from "../../components/Portfolio/ProjectCta";
 import CircleProjectPageMobile from "../../components/Portfolio/svg/CircleProjectPageMobile";
 import ProjectFeedback from "../../components/Portfolio/ProjectFeedback";
+import CalendlyInfoModal from "../../components/Calendly/CalendlyInfoModal";
+import { openInNewTab } from "../../utils/OpenInNewTab";
+import { SplitBrackets } from "../../utils/splitBrackets";
+import { useWindowDimension } from "../../hooks/useWindowDimension";
+import { calendlyPopupInfoHandler } from "../../utils/calendlyPopupInfoHandler";
 
 import { adminPortfolioService } from "../../services/adminPortfolioPage";
 import { adminGlobalService } from "../../services/adminHomePage";
-
 import { PortfolioContainer } from "../../styles/Portfolio.styled";
-
 import * as Styled from "../../styles/PortfolioPage.styled";
 import * as Styles from "../../styles/Portfolio.styled";
-
+import ButtonArrow from "../../utils/ButtonArrow";
 import {
   IPortfolioProjectResponse,
   IPortfolioResponse,
   IPortfolioReview,
   ITechnology,
 } from "../../types/Admin/AdminPortfolio.types";
-
 import { queryKeys } from "../../consts/queryKeys";
-
-import ButtonArrow from "../../utils/ButtonArrow";
-import { openInNewTab } from "../../utils/OpenInNewTab";
-import { SplitBrackets } from "../../utils/splitBrackets";
-
-import { useWindowDimension } from "../../hooks/useWindowDimension";
-import CalendlyInfoModal from "../../components/Calendly/CalendlyInfoModal";
 
 export async function getServerSideProps() {
   const queryClient = new QueryClient();
@@ -131,25 +126,9 @@ const PortfolioProjectPage = () => {
 
   useEffect(() => {
     setIsMainImagesLoaded(false);
-
-    const calendlyStatusFinder = (e: any) => {
-      window.dataLayer = window.dataLayer || [];
-
-      if (
-        e.data.event &&
-        e.data.event.indexOf("calendly") === 0 &&
-        e.data.event === "calendly.event_scheduled"
-      ) {
-        setIsCalendlySuccessfull(true);
-      }
-    };
-
-    window.addEventListener("message", calendlyStatusFinder);
-
-    return () => {
-      window.removeEventListener("message", calendlyStatusFinder);
-    };
   }, []);
+
+  calendlyPopupInfoHandler(() => setIsCalendlySuccessfull(true));
 
   useEffect(() => {
     if (project) {

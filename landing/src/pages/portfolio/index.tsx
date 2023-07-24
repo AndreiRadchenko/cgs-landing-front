@@ -31,6 +31,7 @@ import * as CSS from "../../styles/Portfolio/title.styled";
 import { DropdownContainer } from "../../styles/HomePage/General.styled";
 import longArrow from "../../../public/HomePageDecoration/longArrow.svg";
 import CalendlyInfoModal from "../../components/Calendly/CalendlyInfoModal";
+import { calendlyPopupInfoHandler } from "../../utils/calendlyPopupInfoHandler";
 
 const PortfolioPage: NextPage = () => {
   const { width } = useWindowDimension();
@@ -323,30 +324,18 @@ const PortfolioPage: NextPage = () => {
   }, [selectedIndustries]);
 
   useEffect(() => {
-    const calendlyStatusFinder = (e: any) => {
-      window.dataLayer = window.dataLayer || [];
-
-      if (
-        e.data.event &&
-        e.data.event.indexOf("calendly") === 0 &&
-        e.data.event === "calendly.event_scheduled"
-      ) {
-        setIsCalendlySuccessfull(true);
-      }
-    };
-
     const handleRouteChange = () => {
       window.scroll(0, 0);
     };
 
     router.events.on("routeChangeComplete", handleRouteChange);
-    window.addEventListener("message", calendlyStatusFinder);
 
     return () => {
       router.events.off("routeChangeComplete", handleRouteChange);
-      window.removeEventListener("message", calendlyStatusFinder);
     };
   }, []);
+
+  calendlyPopupInfoHandler(() => setIsCalendlySuccessfull(true));
 
   return (
     <Loader

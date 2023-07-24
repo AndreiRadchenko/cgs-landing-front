@@ -17,6 +17,7 @@ import FooterBlock from "../../components/UxUiService/FooterBlock";
 import ShowCase from "../../components/ShowCase";
 import CalendlyInfoModal from "../../components/Calendly/CalendlyInfoModal";
 import { Loader, LoaderStub } from "../../components/Loader";
+import { calendlyPopupInfoHandler } from "../../utils/calendlyPopupInfoHandler";
 
 import * as Styled from "../../styles/UxUiService/Layout.styled";
 import { Layout, PageArticle } from "../../styles/Layout.styled";
@@ -60,25 +61,7 @@ const UxUiDesign = () => {
 
   const { customHead, metaDescription, metaTitle } = data?.meta ?? {};
 
-  useEffect(() => {
-    const calendlyStatusFinder = (e: any) => {
-      window.dataLayer = window.dataLayer || [];
-
-      if (
-        e.data.event &&
-        e.data.event.indexOf("calendly") === 0 &&
-        e.data.event === "calendly.event_scheduled"
-      ) {
-        setIsCalendlySuccessfull(true);
-      }
-    };
-
-    window.addEventListener("message", calendlyStatusFinder);
-
-    return () => {
-      window.removeEventListener("message", calendlyStatusFinder);
-    };
-  }, []);
+  calendlyPopupInfoHandler(() => setIsCalendlySuccessfull(true));
 
   return (
     <Loader active={isLoading}>
