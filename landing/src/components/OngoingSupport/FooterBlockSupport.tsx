@@ -7,7 +7,7 @@ import GetEstimationButton from "../GetEstimationButton";
 import ButtonShareComponent from "../HomePage/ButtonShareComponent";
 import { SplitBrackets } from "../../utils/splitBrackets";
 
-const FooterBlock = () => {
+const FooterBlockSupport = () => {
   const queryClient = useQueryClient();
   const elRef = useRef<HTMLDivElement>(null);
   const data = queryClient.getQueryData<IServiceSupport>([
@@ -37,4 +37,4 @@ const FooterBlock = () => {
   );
 };
 
-export default FooterBlock;
+export default FooterBlockSupport;

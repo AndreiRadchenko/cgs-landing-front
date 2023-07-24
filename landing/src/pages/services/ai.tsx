@@ -10,11 +10,11 @@ import React, { useEffect, useState } from "react";
 import FooterNew from "../../components/FooterNew/FooterNew";
 import { Layout, PageArticle } from "../../styles/Layout.styled";
 import * as Styled from "../../styles/AiService/Common.styled";
-import HeadBlock from "../../components/Ai/HeadBlock";
+import HeadBlock from "../../components/Ai/HeadBlockAi";
 import FigureOutBlock from "../../components/Ai/FigureOutBlock";
 import HowDoProvideBlock from "../../components/Ai/HowDoProvideBlock";
 import ShowCase from "../../components/ShowCase";
-import FooterBlock from "../../components/Ai/FooterBlock";
+import FooterBlock from "../../components/Ai/FooterBlockAi";
 import CalendlyInfoModal from "../../components/Calendly/CalendlyInfoModal";
 import { Loader, LoaderStub } from "../../components/Loader";
 

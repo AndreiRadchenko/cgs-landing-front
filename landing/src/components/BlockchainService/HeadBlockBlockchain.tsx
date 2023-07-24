@@ -11,7 +11,7 @@ import TV from "../../../public/BlockchainServicePage/HeadImage/TV.svg";
 import { cryptoTVImages } from "../../consts/cryptoTV";
 import { SplitBrackets } from "../../utils/splitBrackets";
 
-const HeadBlock = () => {
+const HeadBlockBlockchain = () => {
   const queryClient = useQueryClient();
   const elRef = useRef<HTMLDivElement>(null);
   const data = queryClient.getQueryData<IBlockchainService>([
@@ -75,4 +75,4 @@ const HeadBlock = () => {
   );
 };
 
-export default HeadBlock;
+export default HeadBlockBlockchain;

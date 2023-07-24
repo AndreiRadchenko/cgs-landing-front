@@ -1,47 +1,46 @@
 import React, { useRef } from "react";
 import { useQueryClient } from "@tanstack/react-query";
-import { queryKeys } from "../../consts/queryKeys";
-import { IServiceSupport } from "../../types/Admin/Response.types";
-import * as Styled from "../../styles/OngoingSupport/HeadBlock.styled";
-import TextTypingAnimation from "../Typewrite";
+
 import GetEstimationButton from "../GetEstimationButton";
 import ButtonShareComponent from "../HomePage/ButtonShareComponent";
 import { SplitBrackets } from "../../utils/splitBrackets";
 
-const HeadBlock = () => {
+import { queryKeys } from "../../consts/queryKeys";
+import { IUxUiInterface } from "../../types/Admin/Response.types";
+import * as Styled from "../../styles/UxUiService/FooterBlock.styled";
+
+const FooterBlockUxUi = () => {
   const queryClient = useQueryClient();
   const elRef = useRef<HTMLDivElement>(null);
-  const data = queryClient.getQueryData<IServiceSupport>([
-    queryKeys.getServiceSupportPage,
-  ])?.headerBlock;
+
+  const data = queryClient.getQueryData<IUxUiInterface>([
+    queryKeys.getServiceUxUiPage,
+  ])?.footerBlock;
 
   return (
     <Styled.Container>
-      <Styled.Content>
+      <Styled.ContentWrapper>
         <Styled.Title>
-          {data && <TextTypingAnimation text={data?.title} />}
+          <SplitBrackets text={data?.title} />
         </Styled.Title>
-        <Styled.Description>
+        <Styled.Text>
           <SplitBrackets text={data?.text} />
-        </Styled.Description>
+        </Styled.Text>
         {data && (
           <Styled.ButtonWrapper ref={elRef}>
             <GetEstimationButton
               buttonLink={data?.buttonLink}
-              withEstimation
               buttonText={data.button}
-              style={{
-                zIndex: "2",
-              }}
+              withEstimation
               buttonClassName="social-button"
             />
             <ButtonShareComponent />
           </Styled.ButtonWrapper>
         )}
-      </Styled.Content>
-      <Styled.Image src={data?.image.url} alt="Motorcycle helmet" />
+      </Styled.ContentWrapper>
+      <Styled.Image src={data?.image?.url} alt="Footer UxUi image" />
     </Styled.Container>
   );
 };
 
-export default HeadBlock;
+export default FooterBlockUxUi;

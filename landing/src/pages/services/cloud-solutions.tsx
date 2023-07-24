@@ -5,12 +5,12 @@ import Head from "next/head";
 
 import HeaderNavNew from "../../components/HeaderNavNew/HeaderNavNew";
 import FooterNew from "../../components/FooterNew/FooterNew";
-import HeadBlock from "../../components/CloudService/HeadBlock";
+import HeadBlock from "../../components/CloudService/HeadBlockCloud";
 import ProvidesBlock from "../../components/CloudService/ProvidesBlock";
-import FooterBlock from "../../components/CloudService/FooterBlock";
+import FooterBlock from "../../components/CloudService/FooterBlockCloud";
 import ShowCase from "../../components/ShowCase";
 import CalendlyInfoModal from "../../components/Calendly/CalendlyInfoModal";
-import PerksOfCoopComponent from "../../components/Services/PerksOfCoopComponent";
+import PerksOfCoopComponent from "../../components/ServisesComponents/PerksOfCoopComponent";
 import { TeamMembers, FreeService } from "../../components/ServisesComponents";
 import { Loader, LoaderStub } from "../../components/Loader";
 

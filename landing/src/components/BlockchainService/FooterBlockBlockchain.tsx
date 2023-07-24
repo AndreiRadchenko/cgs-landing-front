@@ -7,7 +7,7 @@ import GetEstimationButton from "../GetEstimationButton";
 import ButtonShareComponent from "../HomePage/ButtonShareComponent";
 import { SplitBrackets } from "../../utils/splitBrackets";
 
-const FooterBlock = () => {
+const FooterBlockBlockchain = () => {
   const queryClient = useQueryClient();
   const elRef = useRef<HTMLDivElement>(null);
   const data = queryClient.getQueryData<IBlockchainService>([
@@ -36,4 +36,4 @@ const FooterBlock = () => {
   );
 };
 
-export default FooterBlock;
+export default FooterBlockBlockchain;

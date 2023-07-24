@@ -1,7 +1,7 @@
 import React from "react";
 import { Subtitle } from "../../styles/MobileService/Layout";
 import { MobileInfiniteText } from "../MobileInfiniteText/MobileInfiniteText";
-import * as Styles from "../../styles/Services";
+import * as Styles from "../../styles/Services.styled";
 import { handleRandomOffset } from "../../utils/getRandomAnimationOffset";
 import { SplitBrackets } from "../../utils/splitBrackets";
 import crystal from "../../../public/MobileSevice/worthIt/crystal.svg";

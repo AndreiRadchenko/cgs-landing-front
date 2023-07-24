@@ -1,31 +1,29 @@
-import React, { useRef } from "react";
+﻿import React, { useRef } from "react";
 import { useQueryClient } from "@tanstack/react-query";
-
-import { SplitBrackets } from "../../utils/splitBrackets";
-import GetEstimationButton from "../GetEstimationButton";
-import ButtonShareComponent from "../HomePage/ButtonShareComponent";
-
 import { queryKeys } from "../../consts/queryKeys";
 import { VisibleSubtitle } from "../../styles/MobileService/Layout";
-import * as Styled from "../../styles/DbService/FooterBlock.styled";
-import { IServiceDb } from "../../types/Admin/Response.types";
+import * as Styled from "../../styles/WebService/FooterBlock.styled";
+import { IServiceWeb } from "../../types/Admin/Response.types";
+import GetEstimationButton from "../GetEstimationButton";
+import ButtonShareComponent from "../HomePage/ButtonShareComponent";
+import { SplitBrackets } from "../../utils/splitBrackets";
 
-const FooterBlock = () => {
+const FooterBlockWebDev = () => {
   const queryClient = useQueryClient();
   const elRef = useRef<HTMLDivElement>(null);
-  const data = queryClient.getQueryData<IServiceDb>([
-    queryKeys.getServiceDbPage,
+  const data = queryClient.getQueryData<IServiceWeb>([
+    queryKeys.getServiceWebPage,
   ])?.footerBlock;
 
   return (
     <Styled.Container>
       <Styled.TextContent>
         <Styled.SubtitleWrapper>
-          <VisibleSubtitle>{data?.subtitle}</VisibleSubtitle>
+          <VisibleSubtitle>
+            <SplitBrackets text={data?.subtitle} />
+          </VisibleSubtitle>
         </Styled.SubtitleWrapper>
-        <Styled.Text>
-          <SplitBrackets text={data?.text} />
-        </Styled.Text>
+        <Styled.TextWrapper>{data?.text}</Styled.TextWrapper>
         {data && (
           <Styled.ButtonWrapper ref={elRef}>
             <GetEstimationButton
@@ -38,9 +36,9 @@ const FooterBlock = () => {
           </Styled.ButtonWrapper>
         )}
       </Styled.TextContent>
-      <Styled.Image src={data?.image?.url} alt="Footer image" />
+      <Styled.Image src={data?.image?.url} alt="Footer WebService image" />
     </Styled.Container>
   );
 };
 
-export default FooterBlock;
+export default FooterBlockWebDev;

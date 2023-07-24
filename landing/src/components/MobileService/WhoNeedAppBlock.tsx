@@ -12,7 +12,7 @@ import WhyWorthItMobile from "../../../public/MobileSevice/whoNeedApps/whyWorthI
 import WhyWorthIt from "../../../public/MobileSevice/whoNeedApps/whyWorthIt.svg";
 import TextTypingAnimation from "../Typewrite";
 import { useOnScreen } from "../../hooks/useOnScreen";
-import NeedsAppsBenefitComponent from "../Services/NeedsAppsBenefitComponent";
+import NeedsAppsBenefitComponent from "../ServisesComponents/NeedsAppsBenefitComponent";
 
 const WhoNeedAppBlock = ({ className }: IServicesClassnameProps) => {
   const queryClient = useQueryClient();

@@ -1,25 +1,28 @@
 import React, { useRef } from "react";
 import { useQueryClient } from "@tanstack/react-query";
-import { queryKeys } from "../../consts/queryKeys";
-import { ICloudService } from "../../types/Admin/Response.types";
+
 import { SplitBrackets } from "../../utils/splitBrackets";
-import * as Styled from "../../styles/CloudService/FooterBlock.styled";
 import GetEstimationButton from "../GetEstimationButton";
 import ButtonShareComponent from "../HomePage/ButtonShareComponent";
 
-const FooterBlock = () => {
+import { queryKeys } from "../../consts/queryKeys";
+import { VisibleSubtitle } from "../../styles/MobileService/Layout";
+import * as Styled from "../../styles/DbService/FooterBlock.styled";
+import { IServiceDb } from "../../types/Admin/Response.types";
+
+const FooterBlockDb = () => {
   const queryClient = useQueryClient();
   const elRef = useRef<HTMLDivElement>(null);
-  const data = queryClient.getQueryData<ICloudService>([
-    queryKeys.getServiceCloudPage,
+  const data = queryClient.getQueryData<IServiceDb>([
+    queryKeys.getServiceDbPage,
   ])?.footerBlock;
 
   return (
     <Styled.Container>
-      <Styled.Content>
-        <Styled.Title>
-          <SplitBrackets text={data?.subtitle} />
-        </Styled.Title>
+      <Styled.TextContent>
+        <Styled.SubtitleWrapper>
+          <VisibleSubtitle>{data?.subtitle}</VisibleSubtitle>
+        </Styled.SubtitleWrapper>
         <Styled.Text>
           <SplitBrackets text={data?.text} />
         </Styled.Text>
@@ -34,10 +37,10 @@ const FooterBlock = () => {
             <ButtonShareComponent />
           </Styled.ButtonWrapper>
         )}
-      </Styled.Content>
-      <Styled.Image src={data?.image?.url} alt="Footer Cloud Service image" />
+      </Styled.TextContent>
+      <Styled.Image src={data?.image?.url} alt="Footer image" />
     </Styled.Container>
   );
 };
 
-export default FooterBlock;
+export default FooterBlockDb;

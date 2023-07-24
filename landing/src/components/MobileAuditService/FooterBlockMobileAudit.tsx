@@ -1,26 +1,24 @@
 import React, { useRef } from "react";
-import * as Styled from "../../styles/MobileService/HeadBlock";
 import { IServiceMobile } from "../../types/Admin/Response.types";
 import { useQueryClient } from "@tanstack/react-query";
 import { queryKeys } from "../../consts/queryKeys";
-import { SplitBrackets } from "../../utils/splitBrackets";
-import TextTypingAnimation from "../Typewrite";
+import * as Styled from "../../styles/MobileAuditService/FooterBlock.styled";
+import Image from "next/image";
 import GetEstimationButton from "../GetEstimationButton";
 import ButtonShareComponent from "../HomePage/ButtonShareComponent";
+import { SplitBrackets } from "../../utils/splitBrackets";
 
-const HeadBlock = () => {
+const FooterBlockMobileAudit = () => {
   const queryClient = useQueryClient();
   const elRef = useRef<HTMLDivElement>(null);
   const data = queryClient.getQueryData<IServiceMobile>([
-    queryKeys.getServiceMobilePage,
-  ])?.headerBlock;
+    queryKeys.getServiceMobileAuditPage,
+  ])?.footerBlock;
 
   return (
     <Styled.Container>
-      <Styled.ContentContainer>
-        <Styled.Title>
-          {data && <TextTypingAnimation text={data?.title} />}
-        </Styled.Title>
+      <Styled.ContentWrapper>
+        <Styled.Title>{data?.title}</Styled.Title>
         <Styled.Description>
           <SplitBrackets text={data?.text} />
         </Styled.Description>
@@ -28,17 +26,26 @@ const HeadBlock = () => {
           <Styled.ButtonWrapper ref={elRef}>
             <GetEstimationButton
               buttonLink={data?.buttonLink}
-              withEstimation
               buttonText={data.button}
-              buttonClassName="social-button services"
+              withEstimation
+              buttonClassName="social-button"
             />
-            <ButtonShareComponent className={"mobileDev"} />
+            <ButtonShareComponent />
           </Styled.ButtonWrapper>
         )}
-      </Styled.ContentContainer>
-      <Styled.Telephone src={data?.image.url} />
+      </Styled.ContentWrapper>
+      {data && (
+        <Styled.ImageWrapper>
+          <Image
+            src={data?.image?.url}
+            alt="footer image img"
+            layout="fill"
+            objectFit="contain"
+          />
+        </Styled.ImageWrapper>
+      )}
     </Styled.Container>
   );
 };
 
-export default HeadBlock;
+export default FooterBlockMobileAudit;

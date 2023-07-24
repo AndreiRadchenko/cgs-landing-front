@@ -16,7 +16,7 @@ import GetEstimationButton from "../GetEstimationButton";
 import ButtonShareComponent from "../HomePage/ButtonShareComponent";
 import Image from "next/image";
 
-const HeadBlock = () => {
+const HeadBlockWebDev = () => {
   const queryClient = useQueryClient();
   const elRef = useRef<HTMLDivElement>(null);
   const data = queryClient.getQueryData<IServiceWeb>([
@@ -58,4 +58,4 @@ const HeadBlock = () => {
   );
 };
 
-export default HeadBlock;
+export default HeadBlockWebDev;

@@ -5,10 +5,10 @@ import { dehydrate, QueryClient, useQuery } from "@tanstack/react-query";
 
 import HeaderNavNew from "../../components/HeaderNavNew/HeaderNavNew";
 import FooterNew from "../../components/FooterNew/FooterNew";
-import HeadBlock from "../../components/OngoingSupport/HeadBlock";
+import HeadBlock from "../../components/OngoingSupport/HeadBlockSupport";
 import WorkBlock from "../../components/OngoingSupport/WorkBlock";
 import ProvidesBlock from "../../components/OngoingSupport/ProvidesBlock";
-import FooterBlock from "../../components/OngoingSupport/FooterBlock";
+import FooterBlock from "../../components/OngoingSupport/FooterBlockSupport";
 import ShowCase from "../../components/ShowCase";
 import BonusesComponent from "../../components/ServisesComponents/Bonuses/Component/BonusesComponent";
 import CalendlyInfoModal from "../../components/Calendly/CalendlyInfoModal";

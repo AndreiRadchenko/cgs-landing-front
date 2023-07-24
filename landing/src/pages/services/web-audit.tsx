@@ -8,13 +8,13 @@ import { adminGlobalService } from "../../services/adminHomePage";
 import { adminWebAuditService } from "../../services/services/adminServiceWebAuditPage";
 import FooterNew from "../../components/FooterNew/FooterNew";
 import HeaderNavNew from "../../components/HeaderNavNew/HeaderNavNew";
-import HeadBlock from "../../components/WebAuditService/HeadBlock";
+import HeadBlock from "../../components/WebAuditService/HeadBlockWebAudit";
 import { Layout, PageArticle } from "../../styles/Layout.styled";
 import WhatIsAuditBlock from "../../components/WebAuditService/WhatIsAuditBlock";
 import WhichProblemBlock from "../../components/WebAuditService/WhichProblemBlock";
 import TypesOfAuditBlock from "../../components/WebAuditService/TypesOfAuditBlock";
 import HowToDoBlock from "../../components/WebAuditService/HowToDoBlock";
-import ProfessionalAuditBlock from "../../components/WebAuditService/ProfessionalAuditBlock";
+import FooterBlock from "../../components/WebAuditService/FooterBlockWebAudit";
 import ShowCase from "../../components/ShowCase";
 import {
   ShowcaseLayoutIgnore,
@@ -107,7 +107,7 @@ const WebAuditPage: NextPage = () => {
                 <ShowcaseWithoutDataSpacing />
               )}
               <HowToDoBlock />
-              <ProfessionalAuditBlock />
+              <FooterBlock />
             </Layout>
           </PageArticle>
           <FooterNew />

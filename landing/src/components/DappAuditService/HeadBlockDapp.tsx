@@ -9,7 +9,7 @@ import { IServiceAi } from "../../types/Admin/Response.types";
 import { queryKeys } from "../../consts/queryKeys";
 import { useQueryClient } from "@tanstack/react-query";
 
-const HeadBlock = () => {
+const HeadBlockDapp = () => {
   const queryClient = useQueryClient();
 
   const elRef = useRef<HTMLDivElement>(null);
@@ -56,4 +56,4 @@ const HeadBlock = () => {
   );
 };
 
-export default HeadBlock;
+export default HeadBlockDapp;

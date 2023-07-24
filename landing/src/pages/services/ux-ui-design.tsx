@@ -5,7 +5,7 @@ import parse from "html-react-parser";
 
 import HeaderNavNew from "../../components/HeaderNavNew/HeaderNavNew";
 import FooterNew from "../../components/FooterNew/FooterNew";
-import HeadBlock from "../../components/UxUiService/HeadBlock";
+import HeadBlock from "../../components/UxUiService/HeadBlockUxUi";
 import WhatDoWeDoBlock from "../../components/UxUiService/WhatDoWeDoBlock";
 import DesignBlock from "../../components/UxUiService/DesignBlock";
 import EssentialBlock from "../../components/UxUiService/EsentialBlock";
@@ -13,7 +13,7 @@ import {
   TeamMembers,
   OtherServices,
 } from "../../components/ServisesComponents";
-import FooterBlock from "../../components/UxUiService/FooterBlock";
+import FooterBlock from "../../components/UxUiService/FooterBlockUxUi";
 import ShowCase from "../../components/ShowCase";
 import CalendlyInfoModal from "../../components/Calendly/CalendlyInfoModal";
 import { Loader, LoaderStub } from "../../components/Loader";

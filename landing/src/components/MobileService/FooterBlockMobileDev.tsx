@@ -9,7 +9,7 @@ import { useOnScreen } from "../../hooks/useOnScreen";
 import GetEstimationButton from "../GetEstimationButton";
 import ButtonShareComponent from "../HomePage/ButtonShareComponent";
 
-const ProfBlock = () => {
+const FooterBlockMobileDev = () => {
   const queryClient = useQueryClient();
   const elRef = useRef<HTMLDivElement>(null);
   const data = queryClient.getQueryData<IServiceMobile>([
@@ -70,4 +70,4 @@ const ProfBlock = () => {
   );
 };
 
-export default ProfBlock;
+export default FooterBlockMobileDev;

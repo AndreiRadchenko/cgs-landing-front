@@ -12,16 +12,16 @@ import { adminMobileAuditService } from "../../services/services/adminServiceMob
 import { adminGlobalService } from "../../services/adminHomePage";
 import HeaderNavNew from "../../components/HeaderNavNew/HeaderNavNew";
 import FooterNew from "../../components/FooterNew/FooterNew";
-import HeadBlock from "../../components/MobileAuditService/HeadBlock";
+import HeadBlock from "../../components/MobileAuditService/HeadBlockMobileAudit";
 import WhatAppBlock from "../../components/MobileAuditService/WhatAppBlock";
 import WhatAppIncludeBlock from "../../components/MobileAuditService/WhatAppIncludeBlock";
 import ShowCase from "../../components/ShowCase";
-import FooterBlock from "../../components/MobileAuditService/FooterBlock";
+import FooterBlock from "../../components/MobileAuditService/FooterBlockMobileAudit";
 import * as Styled from "../../styles/MobileAuditService/Layout";
 import { Layout } from "../../styles/Layout.styled";
 import HowDoWeAuditBlock from "../../components/MobileAuditService/HowDoWeAuditBlock";
 import CalendlyInfoModal from "../../components/Calendly/CalendlyInfoModal";
-import PerksOfCoopComponent from "../../components/Services/PerksOfCoopComponent";
+import PerksOfCoopComponent from "../../components/ServisesComponents/PerksOfCoopComponent";
 import { IServiceMobileAudit } from "../../types/Admin/Response.types";
 import { Loader, LoaderStub } from "../../components/Loader";
 

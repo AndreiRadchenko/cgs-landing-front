@@ -12,7 +12,7 @@ import { useQueryClient } from "@tanstack/react-query";
 import { IServiceAi } from "../../types/Admin/Response.types";
 import { queryKeys } from "../../consts/queryKeys";
 
-const FooterBlock = () => {
+const FooterBlockDapp = () => {
   const queryClient = useQueryClient();
   const data = queryClient.getQueryData<IServiceAi>([
     queryKeys.getServiceAiPage,
@@ -65,4 +65,4 @@ const FooterBlock = () => {
   );
 };
 
-export default FooterBlock;
+export default FooterBlockDapp;

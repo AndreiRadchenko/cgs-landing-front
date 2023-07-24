@@ -12,7 +12,7 @@ import Image from "next/image";
 import GetEstimationButton from "../GetEstimationButton";
 import ButtonShareComponent from "../HomePage/ButtonShareComponent";
 
-const FooterBlock = () => {
+const FooterBlockAi = () => {
   const queryClient = useQueryClient();
   const elRef = useRef<HTMLDivElement>(null);
   const data = queryClient.getQueryData<IServiceDappAudit>([
@@ -63,4 +63,4 @@ const FooterBlock = () => {
   );
 };
 
-export default FooterBlock;
+export default FooterBlockAi;

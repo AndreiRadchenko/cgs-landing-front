@@ -1,32 +1,40 @@
 import React, { useRef } from "react";
+import { IServiceDb } from "../../types/Admin/Response.types";
 import { useQueryClient } from "@tanstack/react-query";
 import { queryKeys } from "../../consts/queryKeys";
-import { IUxUiInterface } from "../../types/Admin/Response.types";
 import { SplitBrackets } from "../../utils/splitBrackets";
-import * as Styled from "../../styles/UxUiService/HeadBlock.styled";
+import {
+  Container,
+  ContentContainer,
+  Title,
+  Description,
+  Image,
+  ButtonWrapper,
+} from "../../styles/DbService/HeadBlock.styled";
 import TextTypingAnimation from "../Typewrite";
 import GetEstimationButton from "../GetEstimationButton";
 import ButtonShareComponent from "../HomePage/ButtonShareComponent";
 
-const HeadBlock = () => {
+const HeadBlockDb = () => {
   const queryClient = useQueryClient();
   const elRef = useRef<HTMLDivElement>(null);
-
-  const data = queryClient.getQueryData<IUxUiInterface>([
-    queryKeys.getServiceUxUiPage,
+  const data = queryClient.getQueryData<IServiceDb>([
+    queryKeys.getServiceDbPage,
   ])?.headerBlock;
 
+  const lastIndex = data!.title.lastIndexOf("|");
+  const title =
+    data?.title.substr(0, lastIndex) + data!.title.substring(lastIndex + 1);
+
   return (
-    <Styled.Container>
-      <Styled.ContentWrapper>
-        <Styled.Title>
-          {data && <TextTypingAnimation text={data?.title} />}
-        </Styled.Title>
-        <Styled.Description>
+    <Container>
+      <ContentContainer>
+        <Title>{data && <TextTypingAnimation text={title} />}</Title>
+        <Description>
           <SplitBrackets text={data?.text} />
-        </Styled.Description>
+        </Description>
         {data && (
-          <Styled.ButtonWrapper ref={elRef}>
+          <ButtonWrapper ref={elRef}>
             <GetEstimationButton
               buttonLink={data?.buttonLink}
               withEstimation
@@ -34,12 +42,12 @@ const HeadBlock = () => {
               buttonClassName="social-button"
             />
             <ButtonShareComponent />
-          </Styled.ButtonWrapper>
+          </ButtonWrapper>
         )}
-      </Styled.ContentWrapper>
-      <Styled.Image src={data?.image.url} alt="Polaroid" />
-    </Styled.Container>
+      </ContentContainer>
+      <Image src={data?.image.url} alt="hero image" />
+    </Container>
   );
 };
 
-export default HeadBlock;
+export default HeadBlockDb;

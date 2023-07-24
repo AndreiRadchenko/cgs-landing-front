@@ -15,7 +15,7 @@ import secondSearch from "../../../public/MobileAuditService/search-2.svg";
 import thirdSearch from "../../../public/MobileAuditService/search-3.svg";
 import fourthSearch from "../../../public/MobileAuditService/search-4.svg";
 
-const HeadBlock = () => {
+const HeadBlockMobileAudit = () => {
   const queryClient = useQueryClient();
   const elRef = useRef<HTMLDivElement>(null);
   const data = queryClient.getQueryData<IServiceMobileAudit>([
@@ -77,4 +77,4 @@ const HeadBlock = () => {
   );
 };
 
-export default HeadBlock;
+export default HeadBlockMobileAudit;

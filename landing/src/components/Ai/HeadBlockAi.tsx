@@ -9,7 +9,7 @@ import { SplitBrackets } from "../../utils/splitBrackets";
 import GetEstimationButton from "../GetEstimationButton";
 import ButtonShareComponent from "../HomePage/ButtonShareComponent";
 
-const HeadBlock = () => {
+const HeadBlockAi = () => {
   const queryClient = useQueryClient();
   const elRef = useRef<HTMLDivElement>(null);
   const data = queryClient.getQueryData<IServiceDappAudit>([
@@ -52,4 +52,4 @@ const HeadBlock = () => {
   );
 };
 
-export default HeadBlock;
+export default HeadBlockAi;

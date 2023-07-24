@@ -1,5 +1,5 @@
 import React from "react";
-import * as Styles from "../../styles/Services";
+import * as Styles from "../../styles/Services.styled";
 import { Subtitle } from "../../styles/MobileService/Layout";
 import { SplitBrackets } from "../../utils/splitBrackets";
 import { IDomain } from "../../types/Admin/Response.types";

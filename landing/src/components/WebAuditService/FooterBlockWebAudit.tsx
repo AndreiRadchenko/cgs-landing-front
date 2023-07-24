@@ -10,7 +10,7 @@ import { SplitBrackets } from "../../utils/splitBrackets";
 import GetEstimationButton from "../GetEstimationButton";
 import ButtonShareComponent from "../HomePage/ButtonShareComponent";
 
-const ProfessionalAuditBlock = () => {
+const FooterBlockWebAudit = () => {
   const queryClient = useQueryClient();
   const elRef = useRef<HTMLDivElement>(null);
   const data = queryClient.getQueryData<IServiceWebAudit>([
@@ -64,4 +64,4 @@ const ProfessionalAuditBlock = () => {
   );
 };
 
-export default ProfessionalAuditBlock;
+export default FooterBlockWebAudit;
