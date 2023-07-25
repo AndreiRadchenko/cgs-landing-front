@@ -27,9 +27,9 @@ const FooterBlock = () => {
             buttonText={data.button}
             withEstimation
             style={{ zIndex: 2 }}
-            buttonClassName="social-button"
+            buttonClassName="cloudSolution"
           />
-          <ButtonShareComponent />
+          <ButtonShareComponent className="cloudSolution"/>
         </Styled.ButtonWrapper>
       )}
       <Styled.Image src={data?.image?.url} alt="Footer Supports image" />

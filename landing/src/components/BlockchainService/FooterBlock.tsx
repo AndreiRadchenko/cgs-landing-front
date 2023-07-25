@@ -28,7 +28,7 @@ const FooterBlock = () => {
             withEstimation
             buttonClassName="social-button"
           />
-          <ButtonShareComponent />
+          <ButtonShareComponent className="blockchain"/>
         </Styled.ButtonWrapper>
       )}
       <Styled.Image src={data?.image?.url} alt="Footer Crypto image" />

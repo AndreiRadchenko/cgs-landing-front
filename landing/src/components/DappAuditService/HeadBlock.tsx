@@ -34,9 +34,9 @@ const HeadBlock = () => {
               buttonLink={data?.buttonLink}
               withEstimation
               buttonText={data.button}
-              buttonClassName="social-button services"
+              buttonClassName="ai"
             />
-            <ButtonShareComponent className="dappAuditShare" />
+            <ButtonShareComponent />
           </Styled.ButtonWrapper>
         )}
       </Styled.TextContent>

@@ -32,7 +32,7 @@ const HeadBlock = () => {
             buttonLink={data?.buttonLink}
             withEstimation
             buttonText={data.button}
-            buttonClassName="social-button"
+            buttonClassName="ai"
           />
           <ButtonShareComponent className="aiService" />
         </Styled.ButtonWrapper>

@@ -47,8 +47,8 @@ export const ButtonWrapper = styled.div`
   @media ${themes.primary.media.maxMobile} {
     flex-direction: column;
     & > a {
-      font-size: 1.54em !important;
-      padding: 1.195em 2.93em !important;
+      font-size: 16px !important;
+      padding: 19px 33px !important;
     }
   }
 `;

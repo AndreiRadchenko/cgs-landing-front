@@ -30,9 +30,9 @@ const FooterBlock = () => {
               buttonLink={data?.buttonLink}
               buttonText={data.button}
               withEstimation
-              buttonClassName="social-button"
+              buttonClassName="webDev"
             />
-            <ButtonShareComponent />
+            <ButtonShareComponent className="webDev"/>
           </Styled.ButtonWrapper>
         )}
       </Styled.TextContent>
