@@ -33,9 +33,9 @@ const HeadBlock = () => {
               style={{
                 zIndex: "2",
               }}
-              buttonClassName="social-button"
+              buttonClassName="cloudSolution"
             />
-            <ButtonShareComponent />
+            <ButtonShareComponent className="cloudSolution"/>
           </Styled.ButtonWrapper>
         )}
       </Styled.Content>

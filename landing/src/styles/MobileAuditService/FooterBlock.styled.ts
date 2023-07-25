@@ -17,6 +17,10 @@ export const ButtonWrapper = styled.div`
 
   @media ${themes.primary.media.maxMobile} {
     flex-direction: column;
+    
+    & > a {
+      padding: 19px 33px !important;
+    }
   }
 `;
 

@@ -31,7 +31,7 @@ const HeadBlock = () => {
                 buttonLink={data?.buttonLink}
                 withEstimation
                 buttonText={data.button}
-                buttonClassName="social-button services"
+                buttonClassName="mobileDev"
               />
               <ButtonShareComponent className="webAudit" />
             </Styled.ButtonWrapper>

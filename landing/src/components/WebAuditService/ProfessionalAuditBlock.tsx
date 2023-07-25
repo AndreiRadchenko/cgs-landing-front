@@ -33,7 +33,7 @@ const ProfessionalAuditBlock = () => {
                 buttonLink={data?.buttonLink}
                 buttonText={data.button}
                 withEstimation
-                buttonClassName="social-button services"
+                buttonClassName="mobileDev"
               />
               <ButtonShareComponent className="webAudit" />
             </Styled.ButtonWrapper>
