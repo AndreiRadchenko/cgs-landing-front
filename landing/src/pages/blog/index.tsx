@@ -141,26 +141,6 @@ const BlogPage = () => {
     if (window.innerWidth < 769) window.scroll(0, 0);
   }, [isMainSliderImageLoaded]);
 
-  const filteredSwiperData = useMemo(() => {
-    if (!articles || !articles.reviews) return [];
-    
-    const filteredArticles = articles.reviews.filter(
-      (article) =>
-        !article.scheduleArticle || new Date() >= new Date(article.scheduleArticle)
-    );
-    
-    return filteredArticles.slice(0, 3);
-  }, [articles]);
-
-const filteredReversedData = useMemo(() => {
-  if (!reversedArticles) return [];
-  return reversedArticles.filter(
-    (article) =>
-      !article.scheduleArticle || new Date() >= new Date(article.scheduleArticle)
-  );
-}, [reversedArticles]);
-
-
   return (
     <Loader active={!isMainSliderImageLoaded && isFirstLoad}>
       <Head>
@@ -179,9 +159,9 @@ const filteredReversedData = useMemo(() => {
               <Styled.RightLine src={rightLine.src} />
               <Styled.HeaderBlock>
                 <Styled.MainContainer>
-                  {filteredSwiperData && (
+                  {swiperData && (
                     <BlogSwiper>
-                      {filteredSwiperData.map((article, idx) => (
+                      {swiperData.reviews.map((article, idx) => (
                         <SwiperSlide key={idx}>
                           <MainBlogItem
                             article={article}
@@ -196,8 +176,8 @@ const filteredReversedData = useMemo(() => {
                   )}
                 </Styled.MainContainer>
                 <Styled.FlexColumnContainer className="header">
-                  {filteredSwiperData &&
-                    filteredSwiperData.map((article) => (
+                  {swiperData &&
+                    swiperData.reviews.map((article) => (
                       <SmallArticleItem
                         filters={filters}
                         article={article}
@@ -263,8 +243,8 @@ const filteredReversedData = useMemo(() => {
                           <LoaderStub />
                         ) : articles.reviews.length ? (
                           <>
-                            {filteredReversedData &&
-                              filteredReversedData.map((article) => (
+                            {reversedArticles &&
+                              reversedArticles.map((article) => (
                                 <BlogItem
                                   article={article}
                                   key={article._id}
