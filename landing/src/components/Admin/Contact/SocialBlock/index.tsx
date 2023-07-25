@@ -30,6 +30,7 @@ const SocialBlock = () => {
 
   return (
     <Styled.ContentWrapper>
+      <SocialSection />
       {socials?.lastModified && (
         <HistoryLink
           sectionName="Social"
@@ -37,7 +38,8 @@ const SocialBlock = () => {
           link={"/history/contacts/socials"}
         />
       )}
-      <SocialSection />
+
+      <AboutSection />
       {abouts?.lastModified && (
         <HistoryLink
           sectionName="Our works"
@@ -45,7 +47,6 @@ const SocialBlock = () => {
           link={"/history/contacts/abouts"}
         />
       )}
-      <AboutSection />
       <div>
         <BlackButton
           size={"1.5em"}

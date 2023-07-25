@@ -5,8 +5,8 @@ export const Layout = styled.div`
   color: "darkslategray";
 `;
 
-export const PageHeader = styled.h1`
-  margin-block: 8px;
+export const PageHeader = styled.h2`
+  margin-block: 16px;
   &::first-letter {
     text-transform: capitalize;
   }
@@ -14,13 +14,14 @@ export const PageHeader = styled.h1`
 
 export const SectionHeader = styled.h2`
   margin-block: 8px;
+  color: green;
   &::first-letter {
     text-transform: capitalize;
   }
 `;
 
 export const CurrentHeader = styled.h3`
-  margin-block: 5px;
+  margin-block: 8px;
   color: tomato;
   display: none;
   &::first-letter {
@@ -37,10 +38,15 @@ export const HistoryItemContainer = styled.div<IHistoryItemProps>`
   margin-inline: -50px;
   padding-inline: 50px;
   padding-block: 5px;
-  &:nth-child(3) {
+  border-bottom: 1px solid grey;
+  &:nth-child(2) {
     border: 2px solid tomato;
     .current-header {
       display: block;
     }
   }
+`;
+
+export const SubsectionKey = styled.div`
+  margin-block: 5px;
 `;

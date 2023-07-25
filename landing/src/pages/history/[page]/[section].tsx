@@ -2,7 +2,8 @@ import React from "react";
 import { useRouter } from "next/router";
 import { useQuery } from "@tanstack/react-query";
 
-import CustomJsonView from "../../../components/CustomJsonView";
+// import CustomJsonView from "../../../components/CustomJsonView";
+import CustomJsonView from "../../../components/CustomJsonView/customJsonView";
 
 import * as Styled from "../../../components/CustomJsonView/jsonView.styled";
 import { adminHistoryService } from "../../../services/history";
@@ -63,8 +64,11 @@ const HistoryPage = () => {
 
   return (
     <Styled.Layout>
-      <Styled.PageHeader>{page} page</Styled.PageHeader>
-      <Styled.SectionHeader>{section} section history</Styled.SectionHeader>
+      <div style={{ display: "flex", alignItems: "baseline", gap: "30px" }}>
+        <Styled.PageHeader>{page} page</Styled.PageHeader>
+        <Styled.SectionHeader>{section} section history</Styled.SectionHeader>
+      </div>
+
       {typeof data !== "undefined" &&
         data.map((record, idx, arr) => {
           return (

@@ -110,13 +110,6 @@ const MetaTagsBlock = ({
   return (
     <Styled.MetaBlockWraper theme={theme}>
       <div style={{ padding: "30px 30px" }}>
-        {metaData?.lastModified && historyLink && (
-          <HistoryLink
-            sectionName="Meta"
-            lastModified={metaData?.lastModified}
-            link={historyLink}
-          />
-        )}
         <SubHeaderWithInput
           header="Meta Title"
           minRows={5}
@@ -191,6 +184,13 @@ const MetaTagsBlock = ({
           }
           onChangeFunction={handleChange}
         />
+        {metaData?.lastModified && historyLink && (
+          <HistoryLink
+            sectionName="Meta"
+            lastModified={metaData?.lastModified}
+            link={historyLink}
+          />
+        )}
         <BlackButton
           type="submit"
           size={"1.5em"}

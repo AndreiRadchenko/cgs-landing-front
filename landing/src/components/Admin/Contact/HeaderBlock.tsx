@@ -41,13 +41,6 @@ const HeaderBlock = () => {
   const handleClick = () => handleSubmit();
   return (
     <Styled.ContentWrapper>
-      {data?.lastModified && (
-        <HistoryLink
-          sectionName="Header"
-          lastModified={data?.lastModified}
-          link={"/history/contacts/header"}
-        />
-      )}
       <Styles.TitleWrapper>
         <TextEditor header="Title" name="header.title" />
       </Styles.TitleWrapper>
@@ -98,6 +91,13 @@ const HeaderBlock = () => {
           />
         </div>
       </Styles.Headlines>
+      {data?.lastModified && (
+        <HistoryLink
+          sectionName="Header"
+          lastModified={data?.lastModified}
+          link={"/history/contacts/header"}
+        />
+      )}
       <div>
         <BlackButton
           size={"1.5em"}
