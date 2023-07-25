@@ -1,12 +1,10 @@
 import React from "react";
 import { useRouter } from "next/router";
 import { useQuery } from "@tanstack/react-query";
-import dynamic from "next/dynamic";
 
-const DynamicReactJson = dynamic(() => import("react-json-view"), {
-  ssr: false,
-});
+import CustomJsonView from "../../../components/CustomJsonView";
 
+import * as Styled from "../../../components/CustomJsonView/jsonView.styled";
 import { adminHistoryService } from "../../../services/history";
 
 interface ISection {
@@ -24,41 +22,72 @@ interface IData {
   isSuccess: boolean;
 }
 
+type RecordType = {
+  [key: string]: number | string | boolean | RecordType;
+};
+
+function compareObjects(obj1: RecordType, obj2: RecordType): RecordType {
+  const result: RecordType = {};
+
+  for (const key in obj1) {
+    if (obj1.hasOwnProperty(key)) {
+      const value1 = obj1[key];
+      const value2 = obj2[key];
+
+      if (typeof value1 === "object" && typeof value2 === "object") {
+        // Recursive call for nested objects
+        const nestedDiff = compareObjects(value1, value2);
+        if (Object.keys(nestedDiff).length > 0) {
+          result[key] = nestedDiff;
+        }
+      } else if (value1 !== value2) {
+        // Compare values and add to the result object if different
+        key === "lastModified"
+          ? (result[key] = value1)
+          : (result[key] = ` >> ${value1}`);
+      } else {
+        result[key] = value1;
+      }
+    }
+  }
+
+  return result;
+}
+
 const HistoryPage = () => {
   const router = useRouter();
   const { page, section } = router.query;
-
   const { data }: IData = useQuery([page], () =>
     adminHistoryService.getHistory(`${page}/${section}`)
   );
 
   return (
-    <div style={{ marginInline: "50px", color: "darkslategray" }}>
-      <h1>{page} page</h1>
-      <h2 style={{}}>{section} section history</h2>
+    <Styled.Layout>
+      <Styled.PageHeader>{page} page</Styled.PageHeader>
+      <Styled.SectionHeader>{section} section history</Styled.SectionHeader>
       {typeof data !== "undefined" &&
-        data.map(
-          (record, idx) =>
+        data.map((record, idx, arr) => {
+          return (
             section &&
             typeof section === "string" && (
-              <div
-                key={idx}
-                style={{
-                  backgroundColor: idx % 2 ? "" : "white",
-                  marginInline: "-50px",
-                  paddingInline: "50px",
-                  paddingBlock: "5px",
-                }}
-              >
-                {typeof window !== "undefined" && data ? (
-                  <DynamicReactJson src={record.d[section]} />
-                ) : (
-                  <div>Loading...</div>
-                )}
-              </div>
+              <Styled.HistoryItemContainer key={idx} idx={idx}>
+                <Styled.CurrentHeader className="current-header">
+                  Current state
+                </Styled.CurrentHeader>
+                {typeof window !== "undefined" &&
+                  typeof arr[idx + 1] !== "undefined" && (
+                    <CustomJsonView
+                      data={compareObjects(
+                        record.d[section],
+                        arr[idx + 1].d[section]
+                      )}
+                    />
+                  )}
+              </Styled.HistoryItemContainer>
             )
-        )}
-    </div>
+          );
+        })}
+    </Styled.Layout>
   );
 };
 
