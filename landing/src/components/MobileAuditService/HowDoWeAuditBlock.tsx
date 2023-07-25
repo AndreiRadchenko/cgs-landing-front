@@ -1,10 +1,14 @@
 import React from "react";
-import { IServiceMobileAudit } from "../../types/Admin/Response.types";
 import { useQueryClient } from "@tanstack/react-query";
-import { queryKeys } from "../../consts/queryKeys";
-import * as Styled from "../../styles/MobileAuditService/HowDoWeAudit.styled";
+
 import AuditBox from "./AuditBox";
 import { MobileInfiniteText } from "../MobileInfiniteText/MobileInfiniteText";
+
+import * as Styled from "../../styles/MobileAuditService/HowDoWeAudit.styled";
+
+import { queryKeys } from "../../consts/queryKeys";
+
+import { IServiceMobileAudit } from "../../types/Admin/Response.types";
 
 const HowDoWeAuditBlock = () => {
   const queryClient = useQueryClient();

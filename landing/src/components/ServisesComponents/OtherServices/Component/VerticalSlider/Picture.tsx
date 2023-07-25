@@ -1,9 +1,9 @@
 import React from "react";
 import Image from "next/image";
 
-import { IImage } from "../../../../../types/Admin/Admin.types";
-
 import * as Styled from "./Picture.styled";
+
+import { IImage } from "../../../../../types/Admin/Admin.types";
 
 interface IPictureProps {
   imageColor: IImage;

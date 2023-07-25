@@ -1,17 +1,22 @@
+import React from "react";
 import { useQueryClient } from "@tanstack/react-query";
 import Image from "next/image";
-import React from "react";
-import { queryKeys } from "../../consts/queryKeys";
+
+import HowToProvideBlockItem from "./HowDoProvideBlockItem";
+import HowDoProvideSubItem from "./HowDoProvideSubItem";
+import { MobileInfiniteText } from "../MobileInfiniteText/MobileInfiniteText";
+
 import {
   Subtitle,
   WrapperWithLineProvideBlock,
 } from "../../styles/AiService/Common.styled";
 import * as Styled from "../../styles/AiService/HowDoProvideBlock.styled";
+
 import { IServiceDappAudit } from "../../types/Admin/Response.types";
-import HowToProvideBlockItem from "./HowDoProvideBlockItem";
+
+import { queryKeys } from "../../consts/queryKeys";
+
 import HowDoWeProvideBg from "../../../public/DappAuditService/HowDoWeProvide.svg";
-import HowDoProvideSubItem from "./HowDoProvideSubItem";
-import { MobileInfiniteText } from "../MobileInfiniteText/MobileInfiniteText";
 
 const HowDoProvideBlock = () => {
   const queryClient = useQueryClient();

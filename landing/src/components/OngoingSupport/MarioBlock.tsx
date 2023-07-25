@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from "react";
-import * as Styled from "../../styles/OngoingSupport/ProvidesBlock.styled";
 import parse from "html-react-parser";
+
+import * as Styled from "../../styles/OngoingSupport/ProvidesBlock.styled";
 
 import topLeftBlock from "../../../public/OngoingSupport/topBlock-1.svg";
 import topRightBlock from "../../../public/OngoingSupport/topBlock-2.svg";

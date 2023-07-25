@@ -1,7 +1,10 @@
 import React from "react";
-import * as Styled from "../../styles/ShowCase.styled";
-import { IReviewProps as IReview } from "../../types/Admin/Response.types";
 import Image from "next/image";
+
+import * as Styled from "../../styles/ShowCase.styled";
+
+import { IReviewProps as IReview } from "../../types/Admin/Response.types";
+
 import { openInNewTab } from "../../utils/OpenInNewTab";
 
 interface IReviewProps {

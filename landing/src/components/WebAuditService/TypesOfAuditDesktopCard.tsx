@@ -1,9 +1,12 @@
 import * as React from "react";
-import * as Styled from "../../styles/WebAuditService/TypesOfAuditDesktopCard.styled";
 import Image from "next/image";
+
+import TypesOfAuditHoverModal from "./TypesOfAuditHoverModal";
+
+import * as Styled from "../../styles/WebAuditService/TypesOfAuditDesktopCard.styled";
+
 import { webAuditTypesOfAuditImages } from "../../utils/variables";
 import { SplitBrackets } from "../../utils/splitBrackets";
-import TypesOfAuditHoverModal from "./TypesOfAuditHoverModal";
 
 type ITypesOfAuditDesktopCardProps = {
   item: { _id: string; title: string; text: string };

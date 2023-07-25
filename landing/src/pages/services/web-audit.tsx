@@ -1,13 +1,9 @@
 import React, { useEffect, useState } from "react";
 import { NextPage } from "next";
 import Head from "next/head";
-import * as Styled from "../../styles/WebService/Layout";
-
 import { dehydrate, QueryClient, useQuery } from "@tanstack/react-query";
 import parse from "html-react-parser";
-import { queryKeys } from "../../consts/queryKeys";
-import { adminGlobalService } from "../../services/adminHomePage";
-import { adminWebAuditService } from "../../services/services/adminServiceWebAuditPage";
+
 import FooterNew from "../../components/FooterNew/FooterNew";
 import HeaderNavNew from "../../components/HeaderNavNew/HeaderNavNew";
 import HeadBlock from "../../components/WebAuditService/HeadBlockWebAudit";
@@ -18,13 +14,20 @@ import TypesOfAuditBlock from "../../components/WebAuditService/TypesOfAuditBloc
 import HowToDoBlock from "../../components/WebAuditService/HowToDoBlock";
 import FooterBlock from "../../components/WebAuditService/FooterBlockWebAudit";
 import ShowCase from "../../components/ShowCase";
+import CalendlyInfoModal from "../../components/Calendly/CalendlyInfoModal";
+import { Loader, LoaderStub } from "../../components/Loader";
+import { TeamMembers } from "../../components/ServisesComponents";
+
+import * as Styled from "../../styles/WebService/Layout";
 import {
   ShowcaseLayoutIgnore,
   ShowcaseWithoutDataSpacing,
 } from "../../styles/WebAuditService/ShowcaseLayoutIgnore.styled";
-import CalendlyInfoModal from "../../components/Calendly/CalendlyInfoModal";
-import { Loader, LoaderStub } from "../../components/Loader";
-import { TeamMembers } from "../../components/ServisesComponents";
+
+import { queryKeys } from "../../consts/queryKeys";
+
+import { adminGlobalService } from "../../services/adminHomePage";
+import { adminWebAuditService } from "../../services/services/adminServiceWebAuditPage";
 
 export async function getServerSideProps() {
   const queryClient = new QueryClient();

@@ -8,8 +8,7 @@ import {
 } from "@tanstack/react-query";
 import { queryKeys } from "../../consts/queryKeys";
 import Head from "next/head";
-import { adminMobileAuditService } from "../../services/services/adminServiceMobileAuditPage";
-import { adminGlobalService } from "../../services/adminHomePage";
+
 import HeaderNavNew from "../../components/HeaderNavNew/HeaderNavNew";
 import FooterNew from "../../components/FooterNew/FooterNew";
 import HeadBlock from "../../components/MobileAuditService/HeadBlockMobileAudit";
@@ -17,13 +16,18 @@ import WhatAppBlock from "../../components/MobileAuditService/WhatAppBlock";
 import WhatAppIncludeBlock from "../../components/MobileAuditService/WhatAppIncludeBlock";
 import ShowCase from "../../components/ShowCase";
 import FooterBlock from "../../components/MobileAuditService/FooterBlockMobileAudit";
-import * as Styled from "../../styles/MobileAuditService/Layout";
-import { Layout } from "../../styles/Layout.styled";
 import HowDoWeAuditBlock from "../../components/MobileAuditService/HowDoWeAuditBlock";
 import CalendlyInfoModal from "../../components/Calendly/CalendlyInfoModal";
 import PerksOfCoopComponent from "../../components/ServisesComponents/PerksOfCoopComponent";
-import { IServiceMobileAudit } from "../../types/Admin/Response.types";
 import { Loader, LoaderStub } from "../../components/Loader";
+
+import * as Styled from "../../styles/MobileAuditService/Layout";
+import { Layout } from "../../styles/Layout.styled";
+
+import { IServiceMobileAudit } from "../../types/Admin/Response.types";
+
+import { adminMobileAuditService } from "../../services/services/adminServiceMobileAuditPage";
+import { adminGlobalService } from "../../services/adminHomePage";
 
 export async function getServerSideProps() {
   const queryClient = new QueryClient();

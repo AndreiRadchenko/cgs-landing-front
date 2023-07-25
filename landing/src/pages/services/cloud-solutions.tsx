@@ -16,7 +16,9 @@ import { Loader, LoaderStub } from "../../components/Loader";
 
 import * as Styled from "../../styles/CloudService/Layout";
 import { Layout, PageArticle } from "../../styles/Layout.styled";
+
 import { queryKeys } from "../../consts/queryKeys";
+
 import { adminCloudService } from "../../services/services/AdminServicesCloudSolution";
 import { adminGlobalService } from "../../services/adminHomePage";
 import { adminPortfolioService } from "../../services/adminPortfolioPage";

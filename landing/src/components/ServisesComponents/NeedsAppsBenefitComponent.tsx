@@ -1,10 +1,14 @@
 import React from "react";
+import Image from "next/image";
+
+import { MobileInfiniteText } from "../MobileInfiniteText/MobileInfiniteText";
+
 import * as Styles from "../../styles/Services.styled";
 import { Subtitle } from "../../styles/MobileService/Layout";
-import { SplitBrackets } from "../../utils/splitBrackets";
+
 import { IDomain } from "../../types/Admin/Response.types";
-import Image from "next/image";
-import { MobileInfiniteText } from "../MobileInfiniteText/MobileInfiniteText";
+
+import { SplitBrackets } from "../../utils/splitBrackets";
 
 const NeedsAppsBenefitComponent = ({ data }: { data: any }) => {
   return (

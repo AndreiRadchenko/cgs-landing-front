@@ -1,20 +1,26 @@
+import React from "react";
 import { useQueryClient } from "@tanstack/react-query";
 import Image from "next/image";
-import React from "react";
-import { queryKeys } from "../../consts/queryKeys";
+import parse from "html-react-parser";
+
+import { MobileInfiniteText } from "../MobileInfiniteText/MobileInfiniteText";
+
 import {
   Wrapper,
   Subtitle,
   WrapperWithLine,
 } from "../../styles/AiService/Common.styled";
 import * as Styled from "../../styles/AiService/FigureOutBlock.styled";
+
 import { IServiceDappAudit } from "../../types/Admin/Response.types";
+
+import { queryKeys } from "../../consts/queryKeys";
+
 import { SplitBrackets } from "../../utils/splitBrackets";
-import { MobileInfiniteText } from "../MobileInfiniteText/MobileInfiniteText";
+import { useWindowDimension } from "../../hooks/useWindowDimension";
+
 import WhyIsAuditImportant from "/public/DappAuditService/WhyIsAuditImportant.svg";
 import WhyIsAuditImportantMobile from "/public/DappAuditService/WhyIsAuditImportantMobile.svg";
-import { useWindowDimension } from "../../hooks/useWindowDimension";
-import parse from "html-react-parser";
 
 const FigureOutBlock = () => {
   const { width } = useWindowDimension();

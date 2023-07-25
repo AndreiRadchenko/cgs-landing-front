@@ -20,7 +20,9 @@ import { Loader, LoaderStub } from "../../components/Loader";
 
 import * as Styled from "../../styles/UxUiService/Layout.styled";
 import { Layout, PageArticle } from "../../styles/Layout.styled";
+
 import { queryKeys } from "../../consts/queryKeys";
+
 import { adminUxUiService } from "../../services/services/AdminServiceUxUiPage";
 import { adminGlobalService } from "../../services/adminHomePage";
 import { adminPortfolioService } from "../../services/adminPortfolioPage";

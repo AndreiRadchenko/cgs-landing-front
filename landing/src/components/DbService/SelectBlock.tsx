@@ -1,12 +1,18 @@
 import React, { useRef } from "react";
 import { useQueryClient } from "@tanstack/react-query";
-import { queryKeys } from "../../consts/queryKeys";
-import { useOnScreen } from "../../hooks/useOnScreen";
+
+import TextTypingAnimation from "../Typewrite";
+
 import * as Styled from "../../styles/DbService/SelectBlock.styled";
+
 import { IServiceDb } from "../../types/Admin/Response.types";
 import { IServicesClassnameProps } from "../../types/Services.types";
+
+import { queryKeys } from "../../consts/queryKeys";
+
+import { useOnScreen } from "../../hooks/useOnScreen";
+
 import { SplitBrackets } from "../../utils/splitBrackets";
-import TextTypingAnimation from "../Typewrite";
 
 const SelectBlock = ({ className }: IServicesClassnameProps) => {
   const queryClient = useQueryClient();

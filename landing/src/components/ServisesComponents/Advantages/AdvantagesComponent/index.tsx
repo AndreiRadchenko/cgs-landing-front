@@ -1,9 +1,13 @@
 import React, { useRef } from "react";
+
 import * as Styled from "./advantages.styled";
+
+import { IAdvantagesServicesComponent } from "../../../../types/ServicesComponent.types";
+
+import { useOnScreen } from "../../../../hooks/useOnScreen";
+
 import circle from "../../../../../public/Advantages/circle.svg";
 import smallCircle from "../../../../../public/Advantages/smallCircle.svg";
-import { useOnScreen } from "../../../../hooks/useOnScreen";
-import { IAdvantagesServicesComponent } from "../../../../types/ServicesComponent.types";
 
 interface IAdvantagesProps {
   advantages?: IAdvantagesServicesComponent;

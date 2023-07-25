@@ -1,9 +1,14 @@
 import React, { useCallback, useEffect, useRef, useState } from "react";
 import { useQueryClient } from "@tanstack/react-query";
-import { queryKeys } from "../../consts/queryKeys";
-import { IBlockchainService } from "../../types/Admin/Response.types";
+
 import LinedText from "./LinedText";
+
 import * as Styled from "../../styles/BlockchainService/YourWayBlock.styled";
+
+import { queryKeys } from "../../consts/queryKeys";
+
+import { IBlockchainService } from "../../types/Admin/Response.types";
+
 import { useOnScreen } from "../../hooks/useOnScreen";
 
 const YourWayBlock = () => {

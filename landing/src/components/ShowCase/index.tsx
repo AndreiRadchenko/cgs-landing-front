@@ -1,19 +1,23 @@
 import React, { useEffect, useState } from "react";
-import * as Styled from "../../styles/ShowCase.styled";
 import { useQuery } from "@tanstack/react-query";
-import { queryKeys } from "../../consts/queryKeys";
+import { Autoplay, Navigation, EffectFade } from "swiper";
+import { Swiper, SwiperSlide } from "swiper/react";
+
+import Slide from "./Slide";
+
+import * as Styled from "../../styles/ShowCase.styled";
+
 import { adminPortfolioService } from "../../services/adminPortfolioPage";
+
 import { IReviewProps } from "../../types/Admin/Response.types";
 import { IShowCaseProps } from "../../types/Services.types";
-import { Autoplay, Navigation, EffectFade } from "swiper";
 
-import { Swiper, SwiperSlide } from "swiper/react";
+import { queryKeys } from "../../consts/queryKeys";
 
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/autoplay";
 import "swiper/css/effect-fade";
-import Slide from "./Slide";
 
 const ShowCase = ({ projects }: IShowCaseProps) => {
   const [currentProjects, setCurrentProjects] = useState<

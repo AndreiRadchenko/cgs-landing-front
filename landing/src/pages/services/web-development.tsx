@@ -3,13 +3,10 @@ import parse from "html-react-parser";
 import Head from "next/head";
 import React, { useEffect, useState } from "react";
 import { dehydrate, QueryClient, useQuery } from "@tanstack/react-query";
+
 import FooterNew from "../../components/FooterNew/FooterNew";
 import HeaderNavNew from "../../components/HeaderNavNew/HeaderNavNew";
-import { queryKeys } from "../../consts/queryKeys";
-import { adminGlobalService } from "../../services/adminHomePage";
-import { adminWebService } from "../../services/services/adminServicesWebPage";
 import HeadBlock from "../../components/WebService/HeadBlockWebDev";
-import * as Styled from "../../styles/WebService/Layout";
 import WebPros from "../../components/WebService/WebPros";
 import SolutionBlock from "../../components/WebService/SolutionBlock";
 import FooterBlock from "../../components/WebService/FooterBlockWebDev";
@@ -18,6 +15,13 @@ import ShowCase from "../../components/ShowCase";
 import CalendlyInfoModal from "../../components/Calendly/CalendlyInfoModal";
 import { Loader, LoaderStub } from "../../components/Loader";
 import { FreeService, TeamMembers } from "../../components/ServisesComponents";
+
+import * as Styled from "../../styles/WebService/Layout";
+
+import { queryKeys } from "../../consts/queryKeys";
+
+import { adminGlobalService } from "../../services/adminHomePage";
+import { adminWebService } from "../../services/services/adminServicesWebPage";
 
 export async function getServerSideProps() {
   const queryClient = new QueryClient();

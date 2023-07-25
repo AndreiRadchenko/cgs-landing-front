@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import { NextPage } from "next";
-import * as Styled from "../../styles/WebService/Layout";
 import parse from "html-react-parser";
 import {
   dehydrate,
@@ -8,6 +7,8 @@ import {
   useQuery,
   useQueryClient,
 } from "@tanstack/react-query";
+import Head from "next/head";
+
 import HeadBlock from "../../components/MobileService/HeadBlockMobileDev";
 import HeaderNavNew from "../../components/HeaderNavNew/HeaderNavNew";
 import FooterNew from "../../components/FooterNew/FooterNew";
@@ -15,17 +16,21 @@ import StrongBlock from "../../components/MobileService/StrongBlock";
 import WhoNeedAppBlock from "../../components/MobileService/WhoNeedAppBlock";
 import HowDoWeWork from "../../components/MobileService/HowDoWeWork";
 import FooterBlock from "../../components/MobileService/FooterBlockMobileDev";
-import { queryKeys } from "../../consts/queryKeys";
-import { adminGlobalService } from "../../services/adminHomePage";
-import { adminMobileService } from "../../services/services/adminServicesMobilePage";
-import Head from "next/head";
-import { Layout } from "../../styles/Layout.styled";
 import ShowCase from "../../components/ShowCase";
+import TeamMembers from "../../components/ServisesComponents/TeamMembers/TeamMembersComponent";
 import CalendlyInfoModal from "../../components/Calendly/CalendlyInfoModal";
 import PerksOfCoopComponent from "../../components/ServisesComponents/PerksOfCoopComponent";
-import { IServiceMobile } from "../../types/Admin/Response.types";
-import TeamMembers from "../../components/ServisesComponents/TeamMembers/TeamMembersComponent";
 import { Loader, LoaderStub } from "../../components/Loader";
+
+import * as Styled from "../../styles/WebService/Layout";
+import { Layout } from "../../styles/Layout.styled";
+
+import { IServiceMobile } from "../../types/Admin/Response.types";
+
+import { queryKeys } from "../../consts/queryKeys";
+
+import { adminGlobalService } from "../../services/adminHomePage";
+import { adminMobileService } from "../../services/services/adminServicesMobilePage";
 
 export async function getServerSideProps() {
   const queryClient = new QueryClient();
