@@ -59,7 +59,7 @@ const SocialSection = () => {
   };
 
   return (
-    <Styled.ContentWrapper>
+    <Styles.ContentWrapper>
       <SubHeaderWithInput
         width="48%"
         placeholder="Social subtitle"
@@ -113,7 +113,7 @@ const SocialSection = () => {
           </Styles.EmailList>
         )}
       </FieldArray>
-    </Styled.ContentWrapper>
+    </Styles.ContentWrapper>
   );
 };
 

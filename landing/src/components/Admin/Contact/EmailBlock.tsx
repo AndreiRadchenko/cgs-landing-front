@@ -62,13 +62,6 @@ const EmailBlock = () => {
 
   return (
     <Styled.ContentWrapper>
-      {data?.lastModified && (
-        <HistoryLink
-          sectionName="Emails"
-          lastModified={data?.lastModified}
-          link={"/history/contacts/emails"}
-        />
-      )}
       <SubHeaderWithInput
         width="48%"
         placeholder="Emails subtitle"
@@ -103,13 +96,14 @@ const EmailBlock = () => {
           </Styles.EmailList>
         )}
       </FieldArray>
-      {messengersData?.lastModified && (
+      {data?.lastModified && (
         <HistoryLink
-          sectionName="Messengers"
-          lastModified={messengersData?.lastModified}
-          link={"/history/contacts/messengers"}
+          sectionName="Emails"
+          lastModified={data?.lastModified}
+          link={"/history/contacts/emails"}
         />
       )}
+
       <SubHeaderWithInput
         width="48%"
         placeholder="Messengers subtitle"
@@ -158,6 +152,13 @@ const EmailBlock = () => {
           </Styles.EmailList>
         )}
       </FieldArray>
+      {messengersData?.lastModified && (
+        <HistoryLink
+          sectionName="Messengers"
+          lastModified={messengersData?.lastModified}
+          link={"/history/contacts/messengers"}
+        />
+      )}
       <div>
         <BlackButton
           size={"1.5em"}

@@ -52,13 +52,6 @@ const LocationBlock = () => {
 
   return (
     <Styled.ContentWrapper>
-      {location?.lastModified && (
-        <HistoryLink
-          sectionName="Location"
-          lastModified={location?.lastModified}
-          link={"/history/contacts/location"}
-        />
-      )}
       <Styles.LocationWrapper>
         <div>
           <Styled.AdminSubTitle>Map 1440 x 305</Styled.AdminSubTitle>
@@ -93,6 +86,13 @@ const LocationBlock = () => {
           />
         </Styles.LocationTextlItem>
       </Styles.LocationWrapper>
+      {location?.lastModified && (
+        <HistoryLink
+          sectionName="Location"
+          lastModified={location?.lastModified}
+          link={"/history/contacts/location"}
+        />
+      )}
       <div>
         <BlackButton
           size={"1.5em"}

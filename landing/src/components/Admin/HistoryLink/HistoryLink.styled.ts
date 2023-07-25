@@ -1,9 +1,11 @@
 import styled from "styled-components";
 
 export const LinkWrapper = styled.div`
+  color: darkslategray;
   display: flex;
   align-items: center;
   gap: 30px;
+  margin-bottom: 15px;
 `;
 
 export const LinkText = styled.a`
