@@ -185,6 +185,9 @@ export const BlackButton = styled.a<IFontSize>`
       font-size: 16px;
     }
 
+    &.mobileDev {
+      min-width: 209px;
+    }
     &.cta-button {
       width: 178px;
       height: 54px;

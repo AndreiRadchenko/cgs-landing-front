@@ -1,15 +1,16 @@
-import React, { useRef } from "react";
+import React from "react";
 import { useQueryClient } from "@tanstack/react-query";
-import { queryKeys } from "../../consts/queryKeys";
-import { ICloudService } from "../../types/Admin/Response.types";
-import { SplitBrackets } from "../../utils/splitBrackets";
+
+import { FooterTextBlockServices } from "../ServisesComponents";
+
 import * as Styled from "../../styles/CloudService/FooterBlock.styled";
-import GetEstimationButton from "../GetEstimationButton";
-import ButtonShareComponent from "../HomePage/ButtonShareComponent";
+
+import { queryKeys } from "../../consts/queryKeys";
+
+import { ICloudService } from "../../types/Admin/Response.types";
 
 const FooterBlockCloud = () => {
   const queryClient = useQueryClient();
-  const elRef = useRef<HTMLDivElement>(null);
   const data = queryClient.getQueryData<ICloudService>([
     queryKeys.getServiceCloudPage,
   ])?.footerBlock;
@@ -17,22 +18,13 @@ const FooterBlockCloud = () => {
   return (
     <Styled.Container>
       <Styled.Content>
-        <Styled.Title>
-          <SplitBrackets text={data?.subtitle} />
-        </Styled.Title>
-        <Styled.Text>
-          <SplitBrackets text={data?.text} />
-        </Styled.Text>
         {data && (
-          <Styled.ButtonWrapper ref={elRef}>
-            <GetEstimationButton
-              buttonLink={data?.buttonLink}
-              buttonText={data.button}
-              withEstimation
-              buttonClassName="social-button"
-            />
-            <ButtonShareComponent />
-          </Styled.ButtonWrapper>
+          <FooterTextBlockServices
+            title={data.subtitle}
+            text={data.text}
+            btnText={data.button}
+            btnLink={data.buttonLink}
+          />
         )}
       </Styled.Content>
       <Styled.Image src={data?.image?.url} alt="Footer Cloud Service image" />

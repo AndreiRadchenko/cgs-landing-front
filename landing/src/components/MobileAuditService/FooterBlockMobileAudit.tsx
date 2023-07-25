@@ -1,16 +1,17 @@
-import React, { useRef } from "react";
-import { IServiceMobile } from "../../types/Admin/Response.types";
+import React from "react";
 import { useQueryClient } from "@tanstack/react-query";
-import { queryKeys } from "../../consts/queryKeys";
-import * as Styled from "../../styles/MobileAuditService/FooterBlock.styled";
 import Image from "next/image";
-import GetEstimationButton from "../GetEstimationButton";
-import ButtonShareComponent from "../HomePage/ButtonShareComponent";
-import { SplitBrackets } from "../../utils/splitBrackets";
+
+import { FooterTextBlockServices } from "../ServisesComponents";
+
+import * as Styled from "../../styles/MobileAuditService/FooterBlock.styled";
+
+import { IServiceMobile } from "../../types/Admin/Response.types";
+
+import { queryKeys } from "../../consts/queryKeys";
 
 const FooterBlockMobileAudit = () => {
   const queryClient = useQueryClient();
-  const elRef = useRef<HTMLDivElement>(null);
   const data = queryClient.getQueryData<IServiceMobile>([
     queryKeys.getServiceMobileAuditPage,
   ])?.footerBlock;
@@ -18,20 +19,13 @@ const FooterBlockMobileAudit = () => {
   return (
     <Styled.Container>
       <Styled.ContentWrapper>
-        <Styled.Title>{data?.title}</Styled.Title>
-        <Styled.Description>
-          <SplitBrackets text={data?.text} />
-        </Styled.Description>
         {data && (
-          <Styled.ButtonWrapper ref={elRef}>
-            <GetEstimationButton
-              buttonLink={data?.buttonLink}
-              buttonText={data.button}
-              withEstimation
-              buttonClassName="social-button"
-            />
-            <ButtonShareComponent />
-          </Styled.ButtonWrapper>
+          <FooterTextBlockServices
+            title={data.title}
+            text={data.text}
+            btnText={data.button}
+            btnLink={data.buttonLink}
+          />
         )}
       </Styled.ContentWrapper>
       {data && (

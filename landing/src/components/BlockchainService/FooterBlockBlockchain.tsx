@@ -1,35 +1,30 @@
-import React, { useRef } from "react";
+import React from "react";
 import { useQueryClient } from "@tanstack/react-query";
-import { queryKeys } from "../../consts/queryKeys";
-import { IBlockchainService } from "../../types/Admin/Response.types";
+
+import { FooterTextBlockServices } from "../ServisesComponents";
+
 import * as Styled from "../../styles/BlockchainService/FooterBlock.styled";
-import GetEstimationButton from "../GetEstimationButton";
-import ButtonShareComponent from "../HomePage/ButtonShareComponent";
-import { SplitBrackets } from "../../utils/splitBrackets";
+
+import { queryKeys } from "../../consts/queryKeys";
+
+import { IBlockchainService } from "../../types/Admin/Response.types";
 
 const FooterBlockBlockchain = () => {
   const queryClient = useQueryClient();
-  const elRef = useRef<HTMLDivElement>(null);
   const data = queryClient.getQueryData<IBlockchainService>([
     queryKeys.getServiceBlockchainPage,
   ])?.footerBlock;
 
   return (
     <Styled.Container>
-      <Styled.Title>{data?.subtitle}</Styled.Title>
-      <Styled.Description>
-        <SplitBrackets text={data?.description} />
-      </Styled.Description>
       {data && (
-        <Styled.ButtonWrapper ref={elRef}>
-          <GetEstimationButton
-            buttonLink={data?.buttonLink}
-            buttonText={data.button}
-            withEstimation
-            buttonClassName="social-button"
-          />
-          <ButtonShareComponent />
-        </Styled.ButtonWrapper>
+        <FooterTextBlockServices
+          title={data.subtitle}
+          text={data.description}
+          btnText={data.button}
+          btnLink={data.buttonLink}
+          className={"blockchain"}
+        />
       )}
       <Styled.Image src={data?.image?.url} alt="Footer Crypto image" />
     </Styled.Container>

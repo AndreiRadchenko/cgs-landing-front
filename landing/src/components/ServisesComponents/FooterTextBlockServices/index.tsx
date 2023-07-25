@@ -27,12 +27,12 @@ const FooterTextBlockServices = ({
         <SplitBrackets text={text} />
       </Styled.Text>
 
-      <Styled.ButtonWrapper ref={elRef}>
+      <Styled.ButtonWrapper className={className} ref={elRef}>
         <GetEstimationButton
           buttonLink={btnLink}
           buttonText={btnText}
           withEstimation
-          buttonClassName="social-button"
+          buttonClassName={`social-button ${className}`}
         />
         <ButtonShareComponent />
       </Styled.ButtonWrapper>

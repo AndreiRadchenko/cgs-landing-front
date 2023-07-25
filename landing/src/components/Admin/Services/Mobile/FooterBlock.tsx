@@ -1,14 +1,10 @@
 ﻿import { useFormikContext } from "formik";
-import dynamic from "next/dynamic";
 import React from "react";
 import useDeleteImageFunction from "../../../../hooks/useDeleteImageFunction";
 import useUploadImageFunction from "../../../../hooks/useUploadImageFunction";
 import { AdminHalfGrid, AdminPaddedBlock } from "../../../../styles/AdminPage";
 import { IImage } from "../../../../types/Admin/Admin.types";
 import { IServiceMobile } from "../../../../types/Admin/Response.types";
-const TextEditor = dynamic(() => import("../../../TextEditor/TextEditor"), {
-  ssr: false,
-});
 import PhotoBlockDashed from "../../Global/PhotoBlockDashed";
 import SubHeaderWithInput from "../../Global/SubHeaderWithInput";
 import {
@@ -34,7 +30,12 @@ const FooterBlock = () => {
             onChangeFunction={handleChange}
             inputValue={values.footerBlock.title}
           />
-          <TextEditor header="Text" name="footerBlock.text" />
+          <SubHeaderWithInput
+            header="Text"
+            name="footerBlock.text"
+            onChangeFunction={handleChange}
+            inputValue={values.footerBlock.text}
+          />
           <SubHeaderWithInput
             header="Button"
             name="footerBlock.button"

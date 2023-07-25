@@ -1,18 +1,16 @@
-import React, { useRef } from "react";
+import React from "react";
 import { useQueryClient } from "@tanstack/react-query";
 
-import GetEstimationButton from "../GetEstimationButton";
-import ButtonShareComponent from "../HomePage/ButtonShareComponent";
-import { SplitBrackets } from "../../utils/splitBrackets";
+import { FooterTextBlockServices } from "../ServisesComponents";
+
+import * as Styled from "../../styles/UxUiService/FooterBlock.styled";
 
 import { queryKeys } from "../../consts/queryKeys";
+
 import { IUxUiInterface } from "../../types/Admin/Response.types";
-import * as Styled from "../../styles/UxUiService/FooterBlock.styled";
 
 const FooterBlockUxUi = () => {
   const queryClient = useQueryClient();
-  const elRef = useRef<HTMLDivElement>(null);
-
   const data = queryClient.getQueryData<IUxUiInterface>([
     queryKeys.getServiceUxUiPage,
   ])?.footerBlock;
@@ -20,22 +18,14 @@ const FooterBlockUxUi = () => {
   return (
     <Styled.Container>
       <Styled.ContentWrapper>
-        <Styled.Title>
-          <SplitBrackets text={data?.title} />
-        </Styled.Title>
-        <Styled.Text>
-          <SplitBrackets text={data?.text} />
-        </Styled.Text>
         {data && (
-          <Styled.ButtonWrapper ref={elRef}>
-            <GetEstimationButton
-              buttonLink={data?.buttonLink}
-              buttonText={data.button}
-              withEstimation
-              buttonClassName="social-button"
-            />
-            <ButtonShareComponent />
-          </Styled.ButtonWrapper>
+          <FooterTextBlockServices
+            title={data.title}
+            text={data.text}
+            btnText={data.button}
+            btnLink={data.buttonLink}
+            className={"fullWidth"}
+          />
         )}
       </Styled.ContentWrapper>
       <Styled.Image src={data?.image?.url} alt="Footer UxUi image" />

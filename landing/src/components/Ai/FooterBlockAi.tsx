@@ -11,6 +11,7 @@ import { IServiceDappAudit } from "../../types/Admin/Response.types";
 import Image from "next/image";
 import GetEstimationButton from "../GetEstimationButton";
 import ButtonShareComponent from "../HomePage/ButtonShareComponent";
+import { FooterTextBlockServices } from "../ServisesComponents";
 
 const FooterBlockAi = () => {
   const queryClient = useQueryClient();
@@ -23,30 +24,12 @@ const FooterBlockAi = () => {
     <Styled.ContentWrapper>
       <WrapperWithLine />
       <div>
-        <Styled.TitleWrapper>
-          <Subtitle>
-            {data &&
-              parse(
-                data.title
-                  .toLowerCase()
-                  .replaceAll("|", "<br/>")
-                  .replace(
-                    "cgs-team",
-                    '<span style="white-space: nowrap">cgs-team</span>'
-                  )
-              )}
-          </Subtitle>
-        </Styled.TitleWrapper>
         {data && (
-          <Styled.ButtonWrapper ref={elRef}>
-            <GetEstimationButton
-              buttonLink={data?.buttonLink}
-              buttonText={data.button}
-              withEstimation
-              buttonClassName="social-button"
-            />
-            <ButtonShareComponent />
-          </Styled.ButtonWrapper>
+          <FooterTextBlockServices
+            title={data.title}
+            btnText={data.button}
+            btnLink={data.buttonLink}
+          />
         )}
       </div>
       {data && (

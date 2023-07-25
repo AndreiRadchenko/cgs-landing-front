@@ -1,44 +1,38 @@
-import React, { useRef } from "react";
+import React from "react";
 import { useQueryClient } from "@tanstack/react-query";
-import { IServiceWebAudit } from "../../types/Admin/Response.types";
-import { queryKeys } from "../../consts/queryKeys";
-import * as Styled from "../../styles/WebAuditService/ProfessionalAuditBlock.style";
 import Image from "next/image";
+
+import { FooterTextBlockServices } from "../ServisesComponents";
+
+import * as Styled from "../../styles/WebAuditService/ProfessionalAuditBlock.style";
+
+import { IServiceWebAudit } from "../../types/Admin/Response.types";
+
+import { queryKeys } from "../../consts/queryKeys";
+
 import AuditTimeText from "../../../public/WebAuditServicePage/AuditTimeText.svg";
 import AuditTimeCommon from "../../../public/WebAuditServicePage/AuditTimeCommon.svg";
-import { SplitBrackets } from "../../utils/splitBrackets";
-import GetEstimationButton from "../GetEstimationButton";
-import ButtonShareComponent from "../HomePage/ButtonShareComponent";
 
 const FooterBlockWebAudit = () => {
   const queryClient = useQueryClient();
-  const elRef = useRef<HTMLDivElement>(null);
   const data = queryClient.getQueryData<IServiceWebAudit>([
     queryKeys.getServiceWebAuditPage,
   ])?.footerBlock;
 
   return (
     <Styled.Wrapper>
-      <Styled.Subtitle>
-        <SplitBrackets text={data?.title} />
-      </Styled.Subtitle>
       <Styled.Content>
-        <Styled.InfoBlock>
-          <Styled.TextWrapper>
-            <SplitBrackets text={data?.text} />
-          </Styled.TextWrapper>
+        <div>
           {data && (
-            <Styled.ButtonWrapper ref={elRef}>
-              <GetEstimationButton
-                buttonLink={data?.buttonLink}
-                buttonText={data.button}
-                withEstimation
-                buttonClassName="social-button services"
-              />
-              <ButtonShareComponent className="webAudit" />
-            </Styled.ButtonWrapper>
+            <FooterTextBlockServices
+              title={data.title}
+              text={data.text}
+              btnText={data.button}
+              btnLink={data.buttonLink}
+              className={"biggerFontSize fullWidth"}
+            />
           )}
-        </Styled.InfoBlock>
+        </div>
         <Styled.ImageWrapper>
           <Image
             src={AuditTimeCommon}

@@ -12,7 +12,7 @@ export interface IServicesShowcaseProps {
 
 export interface IHeaderFooterServicesProps {
   title: string;
-  text: string;
+  text?: string;
   btnText: string;
   btnLink: string;
   className?: string;

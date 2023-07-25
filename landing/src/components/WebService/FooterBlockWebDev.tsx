@@ -1,16 +1,16 @@
-﻿import React, { useRef } from "react";
+﻿import React from "react";
 import { useQueryClient } from "@tanstack/react-query";
-import { queryKeys } from "../../consts/queryKeys";
-import { VisibleSubtitle } from "../../styles/MobileService/Layout";
+
+import { FooterTextBlockServices } from "../ServisesComponents";
+
 import * as Styled from "../../styles/WebService/FooterBlock.styled";
+
+import { queryKeys } from "../../consts/queryKeys";
+
 import { IServiceWeb } from "../../types/Admin/Response.types";
-import GetEstimationButton from "../GetEstimationButton";
-import ButtonShareComponent from "../HomePage/ButtonShareComponent";
-import { SplitBrackets } from "../../utils/splitBrackets";
 
 const FooterBlockWebDev = () => {
   const queryClient = useQueryClient();
-  const elRef = useRef<HTMLDivElement>(null);
   const data = queryClient.getQueryData<IServiceWeb>([
     queryKeys.getServiceWebPage,
   ])?.footerBlock;
@@ -18,22 +18,13 @@ const FooterBlockWebDev = () => {
   return (
     <Styled.Container>
       <Styled.TextContent>
-        <Styled.SubtitleWrapper>
-          <VisibleSubtitle>
-            <SplitBrackets text={data?.subtitle} />
-          </VisibleSubtitle>
-        </Styled.SubtitleWrapper>
-        <Styled.TextWrapper>{data?.text}</Styled.TextWrapper>
         {data && (
-          <Styled.ButtonWrapper ref={elRef}>
-            <GetEstimationButton
-              buttonLink={data?.buttonLink}
-              buttonText={data.button}
-              withEstimation
-              buttonClassName="social-button"
-            />
-            <ButtonShareComponent />
-          </Styled.ButtonWrapper>
+          <FooterTextBlockServices
+            title={data.subtitle}
+            text={data.text}
+            btnText={data.button}
+            btnLink={data.buttonLink}
+          />
         )}
       </Styled.TextContent>
       <Styled.Image src={data?.image?.url} alt="Footer WebService image" />
