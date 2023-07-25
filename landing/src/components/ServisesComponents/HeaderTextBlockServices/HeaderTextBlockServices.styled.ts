@@ -32,10 +32,6 @@ export const Description = styled.div`
     margin-top: -3em;
   }
 
-  @media ${themes.primary.media.minPC} {
-    max-width: 40%;
-  }
-
   @media ${themes.primary.media.onlyTabletPortrait} {
     max-width: 60%;
   }
