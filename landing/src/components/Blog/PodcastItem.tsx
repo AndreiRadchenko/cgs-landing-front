@@ -132,8 +132,10 @@ const PodcastItem = ({ data }: IPodcastItemProps) => {
         </Styled.RelativeContainer>
         <Styled.FlexColumnContainer>
           <Styled.FlexRowContainer>
+            <Styled.FlexPodcast>
             <Styled.PodcastIcon src={Podcast.src} />
             <Styled.PodcastWord>podcast</Styled.PodcastWord>
+            </Styled.FlexPodcast>
             <Styled.PlayTag>
               <Styled.PlayTriangle src={PlayTriangle.src} />
               <div>

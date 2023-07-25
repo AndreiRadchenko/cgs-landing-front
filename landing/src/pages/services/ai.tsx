@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { dehydrate, QueryClient, useQuery } from "@tanstack/react-query";
 import { NextPage } from "next";
 import parse from "html-react-parser";
@@ -21,6 +21,8 @@ import { adminGlobalService } from "../../services/adminHomePage";
 import { adminDappAuditService } from "../../services/services/adminServicesDappAuditPage";
 
 import { queryKeys } from "../../consts/queryKeys";
+
+import { calendlyPopupInfoHandler } from "../../utils/calendlyPopupInfoHandler";
 
 export async function getServerSideProps() {
   const queryClient = new QueryClient();
@@ -47,25 +49,7 @@ const DappAuditPage: NextPage = () => {
 
   const { metaTitle, metaDescription, customHead } = { ...data?.meta };
 
-  useEffect(() => {
-    const calendlyStatusFinder = (e: any) => {
-      window.dataLayer = window.dataLayer || [];
-
-      if (
-        e.data.event &&
-        e.data.event.indexOf("calendly") === 0 &&
-        e.data.event === "calendly.event_scheduled"
-      ) {
-        setIsCalendlySuccessfull(true);
-      }
-    };
-
-    window.addEventListener("message", calendlyStatusFinder);
-
-    return () => {
-      window.removeEventListener("message", calendlyStatusFinder);
-    };
-  }, []);
+  calendlyPopupInfoHandler(() => setIsCalendlySuccessfull(true));
 
   return (
     <Loader active={isLoading}>

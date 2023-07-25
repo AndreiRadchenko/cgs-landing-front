@@ -4,6 +4,7 @@ import { onBlurHandler } from "../onBlurHandler";
 
 import Arrow from "../../../public/upArrowSidebar.svg";
 import * as Styled from "../../styles/HomePage/General.styled";
+import { useMediaQuery } from "@mui/material";
 
 interface IDropdown {
   setFilters: (tags: string[]) => void;
@@ -36,6 +37,7 @@ const Dropdown = ({
 }: IDropdown) => {
   const modalRef = useRef<any>(null);
   const [isOpen, setIsOpen] = useState<boolean>(false);
+  const minPcFullHD = useMediaQuery("(min-width: 1800px)")
 
   const onBlur = () => {
     setIsOpen(false);
@@ -53,7 +55,7 @@ const Dropdown = ({
         type={type}
       >
         <span>{dropdownName}</span>
-        <Image width={9} height={5} src={Arrow.src} alt="Arrow" />
+        <Image width={minPcFullHD ? 12 : 9} height={minPcFullHD ? 8 : 5} src={Arrow.src} alt="Arrow" />
       </Styled.DropdownButton>
       <Styled.DropdownContent className={isOpen ? `open ` : undefined}>
         {tags.map((tag) => (

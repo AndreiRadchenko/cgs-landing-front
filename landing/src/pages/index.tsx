@@ -12,6 +12,7 @@ import HeaderNavNew from "../components/HeaderNavNew/HeaderNavNew";
 import FooterNew from "../components/FooterNew/FooterNew";
 import Content from "../components/HomePage/Content";
 import CalendlyInfoModal from "../components/Calendly/CalendlyInfoModal";
+import { calendlyPopupInfoHandler } from "../utils/calendlyPopupInfoHandler";
 
 interface IHomeData {
   data: IDataResponse | undefined;
@@ -46,25 +47,7 @@ const Home: NextPage = () => {
 
   const { metaTitle, metaDescription, customHead } = { ...data?.meta };
 
-  useEffect(() => {
-    const calendlyStatusFinder = (e: any) => {
-      window.dataLayer = window.dataLayer || [];
-
-      if (
-        e.data.event &&
-        e.data.event.indexOf("calendly") === 0 &&
-        e.data.event === "calendly.event_scheduled"
-      ) {
-        setIsCalendlySuccessfull(true);
-      }
-    };
-
-    window.addEventListener("message", calendlyStatusFinder);
-
-    return () => {
-      window.removeEventListener("message", calendlyStatusFinder);
-    };
-  }, []);
+  calendlyPopupInfoHandler(() => setIsCalendlySuccessfull(true));
 
   return (
     <>

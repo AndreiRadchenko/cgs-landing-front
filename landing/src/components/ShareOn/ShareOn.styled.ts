@@ -42,11 +42,30 @@ export const Text = styled.div`
   font-family: ${themes.primary.font.family.openSans};
   min-width: 125px;
   margin-right: 5px;
+
+  &.articleShare {
+    font-size: 2.1em;
+  }
+
   @media ${themes.primary.media.minPC} {
     font-size: ${themes.primary.font.size.articleTagDescription};
+
+    &.articleShare {
+      font-size: 1.8em;
+    }
   }
   @media ${themes.primary.media.minPCFullHD} {
     font-size: ${themes.primary.font.size.articleSubtitle};
+
+    &.articleShare {
+      font-size: 1.615em;
+    }
+  }
+
+  @media ${themes.primary.media.maxTabletLandScape} {
+    &.articleShare {
+      font-size: 1.8em;
+    }
   }
 `;
 

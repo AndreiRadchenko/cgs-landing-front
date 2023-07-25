@@ -1,17 +1,16 @@
-import React, { useRef } from "react";
+import React from "react";
 import { useQueryClient } from "@tanstack/react-query";
-import { queryKeys } from "../../consts/queryKeys";
-import * as Styled from "../../styles/WebAuditService/HeadBlock.styled";
-import { IServiceWebAudit } from "../../types/Admin/Response.types";
-import TextTypingAnimation from "../Typewrite";
-import { SplitBrackets } from "../../utils/splitBrackets";
-import GetEstimationButton from "../GetEstimationButton";
-import ButtonShareComponent from "../HomePage/ButtonShareComponent";
+
 import { HeaderTextBlockServices } from "../ServisesComponents";
+
+import * as Styled from "../../styles/WebAuditService/HeadBlock.styled";
+
+import { queryKeys } from "../../consts/queryKeys";
+
+import { IServiceWebAudit } from "../../types/Admin/Response.types";
 
 const HeadBlockWebAudit = () => {
   const queryClient = useQueryClient();
-  const elRef = useRef<HTMLDivElement>(null);
   const data = queryClient.getQueryData<IServiceWebAudit>([
     queryKeys.getServiceWebAuditPage,
   ])?.headerBlock;

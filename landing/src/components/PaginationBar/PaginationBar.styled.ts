@@ -22,6 +22,7 @@ export const FontSettings = styled.div`
 export const PaginationItem = styled(FontSettings)`
   width: 26px;
   height: 26px;
+  font-size: 1.35em;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -41,6 +42,7 @@ export const PaginationItem = styled(FontSettings)`
   @media ${themes.primary.media.minPCFullHD} {
     width: 2em;
     height: 2em;
+    font-size: 0.85em;
   }
   @media ${themes.primary.media.maxMobile} {
     font-size: 1rem;

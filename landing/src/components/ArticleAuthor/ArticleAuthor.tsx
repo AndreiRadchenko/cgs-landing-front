@@ -43,12 +43,12 @@ const ArticleAuthor: FC<IArticleAuthor> = ({
             <Styles.SpaceBetween>
                 <Styles.DatesContainer>
                   {(update && (
-                    <Styled.GrayText>
+                    <Styled.GrayText className="articleText">
                       {"Updated on "}
                       <Styled.TimeText>{formatDate(update)}</Styled.TimeText>
                     </Styled.GrayText>
                   )) || (
-                    <Styled.GrayText>
+                    <Styled.GrayText className="articleText">
                       {"Published on "}
                       <Styled.TimeText>{formatDate(date)}</Styled.TimeText>
                     </Styled.GrayText>
@@ -63,7 +63,7 @@ const ArticleAuthor: FC<IArticleAuthor> = ({
                 </Styled.ArticleWatchContainer>
                 <Styled.ArticleTimerContainer>
                   <Styled.TimerIcon src={Timer.src} alt="timer img" />
-                  <Styled.GrayText>
+                  <Styled.GrayText className="articleText">
                     <Styled.TimeText>{time}</Styled.TimeText> min
                   </Styled.GrayText>
                 </Styled.ArticleTimerContainer>

@@ -17,7 +17,7 @@ const ShareOn = ({ title, className }: IShareOn) => {
   const url = typeof window !== "undefined" && window.location.href;
   return (
     <Styles.Wrapper className={className}>
-      <Styles.Text>SHARE ON:</Styles.Text>
+      <Styles.Text className={className}>SHARE ON:</Styles.Text>
       <Styles.IconsWrapper>
         {url && (
           <LinkedinShareButton url={url} title={title}>

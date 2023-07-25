@@ -186,7 +186,7 @@ const ArticlePage = () => {
             </Styles.Article>
             <Styles.BannerWrapper>
               <Styles.TagWrapper>
-                <ShareOn title={article.title} className="web" />
+                <ShareOn title={article.title} className="web articleShare" />
                 <ArticleTags tags={article.tags} />
                 <ArticleAuthor
                   author={article.author}

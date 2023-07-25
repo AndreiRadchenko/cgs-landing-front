@@ -23,7 +23,7 @@ interface IBreadcrumbs {
 export const Breadcrumbs = styled.div<IBreadcrumbs>`
   font-family: ${themes.primary.font.family.namu};
   margin: 32px 0 16px 51px;
-  font-size: 16px;
+  font-size: 1.35em;
   line-height: 19.2px;
   color: #8f8e93;
 
@@ -42,6 +42,10 @@ export const Breadcrumbs = styled.div<IBreadcrumbs>`
 
   & span:last-child {
     color: black;
+  }
+
+  @media ${themes.primary.media.minPCFullHD} {
+    font-size: 1.25em;
   }
 
   @media ${themes.primary.media.maxTabletPortrait} {

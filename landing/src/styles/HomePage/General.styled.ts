@@ -69,14 +69,29 @@ export const BlackButton = styled.a<IFontSize>`
     height: 3.225em;
   }
 
+  &.ai,
+  &.cloudSolution,
+  &.webDev,
   &.social-button {
-    display: flex;
+    display: inline-flex;
     justify-content: center;
-    padding: 0;
-    align-items: center;
-    min-width: 12.45em;
-    height: 3.225em;
-    font-size: 1.125em;
+    align-items: flex-start;
+    text-align: center;
+    font-weight: 900;
+    padding: 16px 15.4px;
+    font-size: 1.375em;
+    text-transform: uppercase;
+  }
+
+  &.mobileDev {
+    display: inline-flex;
+    justify-content: center;
+    align-items: flex-start;
+    text-align: center;
+    font-weight: 900;
+    padding: 16px 15.4px;
+    font-size: 1.83333em;
+    text-transform: uppercase;
   }
 
   &.services {
@@ -145,6 +160,26 @@ export const BlackButton = styled.a<IFontSize>`
     &.scrolled {
       padding: 0.8em 1em;
     }
+
+    &.webDev {
+      padding: 0.8em 1em;
+    }
+
+    &.cloudSolution {
+      padding: 0.8em 1em;
+      font-size: 1.58em;
+    }
+
+    &.ai,
+    &.social-button {
+      padding: 0.8em 1em;
+      font-size: 1.83em;
+    }
+
+    &.mobileDev {
+      padding: 0.8em 1em;
+      font-size: 2.2em;
+    }
   }
 
   @media ${themes.primary.media.maxTabletLandScape} {
@@ -153,10 +188,21 @@ export const BlackButton = styled.a<IFontSize>`
 
   @media (max-width: 992px) {
     &.seeAll,
+    &.mobileDev,
     &.homePage,
     &.main,
     &.scrolled {
       font-size: 1.33em;
+    }
+
+    &.ai,
+    &.cloudSolution,
+    &.webDev {
+      font-size: 1.13em;
+    }
+
+    &.social-button {
+      font-size: 1.42em;
     }
   }
 
@@ -179,15 +225,24 @@ export const BlackButton = styled.a<IFontSize>`
       font-size: 16px;
     }
 
+    &.ai,
+    &.webDev,
+    &.cloudSolution,
     &.social-button {
-      min-width: 178px;
-      height: 54px;
+      padding: 17.1px 17.55px;
       font-size: 16px;
     }
 
     &.mobileDev {
+<<<<<<< HEAD
       min-width: 209px;
     }
+=======
+        padding: 17.1px 17.55px;
+        font-size: 16px;
+    }
+
+>>>>>>> staging
     &.cta-button {
       width: 178px;
       height: 54px;
@@ -766,7 +821,34 @@ export const WhatsAppWrapper = styled.div`
     }
   }
 
+  @media ${themes.primary.media.minPCFullHD} {
+    font-size: 1.46em;
+
+    &.webDev {
+      font-size: 1.1em;
+    }
+
+    &.cloudSolution {
+      font-size: 1.25em;
+    }
+
+    &.mobileDev,
+    &.webAudit {
+      font-size: 1.8em;
+    }
+  }
+
   @media (max-width: 992px) {
+    &.webDev {
+      font-size: 1.13em;
+    }
+    
+    &.blockchain {
+      font-size: 1.41em;
+    }
+
+    &.webAudit,
+    &.mobileDev,
     &.homePage {
       font-size: 1.33em;
     }
@@ -777,6 +859,7 @@ export const WhatsAppWrapper = styled.div`
     line-height: 19px;
     column-gap: 3px;
 
+    &.blockchain,
     &.cta-share-button,
     &.portfolio-share-button,
     &.homePage,
@@ -820,7 +903,34 @@ export const TelegramWrapper = styled.div`
     }
   }
 
+  @media ${themes.primary.media.minPCFullHD} {
+    font-size: 1.46em;
+
+    &.webDev {
+      font-size: 1.1em;
+    }
+
+    &.cloudSolution {
+      font-size: 1.25em;
+    }
+
+    &.mobileDev,
+    &.webAudit {
+      font-size: 1.8em;
+    }
+  }
+
   @media (max-width: 992px) {
+    &.webDev {
+      font-size: 1.13em;
+    }
+    
+    &.blockchain {
+      font-size: 1.41em;
+    }
+
+    &.webAudit,
+    &.mobileDev,
     &.homePage {
       font-size: 1.33em;
     }
@@ -832,6 +942,7 @@ export const TelegramWrapper = styled.div`
     column-gap: 3px;
     margin-left: 0.875em;
 
+    &.blockchain,
     &.cta-share-button,
     &.portfolio-share-button,
     &.homePage,
@@ -993,6 +1104,12 @@ export const DropdownButton = styled.button<{ isHeader?: boolean }>`
   &.blog {
     font-size: 1.1667em;
 
+    @media ${themes.primary.media.minPCFullHD} {
+    font-size: 0.75em;
+    padding: 0 15px;
+    height: 2.45em;
+    }
+
     @media ${themes.primary.media.maxMobile} {
       font-size: 0.875rem;
     }
@@ -1060,11 +1177,17 @@ export const DropdownContent = styled.div`
 export const DropdownContainer = styled.div`
   display: flex;
   justify-content: right;
-  margin-bottom: 25px;
+  margin-bottom: 32px;
   align-items: flex-end;
   column-gap: 20px;
   flex-wrap: wrap;
   row-gap: 12px;
+
+  @media ${themes.primary.media.minPCFullHD} {
+    &.blog {
+      margin-bottom: 40px;
+    }
+  }
 
   @media ${themes.primary.media.maxMobile} {
     margin-bottom: 1.375rem;

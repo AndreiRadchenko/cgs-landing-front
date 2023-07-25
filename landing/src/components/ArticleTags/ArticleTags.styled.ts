@@ -23,7 +23,7 @@ export const TagItem = styled.div`
   justify-content: center;
   align-items: center;
   text-align: center;
-  padding: 2px 14px;
+  padding: 3px 10px;
   color: white;
   background-color: ${themes.primary.colors.darkBlue};
   font-family: ${themes.primary.font.family.openSans};
@@ -40,7 +40,8 @@ export const TagItem = styled.div`
   }
 
   @media ${themes.primary.media.minPCFullHD} {
-    padding: 4px 14px;
+    padding: 3.75px 12.5px;
+    font-size: 1.05em;
   }
 
   @media ${themes.primary.media.maxMobile} {

@@ -1,21 +1,19 @@
 import { useQueryClient } from "@tanstack/react-query";
-import React, { useRef } from "react";
-import parse from "html-react-parser";
-import { queryKeys } from "../../consts/queryKeys";
-import * as Styled from "../../styles/AiService/Footer.styled";
-import {
-  Subtitle,
-  WrapperWithLine,
-} from "../../styles/DappAuditService/Common.styled";
-import { IServiceDappAudit } from "../../types/Admin/Response.types";
+import React from "react";
 import Image from "next/image";
-import GetEstimationButton from "../GetEstimationButton";
-import ButtonShareComponent from "../HomePage/ButtonShareComponent";
+
 import { FooterTextBlockServices } from "../ServisesComponents";
+
+import * as Styled from "../../styles/AiService/Footer.styled";
+
+import { WrapperWithLine } from "../../styles/DappAuditService/Common.styled";
+
+import { queryKeys } from "../../consts/queryKeys";
+
+import { IServiceDappAudit } from "../../types/Admin/Response.types";
 
 const FooterBlockAi = () => {
   const queryClient = useQueryClient();
-  const elRef = useRef<HTMLDivElement>(null);
   const data = queryClient.getQueryData<IServiceDappAudit>([
     queryKeys.getServiceDappAuditPage,
   ])?.footerBlock;
