@@ -1,25 +1,29 @@
+import React, { useEffect, useState } from "react";
 import { dehydrate, QueryClient, useQuery } from "@tanstack/react-query";
-import { queryKeys } from "../../consts/queryKeys";
-import { adminGlobalService } from "../../services/adminHomePage";
 import { NextPage } from "next";
 import Head from "next/head";
 import parse from "html-react-parser";
+
 import HeaderNavNew from "../../components/HeaderNavNew/HeaderNavNew";
-import React, { useEffect, useState } from "react";
 import FooterNew from "../../components/FooterNew/FooterNew";
-import { Layout } from "../../styles/Layout.styled";
-import * as Styled from "../../styles/DappAuditService/Common.styled";
-import HeadBlock from "../../components/DappAuditService/HeadBlock";
+import HeadBlock from "../../components/DappAuditService/HeadBlockDapp";
 import HowDoProvideBlock from "../../components/DappAuditService/HowDoProvideBlock";
 import ShowCase from "../../components/ShowCase";
-import FooterBlock from "../../components/DappAuditService/FooterBlock";
+import FooterBlock from "../../components/DappAuditService/FooterBlockDapp";
 import CalendlyInfoModal from "../../components/Calendly/CalendlyInfoModal";
-import PerksOfCoopComponent from "../../components/Services/PerksOfCoopComponent";
-import { adminAiService } from "../../services/services/AdminServiceAiSolution";
+import PerksOfCoopComponent from "../../components/ServisesComponents/PerksOfCoopComponent";
 import TeamMembers from "../../components/ServisesComponents/TeamMembers/TeamMembersComponent";
 import { Loader, LoaderStub } from "../../components/Loader";
 import FigureOutBlock from "../../components/DappAuditService/FigureOutBlock";
 import { calendlyPopupInfoHandler } from "../../utils/calendlyPopupInfoHandler";
+
+import { Layout } from "../../styles/Layout.styled";
+import * as Styled from "../../styles/DappAuditService/Common.styled";
+
+import { queryKeys } from "../../consts/queryKeys";
+
+import { adminGlobalService } from "../../services/adminHomePage";
+import { adminAiService } from "../../services/services/AdminServiceAiSolution";
 
 export async function getServerSideProps() {
   const queryClient = new QueryClient();

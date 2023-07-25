@@ -1,6 +1,8 @@
 import React from "react";
-import * as Styled from "../../styles/WebAuditService/HowTodoListItem.styled";
 import Image from "next/image";
+
+import * as Styled from "../../styles/WebAuditService/HowTodoListItem.styled";
+
 import HowToDoAuditImg from "../../../public/WebAuditServicePage/HowToDoAuditImg.svg";
 
 interface IHowTodoListItemProps {

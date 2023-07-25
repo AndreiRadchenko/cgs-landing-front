@@ -5,6 +5,7 @@ import { BonusItem } from "./BonusItem";
 import { MobileInfiniteText } from "../../../MobileInfiniteText/MobileInfiniteText";
 
 import * as Styles from "./BonusesComponent.styled";
+
 import { IBonusesComponent } from "../../../../types/ServicesComponent.types";
 
 interface IBonusesProps {

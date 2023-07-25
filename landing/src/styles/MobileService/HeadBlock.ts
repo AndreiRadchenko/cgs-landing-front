@@ -99,8 +99,8 @@ export const Description = styled.div`
 export const Telephone = styled.img`
   margin-bottom: 0.2rem;
   margin-right: 2rem;
-  width: 48.92em;
-  height: 50.8em;
+  width: 36.7em;
+  height: 38.1em;
 
   @media ${themes.primary.media.maxTabletPortrait} {
     width: 38%;

@@ -1,5 +1,7 @@
 import React from "react";
+
 import * as Styled from "../../styles/WebAuditService/TypesOfAuditHoverModal.styled";
+
 import { SplitBrackets } from "../../utils/splitBrackets";
 
 interface ITypesOfAuditHoverModalProps {

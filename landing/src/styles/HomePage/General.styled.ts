@@ -234,10 +234,15 @@ export const BlackButton = styled.a<IFontSize>`
     }
 
     &.mobileDev {
+<<<<<<< HEAD
+      min-width: 209px;
+    }
+=======
         padding: 17.1px 17.55px;
         font-size: 16px;
     }
 
+>>>>>>> staging
     &.cta-button {
       width: 178px;
       height: 54px;

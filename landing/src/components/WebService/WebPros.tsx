@@ -1,12 +1,18 @@
 ﻿import React, { useRef } from "react";
 import { useQueryClient } from "@tanstack/react-query";
+
+import { MobileInfiniteText } from "../MobileInfiniteText/MobileInfiniteText";
+
+import * as Styled from "../../styles/WebService/WebPros.styled";
+
+import { queryKeys } from "../../consts/queryKeys";
+
+import { IServiceWeb } from "../../types/Admin/Response.types";
+
+import { useOnScreen } from "../../hooks/useOnScreen";
+
 import bgImage from "../../../public/WebService/secondBlockBg.svg";
 import bgMobileImage from "../../../public/WebService/web-development-mobile.svg";
-import { queryKeys } from "../../consts/queryKeys";
-import * as Styled from "../../styles/WebService/WebPros.styled";
-import { IServiceWeb } from "../../types/Admin/Response.types";
-import { MobileInfiniteText } from "../MobileInfiniteText/MobileInfiniteText";
-import { useOnScreen } from "../../hooks/useOnScreen";
 
 const WebPros = () => {
   const queryClient = useQueryClient();

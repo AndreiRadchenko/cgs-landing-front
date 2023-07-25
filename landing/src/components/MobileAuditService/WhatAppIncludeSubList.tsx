@@ -1,7 +1,9 @@
 import React from "react";
-import * as Styled from "../../styles/MobileAuditService/WhatAppInclude.styled";
+
 import { MobileAuditSplitBrackets } from "./MobileAuditSplit";
 import WhatAppIncludeSubListItem from "./WhatAppIncludeSubListItem";
+
+import * as Styled from "../../styles/MobileAuditService/WhatAppInclude.styled";
 
 interface ISubListProps {
   item: { text: string; subtext: string[] };

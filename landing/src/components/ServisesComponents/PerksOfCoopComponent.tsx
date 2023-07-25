@@ -1,13 +1,18 @@
 import React from "react";
-import { Subtitle } from "../../styles/MobileService/Layout";
+
 import { MobileInfiniteText } from "../MobileInfiniteText/MobileInfiniteText";
-import * as Styles from "../../styles/Services";
+
+import { Subtitle } from "../../styles/MobileService/Layout";
+import * as Styles from "../../styles/Services.styled";
+
+import { IWorthBlock } from "../../types/Admin/Response.types";
+
 import { handleRandomOffset } from "../../utils/getRandomAnimationOffset";
 import { SplitBrackets } from "../../utils/splitBrackets";
+
 import crystal from "../../../public/MobileSevice/worthIt/crystal.svg";
 import cube from "../../../public/MobileSevice/worthIt/cube.svg";
 import cylinder from "../../../public/MobileSevice/worthIt/cylinder.svg";
-import { IWorthBlock } from "../../types/Admin/Response.types";
 
 const PerksOfCoopComponent = ({
   data,

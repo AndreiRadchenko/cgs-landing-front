@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { NextPage } from "next";
 import parse from "html-react-parser";
 import {
@@ -7,24 +7,31 @@ import {
   useQuery,
   useQueryClient,
 } from "@tanstack/react-query";
-import HeadBlock from "../../components/MobileService/HeadBlock";
+import Head from "next/head";
+
+import HeadBlock from "../../components/MobileService/HeadBlockMobileDev";
 import HeaderNavNew from "../../components/HeaderNavNew/HeaderNavNew";
 import FooterNew from "../../components/FooterNew/FooterNew";
 import StrongBlock from "../../components/MobileService/StrongBlock";
 import WhoNeedAppBlock from "../../components/MobileService/WhoNeedAppBlock";
 import HowDoWeWork from "../../components/MobileService/HowDoWeWork";
-import ProfBlock from "../../components/MobileService/ProfBlock";
+import FooterBlock from "../../components/MobileService/FooterBlockMobileDev";
+import ShowCase from "../../components/ShowCase";
+import TeamMembers from "../../components/ServisesComponents/TeamMembers/TeamMembersComponent";
+import CalendlyInfoModal from "../../components/Calendly/CalendlyInfoModal";
+import PerksOfCoopComponent from "../../components/ServisesComponents/PerksOfCoopComponent";
+import { Loader, LoaderStub } from "../../components/Loader";
+
+import * as Styled from "../../styles/WebService/Layout";
+import { Layout } from "../../styles/Layout.styled";
+
+import { IServiceMobile } from "../../types/Admin/Response.types";
+
 import { queryKeys } from "../../consts/queryKeys";
+
 import { adminGlobalService } from "../../services/adminHomePage";
 import { adminMobileService } from "../../services/services/adminServicesMobilePage";
-import Head from "next/head";
-import { Layout } from "../../styles/Layout.styled";
-import ShowCase from "../../components/ShowCase";
-import CalendlyInfoModal from "../../components/Calendly/CalendlyInfoModal";
-import PerksOfCoopComponent from "../../components/Services/PerksOfCoopComponent";
-import { IServiceMobile } from "../../types/Admin/Response.types";
-import TeamMembers from "../../components/ServisesComponents/TeamMembers/TeamMembersComponent";
-import { Loader, LoaderStub } from "../../components/Loader";
+
 import { calendlyPopupInfoHandler } from "../../utils/calendlyPopupInfoHandler";
 
 export async function getServerSideProps() {
@@ -80,7 +87,9 @@ const MobileAppDevelopment: NextPage = () => {
           <HeaderNavNew />
           <>
             <Layout>
-              <HeadBlock />
+              <Styled.Layout>
+                <HeadBlock />
+              </Styled.Layout>
               {dataPerks && (
                 <PerksOfCoopComponent className="mobileDev" data={dataPerks} />
               )}
@@ -100,7 +109,7 @@ const MobileAppDevelopment: NextPage = () => {
             <ShowCase projects={data?.projects} />
             <Layout>
               <HowDoWeWork />
-              <ProfBlock />
+              <FooterBlock />
             </Layout>
           </>
           <FooterNew />

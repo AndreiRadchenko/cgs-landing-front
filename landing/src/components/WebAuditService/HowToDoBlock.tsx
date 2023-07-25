@@ -1,12 +1,18 @@
 import React, { useEffect, useState } from "react";
 import { useQueryClient } from "@tanstack/react-query";
-import * as Styled from "../../styles/WebAuditService/HowToDoBlock.styled";
-import { queryKeys } from "../../consts/queryKeys";
-import { IServiceWebAudit } from "../../types/Admin/Response.types";
-import { SplitBrackets } from "../../utils/splitBrackets";
+
 import HowTodoList from "./HowTodoList";
-import { useWindowDimension } from "../../hooks/useWindowDimension";
 import HowTodoDynamicMobileList from "./HowTodoDynamicMobileList";
+
+import * as Styled from "../../styles/WebAuditService/HowToDoBlock.styled";
+
+import { queryKeys } from "../../consts/queryKeys";
+
+import { IServiceWebAudit } from "../../types/Admin/Response.types";
+
+import { SplitBrackets } from "../../utils/splitBrackets";
+
+import { useWindowDimension } from "../../hooks/useWindowDimension";
 
 const HowToDoBlock = () => {
   const queryClient = useQueryClient();

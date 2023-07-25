@@ -1,22 +1,27 @@
-import { dehydrate, QueryClient, useQuery } from "@tanstack/react-query";
-import { queryKeys } from "../../consts/queryKeys";
-import { adminGlobalService } from "../../services/adminHomePage";
-import { adminDappAuditService } from "../../services/services/adminServicesDappAuditPage";
-import { NextPage } from "next";
-import Head from "next/head";
-import parse from "html-react-parser";
-import HeaderNavNew from "../../components/HeaderNavNew/HeaderNavNew";
 import React, { useState } from "react";
-import FooterNew from "../../components/FooterNew/FooterNew";
-import { Layout, PageArticle } from "../../styles/Layout.styled";
-import * as Styled from "../../styles/AiService/Common.styled";
-import HeadBlock from "../../components/Ai/HeadBlock";
+import { dehydrate, QueryClient, useQuery } from "@tanstack/react-query";
+import { NextPage } from "next";
+import parse from "html-react-parser";
+import Head from "next/head";
+
+import HeadBlock from "../../components/Ai/HeadBlockAi";
 import FigureOutBlock from "../../components/Ai/FigureOutBlock";
 import HowDoProvideBlock from "../../components/Ai/HowDoProvideBlock";
 import ShowCase from "../../components/ShowCase";
-import FooterBlock from "../../components/Ai/FooterBlock";
+import FooterBlock from "../../components/Ai/FooterBlockAi";
+import HeaderNavNew from "../../components/HeaderNavNew/HeaderNavNew";
+import FooterNew from "../../components/FooterNew/FooterNew";
 import CalendlyInfoModal from "../../components/Calendly/CalendlyInfoModal";
 import { Loader, LoaderStub } from "../../components/Loader";
+
+import { Layout, PageArticle } from "../../styles/Layout.styled";
+import * as Styled from "../../styles/AiService/Common.styled";
+
+import { adminGlobalService } from "../../services/adminHomePage";
+import { adminDappAuditService } from "../../services/services/adminServicesDappAuditPage";
+
+import { queryKeys } from "../../consts/queryKeys";
+
 import { calendlyPopupInfoHandler } from "../../utils/calendlyPopupInfoHandler";
 
 export async function getServerSideProps() {

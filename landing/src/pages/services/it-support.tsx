@@ -1,28 +1,31 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import parse from "html-react-parser";
 import Head from "next/head";
 import { dehydrate, QueryClient, useQuery } from "@tanstack/react-query";
+import { useMediaQuery } from "@mui/material";
 
 import HeaderNavNew from "../../components/HeaderNavNew/HeaderNavNew";
 import FooterNew from "../../components/FooterNew/FooterNew";
-import HeadBlock from "../../components/OngoingSupport/HeadBlock";
+import HeadBlock from "../../components/OngoingSupport/HeadBlockSupport";
 import WorkBlock from "../../components/OngoingSupport/WorkBlock";
 import ProvidesBlock from "../../components/OngoingSupport/ProvidesBlock";
-import FooterBlock from "../../components/OngoingSupport/FooterBlock";
+import FooterBlock from "../../components/OngoingSupport/FooterBlockSupport";
 import ShowCase from "../../components/ShowCase";
 import BonusesComponent from "../../components/ServisesComponents/Bonuses/Component/BonusesComponent";
 import CalendlyInfoModal from "../../components/Calendly/CalendlyInfoModal";
-import { Loader, LoaderStub } from "../../components/Loader";
-import { calendlyPopupInfoHandler } from "../../utils/calendlyPopupInfoHandler";
-
-import { queryKeys } from "../../consts/queryKeys";
-import { adminSupportService } from "../../services/services/adminServiceSupportPage";
-import { adminGlobalService } from "../../services/adminHomePage";
-import { Layout, PageArticle } from "../../styles/Layout.styled";
-import * as Styled from "../../styles/OngoingSupport/Layout";
 import OtherServices from "../../components/ServisesComponents/OtherServices/Component/OtherServices";
 import TeamMembers from "../../components/ServisesComponents/TeamMembers/TeamMembersComponent";
-import { useMediaQuery } from "@mui/material";
+import { Loader, LoaderStub } from "../../components/Loader";
+
+import * as Styled from "../../styles/OngoingSupport/Layout";
+import { Layout, PageArticle } from "../../styles/Layout.styled";
+
+import { queryKeys } from "../../consts/queryKeys";
+
+import { adminSupportService } from "../../services/services/adminServiceSupportPage";
+import { adminGlobalService } from "../../services/adminHomePage";
+
+import { calendlyPopupInfoHandler } from "../../utils/calendlyPopupInfoHandler";
 
 export async function getServerSideProps() {
   const queryClient = new QueryClient();

@@ -1,17 +1,22 @@
 import Image from "next/image";
 import React from "react";
+import { useQueryClient } from "@tanstack/react-query";
+
+import HowToProvideBlockItem from "./HowDoProvideBlockItem";
+import HowDoProvideSubItem from "./HowDoProvideSubItem";
+import { MobileInfiniteText } from "../MobileInfiniteText/MobileInfiniteText";
+
 import {
   Subtitle,
   WrapperWithLine,
 } from "../../styles/DappAuditService/Common.styled";
 import * as Styled from "../../styles/DappAuditService/HowDoProvideBlock.styled";
-import HowToProvideBlockItem from "./HowDoProvideBlockItem";
-import HowDoWeProvideBg from "../../../public/DappAuditService/HowDoWeProvideItDapp.svg";
-import HowDoProvideSubItem from "./HowDoProvideSubItem";
-import { MobileInfiniteText } from "../MobileInfiniteText/MobileInfiniteText";
-import { useQueryClient } from "@tanstack/react-query";
+
 import { IServiceAi } from "../../types/Admin/Response.types";
+
 import { queryKeys } from "../../consts/queryKeys";
+
+import HowDoWeProvideBg from "../../../public/DappAuditService/HowDoWeProvideItDapp.svg";
 
 const HowDoProvideBlock = () => {
   const queryClient = useQueryClient();
