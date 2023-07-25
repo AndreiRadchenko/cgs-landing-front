@@ -48,7 +48,7 @@ export const ButtonWrapper = styled.div`
     flex-direction: column;
     & > a {
       font-size: 16px !important;
-      padding: 19px 33px !important;
+      padding: 17.1px 31.1px !important;
     }
   }
 `;

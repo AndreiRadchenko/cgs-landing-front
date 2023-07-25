@@ -78,7 +78,7 @@ export const BlackButton = styled.a<IFontSize>`
     align-items: flex-start;
     text-align: center;
     font-weight: 900;
-    padding: 18px 17px;
+    padding: 16px 15.4px;
     font-size: 1.375em;
     text-transform: uppercase;
   }
@@ -89,7 +89,7 @@ export const BlackButton = styled.a<IFontSize>`
     align-items: flex-start;
     text-align: center;
     font-weight: 900;
-    padding: 18px 17px;
+    padding: 16px 15.4px;
     font-size: 1.83333em;
     text-transform: uppercase;
   }
@@ -229,12 +229,12 @@ export const BlackButton = styled.a<IFontSize>`
     &.webDev,
     &.cloudSolution,
     &.social-button {
-      padding: 19px;
+      padding: 17.1px 17.55px;
       font-size: 16px;
     }
 
     &.mobileDev {
-        padding: 19px;
+        padding: 17.1px 17.55px;
         font-size: 16px;
     }
 
