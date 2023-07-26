@@ -1174,8 +1174,8 @@ export const MainBlogItemImage = styled.img`
 
   @media ${themes.primary.media.maxMobile} {
     max-width: none;
-    height: 189px;
-    max-height: 189px;
+    height: 179px;
+    max-height: 179px;
   }
 `;
 
