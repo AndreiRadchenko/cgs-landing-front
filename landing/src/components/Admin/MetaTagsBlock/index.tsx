@@ -107,6 +107,13 @@ const MetaTagsBlock = ({
     setTitleLength(nameBefore ? meta.length : values.meta.metaTitle.length);
   }, [nameBefore, values, meta.length]);
 
+  const removeHtmlTags = (text: any) => {
+    const clean = /<[^>]*>?/gm;
+    return text.replace(clean, '');
+  };
+
+  const cleanDescription = removeHtmlTags(meta.metaDescription);
+
   return (
     <Styled.MetaBlockWraper theme={theme}>
       <div style={{ padding: "30px 30px" }}>
@@ -138,7 +145,7 @@ const MetaTagsBlock = ({
         <SubHeaderWithInput
           header="Meta Description"
           minRows={5}
-          inputValue={meta.metaDescription}
+          inputValue={cleanDescription}
           onInputFunction={handleDescInput}
           name={
             nameBefore != ""
