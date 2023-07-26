@@ -46,6 +46,12 @@ export class AdminBlogPage {
     );
   }
 
+  public updateViewById(updatedArticle: IArticle) {
+    return this.httpService.put(
+      `api/blog/article/view/${updatedArticle._id}`, updatedArticle
+    );
+  }
+
   public deleteByUrl(url: string) {
     return this.httpService.delete(`api/blog/article/${url}`);
   }

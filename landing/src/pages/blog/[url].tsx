@@ -77,7 +77,7 @@ const ArticlePage = () => {
 
   const { mutateAsync: updateViews } = useMutation(
     [queryKeys.updateViews],
-    (dataToUpdate: IArticle) => adminBlogService.updateById(dataToUpdate),
+    (dataToUpdate: IArticle) => adminBlogService.updateViewById(dataToUpdate),
   );
 
   useEffect(() => {
