@@ -1162,16 +1162,20 @@ export const MainContainer = styled.div`
 
 export const MainBlogItemImage = styled.img`
   max-width: 55vw;
+  max-height: 420px;
   width: 100%;
-  height: auto;
+  height: 100%;
 
   @media ${themes.primary.media.minPCFullHD} {
     width: 41.14em;
+    max-height: 525px;
 
   }
 
   @media ${themes.primary.media.maxMobile} {
     max-width: none;
+    height: 189px;
+    max-height: 189px;
   }
 `;
 
