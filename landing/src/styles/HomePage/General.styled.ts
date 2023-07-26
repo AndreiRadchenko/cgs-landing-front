@@ -95,7 +95,7 @@ export const BlackButton = styled.a<IFontSize>`
   }
 
   &.services {
-    font-size: 1.5em;
+    font-size: 1.375em;
   }
 
   &.cta-button {
@@ -234,15 +234,11 @@ export const BlackButton = styled.a<IFontSize>`
     }
 
     &.mobileDev {
-<<<<<<< HEAD
       min-width: 209px;
-    }
-=======
-        padding: 17.1px 17.55px;
-        font-size: 16px;
+      padding: 17.1px 17.55px;
+      font-size: 16px;
     }
 
->>>>>>> staging
     &.cta-button {
       width: 178px;
       height: 54px;
@@ -822,8 +818,6 @@ export const WhatsAppWrapper = styled.div`
   }
 
   @media ${themes.primary.media.minPCFullHD} {
-    font-size: 1.46em;
-
     &.webDev {
       font-size: 1.1em;
     }
@@ -842,7 +836,7 @@ export const WhatsAppWrapper = styled.div`
     &.webDev {
       font-size: 1.13em;
     }
-    
+
     &.blockchain {
       font-size: 1.41em;
     }
@@ -904,8 +898,6 @@ export const TelegramWrapper = styled.div`
   }
 
   @media ${themes.primary.media.minPCFullHD} {
-    font-size: 1.46em;
-
     &.webDev {
       font-size: 1.1em;
     }
@@ -924,7 +916,7 @@ export const TelegramWrapper = styled.div`
     &.webDev {
       font-size: 1.13em;
     }
-    
+
     &.blockchain {
       font-size: 1.41em;
     }
@@ -1105,9 +1097,9 @@ export const DropdownButton = styled.button<{ isHeader?: boolean }>`
     font-size: 1.1667em;
 
     @media ${themes.primary.media.minPCFullHD} {
-    font-size: 0.75em;
-    padding: 0 15px;
-    height: 2.45em;
+      font-size: 0.75em;
+      padding: 0 15px;
+      height: 2.45em;
     }
 
     @media ${themes.primary.media.maxMobile} {

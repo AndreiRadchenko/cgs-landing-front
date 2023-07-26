@@ -24,6 +24,7 @@ const FooterBlockCloud = () => {
             text={data.text}
             btnText={data.button}
             btnLink={data.buttonLink}
+            className={"cloud"}
           />
         )}
       </Styled.Content>

@@ -24,6 +24,7 @@ const FooterBlockWebDev = () => {
             text={data.text}
             btnText={data.button}
             btnLink={data.buttonLink}
+            className={"webDev"}
           />
         )}
       </Styled.TextContent>

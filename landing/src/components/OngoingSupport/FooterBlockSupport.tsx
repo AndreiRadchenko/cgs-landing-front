@@ -23,6 +23,7 @@ const FooterBlockSupport = () => {
           text={data.text}
           btnText={data.button}
           btnLink={data.buttonLink}
+          className={"itSupport"}
         />
       )}
       <Styled.Image src={data?.image?.url} alt="Footer Supports image" />

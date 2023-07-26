@@ -5,14 +5,39 @@ export const Title = styled.h1`
   font-size: 4.125em;
   line-height: 132%;
   display: inline-block;
-
   margin: 0;
   text-transform: uppercase;
-  font-weight: inherit;
+  font-weight: ${themes.primary.font.weight.heavy};
   width: 12.3em;
 
   @media ${themes.primary.media.onlyTabletPortrait} {
     max-width: 10em;
+  }
+
+  @media ${themes.primary.media.minMobile} {
+    &.blockchain {
+      height: 2.7em;
+    }
+  }
+
+  @media ${themes.primary.media.minPCFullHD} {
+    font-size: 3.094em;
+
+    &.cloud,
+    &.itSupport,
+    &.server,
+    &.uxUi,
+    &.mobileAudit {
+      font-size: 3.535em;
+    }
+    &.blockchain,
+    &.ai,
+    &.dappAudit {
+      font-size: 4.125em;
+    }
+    &.extraTopMargin {
+      height: 4em;
+    }
   }
 
   @media ${themes.primary.media.maxMobile} {
@@ -26,10 +51,26 @@ export const Description = styled.div`
   font-size: 1.375em;
   line-height: 160%;
   margin: 1em 0 1.8185em;
-  max-width: 600px;
+  max-width: 28em;
 
-  @media (min-width: 1920px) {
-    margin-top: -3em;
+  @media ${themes.primary.media.minPCFullHD} {
+    font-size: 1.0315em;
+
+    &.cloud,
+    &.itSupport,
+    &.server,
+    &.uxUi,
+    &.mobileAudit {
+      font-size: 1.2em;
+    }
+    &.blockchain,
+    &.ai,
+    &.dappAudit {
+      font-size: 1.375em;
+    }
+    &.extraTopMargin {
+      margin-top: -3em;
+    }
   }
 
   @media ${themes.primary.media.onlyTabletPortrait} {

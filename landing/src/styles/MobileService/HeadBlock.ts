@@ -112,6 +112,8 @@ export const Telephone = styled.img`
   }
 
   @media ${themes.primary.media.minPCFullHD} {
-    margin-left: 4em;
+    margin-left: 2.5em;
+    width: 30.6em;
+    height: 31.7em;
   }
 `;

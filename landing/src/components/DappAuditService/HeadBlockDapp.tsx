@@ -25,6 +25,7 @@ const HeadBlockDapp = () => {
             text={data.text}
             btnText={data.button}
             btnLink={data.buttonLink}
+            className={"dappAudit"}
           />
         )}
       </Styled.TextContent>
