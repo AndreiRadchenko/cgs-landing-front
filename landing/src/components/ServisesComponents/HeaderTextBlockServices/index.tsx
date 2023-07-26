@@ -33,7 +33,7 @@ const HeaderTextBlockServices = ({
           buttonLink={btnLink}
           withEstimation
           buttonText={btnText}
-          buttonClassName="social-button"
+          buttonClassName="services"
         />
         <ButtonShareComponent />
       </Styled.ButtonWrapper>

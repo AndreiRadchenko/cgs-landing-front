@@ -129,6 +129,8 @@ export const Image = styled.img`
   }
 
   @media ${themes.primary.media.minPCFullHD} {
-    margin-left: 4em;
+    margin-left: 2.5em;
+    width: 55.6em;
+    height: 30.3em;
   }
 `;

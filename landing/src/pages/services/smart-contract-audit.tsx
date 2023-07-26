@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { dehydrate, QueryClient, useQuery } from "@tanstack/react-query";
 import { NextPage } from "next";
 import Head from "next/head";

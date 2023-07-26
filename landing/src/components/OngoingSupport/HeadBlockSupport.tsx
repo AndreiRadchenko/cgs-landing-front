@@ -24,6 +24,7 @@ const HeadBlockSupport = () => {
             text={data.text}
             btnText={data.button}
             btnLink={data.buttonLink}
+            className={"itSupport"}
           />
         )}
       </Styled.Content>

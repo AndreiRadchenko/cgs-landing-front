@@ -32,6 +32,7 @@ const HeadBlockDb = () => {
             text={data.text}
             btnText={data.button}
             btnLink={data.buttonLink}
+            className={"server"}
           />
         )}
       </ContentContainer>

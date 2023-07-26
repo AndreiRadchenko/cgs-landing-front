@@ -24,6 +24,7 @@ const HeadBlockAi = () => {
           text={data.text}
           btnText={data.button}
           btnLink={data.buttonLink}
+          className={"ai"}
         />
       )}
       {data && (

@@ -32,7 +32,7 @@ const FooterTextBlockServices = ({
           buttonLink={btnLink}
           buttonText={btnText}
           withEstimation
-          buttonClassName={`social-button ${className}`}
+          buttonClassName={`services ${className}`}
         />
         <ButtonShareComponent />
       </Styled.ButtonWrapper>

@@ -52,6 +52,7 @@ const HeadBlockBlockchain = () => {
             text={data.text}
             btnText={data.button}
             btnLink={data.buttonLink}
+            className={"blockchain extraTopMargin"}
           />
         )}
       </Styled.Content>

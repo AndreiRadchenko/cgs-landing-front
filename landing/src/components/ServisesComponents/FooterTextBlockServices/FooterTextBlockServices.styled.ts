@@ -3,7 +3,7 @@ import themes from "../../../utils/themes";
 
 export const Title = styled.h3`
   font-size: 2.5em;
-  font-weight: inherit;
+  font-weight: ${themes.primary.font.weight.heavy};
   line-height: 140%;
   text-transform: uppercase;
   margin: 0;
@@ -14,6 +14,21 @@ export const Title = styled.h3`
   }
   &.fullWidth {
     max-width: 100%;
+  }
+
+  @media ${themes.primary.media.minPCFullHD} {
+    &.webDev {
+      font-size: 1.875em;
+    }
+    &.cloud,
+    &.itSupport,
+    &.mobileAudit,
+    &.fullWidth {
+      font-size: 2.1429em;
+    }
+    &.biggerFontSize {
+      font-size: 3em;
+    }
   }
 
   @media ${themes.primary.media.maxMobile} {
@@ -47,6 +62,21 @@ export const Text = styled.p`
   }
   &.fullWidth {
     max-width: 100%;
+  }
+
+  @media ${themes.primary.media.minPCFullHD} {
+    &.webDev {
+      font-size: 1.125em;
+    }
+    &.cloud,
+    &.itSupport,
+    &.mobileAudit,
+    &.fullWidth {
+      font-size: 1.25em;
+    }
+    &.biggerFontSize {
+      font-size: 1.8em;
+    }
   }
 
   @media ${themes.primary.media.maxMobile} {

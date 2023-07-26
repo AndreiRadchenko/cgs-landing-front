@@ -50,6 +50,7 @@ const HeadBlockMobileAudit = () => {
             text={data.text}
             btnText={data.button}
             btnLink={data.buttonLink}
+            className={"mobileAudit"}
           />
         )}
       </Styled.Content>

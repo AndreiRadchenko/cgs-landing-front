@@ -1,7 +1,7 @@
 ﻿import { NextPage } from "next";
 import parse from "html-react-parser";
 import Head from "next/head";
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { dehydrate, QueryClient, useQuery } from "@tanstack/react-query";
 
 import FooterNew from "../../components/FooterNew/FooterNew";

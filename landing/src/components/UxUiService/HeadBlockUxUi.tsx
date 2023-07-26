@@ -24,6 +24,7 @@ const HeadBlockUxUi = () => {
             text={data.text}
             btnText={data.button}
             btnLink={data.buttonLink}
+            className={"uxUi"}
           />
         )}
       </Styled.ContentWrapper>
