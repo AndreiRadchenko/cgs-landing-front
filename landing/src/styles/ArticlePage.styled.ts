@@ -32,7 +32,7 @@ export const Article = styled.article`
   position: relative;
 `;
 
-export const SubTitle = styled.p`
+export const SubTitle = styled.div`
   width: 100%;
   margin-top: 45px;
   margin-bottom: 10px;
