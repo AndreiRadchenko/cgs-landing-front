@@ -141,6 +141,17 @@ const BlogPage = () => {
     if (window.innerWidth < 769) window.scroll(0, 0);
   }, [isMainSliderImageLoaded]);
 
+  const handleFilterFromURL = () => {
+    const { tag } = router.query;
+    if (typeof tag === "string") {
+      setFilters([tag]);
+    }
+  };
+
+  useEffect(() => {
+    handleFilterFromURL();
+  }, []);
+
   return (
     <Loader active={!isMainSliderImageLoaded && isFirstLoad}>
       <Head>
