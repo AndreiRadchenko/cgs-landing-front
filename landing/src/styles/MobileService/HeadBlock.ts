@@ -104,7 +104,7 @@ export const Telephone = styled.img`
 
   @media ${themes.primary.media.maxTabletPortrait} {
     width: 38%;
-    height: 33.5em;
+    height: 21.75em;
   }
 
   @media ${themes.primary.media.maxMobile} {

@@ -99,15 +99,7 @@ export const Text = styled.p`
 export const ButtonWrapper = styled.div`
   display: flex;
 
-  &.biggerFontSize {
-    font-size: 1.335em;
-  }
-
   @media ${themes.primary.media.maxMobile} {
     flex-direction: column;
-
-    &.biggerFontSize {
-      font-size: 1.5em;
-    }
   }
 `;

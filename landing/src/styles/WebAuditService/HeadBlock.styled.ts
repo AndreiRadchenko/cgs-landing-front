@@ -38,7 +38,7 @@ export const TextContainer = styled.div`
   @media ${themes.primary.media.maxMobile} {
     width: 100%;
     padding-top: 0;
-    margin-bottom: 6.73em;
+    margin-bottom: 4.37em;
   }
 `;
 
