@@ -6,6 +6,7 @@ import * as Styled from "../../styles/ShowCase.styled";
 import { IReviewProps as IReview } from "../../types/Admin/Response.types";
 
 import { openInNewTab } from "../../utils/OpenInNewTab";
+import { useMediaQuery } from "@mui/material";
 
 interface IReviewProps {
   review: IReview;
@@ -14,6 +15,10 @@ interface IReviewProps {
 }
 
 const Slide = ({ review, isActive }: IReviewProps) => {
+  const is768px = useMediaQuery("(max-width:768px)");
+
+  const splitted = is768px ? review.text?.split("^") : review.text?.split("|");
+
   const navigateToProjectPage = (url: string, id?: string) => {
     const newUrl = url.toLowerCase().replace(/\s+/g, "-");
     openInNewTab(`https://cgsteam.io/portfolio/${newUrl}-${id}`);
@@ -54,7 +59,7 @@ const Slide = ({ review, isActive }: IReviewProps) => {
             <Styled.ProjectScopeText
               className={isActive ? "active" : undefined}
             >
-              {review.text}
+              {splitted?.map((el) => el !== "" && el.replace(/[\^|]/g, ""))}
             </Styled.ProjectScopeText>
           )}
           <Styled.BottomSection className={isActive ? "active" : undefined}>
