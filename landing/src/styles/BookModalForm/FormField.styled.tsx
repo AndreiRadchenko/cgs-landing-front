@@ -12,7 +12,7 @@ export const FormField = styled(Field)`
   font-family: ${themes.primary.font.family.namu};
   font-size: 16px;
   color: ${themes.primary.colors.black};
-  padding-left: 12px;
+  padding-inline: 15px;
   border-radius: 0;
 
   &::placeholder {
@@ -136,16 +136,17 @@ export const FormFieldLabel = styled.label`
 `;
 
 export const FormFieldContainer = styled.div`
-  width: 103.75%;
+  width: 100%;
   position: relative;
-  margin-top: 10px;
-  margin-bottom: 12px;
+  margin-top: 8px;
+  height: 70px;
 
   @media ${themes.primary.media.minPCFullHD} {
   }
 
   @media ${themes.primary.media.estiomationFormWidth} {
-    margin-top: 4px;
+    margin-top: 8px;
+    height: 60px;
   }
 
   .react-tel-input {
@@ -157,7 +158,6 @@ export const FormFieldContainer = styled.div`
     font-size: 16px;
     color: ${themes.primary.colors.black};
     border-radius: 0;
-    margin-bottom: 15px;
 
     &::placeholder {
       color: ${themes.primary.colors.comment};
@@ -173,7 +173,6 @@ export const FormFieldContainer = styled.div`
     @media ${themes.primary.media.estiomationFormWidth} {
       font-size: 12px;
       height: 44px;
-      margin-bottom: 12px;
     }
 
     .flag-dropdown,
@@ -254,7 +253,7 @@ export const ErrorField = styled.div`
   font-family: ${themes.primary.font.family.namu};
   font-size: 12px;
   color: ${themes.primary.colors.adminRed};
-  line-height: 19px;
+  line-height: normal;
   text-align: right;
   font-weight: ${themes.primary.font.weight.heavy};
 `;

@@ -33,7 +33,6 @@ declare global {
 
 const BookForm = ({ onClose, isOpen }: IFormProps) => {
   const [calendlyIsOpen, setCalendlyIsOpen] = useState<boolean>(false);
-  const [value, setValue] = useState<string>("");
   const [country, setCountry] = useState<string>("");
   const [name, setName] = useState<string>("");
   const [email, setEmail] = useState<string>("");
@@ -44,9 +43,9 @@ const BookForm = ({ onClose, isOpen }: IFormProps) => {
   });
 
   const fieldContent = {
-    name: "Your name",
+    name: "Your Name",
     email: "Email",
-    phone: "Phone number",
+    phone: "Phone Number",
   };
 
   const sendTeamEmail = useMutation((data: IBookModalData) =>
@@ -70,7 +69,7 @@ const BookForm = ({ onClose, isOpen }: IFormProps) => {
       sendTeamEmail.mutate({
         name: values.name,
         email: values.email,
-        phone: value,
+        phone: values.phone,
         country: country,
         service: "Mobile Development",
         details: "",
@@ -89,7 +88,6 @@ const BookForm = ({ onClose, isOpen }: IFormProps) => {
       setErrors({});
       resetForm();
       setCountry("");
-      setValue("");
     },
   });
 
@@ -128,8 +126,6 @@ const BookForm = ({ onClose, isOpen }: IFormProps) => {
       >
         {Object.entries(fieldContent).map(([key, label]) => (
           <FormField
-            value={value}
-            setValue={setValue}
             setCountry={setCountry}
             btnIsClicked={btnState.isClicked}
             name={key as keyof IFormState}

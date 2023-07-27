@@ -28,7 +28,6 @@ export const HiddenWrapper = styled.div`
 export const Content = styled.div`
   height: 97%;
   margin: 10px 0;
-  margin-right: 10px;
 
   &::-webkit-scrollbar {
     width: 4px;
@@ -56,28 +55,28 @@ export const Content = styled.div`
   scrollbar-width: thin;
 
   @media ${themes.primary.media.estiomationFormWidth} {
-    margin-right: 7px;
   }
 `;
 
-export const List = styled.ul`
+export const List = styled.div`
   list-style-type: square;
-  margin: 55px 5px 0 0;
-  padding: 0 30px 0 50px;
+  margin: 55px 0 0 0;
 
   @media ${themes.primary.media.estiomationFormWidth} {
     margin-top: 42px;
-    padding: 0 26px 0 34px;
+    margin-inline: auto;
   }
 `;
 
-export const ListTitle = styled.span`
+export const ListTitle = styled.p`
   margin-bottom: 7px;
+  width: 100%;
   font-size: 26px;
   font-weight: ${themes.primary.font.weight.heavy};
   font-family: ${themes.primary.font.family.namu};
   text-transform: uppercase;
-  line-height: 21px;
+  line-height: normal;
+  text-align: center;
 
   @media ${themes.primary.media.estiomationFormWidth} {
     font-size: 18px;
