@@ -106,6 +106,15 @@ export const ListItemNav = styled.a`
   @media ${themes.primary.media.minPC} and (max-width: 2560px) {
     width: 11.07vw;
   }
+
+  @media ${themes.primary.media.minPCFullHD} {
+    padding: 23px 63px;
+    width: 9.02vw;
+
+    :first-child {
+      width: 196px;
+    }
+  }
   &:hover {
     transition: 0.3s;
     border-right: 1.5px solid ${themes.primary.colors.primary};

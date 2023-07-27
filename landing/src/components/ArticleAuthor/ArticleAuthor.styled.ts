@@ -29,6 +29,11 @@ export const AuthorImage = styled.img`
   align-items: center;
   justify-content: center;
   margin-right: 7px;
+
+  @media ${themes.primary.media.maxMobile} {
+    width: 40px;
+    margin-right: 12px;
+  }
 `;
 
 export const AuthorInfoWrapper = styled.div`

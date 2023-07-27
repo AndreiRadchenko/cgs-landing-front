@@ -6,7 +6,6 @@ export const Wrapper = styled.section`
   display: flex;
   flex-direction: column;
   width: 100%;
-  margin-top: 10px;
   font-family: ${themes.primary.font.family.openSans};
 
   @media ${themes.primary.media.maxMobile} {
@@ -86,6 +85,31 @@ export const Description = styled.p`
     }
   }
 
+  a {
+  position: relative; 
+  display: inline-block;
+}
+
+a::after {
+  position: absolute;
+  left: 0;
+  bottom: 0; 
+  display: block;
+  height: 1px;
+  width: 100%;
+  background-color: ${themes.primary.colors.darkBlue};
+  opacity: 0;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: opacity 0.35s, transform 0.35s;
+  content: '';
+}
+
+a:hover::after {
+  opacity: 1;
+  transform: scaleX(1);
+}
+
   & iframe {
     border-color: transparent;
   }
@@ -147,6 +171,7 @@ export const Description = styled.p`
       font-family: ${themes.primary.font.family.namu};
       font-weight: ${themes.primary.font.weight.heavy};
       font-size: 2.1875rem;
+      margin-right: 14px;
     }
   }
 
@@ -237,6 +262,24 @@ export const Description = styled.p`
     }
   }
   @media ${themes.primary.media.maxMobile} {
+    & > p strong {
+      margin-top: 0;
+    }
+
+    & > h2,
+    h3,
+    h4,
+    h5,
+    h6,
+    & > h2:first-child,
+    h3:first-child,
+    h4:first-child,
+    h5:first-child,
+    h6:first-child  {
+      margin-top: 50px;
+      margin-bottom: 24px;
+    }
+
     & .se-video-container {
       width: 100% !important;
       clear: both;

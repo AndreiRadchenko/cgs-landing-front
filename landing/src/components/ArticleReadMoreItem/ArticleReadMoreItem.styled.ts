@@ -99,7 +99,6 @@ export const Description = styled.p`
   margin: 0;
   overflow: hidden;
   width: 100%;
-  height: 105px;
   display: -webkit-box;
   -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;
@@ -109,18 +108,7 @@ export const Description = styled.p`
   }
 
   @media ${themes.primary.media.minPCFullHD} {
-    height: 140px;
     font-size: 1.31em;
-  }
-
-  @media ${themes.primary.media.onlyLaptop} {
-    height: 90px;
-  }
-  @media ${themes.primary.media.onlyTabletLandScape} {
-    height: 98px;
-  }
-  @media ${themes.primary.media.onlyTabletPortrait} {
-    height: 90px;
   }
 `;
 
@@ -149,6 +137,7 @@ export const AmountViews = styled.span`
   font-size: ${themes.primary.font.size.tertiary};
   font-family: ${themes.primary.font.family.openSans};
   margin-left: 9px;
+  color: #8F8E93;
 
   @media ${themes.primary.media.minPCFullHD} {
     font-size: 0.9em;
@@ -170,20 +159,32 @@ export const ReadMoreButton = styled.button`
   font-size: 1.335em;
   transition: all 0.3s;
 
+  a {
+    border: 0;
+    color: ${themes.primary.colors.secondary};
+  }
+
   &:hover {
     background-color: transparent;
     a {
       color: ${themes.primary.colors.primary};
     }
   }
-  a {
-    border: 0;
-    color: ${themes.primary.colors.secondary};
+
+  @media ${themes.primary.media.minPC} {
+    font-size: 1.18em;
   }
 
   @media ${themes.primary.media.minPCFullHD} {
     max-width: 160px;
+    line-height: 100%;
     font-size: 1.05em;
-    padding: 10px 20px;
+    padding: 8px 20px;
+  }
+
+  @media ${themes.primary.media.maxMobile} {
+    a {
+      color: #fff;
+    }
   }
 `;
