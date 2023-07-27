@@ -6,16 +6,21 @@ export const Wrapper = styled.section`
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-top: 94px;
+  margin-top: 52px;
   margin-bottom: 130px;
 
   @media ${themes.primary.media.minPCFullHD} {
-    margin-top: 114px;
+    margin-top: 62px;
   }
 
   @media ${themes.primary.media.maxMobile} {
-    margin-top: 100px;
+    margin-top: 50px;
     margin-bottom: 26px;
+  }
+
+  @media (max-width: 380px) {
+    width: 359px;
+    margin-left: -12px;
   }
 `;
 
@@ -31,7 +36,7 @@ export const Title = styled.p`
   }
 
   @media ${themes.primary.media.maxMobile} {
-    margin: 0 0 30px;
+    margin: 0 0 25px;
   }
 `;
 
@@ -61,5 +66,9 @@ export const TitleWrapper = styled.div`
 
   @media ${themes.primary.media.minPCFullHD} {
     margin-bottom: 70px;
+  }
+
+  @media ${themes.primary.media.maxMobile} {
+    margin-bottom: 0;
   }
 `;

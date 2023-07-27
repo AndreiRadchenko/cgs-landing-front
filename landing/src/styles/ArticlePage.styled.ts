@@ -35,7 +35,6 @@ export const Article = styled.article`
 export const SubTitle = styled.div`
   width: 100%;
   margin-top: 45px;
-  margin-bottom: 10px;
   font-size: ${themes.primary.font.size.faqQuestion};
   font-weight: ${themes.primary.font.weight.normal};
   font-family: ${themes.primary.font.family.openSans};
@@ -50,7 +49,7 @@ export const SubTitle = styled.div`
   }
 
   @media ${themes.primary.media.maxMobile} {
-    margin-top: 2rem;
+    margin-top: 24px;
     font-size: 1rem;
   }
 `;
@@ -71,7 +70,7 @@ export const PageWrapper = styled.div`
   a {
     color: ${themes.primary.colors.darkBlue};
     text-decoration: none;
-    border-bottom: 1px solid;
+
     u {
       text-decoration: none;
     }
@@ -91,7 +90,11 @@ export const PageWrapper = styled.div`
   }
 
   @media ${themes.primary.media.minPCFullHD} {
-    max-width: 81.08em;
+    max-width: 63em;
+  }
+
+  @media (min-width: 2400px) {
+    max-width: 80em;
   }
   @media ${themes.primary.media.maxTabletPortrait} {
     padding: 40px;
@@ -243,11 +246,12 @@ export const FirstHeaderBg = styled.figure`
 export const SecondHeaderBg = styled.figure`
   position: absolute;
   bottom: 26%;
-  right: -500px;
+  right: -420px;
   z-index: 1;
   margin: 0;
+  width: 60%;
 
-  @media ${themes.primary.media.maxPCFullHD} {
+  @media ${themes.primary.media.minPCFullHD} {
     right: -490px;
   }
   @media ${themes.primary.media.maxTabletPortrait} {
@@ -261,13 +265,18 @@ export const SecondHeaderBg = styled.figure`
 export const FooterBg = styled.figure`
   position: absolute;
   bottom: 10px;
-  right: -250px;
+  right: -340px;
   margin: 0;
+
+  @media ${themes.primary.media.minPCFullHD} {
+    right: -410px;
+  }
   @media ${themes.primary.media.maxTabletLandScape} {
+    width: 50%;
     right: -270px;
   }
   @media ${themes.primary.media.maxTabletPortrait} {
-    right: -250px;
+    right: -170px;
   }
   @media ${themes.primary.media.maxMobile} {
     display: none;

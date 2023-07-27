@@ -16,6 +16,10 @@ export const Wrapper = styled.div`
   @media ${themes.primary.media.maxTabletPortrait} {
     margin-block: 1.75rem 2rem;
   }
+
+  @media ${themes.primary.media.maxMobile} {
+    margin-block: 24px;
+  }
 `;
 
 export const TagItem = styled.div`

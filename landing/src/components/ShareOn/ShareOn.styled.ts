@@ -30,7 +30,7 @@ export const Wrapper = styled.section`
     }
 
     &.mobile {
-      margin-top: 24px;
+      margin-top: 10px;
       display: flex;
     }
   }
@@ -42,6 +42,7 @@ export const Text = styled.div`
   font-family: ${themes.primary.font.family.openSans};
   min-width: 125px;
   margin-right: 5px;
+  color: #272C2F;
 
   &.articleShare {
     font-size: 2.1em;
@@ -66,6 +67,10 @@ export const Text = styled.div`
     &.articleShare {
       font-size: 1.8em;
     }
+  }
+
+  @media ${themes.primary.media.maxMobile} {
+    font-size: 20px;
   }
 `;
 

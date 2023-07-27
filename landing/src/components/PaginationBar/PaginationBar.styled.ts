@@ -6,10 +6,8 @@ export const PaginationWrapper = styled.div`
   justify-content: center;
   align-items: center;
   column-gap: 30px;
-  margin-top: 90px;
 
   @media ${themes.primary.media.maxMobile} {
-    margin-top: 45px;
   }
 `;
 

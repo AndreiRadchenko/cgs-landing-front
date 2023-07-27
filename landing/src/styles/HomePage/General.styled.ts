@@ -1175,6 +1175,12 @@ export const DropdownContent = styled.div`
     }
   }
 
+  @media ${themes.primary.media.minPCFullHD} {
+    div {
+      font-size: 0.75em;
+    }
+  }
+
   @media ${themes.primary.media.maxMobile} {
     font-size: 0.875rem;
   }
