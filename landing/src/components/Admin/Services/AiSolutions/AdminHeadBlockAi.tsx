@@ -1,21 +1,25 @@
 import { useFormikContext } from "formik";
 import React from "react";
 
-import * as Styled from "../../../../styles/AdminPage";
-import useDeleteImageFunction from "../../../../hooks/useDeleteImageFunction";
-import useUploadImageFunction from "../../../../hooks/useUploadImageFunction";
-import ButtonArrow from "../../../../utils/ButtonArrow";
-import { IImage } from "../../../../types/Admin/Admin.types";
-import { IServiceDappAudit } from "../../../../types/Admin/Response.types";
 import SubHeaderWithInput from "../../Global/SubHeaderWithInput";
 import PhotoBlockDashed from "../../Global/PhotoBlockDashed";
 import AdminBlockDropDown from "../../Global/AdminBlockDropDown";
+
+import * as Styled from "../../../../styles/AdminPage";
 import {
   ArrowContainer,
   BlackButton,
 } from "../../../../styles/HomePage/General.styled";
 
-const HeadBlock = () => {
+import useDeleteImageFunction from "../../../../hooks/useDeleteImageFunction";
+import useUploadImageFunction from "../../../../hooks/useUploadImageFunction";
+
+import ButtonArrow from "../../../../utils/ButtonArrow";
+
+import { IImage } from "../../../../types/Admin/Admin.types";
+import { IServiceDappAudit } from "../../../../types/Admin/Response.types";
+
+const AdminHeadBlockAi = () => {
   const { values, handleSubmit, handleChange } =
     useFormikContext<IServiceDappAudit>();
   const handleClick = () => handleSubmit();
@@ -26,10 +30,8 @@ const HeadBlock = () => {
 
   return (
     <>
-      <Styled.AdminHeader>
-        Dapp audit <br />+ Tokenomic planning
-      </Styled.AdminHeader>
-      <AdminBlockDropDown title="HEAD BLOCK">
+      <Styled.AdminHeader>Ai Solutions</Styled.AdminHeader>
+      <AdminBlockDropDown title="head block">
         <Styled.HeaderGrid>
           <Styled.AdminHeaderPhotoWrapper>
             <Styled.AdminSubTitle>Banner</Styled.AdminSubTitle>
@@ -91,4 +93,4 @@ const HeadBlock = () => {
   );
 };
 
-export default HeadBlock;
+export default AdminHeadBlockAi;

@@ -1,21 +1,27 @@
-﻿import { useFormikContext } from "formik";
 import React from "react";
-import useDeleteImageFunction from "../../../../hooks/useDeleteImageFunction";
-import useUploadImageFunction from "../../../../hooks/useUploadImageFunction";
-import { AdminHalfGrid, AdminPaddedBlock } from "../../../../styles/AdminPage";
-import { IImage } from "../../../../types/Admin/Admin.types";
-import { IServiceMobile } from "../../../../types/Admin/Response.types";
-import { renderInputs } from "../../../../utils/renderInputs";
+import { useFormikContext } from "formik";
+
 import PhotoBlockDashed from "../../Global/PhotoBlockDashed";
+
+import { AdminHalfGrid, AdminPaddedBlock } from "../../../../styles/AdminPage";
 import {
   ArrowContainer,
   BlackButton,
 } from "../../../../styles/HomePage/General.styled";
+
+import { IBlockchainService } from "../../../../types/Admin/Response.types";
+import { IImage } from "../../../../types/Admin/Admin.types";
+
+import { renderInputs } from "../../../../utils/renderInputs";
+
 import ButtonArrow from "../../../../utils/ButtonArrow";
 
-const MainBlock = () => {
+import useDeleteImageFunction from "../../../../hooks/useDeleteImageFunction";
+import useUploadImageFunction from "../../../../hooks/useUploadImageFunction";
+
+const AdminHeadBlockBlockchain = () => {
   const { values, handleChange, handleSubmit } =
-    useFormikContext<IServiceMobile>();
+    useFormikContext<IBlockchainService>();
   const deleteMainImage = useDeleteImageFunction(values.headerBlock);
   const uploadMainImage = useUploadImageFunction(values.headerBlock);
 
@@ -35,6 +41,7 @@ const MainBlock = () => {
           uploadFunction={(image: IImage) => uploadMainImage(image)}
           style={{ maxWidth: "364px", maxHeight: "364px" }}
           deleteFlag={true}
+          unchangeable
         />
       </AdminHalfGrid>
       <BlackButton
@@ -52,4 +59,4 @@ const MainBlock = () => {
   );
 };
 
-export default MainBlock;
+export default AdminHeadBlockBlockchain;

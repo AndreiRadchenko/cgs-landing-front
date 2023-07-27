@@ -1,8 +1,7 @@
 import { useFormikContext } from "formik";
 import React, { useEffect, useState } from "react";
 import { useQuery } from "@tanstack/react-query";
-import { queryKeys } from "../../../consts/queryKeys";
-import { adminPortfolioService } from "../../../services/adminPortfolioPage";
+
 import {
   AdminBlockWrapper,
   AdminShowCaseCategoryDropdownHeader,
@@ -18,7 +17,13 @@ import {
   ArrowContainer,
   BlackButton,
 } from "../../../styles/HomePage/General.styled";
+
+import { queryKeys } from "../../../consts/queryKeys";
+
+import { adminPortfolioService } from "../../../services/adminPortfolioPage";
+
 import { IProjects } from "../../../types/Admin/Response.types";
+
 import ButtonArrow from "../../../utils/ButtonArrow";
 
 const ServiceShowCase = ({ noMargin }: { noMargin?: boolean }) => {

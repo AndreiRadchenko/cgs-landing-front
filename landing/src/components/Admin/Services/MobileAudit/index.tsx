@@ -6,7 +6,7 @@ import {
 import MetaTagsBlock from "../../MetaTagsBlock";
 import ServiceShowCase from "../../ServiceShowCase";
 import BringAppBlock from "./BringAppBlock";
-import HeaderBlock from "./HeaderBlock";
+import AdminHeadBlockMobAudit from "./AdminHeadBlockMobAudit";
 import HowDoWeAuditBlock from "./HowDoWeAuditBlock";
 import TeamProvides from "./TeamProvides";
 import WhatAppBlock from "./WhatAppBlock";
@@ -17,7 +17,7 @@ const ServiceMobileAuditContentBlock = () => {
   return (
     <div>
       <AdminBlocksContent>
-        <HeaderBlock />
+        <AdminHeadBlockMobAudit />
         <WhatAppBlock />
         <TeamProvides />
         <WhenDoYouNeedBlock />

@@ -1,7 +1,11 @@
-import { useFormikContext } from "formik";
 import React from "react";
-import useDeleteImageFunction from "../../../../hooks/useDeleteImageFunction";
-import useUploadImageFunction from "../../../../hooks/useUploadImageFunction";
+import { useFormikContext } from "formik";
+
+import AdminBlockDropDown from "../../Global/AdminBlockDropDown";
+import PhotoBlockDashed from "../../Global/PhotoBlockDashed";
+import SubHeaderWithInput from "../../Global/SubHeaderWithInput";
+import HowDoWeProvideBlockItem from "./HowDoWeProvideBlockItem";
+
 import {
   AdminHeaderPhotoWrapper,
   AdminSubTitle,
@@ -15,13 +19,14 @@ import {
   ArrowContainer,
   BlackButton,
 } from "../../../../styles/HomePage/General.styled";
+
 import { IImage } from "../../../../types/Admin/Admin.types";
 import { IServiceDappAudit } from "../../../../types/Admin/Response.types";
+
 import ButtonArrow from "../../../../utils/ButtonArrow";
-import AdminBlockDropDown from "../../Global/AdminBlockDropDown";
-import PhotoBlockDashed from "../../Global/PhotoBlockDashed";
-import SubHeaderWithInput from "../../Global/SubHeaderWithInput";
-import HowDoWeProvideBlockItem from "./HowDoWeProvideBlockItem";
+
+import useDeleteImageFunction from "../../../../hooks/useDeleteImageFunction";
+import useUploadImageFunction from "../../../../hooks/useUploadImageFunction";
 
 const HowDoWeProvideBlock = () => {
   const { values, handleSubmit, handleChange } =

@@ -1,6 +1,9 @@
 import React from "react";
+
 import SubHeaderWithInput from "../components/Admin/Global/SubHeaderWithInput";
+
 import { AdminRenderInputs } from "../styles/AdminPage";
+
 import { headerToUpperCase } from "./headerToUpperCase";
 
 const anyNumbersInHeader = (i: string) => {

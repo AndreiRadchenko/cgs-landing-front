@@ -4,50 +4,32 @@ import useDeleteImageFunction from "../../../../hooks/useDeleteImageFunction";
 import useUploadImageFunction from "../../../../hooks/useUploadImageFunction";
 import { AdminHalfGrid, AdminPaddedBlock } from "../../../../styles/AdminPage";
 import { IImage } from "../../../../types/Admin/Admin.types";
-import { IServiceMobile } from "../../../../types/Admin/Response.types";
+import { IServiceSupport } from "../../../../types/Admin/Response.types";
+import { renderInputs } from "../../../../utils/renderInputs";
 import PhotoBlockDashed from "../../Global/PhotoBlockDashed";
-import SubHeaderWithInput from "../../Global/SubHeaderWithInput";
 import {
   ArrowContainer,
   BlackButton,
 } from "../../../../styles/HomePage/General.styled";
 import ButtonArrow from "../../../../utils/ButtonArrow";
 
-const FooterBlock = () => {
+const AdminFooterBlockSupport = () => {
   const { values, handleChange, handleSubmit } =
-    useFormikContext<IServiceMobile>();
+    useFormikContext<IServiceSupport>();
   const deleteMainImage = useDeleteImageFunction(values.footerBlock);
   const uploadMainImage = useUploadImageFunction(values.footerBlock);
 
   const handleClick = () => handleSubmit();
+
   return (
     <AdminPaddedBlock>
       <AdminHalfGrid>
         <div>
-          <SubHeaderWithInput
-            header="Subtitle"
-            name="footerBlock.title"
-            onChangeFunction={handleChange}
-            inputValue={values.footerBlock.title}
-          />
-          <SubHeaderWithInput
-            header="Text"
-            name="footerBlock.text"
-            onChangeFunction={handleChange}
-            inputValue={values.footerBlock.text}
-          />
-          <SubHeaderWithInput
-            header="Button"
-            name="footerBlock.button"
-            onChangeFunction={handleChange}
-            inputValue={values.footerBlock.button}
-          />
-          <SubHeaderWithInput
-            header="Button Link"
-            name="footerBlock.buttonLink"
-            onChangeFunction={handleChange}
-            inputValue={values.footerBlock.buttonLink}
-          />
+          {renderInputs({
+            props: { name: "footerBlock" },
+            state: values.footerBlock,
+            onChangeFunction: handleChange,
+          })}
         </div>
         <PhotoBlockDashed
           photo={values.footerBlock.image}
@@ -72,4 +54,4 @@ const FooterBlock = () => {
   );
 };
 
-export default FooterBlock;
+export default AdminFooterBlockSupport;

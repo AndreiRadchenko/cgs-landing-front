@@ -1,19 +1,23 @@
-﻿import React, { useEffect, useState, FC } from "react";
+﻿import React, { useEffect, useState } from "react";
 import { useFormikContext } from "formik";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 
 import SubHeaderWithInput from "../Global/SubHeaderWithInput";
+import HistoryLink from "../HistoryLink";
+
+import * as Styled from "../../../styles/AdminPage";
 import { Counter, Message, Text } from "../../../styles/AdminBlogPage";
 import {
   ArrowContainer,
   BlackButton,
 } from "../../../styles/HomePage/General.styled";
-import ButtonArrow from "../../../utils/ButtonArrow";
-import HistoryLink from "../HistoryLink";
 
-import * as Styled from "../../../styles/AdminPage";
+import ButtonArrow from "../../../utils/ButtonArrow";
+
 import { IMetaBlock, ISitemapData } from "../../../types/Admin/Response.types";
+
 import { queryKeys } from "../../../consts/queryKeys";
+
 import { adminSitemapService } from "../../../services/adminSitemapPage";
 
 interface IMetaHistory {
@@ -109,7 +113,7 @@ const MetaTagsBlock = ({
 
   const removeHtmlTags = (text: any) => {
     const clean = /<[^>]*>?/gm;
-    return text.replace(clean, '');
+    return text.replace(clean, "");
   };
 
   const cleanDescription = removeHtmlTags(meta.metaDescription);

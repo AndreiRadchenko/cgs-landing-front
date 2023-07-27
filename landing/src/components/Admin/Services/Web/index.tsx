@@ -3,8 +3,8 @@ import { AdminHeader, AdminPaddedBlock } from "../../../../styles/AdminPage";
 import MetaTagsBlock from "../../MetaTagsBlock";
 import ServiceShowCase from "../../ServiceShowCase";
 import ComparisonBlock from "./ComparisonBlock";
-import FooterBlock from "./FooterBlock";
-import MainBlock from "./MainBlock";
+import AdminFooterBlockWeb from "./AdminFooterBlockWeb";
+import AdminHeadBlockWeb from "./AdminHeadBlockWeb";
 import SolutionBlock from "./SolutionBlock";
 import FreeServices from "../../../ServisesComponents/FreeServices/AdminComponent";
 import AdminBlockDropDown from "../../Global/AdminBlockDropDown";
@@ -16,7 +16,7 @@ const ServiceMobileContentBlock = () => {
       <AdminPaddedBlock>
         <AdminHeader>Web // Desktop Development</AdminHeader>
         <AdminBlockDropDown title="Head Block">
-          <MainBlock />
+          <AdminHeadBlockWeb />
         </AdminBlockDropDown>
 
         <AdminBlockDropDown title="Comparison Block">
@@ -40,7 +40,7 @@ const ServiceMobileContentBlock = () => {
         </AdminBlockDropDown>
 
         <AdminBlockDropDown title="Footer block">
-          <FooterBlock />
+          <AdminFooterBlockWeb />
         </AdminBlockDropDown>
       </AdminPaddedBlock>
       <MetaTagsBlock theme="dark" sitemap="services/web-development" />

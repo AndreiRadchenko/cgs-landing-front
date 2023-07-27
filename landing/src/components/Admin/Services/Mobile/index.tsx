@@ -3,10 +3,10 @@ import { AdminHeader, AdminPaddedBlock } from "../../../../styles/AdminPage";
 import TeamMembers from "../../../ServisesComponents/TeamMembers/AdminTeamMembers";
 import MetaTagsBlock from "../../MetaTagsBlock";
 import ServiceShowCase from "../../ServiceShowCase";
-import FooterBlock from "./FooterBlock";
+import AdminFooterBlockMobile from "./AdminFooterBlockMobile";
 import HowDoWeWork from "./HowDoWeWork";
 
-import MainBlock from "./MainBlock";
+import AdminHeadBlockMobile from "./AdminHeadBlockMobile";
 import StrongBlock from "./StrongBlock";
 import WhatDoWeUse from "./WhatDoWeUse";
 import WhoNeedApps from "./WhoNeedApps";
@@ -19,7 +19,7 @@ const ServiceMobileContentBlock = () => {
       <AdminPaddedBlock>
         <AdminHeader>Mobile Development</AdminHeader>
         <AdminBlockDropDown title={"HEAD BLOCK"}>
-          <MainBlock />
+          <AdminHeadBlockMobile />
         </AdminBlockDropDown>
         <AdminBlockDropDown title={"Why it's worth it?"}>
           <WorthBlock />
@@ -43,7 +43,7 @@ const ServiceMobileContentBlock = () => {
           <HowDoWeWork />
         </AdminBlockDropDown>
         <AdminBlockDropDown title={"Footer Block"}>
-          <FooterBlock />
+          <AdminFooterBlockMobile />
         </AdminBlockDropDown>
       </AdminPaddedBlock>
       <MetaTagsBlock theme="dark" sitemap="services/mobile-app-development" />

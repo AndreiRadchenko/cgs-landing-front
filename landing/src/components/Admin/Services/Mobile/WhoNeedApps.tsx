@@ -1,5 +1,10 @@
 ﻿import { Field, useFormikContext } from "formik";
 import React, { useEffect, useState } from "react";
+import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
+
+import AddDomainsDropdown from "./AddDomainsDropdown";
+import AddMobileTechIcon from "./AddMobileTechIcon";
+
 import {
   AdminHalfGrid,
   AdminPaddedBlock,
@@ -9,17 +14,18 @@ import {
   IDomain,
   IServiceMobile,
 } from "../../../../types/Admin/Response.types";
-import { renderInputs } from "../../../../utils/renderInputs";
-import AddDomainsDropdown from "./AddDomainsDropdown";
-import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
+
 import { queryKeys } from "../../../../consts/queryKeys";
+
 import { adminServices } from "../../../../services/services/commonServices";
-import AddMobileTechIcon from "./AddMobileTechIcon";
+
 import {
   ArrowContainer,
   BlackButton,
 } from "../../../../styles/HomePage/General.styled";
+
 import ButtonArrow from "../../../../utils/ButtonArrow";
+import { renderInputs } from "../../../../utils/renderInputs";
 
 const WhoNeedApps = () => {
   const queryClient = useQueryClient();

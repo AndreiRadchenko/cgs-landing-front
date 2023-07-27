@@ -21,7 +21,6 @@ import {
 
 const RateCardLevelsInput = () => {
   const { values } = useFormikContext<IService>();
-  console.log(values);
 
   const newLevel = {
     name: "",

@@ -1,25 +1,31 @@
 import React from "react";
+import dynamic from "next/dynamic";
 import { useFormikContext } from "formik";
+
+import SubHeaderWithInput from "../../Global/SubHeaderWithInput";
+import PhotoBlockDashed from "../../Global/PhotoBlockDashed";
+
 import {
   AdminPaddedBlock,
   AdminHalfGrid,
   AdminSubtitleGrid,
 } from "../../../../styles/AdminPage";
-import SubHeaderWithInput from "../../Global/SubHeaderWithInput";
-import PhotoBlockDashed from "../../Global/PhotoBlockDashed";
-const TextEditor = dynamic(() => import("../../../TextEditor/TextEditor"), {
-  ssr: false,
-});
-import useDeleteImageFunction from "../../../../hooks/useDeleteImageFunction";
-import useUploadImageFunction from "../../../../hooks/useUploadImageFunction";
-import { IImage } from "../../../../types/Admin/Admin.types";
-import { IBlockchainService } from "../../../../types/Admin/Response.types";
-import dynamic from "next/dynamic";
 import {
   ArrowContainer,
   BlackButton,
 } from "../../../../styles/HomePage/General.styled";
+
+import useDeleteImageFunction from "../../../../hooks/useDeleteImageFunction";
+import useUploadImageFunction from "../../../../hooks/useUploadImageFunction";
+
+import { IImage } from "../../../../types/Admin/Admin.types";
+import { IBlockchainService } from "../../../../types/Admin/Response.types";
+
 import ButtonArrow from "../../../../utils/ButtonArrow";
+
+const TextEditor = dynamic(() => import("../../../TextEditor/TextEditor"), {
+  ssr: false,
+});
 
 const ServicesBlock = () => {
   const { values, handleChange, handleSubmit } =

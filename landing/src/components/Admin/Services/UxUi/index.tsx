@@ -3,11 +3,11 @@ import React from "react";
 import { AdminPaddedBlock, AdminHeader } from "../../../../styles/AdminPage";
 import AdminBlockDropDown from "../../../Admin/Global/AdminBlockDropDown";
 import MetaTagsBlock from "../../MetaTagsBlock";
-import HeadBlock from "./HeadBlock";
+import AdminHeadBlockUxUi from "./AdminHeadBlockUxUi";
 import WhatDoWeDoBlock from "./WhatDoWeDoBlock";
 import DesignBlock from "./DesignBlock";
 import EssentialBlock from "./EssentialBlock";
-import FooterBlock from "./FooterBlock";
+import AdminFooterBlockUxUi from "./AdminFooterBlockUxUi";
 import ServiceShowCase from "../../ServiceShowCase";
 import TeamMembers from "../../../ServisesComponents/TeamMembers/AdminTeamMembers";
 import OtherServices from "../../../ServisesComponents/OtherServices/AdminComponent";
@@ -19,7 +19,7 @@ const ServiceUxUiContentBlock = () => {
       <AdminPaddedBlock>
         <AdminHeader>UX/UI DESIGN</AdminHeader>
         <AdminBlockDropDown title="HEAD BLOCK">
-          <HeadBlock />
+          <AdminHeadBlockUxUi />
         </AdminBlockDropDown>
         <AdminBlockDropDown title="WHAT DO WE DO">
           <WhatDoWeDoBlock />
@@ -40,7 +40,7 @@ const ServiceUxUiContentBlock = () => {
           <OtherServices queryKey={queryKeys.getServiceUxUiPage} />
         </AdminBlockDropDown>
         <AdminBlockDropDown title="FOOTER BLOCK">
-          <FooterBlock />
+          <AdminFooterBlockUxUi />
         </AdminBlockDropDown>
       </AdminPaddedBlock>
       <MetaTagsBlock theme="dark" sitemap="services/ux-ui-design" />

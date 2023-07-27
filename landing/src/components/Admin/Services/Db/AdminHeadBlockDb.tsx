@@ -17,7 +17,7 @@ import { renderInputs } from "../../../../utils/renderInputs";
 import PhotoBlockDashed from "../../Global/PhotoBlockDashed";
 import SubHeaderWithInput from "../../Global/SubHeaderWithInput";
 
-const MainBlock = () => {
+const AdminHeadBlockDb = () => {
   const { values, handleChange, handleSubmit } = useFormikContext<IServiceDb>();
 
   const deleteMainImage = useDeleteImageFunction(values.headerBlock);
@@ -71,4 +71,4 @@ const MainBlock = () => {
   );
 };
 
-export default MainBlock;
+export default AdminHeadBlockDb;

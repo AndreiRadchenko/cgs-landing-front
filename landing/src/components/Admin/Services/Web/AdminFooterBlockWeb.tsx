@@ -13,7 +13,7 @@ import {
 } from "../../../../styles/HomePage/General.styled";
 import ButtonArrow from "../../../../utils/ButtonArrow";
 
-const FooterBlock = () => {
+const AdminFooterBlockWeb = () => {
   const { values, handleChange, handleSubmit } =
     useFormikContext<IServiceWeb>();
   const deleteMainImage = useDeleteImageFunction(values.footerBlock);
@@ -54,4 +54,4 @@ const FooterBlock = () => {
   );
 };
 
-export default FooterBlock;
+export default AdminFooterBlockWeb;

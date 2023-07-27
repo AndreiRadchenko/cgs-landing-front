@@ -15,7 +15,7 @@ import {
   BlackButton,
 } from "../../../../styles/HomePage/General.styled";
 
-const HeadBlock = () => {
+const AdminHeadBlockDapp = () => {
   const { values, handleSubmit, handleChange } =
     useFormikContext<IServiceDappAudit>();
   const handleClick = () => handleSubmit();
@@ -26,8 +26,10 @@ const HeadBlock = () => {
 
   return (
     <>
-      <Styled.AdminHeader>Ai Solutions</Styled.AdminHeader>
-      <AdminBlockDropDown title="head block">
+      <Styled.AdminHeader>
+        Dapp audit <br />+ Tokenomic planning
+      </Styled.AdminHeader>
+      <AdminBlockDropDown title="HEAD BLOCK">
         <Styled.HeaderGrid>
           <Styled.AdminHeaderPhotoWrapper>
             <Styled.AdminSubTitle>Banner</Styled.AdminSubTitle>
@@ -89,4 +91,4 @@ const HeadBlock = () => {
   );
 };
 
-export default HeadBlock;
+export default AdminHeadBlockDapp;

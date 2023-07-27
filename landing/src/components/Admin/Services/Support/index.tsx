@@ -2,8 +2,8 @@
 import { AdminHeader, AdminPaddedBlock } from "../../../../styles/AdminPage";
 import MetaTagsBlock from "../../MetaTagsBlock";
 import ServiceShowCase from "../../ServiceShowCase";
-import FooterBlock from "./FooterBlock";
-import MainBlock from "./MainBlock";
+import AdminFooterBlockSupport from "./AdminFooterBlockSupport";
+import AdminHeadBlockSupport from "./AdminHeadBlockSupport";
 import ProvideBlock from "./ProvideBlock";
 import SubtitleBlock from "./SubtitleBlock";
 import AdminBlockDropDown from "../../../Admin/Global/AdminBlockDropDown";
@@ -18,7 +18,7 @@ const ServiceSupportContentBlock = () => {
       <AdminPaddedBlock>
         <AdminHeader>Ongoing Support // Maintenance</AdminHeader>
         <AdminBlockDropDown title="HEAD BLOCK">
-          <MainBlock />
+          <AdminHeadBlockSupport />
         </AdminBlockDropDown>
         <AdminBlockDropDown title="WHAT DO WE DO">
           <SubtitleBlock />
@@ -39,7 +39,7 @@ const ServiceSupportContentBlock = () => {
           <OtherServices queryKey={queryKeys.getServiceSupportPage} />
         </AdminBlockDropDown>
         <AdminBlockDropDown title="FOOTER BLOCK">
-          <FooterBlock />
+          <AdminFooterBlockSupport />
         </AdminBlockDropDown>
       </AdminPaddedBlock>
       <MetaTagsBlock theme="dark" sitemap="services/it-support" />

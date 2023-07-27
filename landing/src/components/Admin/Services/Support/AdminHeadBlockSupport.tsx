@@ -14,7 +14,7 @@ import {
 } from "../../../../styles/HomePage/General.styled";
 import ButtonArrow from "../../../../utils/ButtonArrow";
 
-const MainBlock = () => {
+const AdminHeadBlockSupport = () => {
   const { values, handleChange, handleSubmit } =
     useFormikContext<IServiceSupport>();
   const deleteMainImage = useDeleteImageFunction(values.headerBlock);
@@ -64,4 +64,4 @@ const MainBlock = () => {
   );
 };
 
-export default MainBlock;
+export default AdminHeadBlockSupport;

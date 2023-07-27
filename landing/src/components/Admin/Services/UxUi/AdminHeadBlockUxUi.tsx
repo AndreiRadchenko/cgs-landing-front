@@ -1,24 +1,23 @@
 import React from "react";
 import { useFormikContext } from "formik";
 
-import { AdminHalfGrid, AdminPaddedBlock } from "../../../../styles/AdminPage";
+import PhotoBlockDashed from "../../Global/PhotoBlockDashed";
+import { AdminPaddedBlock, AdminHalfGrid } from "../../../../styles/AdminPage";
 import ButtonArrow from "../../../../utils/ButtonArrow";
 import {
   ArrowContainer,
   BlackButton,
 } from "../../../../styles/HomePage/General.styled";
-import PhotoBlockDashed from "../../Global/PhotoBlockDashed";
 
 import { IImage } from "../../../../types/Admin/Admin.types";
-import { ICloudService } from "../../../../types/Admin/Response.types";
+import { IUxUiInterface } from "../../../../types/Admin/Response.types";
 import { renderInputs } from "../../../../utils/renderInputs";
 import useDeleteImageFunction from "../../../../hooks/useDeleteImageFunction";
 import useUploadImageFunction from "../../../../hooks/useUploadImageFunction";
 
-const HeadBlock = () => {
+const AdminHeadBlockUxUi = () => {
   const { values, handleChange, handleSubmit } =
-    useFormikContext<ICloudService>();
-
+    useFormikContext<IUxUiInterface>();
   const deleteMainImage = useDeleteImageFunction(values.headerBlock);
   const uploadMainImage = useUploadImageFunction(values.headerBlock);
 
@@ -35,9 +34,9 @@ const HeadBlock = () => {
         <PhotoBlockDashed
           photo={values.headerBlock.image}
           deleteFunction={async () => (await deleteMainImage)()}
+          deleteFlag={true}
           uploadFunction={(image: IImage) => uploadMainImage(image)}
           style={{ maxWidth: "364px", maxHeight: "364px" }}
-          deleteFlag={true}
         />
       </AdminHalfGrid>
       <div>
@@ -57,4 +56,4 @@ const HeadBlock = () => {
   );
 };
 
-export default HeadBlock;
+export default AdminHeadBlockUxUi;

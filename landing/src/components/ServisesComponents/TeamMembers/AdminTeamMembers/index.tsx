@@ -1,15 +1,20 @@
 import React, { useState } from "react";
-import * as Styled from "./adminTeamMembers.styled";
 import { useFormikContext } from "formik";
-import Arrow from "../../../../../public/upArrowSidebar.svg";
-import TrashIcon from "../../../Admin/Portfolio/TrashIcon";
+
+import * as Styled from "./adminTeamMembers.styled";
 import { AdminShowCaseServiceButton } from "../../../../styles/AdminPage";
-import { ITeamMembers } from "../../../../types/ServicesComponent.types";
 import {
   ArrowContainer,
   BlackButton,
 } from "../../../../styles/HomePage/General.styled";
+
+import TrashIcon from "../../../Admin/Portfolio/TrashIcon";
+
+import { ITeamMembers } from "../../../../types/ServicesComponent.types";
+
 import ButtonArrow from "../../../../utils/ButtonArrow";
+
+import Arrow from "../../../../../public/upArrowSidebar.svg";
 
 interface ITeamMembersComponent {
   teamMembers: ITeamMembers;

@@ -1,22 +1,24 @@
 import React from "react";
-import {
-  AdminBlocksContent,
-  MetaBlockWraper,
-} from "../../../../styles/AdminPage";
+
 import MetaTagsBlock from "../../MetaTagsBlock";
 import ServiceShowCase from "../../ServiceShowCase";
 import BringYourAppBlock from "./BringYourAppBlock";
 import FigureOutTermsBlock from "./FigureOutTermsBlock";
-import HeadBlock from "./HeadBlock";
+import AdminHeadBlockAi from "./AdminHeadBlockAi";
 import HowDoWeProvideBlock from "./HowDoWeProvideBlock";
 import WhyIsDappsBlock from "./WhyIsDappsBlock";
 import AdminBlockDropDown from "../../Global/AdminBlockDropDown";
+
+import {
+  AdminBlocksContent,
+  MetaBlockWraper,
+} from "../../../../styles/AdminPage";
 
 const ServiceDappAuditContentBlock = () => {
   return (
     <div>
       <AdminBlocksContent>
-        <HeadBlock />
+        <AdminHeadBlockAi />
         <FigureOutTermsBlock />
         <WhyIsDappsBlock />
         <HowDoWeProvideBlock />

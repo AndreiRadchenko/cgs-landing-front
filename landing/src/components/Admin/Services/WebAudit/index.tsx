@@ -6,7 +6,7 @@ import {
 import MetaTagsBlock from "../../MetaTagsBlock";
 import ServiceShowCase from "../../ServiceShowCase";
 import BringYourAppBlock from "./BringYourAppBlock";
-import HeaderBlock from "./HeaderBlock";
+import AdminHeadBlockWebAudit from "./AdminHeadBlockWebAudit";
 import HowToDoBlock from "./HowToDoBlock";
 import TypesBlock from "./TypesBlock";
 import WhatIsBlock from "./WhatIsBlock";
@@ -18,7 +18,7 @@ const ServiceWebAuditContentBlock = () => {
   return (
     <div>
       <AdminBlocksContent>
-        <HeaderBlock />
+        <AdminHeadBlockWebAudit />
         <WhatIsBlock />
         <ProblemsAuditSolve />
         <TypesBlock />
