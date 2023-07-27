@@ -95,7 +95,8 @@ export const BlackButton = styled.a<IFontSize>`
   }
 
   &.services {
-    font-size: 1.375em;
+    font-size: 22px;
+    padding: 16.5px 15.5px;
   }
 
   &.cta-button {
@@ -180,6 +181,11 @@ export const BlackButton = styled.a<IFontSize>`
       padding: 0.8em 1em;
       font-size: 2.2em;
     }
+
+    &.services {
+      font-size: 33px;
+      padding: 24.75px 23.25px;
+    }
   }
 
   @media ${themes.primary.media.maxTabletLandScape} {
@@ -252,6 +258,14 @@ export const BlackButton = styled.a<IFontSize>`
 
     &.footer-home {
       margin-top: 1em;
+    }
+
+    &.services {
+      font-size: 16px;
+      padding: 17.5px 31.5px;
+    }
+    &.services&.header {
+      padding: 17.5px 18px;
     }
   }
 

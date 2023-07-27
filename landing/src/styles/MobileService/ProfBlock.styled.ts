@@ -13,6 +13,7 @@ export const ContentContainer = styled.section`
 
   @media ${themes.primary.media.maxMobile} {
     margin-top: 40px;
+    padding-top: 28px;
     flex-direction: column;
     margin-bottom: 0px;
   }
