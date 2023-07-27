@@ -1,15 +1,18 @@
 import { useFormikContext } from "formik";
 import React from "react";
 
-import ButtonArrow from "../../../../utils/ButtonArrow";
+import SubHeaderWithInput from "../../Global/SubHeaderWithInput";
+
+import * as Styled from "../../../../styles/AdminPage";
 import {
   ArrowContainer,
   BlackButton,
 } from "../../../../styles/HomePage/General.styled";
 import { AdminHalfGrid, AdminPaddedBlock } from "../../../../styles/AdminPage";
+
+import ButtonArrow from "../../../../utils/ButtonArrow";
+
 import { IServiceDb } from "../../../../types/Admin/Response.types";
-import SubHeaderWithInput from "../../Global/SubHeaderWithInput";
-import * as Styled from "../../../../styles/AdminPage";
 
 const FeaturesBlock = () => {
   const { values, handleChange, handleSubmit } = useFormikContext<IServiceDb>();

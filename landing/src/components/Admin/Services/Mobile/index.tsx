@@ -1,17 +1,18 @@
 ﻿import React from "react";
-import { AdminHeader, AdminPaddedBlock } from "../../../../styles/AdminPage";
+
 import TeamMembers from "../../../ServisesComponents/TeamMembers/AdminTeamMembers";
 import MetaTagsBlock from "../../MetaTagsBlock";
 import ServiceShowCase from "../../ServiceShowCase";
 import AdminFooterBlockMobile from "./AdminFooterBlockMobile";
 import HowDoWeWork from "./HowDoWeWork";
-
 import AdminHeadBlockMobile from "./AdminHeadBlockMobile";
 import StrongBlock from "./StrongBlock";
 import WhatDoWeUse from "./WhatDoWeUse";
 import WhoNeedApps from "./WhoNeedApps";
 import WorthBlock from "./WorthBlock";
 import AdminBlockDropDown from "../../Global/AdminBlockDropDown";
+
+import { AdminHeader, AdminPaddedBlock } from "../../../../styles/AdminPage";
 
 const ServiceMobileContentBlock = () => {
   return (

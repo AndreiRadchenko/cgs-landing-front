@@ -1,8 +1,5 @@
 import React from "react";
-import {
-  AdminBlocksContent,
-  MetaBlockWraper,
-} from "../../../../styles/AdminPage";
+
 import MetaTagsBlock from "../../MetaTagsBlock";
 import ServiceShowCase from "../../ServiceShowCase";
 import BringAppBlock from "./BringAppBlock";
@@ -12,6 +9,11 @@ import TeamProvides from "./TeamProvides";
 import WhatAppBlock from "./WhatAppBlock";
 import WhenDoYouNeedBlock from "./WhenDoYouNeedBlock";
 import AdminBlockDropDown from "../../Global/AdminBlockDropDown";
+
+import {
+  AdminBlocksContent,
+  MetaBlockWraper,
+} from "../../../../styles/AdminPage";
 
 const ServiceMobileAuditContentBlock = () => {
   return (

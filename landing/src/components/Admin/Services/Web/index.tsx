@@ -1,5 +1,5 @@
 ﻿import React from "react";
-import { AdminHeader, AdminPaddedBlock } from "../../../../styles/AdminPage";
+
 import MetaTagsBlock from "../../MetaTagsBlock";
 import ServiceShowCase from "../../ServiceShowCase";
 import ComparisonBlock from "./ComparisonBlock";
@@ -9,6 +9,8 @@ import SolutionBlock from "./SolutionBlock";
 import FreeServices from "../../../ServisesComponents/FreeServices/AdminComponent";
 import AdminBlockDropDown from "../../Global/AdminBlockDropDown";
 import TeamMembers from "../../../ServisesComponents/TeamMembers/AdminTeamMembers";
+
+import { AdminHeader, AdminPaddedBlock } from "../../../../styles/AdminPage";
 
 const ServiceMobileContentBlock = () => {
   return (

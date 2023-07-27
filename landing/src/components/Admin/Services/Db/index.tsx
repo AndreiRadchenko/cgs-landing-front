@@ -1,6 +1,5 @@
 import React from "react";
 
-import { AdminPaddedBlock, AdminHeader } from "../../../../styles/AdminPage";
 import AdminBlockDropDown from "../../../Admin/Global/AdminBlockDropDown";
 import MetaTagsBlock from "../../MetaTagsBlock";
 import AdminHeadBlockDb from "./AdminHeadBlockDb";
@@ -10,6 +9,9 @@ import FeaturesBlock from "./FeaturesBlock";
 import ServiceShowCase from "../../ServiceShowCase";
 import Bonuses from "../../../ServisesComponents/Bonuses/AdminComponent";
 import OtherServices from "../../../ServisesComponents/OtherServices/AdminComponent";
+
+import { AdminPaddedBlock, AdminHeader } from "../../../../styles/AdminPage";
+
 import { queryKeys } from "../../../../consts/queryKeys";
 
 const ServiceDbContentBlock = () => {

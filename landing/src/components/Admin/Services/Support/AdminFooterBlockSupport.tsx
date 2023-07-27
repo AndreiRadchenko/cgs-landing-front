@@ -1,17 +1,22 @@
 ﻿import { useFormikContext } from "formik";
 import React from "react";
-import useDeleteImageFunction from "../../../../hooks/useDeleteImageFunction";
-import useUploadImageFunction from "../../../../hooks/useUploadImageFunction";
+
 import { AdminHalfGrid, AdminPaddedBlock } from "../../../../styles/AdminPage";
-import { IImage } from "../../../../types/Admin/Admin.types";
-import { IServiceSupport } from "../../../../types/Admin/Response.types";
-import { renderInputs } from "../../../../utils/renderInputs";
-import PhotoBlockDashed from "../../Global/PhotoBlockDashed";
 import {
   ArrowContainer,
   BlackButton,
 } from "../../../../styles/HomePage/General.styled";
+
+import { IImage } from "../../../../types/Admin/Admin.types";
+import { IServiceSupport } from "../../../../types/Admin/Response.types";
+
+import { renderInputs } from "../../../../utils/renderInputs";
+import PhotoBlockDashed from "../../Global/PhotoBlockDashed";
+
 import ButtonArrow from "../../../../utils/ButtonArrow";
+
+import useDeleteImageFunction from "../../../../hooks/useDeleteImageFunction";
+import useUploadImageFunction from "../../../../hooks/useUploadImageFunction";
 
 const AdminFooterBlockSupport = () => {
   const { values, handleChange, handleSubmit } =

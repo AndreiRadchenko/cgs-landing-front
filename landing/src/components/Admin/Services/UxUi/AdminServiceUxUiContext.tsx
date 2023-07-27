@@ -1,11 +1,16 @@
 import React from "react";
 import { Formik } from "formik";
 import { useQuery, useMutation } from "@tanstack/react-query";
-import { queryKeys } from "../../../../consts/queryKeys";
+
 import ServiceUxUiContentBlock from ".";
-import { adminUxUiService } from "../../../../services/services/AdminServiceUxUiPage";
-import { IUxUiInterface } from "../../../../types/Admin/Response.types";
+
 import * as Styled from "../../../../styles/AdminPage";
+
+import { queryKeys } from "../../../../consts/queryKeys";
+
+import { IUxUiInterface } from "../../../../types/Admin/Response.types";
+
+import { adminUxUiService } from "../../../../services/services/AdminServiceUxUiPage";
 
 const AdminServiceUxUiContent = () => {
   const { data, isLoading, refetch } = useQuery(
@@ -20,7 +25,6 @@ const AdminServiceUxUiContent = () => {
 
   const submitForm = async (values: IUxUiInterface) => {
     document.body.style.cursor = "wait";
-    console.log(values);
     await updateUxUiPage(values);
     await refetch();
     document.body.style.cursor = "auto";

@@ -1,9 +1,9 @@
 import React from "react";
 import Image from "next/image";
 
-import unchangeableImg from "../../../../public/Something-You-Cant-Change.webp";
-
 import * as Styled from "../../../styles/AdminPage";
+
+import unchangeableImg from "../../../../public/Something-You-Cant-Change.webp";
 
 const PhotoBlockStub = () => {
   return (

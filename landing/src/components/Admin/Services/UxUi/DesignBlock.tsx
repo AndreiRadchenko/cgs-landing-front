@@ -2,12 +2,14 @@ import React from "react";
 import { useFormikContext } from "formik";
 
 import SubHeaderWithInput from "../../Global/SubHeaderWithInput";
+
 import { SubtitleGrid, AdminPaddedBlock } from "../../../../styles/AdminPage";
-import ButtonArrow from "../../../../utils/ButtonArrow";
 import {
   ArrowContainer,
   BlackButton,
 } from "../../../../styles/HomePage/General.styled";
+
+import ButtonArrow from "../../../../utils/ButtonArrow";
 
 import { IUxUiInterface } from "../../../../types/Admin/Response.types";
 

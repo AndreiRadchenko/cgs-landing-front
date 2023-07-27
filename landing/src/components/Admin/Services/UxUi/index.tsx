@@ -1,6 +1,5 @@
 import React from "react";
 
-import { AdminPaddedBlock, AdminHeader } from "../../../../styles/AdminPage";
 import AdminBlockDropDown from "../../../Admin/Global/AdminBlockDropDown";
 import MetaTagsBlock from "../../MetaTagsBlock";
 import AdminHeadBlockUxUi from "./AdminHeadBlockUxUi";
@@ -11,6 +10,9 @@ import AdminFooterBlockUxUi from "./AdminFooterBlockUxUi";
 import ServiceShowCase from "../../ServiceShowCase";
 import TeamMembers from "../../../ServisesComponents/TeamMembers/AdminTeamMembers";
 import OtherServices from "../../../ServisesComponents/OtherServices/AdminComponent";
+
+import { AdminPaddedBlock, AdminHeader } from "../../../../styles/AdminPage";
+
 import { queryKeys } from "../../../../consts/queryKeys";
 
 const ServiceUxUiContentBlock = () => {

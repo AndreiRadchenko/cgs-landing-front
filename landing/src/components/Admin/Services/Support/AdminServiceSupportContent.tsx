@@ -1,11 +1,16 @@
 ﻿import { Formik } from "formik";
 import React from "react";
 import { useMutation, useQuery } from "@tanstack/react-query";
-import { queryKeys } from "../../../../consts/queryKeys";
-import * as Styled from "../../../../styles/AdminPage";
-import { IServiceSupport } from "../../../../types/Admin/Response.types";
-import { adminSupportService } from "../../../../services/services/adminServiceSupportPage";
+
 import ServiceSupportContentBlock from ".";
+
+import * as Styled from "../../../../styles/AdminPage";
+
+import { IServiceSupport } from "../../../../types/Admin/Response.types";
+
+import { queryKeys } from "../../../../consts/queryKeys";
+
+import { adminSupportService } from "../../../../services/services/adminServiceSupportPage";
 
 const AdminServiceSupportContent = () => {
   const { data, isLoading, refetch } = useQuery(

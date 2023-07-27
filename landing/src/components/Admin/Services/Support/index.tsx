@@ -1,5 +1,5 @@
 ﻿import React from "react";
-import { AdminHeader, AdminPaddedBlock } from "../../../../styles/AdminPage";
+
 import MetaTagsBlock from "../../MetaTagsBlock";
 import ServiceShowCase from "../../ServiceShowCase";
 import AdminFooterBlockSupport from "./AdminFooterBlockSupport";
@@ -8,9 +8,12 @@ import ProvideBlock from "./ProvideBlock";
 import SubtitleBlock from "./SubtitleBlock";
 import AdminBlockDropDown from "../../../Admin/Global/AdminBlockDropDown";
 import Bonuses from "../../../ServisesComponents/Bonuses/AdminComponent";
-import { queryKeys } from "../../../../consts/queryKeys";
 import TeamMembers from "../../../ServisesComponents/TeamMembers/AdminTeamMembers";
 import OtherServices from "../../../ServisesComponents/OtherServices/AdminComponent";
+
+import { AdminHeader, AdminPaddedBlock } from "../../../../styles/AdminPage";
+
+import { queryKeys } from "../../../../consts/queryKeys";
 
 const ServiceSupportContentBlock = () => {
   return (

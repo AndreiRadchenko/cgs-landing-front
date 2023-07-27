@@ -1,17 +1,20 @@
 import React from "react";
 import { useFormikContext } from "formik";
 
-import { AdminPaddedBlock, AdminHalfGrid } from "../../../../styles/AdminPage";
-import { renderInputs } from "../../../../utils/renderInputs";
 import PhotoBlockDashed from "../../Global/PhotoBlockDashed";
-import ButtonArrow from "../../../../utils/ButtonArrow";
+
+import { AdminPaddedBlock, AdminHalfGrid } from "../../../../styles/AdminPage";
 import {
   ArrowContainer,
   BlackButton,
 } from "../../../../styles/HomePage/General.styled";
 
+import { renderInputs } from "../../../../utils/renderInputs";
+import ButtonArrow from "../../../../utils/ButtonArrow";
+
 import { IUxUiInterface } from "../../../../types/Admin/Response.types";
 import { IImage } from "../../../../types/Admin/Admin.types";
+
 import useDeleteImageFunction from "../../../../hooks/useDeleteImageFunction";
 import useUploadImageFunction from "../../../../hooks/useUploadImageFunction";
 
