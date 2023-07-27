@@ -3,12 +3,12 @@ import { FormikProvider } from "formik";
 import themes from "../../utils/themes";
 
 export const Form = styled.form`
-  margin-top: 20px;
-  padding: 0 61px 0 50px;
+  margin-top: 24px;
+  padding: 0 48px 0 48px;
 
   @media (max-width: 570px) {
-    margin-top: 12px;
-    padding: 0 46px 0 34px;
+    margin-top: 16px;
+    padding: 0 14px;
   }
 `;
 
@@ -21,18 +21,20 @@ export const FormSentContainer = styled.div`
   width: 100%;
   height: 53px;
   flex-direction: column;
-  margin-top: 38px;
-  margin-bottom: 38px;
+  margin-top: 14px;
+  margin-bottom: 56px;
+  margin-left: -2px;
 
   @media ${themes.primary.media.minPCFullHD} {
-    margin-top: 58px;
+    margin-top: 28px;
     margin-bottom: 58px;
   }
 
   @media ${themes.primary.media.estiomationFormWidth} {
     height: 50px;
-    margin-top: 18.5px;
-    margin-bottom: 26px;
+    margin-top: 12px;
+    margin-bottom: 32px;
+    margin-left: -2px;
   }
 `;
 
