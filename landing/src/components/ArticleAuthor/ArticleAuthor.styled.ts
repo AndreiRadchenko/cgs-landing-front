@@ -6,7 +6,11 @@ export const Wrapper = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: flex-end;
-  margin-top: 36px;
+  margin-top: 26px;
+
+  @media ${themes.primary.media.minPCFullHD} {
+    margin-top: 34px;
+  }
 
   @media ${themes.primary.media.maxMobile} {
     margin-top: 0;
@@ -23,16 +27,23 @@ export const AuthorWrapper = styled.div`
 
 export const AuthorImage = styled.img`
   max-width: 5em;
-  width: 100%;
+  width: 50px;
   height: auto;
   display: flex;
   align-items: center;
   justify-content: center;
   margin-right: 7px;
+  margin-bottom: 3px;
+
+  @media ${themes.primary.media.minPCFullHD} {
+    width: 62px;
+    margin-bottom: 8px;
+  }
 
   @media ${themes.primary.media.maxMobile} {
     width: 40px;
     margin-right: 12px;
+    margin-bottom: 0;
   }
 `;
 

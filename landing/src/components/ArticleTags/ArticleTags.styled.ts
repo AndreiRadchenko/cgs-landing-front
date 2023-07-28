@@ -7,10 +7,13 @@ export const Wrapper = styled.div`
   max-width: 356px;
   flex-wrap: wrap;
   gap: 12px;
+  column-gap: 8px;
+  row-gap: 10px;
   margin-top: 22px;
 
   @media ${themes.primary.media.minPCFullHD} {
     max-width: none;
+    column-gap: 10px;
   }
 
   @media ${themes.primary.media.maxTabletPortrait} {

@@ -278,6 +278,10 @@ a:hover::after {
     h6:first-child  {
       margin-top: 50px;
       margin-bottom: 24px;
+
+      span { 
+        margin-right: 5px;
+      }
     }
 
     & .se-video-container {

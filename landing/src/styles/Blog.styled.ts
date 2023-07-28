@@ -10,6 +10,14 @@ export const FlexColumnContainer = styled.div`
   display: flex;
   flex-direction: column;
 
+  @media ${themes.primary.media.minPCFullHD} {
+    border-left: 1px solid ${themes.primary.colors.comment};
+
+    &.podcast {
+      border-left: none;
+    }
+  }
+
   @media ${themes.primary.media.maxMobile} {
     width: 100%;
 
@@ -80,13 +88,14 @@ export const BlogContainer = styled.article`
 
 export const AllArticlesContainer = styled.section`
   padding: 70px 70px 0;
-  margin-bottom: 210px;
+  margin-bottom: 200px;
   max-width: 1200px;
   width: 100%;
 
   @media ${themes.primary.media.minPCFullHD} {
     max-width: 100em;
     padding: 80px 314px 0;
+    margin-bottom: 210px;
   }
   @media ${themes.primary.media.maxTabletPortrait} {
     padding: 90px 30px 0;
@@ -259,7 +268,7 @@ export const BlogItemContainer = styled.div`
   }
 
   @media ${themes.primary.media.maxMobile} {
-    padding: 50px 0.75rem 16px;
+    padding: 34px 0.75rem 16px;
   }
 `;
 
@@ -422,7 +431,7 @@ export const LoopText = styled.div`
 
   @media ${themes.primary.media.maxMobile} {
     font-size: 0.875rem;
-    margin-top: 30px;
+    margin-top: 8px;
   }
 `;
 
@@ -713,7 +722,7 @@ export const PodcastContainer = styled.section`
 
   @media ${themes.primary.media.minPCFullHD} {
     column-gap: 70px;
-    padding: 80px 50px;
+    padding: 80px 50px 92px;
   }
 
   @media ${themes.primary.media.maxTabletPortrait} {
@@ -756,8 +765,12 @@ export const PodcastCard = styled.div`
     padding-bottom: 30px;
   }
 
+  @media ${themes.primary.media.maxMobile} {
+    padding-bottom: 28px;
+  }
+
   @media ${themes.primary.media.maxLowScreenMobile} {
-    width: 350px;
+    width: 353px;
   }
 
   @media (max-width: 372px) {
@@ -1015,7 +1028,7 @@ export const PodcastTitle = styled(BlogItemTitle)`
   @media ${themes.primary.media.minPCFullHD} {
     max-width: 1250px;
     font-size: 1.586em;
-    margin-top: 0;
+    margin-top: 32px;
   }
   @media ${themes.primary.media.maxTabletPortrait} {
     font-size: ${themes.primary.font.size.secondary};
@@ -1123,6 +1136,10 @@ export const HeaderBlock = styled.header`
   height: 100%;
   justify-content: flex-end;
 
+  @media ${themes.primary.media.minPCFullHD} {
+    justify-content: space-between;
+  }
+
   @media ${themes.primary.media.maxMobile} {
     justify-content: center;
     padding-inline: 0.5rem;
@@ -1156,6 +1173,10 @@ export const MainContainer = styled.div`
   align-items: center;
   border-right: 1px solid ${themes.primary.colors.comment};
 
+  @media ${themes.primary.media.minPCFullHD} {
+    border-right: none;
+  }
+
   @media ${themes.primary.media.maxMobile} {
     margin-top: 2px;
     box-sizing: border-box;
@@ -1177,8 +1198,7 @@ export const MainBlogItemImage = styled.img`
 
   @media ${themes.primary.media.maxMobile} {
     max-width: none;
-    height: 179px;
-    max-height: 179px;
+    max-height: 405px;
   }
 `;
 
@@ -1228,8 +1248,8 @@ export const MainBlogItemDescription = styled(BlogItemDescription)`
 `;
 
 export const SmallArticleItemTitle = styled(BlogItemTitle)`
-  font-size: 1.76em;
-  margin-top: 6.8px;
+  font-size: 1.75em;
+  margin-top: 0px;
 
   &:hover {
     color: ${themes.primary.colors.darkBlue};
@@ -1253,6 +1273,7 @@ export const SmallArticleItemTitle = styled(BlogItemTitle)`
 export const SmallGeneralInfo = styled(GeneralInfo)`
   margin-top: 0;
   height: 36px;
+  align-items: flex-start;
 `;
 
 export const SmallArticleItemDescription = styled(BlogItemDescription)`

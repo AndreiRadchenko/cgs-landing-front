@@ -3,8 +3,7 @@ import themes from "../../utils/themes";
 
 export const Wrapper = styled.section`
   display: flex;
-  justify-content: space-between;
-  column-gap: 20px;
+  column-gap: 24px;
   align-items: center;
   width: 356px;
 
@@ -13,7 +12,8 @@ export const Wrapper = styled.section`
   }
 
   @media ${themes.primary.media.minPCFullHD} {
-    width: 470px;
+    column-gap: 30px;
+    width: 430px;
   }
   @media ${themes.primary.media.maxTabletPortrait} {
     align-items: center;
@@ -100,5 +100,9 @@ export const IconBlock = styled.div`
 
 export const IconsWrapper = styled.div`
   display: flex;
-  column-gap: 20px;
+  column-gap: 16px;
+
+  @media ${themes.primary.media.minPCFullHD} {
+    column-gap: 20px;
+  }
 `;

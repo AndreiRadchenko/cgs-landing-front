@@ -130,7 +130,7 @@ const PodcastItem = ({ data }: IPodcastItemProps) => {
             <div />
           </Styled.BackgroundCard>
         </Styled.RelativeContainer>
-        <Styled.FlexColumnContainer>
+        <Styled.FlexColumnContainer className="podcast">
           <Styled.FlexRowContainer>
             <Styled.FlexPodcast>
             <Styled.PodcastIcon src={Podcast.src} />

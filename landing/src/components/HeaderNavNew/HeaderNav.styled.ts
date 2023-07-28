@@ -140,6 +140,11 @@ export const NavList = styled.menu`
   height: 57px;
   padding-top: 1px;
   padding-left: 0;
+
+  @media ${themes.primary.media.minPCFullHD} {
+    height: 70px;
+  }
+
   @media ${themes.primary.media.maxLaptop} {
     margin-right: 0;
   }
