@@ -469,18 +469,7 @@ const PortfolioPage: NextPage = () => {
               </Styles.PortfolioFiltersWrapper>
 
               <Styles.PortfolioProjectsWrapper id="portfolio-wrapper">
-                <Loader
-                  isPortfolio={true}
-                  className="portfolio"
-                  active={
-                    (isLoading ||
-                      reviewsIsLoading ||
-                      (reviewsData?.reviews &&
-                        reviewsData.reviews.length > 0 &&
-                        !isImagesLoaded)) &&
-                    !isFirstLoad
-                  }
-                >
+                <Loader isPortfolio={true} className="portfolio" active={false}>
                   {(isLoading || reviewsIsLoading) && !isFirstLoad ? (
                     <LoaderStub />
                   ) : reviewsData?.reviews && reviewsData.reviews.length > 0 ? (
