@@ -81,11 +81,6 @@ const ArticleForm = ({
         values.description;
     }
 
-    if (values.scheduleArticle) {
-      values.publishedDate = formatsDateWithTime(values.scheduleArticle);
-      values.disabled = false;
-    }
-
     if (!values.publishedDate) {
       values.publishedDate = formatsDateWithTime();
     } else if (values.publishedDate === "draft") {

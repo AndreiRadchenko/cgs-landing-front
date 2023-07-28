@@ -97,12 +97,11 @@ const PublishedArticles: FC<IArticles> = ({
     handleSubmit();
   };
 
-  const deactivateArticle = async (i: number, isPublished: boolean) => {
-    if (data && isPublished) {
+  const deactivateArticle = async (i: number) => {
+    if (data) {
       const disabledArticle = data[i];
       disabledArticle.disabled = true;
       disabledArticle.publishedDate = "";
-      disabledArticle.scheduleArticle = "";
 
       await updateArticle(disabledArticle);
     }
@@ -112,7 +111,6 @@ const PublishedArticles: FC<IArticles> = ({
     if (data) {
       const publishArticle = data[i];
       publishArticle.publishedDate = formatsDateWithTime();
-      publishArticle.scheduleArticle = "";
       publishArticle.draft = false;
       publishArticle.disabled = false;
 
@@ -140,10 +138,6 @@ const PublishedArticles: FC<IArticles> = ({
   };
 
   const ArticleItem = ({ item, i }: IArticleItem) => {
-    const isScheduledDateExpired = item.scheduleArticle
-      ? new Date() > new Date(item.scheduleArticle)
-      : true;
-
     return (
       <BlogItem isAdmin item={item}>
         {item.draft && <Styles.DraftMark>DRAFT</Styles.DraftMark>}
@@ -163,21 +157,15 @@ const PublishedArticles: FC<IArticles> = ({
             delete article
           </Styles.DeleteButton>
           <Styles.InternalButtonWrapper>
-            {isScheduledDateExpired && item.publishedDate && !item.draft && (
+            {item.publishedDate && !item.draft && (
               <Styles.TimeStamp>
                 <strong>Published </strong>
                 {item.publishedDate}
               </Styles.TimeStamp>
             )}
-            {!isScheduledDateExpired && item.scheduleArticle && (
-              <Styles.TimeStamp>
-                <strong>Scheduled </strong>
-                {formatsDateWithTime(item.scheduleArticle)}
-              </Styles.TimeStamp>
-            )}
             <Styles.DeactivateButton
-              disabled={!isScheduledDateExpired || item.draft || item.disabled}
-              onClick={() => deactivateArticle(i, isScheduledDateExpired)}
+              disabled={item.draft || item.disabled}
+              onClick={() => deactivateArticle(i)}
             >
               Deactivate
             </Styles.DeactivateButton>

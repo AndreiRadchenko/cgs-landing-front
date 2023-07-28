@@ -266,7 +266,6 @@ export interface IArticle {
   title: string;
   description: string;
   author: IAuthor;
-  scheduleArticle: string;
   updatedOn: string;
   date: string;
   publishedDate: string;
@@ -285,7 +284,6 @@ export interface IArticleWithoutId {
   title: string;
   description: string;
   author: IAuthor;
-  scheduleArticle: string;
   updatedOn: string;
   date: string;
   minutesToRead: number;

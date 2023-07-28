@@ -326,7 +326,6 @@ export const newBlogArticle = {
     specialization: "",
   },
   updatedOn: "",
-  scheduleArticle: "",
   date: "",
   minutesToRead: 2,
   content: "",
