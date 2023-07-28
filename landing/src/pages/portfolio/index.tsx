@@ -329,9 +329,7 @@ const PortfolioPage: NextPage = () => {
   calendlyPopupInfoHandler(() => setIsCalendlySuccessfull(true));
 
   return (
-    <Loader
-      active={(isLoading || reviewsIsLoading || !isImagesLoaded) && isFirstLoad}
-    >
+    <Loader active={isLoading}>
       <Head>
         <title>{metaTitle || "Portfolio | CGS-team"}</title>
         <meta name="description" content={metaDescription} />

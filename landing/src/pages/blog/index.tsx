@@ -153,7 +153,7 @@ const BlogPage = () => {
   }, []);
 
   return (
-    <Loader active={!isMainSliderImageLoaded && isFirstLoad}>
+    <Loader active={isLoading}>
       <Head>
         <title>{metaTitle}</title>
         <meta name="description" content={metaDescription} />
