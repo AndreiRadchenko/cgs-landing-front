@@ -148,9 +148,9 @@ export const ReadMoreButton = styled.button`
   margin-top: 32px;
   border: 2px solid ${themes.primary.colors.primary};
   outline: 0;
-  padding: 8px 16px;
+  padding: 3.3px 16px;
   background-color: ${themes.primary.colors.primary};
-  color: ${themes.primary.colors.secondary};
+  color: ${themes.primary.colors.secondary} !important;
   font-family: ${themes.primary.font.family.openSans};
   font-weight: ${themes.primary.font.weight.semiBold};
   letter-spacing: 0.7px;
@@ -180,11 +180,16 @@ export const ReadMoreButton = styled.button`
     line-height: 100%;
     font-size: 1.05em;
     padding: 8px 20px;
+    margin-top: 40px;
+  }
+
+  @media ${themes.primary.media.maxTabletLandScape} {
+    max-width: 140px;
   }
 
   @media ${themes.primary.media.maxMobile} {
     a {
-      color: #fff;
+      color: #fff !important;
     }
   }
 `;

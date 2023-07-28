@@ -19,12 +19,11 @@ export const Title = styled.h1`
 
   @media ${themes.primary.media.maxMobile} {
     font-size: 3rem;
-    margin-bottom: 1.375rem;
+    margin-bottom: 16px;
   }
 
   @media ${themes.primary.media.maxLowScreenMobile} {
-    font-size: 1.5rem;
-    margin-bottom: 1.375rem;
+    font-size: 24px;
   }
 `;
 
@@ -34,7 +33,7 @@ export const Article = styled.article`
 
 export const SubTitle = styled.div`
   width: 100%;
-  margin-top: 45px;
+  margin-top: 48px;
   font-size: ${themes.primary.font.size.faqQuestion};
   font-weight: ${themes.primary.font.weight.normal};
   font-family: ${themes.primary.font.family.openSans};
@@ -46,10 +45,11 @@ export const SubTitle = styled.div`
   }
   @media ${themes.primary.media.minPCFullHD} {
     font-size: ${themes.primary.font.size.aboutUsCardText};
+    margin-top: 60px;
   }
 
   @media ${themes.primary.media.maxMobile} {
-    margin-top: 24px;
+    margin-top: 18px;
     font-size: 1rem;
   }
 `;
@@ -90,7 +90,8 @@ export const PageWrapper = styled.div`
   }
 
   @media ${themes.primary.media.minPCFullHD} {
-    max-width: 63em;
+    max-width: 64.2em;
+    margin-left: 0;
   }
 
   @media (min-width: 2400px) {
@@ -118,9 +119,18 @@ export const BannerImageContainer = styled.figure`
 export const BannerImage = styled.img`
   width: 100%;
   height: auto;
+  max-height: 310px;
+
+  @media ${themes.primary.media.minPCFullHD} {
+    max-height: 388px;
+  }
 
   @media ${themes.primary.media.onlyLaptop} {
     width: 576px;
+  }
+
+  @media ${themes.primary.media.maxMobile} {
+    max-height: 400px;
   }
 `;
 

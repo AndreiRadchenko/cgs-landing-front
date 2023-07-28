@@ -55,6 +55,10 @@ export const DropdownButton = styled.button`
   &:first-child {
     border: none;
     height: 56px;
+
+    @media ${themes.primary.media.minPCFullHD} {
+      height: 69px;
+    }
   }
   div {
     &:nth-child(2) {

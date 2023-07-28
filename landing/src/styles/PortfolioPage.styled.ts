@@ -55,7 +55,7 @@ export const Breadcrumbs = styled.div<IBreadcrumbs>`
   @media ${themes.primary.media.maxMobile} {
     font-size: 14px;
     margin: ${({ isBlog }) =>
-      isBlog ? "0 19px 12px 23px" : "0 19px 22px 19px"};
+      isBlog ? "0 19px 6px 23px" : "0 19px 22px 19px"};
 
     & a:first-child {
       display: none;

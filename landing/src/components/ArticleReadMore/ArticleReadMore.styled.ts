@@ -11,6 +11,7 @@ export const Wrapper = styled.section`
 
   @media ${themes.primary.media.minPCFullHD} {
     margin-top: 62px;
+    margin-bottom: 160px;
   }
 
   @media ${themes.primary.media.maxMobile} {
@@ -70,5 +71,6 @@ export const TitleWrapper = styled.div`
 
   @media ${themes.primary.media.maxMobile} {
     margin-bottom: 0;
+    margin-left: 20px;
   }
 `;

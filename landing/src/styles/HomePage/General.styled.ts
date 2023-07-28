@@ -1114,6 +1114,10 @@ export const DropdownButton = styled.button<{ isHeader?: boolean }>`
       font-size: 0.75em;
       padding: 0 15px;
       height: 2.45em;
+
+      &.blog {
+        width: 9.2em;
+      }
     }
 
     @media ${themes.primary.media.maxMobile} {
@@ -1172,6 +1176,10 @@ export const DropdownContent = styled.div`
     }
     &.checked {
       color: ${themes.primary.colors.comment};
+    }
+
+    @media ${themes.primary.media.maxMobile} {
+      font-size: 14px;
     }
   }
 
