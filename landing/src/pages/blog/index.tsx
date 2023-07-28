@@ -159,7 +159,7 @@ const BlogPage = () => {
         <meta name="description" content={metaDescription} />
         {customHead && parse(customHead)}
       </Head>
-      {isLoading && isFirstLoad ? (
+      {isLoading ? (
         <LoaderStub />
       ) : (
         data && (
