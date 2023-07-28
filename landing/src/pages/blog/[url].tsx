@@ -70,9 +70,7 @@ const ArticlePage = () => {
       (article) =>
         article.url === url &&
         !article.disabled &&
-        !article.draft &&
-        (!article.scheduleArticle ||
-          new Date() >= new Date(article.scheduleArticle))
+        !article.draft
     );
 
   const { mutateAsync: updateViews } = useMutation(
@@ -105,9 +103,7 @@ const ArticlePage = () => {
           (article) =>
             article.url !== url &&
             !article.disabled &&
-            !article.draft &&
-            (!article.scheduleArticle ||
-              new Date() >= new Date(article.scheduleArticle))
+            !article.draft
         )
         .sort(() => 0.5 - Math.random());
       return shuffled.slice(0, num);

@@ -256,13 +256,6 @@ const ArticleAddAndEdit = ({
                 uploadFunction={uploadAuthorFunc}
                 style={{ marginBottom: "16px" }}
               />
-              <InputWithType
-                type="datetime-local"
-                value={values.scheduleArticle}
-                onChange={handleChange}
-                name="scheduleArticle"
-                header="Scheduled for"
-              />
             </Styles.ArticleInputsWrapper>
             <Styles.ArticleInputsWrapper style={{ marginLeft: "24px" }}>
               <SubHeaderWithInput
