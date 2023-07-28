@@ -337,7 +337,7 @@ const PortfolioPage: NextPage = () => {
         <meta name="description" content={metaDescription} />
         {customHead && parse(customHead)}
       </Head>
-      {(isLoading || reviewsIsLoading) && isFirstLoad ? (
+      {isLoading ? (
         <LoaderStub />
       ) : data ? (
         <>
