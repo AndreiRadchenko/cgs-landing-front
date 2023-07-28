@@ -39,52 +39,6 @@ export const ContentWrapper = styled.div`
   }
 `;
 
-export const ButtonWrapper = styled.div`
-  display: flex;
-
-  @media ${themes.primary.media.maxMobile} {
-    flex-direction: column;
-
-    & > a {
-      padding: 17.1px 31.1px !important;
-    }
-  }
-`;
-
-export const Title = styled.h2`
-  margin: 0;
-  font-weight: inherit;
-  font-size: ${themes.primary.font.size.reviewTitle};
-  line-height: 140%;
-  text-transform: uppercase;
-  br {
-    display: none;
-  }
-
-  @media ${themes.primary.media.maxMobile} {
-    font-size: 1.5em;
-    margin: 0;
-    white-space: wrap;
-
-    br {
-      display: block;
-    }
-  }
-`;
-
-export const Text = styled.p`
-  margin: 0;
-  padding: 0;
-  font-size: 1.5em;
-  line-height: 160%;
-  margin: 0.833em 0 1.667em;
-  @media ${themes.primary.media.maxMobile} {
-    font-size: 1.125em;
-    margin: 10px 0 28px;
-    width: 100%;
-  }
-`;
-
 export const Image = styled.img`
   position: absolute;
   top: 0;

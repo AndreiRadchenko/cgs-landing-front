@@ -97,6 +97,7 @@ export const BlackButton = styled.a<IFontSize>`
   &.services {
     font-size: 22px;
     padding: 16.5px 15.5px;
+    text-transform: uppercase;
   }
 
   &.cta-button {
@@ -831,6 +832,10 @@ export const WhatsAppWrapper = styled.div`
     }
   }
 
+  &.services {
+    font-size: 18px;
+  }
+
   @media ${themes.primary.media.minPCFullHD} {
     &.webDev {
       font-size: 1.1em;
@@ -843,6 +848,10 @@ export const WhatsAppWrapper = styled.div`
     &.mobileDev,
     &.webAudit {
       font-size: 1.8em;
+    }
+
+    &.services {
+      font-size: 27px;
     }
   }
 
@@ -903,6 +912,10 @@ export const TelegramWrapper = styled.div`
     font-size: 1.5em;
   }
 
+  &.services {
+    font-size: 18px;
+  }
+
   &:hover {
     color: ${themes.primary.colors.darkBlue};
 
@@ -923,6 +936,10 @@ export const TelegramWrapper = styled.div`
     &.mobileDev,
     &.webAudit {
       font-size: 1.8em;
+    }
+
+    &.services {
+      font-size: 27px;
     }
   }
 

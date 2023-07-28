@@ -26,18 +26,6 @@ export const Wrapper = styled.section`
   }
 `;
 
-export const ButtonWrapper = styled.div`
-  display: flex;
-
-  @media ${themes.primary.media.maxMobile} {
-    flex-direction: column;
-
-    & > a {
-      padding: 17.1px 31.1px !important;
-    }
-  }
-`;
-
 export const Content = styled.div`
   display: flex;
   justify-content: space-between;
@@ -47,25 +35,12 @@ export const Content = styled.div`
   }
 `;
 
-export const InfoBlock = styled.div`
-  display: flex;
-  flex-direction: column;
-  gap: 2.16em;
-
-  @media ${themes.primary.media.maxMobile} {
-    gap: 0;
-
-    & > a {
-      padding: 1.29em 2.61em !important;
-    }
-  }
-`;
-
 export const ImageWrapper = styled.div`
   position: relative;
   width: 500px;
   height: 250px;
   flex-shrink: 0;
+  margin-top: 7.1em;
 
   @media ${themes.primary.media.minPCFullHD} {
     width: 750px;
@@ -82,6 +57,7 @@ export const ImageWrapper = styled.div`
     width: 100vw;
     height: 50vw;
     left: -30px;
+    margin-top: 0;
   }
 `;
 
@@ -134,60 +110,4 @@ export const HoveredImage = styled.div<IProps>`
   width: 150%;
   height: 100%;
   z-index: 3;
-`;
-
-export const Subtitle = styled.h3`
-  font-size: ${themes.primary.font.size.webAuditSubtitle};
-  line-height: 140%;
-  text-transform: uppercase;
-  margin: 0 0 0.325em 0;
-  max-width: 22.07em;
-
-  @media ${themes.primary.media.minPC} {
-    font-size: ${themes.primary.font.size.webAuditSubtitlePC};
-  }
-
-  @media ${themes.primary.media.maxTabletLandScape} {
-    font-size: ${themes.primary.font.size.webAuditSubtitleTabletLandscape};
-  }
-
-  @media ${themes.primary.media.maxTabletPortrait} {
-    font-size: ${themes.primary.font.size.webAuditSubtitleTabletPortrait};
-  }
-
-  @media ${themes.primary.media.maxMobile} {
-    font-size: ${themes.primary.font.size.webAuditSubtitleMobile};
-    margin: 0;
-    padding-bottom: 0;
-    max-width: 100%;
-    br {
-      display: none;
-    }
-  }
-`;
-
-export const TextWrapper = styled.div`
-  font-size: 2em;
-  line-height: 160%;
-  max-width: 36em;
-  margin-bottom: 0.53em;
-
-  & br {
-    display: none;
-  }
-
-  @media ${themes.primary.media.maxTabletLandScape} {
-    font-size: ${themes.primary.font.size.tertiary};
-  }
-
-  @media ${themes.primary.media.maxMobile} {
-    font-size: 1.73em;
-    margin-bottom: 28px;
-    margin-top: 0.55em;
-    white-space: pre-line;
-    max-width: 100%;
-    br {
-      display: none;
-    }
-  }
 `;

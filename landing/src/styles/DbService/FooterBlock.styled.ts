@@ -35,18 +35,6 @@ export const TextContent = styled.div`
   }
 `;
 
-export const ButtonWrapper = styled.div`
-  display: flex;
-
-  @media ${themes.primary.media.maxMobile} {
-    flex-direction: column;
-
-    & > a {
-      padding: 17.1px 31.1px !important;
-    }
-  }
-`;
-
 export const Image = styled.img`
   position: relative;
   right: 0;
@@ -69,40 +57,5 @@ export const Image = styled.img`
     left: 2.81em;
     width: 309px;
     height: 340px;
-  }
-`;
-
-export const SubtitleWrapper = styled.div`
-  margin: 0 0 1.25em;
-  line-height: 140%;
-  width: 50em;
-  h2 {
-    font-size: 2.5em;
-  }
-
-  @media ${themes.primary.media.maxTabletPortrait} {
-    width: 30em;
-  }
-
-  @media ${themes.primary.media.maxMobile} {
-    width: 100%;
-    font-size: 0.6em;
-
-    h2 {
-      line-height: 132%;
-    }
-  }
-`;
-
-export const Text = styled.p`
-  margin: 0;
-  padding: 0;
-  font-size: 1.5em;
-  line-height: 160%;
-  margin: 0.833em 0 1.667em;
-  @media ${themes.primary.media.maxMobile} {
-    font-size: 18px;
-    margin: 1em 0 28px;
-    max-width: 100%;
   }
 `;

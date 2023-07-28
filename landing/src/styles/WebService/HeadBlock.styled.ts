@@ -1,6 +1,5 @@
 ﻿import styled from "styled-components";
 import themes from "../../utils/themes";
-import { cursorBlinking } from "../Animations.styled";
 
 export const Container = styled.section`
   width: 100%;
@@ -13,14 +12,6 @@ export const Container = styled.section`
     padding-top: 1em;
     flex-direction: column;
     align-items: center;
-  }
-`;
-
-export const ButtonWrapper = styled.div`
-  display: flex;
-
-  @media ${themes.primary.media.maxMobile} {
-    flex-direction: column;
   }
 `;
 
@@ -49,66 +40,6 @@ export const ContentContainer = styled.div`
 
     & a {
       font-size: 1em !important;
-    }
-  }
-`;
-
-export const Title = styled.h1`
-  margin: 0;
-  line-height: 120%;
-  text-transform: uppercase;
-  font-size: 4.125em;
-  font-weight: inherit;
-  position: relative;
-
-  @media ${themes.primary.media.maxTabletPortrait} {
-    font-size: 3em;
-  }
-
-  @media ${themes.primary.media.maxMobile} {
-    font-size: 2.5em;
-  }
-
-  & > span:last-child {
-    position: relative;
-
-    &::after {
-      content: "";
-      display: inline-block;
-      width: 2px;
-      height: 1.45em;
-      background-color: ${themes.primary.colors.primary};
-      animation: ${cursorBlinking} 1s steps(1) infinite;
-      position: absolute;
-      top: 0;
-      right: -0.2em;
-    }
-  }
-`;
-
-export const Description = styled.div`
-  font-size: 1.375em;
-  line-height: 160%;
-  margin: 0.9em 0 1.8184em;
-
-  @media ${themes.primary.media.maxTabletLandScape} {
-    font-size: ${themes.primary.font.size.oneAndHalf};
-
-    br {
-      display: none;
-    }
-  }
-
-  @media ${themes.primary.media.maxTabletPortrait} {
-    font-size: 1.3em;
-  }
-
-  @media ${themes.primary.media.maxMobile} {
-    font-size: 1em;
-    margin: 16px 0 1.75em;
-
-    & br {
-      display: none;
     }
   }
 `;

@@ -35,18 +35,6 @@ export const Container = styled.section`
   }
 `;
 
-export const ButtonWrapper = styled.div`
-  display: flex;
-
-  @media ${themes.primary.media.maxMobile} {
-    flex-direction: column;
-
-    & > a {
-      padding: 17.1px 31.1px !important;
-    }
-  }
-`;
-
 export const TextContent = styled.div``;
 
 export const Image = styled.img`
@@ -65,35 +53,5 @@ export const Image = styled.img`
   }
   @media ${themes.primary.media.maxMobile} {
     bottom: -165px;
-  }
-`;
-
-export const SubtitleWrapper = styled.div`
-  margin-bottom: 1.28em;
-  max-width: 70vw;
-
-  @media ${themes.primary.media.maxServiceWeb} {
-    font-size: 0.85em;
-  }
-
-  @media ${themes.primary.media.maxMobile} {
-    margin-bottom: 10px;
-    font-size: 24px;
-    max-width: 100%;
-  }
-`;
-
-export const TextWrapper = styled.div`
-  margin-bottom: 1.667em;
-  max-width: 38.5em;
-  font-size: 1.5em;
-  line-height: 160%;
-
-  @media ${themes.primary.media.maxServiceWeb} {
-    font-size: 18px;
-  }
-
-  @media ${themes.primary.media.maxMobile} {
-    margin-bottom: 28px;
   }
 `;

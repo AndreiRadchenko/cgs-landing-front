@@ -10,6 +10,10 @@ export const Title = styled.h1`
   font-weight: ${themes.primary.font.weight.heavy};
   width: 12.3em;
 
+  &.cloud {
+    width: fit-content;
+  }
+
   @media ${themes.primary.media.onlyTabletPortrait} {
     max-width: 10em;
   }
@@ -52,6 +56,11 @@ export const Description = styled.div`
   line-height: 160%;
   margin: 1em 0 1.8185em;
   max-width: 28em;
+
+  &.cloud {
+    margin: 1.28em 0px 1.8185em;
+    max-width: 27.27em;
+  }
 
   @media ${themes.primary.media.minPCFullHD} {
     font-size: 1.0315em;

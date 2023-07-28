@@ -34,7 +34,7 @@ const FooterTextBlockServices = ({
           withEstimation
           buttonClassName={`services`}
         />
-        <ButtonShareComponent />
+        <ButtonShareComponent className={`services`} />
       </Styled.ButtonWrapper>
     </>
   );
