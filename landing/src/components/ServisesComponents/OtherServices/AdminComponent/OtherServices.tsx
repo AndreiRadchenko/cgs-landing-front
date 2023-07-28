@@ -2,7 +2,6 @@ import React from "react";
 import { useFormikContext, FieldArray } from "formik";
 import { useQueryClient } from "@tanstack/react-query";
 
-import ButtonArrow from "../../../../utils/ButtonArrow";
 import SubHeaderWithInput from "../../../Admin/Global/SubHeaderWithInput";
 import PhotoBlockAddRemove from "../../../Admin/Global/PhotoBlockAddRemove";
 
@@ -17,10 +16,14 @@ import {
 } from "../../../../styles/HomePage/General.styled";
 import * as Styled from "../../../../styles/AdminPage";
 import * as Styles from "./OtherServices.styled";
+
 import { IImage } from "../../../../types/Admin/Admin.types";
-import useDeleteImageFunction from "../../../../hooks/useDeleteImageFunction";
-import useUploadImageFunction from "../../../../hooks/useUploadImageFunction";
 import { IOtherServicesComponent } from "../../../../types/ServicesComponent.types";
+
+import ButtonArrow from "../../../../utils/ButtonArrow";
+
+import useUploadImageFunction from "../../../../hooks/useUploadImageFunction";
+import useDeleteImageFunction from "../../../../hooks/useDeleteImageFunction";
 
 interface IOtherService {
   otherServices: IOtherServicesComponent;

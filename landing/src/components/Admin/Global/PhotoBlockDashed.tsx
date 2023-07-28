@@ -5,8 +5,10 @@ import AdminEmptyImage from "./AdminEmptyImage";
 import AdminImage from "./AdminImage";
 import PhotoBlockStub from "./PhotoBlockStub";
 
-import useUploadModal from "../../../hooks/useUploadModal";
 import * as Styled from "../../../styles/AdminPage";
+
+import useUploadModal from "../../../hooks/useUploadModal";
+
 import { IPhotoBlock } from "../../../types/Admin/Admin.types";
 
 const PhotoBlockDashed = ({

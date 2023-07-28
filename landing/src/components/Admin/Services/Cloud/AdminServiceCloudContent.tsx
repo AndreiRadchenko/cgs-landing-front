@@ -1,11 +1,16 @@
 import { Formik } from "formik";
 import React from "react";
 import { useMutation, useQuery } from "@tanstack/react-query";
-import { queryKeys } from "../../../../consts/queryKeys";
-import { ICloudService } from "../../../../types/Admin/Response.types";
+
 import ServiceCloudContentBlock from ".";
-import { adminCloudService } from "../../../../services/services/AdminServicesCloudSolution";
+
 import * as Styled from "../../../../styles/AdminPage";
+
+import { queryKeys } from "../../../../consts/queryKeys";
+
+import { ICloudService } from "../../../../types/Admin/Response.types";
+
+import { adminCloudService } from "../../../../services/services/AdminServicesCloudSolution";
 
 const AdminServiceCloudContent = () => {
   const { data, isLoading, refetch } = useQuery(

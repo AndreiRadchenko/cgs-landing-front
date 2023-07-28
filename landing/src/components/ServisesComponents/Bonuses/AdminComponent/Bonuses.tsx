@@ -2,19 +2,21 @@ import React from "react";
 import { useFormikContext, FieldArray } from "formik";
 import { useQueryClient } from "@tanstack/react-query";
 
-import ButtonArrow from "../../../../utils/ButtonArrow";
 import SubHeaderWithInput from "../../../Admin/Global/SubHeaderWithInput";
+
 import {
   AddButton,
   ButtonsContainer,
   DeleteButton,
 } from "../../../Admin/FAQ/adminFaq.styled";
-
 import {
   ArrowContainer,
   BlackButton,
 } from "../../../../styles/HomePage/General.styled";
 import * as Styles from "./Bonuses.styled";
+
+import ButtonArrow from "../../../../utils/ButtonArrow";
+
 import { IBonusesComponent } from "../../../../types/ServicesComponent.types";
 
 interface IBonus {

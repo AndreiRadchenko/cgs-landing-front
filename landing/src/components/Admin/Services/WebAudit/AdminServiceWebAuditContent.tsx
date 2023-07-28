@@ -1,10 +1,15 @@
 import { Formik } from "formik";
 import React from "react";
 import { useMutation, useQuery } from "@tanstack/react-query";
+
 import ServiceWebAuditContentBlock from ".";
-import { queryKeys } from "../../../../consts/queryKeys";
-import { adminWebAuditService } from "../../../../services/services/adminServiceWebAuditPage";
+
 import * as Styled from "../../../../styles/AdminPage";
+
+import { queryKeys } from "../../../../consts/queryKeys";
+
+import { adminWebAuditService } from "../../../../services/services/adminServiceWebAuditPage";
+
 import { IServiceWebAudit } from "../../../../types/Admin/Response.types";
 
 const AdminServiceWebAuditContent = () => {

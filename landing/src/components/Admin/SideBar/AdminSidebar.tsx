@@ -1,8 +1,7 @@
 import Link from "next/link";
 import { useRouter } from "next/router";
 import React from "react";
-import { ROUTE_KEYS } from "../../../consts";
-import * as Styled from "../../../styles/AdminPage";
+
 import DropDownElement from "./DropDownElement";
 import {
   BlogIcon,
@@ -15,6 +14,10 @@ import {
   RateCardIcon,
   SupportChatIcon,
 } from "./ListItemImages";
+
+import * as Styled from "../../../styles/AdminPage";
+
+import { ROUTE_KEYS } from "../../../consts";
 
 const AdminSidebar = () => {
   const router = useRouter();

@@ -13,52 +13,6 @@ export const ContentWrapper = styled.section`
   }
 `;
 
-export const TitleWrapper = styled.div`
-  max-width: 80%;
-  margin-bottom: 2.5em;
-
-  p {
-    max-width: 38.5em;
-    font-size: 1.5em;
-    line-height: 160%;
-  }
-
-  & br {
-    display: none;
-  }
-
-  @media ${themes.primary.media.maxTabletLandScape} {
-    max-width: none;
-  }
-
-  @media ${themes.primary.media.maxMobile} {
-    margin-bottom: 28px;
-
-    p {
-      max-width: 100%;
-      font-size: 18px;
-    }
-  }
-
-  @media ${themes.primary.media.maxLowScreenMobile} {
-    & br {
-      display: block;
-    }
-  }
-`;
-
-export const ButtonWrapper = styled.div`
-  display: flex;
-
-  @media ${themes.primary.media.maxMobile} {
-    flex-direction: column;
-
-    & > a {
-      padding: 17.1px 31.1px !important;
-    }
-  }
-`;
-
 export const ImageWrapper = styled.div`
   position: absolute;
   top: -5%;

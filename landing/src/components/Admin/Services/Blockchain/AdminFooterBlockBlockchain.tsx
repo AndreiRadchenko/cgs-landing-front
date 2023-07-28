@@ -1,19 +1,24 @@
 import React from "react";
 import { useFormikContext } from "formik";
-import { IBlockchainService } from "../../../../types/Admin/Response.types";
-import { IImage } from "../../../../types/Admin/Admin.types";
-import useDeleteImageFunction from "../../../../hooks/useDeleteImageFunction";
-import useUploadImageFunction from "../../../../hooks/useUploadImageFunction";
-import { renderInputs } from "../../../../utils/renderInputs";
+
 import PhotoBlockDashed from "../../Global/PhotoBlockDashed";
+
 import { AdminHalfGrid } from "../../../../styles/AdminPage";
 import {
   ArrowContainer,
   BlackButton,
 } from "../../../../styles/HomePage/General.styled";
-import ButtonArrow from "../../../../utils/ButtonArrow";
 
-const FooterBlock = () => {
+import { IBlockchainService } from "../../../../types/Admin/Response.types";
+import { IImage } from "../../../../types/Admin/Admin.types";
+
+import useDeleteImageFunction from "../../../../hooks/useDeleteImageFunction";
+import useUploadImageFunction from "../../../../hooks/useUploadImageFunction";
+
+import ButtonArrow from "../../../../utils/ButtonArrow";
+import { renderInputs } from "../../../../utils/renderInputs";
+
+const AdminFooterBlockBlockchain = () => {
   const { values, handleChange, handleSubmit } =
     useFormikContext<IBlockchainService>();
   const deleteMainImage = useDeleteImageFunction(values.footerBlock);
@@ -51,4 +56,4 @@ const FooterBlock = () => {
   );
 };
 
-export default FooterBlock;
+export default AdminFooterBlockBlockchain;

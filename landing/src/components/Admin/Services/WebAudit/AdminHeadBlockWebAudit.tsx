@@ -1,23 +1,27 @@
 import { useFormikContext } from "formik";
 import React from "react";
 
-import * as Styled from "../../../../styles/AdminPage";
-import useDeleteImageFunction from "../../../../hooks/useDeleteImageFunction";
-import useUploadImageFunction from "../../../../hooks/useUploadImageFunction";
-import ButtonArrow from "../../../../utils/ButtonArrow";
-import { IImage } from "../../../../types/Admin/Admin.types";
-import { IServiceDappAudit } from "../../../../types/Admin/Response.types";
-import SubHeaderWithInput from "../../Global/SubHeaderWithInput";
-import PhotoBlockDashed from "../../Global/PhotoBlockDashed";
 import AdminBlockDropDown from "../../Global/AdminBlockDropDown";
+import PhotoBlockDashed from "../../Global/PhotoBlockDashed";
+import SubHeaderWithInput from "../../Global/SubHeaderWithInput";
+
+import * as Styled from "../../../../styles/AdminPage";
 import {
   ArrowContainer,
   BlackButton,
 } from "../../../../styles/HomePage/General.styled";
 
-const HeadBlock = () => {
+import { IImage } from "../../../../types/Admin/Admin.types";
+import { IServiceWebAudit } from "../../../../types/Admin/Response.types";
+
+import ButtonArrow from "../../../../utils/ButtonArrow";
+
+import useDeleteImageFunction from "../../../../hooks/useDeleteImageFunction";
+import useUploadImageFunction from "../../../../hooks/useUploadImageFunction";
+
+const AdminHeadBlockWebAudit = () => {
   const { values, handleSubmit, handleChange } =
-    useFormikContext<IServiceDappAudit>();
+    useFormikContext<IServiceWebAudit>();
   const handleClick = () => handleSubmit();
   const deleteImageFunction = useDeleteImageFunction(values.headerBlock);
   const uploadImageFunction = useUploadImageFunction(values.headerBlock);
@@ -26,13 +30,13 @@ const HeadBlock = () => {
 
   return (
     <>
-      <Styled.AdminHeader>Ai Solutions</Styled.AdminHeader>
-      <AdminBlockDropDown title="head block">
+      <Styled.AdminHeader>WEB AUDIT</Styled.AdminHeader>
+      <AdminBlockDropDown title="HEAD BLOCK">
         <Styled.HeaderGrid>
           <Styled.AdminHeaderPhotoWrapper>
             <Styled.AdminSubTitle>Banner</Styled.AdminSubTitle>
             <PhotoBlockDashed
-              style={{ marginRight: 0, maxWidth: "235px", maxHeight: "249px" }}
+              style={{ marginRight: 0, maxHeight: "249px" }}
               photo={values.headerBlock.image}
               deleteFlag={true}
               uploadFunction={uploadFunc}
@@ -73,6 +77,7 @@ const HeadBlock = () => {
             />
           </Styled.MobileAuditHeaderInputsWrapper>
         </Styled.HeaderGrid>
+
         <BlackButton
           size={"1.5em"}
           padding={"1.11em 3em"}
@@ -89,4 +94,4 @@ const HeadBlock = () => {
   );
 };
 
-export default HeadBlock;
+export default AdminHeadBlockWebAudit;

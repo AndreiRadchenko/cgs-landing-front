@@ -1,20 +1,24 @@
 import { useFormikContext } from "formik";
 import React from "react";
-import useDeleteImageFunction from "../../../../hooks/useDeleteImageFunction";
-import useUploadImageFunction from "../../../../hooks/useUploadImageFunction";
+
 import * as Styled from "../../../../styles/AdminPage";
 import {
   ArrowContainer,
   BlackButton,
 } from "../../../../styles/HomePage/General.styled";
-import { IImage } from "../../../../types/Admin/Admin.types";
-import { IServiceMobileAudit } from "../../../../types/Admin/Response.types";
+
 import ButtonArrow from "../../../../utils/ButtonArrow";
 import AdminBlockDropDown from "../../Global/AdminBlockDropDown";
 import PhotoBlockDashed from "../../Global/PhotoBlockDashed";
 import SubHeaderWithInput from "../../Global/SubHeaderWithInput";
 
-const HeaderBlock = () => {
+import { IImage } from "../../../../types/Admin/Admin.types";
+import { IServiceMobileAudit } from "../../../../types/Admin/Response.types";
+
+import useDeleteImageFunction from "../../../../hooks/useDeleteImageFunction";
+import useUploadImageFunction from "../../../../hooks/useUploadImageFunction";
+
+const AdminHeadBlockMobAudit = () => {
   const { values, handleSubmit, handleChange } =
     useFormikContext<IServiceMobileAudit>();
   const handleClick = () => handleSubmit();
@@ -90,4 +94,4 @@ const HeaderBlock = () => {
   );
 };
 
-export default HeaderBlock;
+export default AdminHeadBlockMobAudit;

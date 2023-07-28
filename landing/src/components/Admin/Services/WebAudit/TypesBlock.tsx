@@ -1,14 +1,18 @@
 import React from "react";
 import { useFormikContext } from "formik";
-import * as Styled from "../../../../styles/WebAuditService/AdminWebAudit.styled";
-import { IServiceWebAudit } from "../../../../types/Admin/Response.types";
+
 import SubHeaderWithInput from "../../Global/SubHeaderWithInput";
+import AdminBlockDropDown from "../../Global/AdminBlockDropDown";
+
+import * as Styled from "../../../../styles/WebAuditService/AdminWebAudit.styled";
 import {
   ArrowContainer,
   BlackButton,
 } from "../../../../styles/HomePage/General.styled";
+
+import { IServiceWebAudit } from "../../../../types/Admin/Response.types";
+
 import ButtonArrow from "../../../../utils/ButtonArrow";
-import AdminBlockDropDown from "../../Global/AdminBlockDropDown";
 
 const TypesBlock = () => {
   const { values, handleSubmit, handleChange } =

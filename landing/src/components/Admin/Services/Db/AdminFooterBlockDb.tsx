@@ -1,43 +1,46 @@
-import React from "react";
 import { useFormikContext } from "formik";
+import React from "react";
 
-import { AdminPaddedBlock, AdminHalfGrid } from "../../../../styles/AdminPage";
-import { renderInputs } from "../../../../utils/renderInputs";
 import PhotoBlockDashed from "../../Global/PhotoBlockDashed";
-import ButtonArrow from "../../../../utils/ButtonArrow";
+
 import {
   ArrowContainer,
   BlackButton,
 } from "../../../../styles/HomePage/General.styled";
+import { AdminHalfGrid, AdminPaddedBlock } from "../../../../styles/AdminPage";
 
-import { IUxUiInterface } from "../../../../types/Admin/Response.types";
 import { IImage } from "../../../../types/Admin/Admin.types";
+import { IServiceDb } from "../../../../types/Admin/Response.types";
+
+import ButtonArrow from "../../../../utils/ButtonArrow";
+import { renderInputs } from "../../../../utils/renderInputs";
+
 import useDeleteImageFunction from "../../../../hooks/useDeleteImageFunction";
 import useUploadImageFunction from "../../../../hooks/useUploadImageFunction";
 
-const FooterBlock = () => {
-  const { values, handleChange, handleSubmit } =
-    useFormikContext<IUxUiInterface>();
-
+const AdminFooterBlockDb = () => {
+  const { values, handleChange, handleSubmit } = useFormikContext<IServiceDb>();
   const deleteMainImage = useDeleteImageFunction(values.footerBlock);
   const uploadMainImage = useUploadImageFunction(values.footerBlock);
 
   const handleClick = () => handleSubmit();
 
   return (
-    <AdminPaddedBlock>
+    <AdminPaddedBlock className="withoutMargin">
       <AdminHalfGrid>
-        {renderInputs({
-          props: { name: "footerBlock" },
-          state: values.footerBlock,
-          onChangeFunction: handleChange,
-        })}
+        <div>
+          {renderInputs({
+            props: { name: "footerBlock" },
+            state: values.footerBlock,
+            onChangeFunction: handleChange,
+          })}
+        </div>
         <PhotoBlockDashed
           photo={values.footerBlock.image}
-          deleteFlag={true}
           deleteFunction={async () => (await deleteMainImage)()}
           uploadFunction={(image: IImage) => uploadMainImage(image)}
           style={{ maxWidth: "364px", maxHeight: "364px" }}
+          deleteFlag={true}
         />
       </AdminHalfGrid>
       <div>
@@ -57,4 +60,4 @@ const FooterBlock = () => {
   );
 };
 
-export default FooterBlock;
+export default AdminFooterBlockDb;

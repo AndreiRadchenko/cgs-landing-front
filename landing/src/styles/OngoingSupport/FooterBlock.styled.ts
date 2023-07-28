@@ -27,45 +27,6 @@ export const Container = styled.section`
   }
 `;
 
-export const ButtonWrapper = styled.div`
-  display: flex;
-
-  @media ${themes.primary.media.maxMobile} {
-    flex-direction: column;
-
-    & > a {
-      padding: 17.1px 31.1px !important;
-    }
-  }
-`;
-
-export const Title = styled.h2`
-  font-weight: inherit;
-  font-size: 2.5em;
-  line-height: 140%;
-  margin: 0 0 0.5em;
-  text-transform: uppercase;
-  max-width: 22em;
-
-  @media ${themes.primary.media.maxMobile} {
-    font-size: 1.5em;
-    margin-bottom: 10px;
-  }
-`;
-
-export const Text = styled.p`
-  width: 64.2vw;
-  font-size: 1.5em;
-  line-height: 160%;
-  margin-block: 0 1.667em;
-
-  @media ${themes.primary.media.maxMobile} {
-    font-size: 1.125em;
-    width: 100%;
-    margin-bottom: 28px;
-  }
-`;
-
 export const Image = styled.img`
   position: absolute;
   right: 0;

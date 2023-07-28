@@ -1,19 +1,24 @@
 ﻿import { useFormikContext } from "formik";
 import React from "react";
-import useDeleteImageFunction from "../../../../hooks/useDeleteImageFunction";
-import useUploadImageFunction from "../../../../hooks/useUploadImageFunction";
+
+import PhotoBlockDashed from "../../Global/PhotoBlockDashed";
+import SubHeaderWithInput from "../../Global/SubHeaderWithInput";
+
 import { AdminHalfGrid, AdminPaddedBlock } from "../../../../styles/AdminPage";
 import { IImage } from "../../../../types/Admin/Admin.types";
 import { IServiceMobile } from "../../../../types/Admin/Response.types";
-import PhotoBlockDashed from "../../Global/PhotoBlockDashed";
-import SubHeaderWithInput from "../../Global/SubHeaderWithInput";
+
 import {
   ArrowContainer,
   BlackButton,
 } from "../../../../styles/HomePage/General.styled";
+
 import ButtonArrow from "../../../../utils/ButtonArrow";
 
-const FooterBlock = () => {
+import useDeleteImageFunction from "../../../../hooks/useDeleteImageFunction";
+import useUploadImageFunction from "../../../../hooks/useUploadImageFunction";
+
+const AdminFooterBlockMobile = () => {
   const { values, handleChange, handleSubmit } =
     useFormikContext<IServiceMobile>();
   const deleteMainImage = useDeleteImageFunction(values.footerBlock);
@@ -72,4 +77,4 @@ const FooterBlock = () => {
   );
 };
 
-export default FooterBlock;
+export default AdminFooterBlockMobile;

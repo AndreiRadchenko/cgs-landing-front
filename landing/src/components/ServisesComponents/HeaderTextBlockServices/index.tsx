@@ -35,7 +35,7 @@ const HeaderTextBlockServices = ({
           buttonText={btnText}
           buttonClassName="services header"
         />
-        <ButtonShareComponent />
+        <ButtonShareComponent className={`services`} />
       </Styled.ButtonWrapper>
     </>
   );

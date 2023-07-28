@@ -1,6 +1,5 @@
 import styled from "styled-components";
 import themes from "../../utils/themes";
-import { cursorBlinking } from "../Animations.styled";
 
 export const Container = styled.section`
   width: 100%;
@@ -37,68 +36,6 @@ export const ContentContainer = styled.div`
 
   @media ${themes.primary.media.maxMobile} {
     width: 100%;
-  }
-`;
-
-export const ButtonWrapper = styled.div`
-  display: flex;
-
-  @media ${themes.primary.media.maxMobile} {
-    flex-direction: column;
-  }
-`;
-
-export const Title = styled.h1`
-  margin: 0;
-  line-height: 120%;
-  text-transform: uppercase;
-  font-size: 4.125em;
-  position: relative;
-
-  @media (min-width: 400px) {
-    span:nth-child(2) > br {
-      display: none;
-    }
-  }
-
-  @media ${themes.primary.media.maxMobile} {
-    font-size: 2.375em;
-    br {
-      display: block;
-    }
-  }
-
-  & > span:last-child {
-    position: relative;
-
-    &::after {
-      content: "";
-      display: inline-block;
-      width: 2px;
-      height: 1.45em;
-      background-color: ${themes.primary.colors.primary};
-      animation: ${cursorBlinking} 1s steps(1) infinite;
-      position: absolute;
-      bottom: -0.2em;
-      right: -0.2em;
-    }
-  }
-`;
-
-export const Description = styled.div`
-  font-size: 1.375em;
-  line-height: 160%;
-  margin: 0.9em 0 1.8185em;
-  max-width: 41.5vw;
-
-  @media ${themes.primary.media.maxMobile} {
-    font-size: 1em;
-    margin: 16px 0 28px;
-    max-width: 100%;
-
-    & br {
-      display: none;
-    }
   }
 `;
 

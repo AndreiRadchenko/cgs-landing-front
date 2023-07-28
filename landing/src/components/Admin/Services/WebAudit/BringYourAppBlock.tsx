@@ -1,7 +1,10 @@
 import { useFormikContext } from "formik";
 import React from "react";
-import useDeleteImageFunction from "../../../../hooks/useDeleteImageFunction";
-import useUploadImageFunction from "../../../../hooks/useUploadImageFunction";
+
+import AdminBlockDropDown from "../../Global/AdminBlockDropDown";
+import PhotoBlockDashed from "../../Global/PhotoBlockDashed";
+import SubHeaderWithInput from "../../Global/SubHeaderWithInput";
+
 import { AdminInput, AdminSubTitle } from "../../../../styles/AdminPage";
 import {
   ArrowContainer,
@@ -13,12 +16,14 @@ import {
   AdminWebAuditInputsWrapper,
   AdminWebAuditPhotoWrapper,
 } from "../../../../styles/WebAuditService/AdminWebAudit.styled";
+
 import { IImage } from "../../../../types/Admin/Admin.types";
 import { IServiceWebAudit } from "../../../../types/Admin/Response.types";
+
 import ButtonArrow from "../../../../utils/ButtonArrow";
-import AdminBlockDropDown from "../../Global/AdminBlockDropDown";
-import PhotoBlockDashed from "../../Global/PhotoBlockDashed";
-import SubHeaderWithInput from "../../Global/SubHeaderWithInput";
+
+import useDeleteImageFunction from "../../../../hooks/useDeleteImageFunction";
+import useUploadImageFunction from "../../../../hooks/useUploadImageFunction";
 
 const BringYourAppBlock = () => {
   const { values, handleSubmit, handleChange } =

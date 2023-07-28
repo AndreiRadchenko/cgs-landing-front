@@ -1,16 +1,20 @@
 import React from "react";
 import { useFormikContext } from "formik";
+
+import SubHeaderWithInput from "../../Global/SubHeaderWithInput";
+
 import {
   AdminHalfGrid,
   AdminPaddedBlock,
   SubtitleGrid,
 } from "../../../../styles/AdminPage";
-import { IBlockchainService } from "../../../../types/Admin/Response.types";
-import SubHeaderWithInput from "../../Global/SubHeaderWithInput";
 import {
   ArrowContainer,
   BlackButton,
 } from "../../../../styles/HomePage/General.styled";
+
+import { IBlockchainService } from "../../../../types/Admin/Response.types";
+
 import ButtonArrow from "../../../../utils/ButtonArrow";
 
 const WayBlock = () => {

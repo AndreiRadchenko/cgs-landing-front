@@ -1,15 +1,17 @@
 import React from "react";
-import { AdminHeader, AdminPaddedBlock } from "../../../../styles/AdminPage";
+
 import MetaTagsBlock from "../../MetaTagsBlock";
-import HeadBlock from "./HeadBlock";
+import AdminHeadBlockBlockchain from "./AdminHeadBlockBlockchain";
 import ServicesBlock from "./ServicesBlock";
 import WayBlock from "./WayBlock";
-import FooterBlock from "./FooterBlock";
+import AdminFooterBlockBlockchain from "./AdminFooterBlockBlockchain";
 import ServiceShowCase from "../../ServiceShowCase";
 import WhoNeedApps from "../Mobile/WhoNeedApps";
 import Advantages from "../../../ServisesComponents/Advantages/AdminAdvantages";
 import TeamMembers from "../../../ServisesComponents/TeamMembers/AdminTeamMembers";
 import AdminBlockDropDown from "../../Global/AdminBlockDropDown";
+
+import { AdminHeader, AdminPaddedBlock } from "../../../../styles/AdminPage";
 
 const ServiceBlockchainContentBlock = () => {
   return (
@@ -17,7 +19,7 @@ const ServiceBlockchainContentBlock = () => {
       <AdminPaddedBlock>
         <AdminHeader>Blockchain Development</AdminHeader>
         <AdminBlockDropDown title="HEAD BLOCK">
-          <HeadBlock />
+          <AdminHeadBlockBlockchain />
         </AdminBlockDropDown>
         <AdminBlockDropDown title="SERVICES BLOCK">
           <ServicesBlock />
@@ -38,7 +40,7 @@ const ServiceBlockchainContentBlock = () => {
           <WhoNeedApps />
         </AdminBlockDropDown>
         <AdminBlockDropDown title="FOOTER BLOCK">
-          <FooterBlock />
+          <AdminFooterBlockBlockchain />
         </AdminBlockDropDown>
       </AdminPaddedBlock>
       <MetaTagsBlock theme="dark" sitemap="services/blockchain" />

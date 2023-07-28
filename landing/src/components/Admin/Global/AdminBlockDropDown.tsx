@@ -1,7 +1,9 @@
+import React, { useState } from "react";
+
 import DownArrow from "../../../../public/downArrowSidebar.svg";
+
 import * as Styled from "../../../styles/AdminPage";
-import { useState } from "react";
-import React from "react";
+
 import { IBlockDropDownProps } from "../../../types/Admin/Admin.types";
 
 const AdminBlockDropDown = ({

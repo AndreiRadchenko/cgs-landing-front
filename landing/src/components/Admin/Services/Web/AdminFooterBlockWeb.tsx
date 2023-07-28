@@ -1,28 +1,33 @@
 ﻿import { useFormikContext } from "formik";
 import React from "react";
-import useDeleteImageFunction from "../../../../hooks/useDeleteImageFunction";
-import useUploadImageFunction from "../../../../hooks/useUploadImageFunction";
-import { AdminHalfGrid, AdminPaddedBlock } from "../../../../styles/AdminPage";
-import { IImage } from "../../../../types/Admin/Admin.types";
-import { IServiceSupport } from "../../../../types/Admin/Response.types";
-import { renderInputs } from "../../../../utils/renderInputs";
+
 import PhotoBlockDashed from "../../Global/PhotoBlockDashed";
+
+import { AdminHalfGrid, AdminPaddedBlock } from "../../../../styles/AdminPage";
 import {
   ArrowContainer,
   BlackButton,
 } from "../../../../styles/HomePage/General.styled";
+
+import { IImage } from "../../../../types/Admin/Admin.types";
+import { IServiceWeb } from "../../../../types/Admin/Response.types";
+
+import { renderInputs } from "../../../../utils/renderInputs";
 import ButtonArrow from "../../../../utils/ButtonArrow";
 
-const FooterBlock = () => {
+import useDeleteImageFunction from "../../../../hooks/useDeleteImageFunction";
+import useUploadImageFunction from "../../../../hooks/useUploadImageFunction";
+
+const AdminFooterBlockWeb = () => {
   const { values, handleChange, handleSubmit } =
-    useFormikContext<IServiceSupport>();
+    useFormikContext<IServiceWeb>();
   const deleteMainImage = useDeleteImageFunction(values.footerBlock);
   const uploadMainImage = useUploadImageFunction(values.footerBlock);
 
   const handleClick = () => handleSubmit();
 
   return (
-    <AdminPaddedBlock>
+    <AdminPaddedBlock theme="dark" className="withoutMargin">
       <AdminHalfGrid>
         <div>
           {renderInputs({
@@ -54,4 +59,4 @@ const FooterBlock = () => {
   );
 };
 
-export default FooterBlock;
+export default AdminFooterBlockWeb;

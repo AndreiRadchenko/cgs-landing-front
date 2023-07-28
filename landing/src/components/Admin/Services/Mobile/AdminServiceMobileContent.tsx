@@ -1,10 +1,15 @@
 ﻿import { Formik } from "formik";
 import React from "react";
 import { useMutation, useQuery } from "@tanstack/react-query";
+
 import ServiceMobileContentBlock from ".";
-import { queryKeys } from "../../../../consts/queryKeys";
-import { adminMobileService } from "../../../../services/services/adminServicesMobilePage";
+
 import * as Styled from "../../../../styles/AdminPage";
+
+import { queryKeys } from "../../../../consts/queryKeys";
+
+import { adminMobileService } from "../../../../services/services/adminServicesMobilePage";
+
 import { IServiceMobile } from "../../../../types/Admin/Response.types";
 
 const AdminServiceMobileContent = () => {

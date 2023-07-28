@@ -1,38 +1,41 @@
 ﻿import { useFormikContext } from "formik";
 import React from "react";
-import useDeleteImageFunction from "../../../../hooks/useDeleteImageFunction";
-import useUploadImageFunction from "../../../../hooks/useUploadImageFunction";
-import { AdminHalfGrid, AdminPaddedBlock } from "../../../../styles/AdminPage";
-import { IImage } from "../../../../types/Admin/Admin.types";
-import { IServiceWeb } from "../../../../types/Admin/Response.types";
-import { renderInputs } from "../../../../utils/renderInputs";
+
 import PhotoBlockDashed from "../../Global/PhotoBlockDashed";
+
+import { AdminHalfGrid, AdminPaddedBlock } from "../../../../styles/AdminPage";
 import {
   ArrowContainer,
   BlackButton,
 } from "../../../../styles/HomePage/General.styled";
+
+import { IImage } from "../../../../types/Admin/Admin.types";
+import { IServiceMobile } from "../../../../types/Admin/Response.types";
+
+import { renderInputs } from "../../../../utils/renderInputs";
 import ButtonArrow from "../../../../utils/ButtonArrow";
 
-const FooterBlock = () => {
+import useDeleteImageFunction from "../../../../hooks/useDeleteImageFunction";
+import useUploadImageFunction from "../../../../hooks/useUploadImageFunction";
+
+const AdminHeadBlockMobile = () => {
   const { values, handleChange, handleSubmit } =
-    useFormikContext<IServiceWeb>();
-  const deleteMainImage = useDeleteImageFunction(values.footerBlock);
-  const uploadMainImage = useUploadImageFunction(values.footerBlock);
+    useFormikContext<IServiceMobile>();
+  const deleteMainImage = useDeleteImageFunction(values.headerBlock);
+  const uploadMainImage = useUploadImageFunction(values.headerBlock);
 
   const handleClick = () => handleSubmit();
 
   return (
-    <AdminPaddedBlock theme="dark" className="withoutMargin">
+    <AdminPaddedBlock>
       <AdminHalfGrid>
-        <div>
-          {renderInputs({
-            props: { name: "footerBlock" },
-            state: values.footerBlock,
-            onChangeFunction: handleChange,
-          })}
-        </div>
+        {renderInputs({
+          props: { name: "headerBlock" },
+          state: values.headerBlock,
+          onChangeFunction: handleChange,
+        })}
         <PhotoBlockDashed
-          photo={values.footerBlock.image}
+          photo={values.headerBlock.image}
           deleteFunction={async () => (await deleteMainImage)()}
           uploadFunction={(image: IImage) => uploadMainImage(image)}
           style={{ maxWidth: "364px", maxHeight: "364px" }}
@@ -54,4 +57,4 @@ const FooterBlock = () => {
   );
 };
 
-export default FooterBlock;
+export default AdminHeadBlockMobile;
