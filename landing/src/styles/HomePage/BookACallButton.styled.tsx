@@ -89,7 +89,7 @@ export const BlackButton = styled.button`
 
     &.calendly {
       width: 252px;
-      height: 80px;
+      height: 76px;
       font-size: 26px;
       &.contactPage {
         width: 252px;

@@ -52,7 +52,7 @@ export const BookModalContent = styled.div<IBookModalContent>`
   }
 
   @media ${themes.primary.media.minPCFullHD} {
-    width: 699px;
+    width: 624px;
   }
 
   @media ${themes.primary.media.estiomationFormWidth} {

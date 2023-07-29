@@ -11,11 +11,20 @@ export const CloseButton = styled.img`
   right: 0;
   top: 0;
   margin: 24px 24px 0 0;
+  width: 35px;
+  height: 35px;
   cursor: pointer;
   z-index: 2;
 
+  @media ${themes.primary.media.maxPCFullHD} {
+    width: 30px;
+    height: 30px;
+  }
+
   @media ${themes.primary.media.estiomationFormWidth} {
     margin: 15px 15px 0 0;
+    width: 24px;
+    height: 24px;
   }
 `;
 
@@ -60,7 +69,11 @@ export const Content = styled.div`
 
 export const List = styled.div`
   list-style-type: square;
-  margin: 55px 0 0 0;
+  margin: 66px 0 0 0;
+
+  @media ${themes.primary.media.maxPCFullHD} {
+    margin: 55px 0 0 0;
+  }
 
   @media ${themes.primary.media.estiomationFormWidth} {
     margin-top: 42px;
@@ -71,12 +84,16 @@ export const List = styled.div`
 export const ListTitle = styled.p`
   margin-bottom: 7px;
   width: 100%;
-  font-size: 26px;
+  font-size: 32px;
   font-weight: ${themes.primary.font.weight.heavy};
   font-family: ${themes.primary.font.family.namu};
   text-transform: uppercase;
-  line-height: normal;
+  line-height: 1.1875;
   text-align: center;
+
+  @media ${themes.primary.media.maxPCFullHD} {
+    font-size: 26px;
+  }
 
   @media ${themes.primary.media.estiomationFormWidth} {
     font-size: 18px;
