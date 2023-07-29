@@ -123,14 +123,27 @@ export const BannerImage = styled.img`
 
   @media ${themes.primary.media.minPCFullHD} {
     max-height: 388px;
+    max-width: 720px;
+  }
+
+  @media (min-width: 2400px) {
+    max-width: none;
   }
 
   @media ${themes.primary.media.onlyLaptop} {
     width: 576px;
   }
 
+  @media ${themes.primary.media.maxTabletPortrait} {
+    max-height: 500px;
+  }
+
   @media ${themes.primary.media.maxMobile} {
     max-height: 400px;
+  }
+
+  @media (max-width: 400px) {
+    max-height: 180px;
   }
 `;
 
@@ -163,7 +176,7 @@ export const BannerWrapper = styled.div`
   align-items: flex-end;
   column-gap: 20px;
   max-width: 965px;
-  margin-top: 6px;
+  margin-top: 8px;
 
   @media ${themes.primary.media.minPC} {
     column-gap: 40px;
@@ -173,6 +186,7 @@ export const BannerWrapper = styled.div`
   @media ${themes.primary.media.minPCFullHD} {
     max-width: 70.416em;
     column-gap: 10px;
+    margin-top: 10px;
   }
 
   @media (min-width: 2400px) {
@@ -186,6 +200,10 @@ export const BannerWrapper = styled.div`
   @media ${themes.primary.media.maxTabletPortrait} {
     flex-direction: column;
     align-items: center;
+    margin-top: 0;
+  }
+
+  @media ${themes.primary.media.maxMobile} {
     margin-top: 0;
   }
 `;
@@ -262,8 +280,13 @@ export const SecondHeaderBg = styled.figure`
   width: 60%;
 
   @media ${themes.primary.media.minPCFullHD} {
-    right: -490px;
+    right: -590px;
   }
+
+  @media (min-width: 2400px) {
+    right: -920px;
+  }
+
   @media ${themes.primary.media.maxTabletPortrait} {
     right: -540px;
   }

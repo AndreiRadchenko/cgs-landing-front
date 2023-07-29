@@ -64,7 +64,7 @@ const BlogItem = ({
               <Styled.ArticlePreview>
                 <Styled.BlogItemContent>
                   <Styled.FlexRowContainer>
-                    {(width && width <= 767 && (
+                    {(width && width <= 992 && (
                       <Styled.FlexColumnContainer className="preview">
                         <Styled.SecondaryAuthor>{`By ${article.author.name} / ${article.author.specialization}`}</Styled.SecondaryAuthor>
                         <Styled.StatisticWrapper>
@@ -73,6 +73,7 @@ const BlogItem = ({
                               <Styled.BlogItemWatchIcon
                                 src={Watch.src}
                                 alt="views icon"
+                                className="blogItemWatch"
                               />
                               <Styled.WatchCount>
                                 {article.views || 0}
@@ -82,6 +83,7 @@ const BlogItem = ({
                               <Styled.TimerIcon
                                 src={Timer.src}
                                 alt="timer icon"
+                                className="preview"
                               />
                               <Styled.GrayText className={"big"}>
                                 <Styled.TimeText >

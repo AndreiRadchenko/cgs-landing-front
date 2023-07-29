@@ -22,7 +22,7 @@ export const Wrapper = styled.section`
 
   @media ${themes.primary.media.maxMobile} {
     flex-direction: column;
-    row-gap: 1.375rem;
+    row-gap: 16px;
     align-items: flex-start;
 
     &.web {

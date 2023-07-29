@@ -18,13 +18,17 @@ export const FlexColumnContainer = styled.div`
     }
   }
 
-  @media ${themes.primary.media.maxMobile} {
-    width: 100%;
-
+  @media ${themes.primary.media.maxTabletPortrait} {
     &.preview {
+      width: 100%;
       margin-top: 1.125rem;
       row-gap: 8px;
     }
+  }
+
+  @media ${themes.primary.media.maxMobile} {
+    width: 100%;
+
     &.header {
       display: none;
     }
@@ -35,7 +39,7 @@ export const BlogItemRowContainer = styled.div`
   display: flex;
   align-items: center;
 
-  @media ${themes.primary.media.maxMobile} {
+  @media ${themes.primary.media.maxTabletPortrait} {
     width: 100%;
     justify-content: space-between;
   }
@@ -60,7 +64,7 @@ export const TechContainer = styled.div`
 `;
 
 export const ArticlePreview = styled(FlexRowContainer)`
-  @media ${themes.primary.media.maxMobile} {
+  @media ${themes.primary.media.maxTabletPortrait} {
     align-items: flex-start;
     flex-direction: column-reverse;
   }
@@ -150,8 +154,8 @@ export const ArrowContainer = styled.div`
   }
 
   @media ${themes.primary.media.minPCFullHD} {
-    width: 40px;
-    height: 40px;
+    width: 36px;
+    height: 36px;
     right: -15px;
     top: -15px;
 
@@ -179,12 +183,16 @@ export const GeneralInfo = styled.div`
     }
   }
 
-  @media ${themes.primary.media.maxMobile} {
+  @media ${themes.primary.media.maxTabletPortrait} {
     margin-top: 1rem;
 
     &.preview {
       display: none;
     }
+  }
+
+  @media ${themes.primary.media.maxMobile} {
+    margin-top: 1rem;
   }
 `;
 
@@ -233,9 +241,9 @@ export const Tag = styled.button<ITag>`
     font-size: ${themes.primary.font.size.primary};
   }
 
-  @media ${themes.primary.media.maxMobile} {
-    height: 26px;
+  @media ${themes.primary.media.maxTabletPortrait} {
     &.preview {
+      height: 26px;
       position: absolute;
       top: 0;
       left: 0;
@@ -244,6 +252,10 @@ export const Tag = styled.button<ITag>`
       font-size: 14px;
       margin-left: -1px;
     }
+  }
+
+  @media ${themes.primary.media.maxMobile} {
+    height: 26px;
   }
 `;
 
@@ -267,7 +279,7 @@ export const BlogItemContainer = styled.div`
     padding: 50px;
   }
 
-  @media ${themes.primary.media.maxMobile} {
+  @media ${themes.primary.media.maxTabletPortrait} {
     padding: 34px 0.75rem 16px;
   }
 `;
@@ -289,7 +301,7 @@ export const BlogItemContent = styled.div`
   flex-direction: column;
   width: 55%;
 
-  @media ${themes.primary.media.maxMobile} {
+  @media ${themes.primary.media.maxTabletPortrait} {
     width: 100%;
   }
 `;
@@ -315,7 +327,7 @@ export const BlogItemImage = styled.img`
     height: 265px;
   }
 
-  @media ${themes.primary.media.maxMobile} {
+  @media ${themes.primary.media.maxTabletPortrait} {
     width: 100%;
     height: auto;
   }
@@ -360,7 +372,7 @@ export const BlogItemTitle = styled.p`
     margin-top: 30px;
   }
 
-  @media ${themes.primary.media.maxMobile} {
+  @media ${themes.primary.media.maxTabletPortrait} {
     font-size: 1.5rem;
   }
 `;
@@ -398,7 +410,7 @@ export const BlogItemDescription = styled.p`
     margin-top: 20px;
   }
 
-  @media ${themes.primary.media.maxMobile} {
+  @media ${themes.primary.media.maxTabletPortrait} {
     margin-top: 1.125rem;
     font-size: 1rem;
   }
@@ -448,10 +460,6 @@ export const GrayText = styled.div`
     font-size: 1.34em;
   }
 
-  /* @media ${themes.primary.media.minPCFullHD} {
-    font-size: 0.887em;
-  } */
-
   @media ${themes.primary.media.minPCFullHD} {
     font-size: 0.712em;
 
@@ -473,7 +481,7 @@ export const GrayText = styled.div`
     font-size: 1.05em;
   }
 
-  @media ${themes.primary.media.maxMobile} {
+  @media ${themes.primary.media.maxTabletPortrait} {
     font-size: 12px;
 
     &.big {
@@ -488,6 +496,10 @@ export const Date = styled.div`
 
   &.blogItem {
     font-size: 1.35em;
+
+    @media ${themes.primary.media.maxTabletPortrait} {
+      font-size: 14px;
+    }
   }
 
   @media ${themes.primary.media.minPCFullHD} {
@@ -542,7 +554,7 @@ export const SecondaryAuthor = styled(GrayText)`
     font-size: 0.712em;
   }
 
-  @media ${themes.primary.media.maxMobile} {
+  @media ${themes.primary.media.maxTabletPortrait} {
     font-size: 0.875rem;
   }
 `;
@@ -574,7 +586,7 @@ export const WatchContainer = styled.div`
   align-items: center;
   column-gap: 9px;
 
-  @media ${themes.primary.media.maxMobile} {
+  @media ${themes.primary.media.maxTabletPortrait} {
     column-gap: 6px;
     &.timer {
       display: none;
@@ -602,7 +614,7 @@ export const WatchCount = styled(GrayText)`
     font-size: 0.712em;
   }
 
-  @media ${themes.primary.media.maxMobile} {
+  @media ${themes.primary.media.maxTabletPortrait} {
     font-size: 0.875rem;
   }
 `;
@@ -637,6 +649,12 @@ export const BlogItemWatchIcon = styled.img`
     height: 0.96em;
   }
 
+  @media ${themes.primary.media.maxTabletPortrait} {
+    &.blogItemWatch {
+      margin-left: 0;
+    }
+  }
+
   @media ${themes.primary.media.maxMobile} {
     margin-left: 0;
     width: 19px;
@@ -645,32 +663,39 @@ export const BlogItemWatchIcon = styled.img`
 `;
 
 export const WatchIcon = styled.img`
-  width: 22px;
-  height: 14px;
+  width: 21px;
+  height: 19px;
 
   @media ${themes.primary.media.minPCFullHD} {
-    width: 1.58em;
-    height: 1em;
+    width: 26px;
+    height: 23px;
   }
 
   @media ${themes.primary.media.maxMobile} {
-    width: 19px;
-    height: 12px;
+    width: 21px;
+    height: 19px;
   }
 `;
 
 export const TimerIcon = styled.img`
-  width: 1.25em;
-  height: 1.25em;
+  width: 21px;
+  height: 19px;
 
   @media ${themes.primary.media.minPCFullHD} {
-    width: 1.084em;
-    height: 0.96em;
+    width: 26px;
+    height: 23px;
+  }
+
+  @media ${themes.primary.media.maxTabletPortrait} {
+   &.preview {
+    width: 21px;
+    height: 19px;
+   }
   }
 
   @media ${themes.primary.media.maxMobile} {
-    width: 14px;
-    height: 14px;
+    width: 21px;
+    height: 19px;
   }
 `;
 
@@ -1189,6 +1214,10 @@ export const MainBlogItemImage = styled.img`
   max-height: 420px;
   width: 100%;
   height: 100%;
+
+  @media ${themes.primary.media.minPC} {
+    max-height: 546px;
+  }
 
   @media ${themes.primary.media.minPCFullHD} {
     width: 41.14em;

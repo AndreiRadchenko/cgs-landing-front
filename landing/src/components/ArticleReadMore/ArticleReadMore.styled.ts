@@ -7,7 +7,7 @@ export const Wrapper = styled.section`
   flex-direction: column;
   align-items: center;
   margin-top: 52px;
-  margin-bottom: 130px;
+  margin-bottom: 150px;
 
   @media ${themes.primary.media.minPCFullHD} {
     margin-top: 62px;
