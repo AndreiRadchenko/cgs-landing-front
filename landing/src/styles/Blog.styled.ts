@@ -2,6 +2,8 @@ import styled, { css } from "styled-components";
 import themes from "../utils/themes";
 import { infiniteBlogText } from "./Animations.styled";
 
+import { arrowOne, arrowTwo } from "./HomePage/General.styled";
+
 interface ITrack {
   range: number;
 }
@@ -228,10 +230,10 @@ export const Tag = styled.button<ITag>`
     padding: 0 10px;
 
     @media ${themes.primary.media.minPCFullHD} {
-    font-size: 0.75em;
-    line-height: 138.889%;
-    padding: 0 12px;
-    height: 36px;
+      font-size: 0.75em;
+      line-height: 138.889%;
+      padding: 0 12px;
+      height: 36px;
     }
   }
 
@@ -454,7 +456,7 @@ export const LoopContainer = styled.div`
 `;
 
 export const GrayText = styled.div`
-  color: #8F8E93;
+  color: #8f8e93;
   font-size: ${themes.primary.font.size.articleViews};
   &.big {
     font-size: 1.34em;
@@ -471,7 +473,6 @@ export const GrayText = styled.div`
       font-size: 0.712em;
     }
   }
-
 
   @media (min-width: 2400px) {
     font-size: 1.1em;
@@ -491,7 +492,7 @@ export const GrayText = styled.div`
 `;
 
 export const Date = styled.div`
-  color: #8F8E93;
+  color: #8f8e93;
   font-size: 1.17em;
 
   &.blogItem {
@@ -507,7 +508,6 @@ export const Date = styled.div`
 
     &.blogItem {
       font-size: 0.84em;
-
     }
   }
 
@@ -518,17 +518,16 @@ export const Date = styled.div`
 
 export const ArrowIconLink = styled.div`
   & path {
-    transition: transform 1s ease-in-out;
   }
   & path:nth-child(1) {
     transform: translate(-36px, 36px);
   }
   &:hover {
     & path:nth-child(1) {
-      transform: translate(0px, 0px);
+      animation: ${arrowOne} 1s 1 forwards ease-in-out;
     }
     & path:nth-child(2) {
-      transform: translate(36px, -36px);
+      animation: ${arrowTwo} 1s 1 forwards ease-in-out;
     }
   }
 `;
@@ -687,10 +686,10 @@ export const TimerIcon = styled.img`
   }
 
   @media ${themes.primary.media.maxTabletPortrait} {
-   &.preview {
-    width: 21px;
-    height: 19px;
-   }
+    &.preview {
+      width: 21px;
+      height: 19px;
+    }
   }
 
   @media ${themes.primary.media.maxMobile} {
@@ -1222,7 +1221,6 @@ export const MainBlogItemImage = styled.img`
   @media ${themes.primary.media.minPCFullHD} {
     width: 41.14em;
     max-height: 525px;
-
   }
 
   @media ${themes.primary.media.maxMobile} {
