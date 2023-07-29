@@ -21,7 +21,8 @@ export const Wrapper = styled.div`
   }
 
   @media ${themes.primary.media.maxMobile} {
-    margin-block: 24px;
+    margin-top: 24px;
+    margin-bottom: 18px;
   }
 `;
 
