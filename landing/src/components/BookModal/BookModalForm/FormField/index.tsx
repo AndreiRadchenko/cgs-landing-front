@@ -30,15 +30,28 @@ const TextFieldWrapper: FC<IFieldProps> = ({
   return (
     <>
       <Styled.FormFieldLabel htmlFor={label}>
-        {PHONE_OPTIONAL === label
-          ? isEmailDomainPublic(values.email)
-            ? `${label}*`
-            : `${label}`
-          : `${label}*`}
+        {PHONE_OPTIONAL === label ? (
+          isEmailDomainPublic(values.email) ? (
+            <>
+              {label}
+              <span style={{ marginLeft: "2px", color: "black" }}>*</span>
+            </>
+          ) : (
+            `${label}`
+          )
+        ) : (
+          <>
+            {label}
+            <span style={{ marginLeft: "2px", color: "black" }}>*</span>
+          </>
+        )}
       </Styled.FormFieldLabel>
       <Styled.FormFieldContainer>
         {PHONE_OPTIONAL === label ? (
           <PhoneInputField
+            className={
+              btnIsClicked && errors[name] ? "formikErrors" : "default"
+            }
             placeholder={label}
             name={name}
             country={"us"}

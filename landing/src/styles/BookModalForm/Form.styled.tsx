@@ -3,8 +3,13 @@ import { FormikProvider } from "formik";
 import themes from "../../utils/themes";
 
 export const Form = styled.form`
-  margin-top: 24px;
-  padding: 0 48px 0 48px;
+  margin-top: 30px;
+  padding: 0 58px 0 58px;
+
+  @media ${themes.primary.media.maxPCFullHD} {
+    margin-top: 24px;
+    padding: 0 48px 0 48px;
+  }
 
   @media (max-width: 570px) {
     margin-top: 16px;
@@ -19,20 +24,21 @@ export const FormSentContainer = styled.div`
   align-items: flex-start;
   justify-content: center;
   width: 100%;
-  height: 53px;
+  height: 72px;
   flex-direction: column;
-  margin-top: 14px;
-  margin-bottom: 56px;
+  margin-top: 20px;
+  margin-bottom: 70px;
   margin-left: -2px;
 
-  @media ${themes.primary.media.minPCFullHD} {
-    margin-top: 28px;
+  @media ${themes.primary.media.maxPCFullHD} {
+    margin-top: 14px;
     margin-bottom: 58px;
+    height: 53px;
   }
 
   @media ${themes.primary.media.estiomationFormWidth} {
     height: 50px;
-    margin-top: 12px;
+    margin-top: 8px;
     margin-bottom: 32px;
     margin-left: -2px;
   }
