@@ -88,9 +88,9 @@ export const BlackButton = styled.button`
     padding: 0.8em 1em;
 
     &.calendly {
-      width: 252px;
-      height: 76px;
-      font-size: 26px;
+      width: 235.5px;
+      height: 72px;
+      font-size: 27.5px;
       &.contactPage {
         width: 252px;
         height: 76px;
