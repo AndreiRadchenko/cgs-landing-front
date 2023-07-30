@@ -143,11 +143,12 @@ export const FormFieldLabel = styled.label`
 export const FormFieldContainer = styled.div`
   width: 100%;
   position: relative;
-  margin-top: 8px;
+  margin-top: 10px;
   height: 88px;
 
   @media ${themes.primary.media.maxPCFullHD} {
     height: 70px;
+    margin-top: 8px;
   }
 
   @media ${themes.primary.media.estiomationFormWidth} {
@@ -266,9 +267,12 @@ export const FormFieldContainer = styled.div`
 
 export const ErrorField = styled.div`
   font-family: ${themes.primary.font.family.namu};
-  font-size: 12px;
+  font-size: 15px;
   color: ${themes.primary.colors.adminRed};
   line-height: normal;
   text-align: right;
   font-weight: ${themes.primary.font.weight.heavy};
+  @media ${themes.primary.media.maxPCFullHD} {
+    font-size: 12px;
+  }
 `;

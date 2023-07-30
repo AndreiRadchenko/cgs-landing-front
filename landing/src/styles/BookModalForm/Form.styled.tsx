@@ -26,7 +26,7 @@ export const FormSentContainer = styled.div`
   width: 100%;
   height: 72px;
   flex-direction: column;
-  margin-top: 20px;
+  margin-top: 14px;
   margin-bottom: 70px;
   margin-left: -2px;
 
