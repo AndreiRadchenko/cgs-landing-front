@@ -52,6 +52,12 @@ export const FlexRowContainer = styled.div`
   column-gap: 24px;
   align-items: center;
 
+  &.blogItemTop {
+    @media ${themes.primary.media.onlyTabletLandScape} {
+      width: 450px;
+    }
+  }
+
   @media ${themes.primary.media.minPCFullHD} {
     column-gap: 30px;
   }
@@ -1346,6 +1352,10 @@ export const SmallArticleContainer = styled.div`
     border-bottom: 0;
   }
 
+  @media ${themes.primary.media.onlyPC} {
+    min-height: 15vh;
+  }
+
   @media ${themes.primary.media.minPC} {
     padding: 40px 60px 40px 40px;
   }
@@ -1371,4 +1381,5 @@ export const MobileColumnReversedContainer = styled.div`
   }
 `;
 
-export const TimeText = styled.time``;
+export const TimeText = styled.time`
+`;

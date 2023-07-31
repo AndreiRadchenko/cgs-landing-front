@@ -9,11 +9,12 @@ export const Wrapper = styled.div`
   gap: 12px;
   column-gap: 8px;
   row-gap: 10px;
-  margin-top: 22px;
+  margin-top: 16px;
 
   @media ${themes.primary.media.minPCFullHD} {
     max-width: none;
     column-gap: 10px;
+    margin-top: 20px;
   }
 
   @media ${themes.primary.media.maxTabletPortrait} {
@@ -22,7 +23,7 @@ export const Wrapper = styled.div`
 
   @media ${themes.primary.media.maxMobile} {
     margin-top: 24px;
-    margin-bottom: 18px;
+    margin-bottom: 24px;
   }
 `;
 

@@ -63,7 +63,7 @@ const BlogItem = ({
             <Styled.BlogItemContainer>
               <Styled.ArticlePreview>
                 <Styled.BlogItemContent>
-                  <Styled.FlexRowContainer>
+                  <Styled.FlexRowContainer className="blogItemTop">
                     {(width && width <= 992 && (
                       <Styled.FlexColumnContainer className="preview">
                         <Styled.SecondaryAuthor>{`By ${article.author.name} / ${article.author.specialization}`}</Styled.SecondaryAuthor>
