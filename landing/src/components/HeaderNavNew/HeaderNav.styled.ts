@@ -57,6 +57,10 @@ export const LogoLinkWrapper = styled.a`
     border-bottom: 7px solid ${themes.primary.colors.primary};
   }
 
+  @media ${themes.primary.media.minPCFullHD} {
+    height: 70px;
+  }
+
   @media ${themes.primary.media.maxMobile} {
     height: 5.8125rem;
     border: none;
@@ -109,10 +113,12 @@ export const ListItemNav = styled.a`
 
   @media ${themes.primary.media.minPCFullHD} {
     padding: 23px 63px;
-    width: 9.02vw;
+    width: 8.99vw;
+    height: 70px;
 
     :first-child {
       width: 196px;
+      height: 70px;
     }
   }
   &:hover {
@@ -171,6 +177,10 @@ export const BurgerLinkText = styled.p`
 
 export const HeaderWrapper = styled.nav`
   padding-bottom: 56px;
+
+  @media ${themes.primary.media.minPCFullHD} {
+    padding-bottom: 70px;
+  }
 
   @media ${themes.primary.media.maxMobile} {
     padding-bottom: 93px;

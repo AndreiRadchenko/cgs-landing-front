@@ -50,6 +50,7 @@ export const TagItem = styled.div`
   @media ${themes.primary.media.minPCFullHD} {
     padding: 3.75px 12.5px;
     font-size: 1.05em;
+    height: 32.5px;
   }
 
   @media ${themes.primary.media.maxMobile} {

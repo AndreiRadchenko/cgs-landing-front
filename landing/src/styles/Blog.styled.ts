@@ -131,6 +131,8 @@ export const ArrowContainer = styled.div`
   & svg {
     width: 25px;
     height: 25px;
+    margin-left: -0.55px;
+    margin-top: -0.5px;
   }
 
   &.ticketModalArrowSubmit {
@@ -639,13 +641,13 @@ export const WatchCountArticle = styled(GrayText)`
 `;
 
 export const BlogItemWatchIcon = styled.img`
-  width: 1.83em;
-  height: 1.166em;
+  width: 21px;
+  height: 19px;
   margin-left: 1.166em;
 
   @media ${themes.primary.media.minPCFullHD} {
-    width: 1.084em;
-    height: 0.96em;
+    width: 26px;
+    height: 23px;
   }
 
   @media ${themes.primary.media.maxTabletPortrait} {
@@ -656,8 +658,6 @@ export const BlogItemWatchIcon = styled.img`
 
   @media ${themes.primary.media.maxMobile} {
     margin-left: 0;
-    width: 19px;
-    height: 12px;
   }
 `;
 
@@ -1233,11 +1233,13 @@ export const MainBlogItemTag = styled(Tag)`
   margin-top: 32px;
   font-size: 1.5em;
   padding: 0 10px;
+  height: 26px;
 
   @media ${themes.primary.media.minPCFullHD} {
     margin-top: 40px;
     padding: 0px 12px;
     font-size: 0.92em;
+    height: 32px;
   }
 
   @media ${themes.primary.media.maxMobile} {
