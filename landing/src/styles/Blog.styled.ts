@@ -466,8 +466,13 @@ export const LoopContainer = styled.div`
 export const GrayText = styled.div`
   color: #8f8e93;
   font-size: ${themes.primary.font.size.articleViews};
+  font-weight: 600;
   &.big {
     font-size: 1.34em;
+  }
+
+  &.articleText {
+    font-weight: 400;
   }
 
   @media ${themes.primary.media.minPCFullHD} {
@@ -541,7 +546,7 @@ export const ArrowIconLink = styled.div`
 `;
 
 export const MainBlogAuthor = styled(GrayText)`
-  font-weight: ${themes.primary.font.weight.medium};
+  font-weight: ${themes.primary.font.weight.semiBold};
   font-size: ${themes.primary.font.size.articleViews};
 
   @media ${themes.primary.media.minPCFullHD} {
@@ -554,7 +559,7 @@ export const MainBlogAuthor = styled(GrayText)`
 `;
 
 export const SecondaryAuthor = styled(GrayText)`
-  font-weight: ${themes.primary.font.weight.medium};
+  font-weight: ${themes.primary.font.weight.semiBold};
   font-size: 1.17em;
 
   @media ${themes.primary.media.minPCFullHD} {
@@ -613,6 +618,7 @@ export const ArticleWatchContainer = styled.div`
 
 export const WatchCount = styled(GrayText)`
   font-size: 1.17em;
+  font-weight: 600;
   .article {
     font-size: ${themes.primary.font.size.articleViews};
   }
