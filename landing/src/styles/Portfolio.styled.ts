@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 import themes from "../utils/themes";
 
 import MagnifyingGlass from "../../public/Portfolio/MagnifyingGlass.svg";
@@ -489,6 +489,7 @@ export const ProjectsContainerHeaderLink = styled.div<IPortfolioInfoProps>`
       : themes.primary.colors.primary};
   margin: 0;
   cursor: ${({ isProjectLink }) => isProjectLink && "pointer"};
+  pointer-events: ${({ isProjectLink }) => (isProjectLink ? "normal" : "none")};
 
   p {
     margin: 0;
@@ -508,10 +509,10 @@ export const ProjectsContainerHeaderLink = styled.div<IPortfolioInfoProps>`
   }
   &:hover {
     & path:nth-child(1) {
-      animation: ${arrowOne} 1s 1 forwards ease-in-out;
+      animation: ${arrowOne} 1s ease-in-out;
     }
     & path:nth-child(2) {
-      animation: ${arrowTwo} 1s 1 forwards ease-in-out;
+      animation: ${arrowTwo} 1s ease-in-out;
     }
   }
 
