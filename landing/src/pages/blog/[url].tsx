@@ -8,7 +8,6 @@ import {
   QueryClient,
   useMutation,
   useQuery,
-  useQueryClient,
 } from "@tanstack/react-query";
 import { IArticle } from "../../types/Admin/Response.types";
 import { queryKeys } from "../../consts/queryKeys";
@@ -51,8 +50,8 @@ const ArticlePage = () => {
   const router = useRouter();
   const breadcrumbs: any[] = [];
   const [readMore, setReadMore] = useState<IArticle[] | null>(null);
-  const [isFromArticle, setIsFromArticle] = useState<boolean>(false);
-  const [filters, setFilters] = useState<string | string[]>([]);
+  const [, setIsFromArticle] = useState<boolean>(false);
+  const [, setFilters] = useState<string | string[]>([]);
   const url = typeof router.query?.url === "string" ? router.query.url : "";
   const { data, isSuccess, isLoading }: IArticleData = useQuery(
     [queryKeys.getBlogArticles],
@@ -67,22 +66,19 @@ const ArticlePage = () => {
   const article =
     data &&
     data.find(
-      (article) =>
-        article.url === url &&
-        !article.disabled &&
-        !article.draft
+      (article) => article.url === url && !article.disabled && !article.draft
     );
 
   const { mutateAsync: updateViews } = useMutation(
     [queryKeys.updateViews],
-    (dataToUpdate: IArticle) => adminBlogService.updateViewById(dataToUpdate),
+    (dataToUpdate: IArticle) => adminBlogService.updateViewById(dataToUpdate)
   );
 
   useEffect(() => {
     const plusView = async () => {
-      if (!article ) return;
+      if (!article) return;
 
-      const updatedArticle = { ...article, views: article.views += 1 };
+      const updatedArticle = { ...article, views: (article.views += 1) };
 
       await updateViews(updatedArticle);
     };
@@ -101,9 +97,7 @@ const ArticlePage = () => {
       const shuffled = [...arr]
         .filter(
           (article) =>
-            article.url !== url &&
-            !article.disabled &&
-            !article.draft
+            article.url !== url && !article.disabled && !article.draft
         )
         .sort(() => 0.5 - Math.random());
       return shuffled.slice(0, num);
@@ -114,18 +108,6 @@ const ArticlePage = () => {
       setReadMore(readMoreRandomly);
     }
   }, [article, data, url]);
-
-  const handleArrowClick = () => {
-    isFromArticle
-      ? router.back()
-      : router.push(
-          {
-            pathname: `/blog`,
-            query: { filters },
-          },
-          `/blog`
-        );
-  };
 
   breadcrumbs.push(
     <Link key="home" href="/">

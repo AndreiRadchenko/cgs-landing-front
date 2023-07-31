@@ -28,7 +28,6 @@ const AdminAuthFormInput: FC<IFieldProps> = ({
     ...field,
     label: label,
     type: type,
-    fullWidth: true,
     variant: "standard",
     onChange: handleChange,
     placeholder,
