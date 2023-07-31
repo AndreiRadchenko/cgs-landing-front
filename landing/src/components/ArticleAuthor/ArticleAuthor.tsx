@@ -4,7 +4,7 @@ import * as Styles from "./ArticleAuthor.styled";
 import { IAuthor } from "../../types/Admin/Response.types";
 import * as Styled from "../../styles/Blog.styled";
 import Watch from "../../../public/Watch.svg";
-import AuthorPlaceholder from "../../../public/authorPlaceholder.png";
+import AuthorPlaceholder from "../../../public/authorPlaceholder.svg";
 import { useWindowDimension } from "../../hooks/useWindowDimension";
 
 interface IArticleAuthor {
