@@ -267,7 +267,7 @@ export const AfterBlock = styled.div`
     margin: 6px 0;
   }
 
-  @media (max-width: 475px) {
+  @media (max-width: 768px) {
     width: 0.5px;
     height: 24px;
     margin: 3px 0;
@@ -390,4 +390,73 @@ export const Text = styled.div`
   @media (max-width: 475px) {
     font-size: 16px;
   }
+`;
+
+export const MobileContent = styled.div`
+
+`;
+
+export const AdvantagesItem = styled.div`
+  display: flex;
+  column-gap: 11px;
+  height: auto; 
+  position: relative;
+`;
+
+export const NumberMobileItem = styled.div`
+  height: 100%;
+`;
+
+export const TextMobileItem = styled.div<ISlide>`
+  margin-bottom: 18px;
+  &.scrolled {
+      transform-origin: left center;
+      animation: ${({ ind }) =>
+        css`
+          ${slideDownText} 700ms ${ind * 100}ms ease-in forwards
+        `};
+    }
+`;
+
+export const MobileNumber = styled.div`
+  font-size: 14px;
+  font-weight: ${themes.primary.font.weight.heavy};
+  line-height: 22px;
+  margin-left: 1px;
+
+  &.last::after {
+    display: none;
+  }
+
+  ::after {
+    content: '';
+    position: absolute;
+    top: 70%;
+    background-color: #8f8e93;
+    left: 10.5px;
+    height: 30%;
+    width: 1px;
+  }
+
+  ::before {
+    content: '';
+    position: absolute;
+    top: 50px;
+    background-color: #8f8e93;
+    left: 10.5px;
+    height: 50%;
+    width: 1px;
+  }
+`;
+
+export const Circle = styled.img`
+  width: 22px;
+`;
+
+export const SmallCircle = styled.img`
+  width: 12px;
+  border: 4px solid #F1EFED;
+  position: absolute;
+  top: 62%;
+  left: 1.5%;
 `;
