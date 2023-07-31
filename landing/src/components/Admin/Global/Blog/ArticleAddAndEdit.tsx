@@ -176,6 +176,11 @@ const ArticleAddAndEdit = ({
     handleSubmit();
   };
 
+  useEffect(() => {
+    values.meta.metaTitle = values.title;
+    values.meta.metaDescription = values.description
+  }, [values.title, values.description])
+
   return (
     <>
       <Styled.AdminBlocksContent ref={ref}>
