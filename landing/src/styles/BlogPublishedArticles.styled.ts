@@ -127,3 +127,14 @@ export const DraftMark = styled.div`
   line-height: 99%;
   border: 1px solid ${themes.primary.colors.primary};
 `;
+
+export const Fade = styled.div`
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0.6;
+  z-index: 10;
+  background-color: #F1EFED;
+`;
