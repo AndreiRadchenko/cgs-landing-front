@@ -81,7 +81,6 @@ export const PageWrapper = styled.div`
   }
 
   ul {
-    margin-left: -1.3em;
     list-style-type: none;
     list-style-image: url(/listSquare.png);
     @media ${themes.primary.media.maxTabletPortrait} {
