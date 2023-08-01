@@ -107,6 +107,10 @@ export const IconBlock = styled.div`
     width: 65px;
     height: 65px;
   }
+
+  @media ${themes.primary.media.maxMobile} {
+    border-top: 0.7px solid rgba(0, 0, 0, 0.25);
+  }
 `;
 
 export const IconsWrapper = styled.div`

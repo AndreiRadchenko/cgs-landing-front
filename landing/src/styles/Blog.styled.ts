@@ -639,10 +639,6 @@ export const WatchCountArticle = styled(GrayText)`
     font-size: 0.887em;
   }
 
-  @media (min-width: 2400px) {
-    font-size: 1.1em;
-  }
-
   @media ${themes.primary.media.onlyTabletLandScape} {
     font-size: 1.05em;
   }
