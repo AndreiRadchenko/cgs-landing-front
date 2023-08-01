@@ -77,17 +77,22 @@ export const PageWrapper = styled.div`
   }
   li {
     margin-bottom: 10px;
-
-    strong {
-      padding-left: 12px;
-    }
+    margin-left: 0;
   }
 
   ul {
     list-style-type: none;
     list-style-image: url(/listSquare.png);
+
+    li {
+      padding-left: 12px;
+    }
     @media ${themes.primary.media.maxTabletPortrait} {
       list-style-image: url(/listSquareMobile.png);
+    }
+
+    @media ${themes.primary.media.maxMobile} {
+      margin-left: -1.3em;
     }
   }
 
