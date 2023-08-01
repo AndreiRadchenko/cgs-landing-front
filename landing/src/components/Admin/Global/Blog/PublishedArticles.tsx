@@ -145,7 +145,7 @@ const PublishedArticles: FC<IArticles> = ({
         <Styles.ChangeIconWrapper onClick={() => toggleEditPost(i)}>
           <Styles.ChangeIcon
             src={
-              isNewArticle
+              isNewArticle || article !== i
                 ? ChangeIconImg.src
                 : !isNewArticle && article === i
                 ? close.src
