@@ -897,6 +897,7 @@ export const LeftArrow = styled.div`
 
 export const SmallNavigation = styled.div`
   font-size: 1.5em;
+  color: #000;
   display: flex;
   align-items: flex-start;
 
