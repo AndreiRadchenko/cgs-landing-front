@@ -1,9 +1,11 @@
 ﻿import React, { useRef, useState } from "react";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
-import { queryKeys } from "../../../../consts/queryKeys";
+
 import { adminBlogService } from "../../../../services/adminBlogPage";
-import { AdminInput } from "../../../../styles/AdminPage";
+
 import * as Styled from "../../../../styles/BlogTags.styled";
+import { queryKeys } from "../../../../consts/queryKeys";
+import { AdminInput } from "../../../../styles/AdminPage";
 import { IBlogPageResponse } from "../../../../types/Admin/Response.types";
 
 interface IAddTag {

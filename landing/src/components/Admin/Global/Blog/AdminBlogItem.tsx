@@ -1,9 +1,10 @@
 import React from "react";
 import parse from "html-react-parser";
-import * as Styles from "./BlogItem.styled";
-import { IBlogItemProps } from "../../types/Admin/Blog.types";
 
-const BlogItem = ({ isAdmin = false, children, item }: IBlogItemProps) => {
+import * as Styles from "../../../../styles/AdminBlogItem.styled";
+import { IBlogItemProps } from "../../../../types/Admin/Blog.types";
+
+const AdminBlogItem = ({ isAdmin = false, children, item }: IBlogItemProps) => {
   const blogDate = () => {
     if (item.updatedOn) {
       const date = new Date(item.updatedOn);
@@ -72,4 +73,4 @@ const BlogItem = ({ isAdmin = false, children, item }: IBlogItemProps) => {
   );
 };
 
-export default BlogItem;
+export default AdminBlogItem;

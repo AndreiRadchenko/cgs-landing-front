@@ -59,7 +59,7 @@ const AdminCategory = () => {
       return;
     }
 
-    if (allCategories[0].name === "") {
+    if (!allCategories[0].name) {
       setValues((prev) => ({
         ...prev,
         categories: allCategories.slice(1),

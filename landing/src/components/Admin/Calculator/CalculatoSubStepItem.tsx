@@ -1,30 +1,24 @@
 import { FieldArray, useFormikContext } from "formik";
-import dynamic from "next/dynamic";
 import React, { useEffect, useState } from "react";
-import * as Styled from "../../../styles/Calculator/CalculatorAdmin.styled";
-import { ICalculatorStep } from "../../../types/Admin/Response.types";
-import CalculatorInputItem from "./CalculatorInputItem";
-import { letterCaseSubmenu } from "./letterCaseSubmenuPlugin";
-import { inputSubmenu } from "./inputSubmenuPlugin";
 import { Plugin } from "suneditor/src/plugins/Plugin";
+
+import TextEditor from "../../TextEditor/TextEditor";
+import CalculatorInputItem from "./CalculatorInputItem";
+import { inputSubmenu } from "./inputSubmenuPlugin";
 import CalculatorQuestionItem from "./CalculatorQuestionItem";
-import { emptyCalculatorOption } from "../../../utils/variables";
+import { letterCaseSubmenu } from "./letterCaseSubmenuPlugin";
 import CalculatorOptionTypeSelect from "./CalculatorOptionTypeSelect";
 import { letterWeightSubmenu } from "./letterWeightSubmenuPlugin";
 
-const TextEditor = dynamic(() => import("../../TextEditor/TextEditor"), {
-  ssr: false,
-});
+import * as Styled from "../../../styles/Calculator/CalculatorAdmin.styled";
+import { ICalculatorStep } from "../../../types/Admin/Response.types";
+import { emptyCalculatorOption } from "../../../utils/variables";
 
 const CalculatorSubStepItem = () => {
   const { values } = useFormikContext<ICalculatorStep>();
   const [plugins, setPlugins] = useState<
     Array<Plugin> | Record<string, Plugin>
   >();
-
-  useEffect(() => {
-    import("suneditor/src/plugins").then((plugs: any) => setPlugins(plugs));
-  }, []);
 
   const titleEditorOptions = plugins && {
     font: ["NAMU"],
@@ -49,6 +43,10 @@ const CalculatorSubStepItem = () => {
     ],
     defaultStyle: "position:relative; z-index:2",
   };
+
+  useEffect(() => {
+    import("suneditor/src/plugins").then((plugs: any) => setPlugins(plugs));
+  }, []);
 
   return (
     (plugins && (

@@ -1,13 +1,12 @@
 import React, { useEffect, useState } from "react";
+import { useFormikContext } from "formik";
+import { useMutation } from "@tanstack/react-query";
+import { Plugin } from "suneditor/src/plugins/Plugin";
+import { SunEditorReactProps } from "suneditor-react/dist/types/SunEditorReactProps";
+
 import PhotoBlockDashed from "../PhotoBlockDashed";
 import SubHeaderWithInput from "../SubHeaderWithInput";
 import BlogTags from "./BlogTags";
-
-import * as Styles from "../../../../styles/AdminBlogPage";
-import * as Styled from "../../../../styles/AdminPage";
-import { useFormikContext } from "formik";
-import { IArticle } from "../../../../types/Admin/Response.types";
-import { IImage } from "../../../../types/Admin/Admin.types";
 import useDeleteImageFunction from "../../../../hooks/useDeleteImageFunction";
 import useUploadImageFunction from "../../../../hooks/useUploadImageFunction";
 import InputWithType from "../../../Inputs/InputWithType";
@@ -16,23 +15,22 @@ import AddTag from "./AddTag";
 import { useScrollTo } from "../../../../hooks/useScrollTo";
 import AdminBlockDropDown from "../AdminBlockDropDown";
 import AuthorPhotoDashed from "./AuthorPhotoDashed";
+import ButtonArrow from "../../../../utils/ButtonArrow";
+import { adminGlobalService } from "../../../../services/adminHomePage";
+import { articleIntroPlugin } from "./customArticleIntroPlugin";
+import { formatsDateWithTime } from "../../../../utils/formatsDateWithTime";
+import TextEditor from "../../../TextEditor/TextEditor";
+
+import * as Styles from "../../../../styles/AdminBlogPage";
+import * as Styled from "../../../../styles/AdminPage";
+import { IArticle } from "../../../../types/Admin/Response.types";
+import { IImage } from "../../../../types/Admin/Admin.types";
 import {
   ArrowContainer,
   BlackButton,
 } from "../../../../styles/HomePage/General.styled";
-import ButtonArrow from "../../../../utils/ButtonArrow";
-const TextEditor = dynamic(() => import("../../../TextEditor/TextEditor"), {
-  ssr: false,
-});
-import { articleIntroPlugin } from "./customArticleIntroPlugin";
-import { useMutation } from "@tanstack/react-query";
 import { queryKeys } from "../../../../consts/queryKeys";
-import { adminGlobalService } from "../../../../services/adminHomePage";
-import dynamic from "next/dynamic";
-import { SunEditorReactProps } from "suneditor-react/dist/types/SunEditorReactProps";
-import { Plugin } from "suneditor/src/plugins/Plugin";
 import { IArticleAddAndEdit } from "../../../../types/Admin/Blog.types";
-import { formatsDateWithTime } from "../../../../utils/formatsDateWithTime";
 
 const ArticleAddAndEdit = ({
   isNewArticle,
@@ -191,12 +189,12 @@ const ArticleAddAndEdit = ({
       setShouldValidate(true);
       handleSubmit();
     }
-  }
+  };
 
   useEffect(() => {
     values.meta.metaTitle = values.title;
-    values.meta.metaDescription = values.description
-  }, [values.title, values.description])
+    values.meta.metaDescription = values.description;
+  }, [values.title, values.description]);
 
   return (
     <>
@@ -377,9 +375,9 @@ const ArticleAddAndEdit = ({
               onClick={
                 isNewArticle
                   ? () => {
-                    setTags([]);
-                    reset();
-                  }
+                      setTags([]);
+                      reset();
+                    }
                   : cancelArticle
               }
             >

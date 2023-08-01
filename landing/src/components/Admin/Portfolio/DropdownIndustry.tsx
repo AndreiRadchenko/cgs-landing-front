@@ -3,14 +3,13 @@ import Image from "next/image";
 import { useFormikContext } from "formik";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 
+import { adminPortfolioService } from "../../../services/adminPortfolioPage";
+
 import * as Styled from "../../../styles/AdminPortfolio";
-
 import Arrow from "../../../../public/upArrowSidebar.svg";
-
 import { IPortfolioReview } from "../../../types/Admin/AdminPortfolio.types";
 import TrashIconBtn from "../RateCard/trashIconBtn";
 import { queryKeys } from "../../../consts/queryKeys";
-import { adminPortfolioService } from "../../../services/adminPortfolioPage";
 
 interface IDropdownProps {
   industries: string[];
@@ -19,9 +18,7 @@ interface IDropdownProps {
 
 const DropdownIndustry = ({ industries, isError }: IDropdownProps) => {
   const queryClient = useQueryClient();
-
   const [isOpen, setIsOpen] = useState<boolean>(false);
-
   const { values, setFieldValue } = useFormikContext<IPortfolioReview>();
 
   const { mutateAsync: deleteIndustry } = useMutation(
