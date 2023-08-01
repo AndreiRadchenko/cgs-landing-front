@@ -32,6 +32,7 @@ import dynamic from "next/dynamic";
 import { SunEditorReactProps } from "suneditor-react/dist/types/SunEditorReactProps";
 import { Plugin } from "suneditor/src/plugins/Plugin";
 import { IArticleAddAndEdit } from "../../../../types/Admin/Blog.types";
+import { formatsDateWithTime } from "../../../../utils/formatsDateWithTime";
 
 const ArticleAddAndEdit = ({
   isNewArticle,
@@ -175,6 +176,22 @@ const ArticleAddAndEdit = ({
     setShouldValidate(true);
     handleSubmit();
   };
+
+  const handleClick = () => {
+    if (isNewArticle) {
+      values.draft = false;
+      values.disabled = false;
+      values.publishedDate = formatsDateWithTime();
+      setShouldValidate(true);
+      handleSubmit();
+    } else {
+      values.draft = false;
+      values.disabled = false;
+      values.publishedDate = formatsDateWithTime();
+      setShouldValidate(true);
+      handleSubmit();
+    }
+  }
 
   useEffect(() => {
     values.meta.metaTitle = values.title;
@@ -342,10 +359,7 @@ const ArticleAddAndEdit = ({
               <BlackButton
                 size={"1.5em"}
                 padding={"1em 3.25em"}
-                onClick={() => {
-                  setShouldValidate(true);
-                  handleSubmit();
-                }}
+                onClick={handleClick}
               >
                 {`${isNewArticle ? "Save" : "Edit"} Article`}
                 <ArrowContainer>
@@ -363,9 +377,9 @@ const ArticleAddAndEdit = ({
               onClick={
                 isNewArticle
                   ? () => {
-                      setTags([]);
-                      reset();
-                    }
+                    setTags([]);
+                    reset();
+                  }
                   : cancelArticle
               }
             >
