@@ -170,10 +170,10 @@ const PublishedArticles: FC<IArticles> = ({
               Deactivate
             </Styles.DeactivateButton>
             <Styles.PublishButton
-              disabled={!!item.publishedDate}
+              disabled={!item.disabled}
               onClick={() => publishArticle(i)}
             >
-              <p>{item.publishedDate ? "Published" : "Publish now"}</p>
+              <p>{!item.disabled ? "Published" : "Publish now"}</p>
             </Styles.PublishButton>
           </Styles.InternalButtonWrapper>
         </Styles.ButtonWrapper>
