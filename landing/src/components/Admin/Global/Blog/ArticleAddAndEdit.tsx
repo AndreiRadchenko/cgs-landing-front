@@ -182,6 +182,12 @@ const ArticleAddAndEdit = ({
       values.publishedDate = formatsDateWithTime();
       setShouldValidate(true);
       handleSubmit();
+    } else if(values.disabled === true){
+      values.draft = false;
+      values.disabled = true;
+      values.publishedDate = "";
+      setShouldValidate(true);
+      handleSubmit();
     } else {
       values.draft = false;
       values.disabled = false;
