@@ -137,10 +137,6 @@ const BlogPage = () => {
       setReversedArticles(articles.reviews);
   }, [articles]);
 
-  useEffect(() => {
-    if (window.innerWidth < 769) window.scroll(0, 0);
-  }, [isMainSliderImageLoaded]);
-
   const handleFilterFromURL = () => {
     const { tag } = router.query;
     if (typeof tag === "string") {
