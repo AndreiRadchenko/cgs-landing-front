@@ -76,8 +76,11 @@ export const PageWrapper = styled.div`
     }
   }
   li {
-    padding-left: 12px;
     margin-bottom: 10px;
+
+    strong {
+      padding-left: 12px;
+    }
   }
 
   ul {
