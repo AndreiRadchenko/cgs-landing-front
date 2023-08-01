@@ -1,19 +1,18 @@
-import { useFormikContext } from "formik";
-import dynamic from "next/dynamic";
 import React, { useEffect, useState } from "react";
+import { useFormikContext } from "formik";
 import { Plugin } from "suneditor/src/plugins/Plugin";
+
+import TextEditor from "../../TextEditor/TextEditor";
+import CalculatorTypeSelect from "./CalculatorTypeSelect";
+import CalculatorMultiplyRolesSelect from "./CalculatorMultiplyRolesSelect";
+import { letterCaseSubmenu } from "./letterCaseSubmenuPlugin";
+import { letterWeightSubmenu } from "./letterWeightSubmenuPlugin";
+
 import * as Styled from "../../../styles/Calculator/CalculatorAdmin.styled";
 import {
   ICalculatorStep,
   IStepOptions,
 } from "../../../types/Admin/Response.types";
-import CalculatorMultiplyRolesSelect from "./CalculatorMultiplyRolesSelect";
-import CalculatorTypeSelect from "./CalculatorTypeSelect";
-import { letterCaseSubmenu } from "./letterCaseSubmenuPlugin";
-import { letterWeightSubmenu } from "./letterWeightSubmenuPlugin";
-const TextEditor = dynamic(() => import("../../TextEditor/TextEditor"), {
-  ssr: false,
-});
 
 interface ICalculatorQuestionItemProps {
   optionsLength: number;

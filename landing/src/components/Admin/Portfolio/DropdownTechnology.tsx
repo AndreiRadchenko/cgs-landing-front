@@ -3,18 +3,17 @@ import Image from "next/image";
 import { Field, useFormikContext } from "formik";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 
+import { adminPortfolioService } from "../../../services/adminPortfolioPage";
+
 import * as Styled from "../../../styles/AdminPortfolio";
 import * as Styles from "../../../styles/AdminPage";
-
 import Arrow from "../../../../public/upArrowSidebar.svg";
-
 import {
   IPortfolioReview,
   ITechnology,
 } from "../../../types/Admin/AdminPortfolio.types";
 import TrashIconBtn from "../RateCard/trashIconBtn";
 import { queryKeys } from "../../../consts/queryKeys";
-import { adminPortfolioService } from "../../../services/adminPortfolioPage";
 
 interface IDropdownProps {
   technologies: ITechnology[];
@@ -47,6 +46,7 @@ const DropdownTechnology = ({ technologies, isError }: IDropdownProps) => {
       !prevState.includes(tech) ? [tech, ...prevState] : prevState
     );
   };
+
   const removeTagHandler = (idx: number) => {
     const temp = [...techArr];
     temp.splice(idx, 1);
@@ -75,6 +75,7 @@ const DropdownTechnology = ({ technologies, isError }: IDropdownProps) => {
   useEffect(() => {
     setFieldValue("technologies", techArr);
   }, [techArr]);
+
   useEffect(() => {
     const thirdArray = values.technologies.filter((elem) => {
       return technologies.some((ele) => {

@@ -1,22 +1,25 @@
+import React, { useEffect } from "react";
 import { Form, Formik, FormikHelpers, useFormikContext } from "formik";
-import React from "react";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
-import { newBlogArticle } from "../../../../consts";
-import { queryKeys } from "../../../../consts/queryKeys";
+
+import ArticleAddAndEdit from "./ArticleAddAndEdit";
 import { adminBlogService } from "../../../../services/adminBlogPage";
 import { adminSitemapService } from "../../../../services/adminSitemapPage";
+import { formatsDateWithTime } from "../../../../utils/formatsDateWithTime";
+import { AdminBlogValidation } from "../../../../validations/AdminBlogValidation";
+
+import {
+  META_DESCRIPTION_MAX,
+  META_TITLE_MAX,
+  newBlogArticle,
+} from "../../../../consts";
 import {
   IArticle,
   IBlogPageResponse,
   ISitemapData,
 } from "../../../../types/Admin/Response.types";
-import ArticleAddAndEdit from "./ArticleAddAndEdit";
+import { queryKeys } from "../../../../consts/queryKeys";
 import { IArticleForm } from "../../../../types/Admin/Blog.types";
-import { formatsDateWithTime } from "../../../../utils/formatsDateWithTime";
-import { AdminBlogValidation } from "../../../../validations/AdminBlogValidation";
-
-const META_TITLE_MAX = 60;
-const META_DESCRIPTION_MAX = 160;
 
 const ArticleForm = ({
   article,
@@ -65,7 +68,7 @@ const ArticleForm = ({
     values: IArticle,
     { resetForm, setFieldValue }: FormikHelpers<IArticle>
   ) => {
-    if (values.meta.metaTitle === "") {
+    if (!values.meta.metaTitle) {
       (values.meta.metaTitle =
         values.title.length > META_TITLE_MAX
           ? values.title.substring(0, META_TITLE_MAX)
@@ -73,7 +76,7 @@ const ArticleForm = ({
         values.title;
     }
 
-    if (values.meta.metaDescription === "") {
+    if (!values.meta.metaDescription) {
       (values.meta.metaDescription =
         values.description.length > META_DESCRIPTION_MAX
           ? values.description.substring(0, META_DESCRIPTION_MAX)

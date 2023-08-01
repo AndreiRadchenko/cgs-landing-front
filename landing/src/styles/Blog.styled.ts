@@ -1369,7 +1369,7 @@ export const SmallArticleContainer = styled.div`
   @media ${themes.primary.media.maxTabletLandScape} {
     padding: 18px 25px 18px 20px;
   }
-  @media (min-height: 800px) and ${themes.primary.media.maxLaptop} {
+  @media (min-height: 800px) and (max-width: 1500px) {
     min-height: 200px;
   }
 `;

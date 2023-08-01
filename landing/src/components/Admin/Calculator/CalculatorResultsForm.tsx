@@ -1,22 +1,20 @@
-import { useMutation, useQueryClient } from "@tanstack/react-query";
-import { Formik } from "formik";
 import React, { useEffect, useState } from "react";
-import { queryKeys } from "../../../consts/queryKeys";
+import { Formik } from "formik";
+import { Plugin } from "suneditor/src/plugins/Plugin";
+import { useMutation, useQueryClient } from "@tanstack/react-query";
+
 import { adminCalculatorService } from "../../../services/adminCalculator";
-import { ICalculator } from "../../../types/Admin/Response.types";
-import * as Styled from "../../../styles/Calculator/CalculatorAdmin.styled";
 import AdminBlockDropDown from "../Global/AdminBlockDropDown";
 import SaveBtn from "../Global/SaveBtn";
-import dynamic from "next/dynamic";
 import { letterCaseSubmenu } from "./letterCaseSubmenuPlugin";
 import { inputSubmenu } from "./inputSubmenuPlugin";
 import { letterWeightSubmenu } from "./letterWeightSubmenuPlugin";
-import { Plugin } from "suneditor/src/plugins/Plugin";
 import SubHeaderWithInput from "../Global/SubHeaderWithInput";
+import TextEditor from "../../TextEditor/TextEditor";
 
-const TextEditor = dynamic(() => import("../../TextEditor/TextEditor"), {
-  ssr: false,
-});
+import { queryKeys } from "../../../consts/queryKeys";
+import { ICalculator } from "../../../types/Admin/Response.types";
+import * as Styled from "../../../styles/Calculator/CalculatorAdmin.styled";
 
 const CalculatorResultsForm = () => {
   const queryClient = useQueryClient();

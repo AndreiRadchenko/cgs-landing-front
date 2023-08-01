@@ -2,7 +2,7 @@ import themes from "../utils/themes";
 import styled, { css } from "styled-components";
 
 import CheckMarkPublished from "../../public/checkMarkPublished.svg";
-import { Date } from "../components/BlogItem/BlogItem.styled";
+import { Date } from "./AdminBlogItem.styled";
 
 interface IDisabled {
   disabled: boolean;
