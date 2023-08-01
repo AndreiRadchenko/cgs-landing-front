@@ -3,7 +3,6 @@ import { useFormikContext } from "formik";
 import { useMutation } from "@tanstack/react-query";
 import { Plugin } from "suneditor/src/plugins/Plugin";
 import { SunEditorReactProps } from "suneditor-react/dist/types/SunEditorReactProps";
-import dynamic from "next/dynamic";
 
 import PhotoBlockDashed from "../PhotoBlockDashed";
 import SubHeaderWithInput from "../SubHeaderWithInput";
@@ -19,6 +18,8 @@ import AuthorPhotoDashed from "./AuthorPhotoDashed";
 import ButtonArrow from "../../../../utils/ButtonArrow";
 import { adminGlobalService } from "../../../../services/adminHomePage";
 import { articleIntroPlugin } from "./customArticleIntroPlugin";
+import { formatsDateWithTime } from "../../../../utils/formatsDateWithTime";
+import TextEditor from "../../../TextEditor/TextEditor";
 
 import * as Styles from "../../../../styles/AdminBlogPage";
 import * as Styled from "../../../../styles/AdminPage";
@@ -30,10 +31,6 @@ import {
 } from "../../../../styles/HomePage/General.styled";
 import { queryKeys } from "../../../../consts/queryKeys";
 import { IArticleAddAndEdit } from "../../../../types/Admin/Blog.types";
-
-const TextEditor = dynamic(() => import("../../../TextEditor/TextEditor"), {
-  ssr: false,
-});
 
 const ArticleAddAndEdit = ({
   isNewArticle,
@@ -178,9 +175,26 @@ const ArticleAddAndEdit = ({
     handleSubmit();
   };
 
+  const handleClick = () => {
+    if (isNewArticle) {
+      values.draft = false;
+      values.disabled = false;
+      values.publishedDate = formatsDateWithTime();
+      setShouldValidate(true);
+      handleSubmit();
+    } else {
+      values.draft = false;
+      values.disabled = false;
+      values.publishedDate = formatsDateWithTime();
+      setShouldValidate(true);
+      handleSubmit();
+    }
+  };
+
   useEffect(() => {
-    console.log("Values: ", values);
-  }, [values]);
+    values.meta.metaTitle = values.title;
+    values.meta.metaDescription = values.description;
+  }, [values.title, values.description]);
 
   return (
     <>
@@ -343,10 +357,7 @@ const ArticleAddAndEdit = ({
               <BlackButton
                 size={"1.5em"}
                 padding={"1em 3.25em"}
-                onClick={() => {
-                  setShouldValidate(true);
-                  handleSubmit();
-                }}
+                onClick={handleClick}
               >
                 {`${isNewArticle ? "Save" : "Edit"} Article`}
                 <ArrowContainer>

@@ -55,8 +55,6 @@ const BlogItem = ({
     }
   }, [article]);
 
-  console.log("Here!");
-
   return (
     article && (
       <Styled.MarginContainer>
@@ -88,10 +86,7 @@ const BlogItem = ({
                                 className="preview"
                               />
                               <Styled.GrayText className={"big"}>
-                                <Styled.TimeText>
-                                  {article.minutesToRead}
-                                </Styled.TimeText>
-                                min
+                                {`${article.minutesToRead} min`}
                               </Styled.GrayText>
                             </Styled.WatchContainer>
                           </Styled.DataContainer>

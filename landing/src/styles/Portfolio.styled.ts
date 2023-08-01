@@ -1,9 +1,10 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 import themes from "../utils/themes";
 
 import MagnifyingGlass from "../../public/Portfolio/MagnifyingGlass.svg";
 import LightExitIcon from "../../public/Portfolio/LightExitIcon.svg";
 import DarkExitIcon from "../../public/Portfolio/DarkExitIcon.svg";
+import { arrowOne, arrowTwo } from "./HomePage/General.styled";
 
 interface IPortfolioInfoProps {
   readonly isInfoCont?: boolean;
@@ -488,6 +489,7 @@ export const ProjectsContainerHeaderLink = styled.div<IPortfolioInfoProps>`
       : themes.primary.colors.primary};
   margin: 0;
   cursor: ${({ isProjectLink }) => isProjectLink && "pointer"};
+  pointer-events: ${({ isProjectLink }) => (isProjectLink ? "normal" : "none")};
 
   p {
     margin: 0;
@@ -507,10 +509,10 @@ export const ProjectsContainerHeaderLink = styled.div<IPortfolioInfoProps>`
   }
   &:hover {
     & path:nth-child(1) {
-      transform: translate(0px, 0px);
+      animation: ${arrowOne} 1s ease-in-out;
     }
     & path:nth-child(2) {
-      transform: translate(36px, -36px);
+      animation: ${arrowTwo} 1s ease-in-out;
     }
   }
 
