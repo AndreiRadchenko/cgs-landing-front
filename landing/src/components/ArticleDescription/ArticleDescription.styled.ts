@@ -246,7 +246,6 @@ a:hover::after {
       strong {
         display: inline-block;
         margin-top: 12px;
-        font-size: 1.25rem;
       }
     }
     & > p:first-child strong {

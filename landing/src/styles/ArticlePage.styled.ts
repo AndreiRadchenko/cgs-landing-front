@@ -264,8 +264,13 @@ export const HeaderBottomBg = styled.div`
 export const FirstHeaderBg = styled.figure`
   position: absolute;
   top: 11.3%;
-  left: -750px;
+  left: -780px;
   margin: 0;
+
+  @media ${themes.primary.media.minPCFullHD} {
+    left: -825px;
+  }
+
   @media ${themes.primary.media.maxMobile} {
     display: none;
   }
