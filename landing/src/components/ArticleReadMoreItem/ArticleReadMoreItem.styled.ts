@@ -56,7 +56,7 @@ export const TitleWrapper = styled.div`
 `;
 
 export const Title = styled.p`
-  margin-top: 0;
+  margin-top: 8px;
   margin-bottom: 16px;
   & a {
     font-size: 2.5em;
@@ -113,8 +113,8 @@ export const Description = styled.p`
 `;
 
 export const ArticleWatchIcon = styled.img`
-  width: 22px;
-  height: 14px;
+  width: 21px;
+  height: 19px;
 
   @media ${themes.primary.media.minPCFullHD} {
     width: 26px;
@@ -126,10 +126,10 @@ export const ViewsWrapper = styled.div`
   width: 58px;
   display: flex;
   align-items: center;
-  margin: 24px 0 8px 0;
+  margin: 24px 0 0;
 
   @media ${themes.primary.media.minPCFullHD} {
-    margin: 30px 0 10px 0;
+    margin: 30px 0 0;
   }
 `;
 
@@ -137,6 +137,7 @@ export const AmountViews = styled.span`
   font-size: ${themes.primary.font.size.tertiary};
   font-family: ${themes.primary.font.family.openSans};
   margin-left: 9px;
+  font-weight: 600;
   color: #8F8E93;
 
   @media ${themes.primary.media.minPCFullHD} {

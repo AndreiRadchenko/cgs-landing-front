@@ -68,11 +68,11 @@ export const Breadcrumbs = styled.div<IBreadcrumbs>`
 `;
 
 export const BreadcrumbSeparator = styled.span`
-  margin: 0 6px;
+  margin: 0 8px;
   color: #bbb;
 
-  @media ${themes.primary.media.maxMobile} {
-    margin: 0 4px;
+  @media ${themes.primary.media.minPCFullHD} {
+    margin: 0 10px;
   }
 `;
 

@@ -924,6 +924,7 @@ export const SmallNavigation = styled.div`
 
 export const SecondsLeft = styled.div`
   position: absolute;
+  color: #000;
   width: 100%;
   height: 100%;
   display: flex;
@@ -947,6 +948,7 @@ export const SecondsLeft = styled.div`
 
 export const SecondsRight = styled.div`
   position: absolute;
+  color: #000;
   width: 100%;
   height: 100%;
   display: flex;
