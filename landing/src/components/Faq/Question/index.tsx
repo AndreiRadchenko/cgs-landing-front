@@ -1,13 +1,10 @@
 import React, { useState, FC } from "react";
 import parse from "html-react-parser";
 import { useCollapse } from "react-collapsed";
+
 import * as Styles from "./question.styles";
 
-interface IQuestionProps {
-  title: string;
-  image: { url: string } | null;
-  content: string;
-}
+import { IQuestionProps } from "../../../types/Company.types";
 
 const Question: FC<IQuestionProps> = ({ title, content, image }) => {
   const [isOpen, setIsOpen] = useState<boolean>(false);

@@ -1,20 +1,19 @@
 import React, { FC, MouseEvent, useEffect, useRef, useState } from "react";
-import * as Styled from "./CareersTicket.styled";
+
 import TicketModal from "../Careers/TicketModal";
-import { ITicket } from "../../types/Admin/Response.types";
+
+import * as Styled from "./CareersTicket.styled";
+import { ArrowContainer } from "../../styles/HomePage/General.styled";
 import * as Styles from "../../styles/TicketModal.styled";
+
+import { ITicketProps } from "../../types/Company.types";
+
+import ButtonArrow from "../../utils/ButtonArrow";
+
 import CloseButton from "../../../public/CareerDecorations/close.svg";
 import locationImage from "../../../public/CareerDecorations/location.svg";
 import clockImage from "../../../public/CareerDecorations/clock.svg";
-import { ArrowContainer } from "../../styles/HomePage/General.styled";
-import ButtonArrow from "../../utils/ButtonArrow";
 
-interface ITicketProps {
-  ticket: ITicket;
-  scrollTo?: () => void;
-  className?: string;
-  isAdminPanel?: boolean;
-}
 const CareersTicket: FC<ITicketProps> = ({
   ticket: { vacancy, description, location, time, info },
   scrollTo,

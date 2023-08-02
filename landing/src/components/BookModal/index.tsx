@@ -1,12 +1,10 @@
 import React, { FC } from "react";
-import * as Styles from "../../styles/BookModalForm/BookModal.styled";
-import { DisableScrollBarHandler } from "../../utils/disableScrollBarHandler";
 
-interface ITicketModalProps {
-  isOpen?: boolean;
-  isCalendly?: boolean;
-  children: React.ReactNode;
-}
+import * as Styles from "../../styles/BookModalForm/BookModal.styled";
+
+import { ITicketModalProps } from "../../types/ModalCategory.types";
+
+import { DisableScrollBarHandler } from "../../utils/disableScrollBarHandler";
 
 const BookModal: FC<ITicketModalProps> = ({ isOpen, isCalendly, children }) => {
   isOpen && DisableScrollBarHandler(isOpen);

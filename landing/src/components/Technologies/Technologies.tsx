@@ -1,14 +1,17 @@
 import React, { useEffect, useRef } from "react";
-import * as StyledThisComp from "../../styles/HomePage/Technologies.styled";
-import TechnologyCategory from "./TechnologyCategory";
 import { useQueryClient } from "@tanstack/react-query";
+import Image from "next/image";
+
+import TechnologyCategory from "./TechnologyCategory";
+import MobileTechnologyCategory from "./MobileTechnologyCategory";
+
+import * as StyledThisComp from "../../styles/HomePage/Technologies.styled";
+
 import { queryKeys } from "../../consts/queryKeys";
 import { IDataResponse } from "../../types/Admin/Response.types";
 import techArrow from "../../../public/HomePageDecoration/techArrow.svg";
-import Image from "next/image";
 import useMousePosition from "../../hooks/useMousePosition";
 import { MobileInfiniteText } from "../MobileInfiniteText/MobileInfiniteText";
-import MobileTechnologyCategory from "./MobileTechnologyCategory";
 import { useWindowDimension } from "../../hooks/useWindowDimension";
 
 const Technologies = () => {

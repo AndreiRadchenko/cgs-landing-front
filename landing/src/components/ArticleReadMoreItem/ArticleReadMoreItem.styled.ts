@@ -138,7 +138,7 @@ export const AmountViews = styled.span`
   font-family: ${themes.primary.font.family.openSans};
   margin-left: 9px;
   font-weight: 600;
-  color: #8F8E93;
+  color: #8f8e93;
 
   @media ${themes.primary.media.minPCFullHD} {
     font-size: 0.9em;

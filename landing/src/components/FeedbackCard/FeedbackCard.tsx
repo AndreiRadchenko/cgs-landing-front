@@ -1,8 +1,11 @@
 import React, { FC, memo } from "react";
-import * as StyledThisComp from "./FeedbackCard.styled";
-import { IFeedbackCardProps } from "../../types/Feedback.types";
-import star from "../../../public/HomePageDecoration/feedbackStar.svg";
 import Link from "next/link";
+
+import * as StyledThisComp from "./FeedbackCard.styled";
+
+import { IFeedbackCardProps } from "../../types/Feedback.types";
+
+import star from "../../../public/HomePageDecoration/feedbackStar.svg";
 
 const FeedbackCard: FC<IFeedbackCardProps> = ({
   name,

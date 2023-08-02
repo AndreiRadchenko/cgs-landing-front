@@ -34,6 +34,7 @@ export const TopRightImageText = styled.img`
     right: -10%;
   }
 `;
+
 export const BottomRightImageText = styled.img`
   position: absolute;
   bottom: 0;
@@ -50,6 +51,7 @@ export const BottomRightImageText = styled.img`
     bottom: 3em;
   }
 `;
+
 export const BottomLeftImageText = styled.img`
   position: absolute;
   height: 40em;
@@ -212,98 +214,6 @@ export const Title = styled.header`
   }
 `;
 
-export const ArrowContainer = styled.div`
-  display: inline-block;
-  margin: auto;
-  height: 100%;
-
-  @media ${themes.primary.media.maxMobile} {
-    margin-bottom: 0;
-  }
-`;
-
-export const FormTitleArrow = styled.img`
-  width: 107px;
-  height: 24px;
-  margin: 0 0 5px 15px;
-`;
-
-export const TitleArrow = styled.img`
-  width: 175px;
-  height: 25px;
-  margin: 0 15px 8% 15px;
-
-  @media ${themes.primary.media.minPCFullHD} {
-    width: 220px;
-  }
-
-  @media ${themes.primary.media.maxTabletLandScape} {
-    margin-bottom: 4%;
-  }
-
-  @media ${themes.primary.media.maxTabletPortrait} {
-    margin-bottom: 1%;
-    width: 95px;
-  }
-
-  @media ${themes.primary.media.maxMobile} {
-    margin-bottom: 0;
-    width: 85px;
-    height: 18px;
-  }
-  @media ${themes.primary.media.maxLowScreenMobile} {
-    margin: 0 0 0 3px;
-    width: 47px;
-    height: 18px;
-  }
-`;
-
-export const TitleText = styled.span`
-  margin: 0;
-  font-size: 5vw;
-  line-height: 124%;
-  color: ${themes.primary.colors.primary};
-
-  @media ${themes.primary.media.minPCFullHD} {
-    font-size: 94px;
-  }
-
-  @media ${themes.primary.media.maxTabletLandScape} {
-    font-size: 4.8vw;
-  }
-
-  @media ${themes.primary.media.maxTabletPortrait} {
-    font-size: 4.5vw;
-  }
-
-  @media ${themes.primary.media.maxMobile} {
-    font-size: 4.3vw;
-  }
-
-  @media ${themes.primary.media.maxLowScreenMobile} {
-    display: inline-block;
-    font-size: 1.75rem;
-    line-height: 140%;
-  }
-
-  @media ${themes.primary.media.maxLowestScreenMobile} {
-    font-size: 1.5rem;
-  }
-`;
-
-export const Separator = styled.hr`
-  width: calc(100% + 102px);
-  height: 1px;
-  color: ${themes.primary.colors.primary};
-  margin: 0;
-`;
-
-export const TitleTextRow = styled.div`
-  @media ${themes.primary.media.maxLowScreenMobile} {
-    display: inline;
-  }
-`;
-
 export const TicketsWrapper = styled.section`
   width: 100%;
   display: flex;
@@ -445,84 +355,4 @@ export const Form = styled.div`
   @media ${themes.primary.media.maxTabletPortrait} {
     position: relative;
   }
-`;
-
-export const FormImage = styled.img`
-  width: 645px;
-  height: 515px;
-  margin-left: 39.73vw;
-
-  @media ${themes.primary.media.maxTabletLandScape} {
-    width: 435px;
-
-    margin-left: 524px;
-  }
-
-  @media ${themes.primary.media.maxTabletPortrait} {
-    width: auto;
-    height: auto;
-    margin: 69px auto 0;
-  }
-
-  @media ${themes.primary.media.maxMobile} {
-    position: relative;
-    right: -15%;
-    width: 100%;
-    margin-top: 29px;
-  }
-
-  @media ${themes.primary.media.maxLowScreenMobile} {
-    right: -1%;
-    top: 25px;
-    width: 130%;
-  }
-`;
-
-export const FormContainer3D = styled.div`
-  width: 443px;
-  height: 418px;
-  position: absolute;
-  background: black;
-  margin-top: 20px;
-  margin-left: 15px;
-  display: flex;
-  flex-direction: column;
-
-  @media ${themes.primary.media.maxMobile} {
-    width: 400px;
-  }
-
-  @media ${themes.primary.media.maxLowScreenMobile} {
-    height: 361px;
-    width: 345px;
-  }
-
-  @media ${themes.primary.media.maxLowestScreenMobile} {
-    width: 300px;
-  }
-`;
-
-export const TopCorner = styled.div`
-  width: 0;
-  height: 0;
-  border-style: solid;
-  border-width: 0 14px 8px 0;
-  border-color: transparent ${themes.primary.colors.grayBack} transparent
-    transparent;
-  right: 0;
-  top: 0;
-  position: absolute;
-  z-index: 5;
-`;
-
-export const BottomCorner = styled.div`
-  width: 0;
-  height: 0;
-  border-style: solid;
-  border-width: 0 0 5px 13px;
-  border-color: transparent transparent ${themes.primary.colors.grayBack}
-    transparent;
-  position: absolute;
-  right: 0;
-  bottom: 0;
 `;

@@ -12,7 +12,7 @@ import {
   BlackButton,
 } from "../../styles/HomePage/General.styled";
 import ButtonArrow from "../../utils/ButtonArrow";
-import { ICalendlyUserData } from "../HomePage/Content";
+import { ICalendlyUserData } from "../../types/ModalCategory.types";
 
 const PAGINATION_STEPS_PER_PAGE = 8;
 

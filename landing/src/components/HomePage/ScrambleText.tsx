@@ -1,5 +1,7 @@
 import React, { useRef } from "react";
+
 import { useOnScreen } from "../../hooks/useOnScreen";
+
 import { TextScramble } from "../TextScramble";
 
 interface IScrambleText {

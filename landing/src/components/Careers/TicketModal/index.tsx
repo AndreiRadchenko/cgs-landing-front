@@ -1,12 +1,8 @@
-import React, { FC, MouseEvent } from "react";
+import React, { FC } from "react";
+
 import * as Styles from "../../../styles/TicketModal.styled";
 
-interface ITicketModalProps {
-  isOpen?: boolean;
-  children: React.ReactNode;
-  onClose?: (e: MouseEvent<HTMLDivElement | HTMLButtonElement>) => void;
-  ref: React.RefObject<HTMLDivElement>;
-}
+import { ITicketModalProps } from "../../../types/Company.types";
 
 const TicketModal: FC<ITicketModalProps> = ({
   isOpen,

@@ -1,10 +1,13 @@
 import React, { useEffect, useState } from "react";
+import { useRouter } from "next/router";
 import parse from "html-react-parser";
+
 import * as Styled from "../../styles/Blog.styled";
+
+import { IMainBlogItem } from "../../types/Blog.types";
+
 import Watch from "../../../public/Watch.svg";
 import Timer from "../../../public/Timer.svg";
-import { useRouter } from "next/router";
-import { IMainBlogItem } from "../../types/Blog.types";
 
 const MainBlogItem = ({
   article,

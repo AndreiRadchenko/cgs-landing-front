@@ -2,17 +2,19 @@
 import parse, { HTMLReactParserOptions, Element } from "html-react-parser";
 import { useQueryClient } from "@tanstack/react-query";
 
-import { queryKeys } from "../../consts/queryKeys";
+import { IDataResponse } from "../../types/Admin/Response.types";
+import ScrambleText from "../HomePage/ScrambleText";
+import ButtonShareComponent from "../HomePage/ButtonShareComponent";
+import GetEstimationButton from "../GetEstimationButton";
+
 import {
   Subtitle,
   FooterButtonWrapper,
   FooterWhatsAppContainer,
   FooterSection,
 } from "../../styles/HomePage/General.styled";
-import { IDataResponse } from "../../types/Admin/Response.types";
-import ScrambleText from "../HomePage/ScrambleText";
-import ButtonShareComponent from "../HomePage/ButtonShareComponent";
-import GetEstimationButton from "../GetEstimationButton";
+
+import { queryKeys } from "../../consts/queryKeys";
 
 const BookBlock = () => {
   const queryClient = useQueryClient();

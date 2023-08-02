@@ -1,4 +1,4 @@
-import React, { CSSProperties, Dispatch, SetStateAction } from "react";
+import React, { Dispatch, SetStateAction } from "react";
 import PhoneInput, { CountryData, PhoneInputProps } from "react-phone-input-2";
 import { useField } from "formik";
 

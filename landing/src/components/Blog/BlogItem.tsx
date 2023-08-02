@@ -1,11 +1,15 @@
 import React, { useEffect, useState } from "react";
+import { useRouter } from "next/router";
 import parse from "html-react-parser";
+
 import * as Styled from "../../styles/Blog.styled";
+
+import { IBlogItem } from "../../types/Blog.types";
+
+import { useWindowDimension } from "../../hooks/useWindowDimension";
+
 import Watch from "../../../public/Watch.svg";
 import Timer from "../../../public/Timer.svg";
-import { useWindowDimension } from "../../hooks/useWindowDimension";
-import { useRouter } from "next/router";
-import { IBlogItem } from "../../types/Blog.types";
 
 const BlogItem = ({
   article,
