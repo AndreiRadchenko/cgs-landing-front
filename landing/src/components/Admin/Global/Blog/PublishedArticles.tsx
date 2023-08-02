@@ -21,6 +21,7 @@ import close from "../../../../../public/bigClose.svg";
 import { AdminPaddedBlock } from "../../../../styles/AdminPage";
 import { adminSitemapService } from "../../../../services/adminSitemapPage";
 import { IArticleItem, IArticles } from "../../../../types/Admin/Blog.types";
+import { StyledButton } from "../../../BaseButton/BaseButton.styled";
 
 const PublishedArticles: FC<IArticles> = ({
   setIsNewArticle,
@@ -141,11 +142,12 @@ const PublishedArticles: FC<IArticles> = ({
   const ArticleItem = ({ item, i }: IArticleItem) => {
     return (
       <AdminBlogItem isAdmin item={item}>
+        <Styles.Fade style={{display: isNewArticle ? "none" : !isNewArticle && article !== i ? "block" : "none"}}/>
         {item.draft && <Styles.DraftMark>DRAFT</Styles.DraftMark>}
         <Styles.ChangeIconWrapper onClick={() => toggleEditPost(i)}>
           <Styles.ChangeIcon
             src={
-              isNewArticle
+              isNewArticle || article !== i
                 ? ChangeIconImg.src
                 : !isNewArticle && article === i
                 ? close.src

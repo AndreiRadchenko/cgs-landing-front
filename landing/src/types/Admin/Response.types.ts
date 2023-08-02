@@ -104,6 +104,7 @@ export interface IDataResponse {
     logos: {
       image: { url: string } | null;
     }[];
+    twistedBlock: string;
   };
   FreeServicesBlock: {
     title: string;

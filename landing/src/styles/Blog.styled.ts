@@ -639,10 +639,6 @@ export const WatchCountArticle = styled(GrayText)`
     font-size: 0.887em;
   }
 
-  @media (min-width: 2400px) {
-    font-size: 1.1em;
-  }
-
   @media ${themes.primary.media.onlyTabletLandScape} {
     font-size: 1.05em;
   }
@@ -897,6 +893,7 @@ export const LeftArrow = styled.div`
 
 export const SmallNavigation = styled.div`
   font-size: 1.5em;
+  color: #000;
   display: flex;
   align-items: flex-start;
 
