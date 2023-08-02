@@ -9,7 +9,7 @@ export const useInViewport = <T extends Element>(
     const handleScroll = () => {
       if (ref.current) {
         const { top, bottom } = ref.current.getBoundingClientRect();
-        const isInViewport = top <= window.innerHeight && bottom >= 0;
+        const isInViewport = bottom <= window.innerHeight && top >= 0;
         setIsScrolled(isInViewport);
       }
     };
