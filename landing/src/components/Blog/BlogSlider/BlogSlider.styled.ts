@@ -12,6 +12,7 @@ export const SliderWrapper = styled("div")`
   @media ${themes.primary.media.minPCFullHD} {
     padding: 50px 40px 40px 51px;
     width: 68.8vw;
+    height: 100%;
   }
 
   @media ${themes.primary.media.maxMobile} {

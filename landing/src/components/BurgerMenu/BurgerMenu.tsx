@@ -1,13 +1,11 @@
-import React, { FC, ReactNode } from "react";
-import * as StyledThisComp from "../../styles/Burger.styles";
+import React, { FC } from "react";
+
 import ButtonShareComponent from "../HomePage/ButtonShareComponent";
 import BurgerFooter from "./BurgerFooter";
 
-interface IBurgerMenuProps {
-  isOpen: boolean;
-  children?: ReactNode[];
-  burgerRef?: React.RefObject<HTMLDivElement>;
-}
+import * as StyledThisComp from "../../styles/Burger.styles";
+
+import { IBurgerMenuProps } from "../../types/Button.types";
 
 const BurgerMenu: FC<IBurgerMenuProps> = ({ isOpen, children, burgerRef }) => {
   return (

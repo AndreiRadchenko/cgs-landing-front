@@ -1,25 +1,27 @@
 import React, { FC } from "react";
-import { AdminSubTitle } from "../../../../styles/AdminBlogPage";
-import BlogItem from "../../../BlogItem/BlogItem";
-import ChangeIconImg from "../../../../../public/ChangeIcon.svg";
+import { useFormikContext } from "formik";
+import SortableList, { SortableItem } from "react-easy-sort";
+import { useMutation, useQueryClient } from "@tanstack/react-query";
+
+import AdminBlogItem from "./AdminBlogItem";
 import { adminGlobalService } from "../../../../services/adminHomePage";
+import { adminBlogService } from "../../../../services/adminBlogPage";
+import { formatsDateWithTime } from "../../../../utils/formatsDateWithTime";
 
 import * as Styles from "../../../../styles/BlogPublishedArticles.styled";
-import { useFormikContext } from "formik";
 import {
   IArticle,
   ISitemapData,
   ISwapData,
 } from "../../../../types/Admin/Response.types";
-import { useMutation, useQueryClient } from "@tanstack/react-query";
+import { AdminSubTitle } from "../../../../styles/AdminBlogPage";
+import ChangeIconImg from "../../../../../public/ChangeIcon.svg";
 import { queryKeys } from "../../../../consts/queryKeys";
-import { adminBlogService } from "../../../../services/adminBlogPage";
 import close from "../../../../../public/bigClose.svg";
 import { AdminPaddedBlock } from "../../../../styles/AdminPage";
 import { adminSitemapService } from "../../../../services/adminSitemapPage";
-import SortableList, { SortableItem } from "react-easy-sort";
 import { IArticleItem, IArticles } from "../../../../types/Admin/Blog.types";
-import { formatsDateWithTime } from "../../../../utils/formatsDateWithTime";
+import { StyledButton } from "../../../BaseButton/BaseButton.styled";
 
 const PublishedArticles: FC<IArticles> = ({
   setIsNewArticle,
@@ -139,12 +141,13 @@ const PublishedArticles: FC<IArticles> = ({
 
   const ArticleItem = ({ item, i }: IArticleItem) => {
     return (
-      <BlogItem isAdmin item={item}>
+      <AdminBlogItem isAdmin item={item}>
+        <Styles.Fade style={{display: isNewArticle ? "none" : !isNewArticle && article !== i ? "block" : "none"}}/>
         {item.draft && <Styles.DraftMark>DRAFT</Styles.DraftMark>}
         <Styles.ChangeIconWrapper onClick={() => toggleEditPost(i)}>
           <Styles.ChangeIcon
             src={
-              isNewArticle
+              isNewArticle || article !== i
                 ? ChangeIconImg.src
                 : !isNewArticle && article === i
                 ? close.src
@@ -170,14 +173,14 @@ const PublishedArticles: FC<IArticles> = ({
               Deactivate
             </Styles.DeactivateButton>
             <Styles.PublishButton
-              disabled={!!item.publishedDate}
+              disabled={!item.disabled}
               onClick={() => publishArticle(i)}
             >
-              <p>{item.publishedDate ? "Published" : "Publish now"}</p>
+              <p>{!item.disabled ? "Published" : "Publish now"}</p>
             </Styles.PublishButton>
           </Styles.InternalButtonWrapper>
         </Styles.ButtonWrapper>
-      </BlogItem>
+      </AdminBlogItem>
     );
   };
 

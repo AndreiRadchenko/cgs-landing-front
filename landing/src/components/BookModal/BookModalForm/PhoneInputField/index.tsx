@@ -5,6 +5,7 @@ import { useField } from "formik";
 import "react-phone-input-2/lib/style.css";
 
 interface Props extends Omit<PhoneInputProps, "onChange" | "onBlur"> {
+  className?: string;
   name: string;
   placeholder: string;
   setCountry: Dispatch<SetStateAction<string>>;
@@ -24,6 +25,7 @@ const PhoneInputField: React.FC<Props> = ({ ...props }) => {
 
   return (
     <PhoneInput
+      className={props.className}
       {...field}
       {...props}
       onChange={handleOnChange}

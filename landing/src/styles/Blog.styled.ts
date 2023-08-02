@@ -2,6 +2,8 @@ import styled, { css } from "styled-components";
 import themes from "../utils/themes";
 import { infiniteBlogText } from "./Animations.styled";
 
+import { arrowOne, arrowTwo } from "./HomePage/General.styled";
+
 interface ITrack {
   range: number;
 }
@@ -49,6 +51,12 @@ export const FlexRowContainer = styled.div`
   display: flex;
   column-gap: 24px;
   align-items: center;
+
+  &.blogItemTop {
+    @media ${themes.primary.media.onlyTabletLandScape} {
+      width: 450px;
+    }
+  }
 
   @media ${themes.primary.media.minPCFullHD} {
     column-gap: 30px;
@@ -129,6 +137,8 @@ export const ArrowContainer = styled.div`
   & svg {
     width: 25px;
     height: 25px;
+    margin-left: -0.55px;
+    margin-top: -0.5px;
   }
 
   &.ticketModalArrowSubmit {
@@ -228,10 +238,10 @@ export const Tag = styled.button<ITag>`
     padding: 0 10px;
 
     @media ${themes.primary.media.minPCFullHD} {
-    font-size: 0.75em;
-    line-height: 138.889%;
-    padding: 0 12px;
-    height: 36px;
+      font-size: 0.75em;
+      line-height: 138.889%;
+      padding: 0 12px;
+      height: 36px;
     }
   }
 
@@ -454,10 +464,15 @@ export const LoopContainer = styled.div`
 `;
 
 export const GrayText = styled.div`
-  color: #8F8E93;
+  color: #8f8e93;
   font-size: ${themes.primary.font.size.articleViews};
+  font-weight: 600;
   &.big {
     font-size: 1.34em;
+  }
+
+  &.articleText {
+    font-weight: 400;
   }
 
   @media ${themes.primary.media.minPCFullHD} {
@@ -471,7 +486,6 @@ export const GrayText = styled.div`
       font-size: 0.712em;
     }
   }
-
 
   @media (min-width: 2400px) {
     font-size: 1.1em;
@@ -491,7 +505,7 @@ export const GrayText = styled.div`
 `;
 
 export const Date = styled.div`
-  color: #8F8E93;
+  color: #8f8e93;
   font-size: 1.17em;
 
   &.blogItem {
@@ -507,7 +521,6 @@ export const Date = styled.div`
 
     &.blogItem {
       font-size: 0.84em;
-
     }
   }
 
@@ -518,23 +531,22 @@ export const Date = styled.div`
 
 export const ArrowIconLink = styled.div`
   & path {
-    transition: transform 1s ease-in-out;
   }
   & path:nth-child(1) {
     transform: translate(-36px, 36px);
   }
   &:hover {
     & path:nth-child(1) {
-      transform: translate(0px, 0px);
+      animation: ${arrowOne} 1s 1 forwards ease-in-out;
     }
     & path:nth-child(2) {
-      transform: translate(36px, -36px);
+      animation: ${arrowTwo} 1s 1 forwards ease-in-out;
     }
   }
 `;
 
 export const MainBlogAuthor = styled(GrayText)`
-  font-weight: ${themes.primary.font.weight.medium};
+  font-weight: ${themes.primary.font.weight.semiBold};
   font-size: ${themes.primary.font.size.articleViews};
 
   @media ${themes.primary.media.minPCFullHD} {
@@ -547,7 +559,7 @@ export const MainBlogAuthor = styled(GrayText)`
 `;
 
 export const SecondaryAuthor = styled(GrayText)`
-  font-weight: ${themes.primary.font.weight.medium};
+  font-weight: ${themes.primary.font.weight.semiBold};
   font-size: 1.17em;
 
   @media ${themes.primary.media.minPCFullHD} {
@@ -606,6 +618,7 @@ export const ArticleWatchContainer = styled.div`
 
 export const WatchCount = styled(GrayText)`
   font-size: 1.17em;
+  font-weight: 600;
   .article {
     font-size: ${themes.primary.font.size.articleViews};
   }
@@ -626,10 +639,6 @@ export const WatchCountArticle = styled(GrayText)`
     font-size: 0.887em;
   }
 
-  @media (min-width: 2400px) {
-    font-size: 1.1em;
-  }
-
   @media ${themes.primary.media.onlyTabletLandScape} {
     font-size: 1.05em;
   }
@@ -640,13 +649,13 @@ export const WatchCountArticle = styled(GrayText)`
 `;
 
 export const BlogItemWatchIcon = styled.img`
-  width: 1.83em;
-  height: 1.166em;
+  width: 21px;
+  height: 19px;
   margin-left: 1.166em;
 
   @media ${themes.primary.media.minPCFullHD} {
-    width: 1.084em;
-    height: 0.96em;
+    width: 26px;
+    height: 23px;
   }
 
   @media ${themes.primary.media.maxTabletPortrait} {
@@ -657,8 +666,6 @@ export const BlogItemWatchIcon = styled.img`
 
   @media ${themes.primary.media.maxMobile} {
     margin-left: 0;
-    width: 19px;
-    height: 12px;
   }
 `;
 
@@ -687,10 +694,10 @@ export const TimerIcon = styled.img`
   }
 
   @media ${themes.primary.media.maxTabletPortrait} {
-   &.preview {
-    width: 21px;
-    height: 19px;
-   }
+    &.preview {
+      width: 21px;
+      height: 19px;
+    }
   }
 
   @media ${themes.primary.media.maxMobile} {
@@ -886,6 +893,7 @@ export const LeftArrow = styled.div`
 
 export const SmallNavigation = styled.div`
   font-size: 1.5em;
+  color: #000;
   display: flex;
   align-items: flex-start;
 
@@ -913,6 +921,7 @@ export const SmallNavigation = styled.div`
 
 export const SecondsLeft = styled.div`
   position: absolute;
+  color: #000;
   width: 100%;
   height: 100%;
   display: flex;
@@ -936,6 +945,7 @@ export const SecondsLeft = styled.div`
 
 export const SecondsRight = styled.div`
   position: absolute;
+  color: #000;
   width: 100%;
   height: 100%;
   display: flex;
@@ -1222,7 +1232,6 @@ export const MainBlogItemImage = styled.img`
   @media ${themes.primary.media.minPCFullHD} {
     width: 41.14em;
     max-height: 525px;
-
   }
 
   @media ${themes.primary.media.maxMobile} {
@@ -1235,11 +1244,13 @@ export const MainBlogItemTag = styled(Tag)`
   margin-top: 32px;
   font-size: 1.5em;
   padding: 0 10px;
+  height: 26px;
 
   @media ${themes.primary.media.minPCFullHD} {
     margin-top: 40px;
     padding: 0px 12px;
     font-size: 0.92em;
+    height: 32px;
   }
 
   @media ${themes.primary.media.maxMobile} {
@@ -1346,6 +1357,10 @@ export const SmallArticleContainer = styled.div`
     border-bottom: 0;
   }
 
+  @media ${themes.primary.media.onlyPC} {
+    min-height: 15vh;
+  }
+
   @media ${themes.primary.media.minPC} {
     padding: 40px 60px 40px 40px;
   }
@@ -1359,7 +1374,7 @@ export const SmallArticleContainer = styled.div`
   @media ${themes.primary.media.maxTabletLandScape} {
     padding: 18px 25px 18px 20px;
   }
-  @media (min-height: 800px) and ${themes.primary.media.maxLaptop} {
+  @media (min-height: 800px) and (max-width: 1500px) {
     min-height: 200px;
   }
 `;
@@ -1371,4 +1386,5 @@ export const MobileColumnReversedContainer = styled.div`
   }
 `;
 
-export const TimeText = styled.time``;
+export const TimeText = styled.time`
+`;

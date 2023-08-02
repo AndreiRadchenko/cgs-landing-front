@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { CalculatorAndChatWrapper } from "../../styles/HomePage/General.styled";
 import Calculator from "../Calculator";
 import Chat from "../Chat";
-import { ICalendlyUserData } from "../HomePage/Content";
+import { ICalendlyUserData } from "../../types/ModalCategory.types";
 
 interface ICalcAndChatContainer {
   setIsCalendlyOpen: React.Dispatch<React.SetStateAction<boolean>>;

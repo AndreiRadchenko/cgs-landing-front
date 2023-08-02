@@ -6,10 +6,10 @@ export const Wrapper = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: flex-end;
-  margin-top: 26px;
+  margin-top: 32px;
 
   @media ${themes.primary.media.minPCFullHD} {
-    margin-top: 34px;
+    margin-top: 40px;
   }
 
   @media ${themes.primary.media.maxMobile} {
@@ -28,22 +28,22 @@ export const AuthorWrapper = styled.div`
 export const AuthorImage = styled.img`
   max-width: 5em;
   width: 50px;
-  height: auto;
+  height: 50px;
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-right: 7px;
-  margin-bottom: 3px;
+  margin-right: 12px;
 
   @media ${themes.primary.media.minPCFullHD} {
     width: 62px;
-    margin-bottom: 8px;
+    height: 62px;
+    margin-right: 15px;
   }
 
   @media ${themes.primary.media.maxMobile} {
     width: 40px;
+    height: 40px;
     margin-right: 12px;
-    margin-bottom: 0;
   }
 `;
 
@@ -63,7 +63,6 @@ export const AuthorName = styled.div`
   font-family: ${themes.primary.font.family.openSans};
   font-weight: ${themes.primary.font.weight.semiBold};
   font-size: 1.333em;
-  margin-top: 6px;
 
   @media ${themes.primary.media.minPCFullHD} {
     font-size: 1.05em;
@@ -105,8 +104,11 @@ export const SpaceBetween = styled.div`
   align-items: center;
   flex-wrap: wrap;
   width: 322px;
-  margin-top: 4px;
-  margin-bottom: 6px;
+  margin-top: 6px;
+
+  & > div:not(:first-child) div {
+    font-weight: 600;
+  }
 
   @media ${themes.primary.media.minPC} {
     width: 370px;
@@ -115,7 +117,6 @@ export const SpaceBetween = styled.div`
   @media ${themes.primary.media.minPCFullHD} {
     width: 400px;
     column-gap: 20px;
-    margin-bottom: 12px;
     margin-top: 8px;
   }
 
@@ -126,6 +127,7 @@ export const SpaceBetween = styled.div`
   @media ${themes.primary.media.maxMobile} {
     width: 285px;
     column-gap: 8px;
+    margin-top: 5.5px;
     & > div:first-child {
       div {
         font-size: 12px;
@@ -135,7 +137,6 @@ export const SpaceBetween = styled.div`
     }
     & > div:not(:first-child) div {
       font-size: 14px;
-      font-weight: 600;
     }
   }
 

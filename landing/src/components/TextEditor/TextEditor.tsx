@@ -1,16 +1,21 @@
 import React from "react";
+import dynamic from "next/dynamic";
 import { Field, FieldProps } from "formik";
-import * as Styled from "../../styles/AdminPage";
-import SunEditor from "suneditor-react";
 import { SunEditorReactProps } from "suneditor-react/dist/types/SunEditorReactProps";
-import "suneditor/dist/css/suneditor.min.css";
 import SetOptions from "suneditor-react/dist/types/SetOptions";
+
+import * as Styled from "../../styles/AdminPage";
+import "suneditor/dist/css/suneditor.min.css";
 
 interface ITextEditorProps {
   header?: string;
   name?: string;
   props?: SunEditorReactProps;
 }
+
+const SunEditor = dynamic(() => import("suneditor-react"), {
+  ssr: false,
+});
 
 const TextEditor = ({ name = "", header, props }: ITextEditorProps) => {
   const options: SetOptions = {

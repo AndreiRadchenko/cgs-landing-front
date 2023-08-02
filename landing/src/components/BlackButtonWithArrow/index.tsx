@@ -1,16 +1,13 @@
-import React, { CSSProperties } from "react";
+import React from "react";
+
 import {
   BlackButton,
   ArrowContainer,
 } from "../../styles/HomePage/General.styled";
-import ButtonArrow from "../../utils/ButtonArrow";
 
-interface IBlackButtonProps {
-  href?: string;
-  style?: CSSProperties;
-  text?: string;
-  onClick?: () => void;
-}
+import { IBlackButtonProps } from "../../types/Button.types";
+
+import ButtonArrow from "../../utils/ButtonArrow";
 
 const BlackButtonComponent = ({
   href = undefined,

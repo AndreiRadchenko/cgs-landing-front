@@ -1,23 +1,24 @@
 import React, { FC, useRef } from "react";
+import Image from "next/image";
+import { useMediaQuery } from "@mui/material";
+import parse, { HTMLReactParserOptions, Element } from "html-react-parser";
+
+import CareersTicket from "../../components/CareersTicket";
+import CareersForm from "../CareersForm";
+
 import * as Styles from "./Careers.styled";
-import { IDataCareersResponse } from "../../types/Admin/Response.types";
+import * as CSS from "../../styles/Portfolio/title.styled";
+
+import { ICareersProps } from "../../types/Company.types";
+
 import leftGlass from "../../../public/CareerDecorations/leftGlass.svg";
 import rightGlass from "../../../public/CareerDecorations/rightGlass.svg";
 import topRightText from "../../../public/CareerDecorations/topText.svg";
 import bottomLeftText from "../../../public/CareerDecorations/bottomLeftText.svg";
 import bottomRightText from "../../../public/CareerDecorations/bottomRightText.svg";
-import CareersTicket from "../../components/CareersTicket";
-import CareersForm from "../CareersForm";
-import parse, { HTMLReactParserOptions, Element } from "html-react-parser";
-import Image from "next/image";
-import * as CSS from "../../styles/Portfolio/title.styled";
 import longArrow from "../../../public/HomePageDecoration/longArrow.svg";
 import shortArrow from "../../../public/HomePageDecoration/longArrow.svg";
-import { useMediaQuery } from "@mui/material";
 
-interface ICareersProps {
-  data: IDataCareersResponse;
-}
 const Careers: FC<ICareersProps> = ({ data }) => {
   const is768px = useMediaQuery("(max-width: 768px)");
   const ref = useRef<HTMLDivElement>(null);

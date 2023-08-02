@@ -1,26 +1,25 @@
 import React, { useRef, useState } from "react";
-import {
-  LocalLayout,
-  MobileReverseLayout,
-} from "../../styles/HomePage/General.styled";
+import { PopupModal } from "react-calendly";
+
 import HeadBlock from "./HeadBlock";
 import NextTech from "./NextTech";
 import CarouselFeedback from "../Feedback/CarouselFeedback";
 import Technologies from "../Technologies/Technologies";
 import CardsBlock from "../CardsBlock";
 import BookBlock from "../BookBlock";
-import { Layout, PageArticle } from "../../styles/Layout.styled";
 import MobilePartners from "../Partners/MobilePartners";
 import MobileNextTech from "./MobileNextTech";
 import CalcAndChatContainer from "../CalcAndChatContainer";
-import { PopupModal } from "react-calendly";
+
+import { Layout, PageArticle } from "../../styles/Layout.styled";
+import {
+  LocalLayout,
+  MobileReverseLayout,
+} from "../../styles/HomePage/General.styled";
+
 import { recoverLink } from "../../utils/recoverLink";
 
-export interface ICalendlyUserData {
-  name: string;
-  email: string;
-  link: string;
-}
+import { ICalendlyUserData } from "../../types/ModalCategory.types";
 
 const Content = () => {
   const [isCalendlyOpen, setIsCalendlyOpen] = useState(false);

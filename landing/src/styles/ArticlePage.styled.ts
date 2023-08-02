@@ -76,16 +76,23 @@ export const PageWrapper = styled.div`
     }
   }
   li {
-    padding-left: 12px;
     margin-bottom: 10px;
+    margin-left: 0;
   }
 
   ul {
-    margin-left: -1.3em;
     list-style-type: none;
     list-style-image: url(/listSquare.png);
+
+    li {
+      padding-left: 12px;
+    }
     @media ${themes.primary.media.maxTabletPortrait} {
       list-style-image: url(/listSquareMobile.png);
+    }
+
+    @media ${themes.primary.media.maxMobile} {
+      margin-left: -1.3em;
     }
   }
 
@@ -264,8 +271,13 @@ export const HeaderBottomBg = styled.div`
 export const FirstHeaderBg = styled.figure`
   position: absolute;
   top: 11.3%;
-  left: -750px;
+  left: -780px;
   margin: 0;
+
+  @media ${themes.primary.media.minPCFullHD} {
+    left: -825px;
+  }
+
   @media ${themes.primary.media.maxMobile} {
     display: none;
   }

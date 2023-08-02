@@ -1,32 +1,25 @@
 import React, { FC, useEffect, useRef, useState } from "react";
 import { Field, useFormik } from "formik";
-import * as Styled from "./Form.styled";
-import FormField from "./FormField2/index";
-import ThankYouModal from "../../Careers/ThankYouModal";
-import Clip from "../../../../public/CareerDecorations/clip.svg";
-import ClipError from "../../../../public/CareerDecorations/ClipError.svg";
-import { IDataCareersResponse } from "../../../types/Admin/Response.types";
 import { useMutation } from "@tanstack/react-query";
-import { adminCareersService } from "../../../services/adminCareersPage";
-import { IVacancyMail } from "../../../types/Mail.types";
-import Close from "../../../../public/CareerDecorations/close.svg";
-import Loading from "../../../../public/CareerDecorations/loading.svg";
+
+import ThankYouModal from "../../Careers/ThankYouModal";
+import FormField from "./FormField2/index";
 import CareersDropdown from "../../Careers/CareersDropdown";
-import ButtonArrow from "../../../utils/ButtonArrow";
+
+import * as Styled from "./Form.styled";
 import { ArrowContainer } from "../../../styles/HomePage/General.styled";
 
-interface FormProps {
-  positions: string[];
-  data: IDataCareersResponse;
-}
+import { FormProps, FormState } from "../../../types/Company.types";
+import { IVacancyMail } from "../../../types/Mail.types";
 
-interface FormState {
-  name: string;
-  contact: string;
-  cvlink: string;
-  position: string;
-  cvfile: File | string;
-}
+import { adminCareersService } from "../../../services/adminCareersPage";
+
+import Close from "../../../../public/CareerDecorations/close.svg";
+import ClipError from "../../../../public/CareerDecorations/ClipError.svg";
+import Loading from "../../../../public/CareerDecorations/loading.svg";
+import Clip from "../../../../public/CareerDecorations/clip.svg";
+
+import ButtonArrow from "../../../utils/ButtonArrow";
 
 const emailPattern = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i;
 

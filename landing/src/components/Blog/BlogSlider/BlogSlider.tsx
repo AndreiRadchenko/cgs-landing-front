@@ -5,12 +5,7 @@ import "swiper/css";
 import "swiper/css/bundle";
 
 import { SliderWrapper } from "./BlogSlider.styled";
-import { IArticle } from "../../../types/Admin/Response.types";
-
-interface ISliderProps {
-  children?: React.ReactNode;
-  slides?: IArticle[];
-}
+import { ISliderProps } from "../../../types/Blog.types";
 
 export const BlogSwiper: FC<ISliderProps> = ({ children }) => {
   return (

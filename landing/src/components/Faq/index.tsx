@@ -1,7 +1,11 @@
 import React from "react";
+
 import Question from "./Question";
-import { IFaqData } from "../../types/Faq.types";
+
 import * as Styles from "./faq.styles";
+
+import { IFaqData } from "../../types/Company.types";
+
 import bottomDecor from "../../../public/FAQDecorations/bottomDecor.svg";
 
 const Faq = ({ questions }: IFaqData) => {

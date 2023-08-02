@@ -1,19 +1,25 @@
 import React, { useEffect, useRef, useState } from "react";
+import Image from "next/image";
+import parse, { HTMLReactParserOptions, Element } from "html-react-parser";
+import { useQueryClient } from "@tanstack/react-query";
+import { useMediaQuery } from "@mui/material";
+
+import ButtonShareComponent from "./ButtonShareComponent";
+import GetEstimationButton from "../GetEstimationButton";
+
 import * as Styled from "../../styles/HomePage/General.styled";
+import * as CSS from "../../styles/Portfolio/title.styled";
+
+import { queryKeys } from "../../consts/queryKeys";
+
+import { IDataResponse } from "../../types/Admin/Response.types";
+
+import { useOnScreen } from "../../hooks/useOnScreen";
+
 import leftArrow from "../../../public/HomePageDecoration/leftArrow.svg";
 import boldRightArrowMobile from "../../../public/HomePageDecoration/boldArrowRightMobile.svg";
 import rightArrow from "../../../public/HomePageDecoration/rightArrow.svg";
-import { useQueryClient } from "@tanstack/react-query";
-import { queryKeys } from "../../consts/queryKeys";
-import { IDataResponse } from "../../types/Admin/Response.types";
 import Tetris from "./Tetris";
-import Image from "next/image";
-import { useOnScreen } from "../../hooks/useOnScreen";
-import ButtonShareComponent from "./ButtonShareComponent";
-import GetEstimationButton from "../GetEstimationButton";
-import parse, { HTMLReactParserOptions, Element } from "html-react-parser";
-import * as CSS from "../../styles/Portfolio/title.styled";
-import { useMediaQuery } from "@mui/material";
 
 const HeadBlock = () => {
   const is768px = useMediaQuery("(max-width: 768px)");

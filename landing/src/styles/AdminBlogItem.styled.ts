@@ -1,4 +1,4 @@
-import themes from "../../utils/themes";
+import themes from "../utils/themes";
 import styled, { css } from "styled-components";
 
 interface IAdmin {

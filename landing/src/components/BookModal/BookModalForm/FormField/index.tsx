@@ -1,11 +1,13 @@
 import { useFormikContext } from "formik";
 import React, { Dispatch, FC, SetStateAction } from "react";
-import { IFormState } from "..";
+import "react-phone-input-2/lib/style.css";
 
 import PhoneInputField from "../PhoneInputField";
 
 import * as Styled from "../../../../styles/BookModalForm/FormField.styled";
-import "react-phone-input-2/lib/style.css";
+
+import { IFormState } from "../../../../types/ModalCategory.types";
+
 import { isEmailDomainPublic } from "../../../../utils/checkEmailDomain";
 
 export interface IFieldProps {
@@ -30,15 +32,28 @@ const TextFieldWrapper: FC<IFieldProps> = ({
   return (
     <>
       <Styled.FormFieldLabel htmlFor={label}>
-        {PHONE_OPTIONAL === label
-          ? isEmailDomainPublic(values.email)
-            ? `${label}*`
-            : `${label}`
-          : `${label}*`}
+        {PHONE_OPTIONAL === label ? (
+          isEmailDomainPublic(values.email) ? (
+            <>
+              {label}
+              <span style={{ marginLeft: "2px", color: "black" }}>*</span>
+            </>
+          ) : (
+            `${label}`
+          )
+        ) : (
+          <>
+            {label}
+            <span style={{ marginLeft: "2px", color: "black" }}>*</span>
+          </>
+        )}
       </Styled.FormFieldLabel>
       <Styled.FormFieldContainer>
         {PHONE_OPTIONAL === label ? (
           <PhoneInputField
+            className={
+              btnIsClicked && errors[name] ? "formikErrors" : "default"
+            }
             placeholder={label}
             name={name}
             country={"us"}

@@ -1,17 +1,15 @@
 import React from "react";
-import * as Styled from "../../../../styles/BookModalForm/ServiceDropDown.styled";
-import { SplitBrackets } from "../../../../utils/splitBrackets";
 import { useFormikContext } from "formik";
-import { navigationRoutesNamesNew } from "../../../../utils/variables";
-import { IFormState } from "..";
 
-interface IServiceDropdown {
-  setService: (val: string) => void;
-  dropdownName: string;
-  serviceIsOpen: boolean;
-  setServiceIsOpen: React.Dispatch<React.SetStateAction<boolean>>;
-  btnIsClicked: boolean;
-}
+import * as Styled from "../../../../styles/BookModalForm/ServiceDropDown.styled";
+
+import {
+  IFormState,
+  IServiceDropdown,
+} from "../../../../types/ModalCategory.types";
+
+import { SplitBrackets } from "../../../../utils/splitBrackets";
+import { navigationRoutesNamesNew } from "../../../../utils/variables";
 
 const OPTIONS_TO_COOPERATION_FORM = [
   ...(navigationRoutesNamesNew[1].tags as string[]),

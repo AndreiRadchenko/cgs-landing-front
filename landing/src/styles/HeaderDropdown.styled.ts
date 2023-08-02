@@ -57,7 +57,7 @@ export const DropdownButton = styled.button`
     height: 56px;
 
     @media ${themes.primary.media.minPCFullHD} {
-      height: 69px;
+      height: 70px;
     }
   }
   div {

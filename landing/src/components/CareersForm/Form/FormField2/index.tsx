@@ -1,23 +1,17 @@
 import React, { FC } from "react";
+
 import * as Styled from "./FormField2.styled";
 
-interface IFieldProps {
-  name: string;
-  label: string;
-  type?: string;
-  toFormError: boolean;
-  toFormErrorEmail: boolean;
-  className: string;
-}
+import { IField2Props } from "../../../../types/Company.types";
 
-const TextFieldWrapper: FC<IFieldProps> = ({
+const TextFieldWrapper: FC<IField2Props> = ({
   name,
   label,
   type = "text",
   toFormError,
   toFormErrorEmail,
   className,
-}: IFieldProps) => {
+}: IField2Props) => {
   return (
     <>
       <Styled.FormFieldContainer>

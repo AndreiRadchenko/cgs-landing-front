@@ -1,4 +1,4 @@
-import React, { useEffect, useMemo, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useRouter } from "next/router";
 import Head from "next/head";
 import parse from "html-react-parser";
@@ -137,10 +137,6 @@ const BlogPage = () => {
       setReversedArticles(articles.reviews);
   }, [articles]);
 
-  useEffect(() => {
-    if (window.innerWidth < 769) window.scroll(0, 0);
-  }, [isMainSliderImageLoaded]);
-
   const handleFilterFromURL = () => {
     const { tag } = router.query;
     if (typeof tag === "string") {
@@ -150,6 +146,11 @@ const BlogPage = () => {
 
   useEffect(() => {
     handleFilterFromURL();
+    if (filters.length === 0) {
+      router.push("/blog", undefined, { shallow: true });
+    } else {
+      router.push(`/blog?tag=${filters[0]}`, undefined, { shallow: true });
+    }
   }, []);
 
   return (

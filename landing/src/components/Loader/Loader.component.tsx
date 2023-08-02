@@ -1,4 +1,5 @@
 import React, { FC } from "react";
+
 import {
   StyledLoader,
   ComponentStyledLoader,
@@ -7,14 +8,7 @@ import {
 } from "./Loader.styled";
 import { StyledSpinner } from "./Loader.styled";
 
-interface ILoaderProps {
-  active?: boolean;
-  children?: React.ReactNode;
-  text?: string;
-  isPortfolio?: boolean;
-  className?: string;
-  isBlog?: boolean;
-}
+import { ILoaderProps } from "../../types/Components.types";
 
 export const Loader: FC<ILoaderProps> = ({
   active,

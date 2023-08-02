@@ -1,10 +1,14 @@
-﻿import React, { useState } from "react";
+﻿import React from "react";
 import { useQueryClient } from "@tanstack/react-query";
-import { queryKeys } from "../../consts/queryKeys";
-import { IDataResponse } from "../../types/Admin/Response.types";
-import * as Styled from "../../styles/HomePage/CardsBlock.styled";
-import CardItem from "./CardItem";
+
 import { MobileInfiniteText } from "../MobileInfiniteText/MobileInfiniteText";
+import CardItem from "./CardItem";
+
+import * as Styled from "../../styles/HomePage/CardsBlock.styled";
+
+import { queryKeys } from "../../consts/queryKeys";
+
+import { IDataResponse } from "../../types/Admin/Response.types";
 
 const CardsBlock = () => {
   const queryClient = useQueryClient();
@@ -13,7 +17,7 @@ const CardsBlock = () => {
   ])?.CardsBlock;
 
   const title = "Our Process";
-  
+
   return (
     <>
       <Styled.Title>{title}</Styled.Title>

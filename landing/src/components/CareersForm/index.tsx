@@ -1,12 +1,10 @@
 import React, { FC } from "react";
-import { IDataCareersResponse } from "../../types/Admin/Response.types";
-import * as Styled from "./CareersForm.styled";
+
 import Form from "./Form/index";
 
-interface ICareersForm {
-  positions: string[];
-  data: IDataCareersResponse;
-}
+import * as Styled from "./CareersForm.styled";
+
+import { ICareersForm } from "../../types/Company.types";
 
 const CareersForm: FC<ICareersForm> = ({ positions = [], data }) => {
   return (

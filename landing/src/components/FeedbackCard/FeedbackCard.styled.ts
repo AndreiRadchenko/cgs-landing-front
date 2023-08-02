@@ -100,18 +100,6 @@ export const FeedbackButton = styled.a`
   }
 `;
 
-export const FeedbackCardPosition = styled.span`
-  display: inline-block;
-  font-size: 1.125em;
-  padding: 0.2em 0.6em;
-  background-color: ${themes.primary.colors.septenary};
-  border-radius: 5px;
-  margin-bottom: 1em;
-  @media ${themes.primary.media.maxTabletPortrait} {
-    font-size: 1.6em;
-  }
-`;
-
 export const FeedbackCardDescription = styled.p`
   display: -webkit-box;
   width: 100%;

@@ -1,9 +1,11 @@
 import React from "react";
-import * as Styled from "../../../../styles/AdminPage";
-import mountain from "../../../../../public/mountain.svg";
 import Image from "next/image";
+
 import useUploadModal from "../../../../hooks/useUploadModal";
 import AdminUploadModal from "../../UploadModal";
+
+import mountain from "../../../../../public/mountain.svg";
+import * as Styled from "../../../../styles/AdminPage";
 
 interface IEmptyProps {
   func?: (image: any) => void;

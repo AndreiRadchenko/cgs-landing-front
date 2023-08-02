@@ -1,4 +1,6 @@
-import { IArticle, IBlogPageResponse } from "./Admin/Response.types";
+import React, { Dispatch, SetStateAction } from "react";
+
+import { IArticle, IAuthor, IBlogPageResponse } from "./Admin/Response.types";
 
 export interface IBlogPageData {
   data: IBlogPageResponse | undefined;
@@ -37,7 +39,7 @@ export interface ISwiperArticlesDataResponse {
 export interface IMainBlogItem {
   article: IArticle;
   filters?: string[];
-  setIsMainSliderImageLoaded?: React.Dispatch<React.SetStateAction<boolean>>;
+  setIsMainSliderImageLoaded?: Dispatch<SetStateAction<boolean>>;
 }
 
 export interface ISmallArticleItem {
@@ -57,5 +59,38 @@ export interface IBlogItem {
   article: IArticle;
   filters?: string[];
   loadedImagesCounter?: () => void;
-  setIsTagLoaded?: React.Dispatch<React.SetStateAction<boolean>>;
+  setIsTagLoaded?: Dispatch<SetStateAction<boolean>>;
+}
+
+export interface IArticleAuthor {
+  author: IAuthor;
+  date: string;
+  update: string;
+  time: number;
+  views?: number;
+}
+
+export interface IArticleReadMore {
+  readMore: IArticle[];
+}
+
+export interface IArticleReadMoreProps {
+  article: IArticle;
+}
+
+export interface IArticleTags {
+  tags: string[];
+}
+
+export interface ISliderProps {
+  children?: React.ReactNode;
+  slides?: IArticle[];
+}
+
+export interface IBlogTags {
+  isNewTicket: boolean;
+  ticket: number;
+  infoIndex: number;
+  setInfo: Dispatch<SetStateAction<number>>;
+  info: number;
 }

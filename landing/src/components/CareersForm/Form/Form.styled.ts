@@ -92,15 +92,6 @@ export const FormField = styled(Field)<IFormField>`
   }
 `;
 
-const opacity = keyframes`
-0% {
-  opacity: 0;
-}
-100% {
-  opacity: 1;
-}
-`;
-
 export const Form = styled.form`
   @media (max-width: 768px) {
     width: 89vw;
@@ -127,131 +118,7 @@ export const Form = styled.form`
   }
 `;
 
-export const SubmitButton = styled.div`
-  width: 100%;
-  text-align: center;
-`;
-
-export const BottomText = styled.p`
-  line-height: 1.625rem;
-  font-family: ${themes.primary.font.family.gilroy};
-  font-style: normal;
-`;
 export const FormProvider = styled(FormikProvider)``;
-
-export const FileContainer = styled.div`
-  display: flex;
-  justify-content: space-between;
-  margin-top: 2.188rem;
-  margin-bottom: 0;
-  height: 2.8em;
-  @media ${themes.primary.media.maxLaptop} {
-    height: auto;
-    flex-direction: column;
-    align-items: center;
-  }
-  @media ${themes.primary.media.maxTabletLandScape} {
-    flex-direction: column;
-    align-items: center;
-  }
-  @media ${themes.primary.media.maxMobile} {
-    flex-direction: row;
-    align-items: stretch;
-    justify-content: space-around;
-  }
-  @media ${themes.primary.media.minTablet} {
-    flex-direction: column;
-    align-items: center;
-  }
-`;
-
-export const FileLoad = styled.p`
-  animation: ${opacity} 2.5s forwards;
-`;
-
-export const FileInputWrapper = styled.div<ICVProps>`
-  position: relative;
-  text-align: center;
-  height: 2.8em;
-  font-size: 0.75em;
-  color: #bdbdbd;
-  display: ${({ active }) => (active ? "none;" : "block;")};
-  line-height: 1.7;
-  background: none;
-  animation: ${opacity} 2s;
-  width: 20.375rem;
-  padding: 1.438rem 2.75rem;
-  background: white;
-  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.05);
-`;
-
-export const InputFile = styled.input`
-  opacity: 0;
-  visibility: hidden;
-  position: absolute;
-`;
-
-export const InputFileLabel = styled.label`
-  width: 100%;
-  color: black;
-  font-size: ${themes.primary.font.size.buttonText};
-  font-weight: ${themes.primary.font.weight.light};
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  -webkit-box-pack: start;
-  -ms-flex-pack: start;
-  justify-content: flex-start;
-  border: none;
-  cursor: pointer;
-  margin: 0 auto;
-  position: absolute;
-  top: 9px;
-  align-items: center;
-`;
-
-export const FileButton = styled.span`
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  -webkit-box-pack: center;
-  -ms-flex-pack: center;
-  justify-content: center;
-`;
-
-export const FileText = styled.span`
-  line-height: 1;
-  margin-top: 1px;
-  margin-left: 5px;
-  color: #3c95f9;
-  font-weight: ${themes.primary.font.weight.extraBold};
-`;
-
-export const FileImg = styled.img`
-  margin-top: 4px;
-`;
-
-export const SentMessage = styled.div`
-  transform: translateY(2rem);
-  font-weight: ${themes.primary.font.weight.bold};
-  color: ${themes.primary.colors.lightBlue};
-  @media ${themes.primary.media.maxLaptop} {
-    transform: none;
-  }
-`;
-
-export const ErrorMessage = styled.p`
-  color: ${themes.primary.colors.errorText};
-  text-align: center;
-  font-size: ${themes.primary.font.size.linkText};
-  font-weight: ${themes.primary.font.weight.bold};
-`;
 
 export const FormSentButton = styled.button<ISentButton>`
   width: 190px;
@@ -324,15 +191,6 @@ export const FormSentFillText = styled.span<IFillAllFields>`
 
   @media (max-width: 768px) {
     font-size: 14px;
-  }
-`;
-
-export const FormSentWrap = styled.span`
-  color: grey;
-  margin: 0;
-
-  @media ${themes.primary.media.maxLowScreenMobile} {
-    font-size: 0.875rem;
   }
 `;
 

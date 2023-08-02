@@ -366,3 +366,6 @@ export const BlogPageSize = 4;
 export const PortfolioPageSize = 8;
 
 export const AdminPortfolioPageSize = 6;
+
+export const META_TITLE_MAX = 60;
+export const META_DESCRIPTION_MAX = 160;

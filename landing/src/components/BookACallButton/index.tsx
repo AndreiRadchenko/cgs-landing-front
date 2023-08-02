@@ -1,22 +1,13 @@
-import React, { SetStateAction, useRef } from "react";
+import React, { useRef } from "react";
 import { PopupModal } from "react-calendly";
 
 import { ArrowContainer } from "../../styles/HomePage/General.styled";
-import ButtonArrow from "../../utils/ButtonArrow";
-import { recoverLink } from "../../utils/recoverLink";
 import * as Styled from "../../styles/HomePage/BookACallButton.styled";
 
-interface IBookACallButtonProps {
-  name: string;
-  email: string;
-  buttonText?: string;
-  buttonLink: string;
-  buttonClassName?: string;
-  type?: string;
-  handleClose?: any;
-  calendlyIsOpen: boolean;
-  setCalendlyIsOpen: React.Dispatch<SetStateAction<boolean>>;
-}
+import { IBookACallButtonProps } from "../../types/Button.types";
+
+import ButtonArrow from "../../utils/ButtonArrow";
+import { recoverLink } from "../../utils/recoverLink";
 
 const BookACallButton = ({
   name,

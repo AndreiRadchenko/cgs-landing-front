@@ -1,11 +1,15 @@
 import React, { useEffect, useState } from "react";
+import { useRouter } from "next/router";
 import parse from "html-react-parser";
+
 import * as Styled from "../../styles/Blog.styled";
+
+import { IBlogItem } from "../../types/Blog.types";
+
+import { useWindowDimension } from "../../hooks/useWindowDimension";
+
 import Watch from "../../../public/Watch.svg";
 import Timer from "../../../public/Timer.svg";
-import { useWindowDimension } from "../../hooks/useWindowDimension";
-import { useRouter } from "next/router";
-import { IBlogItem } from "../../types/Blog.types";
 
 const BlogItem = ({
   article,
@@ -63,7 +67,7 @@ const BlogItem = ({
             <Styled.BlogItemContainer>
               <Styled.ArticlePreview>
                 <Styled.BlogItemContent>
-                  <Styled.FlexRowContainer>
+                  <Styled.FlexRowContainer className="blogItemTop">
                     {(width && width <= 992 && (
                       <Styled.FlexColumnContainer className="preview">
                         <Styled.SecondaryAuthor>{`By ${article.author.name} / ${article.author.specialization}`}</Styled.SecondaryAuthor>
@@ -86,10 +90,7 @@ const BlogItem = ({
                                 className="preview"
                               />
                               <Styled.GrayText className={"big"}>
-                                <Styled.TimeText >
-                                  {article.minutesToRead}
-                                </Styled.TimeText>
-                                min
+                                {`${article.minutesToRead} min`}
                               </Styled.GrayText>
                             </Styled.WatchContainer>
                           </Styled.DataContainer>

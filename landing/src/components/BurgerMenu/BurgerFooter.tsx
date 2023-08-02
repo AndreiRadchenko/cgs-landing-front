@@ -1,10 +1,15 @@
 import React from "react";
 import { useQuery } from "@tanstack/react-query";
-import { queryKeys } from "../../consts/queryKeys";
-import * as StyledThisComp from "../../styles/Burger.styles";
-import { IDataResponse } from "../../types/Admin/Response.types";
-import { SplitBrackets } from "../../utils/splitBrackets";
 import Link from "next/link";
+
+import * as StyledThisComp from "../../styles/Burger.styles";
+
+import { queryKeys } from "../../consts/queryKeys";
+
+import { IDataResponse } from "../../types/Admin/Response.types";
+
+import { SplitBrackets } from "../../utils/splitBrackets";
+
 import { adminGlobalService } from "../../services/adminHomePage";
 
 interface IBurgerFooter {
