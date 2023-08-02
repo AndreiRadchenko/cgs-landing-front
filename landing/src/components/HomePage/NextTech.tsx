@@ -12,6 +12,7 @@ import { IDataResponse } from "../../types/Admin/Response.types";
 import longArrow from "../../../public/HomePageDecoration/longArrow.svg";
 import * as CSS from "../../styles/Portfolio/title.styled";
 import Badges from "./Badges";
+import TwistedBlock from "./TwistedBlock";
 
 import * as Styled from "../../styles/HomePage/General.styled";
 
@@ -97,7 +98,8 @@ const NextTech = () => {
         {text && parse(text.title, options)}
       </Styled.Subtitle>
       <Badges />
-      <FreeServices />
+      <TwistedBlock />
+      {/* <FreeServices /> */}
       <Styled.Subtitle className="textOnFilm">
         {data?.textOnFilm && parse(data?.textOnFilm, options2)}
       </Styled.Subtitle>

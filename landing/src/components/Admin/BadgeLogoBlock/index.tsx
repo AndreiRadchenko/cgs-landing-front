@@ -1,14 +1,20 @@
 import React from "react";
 import { useFormikContext } from "formik";
+import dynamic from "next/dynamic";
 
 import useDeleteImageFunction from "../../../hooks/useDeleteImageFunction";
 import useUploadImageFunction from "../../../hooks/useUploadImageFunction";
 import PhotoBlockDashed from "../Global/PhotoBlockDashed";
+import SubHeaderWithInput from "../Global/SubHeaderWithInput";
 import { IImage } from "../../../types/Admin/Admin.types";
 import { IDataResponse } from "../../../types/Admin/Response.types";
 
 import * as Styled from "../../../styles/AdminPage";
 import removeLink from "../../../../public/linkIcon.svg";
+
+const TextEditor = dynamic(() => import("../../TextEditor/TextEditor"), {
+  ssr: false,
+});
 
 const BadgeLogoBlock = () => {
   const deleteImageFunction = useDeleteImageFunction();
@@ -93,6 +99,18 @@ const BadgeLogoBlock = () => {
           </Styled.AdminFreeServicesCard>
         ))}
       </Styled.AdminFreeServicesContent>
+
+      <Styled.AdminCalendlyPopup>
+        <Styled.AdminCalendlyPopupDescription>
+          <TextEditor
+            header="Twisted block"
+            name="BadgesBlock.twistedBlock"
+            props={{
+              defaultValue: data.twistedBlock || "",
+            }}
+          />
+        </Styled.AdminCalendlyPopupDescription>
+      </Styled.AdminCalendlyPopup>
     </Styled.AdminFreeServicesWrapper>
   );
 };
