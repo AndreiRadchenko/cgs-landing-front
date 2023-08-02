@@ -1,11 +1,13 @@
 import { useFormikContext } from "formik";
 import React, { Dispatch, FC, SetStateAction } from "react";
-import { IFormState } from "..";
+import "react-phone-input-2/lib/style.css";
 
 import PhoneInputField from "../PhoneInputField";
 
 import * as Styled from "../../../../styles/BookModalForm/FormField.styled";
-import "react-phone-input-2/lib/style.css";
+
+import { IFormState } from "../../../../types/ModalCategory.types";
+
 import { isEmailDomainPublic } from "../../../../utils/checkEmailDomain";
 
 export interface IFieldProps {

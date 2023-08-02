@@ -1,9 +1,12 @@
 import React from "react";
 import { useQueryClient } from "@tanstack/react-query";
-import { queryKeys } from "../../consts/queryKeys";
-import * as StyledThisComp from "../../styles/HomePage/Partners.styled";
-import { IDataResponse } from "../../types/Admin/Response.types";
+
 import PartnersImage from "./PartnersImage";
+
+import * as StyledThisComp from "../../styles/HomePage/Partners.styled";
+
+import { queryKeys } from "../../consts/queryKeys";
+import { IDataResponse } from "../../types/Admin/Response.types";
 
 const Partners = () => {
   const queryClient = useQueryClient();

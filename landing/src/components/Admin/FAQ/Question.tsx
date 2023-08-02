@@ -9,7 +9,7 @@ import PhotoBlockDashed from "../Global/PhotoBlockDashed";
 import useDeleteImageFunction from "../../../hooks/useDeleteImageFunction";
 import useUploadImageFunction from "../../../hooks/useUploadImageFunction";
 import { useFormikContext } from "formik";
-import { IFaqData } from "../../../types/Faq.types";
+import { IFaqData } from "../../../types/Company.types";
 import { IImage } from "../../../types/Admin/Admin.types";
 import dynamic from "next/dynamic";
 

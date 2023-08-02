@@ -1,6 +1,7 @@
 import { useQueryClient } from "@tanstack/react-query";
 import React from "react";
 import { queryKeys } from "../../consts/queryKeys";
+
 import {
   WhatsAppIconWrapper,
   ButtonShareText,
@@ -9,6 +10,7 @@ import {
   TelegramWrapper,
   TelegramIconWrapper,
 } from "../../styles/HomePage/General.styled";
+
 import { IDataResponse } from "../../types/Admin/Response.types";
 
 import WhatsUpGradIcon from "../../../public/whatsUp.svg";

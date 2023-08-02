@@ -1,14 +1,10 @@
 import React, { FC } from "react";
 import { useField } from "formik";
 import { TextFieldProps } from "@mui/material";
+
 import * as Styled from "./FormField.styled";
 
-interface IFieldProps {
-  name: string;
-  label: string;
-  handleChange: any;
-  type?: string;
-}
+import { IFieldProps } from "../../../../types/Company.types";
 
 const TextFieldWrapper: FC<IFieldProps> = ({
   name,

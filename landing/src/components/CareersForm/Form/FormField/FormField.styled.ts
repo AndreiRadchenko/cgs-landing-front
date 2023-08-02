@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import themes from "../../../../utils/themes";
+
 import { Field } from "formik";
 
 export const FormField = styled(Field)`
@@ -18,10 +19,4 @@ export const FormField = styled(Field)`
   &:focus {
     outline: none;
   }
-`;
-
-export const FormFieldContainer = styled.div`
-  width: 100%;
-  height: 78px;
-  position: relative;
 `;

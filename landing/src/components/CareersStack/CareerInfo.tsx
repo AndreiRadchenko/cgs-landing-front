@@ -1,17 +1,12 @@
-import React, { Dispatch, FC, SetStateAction, useState } from "react";
-import * as Styles from "../../../src/styles/BlogTags.styled";
+import React, { FC, useState } from "react";
 import { useFormikContext } from "formik";
-import { IDataCareersResponse } from "../../types/Admin/Response.types";
-import { VacancyInput } from "../../styles/AdminCareersPage";
-import * as Styled from "../Admin/FAQ/adminFaq.styled";
 
-interface IBlogTags {
-  isNewTicket: boolean;
-  ticket: number;
-  infoIndex: number;
-  setInfo: Dispatch<SetStateAction<number>>;
-  info: number;
-}
+import * as Styles from "../../../src/styles/BlogTags.styled";
+import * as Styled from "../Admin/FAQ/adminFaq.styled";
+import { VacancyInput } from "../../styles/AdminCareersPage";
+
+import { IDataCareersResponse } from "../../types/Admin/Response.types";
+import { IBlogTags } from "../../types/Blog.types";
 
 const CareerInfo: FC<IBlogTags> = ({
   isNewTicket,

@@ -25,7 +25,7 @@ export const HeaderNavContainer = styled.div`
 `;
 
 export const NavBarWrapper = styled.div`
-padding-top: 1px;
+  padding-top: 1px;
   @media ${themes.primary.media.maxMobile} {
     display: flex;
     justify-content: space-between;
@@ -69,17 +69,6 @@ export const LogoLinkWrapper = styled.a`
       border: none;
     }
   }
-`;
-
-export const BurgerLinkWrapper = styled.a`
-  transition: 200ms;
-  width: 40%;
-  margin-left: 1.5em;
-  margin-right: auto;
-  font-size: 2.5em;
-  font-weight: ${themes.primary.font.weight.extraBold};
-  margin-top: 0.8462em;
-  cursor: pointer;
 `;
 
 export const ListItemNav = styled.a`
@@ -185,10 +174,4 @@ export const HeaderWrapper = styled.nav`
   @media ${themes.primary.media.maxMobile} {
     padding-bottom: 93px;
   }
-`;
-
-export const Source = styled.source``;
-
-export const ClickAudio = styled.audio`
-  display: none;
 `;

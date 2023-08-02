@@ -254,10 +254,6 @@ export const NavList = styled.nav`
   }
 `;
 
-export const BurgerLinkText = styled.p`
-  cursor: pointer;
-`;
-
 export const MailIcon = styled.svg`
   width: 27px;
   height: 19px;

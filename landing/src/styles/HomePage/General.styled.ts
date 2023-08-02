@@ -876,13 +876,10 @@ export const WhatsAppWrapper = styled.div`
     line-height: 19px;
     column-gap: 3px;
 
-    &.blockchain,
     &.cta-share-button,
     &.portfolio-share-button,
     &.homePage,
-    &.webAudit,
-    &.mobileDev,
-    &.dappAuditShare {
+    &.services {
       font-size: 16px;
     }
   }
@@ -965,13 +962,10 @@ export const TelegramWrapper = styled.div`
     column-gap: 3px;
     margin-left: 0.875em;
 
-    &.blockchain,
     &.cta-share-button,
     &.portfolio-share-button,
     &.homePage,
-    &.webAudit,
-    &.mobileDev,
-    &.dappAuditShare {
+    &.services {
       font-size: 16px;
     }
   }

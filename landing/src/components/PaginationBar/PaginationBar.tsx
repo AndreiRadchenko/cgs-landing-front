@@ -1,13 +1,8 @@
 import React, { useCallback } from "react";
+
 import * as Styles from "./PaginationBar.styled";
-interface IPaginationBar {
-  totalPages: number;
-  currentPage: number;
-  setCurrentPage: React.Dispatch<React.SetStateAction<number>>;
-  scrollFunction: () => void;
-  setLoading: React.Dispatch<React.SetStateAction<boolean>>;
-  setIsFirstLoad: React.Dispatch<React.SetStateAction<boolean>>;
-}
+
+import { IPaginationBar } from "../../types/Components.types";
 
 const PaginationBar = ({
   totalPages,

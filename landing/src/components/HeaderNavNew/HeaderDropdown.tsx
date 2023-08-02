@@ -1,7 +1,10 @@
 import React, { useState } from "react";
-import * as Styled from "../../styles/HeaderDropdown.styled";
-import Arrow from "../../../public/upArrowSidebar.svg";
 import Link from "next/link";
+
+import * as Styled from "../../styles/HeaderDropdown.styled";
+
+import Arrow from "../../../public/upArrowSidebar.svg";
+
 import { navigationRoutesLinks } from "../../utils/variables";
 
 interface IBlogDropdown {

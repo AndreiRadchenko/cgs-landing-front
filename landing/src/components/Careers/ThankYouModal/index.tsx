@@ -1,5 +1,6 @@
 import React, { FC } from "react";
 import * as Styles from "./ThankYouModal.styled";
+
 import CloseButton from "../../../../public/CareerDecorations/close.svg";
 import Thing from "../../../../public/CareerDecorations/thankyouthing.svg";
 import Cube from "../../../../public/CareerDecorations/cube.svg";

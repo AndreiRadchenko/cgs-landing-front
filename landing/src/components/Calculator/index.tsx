@@ -30,7 +30,8 @@ import {
   ICalculatorStep,
 } from "../../types/Admin/Response.types";
 import * as Styled from "../../styles/Calculator/CalculatorComponent.styled";
-import { ICalendlyUserData } from "../HomePage/Content";
+
+import { ICalendlyUserData } from "../../types/ModalCategory.types";
 
 interface ICalculatorProps {
   isChatOpen: boolean;

@@ -1,19 +1,10 @@
 import React, { useEffect, useRef, useState } from "react";
-import * as Styled from "../../styles/CareersDropdown.styled";
-import Arrow from "../../../public/upArrowSidebar.svg";
 
-interface ICareersDropdown {
-  setFilter: (tag: string) => void;
-  filter: string | null;
-  positions: string[];
-  dropdownName: string;
-  isHeader?: boolean;
-  isTag?: boolean;
-  type?: "button" | "submit";
-  setEnable?: (val: boolean) => void;
-  className?: string;
-  toFormError: boolean;
-}
+import * as Styled from "../../styles/CareersDropdown.styled";
+
+import { ICareersDropdown } from "../../types/Company.types";
+
+import Arrow from "../../../public/upArrowSidebar.svg";
 
 const CareersDropdown = ({
   setFilter,

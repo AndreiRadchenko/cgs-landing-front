@@ -1,5 +1,6 @@
 import Image, { ImageProps } from "next/image";
 import React, { useEffect, useState } from "react";
+
 import { isMobileConnection, defer } from "../../utils/ImagePreview";
 
 const ImagePreview = (props: ImageProps) => {

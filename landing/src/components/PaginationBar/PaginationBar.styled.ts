@@ -47,22 +47,6 @@ export const PaginationItem = styled(FontSettings)`
   }
 `;
 
-export const CurrentPaginationItem = styled(PaginationItem)`
-  background-color: ${themes.primary.colors.blogDarkText};
-  border: 1px solid ${themes.primary.colors.primary};
-  color: ${themes.primary.colors.secondary};
-
-  @media ${themes.primary.media.maxMobile} {
-    font-size: 1rem;
-  }
-`;
-
-export const Dots = styled.span`
-  font-family: ${themes.primary.font.family.sourceCode};
-  font-weight: ${themes.primary.font.weight.medium};
-  font-size: ${themes.primary.font.size.tertiary};
-`;
-
 export const PaginationItemsWrapper = styled.div`
   z-index: 2;
   display: flex;

@@ -1,8 +1,10 @@
 import React from "react";
 import { useQueryClient } from "@tanstack/react-query";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { queryKeys } from "../../consts/queryKeys";
+
 import * as StyledThisComp from "../../styles/HomePage/MobilePartners.styled";
+
+import { queryKeys } from "../../consts/queryKeys";
 import { IDataResponse } from "../../types/Admin/Response.types";
 import params from "../../mock/MobilePartnersSwiperParams";
 

@@ -1,4 +1,5 @@
 import React, { FC } from "react";
+
 import * as Styles from "./ArticleDescription.styled";
 
 interface IDescription {

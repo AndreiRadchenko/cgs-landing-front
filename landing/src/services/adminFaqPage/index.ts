@@ -1,7 +1,7 @@
 import { EnhancedWithAuthHttpService } from "../httpAuth.service";
 import { HttpServiceFactory } from "../index";
 import { IFaqData } from "../../types/Admin/AdminFaq.types";
-import { IQuestionData } from "../../types/Faq.types";
+import { IQuestionData } from "../../types/Company.types";
 
 export class AdminFaqService {
   constructor(private httpService: EnhancedWithAuthHttpService) {}

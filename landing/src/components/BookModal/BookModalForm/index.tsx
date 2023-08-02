@@ -1,4 +1,4 @@
-import React, { useEffect, useState, MouseEvent } from "react";
+import React, { useEffect, useState } from "react";
 import { useFormik } from "formik";
 import { useMutation } from "@tanstack/react-query";
 
@@ -7,23 +7,13 @@ import BookACallButton from "../../BookACallButton";
 
 import * as Styled from "../../../styles/BookModalForm/Form.styled";
 import * as Styles from "../../../styles/HomePage/General.styled";
+
 import { IBookModalData } from "../../../types/Mail.types";
+import { IFormProps, IFormState } from "../../../types/ModalCategory.types";
+
 import { adminBookService } from "../../../services/adminBookServiceModal";
+
 import { BookModalValidation } from "../../../validations/BookModalValidation";
-
-export interface IFormState {
-  name: string;
-  email: string;
-  phone: string;
-  country: string;
-  service: string;
-  details: string;
-}
-
-interface IFormProps {
-  onClose: (e?: MouseEvent<HTMLDivElement | HTMLButtonElement>) => void;
-  isOpen: boolean;
-}
 
 declare global {
   interface Window {

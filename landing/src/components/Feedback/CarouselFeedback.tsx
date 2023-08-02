@@ -1,18 +1,23 @@
 import React, { FC, useRef } from "react";
-import { Navigationwrapper } from "../../styles/HomePage/Feedback.styled";
-import FeedbackCard from "../FeedbackCard/FeedbackCard";
 import SwiperCore, { Autoplay, Navigation } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/react";
+import { useQueryClient } from "@tanstack/react-query";
+
+import FeedbackCard from "../FeedbackCard/FeedbackCard";
+import FeedbackIntro from "./FeedbackIntro";
+import { MobileInfiniteText } from "../MobileInfiniteText/MobileInfiniteText";
+
+import { Navigationwrapper } from "../../styles/HomePage/Feedback.styled";
+import * as StyledThisComp from "../../styles/Feedback.styled";
+import * as Styled from "../../styles/ShowCase.styled";
+
 import "swiper/css";
 import "swiper/css/bundle";
-import FeedbackIntro from "./FeedbackIntro";
-import * as StyledThisComp from "../../styles/Feedback.styled";
-import params from "../../mock/FeedbackSwiperParams";
-import { useQueryClient } from "@tanstack/react-query";
-import { queryKeys } from "../../consts/queryKeys";
+
 import { IDataResponse } from "../../types/Admin/Response.types";
-import { MobileInfiniteText } from "../MobileInfiniteText/MobileInfiniteText";
-import * as Styled from "../../styles/ShowCase.styled";
+
+import params from "../../mock/FeedbackSwiperParams";
+import { queryKeys } from "../../consts/queryKeys";
 
 SwiperCore.use([Navigation, Autoplay]);
 
