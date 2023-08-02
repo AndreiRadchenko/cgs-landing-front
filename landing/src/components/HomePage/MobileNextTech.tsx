@@ -3,21 +3,19 @@ import parse, { HTMLReactParserOptions, Element } from "html-react-parser";
 import Image from "next/image";
 import { useQueryClient } from "@tanstack/react-query";
 
-import ScrambleText from "./ScrambleText";
 import MobileServices from "./MobileServices";
 import Badges from "./Badges";
 import FreeServices from "../FreeServices/FreeServices";
+import ButtonArrow from "../../utils/ButtonArrow";
+import TwistedBlock from "./TwistedBlock";
 
 import * as Styled from "../../styles/HomePage/MobileGeneral.styled";
 import * as CSS from "../../styles/Portfolio/title.styled";
 import { ArrowContainer } from "../../styles/HomePage/General.styled";
-
-import { IDataResponse } from "../../types/Admin/Response.types";
-
-import { queryKeys } from "../../consts/queryKeys";
-
-import ButtonArrow from "../../utils/ButtonArrow";
 import longArrowMobile from "../../../public/HomePageDecoration/longArrowMobile.svg";
+import { queryKeys } from "../../consts/queryKeys";
+import { IDataResponse } from "../../types/Admin/Response.types";
+import ScrambleText from "./ScrambleText";
 
 const MobileNextTech = () => {
   const options: HTMLReactParserOptions = {
@@ -119,8 +117,8 @@ const MobileNextTech = () => {
           </ArrowContainer>
         </Styled.BlackButton>
       </Styled.SideOppositeContainer>
-
-      <FreeServices />
+      {/* <FreeServices /> */}
+      <TwistedBlock />
     </Styled.NextTech>
   );
 };
