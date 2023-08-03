@@ -38,11 +38,15 @@ const CvCategory = ({ categories, onChangeFunction, handleClick, setValues }: IC
                             name={`categories.${idx}`}
                             className="cv"
                         />
-                        <Styled.AdminCategoryDeleteBlockWrapper
-                            onClick={() => handleDeleteItem(idx)}
-                        >
-                            <TrashIcon />
-                        </Styled.AdminCategoryDeleteBlockWrapper>
+                        {idx !== 0 ? (
+                            <Styled.AdminCategoryDeleteBlockWrapper
+                                onClick={() => handleDeleteItem(idx)}
+                            >
+                                <TrashIcon />
+                            </Styled.AdminCategoryDeleteBlockWrapper>
+                        ) : (
+                            null
+                        )}
                     </Styled.AdminNewCategoryInputWrapper>
                 </Styled.CategoryWrapper>
             ))}
