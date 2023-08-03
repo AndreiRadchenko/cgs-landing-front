@@ -95,6 +95,8 @@ export const queryKeys = {
   getAllDomains: "getAllDomains",
   addDomainService: "addDomainService",
   removeDomainService: "removeDomainService",
+  getCvPage: "getCvPage",
+  updateCvPage: "updateCvPage",
   // history
   getContactsHistory: "getContactsHistory",
   // home page
