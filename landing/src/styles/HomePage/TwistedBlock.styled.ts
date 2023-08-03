@@ -99,7 +99,7 @@ export const TwistedDiv = styled.div`
   }
   & .gradient {
     position: absolute;
-    width: 100%;
+    width: 101%;
     top: 100%;
     height: 100%;
     z-index: 2;
