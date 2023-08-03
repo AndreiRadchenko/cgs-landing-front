@@ -204,6 +204,7 @@ export enum ROUTE_KEYS {
   AdminEstimationForm = "AdminEstimationForm",
   AdminRateCard = "AdminRateCard",
   AdminSupportChat = "AdminSupportChat",
+  AdminCVs = "AdminCVs"
 }
 
 export enum FaqPageTypes {

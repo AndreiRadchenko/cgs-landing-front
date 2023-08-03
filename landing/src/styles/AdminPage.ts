@@ -465,6 +465,14 @@ export const CategoryWrapper = styled.div`
   display: flex;
   flex-direction: column;
   row-gap: 14px;
+
+  &.cv {
+    margin-top: 20px;
+
+    &:first-child {
+      margin-top: 0;
+    }
+  }
 `;
 
 export const AdminNewCategoryInputWrapper = styled.div`
@@ -516,6 +524,11 @@ export const AdminCategoryNameInput = styled.input`
     &::placeholder {
       color: red;
     }
+  }
+
+  &.cv {
+    max-width: 347px;
+    width: 347px;
   }
 `;
 
