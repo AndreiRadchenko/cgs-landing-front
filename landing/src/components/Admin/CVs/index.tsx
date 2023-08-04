@@ -1,12 +1,16 @@
 import { useFormikContext } from "formik";
 import React from "react";
-import * as AdminPageStyled from "../../../styles/AdminPage";
-import { ArrowContainer, BlackButton } from "../../../styles/HomePage/General.styled";
-import { ICvPageData } from "../../../types/Admin/AdminCv.types";
+
 import ButtonArrow from "../../../utils/ButtonArrow";
 import AdminBlockDropDown from "../Global/AdminBlockDropDown";
 import SubHeaderWithInput from "../Global/SubHeaderWithInput";
+import CvAddOrEdit from "./CvAddorEdit";
 import CvCategory from "./CvCategory";
+
+import * as AdminPageStyled from "../../../styles/AdminPage";
+import { ArrowContainer, BlackButton } from "../../../styles/HomePage/General.styled";
+
+import { ICvPageData } from "../../../types/Admin/AdminCv.types";
 
 const CvContentBlock = () => {
     const { values, handleChange, handleSubmit, setValues } =
@@ -39,9 +43,17 @@ const CvContentBlock = () => {
                 </BlackButton>
                 <div style={{ marginTop: 50 }}>
                     <AdminBlockDropDown title="CATEGORY">
-                        <CvCategory categories={values.categories} onChangeFunction={handleChange} handleClick={handleClick} setValues={setValues} />
+                        <CvCategory 
+                            categories={values.categories} 
+                            onChangeFunction={handleChange} 
+                            handleClick={handleClick} 
+                            setValues={setValues} 
+                        />
                     </AdminBlockDropDown>
                 </div>
+                <AdminBlockDropDown title="ADD A NEW CV">
+                    <CvAddOrEdit />
+                </AdminBlockDropDown>
             </AdminPageStyled.AdminContentBlock>
         </AdminPageStyled.AdminPaddedBlock>
     )
