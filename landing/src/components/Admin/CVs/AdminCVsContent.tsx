@@ -1,12 +1,14 @@
 import { useMutation, useQuery } from "@tanstack/react-query";
 import React from "react";
 import { Formik } from "formik";
+
 import { queryKeys } from "../../../consts/queryKeys";
 import { adminCvService } from "../../../services/adminCvPage";
-import { ICvPageData, ICvResponse } from "../../../types/Admin/AdminCv.types";
-import * as Styled from "../../../styles/AdminPage";
 import CvContentBlock from ".";
 
+import * as Styled from "../../../styles/AdminPage";
+
+import { ICvPageData, ICvResponse } from "../../../types/Admin/AdminCv.types";
 
 const AdminCVsContent = () => {
     const { data, isLoading, refetch }: ICvResponse = useQuery(
