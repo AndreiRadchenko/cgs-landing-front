@@ -1,0 +1,33 @@
+import React from "react";
+
+import * as Styled from "./SkillCard.styled";
+import crystal from "../../../../../public/CV/crystal.svg";
+import cube from "../../../../../public/CV/cube.svg";
+import cylinder from "../../../../../public/CV/cylinder.svg";
+
+const svg = [crystal, cube, cylinder];
+const svgName = ["crystal", "cube", "cylinder"];
+
+interface IProps {
+  subtitle: string;
+  stack: string[];
+  idx: number;
+}
+
+export const SkillCard = ({ subtitle, stack, idx }: IProps) => {
+  return (
+    <Styled.InfoCard>
+      <Styled.TitleWrapp>
+        <Styled.Icon src={svg[idx]?.src} alt={svgName[idx]} />
+        <Styled.Title>{subtitle}</Styled.Title>
+      </Styled.TitleWrapp>
+      <Styled.SkillsList>
+        {stack.map((e, idx) => (
+          <Styled.SkillsItem key={idx}>
+            <Styled.SkillsItemText>{e}</Styled.SkillsItemText>
+          </Styled.SkillsItem>
+        ))}
+      </Styled.SkillsList>
+    </Styled.InfoCard>
+  );
+};
