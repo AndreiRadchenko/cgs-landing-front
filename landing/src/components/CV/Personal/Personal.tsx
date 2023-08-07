@@ -10,7 +10,7 @@ interface IProps {
 
 export const Personal = ({ data: { image, personal } }: IProps) => {
   return (
-    <>
+    <Styled.PersonalContainer>
       <Styled.Name>{personal.name}</Styled.Name>
       <Styled.Role>{personal.role}</Styled.Role>
       <Styled.ImageWrapper>
@@ -26,6 +26,6 @@ export const Personal = ({ data: { image, personal } }: IProps) => {
         </Styled.ImageContainer>
       </Styled.ImageWrapper>
       <Styled.Summary>{personal.summary}</Styled.Summary>
-    </>
+    </Styled.PersonalContainer>
   );
 };

@@ -31,7 +31,7 @@ export const Project = ({
   const refElement = useRef<HTMLUListElement>(null);
   const [afterHeight, setAfterHeight] = useState("0px");
 
-  const { data }: IPortfolioResponse = useQuery(
+  const { data, isLoading }: IPortfolioResponse = useQuery(
     [queryKeys.getPortfolioPageData],
     () => adminPortfolioService.getPageData()
   );
@@ -48,48 +48,57 @@ export const Project = ({
     <Styled.InfoCard>
       <Styled.NumberTitleWrapp>
         <Styled.Number>{idx + 1}</Styled.Number>
-        <Styled.TitleWrapp>
-          <Styled.Title>{projectName}</Styled.Title>
-          <Styled.Date>{date}</Styled.Date>
-        </Styled.TitleWrapp>
+        <Styled.DesktopTitle>
+          <Styled.TitleWrapp>
+            <Styled.Title>{projectName}</Styled.Title>
+            <Styled.Date>{date}</Styled.Date>
+          </Styled.TitleWrapp>
+          <Styled.Role className="desktop">Role: {role}</Styled.Role>
+        </Styled.DesktopTitle>
       </Styled.NumberTitleWrapp>
-      <Styled.Role>Role: {role}</Styled.Role>
+      <Styled.Role className="mobile">Role: {role}</Styled.Role>
       <Styled.About>
         <Styled.AboutTitle>ABOUT PROJECT:</Styled.AboutTitle>
         <Styled.AboutText>{summary}</Styled.AboutText>
       </Styled.About>
-      <Styled.Achievemts>
-        <Styled.AchievemtsTitle>Achievements:</Styled.AchievemtsTitle>
-        <Styled.AchievementsList ref={refElement} afterHeight={afterHeight}>
-          {achievements.map((e, idx) => (
-            <Styled.AchievementsListItem key={idx}>
-              <Styled.AchievementIcon
-                src={achievement.src}
-                alt="checkbox done"
-              />
-              <Styled.AchievementText>{e}</Styled.AchievementText>
-            </Styled.AchievementsListItem>
-          ))}
-        </Styled.AchievementsList>
-      </Styled.Achievemts>
-      <Styled.Technologies>
-        <Styled.AchievemtsTitle>Technologies:</Styled.AchievemtsTitle>
-        <Styled.PortfolioPageIconContainer firstSet>
-          {technology &&
-            technology.map((techname, idx) => {
-              const technology = technologies?.find((e) => e.name === techname);
-              return (
-                <Image
-                  key={idx}
-                  src={technology?.image.url ? technology.image.url : ""}
-                  alt="tech"
-                  className="image"
-                  layout="fill"
-                />
-              );
-            })}
-        </Styled.PortfolioPageIconContainer>
-      </Styled.Technologies>
+      <Styled.AchievementsTechnologyWrapp>
+        <Styled.Achievements>
+          <Styled.AchievementsTitle>Achievements:</Styled.AchievementsTitle>
+          <Styled.AchievementsListWrapper afterHeight={afterHeight}>
+            <Styled.AchievementsList ref={refElement} afterHeight={afterHeight}>
+              {achievements.map((e, idx) => (
+                <Styled.AchievementsListItem key={idx}>
+                  <Styled.AchievementIcon
+                    src={achievement.src}
+                    alt="checkbox done"
+                  />
+                  <Styled.AchievementText>{e}</Styled.AchievementText>
+                </Styled.AchievementsListItem>
+              ))}
+            </Styled.AchievementsList>
+          </Styled.AchievementsListWrapper>
+        </Styled.Achievements>
+        <Styled.Technologies>
+          <Styled.AchievementsTitle>Technologies:</Styled.AchievementsTitle>
+          <Styled.PortfolioPageIconContainer firstSet>
+            {!isLoading &&
+              technology.map((techname, idx) => {
+                const technology = technologies?.find(
+                  (e) => e.name === techname
+                );
+                return (
+                  <div key={idx} className="image">
+                    <Image
+                      src={technology?.image.url ? technology.image.url : ""}
+                      alt="tech"
+                      layout="fill"
+                    />
+                  </div>
+                );
+              })}
+          </Styled.PortfolioPageIconContainer>
+        </Styled.Technologies>
+      </Styled.AchievementsTechnologyWrapp>
     </Styled.InfoCard>
   );
 };
