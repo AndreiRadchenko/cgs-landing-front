@@ -3,11 +3,17 @@ import themes from "../../../../utils/themes";
 
 export const InfoCard = styled.div`
   width: 100%;
+  flex: 1;
   margin: 16px 0 0 0;
   padding-bottom: 8px;
 
   border-bottom: 1px solid ${themes.primary.colors.darkGrey};
   @media ${themes.primary.media.minMobile} {
+    width: 49%;
+    /* min-width: 474px; */
+    &:nth-child(2n + 1) {
+      margin-top: 0;
+    }
   }
 
   @media ${themes.primary.media.minPCFullHD} {
@@ -38,7 +44,7 @@ export const Title = styled.h3`
   }
 `;
 
-export const Text = styled.p`
+export const Text = styled.div`
   color: ${themes.primary.colors.primary};
   font-family: ${themes.primary.font.family.namu};
   font-size: 16px;
@@ -49,8 +55,14 @@ export const Text = styled.p`
     margin: 0;
     padding: 0;
   }
+  & p > span {
+    font-size: 14px;
+  }
 
   @media ${themes.primary.media.minMobile} {
+    & p > span {
+      font-size: 14px;
+    }
   }
 
   @media ${themes.primary.media.minPCFullHD} {

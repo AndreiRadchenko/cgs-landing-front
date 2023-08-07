@@ -16,6 +16,16 @@ export const InfoCard = styled.div`
     background-color: ${themes.primary.colors.darkGrey};
   }
   @media ${themes.primary.media.minMobile} {
+    padding: 40px;
+    /* padding-top: 0; */
+    padding-bottom: 52px;
+    margin-bottom: 50px;
+    margin-top: 24px;
+    &::after {
+      content: "";
+      height: 0;
+    }
+    border: 1px solid ${themes.primary.colors.darkGrey};
   }
 
   @media ${themes.primary.media.minPCFullHD} {
@@ -26,12 +36,14 @@ export const NumberTitleWrapp = styled.div`
   width: 100%;
   margin: 0 0 0 0;
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
   gap: 16px;
   align-self: stretch;
 
   @media ${themes.primary.media.minMobile} {
+    gap: 24px;
+    align-items: flex-start;
   }
 
   @media ${themes.primary.media.minPCFullHD} {
@@ -51,6 +63,15 @@ export const Number = styled.h3`
   line-height: normal;
 
   @media ${themes.primary.media.minMobile} {
+    font-size: 87px;
+  }
+
+  @media ${themes.primary.media.minPCFullHD} {
+  }
+`;
+
+export const DesktopTitle = styled.div`
+  @media ${themes.primary.media.minMobile} {
   }
 
   @media ${themes.primary.media.minPCFullHD} {
@@ -62,6 +83,9 @@ export const TitleWrapp = styled.div`
   margin: 0 0 0 0;
 
   @media ${themes.primary.media.minMobile} {
+    display: flex;
+    align-items: baseline;
+    gap: 10px;
   }
 
   @media ${themes.primary.media.minPCFullHD} {
@@ -76,6 +100,7 @@ export const Title = styled.h4`
   line-height: normal;
 
   @media ${themes.primary.media.minMobile} {
+    font-size: 40px;
   }
 
   @media ${themes.primary.media.minPCFullHD} {
@@ -90,6 +115,7 @@ export const Date = styled.p`
   line-height: normal;
 
   @media ${themes.primary.media.minMobile} {
+    font-size: 22px;
   }
 
   @media ${themes.primary.media.minPCFullHD} {
@@ -102,8 +128,21 @@ export const Role = styled.p`
   color: ${themes.primary.colors.blogArticleText};
   font-size: 22px;
   line-height: normal;
+  &.mobile {
+    display: block;
+  }
+  &.desktop {
+    display: none;
+  }
 
   @media ${themes.primary.media.minMobile} {
+    &.mobile {
+      display: none;
+    }
+    &.desktop {
+      display: block;
+    }
+    font-size: 30px;
   }
 
   @media ${themes.primary.media.minPCFullHD} {
@@ -130,6 +169,7 @@ export const AboutTitle = styled.h4`
   text-transform: uppercase;
 
   @media ${themes.primary.media.minMobile} {
+    font-size: 30px;
   }
 
   @media ${themes.primary.media.minPCFullHD} {
@@ -144,30 +184,45 @@ export const AboutText = styled.p`
   line-height: 1.6;
 
   @media ${themes.primary.media.minMobile} {
+    font-size: 22px;
   }
 
   @media ${themes.primary.media.minPCFullHD} {
   }
 `;
 
-export const Achievemts = styled.div`
+export const AchievementsTechnologyWrapp = styled.div`
+  @media ${themes.primary.media.minMobile} {
+    display: flex;
+    justify-content: space-between;
+    gap: 58px;
+  }
+
+  @media ${themes.primary.media.minPCFullHD} {
+  }
+`;
+
+export const Achievements = styled.div`
   margin: 24px 0 0 0;
   padding: 0;
 
   @media ${themes.primary.media.minMobile} {
+    flex: 1;
   }
 
   @media ${themes.primary.media.minPCFullHD} {
   }
 `;
 
-export const AchievemtsTitle = styled.h4`
+export const AchievementsTitle = styled.h4`
   margin: 0;
   padding: 0;
   font-size: 22px;
   text-align: center;
 
   @media ${themes.primary.media.minMobile} {
+    font-size: 30px;
+    line-height: normal;
   }
 
   @media ${themes.primary.media.minPCFullHD} {
@@ -178,24 +233,36 @@ interface IListProps {
   afterHeight: string;
 }
 
-export const AchievementsList = styled.ul<IListProps>`
-  box-sizing: border-box;
+export const AchievementsListWrapper = styled.div<IListProps>`
   position: relative;
   margin: 8px 0 0 0;
-  padding: 16px;
-  list-style: none;
-  border: 1px solid ${themes.primary.colors.primary};
-  border-right: none;
+  height: ${(props) => props.afterHeight};
   &::after {
     content: "";
     position: absolute;
-    top: -1px;
+    top: 0px;
     right: -14px;
-    height: ${(props) => props.afterHeight};
+    height: 100%;
     border: 7px solid ${themes.primary.colors.primary};
     border-color: transparent transparent transparent
       ${themes.primary.colors.primary};
   }
+  @media ${themes.primary.media.minMobile} {
+    margin-top: 16px;
+  }
+
+  @media ${themes.primary.media.minPCFullHD} {
+  }
+`;
+
+export const AchievementsList = styled.ul<IListProps>`
+  box-sizing: border-box;
+  /* position: relative; */
+  margin: 0;
+  padding: 16px;
+  list-style: none;
+  border: 1px solid ${themes.primary.colors.primary};
+  border-right: none;
 
   @media ${themes.primary.media.minMobile} {
   }
@@ -231,6 +298,8 @@ export const AchievementIcon = styled.img`
   height: 23px;
   margin-right: 16px;
   @media ${themes.primary.media.minMobile} {
+    width: 32px;
+    height: 32px;
   }
 
   @media ${themes.primary.media.minPCFullHD} {
@@ -245,6 +314,7 @@ export const AchievementText = styled.p`
   line-height: normal;
 
   @media ${themes.primary.media.minMobile} {
+    font-size: 20px;
   }
 
   @media ${themes.primary.media.minPCFullHD} {
@@ -256,6 +326,8 @@ export const Technologies = styled.div`
   padding: 0;
 
   @media ${themes.primary.media.minMobile} {
+    width: 100%;
+    flex: 1;
   }
 
   @media ${themes.primary.media.minPCFullHD} {
@@ -269,9 +341,9 @@ interface IPortfolioIconProps {
 export const PortfolioPageIconContainer = styled.div<IPortfolioIconProps>`
   width: 100%;
   display: grid;
-  padding-top: 16px;
+  margin-top: 16px;
   padding-bottom: 20px;
-  grid-template-columns: repeat(auto-fill, minmax(57px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(60px, 1fr));
   row-gap: 16px;
   margin-left: 0;
 
@@ -281,15 +353,18 @@ export const PortfolioPageIconContainer = styled.div<IPortfolioIconProps>`
 
   .image {
     object-fit: contain;
-    width: 100% !important;
-    position: relative !important;
-    height: unset !important;
+    position: relative;
+    width: 100%;
+    height: 47px;
   }
 
   @media ${themes.primary.media.minMobile} {
+    margin-top: 16px;
     grid-template-columns: repeat(auto-fill, minmax(110px, 110px));
-    /* margin-top: ${({ firstSet }) => (firstSet ? "65px" : "20px")}; */
     row-gap: 20px;
     margin-left: -20px;
+    .image {
+      height: 95px;
+    }
   }
 `;

@@ -65,7 +65,7 @@ export const cvData: CvData = {
         ],
       },
       {
-        subtitle: "Cloud/Deployment",
+        subtitle: "Cloud-Deployment",
         stack: ["AWS", "Firebase", "GitLab / GitHub actions"],
       },
     ],
@@ -103,6 +103,9 @@ export const cvData: CvData = {
         achievements: [
           "Implemented online ordering system",
           "Implemented remote payments via NFC tag",
+          "Implemented a feature for leaving a tip for a waiter online",
+          "Implemented fully-customizable admin panel",
+          "Implemented the system from scratch",
           "Implemented a feature for leaving a tip for a waiter online",
           "Implemented fully-customizable admin panel",
           "Implemented the system from scratch",

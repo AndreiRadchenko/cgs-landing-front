@@ -18,6 +18,32 @@ export const InfoCard = styled.div`
   }
 
   @media ${themes.primary.media.minMobile} {
+    flex: 1;
+    position: relative;
+    &:nth-child(1) {
+      & .title-wrap {
+        padding-left: 51px;
+      }
+      & .skills-list {
+        padding-left: 71px;
+      }
+    }
+    &:nth-last-of-type(1) {
+      border-right: none;
+      &::after {
+        content: "";
+        height: 0;
+      }
+    }
+    &:nth-child(n + 2) {
+      & .title-wrap {
+        padding-left: 51px;
+      }
+      & .skills-list {
+        padding-left: 71px;
+      }
+    }
+    border-right: 1px solid ${themes.primary.colors.darkGrey};
   }
 
   @media ${themes.primary.media.minPCFullHD} {
@@ -33,6 +59,10 @@ export const TitleWrapp = styled.div`
   border-bottom: 1px solid ${themes.primary.colors.darkGrey};
 
   @media ${themes.primary.media.minMobile} {
+    margin-left: 0;
+    padding-left: 0;
+    width: auto;
+    padding-right: 0;
   }
 
   @media ${themes.primary.media.minPCFullHD} {
@@ -44,6 +74,8 @@ export const Icon = styled.img`
   height: 40px;
   margin-right: 16px;
   @media ${themes.primary.media.minMobile} {
+    width: 56px;
+    height: 56px;
   }
 
   @media ${themes.primary.media.minPCFullHD} {
@@ -61,6 +93,9 @@ export const Title = styled.h3`
   margin: 0;
 
   @media ${themes.primary.media.minMobile} {
+    font-size: 30px;
+    line-height: 160%;
+    letter-spacing: 1.5px;
   }
 
   @media ${themes.primary.media.minPCFullHD} {
@@ -71,6 +106,7 @@ export const SkillsList = styled.ul`
   margin: 0;
   padding: 16px 20px 32px;
   @media ${themes.primary.media.minMobile} {
+    padding-right: 0;
   }
 
   @media ${themes.primary.media.minPCFullHD} {
@@ -95,6 +131,8 @@ export const SkillsItemText = styled.p`
   line-height: 1.6;
   font-weight: 900;
   @media ${themes.primary.media.minMobile} {
+    font-size: 18px;
+    letter-spacing: 0.36px;
   }
 
   @media ${themes.primary.media.minPCFullHD} {

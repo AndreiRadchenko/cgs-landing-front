@@ -15,11 +15,18 @@ export const Skills = ({
   },
 }: IProps) => {
   return (
-    <>
+    <Styled.SkillsContainer>
       <Styled.Title>{title}:</Styled.Title>
-      {card.map((e, idx) => (
-        <SkillCard subtitle={e.subtitle} stack={e.stack} key={idx} idx={idx} />
-      ))}
-    </>
+      <Styled.SkillsCardWrapper>
+        {card.map((e, idx) => (
+          <SkillCard
+            subtitle={e.subtitle}
+            stack={e.stack}
+            key={idx}
+            idx={idx}
+          />
+        ))}
+      </Styled.SkillsCardWrapper>
+    </Styled.SkillsContainer>
   );
 };

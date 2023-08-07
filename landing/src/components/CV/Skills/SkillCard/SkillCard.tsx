@@ -17,11 +17,11 @@ interface IProps {
 export const SkillCard = ({ subtitle, stack, idx }: IProps) => {
   return (
     <Styled.InfoCard>
-      <Styled.TitleWrapp>
+      <Styled.TitleWrapp className="title-wrap">
         <Styled.Icon src={svg[idx]?.src} alt={svgName[idx]} />
         <Styled.Title>{subtitle}</Styled.Title>
       </Styled.TitleWrapp>
-      <Styled.SkillsList>
+      <Styled.SkillsList className="skills-list">
         {stack.map((e, idx) => (
           <Styled.SkillsItem key={idx}>
             <Styled.SkillsItemText>{e}</Styled.SkillsItemText>
