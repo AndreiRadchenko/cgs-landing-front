@@ -7,11 +7,12 @@ import { queryKeys } from "../../consts/queryKeys";
 import { IDataResponse } from "../../types/Admin/Response.types";
 import { splitBracketsAdvanced } from "../../utils/splitBracketsAdvanced";
 
-import { useInViewport } from "../../hooks/useInViewport";
 import * as Styled from "../../styles/HomePage/TwistedBlock.styled";
+import { useOnScreen } from "../../hooks/useOnScreen";
 
 const TwistedBlock = () => {
   const componentRef = useRef<HTMLDivElement>(null);
+  const isScrolled = useOnScreen(componentRef);
   const isMobile = useMediaQuery("(max-width:768px)");
   const queryClient = useQueryClient();
   const data = queryClient.getQueryData<IDataResponse>([
@@ -21,8 +22,6 @@ const TwistedBlock = () => {
   if (!data) throw Error("Data not found!");
 
   const parsedText = splitBracketsAdvanced(data?.twistedBlock, isMobile);
-
-  const isScrolled = useInViewport(componentRef);
 
   return (
     <Styled.TwistedBlockContainer>
