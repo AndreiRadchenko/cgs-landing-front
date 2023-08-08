@@ -26,15 +26,11 @@ const TwistedBlock = () => {
 
   return (
     <Styled.TwistedBlockContainer>
-      <Styled.TextContainer animate={isScrolled} ref={componentRef}>
-        <Styled.TwistedText className={isScrolled ? "" : "black-span"}>
-          {parse(parsedText)}
-        </Styled.TwistedText>
-        {Array.from(Array(6)).map((e, idx) => (
-          <Styled.TwistedDiv key={idx} className={isScrolled ? "scrolled" : ""}>
-            <div className="gradient"></div>
-          </Styled.TwistedDiv>
-        ))}
+      <Styled.TextContainer
+        ref={componentRef}
+        className={isScrolled ? "scrolled" : ""}
+      >
+        <Styled.TwistedText>{parse(parsedText)}</Styled.TwistedText>
       </Styled.TextContainer>
     </Styled.TwistedBlockContainer>
   );
