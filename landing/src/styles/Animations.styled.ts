@@ -170,6 +170,17 @@ ${css`
 `}
 `;
 
+export const twistedBlockAnimation = keyframes`
+${css`
+  from {
+    background-position-y: 0;
+  }
+  to {
+    background-position-y: -1664px;
+  }
+`}
+`;
+
 export const infiniteBlogText = keyframes`
 ${css`
   from {
