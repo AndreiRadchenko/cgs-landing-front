@@ -1,14 +1,14 @@
 import { ITechnology } from './technologies.types';
 export interface ICvPageData {
-    title: string;
-    categories: string[];
-    roles: string[];
+  title: string;
+  categories: string[];
+  roles: string[];
 }
 
 export interface ICvResponse {
-    data: ICvPageData | undefined;
-    isLoading: boolean;
-    refetch: () => Promise<ICvResponse>;
+  data: ICvPageData | undefined;
+  isLoading: boolean;
+  refetch: () => Promise<ICvResponse>;
 }
 
 interface CvCard {
