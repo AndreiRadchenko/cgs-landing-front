@@ -1,3 +1,4 @@
+import { ITechnology } from './technologies.types';
 export interface ICvPageData {
     title: string;
     categories: string[];
@@ -10,8 +11,24 @@ export interface ICvResponse {
     refetch: () => Promise<ICvResponse>;
 }
 
+interface CvCard {
+    subtitle: string;
+    stack: string[];
+}
+
+interface CvProject {
+        projectName: string;
+        role: string;
+        date: string;
+        summary: string;
+        achievements: string[];
+        technology: ITechnology[];
+}
+
 export interface CvData {
+    _id: string;
     image: { url: string };
+    category: string;
     personal: {
         name: string;
         summary: string;
@@ -21,49 +38,29 @@ export interface CvData {
         title: string;
         content: [
             {
-                subtitle1: string;
-                text1: string;
+                subtitle: string;
+                text: string;
             },
             {
-                subtitle2: string;
-                text2: string;
+                subtitle: string;
+                text: string;
             },
             {
-                subtitle3: string;
-                text3: string;
+                subtitle: string;
+                text: string;
             },
             {
-                subtitle4: string;
-                text4: string;
+                subtitle: string;
+                text: string;
             },
         ];
     },
     skills: {
         title: string;
-        card: [
-            {
-                subtitle1: string;
-                stack1: string[];
-            },
-            {
-                subtitle2: string;
-                stack2: string[];
-            },
-            {
-                subtitle3: string;
-                stack3: string[];
-            },
-        ];
+        card: CvCard[];
     };
     projects: {
         title: string,
-        project: [{
-            projectName: string;
-            role: string;
-            date: string;
-            summary: string;
-            achievements: string[];
-            technology: string[];
-        }];
+        project: CvProject[];
     };
 }

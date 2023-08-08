@@ -7,7 +7,7 @@ export const DropdownWrapper = styled.div`
 
 export const DropdownWrapperTechnology = styled.div`
   position: relative;
-  width: 275px;
+  width: 382px;
 `;
 
 export const DropdownBanner = styled.div<{ isError?: boolean }>`
@@ -25,7 +25,7 @@ export const DropdownBanner = styled.div<{ isError?: boolean }>`
     ${({ isError }) =>
       isError ? "red" : themes.primary.colors.adminInputBorder};
   font-family: ${themes.primary.font.family.namu};
-  font-size: ${themes.primary.font.size.vistaco};
+  font-size: 16px;
   letter-spacing: 0.03em;
 
   &.open img {

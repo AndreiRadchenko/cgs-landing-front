@@ -97,6 +97,8 @@ export const queryKeys = {
   removeDomainService: "removeDomainService",
   getCvPage: "getCvPage",
   updateCvPage: "updateCvPage",
+  getCvs: "getCvs",
+  postCv: "postCv",
   // history
   getContactsHistory: "getContactsHistory",
   // home page
@@ -116,4 +118,8 @@ export const queryKeys = {
   createRateCardService: "createRateCardService",
   updateRateCardService: "updateRateCardService",
   deleteRateCardService: "deleteRateCardService",
+  // technologies
+  getTechnologies: "getTechnologies",
+  updateTechnologies: "updateTechnologies",
+  removeTechnologies: "removeTechnologies"
 };

@@ -1,9 +1,12 @@
 import React from "react";
+
+import TrashIcon from "../Portfolio/TrashIcon";
+import ButtonArrow from "../../../utils/ButtonArrow";
+
 import * as Styled from "../../../styles/AdminPage";
 import { ArrowContainer, BlackButton } from "../../../styles/HomePage/General.styled";
+
 import { ICvPageData } from "../../../types/Admin/AdminCv.types";
-import ButtonArrow from "../../../utils/ButtonArrow";
-import TrashIcon from "../Portfolio/TrashIcon";
 
 interface ICvCategoryProps {
     categories: string[];

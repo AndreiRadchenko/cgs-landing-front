@@ -31,7 +31,11 @@ const AdminCVsContent = () => {
     return isLoading ? (
         <Styled.AdminUnauthorizedModal>Loading...</Styled.AdminUnauthorizedModal>
     ) : data !== undefined ? (
-        <Formik initialValues={data} onSubmit={submitForm}>
+        <Formik
+            initialValues={data}
+            onSubmit={submitForm}
+            validateOnChange={false}
+        >
             <CvContentBlock />
         </Formik>
     ) : (
