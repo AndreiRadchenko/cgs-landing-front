@@ -1,10 +1,10 @@
-import React, { useCallback } from "react";
+import React, { useCallback, useMemo } from "react";
 
 import * as Styles from "../../styles/Portfolio.styled";
 import { IPaginationProps } from "../../types/Admin/AdminPortfolio.types";
 
 export const Pagination = ({
-  reviewsData,
+  reviewsData = { reviews: [], totalPages: 0, currentPage: 0 },
   currentPage,
   setCurrentPage,
   scrollFunction,
@@ -20,26 +20,69 @@ export const Pagination = ({
 
   const handlePageClick = useCallback(
     (pageNumber: number) => {
-      if (pageNumber + 1 !== currentPage) {
-        handleClick(pageNumber + 1);
+      if (pageNumber !== currentPage) {
+        handleClick(pageNumber);
       }
     },
     [handleClick, currentPage]
   );
 
+  const pagesArray = useMemo(() => {
+    const totalPages = reviewsData.totalPages;
+
+    if (totalPages <= 9) {
+      return Array.from({ length: totalPages }, (_, i) => i + 1);
+    }
+
+    if (currentPage <= 5) {
+      return [1, 2, 3, 4, 5, 6, 7, "...", totalPages];
+    }
+
+    if (currentPage >= totalPages - 4) {
+      return [
+        1,
+        "...",
+        totalPages - 6,
+        totalPages - 5,
+        totalPages - 4,
+        totalPages - 3,
+        totalPages - 2,
+        totalPages - 1,
+        totalPages,
+      ];
+    }
+
+    return [
+      1,
+      "...",
+      currentPage - 2,
+      currentPage - 1,
+      currentPage,
+      currentPage + 1,
+      currentPage + 2,
+      "...",
+      totalPages,
+    ];
+  }, [reviewsData.totalPages, currentPage]);
+
   return (
     <Styles.PortfolioPaginationWrapper>
       <Styles.PortfolioPaginationItemsWrapper>
-        {reviewsData &&
-          Array.from(Array(reviewsData.totalPages).keys()).map((pageNumber) => (
+        {pagesArray.map((pageNumber, index) =>
+          typeof pageNumber === "number" ? (
             <Styles.PortfolioPaginationButton
-              key={pageNumber}
+              key={index}
               onClick={() => handlePageClick(pageNumber)}
-              className={pageNumber + 1 === currentPage ? "active" : ""}
+              className={pageNumber === currentPage ? "active" : ""}
             >
-              {pageNumber + 1}
+              {pageNumber}
             </Styles.PortfolioPaginationButton>
-          ))}
+          ) : (
+            <Styles.PortfolioPaginationDots key={index}>
+              {pageNumber}
+            </Styles.PortfolioPaginationDots>
+          )
+        )}
       </Styles.PortfolioPaginationItemsWrapper>
     </Styles.PortfolioPaginationWrapper>
   );
