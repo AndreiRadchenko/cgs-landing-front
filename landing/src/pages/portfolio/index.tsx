@@ -176,7 +176,7 @@ const PortfolioPage: NextPage = () => {
     setIsPaginationTriggered(false);
   };
 
-  const updateURLParams = ({ category, selectedIndustries }: any) => {
+  const updateURLParams = ({ category, selectedIndustries, page }: any) => {
     const industriesQuery = selectedIndustries.join(",");
     const queryParams: any = {};
 
@@ -186,6 +186,10 @@ const PortfolioPage: NextPage = () => {
 
     if (selectedIndustries.length > 0) {
       queryParams.industries = industriesQuery;
+    }
+
+    if (page && page > 1) {
+      queryParams.page = page;
     }
 
     router.push(
@@ -279,7 +283,7 @@ const PortfolioPage: NextPage = () => {
   }, [searchTrigger]);
 
   useEffect(() => {
-    const { category, industries } = router.query;
+    const { category, industries, page } = router.query;
     const pickedIndustries =
       (typeof industries === "string" && industries?.split(",")) || [];
 
@@ -306,23 +310,35 @@ const PortfolioPage: NextPage = () => {
     ) {
       setSelectedIndustries(pickedIndustries);
     }
+
+    if (page && typeof page === "string") {
+      setCurrentPage(Number(page));
+    }
   }, [router.query]);
 
   useEffect(() => {
     if (category) {
-      updateURLParams({ category, selectedIndustries });
+      updateURLParams({ category, selectedIndustries, page: "" });
     } else {
-      updateURLParams({ category: "", selectedIndustries });
+      updateURLParams({ category: "", selectedIndustries, page: "" });
     }
   }, [category]);
 
   useEffect(() => {
     if (selectedIndustries.length > 0) {
-      updateURLParams({ category, selectedIndustries });
+      updateURLParams({ category, selectedIndustries, page: "" });
     } else {
-      updateURLParams({ category, selectedIndustries: [] });
+      updateURLParams({ category, selectedIndustries: [], page: "" });
     }
   }, [selectedIndustries]);
+
+  useEffect(() => {
+    if (currentPage) {
+      updateURLParams({ category, selectedIndustries, page: currentPage });
+    } else {
+      updateURLParams({ category, selectedIndustries, page: "" });
+    }
+  }, [currentPage]);
 
   highestPagePointDisplayer();
 
