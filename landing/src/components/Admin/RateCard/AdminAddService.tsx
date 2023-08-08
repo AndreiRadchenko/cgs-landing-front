@@ -103,7 +103,16 @@ const AdminAddService = ({ servicesAvailable, service }: IAddServiceProps) => {
           )}
           {!addRateCardInfo && <RateCardLevelsInput />}
           <RateCardBtnContainer>
-            <SaveBtn handleClick={handleSubmit} />
+            <SaveBtn
+              style={{
+                width: "226px",
+                height: "58px",
+                fontSize: "18px",
+                display: "flex",
+                justifyContent: "center",
+              }}
+              handleClick={handleSubmit}
+            />
             <DeleteBtn
               disabled={servicesAvailable === 1}
               onClick={() => values._id && handleDelete(values._id)}

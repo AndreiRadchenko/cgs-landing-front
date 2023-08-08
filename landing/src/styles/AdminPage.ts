@@ -263,6 +263,11 @@ export const AdminHeader = styled.h2`
   font-size: ${themes.primary.font.size.secondary};
   font-family: ${themes.primary.font.family.namu};
   margin-bottom: 1.21em;
+
+  &.rateCard {
+    font-size: 20px;
+    padding-top: 34px;
+  }
 `;
 
 export const ExtraMargin = styled.div`
@@ -508,7 +513,7 @@ export const AdminCategoryDeleteBlockWrapper = styled.div`
   }
 `;
 
-export const AdminCategoryNameInput = styled.input<{isError?: boolean}>`
+export const AdminCategoryNameInput = styled.input<{ isError?: boolean }>`
   height: 56px;
   border: 1px solid ${themes.primary.colors.comment};
   font-family: ${themes.primary.font.family.namu};
@@ -545,9 +550,7 @@ export const AdminCategoryNameInput = styled.input<{isError?: boolean}>`
     width: 318px;
     margin-bottom: 10px;
 
-    border: 1px solid
-    ${({ isError }) =>
-      isError ? "red" : '#8F8E93'};
+    border: 1px solid ${({ isError }) => (isError ? "red" : "#8F8E93")};
 
     &::placeholder {
       font-size: 16px;
@@ -719,9 +722,9 @@ export const AdminDashedPositionGrid = styled.div`
 `;
 
 export const AdminDeleteText = styled.button`
-  text-align: center;
   color: ${themes.primary.colors.errorText};
-  margin: 10px;
+  margin: 10px 10px 10px 0;
+  padding-left: 0px;
   font-size: ${themes.primary.font.size.primary};
   cursor: pointer;
   border: none;
