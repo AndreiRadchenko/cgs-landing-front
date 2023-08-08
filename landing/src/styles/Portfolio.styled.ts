@@ -437,13 +437,27 @@ export const PortfolioPaginationWrapper = styled.div`
 
 export const PortfolioPaginationItemsWrapper = styled.div`
   display: flex;
-  column-gap: 17px;
+  column-gap: 16px;
 
   & .active {
     background-color: #000;
     border: 1px solid #000;
     color: #f1efed;
   }
+
+  @media ${themes.primary.media.maxMobile} {
+    column-gap: 12.6px;
+  }
+`;
+
+export const PortfolioPaginationDots = styled.div`
+  display: flex;
+  height: 26px;
+  width: 26px;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  font-family: ${themes.primary.font.family.openSans};
 `;
 
 export const PortfolioPaginationButton = styled.div`
