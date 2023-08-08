@@ -18,7 +18,7 @@ export class AdminCvService {
     }
 
     public postCv(cv: CvData) {
-      return this.httpService.post(`api/devs-info-cv/article`, cv);
+      return this.httpService.post(`api/devs-info/cv`, cv);
     }
   }
   

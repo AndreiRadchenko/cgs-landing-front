@@ -502,9 +502,13 @@ export const AdminCategoryDeleteBlockWrapper = styled.div`
   width: 43px;
   align-items: center;
   justify-content: center;
+
+  &.cvAchievement {
+    margin-bottom: 10px;
+  }
 `;
 
-export const AdminCategoryNameInput = styled.input`
+export const AdminCategoryNameInput = styled.input<{isError?: boolean}>`
   height: 56px;
   border: 1px solid ${themes.primary.colors.comment};
   font-family: ${themes.primary.font.family.namu};
@@ -529,6 +533,25 @@ export const AdminCategoryNameInput = styled.input`
   &.cv {
     max-width: 347px;
     width: 347px;
+  }
+
+  &.cvSkills {
+    max-width: 263px;
+    width: 263px;
+  }
+
+  &.cvAchievements {
+    max-width: 318px;
+    width: 318px;
+    margin-bottom: 10px;
+
+    border: 1px solid
+    ${({ isError }) =>
+      isError ? "red" : '#8F8E93'};
+
+    &::placeholder {
+      font-size: 16px;
+    }
   }
 `;
 

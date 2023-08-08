@@ -1,10 +1,11 @@
 import React from "react";
 import { Formik, FormikHelpers, useFormikContext } from "formik";
-import { useMutation, useQueryClient } from "@tanstack/react-query";
+import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 
 import AddReview from "../PortfolioReview/AddReview";
 import { adminPortfolioService } from "../../../services/adminPortfolioPage";
 import { AdminPortfolioValidation } from "../../../validations/AdminPortfolioValidator";
+import { queryKeys } from "../../../consts/queryKeys";
 
 import { newPageReviewInit } from "../../../consts";
 import {
@@ -12,7 +13,7 @@ import {
   IPortfolioPageData,
   IPortfolioReview,
 } from "../../../types/Admin/AdminPortfolio.types";
-import { queryKeys } from "../../../consts/queryKeys";
+import { technologiesService } from "../../../services/technologies";
 
 const AddAndEdit = ({
   current,
@@ -43,6 +44,10 @@ const AddAndEdit = ({
       },
     }
   );
+
+  const { data: technologies } = useQuery([queryKeys.getTechnologies], () =>
+        technologiesService.getTechnologies()
+    );
 
   const handleSubmit = (values: any, action: FormikHelpers<any>) => {
     // eslint-disable-next-line @typescript-eslint/no-unused-vars
@@ -91,7 +96,7 @@ const AddAndEdit = ({
       <AddReview
         categories={values.categories.map((elem) => elem.name)}
         industries={values.industries}
-        technologies={values.technologies}
+        technologies={technologies?.technologies}
       />
     </Formik>
   );

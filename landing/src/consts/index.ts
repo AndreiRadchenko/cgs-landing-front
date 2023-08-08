@@ -370,3 +370,62 @@ export const AdminPortfolioPageSize = 6;
 
 export const META_TITLE_MAX = 60;
 export const META_DESCRIPTION_MAX = 160;
+
+export const NewCv = {
+  image: null,
+  category: "",
+  personal: {
+    name: "",
+    summary: "",
+    role: "",
+  },
+  info: {
+    title: "INFO:",
+    content: [
+      {
+        subtitle: "Education",
+        text: "",
+      },
+      {
+        subtitle: "Timezone",
+        text: "",
+      },
+      {
+        subtitle: "English",
+        text: "",
+      },
+      {
+        subtitle: "Experience",
+        text: "",
+      },
+    ],
+  },
+  skills: {
+    title: "SKILLS:",
+    card: [
+      {
+        subtitle: "",
+        stack: [""],
+      },
+      {
+        subtitle: "",
+        stack: [""],
+      },
+      {
+        subtitle: "",
+        stack: [""],
+      },
+    ],
+  },
+  projects: {
+    title: "PROJECTS:",
+    project: [{
+      projectName: "",
+      role: "",
+      date: "",
+      summary: "",
+      achievements: [""],
+      technology: [],
+    }],
+  },
+}
