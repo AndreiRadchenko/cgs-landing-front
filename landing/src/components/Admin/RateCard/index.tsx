@@ -30,7 +30,7 @@ const RateCardMainContent = () => {
     <Styled.AdminUnauthorizedModal>Loading...</Styled.AdminUnauthorizedModal>
   ) : (
     <Styled.AdminPaddedBlock>
-      <Styled.AdminHeader>Rate Card</Styled.AdminHeader>
+      <Styled.AdminHeader className={"rateCard"}>Rate Card</Styled.AdminHeader>
       <RateCardTitle title={data!.title} />
       <AdminRateCardServiceContent
         services={services!}

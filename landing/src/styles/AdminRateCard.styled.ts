@@ -66,6 +66,7 @@ export const RateCartLevel = styled(Field)`
   line-height: 160%;
   letter-spacing: 0.05em;
   border: 1px solid ${themes.primary.colors.headerBorder};
+  border-right: none;
   background: transparent;
   width: 100%;
 
@@ -83,8 +84,13 @@ export const RateCardTechnology = styled(Field)`
   line-height: 160%;
   letter-spacing: 0.05em;
   border: 1px solid ${themes.primary.colors.headerBorder};
+  border-right: none;
   background: transparent;
   width: 100%;
+
+  &.noBorder {
+    border-bottom: none;
+  }
 
   &::placeholder {
     color: ${themes.primary.colors.headerBorder};
@@ -102,6 +108,10 @@ export const RateCardCost = styled(Field)`
   border: 1px solid ${themes.primary.colors.headerBorder};
   background: transparent;
   width: 100%;
+
+  &.noBorder {
+    border-bottom: none;
+  }
 
   &::placeholder {
     color: ${themes.primary.colors.headerBorder};
@@ -240,6 +250,10 @@ export const RateCardJointWrapper = styled.div`
   align-items: center;
   gap: 6px;
   margin-bottom: 4px;
+
+  &.costWrapper {
+    margin-left: -22.5px;
+  }
 `;
 
 export const JointCheckboxWrapper = styled.div`
