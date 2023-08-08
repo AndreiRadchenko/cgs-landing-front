@@ -8,6 +8,7 @@ import { queryKeys } from "../../../../consts/queryKeys";
 import { adminPortfolioService } from "../../../../services/adminPortfolioPage";
 
 import achievement from "../../../../../public/CV/achievement.svg";
+import { ITechnology } from "../../../../types/Admin/technologies.types";
 
 interface IProps {
   projectName: string;
@@ -15,7 +16,7 @@ interface IProps {
   date: string;
   summary: string;
   achievements: string[];
-  technology: string[];
+  technology: ITechnology[];
   idx: number;
 }
 
@@ -82,20 +83,15 @@ export const Project = ({
           <Styled.AchievementsTitle>Technologies:</Styled.AchievementsTitle>
           <Styled.PortfolioPageIconContainer firstSet>
             {!isLoading &&
-              technology.map((techname, idx) => {
-                const technology = technologies?.find(
-                  (e) => e.name === techname
-                );
-                return (
-                  <div key={idx} className="image">
-                    <Image
-                      src={technology?.image.url ? technology.image.url : ""}
-                      alt="tech"
-                      layout="fill"
-                    />
-                  </div>
-                );
-              })}
+              technology.map((e, idx) => (
+                <div key={idx} className="image">
+                  <Image
+                    src={e?.image?.url ? e.image.url : ""}
+                    alt="tech"
+                    layout="fill"
+                  />
+                </div>
+              ))}
           </Styled.PortfolioPageIconContainer>
         </Styled.Technologies>
       </Styled.AchievementsTechnologyWrapp>

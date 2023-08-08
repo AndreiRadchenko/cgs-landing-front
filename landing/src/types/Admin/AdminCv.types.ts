@@ -1,4 +1,4 @@
-import { ITechnology } from './technologies.types';
+import { ITechnology } from "./technologies.types";
 export interface ICvPageData {
   title: string;
   categories: string[];
@@ -12,55 +12,41 @@ export interface ICvResponse {
 }
 
 interface CvCard {
-    subtitle: string;
-    stack: string[];
+  subtitle: string;
+  stack: string[];
 }
 
 interface CvProject {
-        projectName: string;
-        role: string;
-        date: string;
-        summary: string;
-        achievements: string[];
-        technology: ITechnology[];
+  projectName: string;
+  role: string;
+  date: string;
+  summary: string;
+  achievements: string[];
+  technology: ITechnology[];
 }
 
 export interface CvData {
-    _id: string;
-    image: { url: string };
-    category: string;
-    personal: {
-        name: string;
-        summary: string;
-        role: string;
-    };
-    info: {
-        title: string;
-        content: [
-            {
-                subtitle: string;
-                text: string;
-            },
-            {
-                subtitle: string;
-                text: string;
-            },
-            {
-                subtitle: string;
-                text: string;
-            },
-            {
-                subtitle: string;
-                text: string;
-            },
-        ];
-    },
-    skills: {
-        title: string;
-        card: CvCard[];
-    };
-    projects: {
-        title: string,
-        project: CvProject[];
-    };
+  _id: string;
+  image: { url: string };
+  category: string;
+  personal: {
+    name: string;
+    summary: string;
+    role: string;
+  };
+  info: {
+    title: string;
+    content: {
+      subtitle: string;
+      text: string;
+    }[];
+  };
+  skills: {
+    title: string;
+    card: CvCard[];
+  };
+  projects: {
+    title: string;
+    project: CvProject[];
+  };
 }

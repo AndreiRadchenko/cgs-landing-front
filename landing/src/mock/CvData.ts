@@ -85,13 +85,86 @@ export const cvData: CvData = {
           "Implemented a feature for leaving a tip for a waiter online",
         ],
         technology: [
-          "TypeScript",
-          "Heroku",
-          "AWS",
-          "Firebase",
-          "React Native",
-          "Bootstrap",
-          "Angular",
+          {
+            _id: "647ad62faeffcaa386d3fea8",
+            name: "Algolia",
+            main: false,
+            image: {
+              url: "https://d2qrnmx3qcgrup.cloudfront.net/5f86b2ca-4bf6-46e4-926c-fc2bdb0ee872.svg",
+            },
+          },
+          {
+            _id: "647ad670aeffcaa386d3fec8",
+            name: "Algorand",
+            main: false,
+            image: {
+              url: "https://d2qrnmx3qcgrup.cloudfront.net/c1f45461-135d-4729-8744-290d61c59400.svg",
+            },
+          },
+          {
+            _id: "647ad68caeffcaa386d3fed9",
+            name: "Angular",
+            main: false,
+            image: {
+              url: "https://d2qrnmx3qcgrup.cloudfront.net/5cdb7d92-da5b-46d2-8538-332480af819d.svg",
+            },
+          },
+          {
+            _id: "647ad69daeffcaa386d3feea",
+            name: "Apollo client",
+            main: false,
+            image: {
+              url: "https://d2qrnmx3qcgrup.cloudfront.net/6d57c255-bbdc-4881-82e2-3172130460aa.svg",
+            },
+          },
+          {
+            _id: "647ad6b1aeffcaa386d3fefb",
+            name: "AWS",
+            main: false,
+            image: {
+              url: "https://d2qrnmx3qcgrup.cloudfront.net/89143196-48d4-43f2-9cd7-3eb5611f6a89.svg",
+            },
+          },
+          {
+            _id: "647ad62faeffcaa386d3fea8",
+            name: "Algolia",
+            main: false,
+            image: {
+              url: "https://d2qrnmx3qcgrup.cloudfront.net/5f86b2ca-4bf6-46e4-926c-fc2bdb0ee872.svg",
+            },
+          },
+          {
+            _id: "647ad670aeffcaa386d3fec8",
+            name: "Algorand",
+            main: false,
+            image: {
+              url: "https://d2qrnmx3qcgrup.cloudfront.net/c1f45461-135d-4729-8744-290d61c59400.svg",
+            },
+          },
+          {
+            _id: "647ad68caeffcaa386d3fed9",
+            name: "Angular",
+            main: false,
+            image: {
+              url: "https://d2qrnmx3qcgrup.cloudfront.net/5cdb7d92-da5b-46d2-8538-332480af819d.svg",
+            },
+          },
+          {
+            _id: "647ad69daeffcaa386d3feea",
+            name: "Apollo client",
+            main: false,
+            image: {
+              url: "https://d2qrnmx3qcgrup.cloudfront.net/6d57c255-bbdc-4881-82e2-3172130460aa.svg",
+            },
+          },
+          {
+            _id: "647ad6b1aeffcaa386d3fefb",
+            name: "AWS",
+            main: false,
+            image: {
+              url: "https://d2qrnmx3qcgrup.cloudfront.net/89143196-48d4-43f2-9cd7-3eb5611f6a89.svg",
+            },
+          },
         ],
       },
       {
@@ -110,7 +183,88 @@ export const cvData: CvData = {
           "Implemented fully-customizable admin panel",
           "Implemented the system from scratch",
         ],
-        technology: ["TypeScript", "Heroku", "AWS", "Firebase", "React Native"],
+        technology: [
+          {
+            _id: "647ad62faeffcaa386d3fea8",
+            name: "Algolia",
+            main: false,
+            image: {
+              url: "https://d2qrnmx3qcgrup.cloudfront.net/5f86b2ca-4bf6-46e4-926c-fc2bdb0ee872.svg",
+            },
+          },
+          {
+            _id: "647ad670aeffcaa386d3fec8",
+            name: "Algorand",
+            main: false,
+            image: {
+              url: "https://d2qrnmx3qcgrup.cloudfront.net/c1f45461-135d-4729-8744-290d61c59400.svg",
+            },
+          },
+          {
+            _id: "647ad68caeffcaa386d3fed9",
+            name: "Angular",
+            main: false,
+            image: {
+              url: "https://d2qrnmx3qcgrup.cloudfront.net/5cdb7d92-da5b-46d2-8538-332480af819d.svg",
+            },
+          },
+          {
+            _id: "647ad69daeffcaa386d3feea",
+            name: "Apollo client",
+            main: false,
+            image: {
+              url: "https://d2qrnmx3qcgrup.cloudfront.net/6d57c255-bbdc-4881-82e2-3172130460aa.svg",
+            },
+          },
+          {
+            _id: "647ad6b1aeffcaa386d3fefb",
+            name: "AWS",
+            main: false,
+            image: {
+              url: "https://d2qrnmx3qcgrup.cloudfront.net/89143196-48d4-43f2-9cd7-3eb5611f6a89.svg",
+            },
+          },
+          {
+            _id: "647ad62faeffcaa386d3fea8",
+            name: "Algolia",
+            main: false,
+            image: {
+              url: "https://d2qrnmx3qcgrup.cloudfront.net/5f86b2ca-4bf6-46e4-926c-fc2bdb0ee872.svg",
+            },
+          },
+          {
+            _id: "647ad670aeffcaa386d3fec8",
+            name: "Algorand",
+            main: false,
+            image: {
+              url: "https://d2qrnmx3qcgrup.cloudfront.net/c1f45461-135d-4729-8744-290d61c59400.svg",
+            },
+          },
+          {
+            _id: "647ad68caeffcaa386d3fed9",
+            name: "Angular",
+            main: false,
+            image: {
+              url: "https://d2qrnmx3qcgrup.cloudfront.net/5cdb7d92-da5b-46d2-8538-332480af819d.svg",
+            },
+          },
+          {
+            _id: "647ad69daeffcaa386d3feea",
+            name: "Apollo client",
+            main: false,
+            image: {
+              url: "https://d2qrnmx3qcgrup.cloudfront.net/6d57c255-bbdc-4881-82e2-3172130460aa.svg",
+            },
+          },
+          {
+            _id: "647ad6b1aeffcaa386d3fefb",
+            name: "AWS",
+            main: false,
+            image: {
+              url: "https://d2qrnmx3qcgrup.cloudfront.net/89143196-48d4-43f2-9cd7-3eb5611f6a89.svg",
+            },
+          },
+        ],
       },
       {
         projectName: "Chili | Web",
@@ -125,7 +279,88 @@ export const cvData: CvData = {
           "Implemented fully-customizable admin panel",
           "Implemented the system from scratch",
         ],
-        technology: ["TypeScript", "Heroku", "AWS", "Firebase", "React Native"],
+        technology: [
+          {
+            _id: "647ad62faeffcaa386d3fea8",
+            name: "Algolia",
+            main: false,
+            image: {
+              url: "https://d2qrnmx3qcgrup.cloudfront.net/5f86b2ca-4bf6-46e4-926c-fc2bdb0ee872.svg",
+            },
+          },
+          {
+            _id: "647ad670aeffcaa386d3fec8",
+            name: "Algorand",
+            main: false,
+            image: {
+              url: "https://d2qrnmx3qcgrup.cloudfront.net/c1f45461-135d-4729-8744-290d61c59400.svg",
+            },
+          },
+          {
+            _id: "647ad68caeffcaa386d3fed9",
+            name: "Angular",
+            main: false,
+            image: {
+              url: "https://d2qrnmx3qcgrup.cloudfront.net/5cdb7d92-da5b-46d2-8538-332480af819d.svg",
+            },
+          },
+          {
+            _id: "647ad69daeffcaa386d3feea",
+            name: "Apollo client",
+            main: false,
+            image: {
+              url: "https://d2qrnmx3qcgrup.cloudfront.net/6d57c255-bbdc-4881-82e2-3172130460aa.svg",
+            },
+          },
+          {
+            _id: "647ad6b1aeffcaa386d3fefb",
+            name: "AWS",
+            main: false,
+            image: {
+              url: "https://d2qrnmx3qcgrup.cloudfront.net/89143196-48d4-43f2-9cd7-3eb5611f6a89.svg",
+            },
+          },
+          {
+            _id: "647ad62faeffcaa386d3fea8",
+            name: "Algolia",
+            main: false,
+            image: {
+              url: "https://d2qrnmx3qcgrup.cloudfront.net/5f86b2ca-4bf6-46e4-926c-fc2bdb0ee872.svg",
+            },
+          },
+          {
+            _id: "647ad670aeffcaa386d3fec8",
+            name: "Algorand",
+            main: false,
+            image: {
+              url: "https://d2qrnmx3qcgrup.cloudfront.net/c1f45461-135d-4729-8744-290d61c59400.svg",
+            },
+          },
+          {
+            _id: "647ad68caeffcaa386d3fed9",
+            name: "Angular",
+            main: false,
+            image: {
+              url: "https://d2qrnmx3qcgrup.cloudfront.net/5cdb7d92-da5b-46d2-8538-332480af819d.svg",
+            },
+          },
+          {
+            _id: "647ad69daeffcaa386d3feea",
+            name: "Apollo client",
+            main: false,
+            image: {
+              url: "https://d2qrnmx3qcgrup.cloudfront.net/6d57c255-bbdc-4881-82e2-3172130460aa.svg",
+            },
+          },
+          {
+            _id: "647ad6b1aeffcaa386d3fefb",
+            name: "AWS",
+            main: false,
+            image: {
+              url: "https://d2qrnmx3qcgrup.cloudfront.net/89143196-48d4-43f2-9cd7-3eb5611f6a89.svg",
+            },
+          },
+        ],
       },
     ],
   },
