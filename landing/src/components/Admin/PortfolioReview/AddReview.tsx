@@ -128,9 +128,6 @@ const AddReview = ({
     setTimeout(() => setErrorMsgTech(""), 2000);
   }, [errorMsg, errorMsgTech]);
 
-  console.log(technologies)
-  console.log("QWE", values.technologyNew)
-
   return (
     <>
       <Styled.AdminPageFirstBlockLayout>
