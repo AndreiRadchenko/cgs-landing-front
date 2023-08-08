@@ -14,6 +14,8 @@ export const InfoSectionContainer = styled.div`
   }
 
   @media ${themes.primary.media.minPCFullHD} {
+    margin-top: 180px;
+    height: 270px;
   }
 `;
 
@@ -42,7 +44,7 @@ export const Title = styled.h2`
     height: 174px;
     margin-left: -51px;
     font-size: 40px;
-    line-height: 56px; /* 140% */
+    line-height: 1.4;
     padding-top: 59px;
   }
   @media ${themes.primary.media.minMobile} and (max-width: 1375px) {
@@ -50,6 +52,11 @@ export const Title = styled.h2`
   }
 
   @media ${themes.primary.media.minPCFullHD} {
+    font-size: 53.333px;
+    margin-left: -68px;
+    height: 232px;
+    padding-top: 79px;
+    width: 29.88%;
   }
 `;
 
@@ -67,5 +74,9 @@ export const InfoItemGrid = styled.div`
   }
 
   @media ${themes.primary.media.minPCFullHD} {
+    margin-left: 32px;
+    column-gap: 21.3px;
+    /* height: 232px; */
+    max-height: 330px;
   }
 `;

@@ -3,21 +3,46 @@ import themes from "../../../../utils/themes";
 
 export const InfoCard = styled.div`
   position: relative;
-  width: 100%;
-  margin: 0 0 37px 0;
+  margin: 0;
   padding-top: 20px;
+  margin-left: -20px;
+  padding-inline: 20px;
+  width: 100vw;
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        90deg,
+        rgba(214, 255, 187, 0.3) 0%,
+        rgba(88, 105, 221, 0.3) 100%
+      ),
+      #f1efed;
+    z-index: -1;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+  }
+  &.intersecting {
+    &::before {
+      opacity: 1;
+    }
+  }
   &::after {
     content: "";
     position: absolute;
     bottom: 0;
     left: -20px;
-    width: 100vw;
+    width: 110vw;
     height: 1px;
     background-color: ${themes.primary.colors.darkGrey};
   }
   @media ${themes.primary.media.minMobile} {
+    width: 100%;
+    margin-left: 0;
     padding: 40px;
-    /* padding-top: 0; */
     padding-bottom: 52px;
     margin-bottom: 50px;
     margin-top: 24px;
@@ -26,9 +51,17 @@ export const InfoCard = styled.div`
       height: 0;
     }
     border: 1px solid ${themes.primary.colors.darkGrey};
+    transition: border-color 0.3s ease-in-out;
+    &.intersecting {
+      border-color: transparent;
+    }
   }
 
   @media ${themes.primary.media.minPCFullHD} {
+    margin-top: 32px;
+    margin-bottom: 64px;
+    padding: 53px;
+    padding-bottom: 65px;
   }
 `;
 
@@ -47,6 +80,7 @@ export const NumberTitleWrapp = styled.div`
   }
 
   @media ${themes.primary.media.minPCFullHD} {
+    gap: 32px;
   }
 `;
 
@@ -63,10 +97,12 @@ export const Number = styled.h3`
   line-height: normal;
 
   @media ${themes.primary.media.minMobile} {
+    text-shadow: 7px 2px 0px #000;
     font-size: 87px;
   }
 
   @media ${themes.primary.media.minPCFullHD} {
+    font-size: 116px;
   }
 `;
 
@@ -89,6 +125,7 @@ export const TitleWrapp = styled.div`
   }
 
   @media ${themes.primary.media.minPCFullHD} {
+    gap: 21px;
   }
 `;
 
@@ -104,6 +141,7 @@ export const Title = styled.h4`
   }
 
   @media ${themes.primary.media.minPCFullHD} {
+    font-size: 53.333px;
   }
 `;
 
@@ -119,6 +157,7 @@ export const Date = styled.p`
   }
 
   @media ${themes.primary.media.minPCFullHD} {
+    font-size: 29.333px;
   }
 `;
 
@@ -146,6 +185,8 @@ export const Role = styled.p`
   }
 
   @media ${themes.primary.media.minPCFullHD} {
+    font-size: 40px;
+    margin-top: 10px;
   }
 `;
 
@@ -157,6 +198,7 @@ export const About = styled.div`
   }
 
   @media ${themes.primary.media.minPCFullHD} {
+    margin-top: 32px;
   }
 `;
 
@@ -173,13 +215,14 @@ export const AboutTitle = styled.h4`
   }
 
   @media ${themes.primary.media.minPCFullHD} {
+    font-size: 40px;
   }
 `;
 
 export const AboutText = styled.p`
   margin: 8px 0 0 0;
   padding: 0;
-  color: ${themes.primary.colors.blogArticleText};
+  color: ${themes.primary.colors.primary};
   font-size: 16px;
   line-height: 1.6;
 
@@ -188,6 +231,8 @@ export const AboutText = styled.p`
   }
 
   @media ${themes.primary.media.minPCFullHD} {
+    font-size: 29.333px;
+    margin-top: 10px;
   }
 `;
 
@@ -199,6 +244,7 @@ export const AchievementsTechnologyWrapp = styled.div`
   }
 
   @media ${themes.primary.media.minPCFullHD} {
+    gap: 74px;
   }
 `;
 
@@ -211,6 +257,7 @@ export const Achievements = styled.div`
   }
 
   @media ${themes.primary.media.minPCFullHD} {
+    margin-top: 32px;
   }
 `;
 
@@ -226,6 +273,7 @@ export const AchievementsTitle = styled.h4`
   }
 
   @media ${themes.primary.media.minPCFullHD} {
+    font-size: 40px;
   }
 `;
 
@@ -252,22 +300,25 @@ export const AchievementsListWrapper = styled.div<IListProps>`
   }
 
   @media ${themes.primary.media.minPCFullHD} {
+    margin-top: 21px;
   }
 `;
 
 export const AchievementsList = styled.ul<IListProps>`
   box-sizing: border-box;
-  /* position: relative; */
   margin: 0;
   padding: 16px;
   list-style: none;
   border: 1px solid ${themes.primary.colors.primary};
   border-right: none;
+  background-color: #f1efed;
 
   @media ${themes.primary.media.minMobile} {
+    padding: 16px 40px;
   }
 
   @media ${themes.primary.media.minPCFullHD} {
+    padding: 21px 53px;
   }
 `;
 
@@ -290,6 +341,7 @@ export const AchievementsListItem = styled.li`
   }
 
   @media ${themes.primary.media.minPCFullHD} {
+    padding-block: 21px;
   }
 `;
 
@@ -303,6 +355,9 @@ export const AchievementIcon = styled.img`
   }
 
   @media ${themes.primary.media.minPCFullHD} {
+    width: 39px;
+    height: 41px;
+    margin-right: 32px;
   }
 `;
 
@@ -318,6 +373,7 @@ export const AchievementText = styled.p`
   }
 
   @media ${themes.primary.media.minPCFullHD} {
+    font-size: 26.667px;
   }
 `;
 
@@ -362,9 +418,18 @@ export const PortfolioPageIconContainer = styled.div<IPortfolioIconProps>`
     margin-top: 16px;
     grid-template-columns: repeat(auto-fill, minmax(110px, 110px));
     row-gap: 20px;
-    margin-left: -20px;
     .image {
       height: 95px;
+      margin: 8px;
+    }
+  }
+  @media ${themes.primary.media.minPCFullHD} {
+    margin-top: 21px;
+    grid-template-columns: repeat(auto-fill, minmax(148px, 148px));
+    row-gap: 21px;
+    .image {
+      height: 127px;
+      margin: 10px;
     }
   }
 `;

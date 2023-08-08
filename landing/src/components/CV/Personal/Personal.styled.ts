@@ -13,6 +13,8 @@ export const PersonalContainer = styled.div`
   }
 
   @media ${themes.primary.media.minPCFullHD} {
+    height: 573px;
+    margin-top: 130px;
   }
 `;
 
@@ -31,6 +33,9 @@ export const Name = styled.h1`
   }
 
   @media ${themes.primary.media.minPCFullHD} {
+    font-size: 88px;
+    letter-spacing: 4.4px;
+    width: auto;
   }
 `;
 
@@ -49,6 +54,8 @@ export const Role = styled.h2`
   }
 
   @media ${themes.primary.media.minPCFullHD} {
+    font-size: 42.667px;
+    margin-top: 21px;
   }
 `;
 
@@ -72,6 +79,10 @@ export const ImageWrapper = styled.div`
   }
 
   @media ${themes.primary.media.minPCFullHD} {
+    max-width: 573px;
+    max-height: 573px;
+    width: 573px;
+    height: 573px;
   }
 `;
 
@@ -85,6 +96,8 @@ export const ImageContainer = styled.div`
   }
 
   @media ${themes.primary.media.minPCFullHD} {
+    width: 98%;
+    height: 98%;
   }
 `;
 
@@ -125,5 +138,9 @@ export const Summary = styled.p`
   }
 
   @media ${themes.primary.media.minPCFullHD} {
+    font-size: 29.333px;
+    margin-top: 32px;
+    max-width: 933px;
+    width: 53%;
   }
 `;
