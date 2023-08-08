@@ -25,7 +25,7 @@ export const TwistedBlockContainer = styled.div`
 export const TextContainer = styled.div`
   position: relative;
   width: 100%;
-  height: 372px;
+  min-height: 372px;
   border: 1px solid black;
   transition: all 0.5s;
   box-shadow: 10px 4px 0px 0px #000, 1px 0px 0px 0px #000;
@@ -38,45 +38,59 @@ export const TextContainer = styled.div`
   &.scrolled {
     background: #f1efed url(${twistedBlockBg.src});
     transition-delay: 0.8s;
-    background-size: 680px;
-    animation: ${twistedBlockAnimation} 0.8s steps(8) forwards;
+    background-size: 1120px;
+    animation: ${twistedBlockAnimation(2976)} 0.8s steps(8) forwards;
   }
 
   @media (max-width: 1799px) {
     box-shadow: 7px 2px 0px 0px #000;
-    height: 210px;
+    min-height: 210px;
     &.scrolled {
       background-size: 627px;
+      animation: ${twistedBlockAnimation(1664)} 0.8s steps(8) forwards;
     }
   }
 
-  @media ${themes.primary.media.maxTabletLandScape} {
-    height: 308px;
-  }
-
   @media (max-width: 767px) {
+    font-size: 20px;
     border-left: none;
     border-right: none;
     box-shadow: none;
     box-shadow: 0px 2px 0px 0px #000;
-    height: 168px;
+    min-height: 168px;
+  }
+
+  @media (max-width: 767px) {
+    font-size: 20px;
+    border-left: none;
+    border-right: none;
+    box-shadow: none;
+    box-shadow: 0px 2px 0px 0px #000;
+    min-height: 168px;
+  }
+  @media ${themes.primary.media.maxLowScreenMobile} {
+    &.scrolled {
+      background-size: 506px;
+      animation: ${twistedBlockAnimation(1344)} 0.8s steps(8) forwards;
+    }
   }
 `;
 
 export const TwistedText = styled.div`
   width: 100%;
-  position: absolute;
   text-align: center;
   font-size: 3.33em;
   padding: 32px;
   line-height: normal;
-  z-index: 2;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+
+  p {
+    padding: 0;
+    margin: 0;
+  }
 
   @media ${themes.primary.media.maxTabletLandScape} {
     padding: 20px;
+    font-size: 28px;
   }
   @media (max-width: 767px) {
     text-align: left;
