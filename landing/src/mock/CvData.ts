@@ -364,4 +364,6 @@ export const cvData: CvData = {
       },
     ],
   },
+  _id: "",
+  category: "",
 };
