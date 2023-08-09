@@ -200,7 +200,6 @@ const CvAddOrEdit = () => {
         }
     };
 
-    console.log(errors)
     const handleDeleteTechnology = (projectIndex: number, techIndex: number) => {
         const projectsCopy = { ...values.projects };
         const currentProjectTechnologies = projectsCopy.project[projectIndex]?.technology;
