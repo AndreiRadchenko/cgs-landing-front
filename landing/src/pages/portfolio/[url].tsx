@@ -261,7 +261,9 @@ const PortfolioProjectPage = () => {
               <Styled.InfoWrapperTimeTeam>
                 <Styled.InfoContainerTimeTeam>
                   <TimeIcon />
-                  <p>{project?.projectDuration} months</p>
+                  <p>{`${project?.projectDuration} month${
+                    project && +project?.projectDuration === 1 ? "" : "s"
+                  }`}</p>
                 </Styled.InfoContainerTimeTeam>
                 <Styled.InfoContainerTimeTeam>
                   <TeamIcon />

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { useFormikContext } from "formik";
 import { useQuery } from "@tanstack/react-query";
 import dynamic from "next/dynamic";
@@ -23,13 +23,11 @@ import { ArrowContainer, BlackButton } from "../../../styles/HomePage/General.st
 import { CvData } from "../../../types/Admin/AdminCv.types";
 import { IImage } from "../../../types/Admin/Admin.types";
 import { ITechnology } from "../../../types/Admin/technologies.types";
-
-const TextEditor = dynamic(() => import("../../TextEditor/TextEditor"), {
-    ssr: false,
-});
+import TextEditor from "../../TextEditor/TextEditor";
 
 const CvAddOrEdit = () => {
     const { values, handleChange, errors, handleSubmit, setValues } = useFormikContext<CvData>();
+    const [focusedAchievementIdx, setFocusedAchievementIdx] = useState(-1);
 
     const { data: category } = useQuery([queryKeys.getCvPage], () =>
         adminCvService.getCvPage()
@@ -173,26 +171,33 @@ const CvAddOrEdit = () => {
             return;
         }
 
-        setValues((prevValues) => {
-            const updatedProjects = prevValues.projects.project.map((project, idx) => {
-                if (idx === projectIdx) {
-                    const selectedTech: ITechnology = technologies.technologies[techIndex];
-                    return {
-                        ...project,
-                        technology: [...project.technology.filter((tech) => tech !== undefined), selectedTech],
-                    };
-                }
-                return project;
-            });
+        const selectedTech: ITechnology = technologies.technologies[techIndex];
 
-            return {
-                ...prevValues,
-                projects: {
-                    ...prevValues.projects,
-                    project: updatedProjects,
-                },
-            };
-        });
+        const isTechAlreadyAdded = values.projects.project[projectIdx].technology.some(
+            tech => tech.name === selectedTech.name
+        );
+
+        if (!isTechAlreadyAdded) {
+            setValues(prevValues => {
+                const updatedProjects = prevValues.projects.project.map((project, idx) => {
+                    if (idx === projectIdx) {
+                        return {
+                            ...project,
+                            technology: [...project.technology, selectedTech],
+                        };
+                    }
+                    return project;
+                });
+
+                return {
+                    ...prevValues,
+                    projects: {
+                        ...prevValues.projects,
+                        project: updatedProjects,
+                    },
+                };
+            });
+        }
     };
 
     const handleDeleteTechnology = (projectIndex: number, techIndex: number) => {
@@ -225,7 +230,7 @@ const CvAddOrEdit = () => {
                     header="Drop new image here"
                 />
             </div>
-            <div style={{ marginTop: 35 }}>
+            <div style={{ marginTop: 35, marginBottom: 35 }}>
                 <CategoryDropdown
                     isError={!!errors.category && !values.category.length}
                     category={category?.categories}
@@ -291,10 +296,15 @@ const CvAddOrEdit = () => {
                                     name={`info.content[${idx}].subtitle`}
                                 />
                                 {idx === 0 ? (
-                                    <TextEditor
-                                        header="Text"
-                                        name={`info.content[${idx}].text`}
-                                    />
+                                    <div>
+                                        <TextEditor
+                                            header="Text"
+                                            name={`info.content[${idx}].text`}
+                                        />
+                                        {errors?.info?.content?.[idx] && (
+                                            <Styles.ErrorMsg>Field is not filled</Styles.ErrorMsg>
+                                        )}
+                                    </div>
                                 ) : (
                                     <div>
                                         <SubHeaderWithInput
@@ -334,7 +344,7 @@ const CvAddOrEdit = () => {
                         {values?.skills?.card?.map((item, idx) => (
                             <Styles.CardWrapper key={idx}>
                                 <SubHeaderWithInput
-                                    isError={!!errors?.skills?.card?.[idx] && !values?.skills?.card[idx].subtitle}
+                                    isError={!!errors?.skills?.card?.[idx] && !values?.skills?.card[idx].subtitle && !values.skills.card.some((card) => !!card.subtitle?.trim())}
                                     inputValue={item.subtitle}
                                     onChangeFunction={handleChange}
                                     header={`${idx + 1} Card Subtitle`}
@@ -437,30 +447,47 @@ const CvAddOrEdit = () => {
                                         <div>
                                             <h2>Achievements</h2>
                                             {values?.projects?.project[idx]?.achievements?.map((achievement, achievementIdx) => (
-                                                <Styles.AchievementsGrid key={achievementIdx}>
-                                                    <Styled.AdminCategoryNameInput
-                                                        isError={!!errors?.projects?.project?.[idx] && !achievement}
-                                                        value={achievement}
-                                                        onChange={handleChange}
-                                                        name={`projects.project[${idx}].achievements[${achievementIdx}]`}
-                                                        className="cvAchievements"
-                                                        placeholder="Add new achievements"
-                                                    />
+                                                <div>
+                                                    <Styles.AchievementsGrid key={achievementIdx}>
+                                                        <div>
+                                                            <Styled.AdminCategoryNameInput
+                                                                isError={!!errors?.projects?.project?.[idx] && !achievement}
+                                                                value={achievement}
+                                                                onChange={handleChange}
+                                                                name={`projects.project[${idx}].achievements[${achievementIdx}]`}
+                                                                className="cvAchievements"
+                                                                placeholder="Add new achievements"
+                                                                onFocus={() => setFocusedAchievementIdx(achievementIdx)}
+                                                                onBlur={() => setFocusedAchievementIdx(-1)}
+                                                                maxLength={94}
+                                                            />
+                                                            {achievementIdx === focusedAchievementIdx &&
+                                                                <Styled.BottomText className="portfolio-admin-description">
+                                                                    <Styled.TextCounter>
+                                                                        {achievement.length}/94
+                                                                    </Styled.TextCounter>
+                                                                </Styled.BottomText>
+                                                            }
+                                                        </div>
+                                                        {achievementIdx === 0 ? (
+                                                            null
+                                                        ) : (
+                                                            <Styled.AdminCategoryDeleteBlockWrapper
+                                                                onClick={() => handleDeleteAchievement(idx, achievementIdx)}
+                                                                className="cvAchievement"
+                                                            >
+                                                                <TrashIcon />
+                                                            </Styled.AdminCategoryDeleteBlockWrapper>
+                                                        )}
+                                                    </Styles.AchievementsGrid>
                                                     {achievementIdx === values.projects.project[idx].achievements.length - 1 ? (
-                                                        <Styles.NewAchievementButton onClick={() => handleAddAchievement(idx)}>
-                                                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18" fill="none">
-                                                                <path d="M17.75 10.575H10.575V17.75H7.425V10.575H0.25V7.425H7.425V0.25H10.575V7.425H17.75V10.575Z" fill="#F1EFED" />
-                                                            </svg>
-                                                        </Styles.NewAchievementButton>
-                                                    ) : (
-                                                        <Styled.AdminCategoryDeleteBlockWrapper
-                                                            onClick={() => handleDeleteAchievement(idx, achievementIdx)}
-                                                            className="cvAchievement"
-                                                        >
-                                                            <TrashIcon />
-                                                        </Styled.AdminCategoryDeleteBlockWrapper>
-                                                    )}
-                                                </Styles.AchievementsGrid>
+                                                        <Styled.AdminCategoryAddBlockWrapper onClick={() => handleAddAchievement(idx)} className="cvAchievement">
+                                                            <Styled.AdminCategoryAddBlockBtn type="button">
+                                                                {"[ +add next ]"}
+                                                            </Styled.AdminCategoryAddBlockBtn>
+                                                        </Styled.AdminCategoryAddBlockWrapper>
+                                                    ) : (null)}
+                                                </div>
                                             ))}
                                         </div>
                                         <div>

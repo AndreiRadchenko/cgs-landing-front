@@ -170,13 +170,13 @@ ${css`
 `}
 `;
 
-export const twistedBlockAnimation = keyframes`
+export const twistedBlockAnimation = (positionY: number) => keyframes`
 ${css`
   from {
     background-position-y: 0;
   }
   to {
-    background-position-y: -1664px;
+    background-position-y: -${positionY}px;
   }
 `}
 `;
