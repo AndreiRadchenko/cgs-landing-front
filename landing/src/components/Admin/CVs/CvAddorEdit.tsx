@@ -225,7 +225,7 @@ const CvAddOrEdit = () => {
                     header="Drop new image here"
                 />
             </div>
-            <div style={{ marginTop: 35 }}>
+            <div style={{ marginTop: 35, marginBottom: 35 }}>
                 <CategoryDropdown
                     isError={!!errors.category && !values.category.length}
                     category={category?.categories}
@@ -294,7 +294,7 @@ const CvAddOrEdit = () => {
                                     <TextEditor
                                         header="Text"
                                         name={`info.content[${idx}].text`}
-                                    />
+                                        />     
                                 ) : (
                                     <div>
                                         <SubHeaderWithInput

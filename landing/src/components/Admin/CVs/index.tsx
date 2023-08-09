@@ -1,14 +1,18 @@
 import { useFormikContext } from "formik";
 import React, { useState } from "react";
 import { useQuery } from "@tanstack/react-query";
+import { scroller } from "react-scroll";
 
 import ButtonArrow from "../../../utils/ButtonArrow";
 import AdminBlockDropDown from "../Global/AdminBlockDropDown";
+import BlockDropdown from "../BlockDropdown";
 import SubHeaderWithInput from "../Global/SubHeaderWithInput";
 import CvCategory from "./CvCategory";
 import { queryKeys } from "../../../consts/queryKeys";
 import CvForm from "./CvForm";
 import { adminCvService } from "../../../services/adminCvPage";
+import { adminSitemapService } from "../../../services/adminSitemapPage";
+import PublishedCvs from "./PublishedCvs";
 
 import * as AdminPageStyled from "../../../styles/AdminPage";
 import { ArrowContainer, BlackButton } from "../../../styles/HomePage/General.styled";
@@ -16,7 +20,8 @@ import { ArrowContainer, BlackButton } from "../../../styles/HomePage/General.st
 import { ICvPageData } from "../../../types/Admin/AdminCv.types";
 
 const CvContentBlock = () => {
-    const [isNewCv, setIsNewCv] = useState<boolean>(false);
+    const [isNewCv, setIsNewCv] = useState<boolean>(true);
+    const [current, setCurrent] = useState(0);
 
     const { values, handleChange, handleSubmit, setValues } =
         useFormikContext<ICvPageData>();
@@ -25,7 +30,20 @@ const CvContentBlock = () => {
         adminCvService.getCv()
     );
 
+    const { data: sitemap } = useQuery([queryKeys.getSitemapData], () =>
+        adminSitemapService.getSitemapData()
+    );
+
     const handleClick = () => handleSubmit();
+
+    const scrollFunc = () => {
+        scroller.scrollTo("add-and-edit", {
+            duration: 500,
+            delay: 100,
+            smooth: true,
+            offset: 0,
+        });
+    };
 
     return (
         <AdminPageStyled.AdminPaddedBlock theme="light">
@@ -60,11 +78,25 @@ const CvContentBlock = () => {
                         />
                     </AdminBlockDropDown>
                 </div>
-                <AdminBlockDropDown title="ADD A NEW CV">
+                <BlockDropdown
+                    title="ADD A NEW CV"
+                    id="add-and-edit">
                     <CvForm
+                        current={current}
                         isNewCv={isNewCv}
                         setIsNewCv={setIsNewCv}
                         cv={data}
+                    />
+                </BlockDropdown>
+                <AdminBlockDropDown title="EDITING CV">
+                    <PublishedCvs
+                        current={current}
+                        setCurrent={setCurrent}
+                        isNewCv={isNewCv}
+                        setIsNewCv={setIsNewCv}
+                        data={data}
+                        sitemap={sitemap}
+                        scrollFunc={scrollFunc}
                     />
                 </AdminBlockDropDown>
             </AdminPageStyled.AdminContentBlock>
