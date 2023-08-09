@@ -47,6 +47,29 @@ export const InfoCard = styled.div`
   }
 
   @media ${themes.primary.media.minPCFullHD} {
+    &:nth-child(1) {
+      & .title-wrap {
+        padding-left: 68px;
+      }
+      & .skills-list {
+        padding-left: 88px;
+      }
+    }
+    /* &:nth-last-of-type(1) {
+      border-right: none;
+      &::after {
+        content: "";
+        height: 0;
+      }
+    } */
+    &:nth-child(n + 2) {
+      & .title-wrap {
+        padding-left: 68px;
+      }
+      & .skills-list {
+        padding-left: 88px;
+      }
+    }
   }
 `;
 
@@ -79,6 +102,9 @@ export const Icon = styled.img`
   }
 
   @media ${themes.primary.media.minPCFullHD} {
+    margin-right: 21px;
+    width: 74.66px;
+    height: 74.66px;
   }
 `;
 
@@ -94,11 +120,12 @@ export const Title = styled.h3`
 
   @media ${themes.primary.media.minMobile} {
     font-size: 30px;
-    line-height: 160%;
     letter-spacing: 1.5px;
   }
 
   @media ${themes.primary.media.minPCFullHD} {
+    font-size: 40px;
+    letter-spacing: 2px;
   }
 `;
 
@@ -110,6 +137,7 @@ export const SkillsList = styled.ul`
   }
 
   @media ${themes.primary.media.minPCFullHD} {
+    padding-top: 21px;
   }
 `;
 
@@ -136,5 +164,7 @@ export const SkillsItemText = styled.p`
   }
 
   @media ${themes.primary.media.minPCFullHD} {
+    font-size: 24px;
+    letter-spacing: 0.48px;
   }
 `;

@@ -1,14 +1,13 @@
 import React, { useEffect, useRef, useState } from "react";
-import { useQuery } from "@tanstack/react-query";
 import Image from "next/image";
 
 import * as Styled from "./Project.styled";
-import { IPortfolioResponse } from "../../../../types/Admin/AdminPortfolio.types";
-import { queryKeys } from "../../../../consts/queryKeys";
-import { adminPortfolioService } from "../../../../services/adminPortfolioPage";
 
 import achievement from "../../../../../public/CV/achievement.svg";
 import { ITechnology } from "../../../../types/Admin/technologies.types";
+import useIntersectionObserver from "../../../../hooks/useIntersectionObserver";
+import BorderRightSvg from "../../../../../public/CV/border-right.svg";
+import preview from "../../../../../public/preview.svg";
 
 interface IProps {
   projectName: string;
@@ -30,14 +29,9 @@ export const Project = ({
   idx,
 }: IProps) => {
   const refElement = useRef<HTMLUListElement>(null);
+  const refProjectCard = useRef<HTMLDivElement>(null);
   const [afterHeight, setAfterHeight] = useState("0px");
-
-  const { data, isLoading }: IPortfolioResponse = useQuery(
-    [queryKeys.getPortfolioPageData],
-    () => adminPortfolioService.getPageData()
-  );
-
-  const technologies = data?.technologies;
+  const entry = useIntersectionObserver(refProjectCard, { threshold: 0.6 });
 
   const parentHeight = refElement.current?.clientHeight || 0;
 
@@ -46,7 +40,10 @@ export const Project = ({
   }, [parentHeight]);
 
   return (
-    <Styled.InfoCard>
+    <Styled.InfoCard
+      ref={refProjectCard}
+      className={entry?.isIntersecting ? "intersecting" : ""}
+    >
       <Styled.NumberTitleWrapp>
         <Styled.Number>{idx + 1}</Styled.Number>
         <Styled.DesktopTitle>
@@ -77,21 +74,30 @@ export const Project = ({
                 </Styled.AchievementsListItem>
               ))}
             </Styled.AchievementsList>
+            {/* <Styled.BorderRight>
+              <Image
+                src={BorderRightSvg}
+                alt="border right"
+                layout="fill"
+                objectFit="cover"
+                objectPosition="right"
+              />
+            </Styled.BorderRight> */}
           </Styled.AchievementsListWrapper>
         </Styled.Achievements>
         <Styled.Technologies>
           <Styled.AchievementsTitle>Technologies:</Styled.AchievementsTitle>
           <Styled.PortfolioPageIconContainer firstSet>
-            {!isLoading &&
-              technology.map((e, idx) => (
-                <div key={idx} className="image">
-                  <Image
-                    src={e?.image?.url ? e.image.url : ""}
-                    alt="tech"
-                    layout="fill"
-                  />
-                </div>
-              ))}
+            {technology.map((e, idx) => (
+              <div key={idx} className="image">
+                <Image
+                  src={e?.image?.url ? e.image.url : ""}
+                  alt="tech"
+                  layout="fill"
+                  objectFit="contain"
+                />
+              </div>
+            ))}
           </Styled.PortfolioPageIconContainer>
         </Styled.Technologies>
       </Styled.AchievementsTechnologyWrapp>

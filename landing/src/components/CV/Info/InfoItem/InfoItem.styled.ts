@@ -10,13 +10,14 @@ export const InfoCard = styled.div`
   border-bottom: 1px solid ${themes.primary.colors.darkGrey};
   @media ${themes.primary.media.minMobile} {
     width: 49%;
-    /* min-width: 474px; */
     &:nth-child(2n + 1) {
       margin-top: 0;
     }
   }
 
   @media ${themes.primary.media.minPCFullHD} {
+    flex: 0;
+    padding-bottom: 10.67px;
   }
 `;
 
@@ -41,6 +42,8 @@ export const Title = styled.h3`
   }
 
   @media ${themes.primary.media.minPCFullHD} {
+    font-size: 29.333px;
+    line-height: 159%;
   }
 `;
 
@@ -66,5 +69,12 @@ export const Text = styled.div`
   }
 
   @media ${themes.primary.media.minPCFullHD} {
+    font-size: 24px;
+    line-height: 150%;
+    margin-top: 11px;
+    & p > span {
+      font-size: 18.66px;
+      line-height: 36px;
+    }
   }
 `;

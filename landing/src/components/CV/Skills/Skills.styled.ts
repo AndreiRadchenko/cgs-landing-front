@@ -8,6 +8,7 @@ export const SkillsContainer = styled.div`
   }
 
   @media ${themes.primary.media.minPCFullHD} {
+    margin-top: 180px;
   }
 `;
 
@@ -38,6 +39,7 @@ export const Title = styled.h2`
   }
 
   @media ${themes.primary.media.minPCFullHD} {
+    font-size: 53.333px;
   }
 `;
 
@@ -47,11 +49,11 @@ export const SkillsCardWrapper = styled.div`
     margin-left: -51px;
     width: 100vw;
     display: flex;
-    /* display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(375px, 1fr)); */
     border-bottom: 1px solid ${themes.primary.colors.darkGrey};
   }
 
   @media ${themes.primary.media.minPCFullHD} {
+    margin-top: 32px;
+    margin-left: -68px;
   }
 `;

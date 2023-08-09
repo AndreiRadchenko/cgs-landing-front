@@ -8,6 +8,7 @@ export const SectionContainer = styled.div`
   }
 
   @media ${themes.primary.media.minPCFullHD} {
+    margin-block: 180px;
   }
 `;
 
@@ -39,5 +40,7 @@ export const Title = styled.h2`
   }
 
   @media ${themes.primary.media.minPCFullHD} {
+    font-size: 53.333px;
+    height: auto;
   }
 `;
