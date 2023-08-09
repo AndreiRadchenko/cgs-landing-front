@@ -1,6 +1,8 @@
 import styled from "styled-components";
 import themes from "../../../../utils/themes";
 
+import BorderRightSvg from "../../../../../public/CV/border-right.svg";
+
 export const InfoCard = styled.div`
   position: relative;
   margin: 0;
@@ -284,8 +286,8 @@ interface IListProps {
 export const AchievementsListWrapper = styled.div<IListProps>`
   position: relative;
   margin: 8px 0 0 0;
-  height: ${(props) => props.afterHeight};
-  &::after {
+  /* height: ${(props) => props.afterHeight}; */
+  /* &::after {
     content: "";
     position: absolute;
     top: 0px;
@@ -294,7 +296,7 @@ export const AchievementsListWrapper = styled.div<IListProps>`
     border: 7px solid ${themes.primary.colors.primary};
     border-color: transparent transparent transparent
       ${themes.primary.colors.primary};
-  }
+  } */
   @media ${themes.primary.media.minMobile} {
     margin-top: 16px;
   }
@@ -304,14 +306,38 @@ export const AchievementsListWrapper = styled.div<IListProps>`
   }
 `;
 
+export const BorderRight = styled.div`
+  position: absolute;
+  top: 0;
+  right: -20px;
+  width: 20px;
+  height: 100%;
+  z-index: 30;
+  /* object-fit: contain; */
+  /* border: 17px solid rgba(135, 13, 70, 0.2); */
+`;
+
 export const AchievementsList = styled.ul<IListProps>`
+  /* position: relative; */
   box-sizing: border-box;
   margin: 0;
   padding: 16px;
   list-style: none;
   border: 1px solid ${themes.primary.colors.primary};
-  border-right: none;
+  /* border-right: none; */
   background-color: #f1efed;
+  /* &::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: -17px;
+    height: 100%;
+    width: 100%;
+    background-image: url("/CV/border-right.svg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+  } */
 
   @media ${themes.primary.media.minMobile} {
     padding: 16px 40px;

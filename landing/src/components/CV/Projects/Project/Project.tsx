@@ -6,6 +6,8 @@ import * as Styled from "./Project.styled";
 import achievement from "../../../../../public/CV/achievement.svg";
 import { ITechnology } from "../../../../types/Admin/technologies.types";
 import useIntersectionObserver from "../../../../hooks/useIntersectionObserver";
+import BorderRightSvg from "../../../../../public/CV/border-right.svg";
+import preview from "../../../../../public/preview.svg";
 
 interface IProps {
   projectName: string;
@@ -72,6 +74,15 @@ export const Project = ({
                 </Styled.AchievementsListItem>
               ))}
             </Styled.AchievementsList>
+            {/* <Styled.BorderRight>
+              <Image
+                src={BorderRightSvg}
+                alt="border right"
+                layout="fill"
+                objectFit="cover"
+                objectPosition="right"
+              />
+            </Styled.BorderRight> */}
           </Styled.AchievementsListWrapper>
         </Styled.Achievements>
         <Styled.Technologies>
