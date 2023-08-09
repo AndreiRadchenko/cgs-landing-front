@@ -17,7 +17,10 @@ export const AdminCvValidation = yup.object().shape({
       .of(
         yup.object().shape({
           subtitle: yup.string().required(),
-          text: yup.string().required(),
+          text: yup
+            .string()
+            .transform((value) => value.replace(/<[^>]+>|&nbsp;/g, ""))
+            .required(),
         })
       )
       .required(),
