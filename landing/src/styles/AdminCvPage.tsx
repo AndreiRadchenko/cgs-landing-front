@@ -16,7 +16,7 @@ export const DropdownWrapper = styled.div`
     margin-bottom: 24px;
 `;
 
-export const DropdownButton = styled.div<{isError?: boolean}>`
+export const DropdownButton = styled.div<{ isError?: boolean }>`
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -30,7 +30,7 @@ export const DropdownButton = styled.div<{isError?: boolean}>`
   box-sizing: border-box;
   border: 1px solid
     ${({ isError }) =>
-      isError ? "red" : "#8F8E93"};
+    isError ? "red" : "#8F8E93"};
   font-family: ${themes.primary.font.family.namu};
   font-weight: 900;
   font-size: 16px;
@@ -98,6 +98,17 @@ export const InfoGrid = styled.div`
   display: grid;
   grid-template-columns: 1fr 3fr;
   gap: 24px
+`;
+
+export const ErrorMsg = styled.div`
+  color: red;
+  font-size: 14px;
+  font-family: ${themes.primary.font.family.namu};
+  font-weight: 900;
+  position: relative;
+  display: flex;
+  justify-content: end;
+  margin-top: 10px;
 `;
 
 export const CardWrapper = styled.div`
@@ -186,4 +197,103 @@ export const AddProjectBtn = styled.button`
   align-items: center;
   justify-content: center;
   margin-top: 16px;
+`;
+
+export const AdminCvItemFrame = styled.div`
+  border: 1px solid #8F8E93;
+
+  &.fade {
+    &::after {
+    content: "";
+    background-color: #F1EFED;
+    opacity: 0.6;
+    width: 1112px;
+    height: 246px;
+    z-index: 100;
+    margin-top: -245px;
+    margin-left: -1px;
+    position: absolute;
+  }
+  }
+`;
+
+export const AdminCvItemFlexContent = styled.div`
+  display: flex;
+  justify-content: space-between;
+  padding: 16px 20px;
+`;
+
+export const AdminCvItemLeftFlex = styled.div`
+  display: flex;
+  align-items: center;
+`;
+
+export const AdminCvItemTitle = styled.div`
+  margin-left: 16px;
+`;
+
+export const AdminCvItemName = styled.div`
+  color: #000;
+  font-size: 30px;
+  font-style: normal;
+  font-weight: 900;
+  line-height: 130%;
+  font-family: ${themes.primary.font.family.namu};
+`;
+
+export const AdminCvItemRole = styled.div`
+  color: #8F8E93;
+  font-family: ${themes.primary.font.family.namu};
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 900;
+  line-height: 130%;
+`;
+
+export const AdminCvItemRightFlex = styled.div``;
+
+export const AdminCvItemLink = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 4px;
+
+  p {
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 900;
+    line-height: 130%;
+    font-family: ${themes.primary.font.family.namu};
+  }
+`;
+
+export const AdminCvItemExport = styled.div`
+color: #5869DD;
+font-family: ${themes.primary.font.family.namu};
+font-size: 14px;
+font-style: normal;
+font-weight: 900;
+line-height: normal;
+`;
+
+export const AdminCvItemEditDelete = styled.div`
+  display: flex;
+  justify-content: space-between;
+  padding: 14px 20px;
+  border-top: 1px solid  #8F8E93;
+  align-items: center;
+`;
+
+export const AdminCvItemEdit = styled.div`
+  width: 25px;
+  height: 25px;
+  cursor: pointer;
+`;
+
+export const AdminCvItemDelete = styled.div`
+  color: red;
+  font-size: 14px;
+  font-family: ${themes.primary.font.family.namu};
+  font-weight: 900;
+  cursor: pointer;
 `;

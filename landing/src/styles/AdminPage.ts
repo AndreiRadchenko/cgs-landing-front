@@ -1156,6 +1156,14 @@ export const AdminCategoryBlock = styled.div`
     padding: 18px 14px;
     border: 1px solid #8f8e93;
   }
+
+  & .admin-cv-dropdown {
+    color: black;
+    font-size: 16px;
+    width: 347px;
+    padding: 18px 14px;
+    border: 1px solid #8f8e93;
+  }
 `;
 
 export const AdminDropDownMenu = styled.div<IBlockDropdownProps>`
@@ -1214,6 +1222,11 @@ export const AdminDropDownMenuList = styled.div`
   z-index: 70;
   &.blog-admin {
     position: relative;
+  }
+
+  &.admin-cv-dropdown {
+    width: 347px;
+    padding: 0;
   }
 `;
 
@@ -1781,6 +1794,10 @@ export const AdminFeedbackText = styled.p`
 
 export const DraggableWrapper = styled.div`
   margin: 10px 0;
+
+  &.adminCv {
+    margin: 24px 0;
+  }
 `;
 
 export const SubtitleGrid = styled.div`

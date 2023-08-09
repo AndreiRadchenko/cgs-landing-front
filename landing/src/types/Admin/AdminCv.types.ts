@@ -50,3 +50,8 @@ export interface CvData {
     project: CvProject[];
   };
 }
+
+export interface ICvItem {
+  item: CvData;
+  i: number
+}

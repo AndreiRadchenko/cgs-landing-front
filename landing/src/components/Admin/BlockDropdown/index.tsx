@@ -29,7 +29,7 @@ const BlockDropdown = ({
           {title}
         </Styled.BlockDropdownHeaderTitle>
         <Styled.BlockDropdownHeaderIcon rotate={!isOpen}>
-          <Image width={13} height={7} src={ArrowDown.src} alt="Arrow" />
+          <Image width={20} height={9} src={ArrowDown.src} alt="Arrow" />
         </Styled.BlockDropdownHeaderIcon>
       </Styled.BlockDropdownHeader>
       {isOpen && (
