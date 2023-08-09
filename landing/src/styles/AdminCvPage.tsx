@@ -141,6 +141,7 @@ export const DeleteStack = styled.button`
   font-weight: 900;
   cursor: pointer;
   text-align: end;
+  font-family: ${themes.primary.font.family.namu};
 `;
 
 export const ProjectWrapper = styled.div`
