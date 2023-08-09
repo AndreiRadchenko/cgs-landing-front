@@ -344,7 +344,7 @@ const CvAddOrEdit = () => {
                         {values?.skills?.card?.map((item, idx) => (
                             <Styles.CardWrapper key={idx}>
                                 <SubHeaderWithInput
-                                    isError={!!errors?.skills?.card?.[idx] && !values?.skills?.card[idx].subtitle}
+                                    isError={!!errors?.skills?.card?.[idx] && !values?.skills?.card[idx].subtitle && !values.skills.card.some((card) => !!card.subtitle?.trim())}
                                     inputValue={item.subtitle}
                                     onChangeFunction={handleChange}
                                     header={`${idx + 1} Card Subtitle`}
