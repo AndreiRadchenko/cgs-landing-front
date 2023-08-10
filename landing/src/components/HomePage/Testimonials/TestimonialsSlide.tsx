@@ -9,11 +9,23 @@ import { ITestimonialsSlideProps } from "../../../types/Components.types";
 
 import star from "../../../../public/HomePageDecoration/feedbackStar.svg";
 
-const TestimonialsSlide = ({ setIsOpen }: ITestimonialsSlideProps) => {
+const TestimonialsSlide = ({
+  setIsOpen,
+  subtitle,
+  setIndex,
+  slideNum,
+  testimonialImg,
+}: ITestimonialsSlideProps) => {
+  const clickHandler = () => {
+    setIsOpen(true);
+    setIndex(slideNum);
+  };
+
   return (
-    <Styled.TestimonialsSlideContainer onClick={() => setIsOpen(true)}>
+    <Styled.TestimonialsSlideContainer onClick={clickHandler}>
+      <Image layout={"fill"} src={testimonialImg} alt={"clients"} />
       <Styled.TestimonialsSlideHeadline>
-        Damien Dalli / Head of Design, Founder of Heartstring AI
+        {subtitle}
       </Styled.TestimonialsSlideHeadline>
       <Styled.TestimonialsSlideStar>
         {[...Array(5)].map((_, i) => (
