@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import ReactPlayer from "react-player";
 import Image from "next/image";
 
@@ -9,19 +9,10 @@ import { ITestimonialsModalProps } from "../../../types/Components.types";
 import cross from "../../../../public/closeBtn.svg";
 import star from "../../../../public/HomePageDecoration/feedbackStar.svg";
 
-const TestimonialsModal = ({ setIsOpen }: ITestimonialsModalProps) => {
-  const [seeMore, setSeeMore] = useState(false);
-
-  const data = `After talking with many different teams, I am very happy with my
-            decision to hire CGS. Finding a web developer is no easy task,
-            especially when you're just an individual, not a company, and have
-            no idea where to start. But everyone at CGS is very personable and
-            easy to connect with. Notably, the main contact on UpWork,
-            Khrystyna, was kind, helpful, and responsive since day one, and her
-            communication style stood out among a sea of other candidates. Their
-            business analyst, Oleksandr, was very patient and worked with me for
-            months before the contract even started to fine-tune my vision and
-            help me stay within my budget.`;
+const TestimonialsModal = ({
+  setIsOpen,
+  testimonial,
+}: ITestimonialsModalProps) => {
   return (
     <Styled.TestimonialsModalContainer>
       <Styled.TestimonialsCrossContainer onClick={() => setIsOpen(false)}>
@@ -29,7 +20,7 @@ const TestimonialsModal = ({ setIsOpen }: ITestimonialsModalProps) => {
       </Styled.TestimonialsCrossContainer>
       <Styled.TestimonialsVideoContainer>
         <ReactPlayer
-          url="https://www.youtube.com/watch?v=AHbAAnt9qsY&ab_channel=WebDevCody"
+          url={testimonial.videoUrl}
           width={"100%"}
           height={"34.7em"}
         />
@@ -37,10 +28,10 @@ const TestimonialsModal = ({ setIsOpen }: ITestimonialsModalProps) => {
           <Styled.TestimonialsInfoHeader>
             <div>
               <Styled.TestimonialsHeaderName>
-                Damien Dalli
+                {testimonial.name}
               </Styled.TestimonialsHeaderName>
-              <Styled.TestimonialsHeaderPosition>
-                Head of Design // Founder of Heartstring AI
+              <Styled.TestimonialsHeaderPosition className={"desktop"}>
+                {testimonial.company}
               </Styled.TestimonialsHeaderPosition>
             </div>
             <div>
@@ -49,13 +40,11 @@ const TestimonialsModal = ({ setIsOpen }: ITestimonialsModalProps) => {
               ))}
             </div>
           </Styled.TestimonialsInfoHeader>
+          <Styled.TestimonialsHeaderPosition className={"mobile"}>
+            {testimonial.company}
+          </Styled.TestimonialsHeaderPosition>
           <Styled.TestimonialsInfoText>
-            {seeMore ? data : `${data.substring(0, 160)}... `}
-            {seeMore ? (
-              ""
-            ) : (
-              <span onClick={() => setSeeMore(true)}>see more</span>
-            )}
+            {testimonial.text}
           </Styled.TestimonialsInfoText>
         </Styled.TestimonialsVideoInfoContainer>
         <Styled.HoverBlockTestimonials>
