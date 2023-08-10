@@ -13,6 +13,7 @@ import CvForm from "./CvForm";
 import { adminCvService } from "../../../services/adminCvPage";
 import { adminSitemapService } from "../../../services/adminSitemapPage";
 import PublishedCvs from "./PublishedCvs";
+import MetaTagsBlock from "../MetaTagsBlock";
 
 import * as AdminPageStyled from "../../../styles/AdminPage";
 import { ArrowContainer, BlackButton } from "../../../styles/HomePage/General.styled";
@@ -100,6 +101,12 @@ const CvContentBlock = () => {
                     />
                 </AdminBlockDropDown>
             </AdminPageStyled.AdminContentBlock>
+            <AdminPageStyled.MetaBlockWraper>
+                <MetaTagsBlock 
+                    sitemap="/"
+                    queryKey={queryKeys.getCvPage}
+                />
+            </AdminPageStyled.MetaBlockWraper>
         </AdminPageStyled.AdminPaddedBlock>
     )
 }
