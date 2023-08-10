@@ -33,17 +33,19 @@ const ImageBackground = ({ page }: { page: number }) => {
   if (page % 3 === 0) {
     return (
       <>
-        <EstimationImageContainer style={{ bottom: "40%", zIndex: -10 }}>
+        <EstimationImageContainer style={{ top: "865px", zIndex: -10 }}>
           <Image src={bgImage1For3} alt="Image" />
         </EstimationImageContainer>
-        <EstimationImageContainer style={{ top: "15%", right: 0, zIndex: -10 }}>
+        <EstimationImageContainer
+          style={{ top: "330px", right: 0, zIndex: -10 }}
+        >
           <Image src={bgImage2For3} alt="Image" />
         </EstimationImageContainer>
-        <EstimationImageContainer style={{ bottom: "20%", zIndex: -10 }}>
+        <EstimationImageContainer style={{ top: "1500px", zIndex: -10 }}>
           <Image src={bgImageDecor1For3} alt="Image" />
         </EstimationImageContainer>
         <EstimationImageContainer
-          style={{ bottom: "-3%", right: 0, zIndex: -10 }}
+          style={{ top: "1200px", right: 0, zIndex: -10 }}
         >
           <Image src={bgImageDecor2For3} alt="Image" />
         </EstimationImageContainer>

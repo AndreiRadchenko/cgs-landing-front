@@ -5,7 +5,7 @@ import AdminDropDown from "../Global/AdminDropDown";
 
 const options = [
   { optionType: "RADIO_BUTTON", optionText: "Radio button" },
-  { optionType: "CHECKBOX", optionText: "List" },
+  { optionType: "CHECKBOX", optionText: "Checkbox" },
   { optionType: "TEXT", optionText: "< Text >" },
 ];
 
