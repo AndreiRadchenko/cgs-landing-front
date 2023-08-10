@@ -2,7 +2,10 @@ import styled from "styled-components";
 import themes from "../../../utils/themes";
 
 export const SkillsContainer = styled.div`
+  position: relative;
   margin-top: 100px;
+  background-color: ${themes.primary.colors.blogBackground};
+
   @media ${themes.primary.media.minMobile} {
     margin-top: 140px;
   }
@@ -55,5 +58,26 @@ export const SkillsCardWrapper = styled.div`
   @media ${themes.primary.media.minPCFullHD} {
     margin-top: 32px;
     margin-left: -68px;
+  }
+`;
+
+export const BgImageContainer = styled.div`
+  width: 625px;
+  height: 414px;
+  transform: scale(1) rotateZ(-5deg);
+  position: absolute;
+  bottom: -260px;
+  right: 0px;
+  z-index: -2;
+  @media ${themes.primary.media.minMobile} {
+    bottom: -230px;
+    right: -100px;
+  }
+
+  @media ${themes.primary.media.minPCFullHD} {
+    width: 43vw;
+    height: 28.8vw;
+    bottom: -15vw;
+    right: -7vw;
   }
 `;

@@ -3,7 +3,9 @@ import themes from "../../../../utils/themes";
 
 export const InfoCard = styled.div`
   width: 100%;
-  margin: 0 0 0 0;
+  margin: 0;
+  background-color: ${themes.primary.colors.blogBackground};
+  z-index: 2;
   &:nth-last-of-type(1) {
     position: relative;
     &::after {
@@ -55,13 +57,6 @@ export const InfoCard = styled.div`
         padding-left: 88px;
       }
     }
-    /* &:nth-last-of-type(1) {
-      border-right: none;
-      &::after {
-        content: "";
-        height: 0;
-      }
-    } */
     &:nth-child(n + 2) {
       & .title-wrap {
         padding-left: 68px;
@@ -80,6 +75,8 @@ export const TitleWrapp = styled.div`
   padding: 16px 20px;
   border-top: 1px solid ${themes.primary.colors.darkGrey};
   border-bottom: 1px solid ${themes.primary.colors.darkGrey};
+  background-color: ${themes.primary.colors.blogBackground};
+  z-index: 2;
 
   @media ${themes.primary.media.minMobile} {
     margin-left: 0;

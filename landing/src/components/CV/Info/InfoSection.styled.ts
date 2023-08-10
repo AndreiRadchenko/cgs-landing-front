@@ -2,6 +2,7 @@ import styled from "styled-components";
 import themes from "../../../utils/themes";
 
 export const InfoSectionContainer = styled.div`
+  position: relative;
   margin-top: 100px;
 
   @media ${themes.primary.media.minMobile} {
@@ -76,7 +77,27 @@ export const InfoItemGrid = styled.div`
   @media ${themes.primary.media.minPCFullHD} {
     margin-left: 32px;
     column-gap: 21.3px;
-    /* height: 232px; */
     max-height: 330px;
+  }
+`;
+
+export const BgImageContainer = styled.div`
+  width: 676px;
+  height: 242px;
+  position: absolute;
+  bottom: -260px;
+  left: 0px;
+  z-index: -3;
+  @media ${themes.primary.media.minMobile} {
+    bottom: -300px;
+    left: -40px;
+    z-index: 1;
+  }
+
+  @media ${themes.primary.media.minPCFullHD} {
+    width: 47vw;
+    height: 16.8vw;
+    bottom: -20vw;
+    left: -4vw;
   }
 `;

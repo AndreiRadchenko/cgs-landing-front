@@ -1,5 +1,5 @@
 import React from "react";
-import parse, { HTMLReactParserOptions, Element } from "html-react-parser";
+import parse from "html-react-parser";
 import { useMediaQuery } from "@mui/material";
 
 import * as Styled from "./InfoItem.styled";

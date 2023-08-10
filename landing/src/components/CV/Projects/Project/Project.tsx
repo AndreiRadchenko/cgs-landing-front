@@ -1,13 +1,13 @@
 import React, { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 
+import { AchievementsList } from "./AchievementsList";
+
 import * as Styled from "./Project.styled";
 
 import achievement from "../../../../../public/CV/achievement.svg";
 import { ITechnology } from "../../../../types/Admin/technologies.types";
 import useIntersectionObserver from "../../../../hooks/useIntersectionObserver";
-import BorderRightSvg from "../../../../../public/CV/border-right.svg";
-import preview from "../../../../../public/preview.svg";
 
 interface IProps {
   projectName: string;
@@ -28,16 +28,8 @@ export const Project = ({
   technology,
   idx,
 }: IProps) => {
-  const refElement = useRef<HTMLUListElement>(null);
   const refProjectCard = useRef<HTMLDivElement>(null);
-  const [afterHeight, setAfterHeight] = useState("0px");
   const entry = useIntersectionObserver(refProjectCard, { threshold: 0.6 });
-
-  const parentHeight = refElement.current?.clientHeight || 0;
-
-  useEffect(() => {
-    setAfterHeight(`${parentHeight - 12}px`);
-  }, [parentHeight]);
 
   return (
     <Styled.InfoCard
@@ -60,33 +52,9 @@ export const Project = ({
         <Styled.AboutText>{summary}</Styled.AboutText>
       </Styled.About>
       <Styled.AchievementsTechnologyWrapp>
-        <Styled.Achievements>
-          <Styled.AchievementsTitle>Achievements:</Styled.AchievementsTitle>
-          <Styled.AchievementsListWrapper afterHeight={afterHeight}>
-            <Styled.AchievementsList ref={refElement} afterHeight={afterHeight}>
-              {achievements.map((e, idx) => (
-                <Styled.AchievementsListItem key={idx}>
-                  <Styled.AchievementIcon
-                    src={achievement.src}
-                    alt="checkbox done"
-                  />
-                  <Styled.AchievementText>{e}</Styled.AchievementText>
-                </Styled.AchievementsListItem>
-              ))}
-            </Styled.AchievementsList>
-            {/* <Styled.BorderRight>
-              <Image
-                src={BorderRightSvg}
-                alt="border right"
-                layout="fill"
-                objectFit="cover"
-                objectPosition="right"
-              />
-            </Styled.BorderRight> */}
-          </Styled.AchievementsListWrapper>
-        </Styled.Achievements>
+        <AchievementsList achievements={achievements} />
         <Styled.Technologies>
-          <Styled.AchievementsTitle>Technologies:</Styled.AchievementsTitle>
+          <Styled.TechnologiesTitle>Technologies:</Styled.TechnologiesTitle>
           <Styled.PortfolioPageIconContainer firstSet>
             {technology.map((e, idx) => (
               <div key={idx} className="image">

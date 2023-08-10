@@ -83,6 +83,7 @@ export const cvData: CvData = {
           "Implemented online ordering system",
           "Implemented remote payments via NFC tag",
           "Implemented a feature for leaving a tip for a waiter online",
+          "Implemented a feature for leaving a tip for a waiter online",
         ],
         technology: [
           {
