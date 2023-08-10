@@ -50,18 +50,17 @@ export const AchievementsList = styled.ul`
   box-sizing: border-box;
   margin: 0;
   padding: 0;
-  /* padding: 16px; */
+  padding: 16px;
   list-style: none;
   background-color: #f1efed;
   max-height: auto;
 
   @media ${themes.primary.media.minMobile} {
-    /* padding: 16px 40px; */
+    padding: 0;
     padding-left: 16px;
     max-height: 308px;
     overflow-y: auto;
     scroll-behavior: smooth;
-    /* overscroll-behavior: none; */
     direction: rtl;
 
     ::-webkit-scrollbar {
@@ -82,7 +81,6 @@ export const AchievementsList = styled.ul`
   }
 
   @media ${themes.primary.media.minPCFullHD} {
-    /* padding: 21px 53px; */
     padding-left: 18px;
     max-height: 412px;
   }

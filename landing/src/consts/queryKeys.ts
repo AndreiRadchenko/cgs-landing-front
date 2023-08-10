@@ -98,6 +98,7 @@ export const queryKeys = {
   getCvPage: "getCvPage",
   updateCvPage: "updateCvPage",
   getCvs: "getCvs",
+  getCvById: "getCvById",
   postCv: "postCv",
   updateCvById: "updateCvById",
   deleteCvById: "deleteCvById",
@@ -123,5 +124,5 @@ export const queryKeys = {
   // technologies
   getTechnologies: "getTechnologies",
   updateTechnologies: "updateTechnologies",
-  removeTechnologies: "removeTechnologies"
+  removeTechnologies: "removeTechnologies",
 };

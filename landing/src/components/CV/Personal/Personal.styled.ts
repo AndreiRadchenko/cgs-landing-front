@@ -64,6 +64,7 @@ export const ImageWrapper = styled.div`
   width: 335px;
   height: 335px;
   margin: 16px 0 16px 0;
+  z-index: 5;
 
   @media ${themes.primary.media.minMobile} {
     margin: 0;
@@ -142,5 +143,30 @@ export const Summary = styled.p`
     margin-top: 32px;
     max-width: 933px;
     width: 53%;
+  }
+`;
+
+export const BgImageContainer = styled.div`
+  width: 564px;
+  height: 596px;
+  transform: rotateZ(5deg);
+  position: absolute;
+  bottom: -150px;
+  right: -250px;
+  z-index: -1;
+  @media ${themes.primary.media.minMobile} {
+    width: 564px;
+    height: 596px;
+    bottom: -160px;
+    right: -60px;
+    z-index: 2;
+    transform: rotateZ(0);
+  }
+
+  @media ${themes.primary.media.minPCFullHD} {
+    width: 39vw;
+    height: 41vw;
+    bottom: -11vw;
+    right: -70px;
   }
 `;

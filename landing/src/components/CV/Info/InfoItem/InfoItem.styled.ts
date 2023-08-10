@@ -9,7 +9,7 @@ export const InfoCard = styled.div`
 
   border-bottom: 1px solid ${themes.primary.colors.darkGrey};
   @media ${themes.primary.media.minMobile} {
-    width: 49%;
+    width: 49.2%;
     &:nth-child(2n + 1) {
       margin-top: 0;
     }
@@ -73,7 +73,7 @@ export const Text = styled.div`
     line-height: 150%;
     margin-top: 11px;
     & p > span {
-      font-size: 18.66px;
+      font-size: 18px;
       line-height: 36px;
     }
   }

@@ -1,9 +1,11 @@
 import React from "react";
+import Image from "next/image";
 
 import { SkillCard } from "./SkillCard/SkillCard";
 
 import * as Styled from "./Skills.styled";
 import { CvData } from "../../../types/Admin/AdminCv.types";
+import LineBG from "../../../../public/CV/03.svg";
 
 interface IProps {
   data: CvData;
@@ -27,6 +29,14 @@ export const Skills = ({
           />
         ))}
       </Styled.SkillsCardWrapper>
+      <Styled.BgImageContainer>
+        <Image
+          src={LineBG.src}
+          alt="dashed line"
+          layout="fill"
+          objectFit="contain"
+        />
+      </Styled.BgImageContainer>
     </Styled.SkillsContainer>
   );
 };

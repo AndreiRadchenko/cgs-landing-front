@@ -8,6 +8,8 @@ export const InfoCard = styled.div`
   margin-left: -20px;
   padding-inline: 20px;
   width: 100vw;
+  background-color: ${themes.primary.colors.blogBackground};
+  transition: background-color 0.3s ease-in-out;
   &::before {
     content: "";
     position: absolute;
@@ -26,6 +28,7 @@ export const InfoCard = styled.div`
     transition: opacity 0.3s ease-in-out;
   }
   &.intersecting {
+    background-color: transparent;
     &::before {
       opacity: 1;
     }
