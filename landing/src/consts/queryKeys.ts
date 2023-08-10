@@ -96,6 +96,7 @@ export const queryKeys = {
   addDomainService: "addDomainService",
   removeDomainService: "removeDomainService",
   getCvPage: "getCvPage",
+  getPaginatedAndFilteredCvs: "getPaginatedAndFilteredCvs",
   updateCvPage: "updateCvPage",
   getCvs: "getCvs",
   postCv: "postCv",
@@ -123,5 +124,5 @@ export const queryKeys = {
   // technologies
   getTechnologies: "getTechnologies",
   updateTechnologies: "updateTechnologies",
-  removeTechnologies: "removeTechnologies"
+  removeTechnologies: "removeTechnologies",
 };

@@ -19,5 +19,7 @@ export const ListItemWrapper = styled.div`
 `;
 
 export const ListItemTitle = styled.div``;
+export const ListItemLink = styled.div``;
+export const ListItemArrowContainer = styled.div``;
 export const ListItemName = styled.div``;
 export const ListItemPosition = styled.div``;

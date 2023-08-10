@@ -11,23 +11,18 @@ export const ListItem = ({ info }: any) => {
         <Styled.ListItemName></Styled.ListItemName>
         <Styled.ListItemPosition></Styled.ListItemPosition>
       </Styled.ListItemTitle>
-      {/* <Styled.ListItemLink
-        isProjectLink={!!project.button}
-        isInfoCont={false}
-      >
-        {project.button ? (
-          <a href={project.button} target="_blank" rel="noreferrer">
+      <Styled.ListItemLink>
+        {info ? (
+          <a href={info} target="_blank" rel="noreferrer">
             project link
           </a>
         ) : (
           <span>NDA</span>
         )}
-        <Styled.ProjectsContainerArrowContainer
-          isProjectLink={!!project.button}
-        >
+        <Styled.ListItemArrowContainer>
           <ButtonArrow />
-        </Styled.ProjectsContainerArrowContainer>
-      </Styled.ListItemLink> */}
+        </Styled.ListItemArrowContainer>
+      </Styled.ListItemLink>
     </Styled.ListItemWrapper>
   );
 };
