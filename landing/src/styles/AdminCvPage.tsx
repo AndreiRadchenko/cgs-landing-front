@@ -259,7 +259,7 @@ export const AdminCvItemLink = styled.div`
   justify-content: flex-end;
   gap: 4px;
 
-  p {
+  a {
     font-size: 18px;
     font-style: normal;
     font-weight: 900;
@@ -275,6 +275,8 @@ font-size: 14px;
 font-style: normal;
 font-weight: 900;
 line-height: normal;
+margin-top: 16px;
+cursor: pointer;
 `;
 
 export const AdminCvItemEditDelete = styled.div`
