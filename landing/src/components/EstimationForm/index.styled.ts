@@ -55,6 +55,7 @@ export const MobleTextWrapper = styled.div`
 export const StyledButton = styled.button`
   background: ${themes.primary.colors.headerBorderHover};
   position: relative;
+  text-transform: uppercase;
   box-shadow: 0px 0px 0px ${themes.primary.colors.black};
   padding: 0 36px;
   border: 1.8px solid ${themes.primary.colors.black};
