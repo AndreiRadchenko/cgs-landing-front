@@ -36,6 +36,7 @@ export const AchievementsListWrapper = styled.div`
   border: 1px solid ${themes.primary.colors.primary};
   border-right: none;
   background-color: #f1efed;
+  z-index: 5;
   @media ${themes.primary.media.minMobile} {
     margin-top: 16px;
     padding: 16px 0 16px 16px;
@@ -87,16 +88,17 @@ export const AchievementsList = styled.ul`
 `;
 
 export const Shadow = styled.div`
-  width: 100%;
-  height: calc(100% - 16px);
-  left: 8px;
-  top: 8px;
-  background: ${themes.primary.colors.primary};
   position: absolute;
+  top: 8px;
+  right: -8px;
+  width: 8px;
+  height: calc(100% - 16px);
+  background: ${themes.primary.colors.primary};
   z-index: -1;
   @media ${themes.primary.media.minMobile} {
+    width: 10px;
     height: calc(100% - 18px);
-    left: 10px;
+    right: -10px;
     top: 9px;
   }
 `;

@@ -1,5 +1,7 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 import themes from "../../../../utils/themes";
+import { IIcon, ISlide } from "../../../../types/Decoration.types";
+import { float } from "../../../../styles/Animations.styled";
 
 export const InfoCard = styled.div`
   width: 100%;
@@ -89,13 +91,18 @@ export const TitleWrapp = styled.div`
   }
 `;
 
-export const Icon = styled.img`
+export const Icon = styled.img<IIcon>`
   width: 40px;
   height: 40px;
   margin-right: 16px;
+  animation: none;
   @media ${themes.primary.media.minMobile} {
     width: 56px;
     height: 56px;
+    animation: ${({ xOffset }) =>
+      css`
+        ${float(xOffset)} 3s infinite linear
+      `};
   }
 
   @media ${themes.primary.media.minPCFullHD} {
