@@ -218,7 +218,7 @@ const CvAddOrEdit = () => {
     const getTextLengthWithoutTags = (htmlText: string) => {
         const textWithoutTags = htmlText.replace(/(<([^>]+)>)/ig, "");
         return textWithoutTags.length;
-      };
+    };
 
     return (
         <Styles.AdminCvGrid>
@@ -307,12 +307,17 @@ const CvAddOrEdit = () => {
                                             name={`info.content[${idx}].text`}
                                         />
                                         <Styled.BottomText className="portfolio-admin-description">
+                                            {getTextLengthWithoutTags(item.text) > 62 &&
+                                                <Styles.ErrorMsg className="infoText">Text must be between 1 and 62 characters</Styles.ErrorMsg>
+                                            }
                                             <Styled.TextCounter>
                                                 {getTextLengthWithoutTags(item.text)}/62
                                             </Styled.TextCounter>
                                         </Styled.BottomText>
-                                        {errors?.info?.content?.[idx] && (
-                                            <Styles.ErrorMsg>Field is not filled</Styles.ErrorMsg>
+                                        {errors?.info?.content?.[idx] && getTextLengthWithoutTags(item.text) <= 62 ? (
+                                            <Styles.ErrorMsg>Text must be between 1 and 62 characters</Styles.ErrorMsg>
+                                        ) : (
+                                            null
                                         )}
                                     </div>
                                 ) : (

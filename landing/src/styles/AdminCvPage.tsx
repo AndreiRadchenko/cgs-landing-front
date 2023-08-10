@@ -109,6 +109,12 @@ export const ErrorMsg = styled.div`
   display: flex;
   justify-content: end;
   margin-top: 10px;
+
+  &.infoText {
+    margin-top: 32.5px;
+    right: -35.7px;
+    margin-bottom: -18px;
+  }
 `;
 
 export const CardWrapper = styled.div`

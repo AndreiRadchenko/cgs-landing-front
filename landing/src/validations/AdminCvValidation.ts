@@ -20,6 +20,7 @@ export const AdminCvValidation = yup.object().shape({
           text: yup
             .string()
             .transform((value) => value.replace(/<[^>]+>|&nbsp;/g, ""))
+            .max(62)
             .required(),
         })
       )
