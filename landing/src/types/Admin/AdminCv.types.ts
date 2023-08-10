@@ -1,8 +1,10 @@
+import { IMetaBlock } from './Response.types';
 import { ITechnology } from "./technologies.types";
 export interface ICvPageData {
   title: string;
   categories: string[];
   roles: string[];
+  meta: IMetaBlock
 }
 
 export interface ICvResponse {
