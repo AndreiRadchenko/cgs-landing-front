@@ -8,6 +8,7 @@ import ButtonArrow from "../../utils/ButtonArrow";
 import ScrambleText from "./ScrambleText";
 import Badges from "./Badges";
 import TwistedBlock from "./TwistedBlock";
+import Testimonials from "./Testimonials";
 
 import * as CSS from "../../styles/Portfolio/title.styled";
 import * as Styled from "../../styles/HomePage/General.styled";
@@ -101,6 +102,7 @@ const NextTech = () => {
       </Styled.Subtitle>
       <Badges />
       <TwistedBlock />
+      <Testimonials />
       {/* <FreeServices /> */}
       <Styled.Subtitle className="textOnFilm">
         {data?.textOnFilm && parse(data?.textOnFilm, options2)}

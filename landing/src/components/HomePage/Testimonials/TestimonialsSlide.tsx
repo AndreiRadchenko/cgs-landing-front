@@ -1,0 +1,33 @@
+import React from "react";
+import Image from "next/image";
+
+import PlayBtn from "./PlayBtn";
+
+import * as Styled from "../../../styles/HomePage/Testimonials.styled";
+
+import { ITestimonialsSlideProps } from "../../../types/Components.types";
+
+import star from "../../../../public/HomePageDecoration/feedbackStar.svg";
+
+const TestimonialsSlide = ({ setIsOpen }: ITestimonialsSlideProps) => {
+  return (
+    <Styled.TestimonialsSlideContainer onClick={() => setIsOpen(true)}>
+      <Styled.TestimonialsSlideHeadline>
+        Damien Dalli / Head of Design, Founder of Heartstring AI
+      </Styled.TestimonialsSlideHeadline>
+      <Styled.TestimonialsSlideStar>
+        {[...Array(5)].map((_, i) => (
+          <Image key={i} src={star} alt={"star"} />
+        ))}
+      </Styled.TestimonialsSlideStar>
+      <div>
+        <PlayBtn />
+      </div>
+      <Styled.HoverBlockTestimonials className={"hidden"}>
+        <Styled.HoverBlackBlockTestimonials />
+      </Styled.HoverBlockTestimonials>
+    </Styled.TestimonialsSlideContainer>
+  );
+};
+
+export default TestimonialsSlide;
