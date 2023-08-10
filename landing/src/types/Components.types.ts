@@ -35,3 +35,11 @@ export interface ITechnologyCategoryProps {
   idx: number;
   className?: string;
 }
+
+export interface ITestimonialsModalProps {
+  setIsOpen: React.Dispatch<React.SetStateAction<boolean>>;
+}
+
+export interface ITestimonialsSlideProps {
+  setIsOpen: React.Dispatch<React.SetStateAction<boolean>>;
+}
