@@ -11,7 +11,7 @@ export const InfoSectionContainer = styled.div`
     display: flex;
   }
   @media ${themes.primary.media.minMobile} and (max-width: 1375px) {
-    height: 190px;
+    height: 200px;
   }
 
   @media ${themes.primary.media.minPCFullHD} {
@@ -41,7 +41,7 @@ export const Title = styled.h2`
   @media ${themes.primary.media.minMobile} {
     border: none;
     border-right: 1px solid ${themes.primary.colors.darkGrey};
-    width: 30%;
+    width: 27.5%;
     height: 174px;
     margin-left: -51px;
     font-size: 40px;
@@ -63,15 +63,15 @@ export const Title = styled.h2`
 
 export const InfoItemGrid = styled.div`
   @media ${themes.primary.media.minMobile} {
+    display: flex;
+    flex-direction: column;
     position: relative;
     flex: 1;
     margin-left: 24px;
-    display: flex;
-    flex-direction: column;
     flex-wrap: wrap;
     column-gap: 16px;
     row-gap: 0;
-    max-height: 200px;
+    max-height: 300px;
   }
 
   @media ${themes.primary.media.minPCFullHD} {

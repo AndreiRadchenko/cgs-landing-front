@@ -42,11 +42,13 @@ export const InfoCard = styled.div`
     height: 1px;
     background-color: ${themes.primary.colors.darkGrey};
   }
+  &:nth-child(2) h3 {
+    padding-left: 16px;
+  }
   @media ${themes.primary.media.minMobile} {
     width: 100%;
     margin-left: 0;
     padding: 40px;
-    padding-bottom: 52px;
     margin-bottom: 50px;
     margin-top: 24px;
     &::after {
@@ -58,13 +60,18 @@ export const InfoCard = styled.div`
     &.intersecting {
       border-color: transparent;
     }
+    &:nth-child(2) h3 {
+      padding-left: 12.5px;
+    }
   }
 
   @media ${themes.primary.media.minPCFullHD} {
     margin-top: 32px;
     margin-bottom: 64px;
     padding: 53px;
-    padding-bottom: 65px;
+    &:nth-child(2) h3 {
+      padding-left: 21.5px;
+    }
   }
 `;
 
@@ -90,7 +97,6 @@ export const NumberTitleWrapp = styled.div`
 export const Number = styled.h3`
   margin: 0 0 0 0;
   padding: 0;
-  padding-left: 12.5px;
   color: ${themes.primary.colors.estimationAdminBg};
   text-align: center;
   font-variant-numeric: lining-nums proportional-nums;
@@ -101,14 +107,13 @@ export const Number = styled.h3`
   line-height: normal;
 
   @media ${themes.primary.media.minMobile} {
+    -webkit-text-stroke: 2px black;
     text-shadow: 7px 2px 0px #000;
     font-size: 87px;
-    padding-left: 16px;
   }
 
   @media ${themes.primary.media.minPCFullHD} {
     font-size: 116px;
-    padding-left: 21.5px;
   }
 `;
 
@@ -292,10 +297,10 @@ export const PortfolioPageIconContainer = styled.div<IPortfolioIconProps>`
   display: grid;
   margin-top: 16px;
   padding-bottom: 20px;
-  grid-template-columns: repeat(auto-fill, minmax(60px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(77px, 1fr));
   row-gap: 16px;
   margin-left: 0;
-
+  filter: invert(1) contrast(10);
   > span {
     position: unset !important;
   }
@@ -304,7 +309,7 @@ export const PortfolioPageIconContainer = styled.div<IPortfolioIconProps>`
     object-fit: contain;
     position: relative;
     width: 100%;
-    height: 47px;
+    height: 66px;
   }
 
   @media ${themes.primary.media.minMobile} {

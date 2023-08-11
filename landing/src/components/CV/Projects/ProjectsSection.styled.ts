@@ -2,7 +2,7 @@ import styled from "styled-components";
 import themes from "../../../utils/themes";
 
 export const SectionContainer = styled.div`
-  margin-top: 100px;
+  margin-block: 100px;
   @media ${themes.primary.media.minMobile} {
     margin-block: 140px;
   }

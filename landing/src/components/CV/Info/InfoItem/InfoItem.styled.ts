@@ -6,12 +6,23 @@ export const InfoCard = styled.div`
   flex: 1;
   margin: 16px 0 0 0;
   padding-bottom: 8px;
-
   border-bottom: 1px solid ${themes.primary.colors.darkGrey};
   @media ${themes.primary.media.minMobile} {
     width: 49.2%;
-    &:nth-child(2n + 1) {
+    &:nth-child(1) {
       margin-top: 0;
+      order: 0;
+    }
+    &:nth-child(2) {
+      margin-top: 0;
+      order: 2;
+    }
+    &:nth-child(3) {
+      order: 1;
+    }
+    &:nth-child(4) {
+      display: block;
+      order: 3;
     }
   }
 
@@ -32,9 +43,12 @@ export const Title = styled.h3`
   margin: 0;
   padding: 0;
   & span {
+    font-family: ${themes.primary.font.family.gilroy};
+    font-size: 1.4em;
+    font-weight: 400;
     position: absolute;
-    right: 0;
-    top: 0;
+    right: 10px;
+    top: 0.1em;
     transform: translateY(50%);
     transform: rotateZ(45deg);
   }
@@ -54,6 +68,7 @@ export const Text = styled.div`
   line-height: 137.5%;
   margin: 8px 0 0 0;
   padding: 0;
+
   & p {
     margin: 0;
     padding: 0;
@@ -73,6 +88,10 @@ export const Text = styled.div`
     font-size: 24px;
     line-height: 150%;
     margin-top: 11px;
+    & p {
+      overflow: hidden;
+      white-space: nowrap;
+    }
     & p > span {
       font-size: 18px;
       line-height: 36px;
