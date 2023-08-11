@@ -34,11 +34,11 @@ const TestimonialsModal = ({
                 {testimonial.company}
               </Styled.TestimonialsHeaderPosition>
             </div>
-            <div>
+            <Styled.TestimonialsHeaderStar>
               {[...Array(5)].map((_, i) => (
                 <Image key={i} src={star} alt={"star"} />
               ))}
-            </div>
+            </Styled.TestimonialsHeaderStar>
           </Styled.TestimonialsInfoHeader>
           <Styled.TestimonialsHeaderPosition className={"mobile"}>
             {testimonial.company}

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import SwiperCore, { Navigation } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/react";
 
@@ -55,9 +55,14 @@ const Testimonials = () => {
     },
   ];
 
+  useEffect(() => {
+    if (isOpen) document.body.style.overflow = "hidden";
+    else document.body.style.overflow = "unset";
+  }, [isOpen]);
+
   return (
     <div>
-      <MobileInfiniteText title={"Testimonials"} />
+      <MobileInfiniteText title={"Testimonials"} withoutMargin />
       <Styled.TestimonialsTitleAndArrowContainer>
         <Styled.TestimonialsTitle>Testimonials:</Styled.TestimonialsTitle>
         <Styled.TestimonialsSwiperArrowContainer>
