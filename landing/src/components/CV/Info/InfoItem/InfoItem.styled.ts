@@ -63,6 +63,7 @@ export const Text = styled.div`
   }
 
   @media ${themes.primary.media.minMobile} {
+    font-size: 18px;
     & p > span {
       font-size: 14px;
     }
