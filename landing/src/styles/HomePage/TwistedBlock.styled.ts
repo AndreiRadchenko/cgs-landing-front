@@ -11,6 +11,10 @@ export const TwistedBlockContainer = styled.div`
     ${themes.primary.colors.mainGradientColor1} 100%
   );
 
+  @media ${themes.primary.media.minPCFullHD} {
+    margin-bottom: 8.3em;
+  }
+
   @media (max-width: 1200px) {
     margin: 80px auto 60px;
   }

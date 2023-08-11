@@ -140,6 +140,15 @@ export const ArrowContainer = styled.div`
     width: 18px;
     height: 16px;
   }
+
+  @media ${themes.primary.media.minPCFullHD} {
+    &.testimonial {
+      & svg {
+        width: 24px;
+        height: 21px;
+      }
+    }
+  }
 `;
 
 export const SlideContainer = styled.div`
