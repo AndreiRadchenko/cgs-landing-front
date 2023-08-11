@@ -109,6 +109,12 @@ export const ErrorMsg = styled.div`
   display: flex;
   justify-content: end;
   margin-top: 10px;
+
+  &.infoText {
+    margin-top: 32.5px;
+    right: -35.7px;
+    margin-bottom: -18px;
+  }
 `;
 
 export const CardWrapper = styled.div`
@@ -259,7 +265,7 @@ export const AdminCvItemLink = styled.div`
   justify-content: flex-end;
   gap: 4px;
 
-  p {
+  a {
     font-size: 18px;
     font-style: normal;
     font-weight: 900;
@@ -275,6 +281,8 @@ font-size: 14px;
 font-style: normal;
 font-weight: 900;
 line-height: normal;
+margin-top: 16px;
+cursor: pointer;
 `;
 
 export const AdminCvItemEditDelete = styled.div`

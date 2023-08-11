@@ -16,6 +16,7 @@ import longArrowMobile from "../../../public/HomePageDecoration/longArrowMobile.
 import { queryKeys } from "../../consts/queryKeys";
 import { IDataResponse } from "../../types/Admin/Response.types";
 import ScrambleText from "./ScrambleText";
+import Testimonials from "./Testimonials";
 
 const MobileNextTech = () => {
   const options: HTMLReactParserOptions = {
@@ -119,6 +120,7 @@ const MobileNextTech = () => {
       </Styled.SideOppositeContainer>
       {/* <FreeServices /> */}
       <TwistedBlock />
+      <Testimonials />
     </Styled.NextTech>
   );
 };

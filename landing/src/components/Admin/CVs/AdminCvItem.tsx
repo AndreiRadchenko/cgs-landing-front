@@ -45,6 +45,7 @@ const AdminCvItem = ({
         if (editFlag) onScroll();
     };
     return (
+        <>
         <Styles.AdminCvItemFrame className={editFlag ? undefined : !editFlag && current !== idx ? "fade" : undefined}>
             <Styles.AdminCvItemFlexContent>
                 <Styles.AdminCvItemLeftFlex>
@@ -61,7 +62,7 @@ const AdminCvItem = ({
                 </Styles.AdminCvItemLeftFlex>
                 <Styles.AdminCvItemRightFlex>
                     <Styles.AdminCvItemLink>
-                        <p>link</p>
+                        <a href={`/cv/${cv.personal.name.toLowerCase().replace(/\s+/g, '-')}-${cv._id}`} target="_blank">link</a>
                         <ArrowContainer>
                             <ButtonArrow />
                         </ArrowContainer>
@@ -81,6 +82,7 @@ const AdminCvItem = ({
                 </Styles.AdminCvItemDelete>
             </Styles.AdminCvItemEditDelete>
         </Styles.AdminCvItemFrame>
+        </>
     )
 }
 
