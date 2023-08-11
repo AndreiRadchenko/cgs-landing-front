@@ -33,7 +33,7 @@ export const AchievementsTitle = styled.h4`
 export const AchievementsListWrapper = styled.div`
   position: relative;
   margin: 8px 0 0 0;
-  border: 1px solid ${themes.primary.colors.primary};
+  border: 2px solid ${themes.primary.colors.primary};
   border-right: none;
   background-color: #f1efed;
   z-index: 5;
@@ -88,51 +88,19 @@ export const AchievementsList = styled.ul`
 
 export const Shadow = styled.div`
   position: absolute;
-  top: 8px;
-  right: -8px;
-  width: 8px;
-  height: calc(100% - 16px);
-  background: ${themes.primary.colors.primary};
+  top: -2px;
+  right: -16px;
+  width: 0px;
+  height: calc(100% + 4px);
+  border: 8px solid ${themes.primary.colors.primary};
+  border-color: transparent transparent transparent
+    ${themes.primary.colors.primary};
   z-index: -1;
   @media ${themes.primary.media.minMobile} {
-    width: 10px;
-    height: calc(100% - 18px);
-    right: -10px;
-    top: 9px;
-  }
-`;
-
-export const TopCorner = styled.div`
-  width: 0;
-  height: 0;
-  background-color: transparent;
-  border-style: solid;
-  border-width: 4px;
-  border-color: transparent transparent black black;
-  right: 0px;
-  top: -8px;
-  position: absolute;
-  z-index: 5;
-  @media ${themes.primary.media.minMobile} {
-    border-width: 5px;
-    top: -10px;
-  }
-`;
-
-export const BottomCorner = styled.div`
-  width: 0;
-  height: 0;
-  background-color: transparent;
-  border-style: solid;
-  border-width: 4px;
-  border-color: black transparent transparent black;
-  position: absolute;
-  right: 0;
-  bottom: -8px;
-  z-index: 5;
-  @media ${themes.primary.media.minMobile} {
-    border-width: 5px;
-    bottom: -10px;
+    border: 10px solid ${themes.primary.colors.primary};
+    border-color: transparent transparent transparent
+      ${themes.primary.colors.primary};
+    right: -20px;
   }
 `;
 
@@ -154,18 +122,19 @@ export const AchievementsListItem = styled.li`
 
   @media ${themes.primary.media.minMobile} {
     padding-right: 40px;
+    gap: 24px;
   }
 
   @media ${themes.primary.media.minPCFullHD} {
     padding-block: 21px;
     padding-right: 53px;
+    gap: 32px;
   }
 `;
 
 export const AchievementIcon = styled.img`
   width: 22px;
   height: 23px;
-  margin-right: 16px;
   @media ${themes.primary.media.minMobile} {
     width: 32px;
     height: 32px;
@@ -174,14 +143,13 @@ export const AchievementIcon = styled.img`
   @media ${themes.primary.media.minPCFullHD} {
     width: 39px;
     height: 41px;
-    margin-right: 32px;
   }
 `;
 
 export const AchievementText = styled.p`
   margin: 0;
   padding: 0;
-  color: ${themes.primary.colors.blogArticleText};
+  color: ${themes.primary.colors.primary};
   font-size: 16px;
   line-height: normal;
   text-align: left;

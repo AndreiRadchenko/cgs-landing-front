@@ -35,7 +35,6 @@ export const Name = styled.h1`
   @media ${themes.primary.media.minPCFullHD} {
     font-size: 88px;
     letter-spacing: 4.4px;
-    width: auto;
   }
 `;
 
@@ -61,9 +60,9 @@ export const Role = styled.h2`
 
 export const ImageWrapper = styled.div`
   position: relative;
-  width: 335px;
-  height: 335px;
-  margin: 16px 0 16px 0;
+  width: 282px;
+  height: 282px;
+  margin: 16px auto;
   z-index: 5;
 
   @media ${themes.primary.media.minMobile} {
@@ -148,11 +147,11 @@ export const Summary = styled.p`
 
 export const BgImageContainer = styled.div`
   width: 564px;
-  height: 596px;
+  height: 597px;
   transform: rotateZ(5deg);
   position: absolute;
-  bottom: -150px;
-  right: -250px;
+  bottom: -138px;
+  right: -260px;
   z-index: -1;
   @media ${themes.primary.media.minMobile} {
     width: 564px;
@@ -165,7 +164,7 @@ export const BgImageContainer = styled.div`
 
   @media ${themes.primary.media.minPCFullHD} {
     width: 39vw;
-    height: 41vw;
+    height: 42vw;
     bottom: -11vw;
     right: -70px;
   }

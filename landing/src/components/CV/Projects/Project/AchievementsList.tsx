@@ -25,10 +25,7 @@ export const AchievementsList = ({ achievements }: IProps) => {
               </Styled.AchievementsListItem>
             ))}
           </Styled.AchievementsList>
-          <Styled.Shadow>
-            <Styled.TopCorner />
-            <Styled.BottomCorner />
-          </Styled.Shadow>
+          <Styled.Shadow />
         </Styled.AchievementsListWrapper>
       </Styled.Achievements>
     </>

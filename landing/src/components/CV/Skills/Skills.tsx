@@ -17,7 +17,6 @@ export const Skills = ({
   },
 }: IProps) => {
   const cardsToShow = card.filter((e) => e.subtitle !== "");
-  console.log(cardsToShow);
   return (
     <Styled.SkillsContainer>
       <Styled.Title>{title}</Styled.Title>

@@ -64,9 +64,9 @@ export const SkillsCardWrapper = styled.div`
 export const BgImageContainer = styled.div`
   width: 625px;
   height: 414px;
-  transform: scale(1) rotateZ(-5deg);
+  transform: scale(1.07) rotateZ(-2deg);
   position: absolute;
-  bottom: -260px;
+  bottom: -240px;
   right: 0px;
   z-index: -2;
   @media ${themes.primary.media.minMobile} {
