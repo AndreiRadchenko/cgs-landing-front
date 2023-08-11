@@ -7,7 +7,7 @@ import * as Styled from "../../../styles/HomePage/Testimonials.styled";
 
 import { ITestimonialsSlideProps } from "../../../types/Components.types";
 
-import star from "../../../../public/HomePageDecoration/feedbackStar.svg";
+import star from "../../../../public/HomePageDecoration/testimonialsStar.svg";
 
 const TestimonialsSlide = ({
   setIsOpen,
