@@ -32,7 +32,7 @@ const TestimonialsSlide = ({
           <Image key={i} src={star} alt={"star"} />
         ))}
       </Styled.TestimonialsSlideStar>
-      <div>
+      <div style={{ position: "relative", zIndex: 2 }}>
         <PlayBtn />
       </div>
       <Styled.HoverBlockTestimonials className={"hidden"}>

@@ -23,7 +23,7 @@ export const TestimonialsVideoContainer = styled.div`
 
   @media ${themes.primary.media.maxMobile} {
     padding: 8px;
-    width: 343px;
+    width: 360px;
     min-height: 448px;
 
     > div:first-child {
@@ -42,7 +42,7 @@ export const TestimonialsCrossContainer = styled.div`
   background: ${themes.primary.colors.grey};
 
   @media ${themes.primary.media.maxMobile} {
-    top: 122px;
+    top: 82px;
     right: 20px;
     width: 32px;
     height: 32px;
@@ -68,8 +68,12 @@ export const TestimonialsTitle = styled.div`
   font-family: ${themes.primary.font.family.namu};
   font-size: 3.333em;
   font-weight: 900;
-  line-height: 56px; /* 140% */
+  line-height: 140%;
   text-transform: uppercase;
+
+  @media ${themes.primary.media.minPCFullHD} {
+    font-size: 2.755em;
+  }
 `;
 
 export const TestimonialsInfoHeader = styled.div`
@@ -114,10 +118,19 @@ export const TestimonialsHeaderPosition = styled.div`
   }
 `;
 
+export const TestimonialsHeaderStar = styled.div`
+  @media ${themes.primary.media.minPCFullHD} {
+    span {
+      width: 45px !important;
+      height: 45px !important;
+    }
+  }
+`;
+
 export const TestimonialsInfoText = styled.div`
   color: ${themes.primary.colors.primary};
   font-family: ${themes.primary.font.family.namu};
-  font-size: 18px;
+  font-size: 1.5em;
   font-style: normal;
   font-weight: 900;
   line-height: 160%; /* 28.8px */
@@ -138,12 +151,41 @@ export const TestimonialsSlideHeadline = styled.div`
   bottom: 0.7em;
   left: 0.7em;
   max-width: 15.5em;
+
+  @media ${themes.primary.media.minPCFullHD} {
+    font-size: 1.55em;
+    max-width: 15.5em;
+    bottom: 1em;
+    right: 1.1em;
+  }
+  @media ${themes.primary.media.maxMobile} {
+    font-size: 16px;
+  }
 `;
 
 export const TestimonialsSlideStar = styled.div`
   position: absolute;
   bottom: 1.33em;
   right: 2em;
+
+  @media ${themes.primary.media.minPCFullHD} {
+    bottom: 1.1em;
+    right: 1.7em;
+
+    span {
+      width: 45px !important;
+      height: 45px !important;
+    }
+  }
+  @media ${themes.primary.media.maxMobile} {
+    bottom: 10px;
+    right: 15px;
+
+    span {
+      width: 18px !important;
+      height: 18px !important;
+    }
+  }
 `;
 
 export const HoverBlockTestimonials = styled.div`
@@ -182,7 +224,7 @@ export const HoverBlackBlockTestimonials = styled.div`
 
 export const TestimonialsSlideContainer = styled.div`
   width: 100%;
-  height: 100%;
+  height: 95.6%;
   position: relative;
 
   &:hover ${HoverBlockTestimonials} {
@@ -200,13 +242,29 @@ export const TestimonialsSwiperContainer = styled.div`
 
   .swiper-slide {
     width: 49.17em;
-    height: 30.59em;
+    height: 32em;
+  }
+
+  @media ${themes.primary.media.minPCFullHD} {
+    margin-top: 1.67em;
+    margin-bottom: 8.34em;
+
+    .swiper-slide {
+      width: 41em;
+      height: 25.5em;
+    }
+  }
+
+  @media ${themes.primary.media.maxMobile} {
+    margin-top: 16px;
+    margin-bottom: 90px;
+    margin-inline: -1.925em;
   }
 
   @media ${themes.primary.media.maxLowScreenMobile} {
     .swiper-slide {
       width: 100%;
-      height: 233px;
+      height: 243px;
     }
   }
 `;
