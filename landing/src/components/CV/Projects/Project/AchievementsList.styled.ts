@@ -66,7 +66,6 @@ export const AchievementsList = styled.ul`
 
     ::-webkit-scrollbar {
       width: 5px;
-      border: 5px solid green;
     }
 
     ::-webkit-scrollbar-track {

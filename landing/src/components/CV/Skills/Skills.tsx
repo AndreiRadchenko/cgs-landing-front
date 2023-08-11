@@ -16,11 +16,13 @@ export const Skills = ({
     skills: { title, card },
   },
 }: IProps) => {
+  const cardsToShow = card.filter((e) => e.subtitle !== "");
+  console.log(cardsToShow);
   return (
     <Styled.SkillsContainer>
-      <Styled.Title>{title}:</Styled.Title>
+      <Styled.Title>{title}</Styled.Title>
       <Styled.SkillsCardWrapper>
-        {card.map((e, idx) => (
+        {cardsToShow.map((e, idx) => (
           <SkillCard
             subtitle={e.subtitle}
             stack={e.stack}

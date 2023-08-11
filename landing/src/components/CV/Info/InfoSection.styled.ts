@@ -86,11 +86,11 @@ export const BgImageContainer = styled.div`
   height: 242px;
   position: absolute;
   bottom: -260px;
-  left: 0px;
+  left: -20px;
   z-index: -3;
   @media ${themes.primary.media.minMobile} {
     bottom: -300px;
-    left: -40px;
+    left: -50px;
     z-index: 1;
   }
 
