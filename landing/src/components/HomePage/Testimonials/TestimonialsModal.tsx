@@ -7,8 +7,7 @@ import * as Styled from "../../../styles/HomePage/Testimonials.styled";
 import { ITestimonialsModalProps } from "../../../types/Components.types";
 
 import cross from "../../../../public/closeBtn.svg";
-import star from "../../../../public/HomePageDecoration/feedbackStar.svg";
-import { TestimonialsCrossMobileContainer } from "../../../styles/HomePage/Testimonials.styled";
+import star from "../../../../public/HomePageDecoration/testimonialsStar.svg";
 
 const TestimonialsModal = ({
   setIsOpen,
