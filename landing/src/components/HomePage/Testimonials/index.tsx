@@ -66,7 +66,7 @@ const Testimonials = () => {
       <Styled.TestimonialsTitleAndArrowContainer>
         <Styled.TestimonialsTitle>Testimonials:</Styled.TestimonialsTitle>
         <Styled.TestimonialsSwiperArrowContainer>
-          <ArrowContainer className="prevBtn swiper-button-prev">
+          <ArrowContainer className="prevBtn swiper-button-prev testimonial">
             <svg
               width="20"
               height="18"
@@ -86,7 +86,7 @@ const Testimonials = () => {
               />
             </svg>
           </ArrowContainer>
-          <ArrowContainer className="nextBtn swiper-button-next">
+          <ArrowContainer className="nextBtn swiper-button-next testimonial">
             <span>next</span>
             <svg
               width="20"

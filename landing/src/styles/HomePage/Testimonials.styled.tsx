@@ -188,6 +188,24 @@ export const TestimonialsSlideStar = styled.div`
   }
 `;
 
+export const TestimonialsSlidePlayBtnContainer = styled.div`
+  position: relative;
+  z-index: 2;
+
+  @media ${themes.primary.media.minPCFullHD} {
+    svg {
+      width: 64px;
+      height: 64px;
+    }
+  }
+  @media ${themes.primary.media.maxMobile} {
+    svg {
+      width: 30.5px;
+      height: 30.5px;
+    }
+  }
+`;
+
 export const HoverBlockTestimonials = styled.div`
   width: 100%;
   height: 100%;
@@ -234,6 +252,11 @@ export const TestimonialsSlideContainer = styled.div`
   }
   display: grid;
   place-content: center;
+
+  @media ${themes.primary.media.maxLowScreenMobile} {
+    height: auto;
+    aspect-ratio: 16 / 9.9;
+  }
 `;
 
 export const TestimonialsSwiperContainer = styled.div`
@@ -260,8 +283,13 @@ export const TestimonialsSwiperContainer = styled.div`
     margin-bottom: 90px;
     margin-inline: -1.925em;
   }
-
   @media ${themes.primary.media.maxLowScreenMobile} {
+    .swiper-slide {
+      width: 100%;
+      height: 293px;
+    }
+  }
+  @media (max-width: 380px) {
     .swiper-slide {
       width: 100%;
       height: 243px;
