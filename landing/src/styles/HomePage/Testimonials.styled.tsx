@@ -42,8 +42,20 @@ export const TestimonialsCrossContainer = styled.div`
   background: ${themes.primary.colors.grey};
 
   @media ${themes.primary.media.maxMobile} {
-    top: 82px;
-    right: 20px;
+    display: none;
+  }
+`;
+
+export const TestimonialsCrossMobileContainer = styled.div`
+  display: none;
+  position: absolute;
+  border: 1px solid ${themes.primary.colors.primary};
+  background: ${themes.primary.colors.grey};
+
+  @media ${themes.primary.media.maxMobile} {
+    display: block;
+    top: -52px;
+    right: 0px;
     width: 32px;
     height: 32px;
   }

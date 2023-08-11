@@ -8,6 +8,7 @@ import { ITestimonialsModalProps } from "../../../types/Components.types";
 
 import cross from "../../../../public/closeBtn.svg";
 import star from "../../../../public/HomePageDecoration/feedbackStar.svg";
+import { TestimonialsCrossMobileContainer } from "../../../styles/HomePage/Testimonials.styled";
 
 const TestimonialsModal = ({
   setIsOpen,
@@ -24,6 +25,11 @@ const TestimonialsModal = ({
           width={"100%"}
           height={"34.7em"}
         />
+        <Styled.TestimonialsCrossMobileContainer
+          onClick={() => setIsOpen(false)}
+        >
+          <Image alt={"cross"} src={cross} width={"100%"} height={"100%"} />
+        </Styled.TestimonialsCrossMobileContainer>
         <Styled.TestimonialsVideoInfoContainer>
           <Styled.TestimonialsInfoHeader>
             <div>
