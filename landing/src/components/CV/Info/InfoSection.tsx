@@ -18,7 +18,7 @@ export const InfoSection = ({
 }: IProps) => {
   return (
     <Styled.InfoSectionContainer>
-      <Styled.Title>{title}:</Styled.Title>
+      <Styled.Title>{title}</Styled.Title>
       <Styled.InfoItemGrid>
         {content.map((e, idx) => (
           <InfoItem subtitle={e.subtitle} text={e.text} key={idx} idx={idx} />

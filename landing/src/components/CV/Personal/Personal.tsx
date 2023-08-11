@@ -3,6 +3,7 @@ import Image from "next/image";
 
 import * as Styled from "./Personal.styled";
 import { CvData } from "../../../types/Admin/AdminCv.types";
+import { SplitBrackets } from "../../../utils/splitBrackets";
 import LineBG from "../../../../public/CV/01.svg";
 interface IProps {
   data: CvData;
@@ -28,7 +29,9 @@ export const Personal = ({ data: { image, personal } }: IProps) => {
           </Styled.ImageContainer>
         </Styled.ImageWrapper>
       )}
-      <Styled.Summary>{personal.summary}</Styled.Summary>
+      <Styled.Summary>
+        <SplitBrackets text={personal.summary} />
+      </Styled.Summary>
       <Styled.BgImageContainer>
         <Image
           src={LineBG.src}

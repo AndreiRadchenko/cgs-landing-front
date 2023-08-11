@@ -85,8 +85,13 @@ export const TitleWrapp = styled.div`
     padding-left: 0;
     width: auto;
     padding-right: 0;
+    max-height: 130px;
+    overflow: hidden;
   }
 
+  @media (max-width: 1331px) and (${themes.primary.media.minMobile}) {
+    height: 130px;
+  }
   @media ${themes.primary.media.minPCFullHD} {
   }
 `;
@@ -138,6 +143,7 @@ export const SkillsList = styled.ul`
   padding: 16px 20px 32px;
   @media ${themes.primary.media.minMobile} {
     padding-right: 0;
+    padding-bottom: 19px;
   }
 
   @media ${themes.primary.media.minPCFullHD} {

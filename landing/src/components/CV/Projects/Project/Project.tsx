@@ -1,13 +1,13 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useRef } from "react";
 import Image from "next/image";
 
 import { AchievementsList } from "./AchievementsList";
 
 import * as Styled from "./Project.styled";
 
-import achievement from "../../../../../public/CV/achievement.svg";
 import { ITechnology } from "../../../../types/Admin/technologies.types";
 import useIntersectionObserver from "../../../../hooks/useIntersectionObserver";
+import { SplitBrackets } from "../../../../utils/splitBrackets";
 
 interface IProps {
   projectName: string;
@@ -49,7 +49,9 @@ export const Project = ({
       <Styled.Role className="mobile">Role: {role}</Styled.Role>
       <Styled.About>
         <Styled.AboutTitle>ABOUT PROJECT:</Styled.AboutTitle>
-        <Styled.AboutText>{summary}</Styled.AboutText>
+        <Styled.AboutText>
+          <SplitBrackets text={summary} />
+        </Styled.AboutText>
       </Styled.About>
       <Styled.AchievementsTechnologyWrapp>
         <AchievementsList achievements={achievements} />

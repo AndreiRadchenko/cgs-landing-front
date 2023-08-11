@@ -30,8 +30,10 @@ const CV = () => {
   const { cv } = router.query;
   const slug = cv?.slice(-24);
 
-  const { data }: ICvResponse = useQuery([queryKeys.getCvById, slug], () =>
-    adminCvService.getCvById(slug as string)
+  const { data }: ICvResponse = useQuery(
+    [queryKeys.getCvById, slug],
+    () => adminCvService.getCvById(slug as string),
+    { enabled: !!slug }
   );
 
   return (

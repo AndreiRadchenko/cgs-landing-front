@@ -74,22 +74,23 @@ export const NumberTitleWrapp = styled.div`
   display: flex;
   justify-content: flex-start;
   align-items: center;
-  gap: 16px;
+  gap: 28.5px;
   align-self: stretch;
 
   @media ${themes.primary.media.minMobile} {
-    gap: 24px;
+    gap: 40px;
     align-items: flex-start;
   }
 
   @media ${themes.primary.media.minPCFullHD} {
-    gap: 32px;
+    gap: 53px;
   }
 `;
 
 export const Number = styled.h3`
   margin: 0 0 0 0;
   padding: 0;
+  padding-left: 12.5px;
   color: ${themes.primary.colors.estimationAdminBg};
   text-align: center;
   font-variant-numeric: lining-nums proportional-nums;
@@ -102,10 +103,12 @@ export const Number = styled.h3`
   @media ${themes.primary.media.minMobile} {
     text-shadow: 7px 2px 0px #000;
     font-size: 87px;
+    padding-left: 16px;
   }
 
   @media ${themes.primary.media.minPCFullHD} {
     font-size: 116px;
+    padding-left: 21.5px;
   }
 `;
 

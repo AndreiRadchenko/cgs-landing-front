@@ -29,7 +29,7 @@ export const Name = styled.h1`
     font-size: 66px;
     line-height: normal;
     letter-spacing: 3.3px;
-    width: 50%;
+    width: 65.5%;
   }
 
   @media ${themes.primary.media.minPCFullHD} {
