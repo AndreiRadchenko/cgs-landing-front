@@ -42,22 +42,27 @@ export const Title = styled.h3`
   line-height: 160%;
   margin: 0;
   padding: 0;
-  & span {
-    font-family: ${themes.primary.font.family.gilroy};
-    font-size: 1.4em;
-    font-weight: 400;
-    position: absolute;
-    right: 10px;
-    top: 0.1em;
-    transform: translateY(50%);
-    transform: rotateZ(45deg);
-  }
+  display: flex;
+  justify-content: space-between;
   @media ${themes.primary.media.minMobile} {
   }
 
   @media ${themes.primary.media.minPCFullHD} {
     font-size: 29.333px;
     line-height: 159%;
+  }
+`;
+
+export const ArrowContainer = styled.div`
+  position: relative;
+  width: 36px;
+  height: 36px;
+  @media ${themes.primary.media.minMobile} {
+  }
+
+  @media ${themes.primary.media.minPCFullHD} {
+    width: 48px;
+    height: 48px;
   }
 `;
 

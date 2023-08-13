@@ -1,5 +1,6 @@
 import React, { useRef } from "react";
 import Image from "next/image";
+import { useMediaQuery } from "@mui/material";
 
 import { AchievementsList } from "./AchievementsList";
 
@@ -29,7 +30,10 @@ export const Project = ({
   idx,
 }: IProps) => {
   const refProjectCard = useRef<HTMLDivElement>(null);
-  const entry = useIntersectionObserver(refProjectCard, { threshold: 0.6 });
+  const isMobile = useMediaQuery("(max-width:768px)");
+  const entry = useIntersectionObserver(refProjectCard, {
+    threshold: isMobile ? 0.3 : 0.7,
+  });
 
   return (
     <Styled.InfoCard
