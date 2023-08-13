@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import "../styles/globals.css";
 import "../styles/animations.css";
-import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 import type { AppProps } from "next/app";
+import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 import {
   DehydratedState,
   Hydrate,
