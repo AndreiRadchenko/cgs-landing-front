@@ -2,6 +2,7 @@ import styled from "styled-components";
 import themes from "../../../utils/themes";
 
 export const InfoSectionContainer = styled.div`
+  position: relative;
   margin-top: 100px;
 
   @media ${themes.primary.media.minMobile} {
@@ -10,7 +11,7 @@ export const InfoSectionContainer = styled.div`
     display: flex;
   }
   @media ${themes.primary.media.minMobile} and (max-width: 1375px) {
-    height: 190px;
+    height: 200px;
   }
 
   @media ${themes.primary.media.minPCFullHD} {
@@ -40,7 +41,7 @@ export const Title = styled.h2`
   @media ${themes.primary.media.minMobile} {
     border: none;
     border-right: 1px solid ${themes.primary.colors.darkGrey};
-    width: 30%;
+    width: 27.5%;
     height: 174px;
     margin-left: -51px;
     font-size: 40px;
@@ -62,21 +63,41 @@ export const Title = styled.h2`
 
 export const InfoItemGrid = styled.div`
   @media ${themes.primary.media.minMobile} {
+    display: flex;
+    flex-direction: column;
     position: relative;
     flex: 1;
     margin-left: 24px;
-    display: flex;
-    flex-direction: column;
     flex-wrap: wrap;
     column-gap: 16px;
     row-gap: 0;
-    max-height: 200px;
+    max-height: 300px;
   }
 
   @media ${themes.primary.media.minPCFullHD} {
     margin-left: 32px;
     column-gap: 21.3px;
-    /* height: 232px; */
     max-height: 330px;
+  }
+`;
+
+export const BgImageContainer = styled.div`
+  width: 676px;
+  height: 242px;
+  position: absolute;
+  bottom: -260px;
+  left: -20px;
+  z-index: -3;
+  @media ${themes.primary.media.minMobile} {
+    bottom: -300px;
+    left: -50px;
+    z-index: 1;
+  }
+
+  @media ${themes.primary.media.minPCFullHD} {
+    width: 47vw;
+    height: 16.8vw;
+    bottom: -20vw;
+    left: -4vw;
   }
 `;

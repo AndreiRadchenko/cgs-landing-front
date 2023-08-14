@@ -1,9 +1,11 @@
 import React from "react";
-import parse, { HTMLReactParserOptions, Element } from "html-react-parser";
+import parse from "html-react-parser";
 import { useMediaQuery } from "@mui/material";
+import Image from "next/image";
 
 import * as Styled from "./InfoItem.styled";
 import { splitBracketsAdvanced } from "../../../../utils/splitBracketsAdvanced";
+import Arrow from "../../../../../public/CV/arrow.svg";
 
 interface IProps {
   subtitle: string;
@@ -21,7 +23,9 @@ export const InfoItem = ({ subtitle, text, idx }: IProps) => {
     <Styled.InfoCard>
       <Styled.Title>
         {subtitle}
-        <span>&rarr;</span>
+        <Styled.ArrowContainer>
+          <Image src={Arrow} alt="an arrow" objectFit="contain" layout="fill" />
+        </Styled.ArrowContainer>
       </Styled.Title>
       <Styled.Text>{idx ? parsedText : parse(parsedText)}</Styled.Text>
     </Styled.InfoCard>

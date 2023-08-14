@@ -29,13 +29,12 @@ export const Name = styled.h1`
     font-size: 66px;
     line-height: normal;
     letter-spacing: 3.3px;
-    width: 50%;
+    width: 65.5%;
   }
 
   @media ${themes.primary.media.minPCFullHD} {
     font-size: 88px;
     letter-spacing: 4.4px;
-    width: auto;
   }
 `;
 
@@ -61,9 +60,10 @@ export const Role = styled.h2`
 
 export const ImageWrapper = styled.div`
   position: relative;
-  width: 335px;
-  height: 335px;
-  margin: 16px 0 16px 0;
+  width: 282px;
+  height: 282px;
+  margin: 16px auto;
+  z-index: 5;
 
   @media ${themes.primary.media.minMobile} {
     margin: 0;
@@ -142,5 +142,30 @@ export const Summary = styled.p`
     margin-top: 32px;
     max-width: 933px;
     width: 53%;
+  }
+`;
+
+export const BgImageContainer = styled.div`
+  width: 564px;
+  height: 597px;
+  transform: rotateZ(5deg);
+  position: absolute;
+  bottom: -138px;
+  right: -260px;
+  z-index: -1;
+  @media ${themes.primary.media.minMobile} {
+    width: 564px;
+    height: 596px;
+    bottom: -160px;
+    right: -60px;
+    z-index: 2;
+    transform: rotateZ(0);
+  }
+
+  @media ${themes.primary.media.minPCFullHD} {
+    width: 39vw;
+    height: 42vw;
+    bottom: -11vw;
+    right: -70px;
   }
 `;

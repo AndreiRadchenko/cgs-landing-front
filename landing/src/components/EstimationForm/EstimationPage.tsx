@@ -216,9 +216,7 @@ const EstimationPage = ({
                       }}
                       type="submit"
                     >
-                      {data?.pageCount > pageN
-                        ? "< NEXT SECTION >"
-                        : "< FINISH >"}
+                      {data.page.buttonName}
                     </StyledButton>
                   </div>
                 </EstimateNavigation>

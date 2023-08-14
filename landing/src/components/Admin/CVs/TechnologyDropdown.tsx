@@ -27,6 +27,11 @@ const TechnologyDropdown = ({
 } : TechnologyDropdownProps) => {
     const [isOpen, setIsOpen] = useState<boolean>(false);
 
+    const handleClick = (idx: number, projectIdx: number) => {
+        handleSelectTechnology(idx, projectIdx);
+        setIsOpen(false);
+    }
+
     return (
         <>
             <Styled.DropdownWrapperTechnology>
@@ -42,7 +47,7 @@ const TechnologyDropdown = ({
                     {technologies?.map((tech, idx) => (
                         <div
                             key={`${tech}${idx}`} onMouseDown={(e) => e.preventDefault()}
-                            onClick={() => handleSelectTechnology(idx, projectIdx)}>
+                            onClick={() => handleClick(idx, projectIdx)}>
                             <span>{tech.name}</span>
                         </div>
                     ))}

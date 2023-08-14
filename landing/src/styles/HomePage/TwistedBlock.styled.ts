@@ -4,12 +4,16 @@ import { twistedBlockAnimation } from "../Animations.styled";
 import twistedBlockBg from "../../../public/HomePageDecoration/twistedBlockBg.png";
 
 export const TwistedBlockContainer = styled.div`
-  margin: 5.58em auto 11.5em;
+  margin: 5.58em auto 10em;
   background: linear-gradient(
     90deg,
     ${themes.primary.colors.mainGradientColor2} 0%,
     ${themes.primary.colors.mainGradientColor1} 100%
   );
+
+  @media ${themes.primary.media.minPCFullHD} {
+    margin-bottom: 8.3em;
+  }
 
   @media (max-width: 1200px) {
     margin: 80px auto 60px;

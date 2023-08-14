@@ -34,7 +34,7 @@
     "react-json-view": "~1.21.3",
     "react-loading-overlay-ts": "~1.0.5",
     "react-phone-input-2": "~2.15.1",
-    "react-player": "2.10.1",
+    "react-player": "^2.10.1",
     "react-scroll": "~1.8.9",
     "react-select": "~5.7.4",
     "react-select-country-list": "~2.2.3",

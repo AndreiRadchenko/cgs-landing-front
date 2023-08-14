@@ -35,3 +35,25 @@ export interface ITechnologyCategoryProps {
   idx: number;
   className?: string;
 }
+
+export interface ITestimonial {
+  slideTitle: string;
+  name: string;
+  company: string;
+  videoUrl: string;
+  imgUrl: string;
+  text: string;
+}
+
+export interface ITestimonialsModalProps {
+  setIsOpen: React.Dispatch<React.SetStateAction<boolean>>;
+  testimonial: ITestimonial;
+}
+
+export interface ITestimonialsSlideProps {
+  setIsOpen: React.Dispatch<React.SetStateAction<boolean>>;
+  subtitle: string;
+  setIndex: React.Dispatch<React.SetStateAction<number>>;
+  slideNum: number;
+  testimonialImg: string;
+}

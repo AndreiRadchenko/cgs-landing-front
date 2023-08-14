@@ -490,6 +490,10 @@ export const AdminCategoryAddBlockWrapper = styled.div`
   align-items: center;
   justify-content: center;
   width: 114px;
+
+  &.cvAchievement {
+   justify-content: flex-start;
+  }
 `;
 
 export const AdminCategoryAddBlockBtn = styled.button`
@@ -499,6 +503,7 @@ export const AdminCategoryAddBlockBtn = styled.button`
   padding: 0;
   font-family: ${themes.primary.font.family.inter};
   color: #5869dd;
+  background: none;
 `;
 
 export const AdminCategoryDeleteBlockWrapper = styled.div`

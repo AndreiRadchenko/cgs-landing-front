@@ -99,6 +99,7 @@ export const queryKeys = {
   getPaginatedAndFilteredCvs: "getPaginatedAndFilteredCvs",
   updateCvPage: "updateCvPage",
   getCvs: "getCvs",
+  getCvById: "getCvById",
   postCv: "postCv",
   updateCvById: "updateCvById",
   deleteCvById: "deleteCvById",

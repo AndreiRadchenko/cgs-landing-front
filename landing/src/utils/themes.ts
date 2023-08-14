@@ -149,6 +149,7 @@ const themes = {
       decorationText: "#C7FB9C",
       quinary: "#FFA046",
       primary: "#000",
+      grey: "#f1efed",
       secondary: "#fff",
       starActive: "#FBA446",
       starDisable: "#EEE6DD",

@@ -1,9 +1,13 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 import themes from "../../../../utils/themes";
+import { IIcon, ISlide } from "../../../../types/Decoration.types";
+import { float } from "../../../../styles/Animations.styled";
 
 export const InfoCard = styled.div`
   width: 100%;
-  margin: 0 0 0 0;
+  margin: 0;
+  background-color: ${themes.primary.colors.blogBackground};
+  z-index: 2;
   &:nth-last-of-type(1) {
     position: relative;
     &::after {
@@ -55,13 +59,6 @@ export const InfoCard = styled.div`
         padding-left: 88px;
       }
     }
-    /* &:nth-last-of-type(1) {
-      border-right: none;
-      &::after {
-        content: "";
-        height: 0;
-      }
-    } */
     &:nth-child(n + 2) {
       & .title-wrap {
         padding-left: 68px;
@@ -80,25 +77,37 @@ export const TitleWrapp = styled.div`
   padding: 16px 20px;
   border-top: 1px solid ${themes.primary.colors.darkGrey};
   border-bottom: 1px solid ${themes.primary.colors.darkGrey};
+  background-color: ${themes.primary.colors.blogBackground};
+  z-index: 2;
 
   @media ${themes.primary.media.minMobile} {
     margin-left: 0;
     padding-left: 0;
     width: auto;
     padding-right: 0;
+    max-height: 130px;
+    overflow: hidden;
   }
 
+  @media (max-width: 1331px) and (${themes.primary.media.minMobile}) {
+    height: 130px;
+  }
   @media ${themes.primary.media.minPCFullHD} {
   }
 `;
 
-export const Icon = styled.img`
+export const Icon = styled.img<IIcon>`
   width: 40px;
   height: 40px;
   margin-right: 16px;
+  animation: none;
   @media ${themes.primary.media.minMobile} {
     width: 56px;
     height: 56px;
+    animation: ${({ xOffset }) =>
+      css`
+        ${float(xOffset)} 3s infinite linear
+      `};
   }
 
   @media ${themes.primary.media.minPCFullHD} {
@@ -134,10 +143,12 @@ export const SkillsList = styled.ul`
   padding: 16px 20px 32px;
   @media ${themes.primary.media.minMobile} {
     padding-right: 0;
+    padding-bottom: 19px;
   }
 
   @media ${themes.primary.media.minPCFullHD} {
     padding-top: 21px;
+    padding-bottom: 34px;
   }
 `;
 

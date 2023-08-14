@@ -1,5 +1,7 @@
 import React from "react";
 
+import { handleRandomOffset } from "../../../../utils/getRandomAnimationOffset";
+
 import * as Styled from "./SkillCard.styled";
 import crystal from "../../../../../public/CV/crystal.svg";
 import cube from "../../../../../public/CV/cube.svg";
@@ -18,7 +20,11 @@ export const SkillCard = ({ subtitle, stack, idx }: IProps) => {
   return (
     <Styled.InfoCard>
       <Styled.TitleWrapp className="title-wrap">
-        <Styled.Icon src={svg[idx]?.src} alt={svgName[idx]} />
+        <Styled.Icon
+          src={svg[idx]?.src}
+          alt={svgName[idx]}
+          xOffset={handleRandomOffset()}
+        />
         <Styled.Title>{subtitle}</Styled.Title>
       </Styled.TitleWrapp>
       <Styled.SkillsList className="skills-list">

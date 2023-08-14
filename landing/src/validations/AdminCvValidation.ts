@@ -17,7 +17,11 @@ export const AdminCvValidation = yup.object().shape({
       .of(
         yup.object().shape({
           subtitle: yup.string().required(),
-          text: yup.string().required(),
+          text: yup
+            .string()
+            .transform((value) => value.replace(/<[^>]+>|&nbsp;/g, ""))
+            .max(62)
+            .required(),
         })
       )
       .required(),
@@ -48,11 +52,16 @@ export const AdminCvValidation = yup.object().shape({
           role: yup.string().required(),
           date: yup.string().required(),
           summary: yup.string().required(),
-          achievements: yup.array().of(yup.string()).required(),
+          achievements: yup
+            .array()
+            .of(
+              yup.string().required()
+            )
+            .required(),
           technology: yup
             .array()
             .of(
-              yup.object().shape({})
+              yup.object().shape({}).required()
             )
             .required(),
         })
