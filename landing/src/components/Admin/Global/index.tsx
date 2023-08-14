@@ -1,12 +1,16 @@
 import React from "react";
-import * as Styled from "../../../styles/AdminPage";
-
+import { toast } from "react-toastify";
 import { Formik } from "formik";
 import { useMutation, useQuery } from "@tanstack/react-query";
+
+import AdminHomepageForm from "./AdminHomepageForm";
+import { CustomToast } from "../CustomToast";
+
+import "react-toastify/dist/ReactToastify.css";
+import * as Styled from "../../../styles/AdminPage";
 import { queryKeys } from "../../../consts/queryKeys";
 import { adminGlobalService } from "../../../services/adminHomePage";
 import { IDataResponse } from "../../../types/Admin/Response.types";
-import AdminHomepageForm from "./AdminHomepageForm";
 
 interface IMainProps {
   data: IDataResponse | undefined;
@@ -22,7 +26,17 @@ const AdminMainContent = () => {
 
   const { mutateAsync } = useMutation(
     [queryKeys.PutHomePageData],
-    (data: IDataResponse) => adminGlobalService.updateFullPage(data)
+    async (data: IDataResponse) => {
+      const response = await toast.promise(
+        adminGlobalService.updateFullPage(data),
+        {
+          pending: "Pending update",
+          success: "Data updated successfully 👌",
+          error: "Some things went wrong 🤯",
+        }
+      );
+      return response;
+    }
   );
 
   const submitForm = async (values: IDataResponse) => {
@@ -35,14 +49,17 @@ const AdminMainContent = () => {
   return isLoading ? (
     <Styled.AdminUnauthorizedModal>Loading...</Styled.AdminUnauthorizedModal>
   ) : data !== undefined ? (
-    <Formik
-      initialValues={data!}
-      onSubmit={submitForm}
-      validateOnChange={false}
-      enableReinitialize={true}
-    >
-      <AdminHomepageForm />
-    </Formik>
+    <>
+      <Formik
+        initialValues={data!}
+        onSubmit={submitForm}
+        validateOnChange={false}
+        enableReinitialize={true}
+      >
+        <AdminHomepageForm />
+      </Formik>
+      <CustomToast />
+    </>
   ) : (
     <Styled.AdminUnauthorizedModal>
       Something went wrong :(

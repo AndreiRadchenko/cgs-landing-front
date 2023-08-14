@@ -83,6 +83,7 @@ export class HttpService implements IHttpClient {
 
     const event = new CustomEvent("http-error", { detail: errorData });
     document.dispatchEvent(event);
+    throw new Error(JSON.stringify(errorData));
   }
 
   private checkResponseStatus<T>(result: IResponse<T>) {
