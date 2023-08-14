@@ -70,6 +70,16 @@ export const PortfolioCategoryItem = styled.div<IPortfolioCategoryItem>`
     border-bottom-width: 4.5px;
   }
 
+  &.cv {
+    max-height: 42.8px;
+    font-size: 1.1667em;
+
+    @media ${themes.primary.media.minPCFullHD} {
+      font-size: 17.5px;
+      padding: 15px 22.5px;
+    }
+  }
+
   &.active {
     transition: all 0.2s ease-in-out;
     padding: 12px 18px;
@@ -81,6 +91,14 @@ export const PortfolioCategoryItem = styled.div<IPortfolioCategoryItem>`
   @media ${themes.primary.media.maxTabletPortrait} {
     font-size: 16px;
     line-height: 19.2px;
+  }
+
+  @media ${themes.primary.media.maxMobile} {
+    font-size: 14px;
+
+    &.cv {
+      font-size: 14px;
+    }
   }
 `;
 
@@ -188,6 +206,18 @@ export const PortfolioSearchWarning = styled.div`
     color: black;
   }
 
+  &.cv {
+    height: 25vh;
+    @media ${themes.primary.media.minPCFullHD} {
+      font-size: 22.5px;
+    }
+
+    @media ${themes.primary.media.maxMobile} {
+      font-size: 16px;
+      line-height: 120%;
+    }
+  }
+
   & ul {
     padding-left: 28px;
     margin: 8px 0 0 0;
@@ -234,7 +264,7 @@ export const PortfolioIndustryTagWrapper = styled.button<IPortfolioIndustryTag>`
 
   &:hover {
     background-color: ${(props) =>
-      props.isArticlePage && themes.primary.colors.hoveredBlogTag};
+    props.isArticlePage && themes.primary.colors.hoveredBlogTag};
     cursor: ${(props) => props.isArticlePage && "pointer"};
   }
 
@@ -430,6 +460,23 @@ export const PortfolioPaginationWrapper = styled.div`
   justify-content: center;
   padding: 42px 0;
 
+  &.cv {
+    padding: 0;
+    margin-top: -12px;
+    margin-bottom: 90px;
+
+    @media ${themes.primary.media.minPCFullHD} {
+    margin-bottom: 112px;
+    margin-top: -15px;
+    }
+
+    @media ${themes.primary.media.maxMobile} {
+      margin-top: 8px;
+      width: 100%;
+      margin-bottom: 53px;
+    }
+  }
+
   @media ${themes.primary.media.maxTabletPortrait} {
     padding: 30px 0 42px 0;
   }
@@ -475,6 +522,10 @@ export const PortfolioPaginationButton = styled.div`
     border: 1px solid #000;
     color: #f1efed;
   }
+
+  @media ${themes.primary.media.minPCFullHD} {
+    font-size: 20px;
+  }
 `;
 
 export const ProjectsContainerInfo = styled.div`
@@ -515,7 +566,7 @@ export const ProjectsContainerHeaderLink = styled.div<IPortfolioInfoProps>`
 
   & path {
     transition: ${({ isProjectLink }) =>
-      isProjectLink && "transform 1s ease-in-out"};
+    isProjectLink && "transform 1s ease-in-out"};
     opacity: ${({ isProjectLink }) => (!isProjectLink ? 0.3 : 1)};
   }
   & path:nth-child(1) {
@@ -652,11 +703,11 @@ export const ProjectsContainer = styled.div<IPortfolioInfoProps>`
 
   &:hover ${ProjectsContainerArrowContainer} {
     background: ${({ isProjectLink }) =>
-      !isProjectLink ? "#6a6745" : themes.primary.colors.portfolioHover};
+    !isProjectLink ? "#6a6745" : themes.primary.colors.portfolioHover};
     border: ${({ isProjectLink }) =>
-      !isProjectLink
-        ? `2.26667px solid #181817`
-        : `2.26667px solid ${themes.primary.colors.primary}`};
+    !isProjectLink
+      ? `2.26667px solid #181817`
+      : `2.26667px solid ${themes.primary.colors.primary}`};
   }
 
   &:hover ${ProjectsContainerInfoBtn} {

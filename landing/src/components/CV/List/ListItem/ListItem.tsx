@@ -1,20 +1,35 @@
-import React from "react";
-// import Image from "next/image";
+import React, { useState } from "react";
 
-import * as Styled from "./ListItem.styled";
 import ButtonArrow from "../../../../utils/ButtonArrow";
 
-export const ListItem = ({ info }: any) => {
+import * as Styled from "./ListItem.styled";
+
+import { CvData } from "../../../../types/Admin/AdminCv.types";
+
+interface ListItemProps {
+  item: CvData;
+  i: number
+}
+
+export const ListItem = ({ item, i }: ListItemProps) => {
+  const [onHover, setOnHover] = useState(false);
+
   return (
-    <Styled.ListItemWrapper>
+    <Styled.ListItemWrapper
+      key={i}
+      onMouseMove={() => setOnHover(true)}
+      onMouseLeave={() => setOnHover(false)}
+    >
       <Styled.ListItemTitle>
-        <Styled.ListItemName></Styled.ListItemName>
-        <Styled.ListItemPosition></Styled.ListItemPosition>
+        <Styled.ListItemName onHover={onHover}>{item.personal.name}</Styled.ListItemName>
+        <Styled.ListItemPosition>{item.personal.role}</Styled.ListItemPosition>
       </Styled.ListItemTitle>
       <Styled.ListItemLink>
-        {info ? (
-          <a href={info} target="_blank" rel="noreferrer">
-            project link
+        {item ? (
+          <a href={`/cv/${item.personal.name.toLowerCase().replace(/\s+/g, '-')}-${item._id}`}
+            target="_blank"
+            rel="noreferrer">
+            link
           </a>
         ) : (
           <span>NDA</span>

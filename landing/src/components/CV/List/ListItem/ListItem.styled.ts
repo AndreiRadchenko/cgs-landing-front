@@ -3,23 +3,158 @@ import themes from "../../../../utils/themes";
 
 export const ListItemWrapper = styled.div`
   position: relative;
-  margin-top: 8px;
-  @media ${themes.primary.media.minMobile} {
-    margin-top: 100px;
-    height: 430px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-  }
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1.5px solid #8F8E93;
+  padding-bottom: 24px;
+  padding-inline: 20px;
+  margin-bottom: 52px;
 
   @media ${themes.primary.media.minPCFullHD} {
-    height: 573px;
-    margin-top: 130px;
+    padding-bottom: 30px;
+    padding-inline: 25px;
+    margin-bottom: 65px;
+  }
+
+  @media ${themes.primary.media.maxMobile} {
+    width: 116%;
+    margin-left: -55px;
+    padding-bottom: 8px;
+    margin-bottom: 16px;
+  }
+
+  @media (max-width: 766px) {
+    width: 106%;
+    margin-left: -20px;
+  }
+
+  @media (max-width: 650px) {
+    width: 107%;
+  }
+
+  @media (max-width: 550px) {
+    width: 108%;
+  }
+
+  @media ${themes.primary.media.maxLowScreenMobile} {
+    width: 112%;
+    margin-left: -20px;
   }
 `;
 
 export const ListItemTitle = styled.div``;
-export const ListItemLink = styled.div``;
-export const ListItemArrowContainer = styled.div``;
-export const ListItemName = styled.div``;
-export const ListItemPosition = styled.div``;
+export const ListItemLink = styled.div`
+  display: flex;
+  gap: 4px;
+  align-items: center;
+
+  a {
+    font-family: ${themes.primary.font.family.namu};
+    font-size: 1.5em;
+    font-weight: 900;
+    line-height: 130%;
+  }
+
+  @media ${themes.primary.media.minPCFullHD} {
+    gap: 5px;
+
+    a {
+      font-size: 22.5px;
+      line-height: 160%;
+    }
+  }
+
+  @media ${themes.primary.media.maxMobile} {
+    a {
+      font-size: 18px;
+    }
+  }
+`;
+
+export const ListItemArrowContainer = styled.div`
+  width: 32px;
+  height: 32px;
+  background-color: ${themes.primary.colors.headerBorderHover};
+  border: 1.7px solid ${themes.primary.colors.primary};
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+
+  & path {
+    transition: all 1s ease-in-out;
+  }
+  & path:nth-child(1) {
+    z-index: -1;
+    transform: translate(-36px, 36px);
+  }
+  &:hover {
+    & path:nth-child(2) {
+      transform: translate(36px, -36px);
+    }
+
+    & path:nth-child(1) {
+      transform: translate(0px, 0px);
+    }
+  }
+
+  & svg {
+    width: 25px;
+    height: 25px;
+    margin-left: -0.55px;
+    margin-top: -0.5px;
+  }
+
+  @media ${themes.primary.media.minPCFullHD} {
+    width: 40px;
+    height: 40px;
+  }
+
+  @media ${themes.primary.media.maxMobile} {
+    width: 26px;
+    height: 26px;
+  }
+`;
+export const ListItemName = styled.div<{onHover: boolean}>`
+  font-family: ${themes.primary.font.family.namu};
+  font-size: 2.5em;
+  font-weight: 900;
+  line-height: 130%;
+  color: ${(props) => props.onHover ? "#5869DD" : "#000"};
+  transition: 0.1s all linear;
+
+  @media ${themes.primary.media.minPCFullHD} {
+    font-size: 37.5px;
+    line-height: 160%;
+  }
+
+  @media ${themes.primary.media.maxTabletPortrait} {
+    font-size: 2em;
+  }
+
+  @media ${themes.primary.media.maxMobile} {
+    font-size: 22px;
+  }
+`;
+export const ListItemPosition = styled.div`
+  color: #8F8E93;
+  font-size: 1.5em;
+  font-family: ${themes.primary.font.family.namu};
+  font-weight: 900;
+  line-height: 130%;
+  margin-top: 3px;
+
+  @media ${themes.primary.media.minPCFullHD} {
+    font-size: 22.5px;
+    line-height: 160%;
+  }
+
+  @media ${themes.primary.media.maxTabletPortrait} {
+    font-size: 1em;
+  }
+
+  @media ${themes.primary.media.maxMobile} {
+    font-size: 14px;
+  }
+`;

@@ -17,8 +17,8 @@ export class AdminCvService {
   public getPaginatedAndFilteredCvs(
     category: string,
     search: string,
-    page: string,
-    limit: string
+    page: number,
+    limit: number
   ) {
     return this.httpService.get<CvData[]>(
       `api/devs-info/cvs?category=${category}&search=${search}&page=${page}&limit=${limit}`

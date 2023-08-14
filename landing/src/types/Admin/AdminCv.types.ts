@@ -57,3 +57,24 @@ export interface ICvItem {
   item: CvData;
   i: number
 }
+
+export interface ICvDataResponse {
+  cvs: CvData [];
+  currentPage: number;
+  totalPages: number;
+}
+
+export interface ICvListResponse {
+  data?: ICvDataResponse;
+  isLoading: boolean;
+  isFetching: boolean;
+}
+
+export interface IPaginationProps {
+  cvData: ICvDataResponse | undefined;
+  currentPage: number;
+  setCurrentPage: React.Dispatch<React.SetStateAction<number>>;
+  scrollFunction: () => void;
+  setIsFirstLoad: React.Dispatch<React.SetStateAction<boolean>>;
+  setIsPaginationTriggered: React.Dispatch<React.SetStateAction<boolean>>;
+}
