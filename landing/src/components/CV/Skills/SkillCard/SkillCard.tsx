@@ -5,7 +5,7 @@ import { handleRandomOffset } from "../../../../utils/getRandomAnimationOffset";
 import * as Styled from "./SkillCard.styled";
 import crystal from "../../../../../public/CV/crystal.svg";
 import cube from "../../../../../public/CV/cube.svg";
-import cylinder from "../../../../../public/CV/cylinder.svg";
+import cylinder from "../../../../../public/CV/safari-cylinder.svg";
 
 const svg = [crystal, cube, cylinder];
 const svgName = ["crystal", "cube", "cylinder"];

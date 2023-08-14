@@ -32,7 +32,7 @@ const CV = () => {
 
   const { data }: ICvResponse = useQuery(
     [queryKeys.getCvById, slug],
-    () => adminCvService.getCvById(slug as string),
+    async () => await adminCvService.getCvById(slug as string),
     { enabled: !!slug }
   );
 
