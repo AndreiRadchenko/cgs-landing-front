@@ -108,7 +108,7 @@ export const TestimonialsHeaderName = styled.div`
 
 export const TestimonialsHeaderPosition = styled.div`
   margin-top: 0.445em;
-  color: ${themes.primary.colors.darkGrey};
+  color: ${themes.primary.colors.darkBlue};
   font-family: ${themes.primary.font.family.namu};
   font-size: 1.5em;
   font-weight: 900;
@@ -116,6 +116,10 @@ export const TestimonialsHeaderPosition = styled.div`
 
   &.mobile {
     display: none;
+  }
+
+  &:hover {
+    text-decoration: underline;
   }
 
   @media ${themes.primary.media.maxMobile} {
@@ -135,6 +139,12 @@ export const TestimonialsHeaderStar = styled.div`
     span {
       width: 45px !important;
       height: 45px !important;
+    }
+  }
+  @media ${themes.primary.media.maxMobile} {
+    span {
+      width: 20px !important;
+      height: 20px !important;
     }
   }
 `;
@@ -194,8 +204,8 @@ export const TestimonialsSlideStar = styled.div`
     right: 15px;
 
     span {
-      width: 18px !important;
-      height: 18px !important;
+      width: 20px !important;
+      height: 20px !important;
     }
   }
 `;
@@ -274,6 +284,7 @@ export const TestimonialsSlideContainer = styled.div`
 export const TestimonialsSwiperContainer = styled.div`
   margin-top: 2em;
   margin-bottom: 10em;
+  margin-right: -4.25em;
 
   .swiper-slide {
     width: 49.17em;
