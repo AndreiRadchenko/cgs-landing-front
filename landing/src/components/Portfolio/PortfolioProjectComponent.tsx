@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Image from "next/image";
 import { useRouter } from "next/router";
+import { useMediaQuery } from "@mui/material";
 
 import { IPortfolioReview } from "../../types/Admin/AdminPortfolio.types";
 
@@ -12,7 +13,6 @@ import BtnPolyline from "./svg/BtnPolyline";
 
 import { openInNewTab } from "../../utils/OpenInNewTab";
 import { useWindowDimension } from "../../hooks/useWindowDimension";
-import { useMediaQuery } from "@mui/material";
 
 const PortfolioProjectComponent = ({
   project,

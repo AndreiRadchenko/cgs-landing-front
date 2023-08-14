@@ -14,6 +14,17 @@ export class AdminCvService {
     return this.httpService.put("api/devs-info", data);
   }
 
+  public getPaginatedAndFilteredCvs(
+    category: string,
+    search: string,
+    page: number,
+    limit: number
+  ) {
+    return this.httpService.get<CvData[]>(
+      `api/devs-info/cvs?category=${category}&search=${search}&page=${page}&limit=${limit}`
+    );
+  }
+
   public getCv() {
     return this.httpService.get<CvData[]>("api/devs-info/cv");
   }

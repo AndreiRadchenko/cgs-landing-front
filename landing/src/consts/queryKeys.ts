@@ -96,6 +96,7 @@ export const queryKeys = {
   addDomainService: "addDomainService",
   removeDomainService: "removeDomainService",
   getCvPage: "getCvPage",
+  getPaginatedAndFilteredCvs: "getPaginatedAndFilteredCvs",
   updateCvPage: "updateCvPage",
   getCvs: "getCvs",
   getCvById: "getCvById",
