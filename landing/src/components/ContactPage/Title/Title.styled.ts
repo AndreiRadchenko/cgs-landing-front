@@ -41,7 +41,7 @@ export const Subtitle = styled.div`
     font-size: 34px;
     line-height: 41px;
     margin: 0;
-    width: 80%;
+    width: 100%;
     span {
       &.tech {
         height: 5vw;
@@ -50,6 +50,7 @@ export const Subtitle = styled.div`
   }
 
   @media ${themes.primary.media.maxLowScreenMobile} {
+    width: 300px;
     & span {
       &.blue {
         height: 5vw;
