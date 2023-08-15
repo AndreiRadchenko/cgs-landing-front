@@ -3,6 +3,13 @@ import themes from "../../utils/themes";
 
 import MagnifyingGlass from "../../../public/Portfolio/MagnifyingGlass.svg";
 
+export const CvContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  justify-content: space-between;
+`;
+
 export const Layout = styled.article`
   width: 100%;
   margin: 0 auto;
@@ -18,8 +25,6 @@ export const Layout = styled.article`
     padding-inline: 3.55vw;
   }
 `;
-
-export const CvContainer = styled.div``;
 
 export const CvTitle = styled.div`
   text-transform: uppercase;
@@ -106,21 +111,21 @@ export const CvSearchInput = styled.input`
   outline: none;
   padding-top: 5px;
   width: 80%;
+  font-size: 1.33em;
 
   &::placeholder {
     color: #A9A5A4;
     font-family: ${themes.primary.font.family.namu};
-    font-size: 1.33em;
     font-weight: 900;
     line-height: 120%;
+  }
 
-    @media ${themes.primary.media.minPCFullHD} {
+  @media ${themes.primary.media.minPCFullHD} {
       font-size: 20px;
     }
 
-    @media ${themes.primary.media.maxMobile} {
-      font-size: 16px;
-    }
+  @media ${themes.primary.media.maxMobile} {
+    font-size: 16px;
   }
 `;
 

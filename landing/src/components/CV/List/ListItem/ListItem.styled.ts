@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import themes from "../../../../utils/themes";
+import { arrowOne, arrowTwo } from "../../../../styles/HomePage/General.styled";
 
 export const ListItemWrapper = styled.div`
   position: relative;
@@ -19,7 +20,7 @@ export const ListItemWrapper = styled.div`
   @media ${themes.primary.media.maxMobile} {
     width: 116%;
     margin-left: -55px;
-    padding-bottom: 8px;
+    padding-bottom: 14px;
     margin-bottom: 16px;
   }
 
@@ -47,6 +48,7 @@ export const ListItemLink = styled.div`
   display: flex;
   gap: 4px;
   align-items: center;
+  cursor: pointer;
 
   a {
     font-family: ${themes.primary.font.family.namu};
@@ -82,22 +84,29 @@ export const ListItemArrowContainer = styled.div`
   align-items: center;
   overflow: hidden;
 
-  & path {
-    transition: all 1s ease-in-out;
-  }
-  & path:nth-child(1) {
-    z-index: -1;
-    transform: translate(-36px, 36px);
+  &.active {
+    & path {
+      transition: all 1s ease-in-out;
+    }
+    & path:nth-child(1) {
+      z-index: -1;
+      transform: translate(-36px, 36px);
+    }
+      & path:nth-child(1) {
+        animation: ${arrowOne} 1s ease-in-out;
+      }
+      & path:nth-child(2) {
+        animation: ${arrowTwo} 1s ease-in-out;
+      }
   }
   &:hover {
-    & path:nth-child(2) {
-      transform: translate(36px, -36px);
+      & path:nth-child(1) {
+        animation: ${arrowOne} 1s ease-in-out;
+      }
+      & path:nth-child(2) {
+        animation: ${arrowTwo} 1s ease-in-out;
+      }
     }
-
-    & path:nth-child(1) {
-      transform: translate(0px, 0px);
-    }
-  }
 
   & svg {
     width: 25px;
@@ -116,7 +125,8 @@ export const ListItemArrowContainer = styled.div`
     height: 26px;
   }
 `;
-export const ListItemName = styled.div<{onHover: boolean}>`
+
+export const ListItemName = styled.div<{ onHover: boolean }>`
   font-family: ${themes.primary.font.family.namu};
   font-size: 2.5em;
   font-weight: 900;

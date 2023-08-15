@@ -3,6 +3,7 @@ import { useQuery } from "@tanstack/react-query";
 import { scroller } from "react-scroll";
 import parse from "html-react-parser";
 import Head from "next/head";
+import { useMediaQuery } from "@mui/material";
 
 import { Pagination } from "../../components/CV/Pagination";
 import { ListItem } from "../../components/CV/List/ListItem/ListItem";
@@ -27,13 +28,10 @@ const DevsInfo = () => {
 
   const { metaTitle, metaDescription, customHead } = { ...data?.meta };
 
+  const isMobile = useMediaQuery("(max-width: 768px)")
   const [currentPage, setCurrentPage] = useState<number>(1);
   const [category, setCategory] = useState<string>("");
-  const [isRequestRepeated, setIsRequestRepeated] = useState<boolean>(false);
   const [isSearchTriggered, setIsSearchTriggered] = useState<boolean>(false);
-  const [isCategoryChange, setIsCategoryChange] = useState<boolean>(false);
-  const [isCategoryWarning, setIsCategoryWarning] = useState<boolean>(false);
-  const [selectedIndustries, setSelectedIndustries] = useState<string[]>([]);
   const [searchText, setSearchText] = useState<string>("");
   const [searchTrigger, setSearchTrigger] = useState<string>("");
   const [activeCategory, setActiveCategory] = useState<number>(0);
@@ -42,9 +40,10 @@ const DevsInfo = () => {
   const categoryItemsRef = useRef<(HTMLDivElement | null)[]>([]);
   const [categoryItemWidths, setCategoryItemWidths] = useState<string[]>([]);
   const [categoryItemHeights, setCategoryItemHeights] = useState<string[]>([]);
-  const [isImagesLoaded, setIsImagesLoaded] = useState(false);
-  const [loadedImagesCount, setLoadedImagesCount] = useState(0);
   const [limit, setLimit] = useState(10);
+  const [isRequestRepeated, setIsRequestRepeated] = useState<boolean>(false);
+  const [isCategoryWarning, setIsCategoryWarning] = useState<boolean>(false);
+  const [isCategoryChange, setIsCategoryChange] = useState<boolean>(false);
 
   const { data: cvData, isLoading: cvsLoading }: ICvListResponse = useQuery(
     [queryKeys.getPaginatedAndFilteredCvs,
@@ -82,11 +81,6 @@ const DevsInfo = () => {
     setIsPaginationTriggered(false);
   };
 
-  const imagesCountNullifier = () => {
-    setIsImagesLoaded(false);
-    setLoadedImagesCount(0);
-  };
-
   const handleCategoryItemRef =
     (index: number) => (ref: HTMLDivElement | null) => {
       categoryItemsRef.current[index] = ref;
@@ -110,18 +104,13 @@ const DevsInfo = () => {
   };
 
   const filtersNullifier = () => {
-    setSelectedIndustries([]);
     setCategory("");
     setActiveCategory(0);
   };
 
   useEffect(() => {
-    setIsRequestRepeated(false);
-  }, [searchTrigger]);
-
-  useEffect(() => {
     if (cvData?.cvs.length === 0) {
-      if ((category || selectedIndustries.length > 0) && isSearchTriggered) {
+      if ((category) && isSearchTriggered) {
         filtersNullifier();
         setIsSearchTriggered(false);
         setIsRequestRepeated(true);
@@ -134,6 +123,16 @@ const DevsInfo = () => {
       }
     }
   }, [cvData]);
+
+  useEffect(() => {
+    if (isMobile) {
+      setLimit(8)
+    }
+  }, [isMobile]);
+
+  useEffect(() => {
+    setIsRequestRepeated(false);
+  }, [searchTrigger]);
 
   return (
     <Loader active={isLoading}>
@@ -148,79 +147,91 @@ const DevsInfo = () => {
         ) : data ? (
           <>
             <Styles.CvContainer>
-              <HeaderNavNew />
-              <Styles.Layout>
-                <Styles.CvTitle>{data.title}</Styles.CvTitle>
-                <Styles.SettingsBlock>
-                  <PortfolioStyles.PortfolioCategoryWrapper>
-                    {data?.categories.map((name, i) => (
-                      <PortfolioStyles.PortfolioCategoryItem
-                        key={i}
-                        ref={handleCategoryItemRef(i)}
-                        blockWidth={categoryItemWidths[i + 1]}
-                        blockHeight={categoryItemHeights[i + 1]}
-                        className={i === activeCategory ? "active" : "cv"}
-                        onClick={() => {
-                          categoryTrigger();
-                          setIsCategoryChange(true);
-                          setActiveCategory(i);
-                          setCategory(name);
-                        }}
-                      >
-                        {name.charAt(0).toUpperCase() + name.slice(1)}
-                      </PortfolioStyles.PortfolioCategoryItem>
-                    ))}
-                  </PortfolioStyles.PortfolioCategoryWrapper>
-                  <Styles.CvSearchWrapper>
-                    <Styles.CvSearchButton>
-                      <Styles.CvSearchIcon />
-                    </Styles.CvSearchButton>
-                    <Styles.CvSearchInput
-                      placeholder="Search developer"
-                      value={searchText}
-                      onChange={handleSearchChange}
-                      onKeyDown={handleKeyDown}
-                    />
-                  </Styles.CvSearchWrapper>
-                </Styles.SettingsBlock>
-                <Loader isPortfolio={true} className="portfolio" active={false}>
-                  {(isLoading || cvsLoading) && !isFirstLoad ? (
-                    <LoaderStub />
-                  ) : cvData?.cvs && cvData.cvs.length > 0 ? (
-                    <Styles.ListWrapper>
-                      {cvData?.cvs.map((item, i) => (
-                        <ListItem item={item} i={i} />
+              <div>
+                <HeaderNavNew />
+                <Styles.Layout>
+                  <Styles.CvTitle>{data.title}</Styles.CvTitle>
+                  <Styles.SettingsBlock>
+                    <PortfolioStyles.PortfolioCategoryWrapper>
+                      {data?.categories.map((name, i) => (
+                        <PortfolioStyles.PortfolioCategoryItem
+                          key={i}
+                          ref={handleCategoryItemRef(i)}
+                          blockWidth={categoryItemWidths[i]}
+                          blockHeight={categoryItemHeights[i]}
+                          className={i === activeCategory ? "active" : "cv"}
+                          onClick={() => {
+                            categoryTrigger();
+                            setActiveCategory(i);
+                            setIsCategoryChange(true);
+                            setCategory(name);
+                          }}
+                        >
+                          {name.charAt(0).toUpperCase() + name.slice(1)}
+                        </PortfolioStyles.PortfolioCategoryItem>
                       ))}
-                    </Styles.ListWrapper>
-                  ) : (
-                    <PortfolioStyles.PortfolioSearchWarning className="cv">
-                      <div className="sorry-message">
-                        <span>
-                          {'Sorry, no results were found for "'}
-                          <span className="search-word">{searchTrigger}</span>
-                          {'".'}
-                        </span>
-                      </div>
-                      <div>Recommendations:</div>
-                      <ul>
-                        <li>Make sure all the words are properly spelled.</li>
-                        <li>Try using other keywords.</li>
-                      </ul>
-                    </PortfolioStyles.PortfolioSearchWarning>
-                  )}
-                </Loader>
-                <Pagination
-                  cvData={cvData}
-                  currentPage={currentPage}
-                  setCurrentPage={setCurrentPage}
-                  scrollFunction={() => {
-                    imagesCountNullifier();
-                    scrollFunction();
-                  }}
-                  setIsFirstLoad={setIsFirstLoad}
-                  setIsPaginationTriggered={setIsPaginationTriggered}
-                />
-              </Styles.Layout>
+                    </PortfolioStyles.PortfolioCategoryWrapper>
+                    <Styles.CvSearchWrapper>
+                      <Styles.CvSearchButton>
+                        <Styles.CvSearchIcon />
+                      </Styles.CvSearchButton>
+                      <Styles.CvSearchInput
+                        placeholder="Search developer"
+                        value={searchText}
+                        onChange={handleSearchChange}
+                        onKeyDown={handleKeyDown}
+                      />
+                    </Styles.CvSearchWrapper>
+                  </Styles.SettingsBlock>
+                  <Loader isPortfolio={true} className="portfolio" active={false}>
+                    {(isLoading || cvsLoading) && !isFirstLoad ? (
+                      <LoaderStub />
+                    ) : cvData?.cvs && cvData.cvs.length > 0 ? (
+                      <>
+                        {isRequestRepeated && (
+                          <PortfolioStyles.PortfolioFilterWarning className="cv">
+                            <div className="sorry-message">
+                              {`Sorry, there are no matches in the category chosen, but we found “${searchTrigger}” in the other categories`}
+                            </div>
+                          </PortfolioStyles.PortfolioFilterWarning>
+                        )}
+                        <Styles.ListWrapper>
+                          {cvData?.cvs.map((item, i) => (
+                            <ListItem item={item} i={i} />
+                          ))}
+                        </Styles.ListWrapper>
+                      </>
+                    ) : isCategoryWarning && category ? (
+                      null
+                    ) : (
+                      <PortfolioStyles.PortfolioSearchWarning className="cv">
+                        <div className="sorry-message">
+                          <span>
+                            {'Sorry, no results were found for "'}
+                            <span className="search-word">{searchTrigger}</span>
+                            {'".'}
+                          </span>
+                        </div>
+                        <div>Recommendations:</div>
+                        <ul>
+                          <li>Make sure all the words are properly spelled.</li>
+                          <li>Try using other keywords.</li>
+                        </ul>
+                      </PortfolioStyles.PortfolioSearchWarning>
+                    )}
+                  </Loader>
+                  <Pagination
+                    cvData={cvData}
+                    currentPage={currentPage}
+                    setCurrentPage={setCurrentPage}
+                    scrollFunction={() => {
+                      scrollFunction();
+                    }}
+                    setIsFirstLoad={setIsFirstLoad}
+                    setIsPaginationTriggered={setIsPaginationTriggered}
+                  />
+                </Styles.Layout>
+              </div>
               <FooterNew />
             </Styles.CvContainer>
           </>

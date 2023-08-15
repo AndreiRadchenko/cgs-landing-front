@@ -71,8 +71,14 @@ export const PortfolioCategoryItem = styled.div<IPortfolioCategoryItem>`
   }
 
   &.cv {
-    max-height: 42.8px;
     font-size: 1.1667em;
+    border: none;
+    border: 1px solid black;
+
+    &:hover {
+      transition: 0.15s ease-out;
+      box-shadow: 1.5px 2.5px 0px 0px #000, 0px 1px 0px 0px #000;
+    }
 
     @media ${themes.primary.media.minPCFullHD} {
       font-size: 17.5px;
@@ -98,6 +104,11 @@ export const PortfolioCategoryItem = styled.div<IPortfolioCategoryItem>`
 
     &.cv {
       font-size: 14px;
+      max-height: 42px;
+    }
+
+    &.active {
+      max-height: 42px;
     }
   }
 `;
@@ -181,6 +192,10 @@ export const PortfolioFilterWarning = styled.div`
   text-align: start;
   margin-top: 50px;
 
+  &.cv {
+    margin-bottom: 40px;
+  }
+
   @media ${themes.primary.media.maxTabletPortrait} {
     margin-right: 0;
     font-size: 18px;
@@ -207,7 +222,6 @@ export const PortfolioSearchWarning = styled.div`
   }
 
   &.cv {
-    height: 25vh;
     @media ${themes.primary.media.minPCFullHD} {
       font-size: 22.5px;
     }
