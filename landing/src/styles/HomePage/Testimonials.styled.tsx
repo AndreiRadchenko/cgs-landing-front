@@ -220,8 +220,8 @@ export const TestimonialsSlideStar = styled.div`
     }
   }
   @media ${themes.primary.media.maxMobile} {
-    bottom: 10px;
-    right: 15px;
+    right: 8px;
+    bottom: 15px;
 
     span {
       width: 20px !important;

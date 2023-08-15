@@ -15,6 +15,7 @@ const TestimonialsSlide = ({
   setIndex,
   slideNum,
   testimonialImg,
+  stars,
 }: ITestimonialsSlideProps) => {
   const clickHandler = () => {
     setIsOpen(true);
@@ -28,7 +29,7 @@ const TestimonialsSlide = ({
         {subtitle}
       </Styled.TestimonialsSlideHeadline>
       <Styled.TestimonialsSlideStar>
-        {[...Array(5)].map((_, i) => (
+        {[...Array(Math.round(stars))].map((_, i) => (
           <Image key={i} src={star} alt={"star"} />
         ))}
       </Styled.TestimonialsSlideStar>

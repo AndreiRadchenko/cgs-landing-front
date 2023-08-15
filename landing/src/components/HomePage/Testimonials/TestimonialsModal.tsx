@@ -8,7 +8,6 @@ import { ITestimonialsModalProps } from "../../../types/Components.types";
 
 import cross from "../../../../public/closeBtn.svg";
 import star from "../../../../public/HomePageDecoration/testimonialsStar.svg";
-import Link from "next/link";
 
 const TestimonialsModal = ({
   setIsOpen,
@@ -37,17 +36,21 @@ const TestimonialsModal = ({
                 {testimonial.name}
               </Styled.TestimonialsHeaderName>
               <Styled.TestimonialsHeaderPosition className={"desktop"}>
-                <Link href={testimonial.link}>{testimonial.company}</Link>
+                <a href={testimonial.link} target={"_blank"} rel="noreferrer">
+                  {testimonial.company}
+                </a>
               </Styled.TestimonialsHeaderPosition>
             </div>
             <Styled.TestimonialsHeaderStar>
-              {[...Array(5)].map((_, i) => (
+              {[...Array(Math.round(testimonial.stars))].map((_, i) => (
                 <Image key={i} src={star} alt={"star"} />
               ))}
             </Styled.TestimonialsHeaderStar>
           </Styled.TestimonialsInfoHeader>
           <Styled.TestimonialsHeaderPosition className={"mobile"}>
-            <Link href={testimonial.link}>{testimonial.company}</Link>
+            <a href={testimonial.link} target={"_blank"} rel="noreferrer">
+              {testimonial.company}
+            </a>
           </Styled.TestimonialsHeaderPosition>
           <Styled.TestimonialsInfoText>
             {testimonial.text}

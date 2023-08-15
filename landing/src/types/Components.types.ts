@@ -59,4 +59,5 @@ export interface ITestimonialsSlideProps {
   setIndex: React.Dispatch<React.SetStateAction<number>>;
   slideNum: number;
   testimonialImg: string;
+  stars: number;
 }

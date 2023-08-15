@@ -16,17 +16,22 @@ import Link from "next/link";
 interface IFeedbackProps {
   testimonial: ITestimonial;
   deleteFunc: (e?: React.ChangeEvent<any>) => void;
-  isNewFeedback: boolean;
   setIsNewFeedback: React.Dispatch<React.SetStateAction<boolean>>;
+  isEditing: boolean;
+  setIsEditing: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
 const AdminTestimonial = ({
   testimonial,
   deleteFunc,
-  isNewFeedback,
   setIsNewFeedback,
+  isEditing,
+  setIsEditing,
 }: IFeedbackProps) => {
-  const trigger = () => setIsNewFeedback((prev) => !prev);
+  const trigger = () => {
+    setIsEditing((prev) => !prev);
+    setIsNewFeedback((prev) => !prev);
+  };
 
   return (
     <Styled.AdminFeedbackFrame className={"testimonialsFrame"}>
@@ -82,7 +87,7 @@ const AdminTestimonial = ({
       </Styled.AdminTestimonialContainerModal>
       <Styled.AdminEditDeleteContainer>
         <Styled.AdminEditIcon onClick={trigger}>
-          <Image src={isNewFeedback ? edit : close} alt={"new feedback"} />
+          <Image src={isEditing ? edit : close} alt={"new feedback"} />
         </Styled.AdminEditIcon>
         <Styled.AdminDeleteTextTestimon onClick={deleteFunc}>
           delete review
