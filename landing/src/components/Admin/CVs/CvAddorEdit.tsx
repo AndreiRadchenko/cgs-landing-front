@@ -217,7 +217,8 @@ const CvAddOrEdit = () => {
 
     const getTextLengthWithoutTags = (htmlText: string) => {
         const textWithoutTags = htmlText.replace(/(<([^>]+)>)/ig, "");
-        return textWithoutTags.length;
+        const textWithoutSpecialChars = textWithoutTags.replace(/[\^|]/g, "");
+        return textWithoutSpecialChars.length;
     };
 
     return (

@@ -1,6 +1,6 @@
 import React, { Dispatch, SetStateAction } from "react";
 import { Form, Formik, FormikHelpers } from "formik";
-import { useMutation } from "@tanstack/react-query";
+import { useMutation, useQueryClient } from "@tanstack/react-query";
 
 import { queryKeys } from "../../../consts/queryKeys";
 import { adminCvService } from "../../../services/adminCvPage";
@@ -23,18 +23,30 @@ const CvForm = ({
     cv,
     current,
 }: CvAddOrEditProps) => {
+    const queryClient = useQueryClient();
+
     const { mutateAsync: editCv } = useMutation(
         [queryKeys.addPortfolioReview],
         (cv: CvData) => adminCvService.updateById(cv),
+        {
+            onSuccess: () => {
+                queryClient.invalidateQueries([queryKeys.getCvs]);
+            },
+        }
     );
-    
+
     const { mutateAsync: postCv } = useMutation(
         [queryKeys.addPortfolioReview],
         (cv: CvData) => adminCvService.postCv(cv),
+        {
+            onSuccess: () => {
+                queryClient.invalidateQueries([queryKeys.getCvs]);
+            },
+        }
     );
 
     const handleSubmit = (values: CvData, action: FormikHelpers<any>) => {
-        isNewCv 
+        isNewCv
             ? postCv(values)
             : editCv(values);
         action.resetForm();
@@ -45,27 +57,26 @@ const CvForm = ({
 
     return (
         <Formik
-            key={`Form${isNewCv}${
-            typeof current === "number" ? current : "null"
-            }`}
+            key={`Form${isNewCv}${typeof current === "number" ? current : "null"
+                }`}
             validateOnChange={false}
             validateOnBlur={false}
             initialValues={
                 isNewCv
-                  ? JSON.parse(JSON.stringify(NewCv))
-                  : typeof cv !== "undefined" &&
+                    ? JSON.parse(JSON.stringify(NewCv))
+                    : typeof cv !== "undefined" &&
                     (cv[current].image
-                      ? cv[current]
-                      : {
-                          ...cv[current],
-                          imageBanner: {
-                            image: null,
-                          },
-                          imageProjectBanner: {
-                            image: null,
-                          },
+                        ? cv[current]
+                        : {
+                            ...cv[current],
+                            imageBanner: {
+                                image: null,
+                            },
+                            imageProjectBanner: {
+                                image: null,
+                            },
                         })
-              }
+            }
             onSubmit={handleSubmit}
             validationSchema={AdminCvValidation}
         >
