@@ -37,7 +37,11 @@ export const ListItem = ({ item, i }: ListItemProps) => {
         ) : (
           <span>NDA</span>
         )}
-        <Styled.ListItemArrowContainer className={linkHover ? "active" : ""}>
+        <Styled.ListItemArrowContainer 
+          href={`/cv/${item.personal.name.toLowerCase().replace(/\s+/g, '-')}-${item._id}`}
+          rel="noreferrer"
+          className={linkHover ? "active" : ""}
+        >
           <ButtonArrow />
         </Styled.ListItemArrowContainer>
       </Styled.ListItemLink>

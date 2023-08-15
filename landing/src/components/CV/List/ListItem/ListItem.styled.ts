@@ -73,7 +73,7 @@ export const ListItemLink = styled.div`
   }
 `;
 
-export const ListItemArrowContainer = styled.div`
+export const ListItemArrowContainer = styled.a`
   width: 32px;
   height: 32px;
   background-color: ${themes.primary.colors.headerBorderHover};
