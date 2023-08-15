@@ -492,7 +492,7 @@ export const AdminCategoryAddBlockWrapper = styled.div`
   width: 114px;
 
   &.cvAchievement {
-   justify-content: flex-start;
+    justify-content: flex-start;
   }
 `;
 
@@ -896,6 +896,10 @@ export const AdminFeedbackFrame = styled.div`
   position: relative;
   border: 1px solid ${themes.primary.colors.primary};
   padding: 5em 5em 4em 5em;
+
+  &.testimonialsFrame {
+    padding: 32px;
+  }
 `;
 
 export const AdminButton = styled.button`
@@ -968,6 +972,16 @@ export const AdminDeleteTextThin = styled.span`
   cursor: pointer;
 `;
 
+export const AdminDeleteTextTestimon = styled.span`
+  color: ${themes.primary.colors.adminRed};
+  font-family: ${themes.primary.font.family.gilroy};
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  cursor: pointer;
+`;
+
 export const AdminDeleteReview = styled.span`
   position: relative;
   color: ${themes.primary.colors.errorText};
@@ -995,6 +1009,11 @@ export const AdminFeedbackStars = styled.div`
 export const AdminStarsGrid = styled.div`
   display: flex;
   gap: ${themes.primary.spacing.tertiary};
+  align-items: center;
+`;
+
+export const AdminHeadingInput = styled.div`
+  flex: 1 1 100%;
 `;
 
 export const AdminStarsFlex = styled.div`
@@ -1416,6 +1435,12 @@ export const AdminPortfolioReviewFrame = styled.div`
   position: relative;
 `;
 
+export const AdminEditDeleteContainer = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+`;
+
 export const AdminEditIcon = styled.span`
   padding-left: 15px;
   cursor: pointer;
@@ -1787,6 +1812,12 @@ export const AdminCompanyName = styled.p`
   letter-spacing: 1px;
   color: ${themes.primary.colors.headerBorder};
   margin-top: 0.4em;
+`;
+
+export const AdminTestimonialContainerModal = styled.p`
+  padding: 13.724px;
+  border: 0.858px solid ${themes.primary.colors.primary};
+  margin-bottom: 24px;
 `;
 
 export const AdminFeedbackText = styled.p`

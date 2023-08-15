@@ -101,6 +101,10 @@ export const TestimonialsHeaderName = styled.div`
   font-weight: 900;
   line-height: normal;
 
+  &.adminSlide {
+    font-size: 19px;
+  }
+
   @media ${themes.primary.media.maxMobile} {
     font-size: 18px;
   }
@@ -113,6 +117,14 @@ export const TestimonialsHeaderPosition = styled.div`
   font-size: 1.5em;
   font-weight: 900;
   line-height: normal;
+
+  &.grey {
+    color: ${themes.primary.colors.darkGrey};
+  }
+
+  &.adminSlide {
+    font-size: 10px;
+  }
 
   &.mobile {
     display: none;
@@ -158,6 +170,10 @@ export const TestimonialsInfoText = styled.div`
   line-height: 160%; /* 28.8px */
   margin-top: 0.445em;
 
+  &.adminSlide {
+    font-size: 10px;
+  }
+
   @media ${themes.primary.media.maxMobile} {
     margin-top: 16px;
     font-size: 16px;
@@ -173,6 +189,10 @@ export const TestimonialsSlideHeadline = styled.div`
   bottom: 0.7em;
   left: 0.7em;
   max-width: 15.5em;
+
+  &.adminSlide {
+    font-size: 15px;
+  }
 
   @media ${themes.primary.media.minPCFullHD} {
     font-size: 1.55em;
@@ -266,6 +286,10 @@ export const TestimonialsSlideContainer = styled.div`
   width: 100%;
   height: 95.6%;
   position: relative;
+
+  &.adminSlide {
+    height: 255px;
+  }
 
   &:hover ${HoverBlockTestimonials} {
     &.hidden {

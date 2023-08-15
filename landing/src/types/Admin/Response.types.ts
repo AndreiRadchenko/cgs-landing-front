@@ -7,6 +7,7 @@ import {
   IBonusesComponent,
 } from "../../types/ServicesComponent.types";
 import { ITechnology } from "./AdminPortfolio.types";
+import { ITestimonial } from "../Components.types";
 export interface IEditInformation {
   title: string;
   subtitle: string;
@@ -119,6 +120,10 @@ export interface IDataResponse {
   CardsBlock: ICards;
   CalendlyPopupBlock: ICalendlyPopupBlock;
   FeedbackBlock: IFeedbackBlock;
+  TestimonialsBlock: {
+    title: string;
+    testimonials: ITestimonial[];
+  };
   TechnologyBlock: {
     items: ITech[];
   };

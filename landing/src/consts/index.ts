@@ -114,6 +114,19 @@ export const feedbackInit = {
   stars: 1,
 };
 
+export const testimonialsInit = {
+  slideTitle: "",
+  stars: 1,
+  slideBanner: {
+    image: null,
+  },
+  name: "",
+  company: "",
+  videoUrl: "",
+  link: "",
+  text: "",
+};
+
 export const newReviewInit = {
   image: null,
   category: "",
@@ -204,7 +217,7 @@ export enum ROUTE_KEYS {
   AdminEstimationForm = "AdminEstimationForm",
   AdminRateCard = "AdminRateCard",
   AdminSupportChat = "AdminSupportChat",
-  AdminCVs = "AdminCVs"
+  AdminCVs = "AdminCVs",
 }
 
 export enum FaqPageTypes {
@@ -419,13 +432,15 @@ export const NewCv = {
   },
   projects: {
     title: "PROJECTS:",
-    project: [{
-      projectName: "",
-      role: "",
-      date: "",
-      summary: "",
-      achievements: [""],
-      technology: [],
-    }],
+    project: [
+      {
+        projectName: "",
+        role: "",
+        date: "",
+        summary: "",
+        achievements: [""],
+        technology: [],
+      },
+    ],
   },
-}
+};

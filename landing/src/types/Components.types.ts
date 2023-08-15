@@ -1,4 +1,5 @@
 ﻿import React from "react";
+import { IImage } from "./Admin/Admin.types";
 
 export interface IDateInput {
   name: string;
@@ -38,11 +39,13 @@ export interface ITechnologyCategoryProps {
 
 export interface ITestimonial {
   slideTitle: string;
+  stars: number;
   name: string;
   company: string;
   videoUrl: string;
-  imgUrl: string;
+  slideBanner: IImage;
   text: string;
+  link: string;
 }
 
 export interface ITestimonialsModalProps {
