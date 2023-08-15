@@ -23,6 +23,7 @@ const TestimonialsAdmin = () => {
     useFormikContext<IDataResponse>();
 
   const [isNewTestimonial, setIsNewTestimonial] = useState(true);
+  const [isEditing, setIsEditing] = useState(true);
 
   const {
     testimonial,
@@ -56,12 +57,13 @@ const TestimonialsAdmin = () => {
         >
           <>
             <TestimonialForm
+              setIsEditing={setIsEditing}
               submit={handleSubmit}
               isNewTestimonial={isNewTestimonial}
             />
             <BlackButton
               type="submit"
-              onClick={() => handleSubmit}
+              onClick={() => handleSubmit()}
               size={"1.5em"}
               padding={"1.11em 3em"}
             >
@@ -79,9 +81,10 @@ const TestimonialsAdmin = () => {
         ) : (
           <AdminTestimonial
             setIsNewFeedback={setIsNewTestimonial}
-            isNewFeedback={isNewTestimonial}
             testimonial={values.TestimonialsBlock.testimonials[testimonial]}
             deleteFunc={() => deleteFunction(testimonial)}
+            isEditing={isEditing}
+            setIsEditing={setIsEditing}
           />
         )}
         <AdminCarousel

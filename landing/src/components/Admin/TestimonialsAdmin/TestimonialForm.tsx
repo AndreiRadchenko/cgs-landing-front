@@ -21,9 +21,11 @@ import usePushTestimonial from "../../../hooks/usePushTestimonial";
 const TestimonialForm = ({
   isNewTestimonial,
   submit,
+  setIsEditing,
 }: {
   isNewTestimonial: boolean;
   submit: () => void;
+  setIsEditing: React.Dispatch<React.SetStateAction<boolean>>;
 }) => {
   const { values, handleChange, errors } = useFormikContext<ITestimonial>();
 
@@ -35,7 +37,10 @@ const TestimonialForm = ({
   const uploadFunc = (image: IImage) => uploadImageFunction(image);
   const deleteFunc = async () => (await deleteImageFunction)();
   const starsChange = (newValue: number) => (values.stars = newValue);
-  const submitForm = (e: React.SyntheticEvent) => submitFunc(e, submit);
+  const submitForm = (e: React.SyntheticEvent) => {
+    submitFunc(e, submit);
+    setIsEditing(true);
+  };
 
   return (
     <div>
