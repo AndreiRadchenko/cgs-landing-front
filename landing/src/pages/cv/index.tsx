@@ -134,6 +134,29 @@ const DevsInfo = () => {
     setIsRequestRepeated(false);
   }, [searchTrigger]);
 
+  useEffect(() => {
+    if (!isLoading && !cvsLoading) {
+      if (isFirstLoad) {
+        const updateCategoryItemParams = () => {
+          const widths = categoryItemsRef.current.map((item) =>
+            item
+              ? Math.round(parseFloat(getComputedStyle(item).width)) + 5 + "px"
+              : "auto"
+          );
+          const heights = categoryItemsRef.current.map((item) =>
+            item ? getComputedStyle(item).height : "auto"
+          );
+
+          setCategoryItemWidths(widths);
+          setCategoryItemHeights(heights);
+        };
+        updateCategoryItemParams();
+      } else {
+        scrollFunction();
+      }
+    }
+  }, [isLoading, cvsLoading, isFirstLoad]);
+
   return (
     <Loader active={isLoading}>
       <Head>

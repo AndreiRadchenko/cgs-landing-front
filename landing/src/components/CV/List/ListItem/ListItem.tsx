@@ -25,23 +25,15 @@ export const ListItem = ({ item, i }: ListItemProps) => {
         <Styled.ListItemName onHover={onHover}>{item.personal.name}</Styled.ListItemName>
         <Styled.ListItemPosition>{item.personal.role}</Styled.ListItemPosition>
       </Styled.ListItemTitle>
-      <Styled.ListItemLink>
-        {item ? (
-          <a 
-            onMouseMove={() => setLinkHover(true)}
-            onMouseLeave={() => setLinkHover(false)}
-            href={`/cv/${item.personal.name.toLowerCase().replace(/\s+/g, '-')}-${item._id}`}
-            rel="noreferrer">
-            link
-          </a>
-        ) : (
-          <span>NDA</span>
-        )}
-        <Styled.ListItemArrowContainer 
-          href={`/cv/${item.personal.name.toLowerCase().replace(/\s+/g, '-')}-${item._id}`}
-          rel="noreferrer"
-          className={linkHover ? "active" : ""}
-        >
+      <Styled.ListItemLink
+        onMouseMove={() => setLinkHover(true)}
+        onMouseLeave={() => setLinkHover(false)}
+        href={`/cv/${item.personal.name.toLowerCase().replace(/\s+/g, '-')}-${item._id}`}
+        rel="noreferrer"
+        linkHover={linkHover}
+      >
+        {item ? <p>link</p> : <p>NDA</p>}
+        <Styled.ListItemArrowContainer>
           <ButtonArrow />
         </Styled.ListItemArrowContainer>
       </Styled.ListItemLink>

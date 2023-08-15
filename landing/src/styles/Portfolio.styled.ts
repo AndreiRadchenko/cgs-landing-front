@@ -72,13 +72,6 @@ export const PortfolioCategoryItem = styled.div<IPortfolioCategoryItem>`
 
   &.cv {
     font-size: 1.1667em;
-    border: none;
-    border: 1px solid black;
-
-    &:hover {
-      transition: 0.15s ease-out;
-      box-shadow: 1.5px 2.5px 0px 0px #000, 0px 1px 0px 0px #000;
-    }
 
     @media ${themes.primary.media.minPCFullHD} {
       font-size: 17.5px;
