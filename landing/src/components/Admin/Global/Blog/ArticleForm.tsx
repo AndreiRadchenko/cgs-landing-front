@@ -1,12 +1,15 @@
 import React, { useEffect } from "react";
 import { Form, Formik, FormikHelpers, useFormikContext } from "formik";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 import ArticleAddAndEdit from "./ArticleAddAndEdit";
 import { adminBlogService } from "../../../../services/adminBlogPage";
 import { adminSitemapService } from "../../../../services/adminSitemapPage";
 import { formatsDateWithTime } from "../../../../utils/formatsDateWithTime";
 import { AdminBlogValidation } from "../../../../validations/AdminBlogValidation";
+import { CustomToast } from "../../CustomToast";
 
 import {
   META_DESCRIPTION_MAX,
@@ -31,11 +34,22 @@ const ArticleForm = ({
   scrollHandler,
 }: IArticleForm) => {
   const { values } = useFormikContext<IBlogPageResponse>();
+
   const queryClient = useQueryClient();
 
   const { mutateAsync: postArticle } = useMutation(
     [queryKeys.postArticle],
-    (dataToUpdate: IArticle) => adminBlogService.postArticle(dataToUpdate),
+    async (dataToUpdate: IArticle) => {
+      const response = await toast.promise(
+        adminBlogService.postArticle(dataToUpdate),
+        {
+          pending: "Pending update",
+          success: "Data updated successfully 👌",
+          error: "Some things went wrong 🤯",
+        }
+      );
+      return response;
+    },
     {
       onSuccess: () => {
         queryClient.invalidateQueries([queryKeys.getBlogArticles]);
@@ -45,7 +59,17 @@ const ArticleForm = ({
 
   const { mutateAsync: editArticle } = useMutation(
     [queryKeys.updateBlogArticle],
-    (dataToUpdate: IArticle) => adminBlogService.updateById(dataToUpdate),
+    async (dataToUpdate: IArticle) => {
+      const response = await toast.promise(
+        adminBlogService.updateById(dataToUpdate),
+        {
+          pending: "Pending update",
+          success: "Data updated successfully 👌",
+          error: "Some things went wrong 🤯",
+        }
+      );
+      return response;
+    },
     {
       onSuccess: () => {
         queryClient.invalidateQueries([queryKeys.getBlogArticles]);
@@ -63,6 +87,28 @@ const ArticleForm = ({
       },
     }
   );
+
+  const validateForm = async (values: IArticle) => {
+    try {
+      const result = await AdminBlogValidation().validate(values, {
+        abortEarly: false,
+      });
+      return {};
+    } catch (validationError) {
+      // const errors: FormikErrors<IArticle> = {};
+      // if (validationError instanceof Yup.ValidationError) {
+      //   // console.log(validationError);
+      //   validationError.inner.forEach((error: Yup.ValidationError) => {
+      //     if (error.path) {
+      //       errors[error.path] = error.message;
+      //       toast.error(`${error.path}: ${error.message}`);
+      //     }
+      //   });
+      // }
+      toast.error(`Please fill all form fields`);
+      return validationError;
+    }
+  };
 
   const submitFunc = async (
     values: IArticle,
@@ -118,28 +164,33 @@ const ArticleForm = ({
 
   return (
     (
-      <Formik
-        key={`${isNewArticle} article form`}
-        initialValues={
-          isNewArticle
-            ? JSON.parse(JSON.stringify(newBlogArticle))
-            : articles[article]
-        }
-        onSubmit={submitFunc}
-        validationSchema={AdminBlogValidation}
-        validateOnBlur={false}
-      >
-        <Form>
-          <ArticleAddAndEdit
-            possibleTags={values.possibleTags}
-            article={article}
-            isNewArticle={isNewArticle}
-            setArticle={setArticle}
-            setIsNewArticle={setIsNewArticle}
-            scrollHandler={scrollHandler}
-          />
-        </Form>
-      </Formik>
+      <>
+        <Formik
+          key={`${isNewArticle} article form`}
+          initialValues={
+            isNewArticle
+              ? JSON.parse(JSON.stringify(newBlogArticle))
+              : articles[article]
+          }
+          onSubmit={submitFunc}
+          validationSchema={AdminBlogValidation}
+          validateOnChange={false}
+          validateOnBlur={false}
+          validate={validateForm}
+        >
+          <Form>
+            <ArticleAddAndEdit
+              possibleTags={values.possibleTags}
+              article={article}
+              isNewArticle={isNewArticle}
+              setArticle={setArticle}
+              setIsNewArticle={setIsNewArticle}
+              scrollHandler={scrollHandler}
+            />
+          </Form>
+        </Formik>
+        <CustomToast />
+      </>
     ) || <div>no Articles</div>
   );
 };
