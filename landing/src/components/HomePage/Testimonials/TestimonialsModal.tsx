@@ -37,7 +37,7 @@ const TestimonialsModal = ({
                 {testimonial.name}
               </Styled.TestimonialsHeaderName>
               <Styled.TestimonialsHeaderPosition className={"desktop"}>
-                <Link href={"/"}>{testimonial.company}</Link>
+                <Link href={testimonial.link}>{testimonial.company}</Link>
               </Styled.TestimonialsHeaderPosition>
             </div>
             <Styled.TestimonialsHeaderStar>
@@ -47,7 +47,7 @@ const TestimonialsModal = ({
             </Styled.TestimonialsHeaderStar>
           </Styled.TestimonialsInfoHeader>
           <Styled.TestimonialsHeaderPosition className={"mobile"}>
-            <Link href={"/"}>{testimonial.company}</Link>
+            <Link href={testimonial.link}>{testimonial.company}</Link>
           </Styled.TestimonialsHeaderPosition>
           <Styled.TestimonialsInfoText>
             {testimonial.text}

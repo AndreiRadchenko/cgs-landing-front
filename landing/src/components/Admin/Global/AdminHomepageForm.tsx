@@ -5,6 +5,7 @@ import EditInformationBlock from "../EditInfoBlock";
 import AdminLogosBlock from "../LogosBlock";
 import SubtitleBlock from "../SubtitleBlock";
 import AdminFeedbackBlock from "../FeedbackBlock";
+import AdminTestimonialsBlock from "../TestimonialsAdmin";
 import AdminTechBlock from "../TechBlock";
 import AdminFooterBlock from "../Footer";
 import MetaTagsBlock from "../MetaTagsBlock";
@@ -89,6 +90,9 @@ const AdminHomepageForm = () => {
                 <ButtonArrow />
               </ArrowContainer>
             </BlackButton>
+          </AdminBlockDropDown>
+          <AdminBlockDropDown title="BLOCK 7 (TESTIMONIALS)">
+            <AdminTestimonialsBlock />
           </AdminBlockDropDown>
           <AdminBlockDropDown title="FOOTER">
             <AdminFooterBlock />

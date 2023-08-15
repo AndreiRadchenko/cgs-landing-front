@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from "react";
 import SwiperCore, { Navigation } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/react";
+import { useQueryClient } from "@tanstack/react-query";
 
 import TestimonialsModal from "./TestimonialsModal";
 import TestimonialsSlide from "./TestimonialsSlide";
+import { MobileInfiniteText } from "../../MobileInfiniteText/MobileInfiniteText";
 
 import * as Styled from "../../../styles/HomePage/Testimonials.styled";
 import { ArrowContainer } from "../../../styles/ShowCase.styled";
@@ -12,7 +14,8 @@ import options from "../../../mock/TestimonialsSwiperParams";
 
 import "swiper/css";
 import "swiper/css/bundle";
-import { MobileInfiniteText } from "../../MobileInfiniteText/MobileInfiniteText";
+import { IDataResponse } from "../../../types/Admin/Response.types";
+import { queryKeys } from "../../../consts/queryKeys";
 
 SwiperCore.use([Navigation]);
 
@@ -20,40 +23,10 @@ const Testimonials = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [index, setIndex] = useState(0);
 
-  const DATA_TESTIMONIALS = [
-    {
-      slideTitle: "Damien Dalli // Head of Design, Founder of Heartstring AI",
-      name: "Damien Dalli",
-      company: "Head of Design // Founder of Heartstring AI",
-      videoUrl: "https://youtu.be/53Hmv73kqwk",
-      imgUrl: "/HomePageDecoration/TestimonialsMockImages/dali.png",
-      text: "After talking with many different teams, I am very happy with my decision to hire CGS. Finding a web developer is no easy task, especially when you're just an individual, not a company, and have no idea where to start.",
-    },
-    {
-      slideTitle: "Max Wolfrath / Dex-wallet",
-      name: "Max Wolfrath",
-      company: "Dex-wallet",
-      videoUrl: "https://youtu.be/4P6ZikEW6Uw",
-      imgUrl: "/HomePageDecoration/TestimonialsMockImages/max.png",
-      text: "After talking with many different teams, I am very happy with my decision to hire CGS. Finding a web developer is no easy task, especially when you're just an individual, not a company, and have no idea where to start.",
-    },
-    {
-      slideTitle: "Damien Dalli // Head of Design, Founder of Heartstring AI",
-      name: "Damien Dalli",
-      company: "Head of Design // Founder of Heartstring AI",
-      videoUrl: "https://youtu.be/53Hmv73kqwk",
-      imgUrl: "/HomePageDecoration/TestimonialsMockImages/dali.png",
-      text: "After talking with many different teams, I am very happy with my decision to hire CGS. Finding a web developer is no easy task, especially when you're just an individual, not a company, and have no idea where to start.",
-    },
-    {
-      slideTitle: "Max Wolfrath / Dex-wallet",
-      name: "Max Wolfrath",
-      company: "Dex-wallet",
-      videoUrl: "https://youtu.be/4P6ZikEW6Uw",
-      imgUrl: "/HomePageDecoration/TestimonialsMockImages/max.png",
-      text: "After talking with many different teams, I am very happy with my decision to hire CGS. Finding a web developer is no easy task, especially when you're just an individual, not a company, and have no idea where to start.",
-    },
-  ];
+  const queryClient = useQueryClient();
+  const data = queryClient.getQueryData<IDataResponse>([
+    queryKeys.getFullHomePage,
+  ])?.TestimonialsBlock;
 
   useEffect(() => {
     if (isOpen) document.body.style.overflow = "hidden";
@@ -62,9 +35,9 @@ const Testimonials = () => {
 
   return (
     <div>
-      <MobileInfiniteText title={"Testimonials"} withoutMargin />
+      <MobileInfiniteText title={data?.title} withoutMargin />
       <Styled.TestimonialsTitleAndArrowContainer>
-        <Styled.TestimonialsTitle>Testimonials:</Styled.TestimonialsTitle>
+        <Styled.TestimonialsTitle>{data?.title}:</Styled.TestimonialsTitle>
         <Styled.TestimonialsSwiperArrowContainer>
           <ArrowContainer className="prevBtn swiper-button-prev testimonial">
             <svg
@@ -112,22 +85,24 @@ const Testimonials = () => {
 
       <Styled.TestimonialsSwiperContainer>
         <Swiper {...options}>
-          {DATA_TESTIMONIALS.map((testimonial, i) => (
+          {data?.testimonials.map((testimonial, i) => (
             <SwiperSlide key={testimonial.videoUrl}>
-              <TestimonialsSlide
-                setIsOpen={setIsOpen}
-                subtitle={testimonial.slideTitle}
-                setIndex={setIndex}
-                slideNum={i}
-                testimonialImg={testimonial.imgUrl}
-              />
+              {testimonial.slideBanner.image && (
+                <TestimonialsSlide
+                  setIsOpen={setIsOpen}
+                  subtitle={testimonial.slideTitle}
+                  setIndex={setIndex}
+                  slideNum={i}
+                  testimonialImg={testimonial.slideBanner.image.url}
+                />
+              )}
             </SwiperSlide>
           ))}
         </Swiper>
       </Styled.TestimonialsSwiperContainer>
-      {isOpen && (
+      {isOpen && data?.testimonials && (
         <TestimonialsModal
-          testimonial={DATA_TESTIMONIALS[index]}
+          testimonial={data?.testimonials[index]}
           setIsOpen={setIsOpen}
         />
       )}
