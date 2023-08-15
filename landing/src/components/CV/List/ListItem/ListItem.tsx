@@ -13,6 +13,7 @@ interface ListItemProps {
 
 export const ListItem = ({ item, i }: ListItemProps) => {
   const [onHover, setOnHover] = useState(false);
+  const [linkHover, setLinkHover] = useState(false);
 
   return (
     <Styled.ListItemWrapper
@@ -26,15 +27,21 @@ export const ListItem = ({ item, i }: ListItemProps) => {
       </Styled.ListItemTitle>
       <Styled.ListItemLink>
         {item ? (
-          <a href={`/cv/${item.personal.name.toLowerCase().replace(/\s+/g, '-')}-${item._id}`}
-            target="_blank"
+          <a 
+            onMouseMove={() => setLinkHover(true)}
+            onMouseLeave={() => setLinkHover(false)}
+            href={`/cv/${item.personal.name.toLowerCase().replace(/\s+/g, '-')}-${item._id}`}
             rel="noreferrer">
             link
           </a>
         ) : (
           <span>NDA</span>
         )}
-        <Styled.ListItemArrowContainer>
+        <Styled.ListItemArrowContainer 
+          href={`/cv/${item.personal.name.toLowerCase().replace(/\s+/g, '-')}-${item._id}`}
+          rel="noreferrer"
+          className={linkHover ? "active" : ""}
+        >
           <ButtonArrow />
         </Styled.ListItemArrowContainer>
       </Styled.ListItemLink>
