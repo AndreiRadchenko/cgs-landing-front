@@ -44,13 +44,29 @@ export const ListItemWrapper = styled.div`
 `;
 
 export const ListItemTitle = styled.div``;
-export const ListItemLink = styled.div`
+export const ListItemLink = styled.a<{linkHover: boolean}>`
   display: flex;
-  gap: 4px;
+  gap: 6px;
   align-items: center;
   cursor: pointer;
 
-  a {
+  & path {
+    transition: ${({ linkHover }) =>
+    linkHover && "transform 1s ease-in-out"};
+  }
+  & path:nth-child(1) {
+    transform: translate(-36px, 36px);
+  }
+  &:hover {
+    & path:nth-child(1) {
+      animation: ${arrowOne} 1s ease-in-out;
+    }
+    & path:nth-child(2) {
+      animation: ${arrowTwo} 1s ease-in-out;
+    }
+  }
+
+  p {
     font-family: ${themes.primary.font.family.namu};
     font-size: 1.5em;
     font-weight: 900;
@@ -60,20 +76,20 @@ export const ListItemLink = styled.div`
   @media ${themes.primary.media.minPCFullHD} {
     gap: 5px;
 
-    a {
+    p {
       font-size: 22.5px;
       line-height: 160%;
     }
   }
 
   @media ${themes.primary.media.maxMobile} {
-    a {
+    p {
       font-size: 18px;
     }
   }
 `;
 
-export const ListItemArrowContainer = styled.a`
+export const ListItemArrowContainer = styled.div`
   width: 32px;
   height: 32px;
   background-color: ${themes.primary.colors.headerBorderHover};
@@ -83,30 +99,6 @@ export const ListItemArrowContainer = styled.a`
   justify-content: center;
   align-items: center;
   overflow: hidden;
-
-  &.active {
-    & path {
-      transition: all 1s ease-in-out;
-    }
-    & path:nth-child(1) {
-      z-index: -1;
-      transform: translate(-36px, 36px);
-    }
-      & path:nth-child(1) {
-        animation: ${arrowOne} 1s ease-in-out;
-      }
-      & path:nth-child(2) {
-        animation: ${arrowTwo} 1s ease-in-out;
-      }
-  }
-  &:hover {
-      & path:nth-child(1) {
-        animation: ${arrowOne} 1s ease-in-out;
-      }
-      & path:nth-child(2) {
-        animation: ${arrowTwo} 1s ease-in-out;
-      }
-    }
 
   & svg {
     width: 25px;
