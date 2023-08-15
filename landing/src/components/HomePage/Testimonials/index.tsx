@@ -10,7 +10,6 @@ import { MobileInfiniteText } from "../../MobileInfiniteText/MobileInfiniteText"
 import * as Styled from "../../../styles/HomePage/Testimonials.styled";
 import { ArrowContainer } from "../../../styles/ShowCase.styled";
 
-import options from "../../../mock/TestimonialsSwiperParams";
 import { IDataResponse } from "../../../types/Admin/Response.types";
 import { queryKeys } from "../../../consts/queryKeys";
 
@@ -87,7 +86,24 @@ const Testimonials = () => {
       </Styled.TestimonialsTitleAndArrowContainer>
 
       <Styled.TestimonialsSwiperContainer>
-        <Swiper {...options}>
+        <Swiper
+          slidesPerView={1}
+          spaceBetween={24}
+          navigation={{
+            nextEl: ".swiper-button-next",
+            prevEl: ".swiper-button-prev",
+          }}
+          loop={true}
+          autoplay={{ delay: 7000, disableOnInteraction: false }}
+          className="mySwiper"
+          breakpoints={{
+            640: {
+              slidesPerView: "auto",
+              autoplay: false,
+              loop: false,
+            },
+          }}
+        >
           {data?.testimonials.map((testimonial, i) => (
             <SwiperSlide key={testimonial.videoUrl}>
               {testimonial.slideBanner.image && (
