@@ -198,7 +198,9 @@ const DevsInfo = () => {
                     </PortfolioStyles.PortfolioCategoryWrapper>
                     <Styles.CvSearchWrapper>
                       <Styles.CvSearchButton>
-                        <Styles.CvSearchIcon />
+                        <Styles.CvSearchIcon 
+                          onClick={() => handleSearchRequest()}
+                        />
                       </Styles.CvSearchButton>
                       <Styles.CvSearchInput
                         placeholder="Search developer"
