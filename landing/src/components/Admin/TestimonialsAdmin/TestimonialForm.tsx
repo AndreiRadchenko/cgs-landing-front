@@ -18,15 +18,19 @@ import { IImage } from "../../../types/Admin/Admin.types";
 import ButtonArrow from "../../../utils/ButtonArrow";
 import usePushTestimonial from "../../../hooks/usePushTestimonial";
 
+interface ITestimonialsFormProps {
+  setIsNewFeedback: React.Dispatch<React.SetStateAction<boolean>>;
+  isNewTestimonial: boolean;
+  submit: () => void;
+  setIsEditing: React.Dispatch<React.SetStateAction<boolean>>;
+}
+
 const TestimonialForm = ({
   isNewTestimonial,
   submit,
   setIsEditing,
-}: {
-  isNewTestimonial: boolean;
-  submit: () => void;
-  setIsEditing: React.Dispatch<React.SetStateAction<boolean>>;
-}) => {
+  setIsNewFeedback,
+}: ITestimonialsFormProps) => {
   const { values, handleChange, errors } = useFormikContext<ITestimonial>();
 
   const { submitFunc } = usePushTestimonial();
@@ -40,6 +44,7 @@ const TestimonialForm = ({
   const submitForm = (e: React.SyntheticEvent) => {
     submitFunc(e, submit);
     setIsEditing(true);
+    setIsNewFeedback(true);
   };
 
   return (
