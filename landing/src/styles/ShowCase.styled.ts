@@ -68,6 +68,7 @@ export const SwiperArrowContainer = styled.div`
 
 export const FeedbackButtonWrapper = styled.div`
   display: flex;
+  gap: 2em;
 
   @media (max-width: 768px) {
     display: none;
