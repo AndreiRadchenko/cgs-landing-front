@@ -131,7 +131,9 @@ const DevsInfo = () => {
   }, [isMobile]);
 
   useEffect(() => {
-    setIsRequestRepeated(false);
+    if(searchTrigger === "") {
+      setIsRequestRepeated(false);
+    }
   }, [searchTrigger]);
 
   useEffect(() => {
