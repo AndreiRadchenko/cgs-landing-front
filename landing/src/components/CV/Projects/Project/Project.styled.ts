@@ -297,6 +297,7 @@ export const PortfolioPageIconContainer = styled.div<IPortfolioIconProps>`
   padding-bottom: 20px;
   grid-template-columns: repeat(auto-fill, minmax(77px, 1fr));
   row-gap: 16px;
+  column-gap: 8px;
   margin-left: 0;
   filter: invert(1) contrast(10);
   > span {
@@ -313,7 +314,6 @@ export const PortfolioPageIconContainer = styled.div<IPortfolioIconProps>`
   @media ${themes.primary.media.minMobile} {
     margin-top: 16px;
     grid-template-columns: repeat(auto-fill, minmax(110px, 110px));
-    row-gap: 20px;
     .image {
       height: 95px;
       margin: 8px;
@@ -323,6 +323,7 @@ export const PortfolioPageIconContainer = styled.div<IPortfolioIconProps>`
     margin-top: 21px;
     grid-template-columns: repeat(auto-fill, minmax(148px, 148px));
     row-gap: 21px;
+    column-gap: 10.67px;
     .image {
       height: 127px;
       margin: 10px;
