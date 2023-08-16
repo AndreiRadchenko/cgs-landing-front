@@ -110,8 +110,8 @@ export const ImageBackground = styled.div`
   border: 1.56px solid ${themes.primary.colors.black};
   background-image: linear-gradient(
     180deg,
-    white,
-    white 50%,
+    ${themes.primary.colors.blogBackground},
+    ${themes.primary.colors.blogBackground} 50%,
     black 50%,
     black 100%
   );
