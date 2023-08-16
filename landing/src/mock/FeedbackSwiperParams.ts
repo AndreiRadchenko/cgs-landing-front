@@ -6,8 +6,8 @@ const data: SwiperProps = {
   allowTouchMove: true,
   grabCursor: true,
   navigation: {
-    prevEl: ".swiper-button-prev",
-    nextEl: ".swiper-button-next",
+    prevEl: ".swiper-button-prev-feedback",
+    nextEl: ".swiper-button-next-feedback",
   },
   autoplay: {
     delay: 5000,

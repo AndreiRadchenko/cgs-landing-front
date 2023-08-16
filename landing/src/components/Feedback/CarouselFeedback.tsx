@@ -57,7 +57,7 @@ const CarouselFeedback: FC = () => {
             <Navigationwrapper>
               <FeedbackIntro title={data?.subtitle} subtitle={data?.text3} />
               <Styled.FeedbackButtonWrapper>
-                <Styled.ArrowContainer className="feedbackPrevBtn prevBtn swiper-button-prev">
+                <Styled.ArrowContainer className="feedbackPrevBtn prevBtn swiper-button-prev-feedback">
                   <svg
                     width="20"
                     height="18"
@@ -77,7 +77,7 @@ const CarouselFeedback: FC = () => {
                     />
                   </svg>
                 </Styled.ArrowContainer>
-                <Styled.ArrowContainer className="nextBtn swiper-button-next">
+                <Styled.ArrowContainer className="nextBtn swiper-button-next-feedback">
                   <span>next</span>
                   <svg
                     width="20"
