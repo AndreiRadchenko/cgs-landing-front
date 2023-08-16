@@ -215,7 +215,7 @@ const DevsInfo = () => {
                       <LoaderStub />
                     ) : cvData?.cvs && cvData.cvs.length > 0 ? (
                       <>
-                        {isRequestRepeated && (
+                        {isRequestRepeated && !cvsLoading && !isLoading && (
                           <PortfolioStyles.PortfolioFilterWarning className="cv">
                             <div className="sorry-message">
                               {`Sorry, there are no matches in the category chosen, but we found “${searchTrigger}” in the other categories`}
@@ -228,7 +228,7 @@ const DevsInfo = () => {
                           ))}
                         </Styles.ListWrapper>
                       </>
-                    ) : isCategoryWarning && category ? (
+                    ) : isCategoryWarning && category && !cvsLoading && !isLoading ? (
                       null
                     ) : (
                       <PortfolioStyles.PortfolioSearchWarning className="cv">
