@@ -315,10 +315,8 @@ const CvAddOrEdit = () => {
                                                 {getTextLengthWithoutTags(item.text)}/62
                                             </Styled.TextCounter>
                                         </Styled.BottomText>
-                                        {errors?.info?.content?.[idx] && getTextLengthWithoutTags(item.text) > 62 ? (
+                                        {errors?.info?.content?.[idx] && (
                                             <Styles.ErrorMsg>Text must be between 1 and 62 characters</Styles.ErrorMsg>
-                                        ) : (
-                                            null
                                         )}
                                     </div>
                                 ) : (
