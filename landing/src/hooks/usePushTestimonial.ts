@@ -12,7 +12,18 @@ const usePushFeedback = () => {
     isValid &&
       submitForm()
         .then(() => submit())
-        .then(() => setValues(JSON.parse(JSON.stringify(testimonialsInit))));
+        .then(() =>
+          setValues(
+            JSON.parse(
+              JSON.stringify({
+                ...testimonialsInit,
+                slideBanner: {
+                  image: null,
+                },
+              })
+            )
+          )
+        );
   };
 
   return { submitFunc };
