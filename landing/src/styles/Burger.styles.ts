@@ -132,6 +132,7 @@ export const Image = styled.img`
 export const BurgerPrivacy = styled.a`
   margin-left: 20px;
   margin-bottom: 140px;
+  padding-bottom: 90px;
   color: ${themes.primary.colors.comment};
   font-size: 16px;
   font-family: ${themes.primary.font.family.namu};
