@@ -51,7 +51,12 @@ const TestimonialsAdmin = () => {
           validationSchema={AdminTestimonialsValidation}
           initialValues={
             isNewTestimonial
-              ? testimonialsInit
+              ? {
+                  ...testimonialsInit,
+                  slideBanner: {
+                    image: null,
+                  },
+                }
               : values.TestimonialsBlock.testimonials[testimonial]
           }
         >
