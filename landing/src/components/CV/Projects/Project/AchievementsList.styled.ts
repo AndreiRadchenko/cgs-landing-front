@@ -34,7 +34,8 @@ export const AchievementsListWrapper = styled.div`
   position: relative;
   margin: 8px 0 0 0;
   border: 2px solid ${themes.primary.colors.primary};
-  border-right: none;
+  border-top-right-radius: 2px;
+  border-bottom-right-radius: 2px;
   background-color: #f1efed;
   z-index: 5;
   @media ${themes.primary.media.minMobile} {
@@ -101,7 +102,7 @@ export const Shadow = styled.div`
     border: 10px solid ${themes.primary.colors.primary};
     border-color: transparent transparent transparent
       ${themes.primary.colors.primary};
-    right: -20px;
+    right: -21px;
   }
 `;
 
@@ -114,6 +115,8 @@ export const AchievementsListItem = styled.li`
   border-bottom: 1px solid ${themes.primary.colors.darkGrey};
   direction: ltr;
   height: 70px;
+  overflow: hidden;
+  text-overflow: ellipsis;
   &:nth-child(1) {
     padding-top: 0;
     height: 54px;
@@ -127,12 +130,22 @@ export const AchievementsListItem = styled.li`
   @media ${themes.primary.media.minMobile} {
     padding-right: 40px;
     gap: 24px;
-    height: 74px;
+    height: 70px;
     &:nth-child(1) {
       height: 60px;
     }
     &:nth-last-child(1) {
       height: 60px;
+    }
+  }
+
+  @media ${themes.primary.media.minMobile} and (max-width: 1114px) {
+    height: auto;
+    &:nth-child(1) {
+      height: auto;
+    }
+    &:nth-last-child(1) {
+      height: auto;
     }
   }
 
@@ -171,15 +184,12 @@ export const AchievementText = styled.p`
   font-size: 16px;
   line-height: normal;
   text-align: left;
-  /* height: 20px; */
 
   @media ${themes.primary.media.minMobile} {
     font-size: 20px;
-    /* height: 40px; */
   }
 
   @media ${themes.primary.media.minPCFullHD} {
     font-size: 26.667px;
-    /* height: 59px; */
   }
 `;
