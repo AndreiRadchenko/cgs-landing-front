@@ -130,7 +130,7 @@ export const AchievementsListItem = styled.li`
   @media ${themes.primary.media.minMobile} {
     padding-right: 40px;
     gap: 24px;
-    height: 70px;
+    height: 73px;
     &:nth-child(1) {
       height: 60px;
     }
