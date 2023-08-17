@@ -101,7 +101,7 @@ export const Shadow = styled.div`
     border: 10px solid ${themes.primary.colors.primary};
     border-color: transparent transparent transparent
       ${themes.primary.colors.primary};
-    right: -19.5px;
+    right: -20px;
   }
 `;
 
