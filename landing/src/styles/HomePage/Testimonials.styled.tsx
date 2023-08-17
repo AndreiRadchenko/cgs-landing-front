@@ -189,6 +189,7 @@ export const TestimonialsSlideHeadline = styled.div`
   bottom: 0.7em;
   left: 0.7em;
   max-width: 15.5em;
+  text-shadow: 0px 0px 32px ${themes.primary.colors.primary};
 
   &.adminSlide {
     font-size: 15px;
@@ -255,7 +256,7 @@ export const HoverBlockTestimonials = styled.div`
   background: ${themes.primary.colors.blogBackground};
   right: -10px;
   bottom: -10px;
-  border: 2px solid ${themes.primary.colors.primary};
+  border: 1.5px solid ${themes.primary.colors.primary};
   z-index: -1;
   display: flex;
   align-items: flex-end;
