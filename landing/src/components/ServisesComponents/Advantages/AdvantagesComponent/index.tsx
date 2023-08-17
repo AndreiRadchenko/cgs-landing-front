@@ -39,7 +39,7 @@ const Advantages = ({ advantages, className }: IAdvantagesProps) => {
     <Styled.Wrapper className={className}>
       <Styled.Title>{advantages?.title}</Styled.Title>
       {isMobile ?
-        <Styled.MobileContent>
+        <Styled.MobileContent ref={elRef}>
           {combinedArray.map((item, idx) => (
             <Styled.AdvantagesItem key={idx}>
               <Styled.NumberMobileItem>
@@ -51,6 +51,7 @@ const Advantages = ({ advantages, className }: IAdvantagesProps) => {
                 <Styled.SmallCircle
                   src={smallCircle.src}
                   alt="Dot"
+                  className={item.text && item.text.length < 38 ? "oneLine" : undefined}
                 />
               </Styled.NumberMobileItem>
               <Styled.TextMobileItem ind={idx} className={isScrolled ? "scrolled" : undefined}>

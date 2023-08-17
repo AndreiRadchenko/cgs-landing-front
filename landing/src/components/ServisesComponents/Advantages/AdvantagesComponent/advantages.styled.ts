@@ -372,6 +372,11 @@ export const Subtitle = styled.div`
     font-size: 30px;
   }
 
+  @media ${themes.primary.media.maxMobile} {
+    font-size: 24px;
+    margin-bottom: 10px;
+  }
+
   @media (max-width: 475px) {
     margin-bottom: 5px;
     font-size: 18px;
@@ -387,6 +392,11 @@ export const Text = styled.div`
   @media (max-width: 992px) {
     font-size: 28px;
   }
+
+  @media ${themes.primary.media.maxMobile} {
+    font-size: 20px;
+  }
+
   @media (max-width: 475px) {
     font-size: 16px;
   }
@@ -405,6 +415,8 @@ export const AdvantagesItem = styled.div`
 
 export const NumberMobileItem = styled.div`
   height: 100%;
+  border: 1px solid ${themes.primary.colors.blogBackground};
+  background-color: ${themes.primary.colors.blogBackground};
 `;
 
 export const TextMobileItem = styled.div<ISlide>`
@@ -421,7 +433,7 @@ export const TextMobileItem = styled.div<ISlide>`
 export const MobileNumber = styled.div`
   font-size: 14px;
   font-weight: ${themes.primary.font.weight.heavy};
-  line-height: 22px;
+  line-height: 20px;
   margin-left: 1px;
 
   &.last::after {
@@ -454,9 +466,40 @@ export const Circle = styled.img`
 `;
 
 export const SmallCircle = styled.img`
-  width: 12px;
-  border: 4px solid #F1EFED;
-  position: absolute;
-  top: 62%;
-  left: 1.5%;
+  @media ${themes.primary.media.maxMobile} {
+    width: 14px;
+    border: 4px solid #F1EFED;
+    position: absolute;
+    top: 60%;
+    left: 0.55%;
+    
+    &.oneLine {
+      top: 65%;
+    }
+  }
+
+  @media (max-width: 650px) {
+    left: 0.7%;
+    width: 13px;
+  }
+
+  @media (max-width: 560px) {
+    left: 0.9%;
+  }
+
+  @media (max-width: 475px) {
+    width: 12px;
+    border: 4px solid #F1EFED;
+    position: absolute;
+    top: 62%;
+    left: 1.2%;
+    
+    &.oneLine {
+      top: 75%;
+    }
+  }
+
+  @media (max-width: 400px) {
+    left: 1.5%;
+  }
 `;
