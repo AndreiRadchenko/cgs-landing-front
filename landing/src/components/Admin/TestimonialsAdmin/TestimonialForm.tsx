@@ -110,7 +110,7 @@ const TestimonialForm = ({
           name="company"
         />
         <SubHeaderWithInput
-          isError={!!errors.videoUrl && !values.videoUrl}
+          isError={!!errors.videoUrl}
           inputValue={values.videoUrl}
           onChangeFunction={handleChange}
           placeholder="Video URL"
