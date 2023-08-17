@@ -267,6 +267,6 @@ export const BgImageMobile = styled.img`
     position: absolute;
     display: block;
     left: -1.3em;
-    top: 1.2em;
+    top: 1.26em;
   }
 `;
