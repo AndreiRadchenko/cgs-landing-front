@@ -1,16 +1,21 @@
 import { Formik } from "formik";
 import React, { useState } from "react";
 import { useMutation, useQuery } from "@tanstack/react-query";
-import { IBlogPageResponse } from "../../../types/Admin/Response.types";
-import * as Styled from "../../../styles/AdminPage";
-import { queryKeys } from "../../../consts/queryKeys";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
 import { adminBlogService } from "../../../services/adminBlogPage";
 import MetaTagsBlock from "../MetaTagsBlock";
 import ArticleForm from "./Blog/ArticleForm";
 import PublishedArticles from "./Blog/PublishedArticles";
+import PodcastForm from "./Blog/PodcastForm";
+import { CustomToast } from "../CustomToast";
+
+import { IBlogPageResponse } from "../../../types/Admin/Response.types";
+import * as Styled from "../../../styles/AdminPage";
+import { queryKeys } from "../../../consts/queryKeys";
 import { adminSitemapService } from "../../../services/adminSitemapPage";
 import { useScrollTo } from "../../../hooks/useScrollTo";
-import PodcastForm from "./Blog/PodcastForm";
 
 export interface IBlogProps {
   data: IBlogPageResponse | undefined;
@@ -32,8 +37,16 @@ const AdminBlogMainContent = () => {
 
   const { mutateAsync } = useMutation(
     [queryKeys.updateBlogPage],
-    (pageData: IBlogPageResponse) =>
-      adminBlogService.updateBlogPageData(pageData)
+    async (pageData: IBlogPageResponse) => {
+      return await toast.promise(
+        adminBlogService.updateBlogPageData(pageData),
+        {
+          pending: "Pending update",
+          success: "Data updated successfully 👌",
+          error: "Some things went wrong 🤯",
+        }
+      );
+    }
   );
 
   const { data, isLoading, refetch }: IBlogProps = useQuery(
@@ -83,6 +96,7 @@ const AdminBlogMainContent = () => {
           <Styled.MetaBlockWraper>
             <MetaTagsBlock theme="dark" sitemap="blog" />
           </Styled.MetaBlockWraper>
+          <CustomToast />
         </div>
       </Formik>
     </Styled.AdminContentBlock>
