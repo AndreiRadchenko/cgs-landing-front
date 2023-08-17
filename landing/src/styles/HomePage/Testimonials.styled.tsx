@@ -189,7 +189,7 @@ export const TestimonialsSlideHeadline = styled.div`
   bottom: 0.7em;
   left: 0.7em;
   max-width: 15.5em;
-  text-shadow: 0px 0px 32px ${themes.primary.colors.primary};
+  text-shadow: 0px 0px 24px ${themes.primary.colors.primary};
 
   &.adminSlide {
     font-size: 15px;
@@ -200,9 +200,11 @@ export const TestimonialsSlideHeadline = styled.div`
     max-width: 15.5em;
     bottom: 1em;
     right: 1.1em;
+    text-shadow: 0px 0px 32px ${themes.primary.colors.primary};
   }
   @media ${themes.primary.media.maxMobile} {
     font-size: 16px;
+    text-shadow: none;
   }
 `;
 
@@ -275,7 +277,7 @@ export const HoverBlockTestimonials = styled.div`
 export const HoverBlackBlockTestimonials = styled.div`
   height: 50%;
   width: 100%;
-  outline: 2px solid ${themes.primary.colors.primary};
+  outline: 1.5px solid ${themes.primary.colors.primary};
   background-color: black;
 
   @media ${themes.primary.media.maxMobile} {
