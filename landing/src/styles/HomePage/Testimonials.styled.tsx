@@ -15,50 +15,48 @@ export const TestimonialsModalContainer = styled.div`
 
 export const TestimonialsVideoContainer = styled.div`
   position: relative;
-  width: 59.75em;
-  min-height: 52.09em;
-  padding: 2em;
+  width: 59.9em;
+  min-height: 53.3em;
   border: 1.5px solid ${themes.primary.colors.primary};
   background: ${themes.primary.colors.grey};
 
   @media ${themes.primary.media.maxMobile} {
-    padding: 8px;
     width: 360px;
     min-height: 448px;
 
-    > div:first-child {
-      height: 213px !important;
+    > div:nth-child(2) {
+      > div:first-child {
+        height: 213px !important;
+      }
     }
   }
 `;
 
 export const TestimonialsCrossContainer = styled.div`
-  position: absolute;
-  top: 4.25em;
-  right: 4.25em;
-  width: 4em;
-  height: 4em;
-  border: 1px solid ${themes.primary.colors.primary};
-  background: ${themes.primary.colors.grey};
-
-  @media ${themes.primary.media.maxMobile} {
-    display: none;
-  }
+  height: 3.33em;
+  width: 100%;
+  background: linear-gradient(
+    90deg,
+    ${themes.primary.colors.mainGradientColor2} 0%,
+    ${themes.primary.colors.mainGradientColor1} 100%
+  );
+  display: flex;
+  justify-content: flex-end;
+  border-bottom: 1px solid ${themes.primary.colors.primary};
 `;
 
-export const TestimonialsCrossMobileContainer = styled.div`
-  display: none;
-  position: absolute;
-  border: 1px solid ${themes.primary.colors.primary};
-  background: ${themes.primary.colors.grey};
+export const TestimonialsCrossWrapper = styled.div`
+  align-self: flex-end;
+  display: block;
+  width: 3.33em;
+  height: 100%;
+  border-left: 1px solid ${themes.primary.colors.primary};
 
-  @media ${themes.primary.media.maxMobile} {
-    display: block;
-    top: -52px;
-    right: 0px;
-    width: 32px;
-    height: 32px;
-  }
+  background: ${themes.primary.colors.grey};
+`;
+
+export const TestimonialsModalVideoContainer = styled.div`
+  padding: 1.5em 2em 2em;
 `;
 
 export const TestimonialsVideoInfoContainer = styled.div`
@@ -184,10 +182,10 @@ export const TestimonialsSlideHeadline = styled.div`
   position: absolute;
   color: ${themes.primary.colors.grey};
   font-family: ${themes.primary.font.family.namu};
-  font-size: 1.9em;
+  font-size: 1.5em;
   font-weight: 900;
   bottom: 0.7em;
-  left: 0.7em;
+  left: 0.9em;
   max-width: 15.5em;
   text-shadow: 0px 0px 24px ${themes.primary.colors.primary};
 
@@ -211,8 +209,13 @@ export const TestimonialsSlideHeadline = styled.div`
 
 export const TestimonialsSlideStar = styled.div`
   position: absolute;
-  bottom: 1.33em;
-  right: 2em;
+  bottom: 0.7em;
+  right: 0.9em;
+
+  span {
+    width: 28px !important;
+    height: 28px !important;
+  }
 
   @media ${themes.primary.media.minPCFullHD} {
     bottom: 1.1em;
@@ -288,7 +291,7 @@ export const HoverBlackBlockTestimonials = styled.div`
 
 export const TestimonialsSlideContainer = styled.div`
   width: 100%;
-  height: 95.6%;
+  height: 97.35%;
   position: relative;
 
   &.adminSlide {
@@ -315,9 +318,8 @@ export const TestimonialsSwiperContainer = styled.div`
   margin-right: -4.25em;
 
   .swiper-slide {
-    width: 49.17em;
-    height: 32em;
-    margin-right: 24px;
+    width: 43.34em;
+    height: 25em;
   }
 
   @media ${themes.primary.media.minPCFullHD} {
@@ -326,8 +328,7 @@ export const TestimonialsSwiperContainer = styled.div`
 
     .swiper-slide {
       width: 36.1em;
-      height: 21.2em;
-      margin-right: 32px;
+      height: 20.815em;
     }
   }
 
