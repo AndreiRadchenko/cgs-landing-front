@@ -203,9 +203,14 @@ export const HomePageArrowWrapper = styled.span`
   }
 
   @media (min-width: 1800px) {
+    &.homePageSubtitleLeftArrow {
+      width: 185px;
+    }
+
     &.homePageSubtitleRightArrow {
-      margin-left: 5px;
-      margin-right: 5px;
+      width: 162px;
+      margin-left: 1px;
+      margin-right: 1px;
     }
   }
 

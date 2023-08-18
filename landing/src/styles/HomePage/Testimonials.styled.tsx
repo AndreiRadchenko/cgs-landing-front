@@ -198,8 +198,9 @@ export const TestimonialsSlideHeadline = styled.div`
     max-width: 15.5em;
     bottom: 1em;
     right: 1.1em;
-    text-shadow: 0px 0px 32px ${themes.primary.colors.primary};
+    text-shadow: 0px 0px 25.460491180419922px #000;
   }
+
   @media ${themes.primary.media.maxMobile} {
     font-size: 16px;
     text-shadow: none;
@@ -242,8 +243,8 @@ export const TestimonialsSlidePlayBtnContainer = styled.div`
 
   @media ${themes.primary.media.minPCFullHD} {
     svg {
-      width: 64px;
-      height: 64px;
+      width: 53px;
+      height: 53px;
     }
   }
   @media ${themes.primary.media.maxMobile} {
