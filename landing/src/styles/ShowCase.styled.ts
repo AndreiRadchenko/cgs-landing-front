@@ -143,6 +143,19 @@ export const ArrowContainer = styled.div`
   }
 
   @media ${themes.primary.media.minPCFullHD} {
+    &.prevBtn {
+      width: 2.61em;
+      height: 2.61em;
+    }
+
+    &.nextBtn {
+      font-size: 0.95em;
+      width: 6.8em;
+      height: 2.77em;
+    }
+
+    &.feedbackPrevBtn,
+    &.swiper-button-next-feedback,
     &.testimonial {
       & svg {
         width: 24px;

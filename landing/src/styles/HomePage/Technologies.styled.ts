@@ -11,6 +11,10 @@ export const TechnologyContainer = styled.section`
   font-family: ${themes.primary.font.family.namu};
   margin-bottom: 14.167em;
 
+  @media ${themes.primary.media.minPCFullHD} {
+    margin-bottom: 160px;
+  }
+
   @media ${themes.primary.media.maxMobile} {
     margin-bottom: 1.3rem;
   }
@@ -24,6 +28,11 @@ export const TechTitle = styled.h2`
   margin: 0;
   padding-bottom: 20px;
   text-transform: uppercase;
+
+  @media ${themes.primary.media.minPCFullHD} {
+    font-size: 2.8em;
+  }
+  
   @media ${themes.primary.media.maxTabletLandScape} {
     font-size: ${themes.primary.font.size.reviewTitle};
   }
@@ -115,6 +124,11 @@ export const CategoryTitle = styled.h2<PropsWithId>`
   position: relative;
   margin-bottom: 20px;
   z-index: 10;
+
+  @media ${themes.primary.media.minPCFullHD} {
+    font-size: 2.35em;
+  }
+
   @media ${themes.primary.media.maxTabletLandScape} {
     font-size: ${themes.primary.font.size.oneAndNine};
   }
@@ -177,6 +191,10 @@ export const CategorySubtitle = styled.p`
     max-width: 505px;
   }
 
+  @media ${themes.primary.media.minPCFullHD} {
+    font-size: 1.25em;
+  }
+
   @media ${themes.primary.media.maxTabletLandScape} {
     font-size: ${themes.primary.font.size.vistaco};
   }
@@ -198,6 +216,11 @@ export const CategoryImgWrapper = styled.div`
   height: 23.5vw;
 
   position: relative;
+
+  @media ${themes.primary.media.minPCFullHD} {
+    width: 673px;
+    height: 450px;
+  }
 
   @media ${themes.primary.media.maxMobile} {
     display: none;
@@ -230,6 +253,11 @@ export const ArrowContainer = styled.div`
 
   @media ${themes.primary.media.minPC} {
     left: 50%;
+  }
+
+  @media ${themes.primary.media.minPCFullHD} {
+    width: 100px;
+    height: 100px;
   }
 
   @media ${themes.primary.media.maxMobile} {

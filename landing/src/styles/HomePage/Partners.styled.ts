@@ -8,6 +8,11 @@ export const PartnersContainer = styled.div`
   row-gap: 60px;
   margin: 80px 0 100px;
 
+  @media ${themes.primary.media.minPCFullHD} {
+    margin: 85px 0 160px;
+    row-gap: 60px;
+  }
+
   @media ${themes.primary.media.maxTabletLandScape} {
     margin-block: 70px 60px;
   }
@@ -36,7 +41,7 @@ export const PartnerImageWrapper = styled.div`
   height: 90px;
 
   @media ${themes.primary.media.minPCFullHD} {
-    height: 1500px;
+    height: 106px;
     width: 85%;
   }
 `;
