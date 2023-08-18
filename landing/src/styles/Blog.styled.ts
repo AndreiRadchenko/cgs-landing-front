@@ -424,6 +424,11 @@ export const BlogItemDescription = styled.p`
     margin-top: 1.125rem;
     font-size: 1rem;
   }
+
+  @media ${themes.primary.media.maxLowScreenMobile} {
+    max-width: 337px;
+    overflow: hidden;
+  }
 `;
 
 export const LoopText = styled.div`
@@ -1284,6 +1289,8 @@ export const MainBlogItemDescription = styled(BlogItemDescription)`
 
   @media ${themes.primary.media.maxLowScreenMobile} {
     margin-top: 1.125rem;
+    max-width: 337px;
+    overflow: hidden;
   }
 `;
 
