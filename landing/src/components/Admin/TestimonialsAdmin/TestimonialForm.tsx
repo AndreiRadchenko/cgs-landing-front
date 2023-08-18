@@ -37,13 +37,15 @@ const TestimonialForm = ({
 
   const deleteImageFunction = useDeleteImageFunction(
     values.slideBanner,
-    "",
-    false
+    "testimonialImage",
+    false,
+    "slideBanner.image"
   );
   const uploadImageFunction = useUploadImageFunction(
     values.slideBanner,
-    "",
-    false
+    "testimonialImage",
+    false,
+    "slideBanner.image"
   );
 
   const uploadFunc = (image: IImage) => uploadImageFunction(image);
