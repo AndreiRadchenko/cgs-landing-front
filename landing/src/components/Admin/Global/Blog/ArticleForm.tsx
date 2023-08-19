@@ -79,8 +79,17 @@ const ArticleForm = ({
 
   const { mutateAsync: updateSitemap } = useMutation(
     [queryKeys.updateSitemap],
-    (updatedSitemap: ISitemapData) =>
-      adminSitemapService.updateSitemapData(updatedSitemap),
+    async (updatedSitemap: ISitemapData) => {
+      const response = await toast.promise(
+        adminSitemapService.updateSitemapData(updatedSitemap),
+        {
+          pending: "Pending update",
+          success: "Data updated successfully 👌",
+          error: "Some things went wrong 🤯",
+        }
+      );
+      return response;
+    },
     {
       onSuccess: () => {
         queryClient.invalidateQueries([queryKeys.getSitemapData]);
@@ -90,7 +99,7 @@ const ArticleForm = ({
 
   const validateForm = async (values: IArticle) => {
     try {
-      const result = await AdminBlogValidation().validate(values, {
+      await AdminBlogValidation().validate(values, {
         abortEarly: false,
       });
       return {};
@@ -189,7 +198,6 @@ const ArticleForm = ({
             />
           </Form>
         </Formik>
-        <CustomToast />
       </>
     ) || <div>no Articles</div>
   );

@@ -1,8 +1,11 @@
 import { Formik } from "formik";
 import React from "react";
 import { useMutation, useQuery } from "@tanstack/react-query";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 import ServiceCloudContentBlock from ".";
+import { CustomToast } from "../../CustomToast";
 
 import * as Styled from "../../../../styles/AdminPage";
 
@@ -20,7 +23,16 @@ const AdminServiceCloudContent = () => {
 
   const { mutateAsync: updateFaqPage } = useMutation(
     [queryKeys.updateServiceCloudPage],
-    (data: ICloudService) => adminCloudService.updateCloudSolutionPage(data)
+    async (data: ICloudService) => {
+      return await toast.promise(
+        adminCloudService.updateCloudSolutionPage(data),
+        {
+          pending: "Pending update",
+          success: "Cloud service updated successfully 👌",
+          error: "Some things went wrong 🤯",
+        }
+      );
+    }
   );
 
   const submitForm = async (values: ICloudService) => {
@@ -34,7 +46,10 @@ const AdminServiceCloudContent = () => {
     <Styled.AdminUnauthorizedModal>Loading...</Styled.AdminUnauthorizedModal>
   ) : data !== undefined ? (
     <Formik initialValues={data!} onSubmit={submitForm}>
-      <ServiceCloudContentBlock />
+      <>
+        <ServiceCloudContentBlock />
+        <CustomToast />
+      </>
     </Formik>
   ) : (
     <Styled.AdminUnauthorizedModal>

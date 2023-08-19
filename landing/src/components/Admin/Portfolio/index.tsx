@@ -1,9 +1,12 @@
 import { Formik } from "formik";
 import React from "react";
 import { useMutation, useQuery } from "@tanstack/react-query";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 import AdminPortfolioContentBlock from "./ContentBlock";
 import { adminPortfolioService } from "../../../services/adminPortfolioPage";
+import { CustomToast } from "../CustomToast";
 
 import { queryKeys } from "../../../consts/queryKeys";
 import * as Styled from "../../../styles/AdminPage";
@@ -20,7 +23,13 @@ const PortfolioPage = () => {
 
   const { mutateAsync } = useMutation(
     [queryKeys.updatePortfolioPage],
-    (data: IPortfolioPageData) => adminPortfolioService.updatePageData(data)
+    async (data: IPortfolioPageData) => {
+      return await toast.promise(adminPortfolioService.updatePageData(data), {
+        pending: "Pending update",
+        success: "Data updated successfully 👌",
+        error: "Some things went wrong 🤯",
+      });
+    }
   );
 
   const submitForm = async (values: IPortfolioPageData) => {
@@ -40,7 +49,10 @@ const PortfolioPage = () => {
       onSubmit={submitForm}
       validateOnChange={false}
     >
-      <AdminPortfolioContentBlock />
+      <>
+        <AdminPortfolioContentBlock />
+        <CustomToast />
+      </>
     </Formik>
   ) : (
     <Styled.AdminUnauthorizedModal>

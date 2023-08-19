@@ -8,23 +8,23 @@ import { queryKeys } from "../../consts/queryKeys";
 import { validTokenGlobal } from "../../services/validToken";
 
 const AdminCVsPage = () => {
-    const { data } = useQuery([queryKeys.validToken], () =>
-      validTokenGlobal.validToken()
-    );
-  
-    return data ? (
-      <>
-        <AdminHeader />
-        <Styled.AdminWrapper>
-          <AdminSidebar />
-          <AdminCVsContent />
-        </Styled.AdminWrapper>
-      </>
-    ) : (
-      <Styled.AdminUnauthorizedModal>
-        Something went wrong :(
-      </Styled.AdminUnauthorizedModal>
-    );
-  };
+  const { data } = useQuery([queryKeys.validToken], () =>
+    validTokenGlobal.validToken()
+  );
+
+  return data ? (
+    <>
+      <AdminHeader />
+      <Styled.AdminWrapper>
+        <AdminSidebar />
+        <AdminCVsContent />
+      </Styled.AdminWrapper>
+    </>
+  ) : (
+    <Styled.AdminUnauthorizedModal>
+      Something went wrong :(
+    </Styled.AdminUnauthorizedModal>
+  );
+};
 
 export default AdminCVsPage;

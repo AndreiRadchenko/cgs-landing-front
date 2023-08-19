@@ -1,6 +1,10 @@
 import { Formik } from "formik";
 import React from "react";
 import { useMutation, useQuery } from "@tanstack/react-query";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
+import { CustomToast } from "../CustomToast";
 
 import * as Styled from "../../../styles/AdminPage";
 import { queryKeys } from "../../../consts/queryKeys";
@@ -16,7 +20,13 @@ const AdminServiceWebAuditContent = () => {
 
   const { mutateAsync: updatePrivacyPage } = useMutation(
     [queryKeys.updatePrivacyPage],
-    (data: IPrivacyPage) => adminPrivacyService.updatePolicyPage(data)
+    async (data: IPrivacyPage) => {
+      return await toast.promise(adminPrivacyService.updatePolicyPage(data), {
+        pending: "Pending update",
+        success: "Policy page updated successfully 👌",
+        error: "Some things went wrong 🤯",
+      });
+    }
   );
 
   const submitForm = async (values: IPrivacyPage) => {
@@ -30,7 +40,10 @@ const AdminServiceWebAuditContent = () => {
     <Styled.AdminUnauthorizedModal>Loading...</Styled.AdminUnauthorizedModal>
   ) : data !== undefined ? (
     <Formik initialValues={data!} onSubmit={submitForm}>
-      <PrivacyContentBlock />
+      <>
+        <PrivacyContentBlock />
+        <CustomToast />
+      </>
     </Formik>
   ) : (
     <Styled.AdminUnauthorizedModal>
