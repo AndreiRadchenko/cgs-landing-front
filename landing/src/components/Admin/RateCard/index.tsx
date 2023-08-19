@@ -3,8 +3,10 @@ import { useQuery } from "@tanstack/react-query";
 import { queryKeys } from "../../../consts/queryKeys";
 
 import RateCardTitle from "./RateCardTitle";
+import { CustomToast } from "../CustomToast";
 
 import * as Styled from "../../../styles/AdminPage";
+import "react-toastify/dist/ReactToastify.css";
 
 import { adminRateCardService } from "../../../services/adminRateCard";
 import {
@@ -36,6 +38,7 @@ const RateCardMainContent = () => {
         services={services!}
         setServices={setServices}
       />
+      <CustomToast />
     </Styled.AdminPaddedBlock>
   );
 };

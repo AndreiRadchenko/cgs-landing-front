@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import { Formik } from "formik";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 import AddRateCardImage from "./AddRateCardImage";
 import PlusBtn from "./plusBtn";
@@ -33,7 +35,16 @@ const AdminAddService = ({ servicesAvailable, service }: IAddServiceProps) => {
 
   const { mutateAsync: createService } = useMutation(
     [queryKeys.createRateCardService],
-    (data: IService) => adminRateCardService.createRateCardService(data),
+    async (data: IService) => {
+      return await toast.promise(
+        adminRateCardService.createRateCardService(data),
+        {
+          pending: "Pending update",
+          success: "Rate card service created 👌",
+          error: "Some things went wrong 🤯",
+        }
+      );
+    },
     {
       onSuccess: () => {
         queryClient.invalidateQueries([queryKeys.getRateCardData]);
@@ -43,7 +54,16 @@ const AdminAddService = ({ servicesAvailable, service }: IAddServiceProps) => {
 
   const { mutateAsync: updateServiceById } = useMutation(
     [queryKeys.updateRateCardService],
-    (data: IService) => adminRateCardService.updateRateCardService(data),
+    async (data: IService) => {
+      return await toast.promise(
+        adminRateCardService.updateRateCardService(data),
+        {
+          pending: "Pending update",
+          success: "Rate card updated successfully 👌",
+          error: "Some things went wrong 🤯",
+        }
+      );
+    },
     {
       onSuccess: () => {
         queryClient.invalidateQueries([queryKeys.getRateCardData]);
@@ -53,7 +73,16 @@ const AdminAddService = ({ servicesAvailable, service }: IAddServiceProps) => {
 
   const { mutateAsync: deleteServiceById } = useMutation(
     [queryKeys.deleteRateCardService],
-    (id: string) => adminRateCardService.deleteRateCardService(id),
+    async (id: string) => {
+      return await toast.promise(
+        adminRateCardService.deleteRateCardService(id),
+        {
+          pending: "Pending update",
+          success: "Service card deleted 👌",
+          error: "Some things went wrong 🤯",
+        }
+      );
+    },
     {
       onSuccess: () => {
         queryClient.invalidateQueries([queryKeys.getRateCardData]);

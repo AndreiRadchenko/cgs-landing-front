@@ -1,8 +1,11 @@
 import { Formik } from "formik";
 import React from "react";
 import { useMutation, useQuery } from "@tanstack/react-query";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 import ServiceWebAuditContentBlock from ".";
+import { CustomToast } from "../../CustomToast";
 
 import * as Styled from "../../../../styles/AdminPage";
 
@@ -20,8 +23,16 @@ const AdminServiceWebAuditContent = () => {
 
   const { mutateAsync: updateFaqPage } = useMutation(
     [queryKeys.updateServiceWebAuditPage],
-    (data: IServiceWebAudit) =>
-      adminWebAuditService.updateWebAuditServicePage(data)
+    async (data: IServiceWebAudit) => {
+      return await toast.promise(
+        adminWebAuditService.updateWebAuditServicePage(data),
+        {
+          pending: "Pending update",
+          success: "Web audit updated successfully 👌",
+          error: "Some things went wrong 🤯",
+        }
+      );
+    }
   );
 
   const submitForm = async (values: IServiceWebAudit) => {
@@ -35,7 +46,10 @@ const AdminServiceWebAuditContent = () => {
     <Styled.AdminUnauthorizedModal>Loading...</Styled.AdminUnauthorizedModal>
   ) : data !== undefined ? (
     <Formik initialValues={data!} onSubmit={submitForm}>
-      <ServiceWebAuditContentBlock />
+      <>
+        <ServiceWebAuditContentBlock />
+        <CustomToast />
+      </>
     </Formik>
   ) : (
     <Styled.AdminUnauthorizedModal>

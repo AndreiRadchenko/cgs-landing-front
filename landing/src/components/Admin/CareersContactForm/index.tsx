@@ -1,6 +1,6 @@
 import React from "react";
 import { useFormikContext } from "formik";
-import { IDataCareersResponse } from "../../../types/Admin/Response.types";
+
 import {
   MainContainer,
   CareersContainer,
@@ -11,18 +11,15 @@ import {
   CvInput,
 } from "../../../styles/AdminCareersPage";
 import CareersSubtitleBlock from "./CareersSubtitleBlock";
-import * as Styled from "../../../styles/AdminCareersPage";
-import { ArrowContainer } from "../../../styles/HomePage/General.styled";
 import ButtonArrow from "../../../utils/ButtonArrow";
 
-const CareersContactForm = () => {
-  const { values, handleChange, handleSubmit } =
-    useFormikContext<IDataCareersResponse>();
-  const { CV, image, text, ...otheForm } = values.form;
+import * as Styled from "../../../styles/AdminCareersPage";
+import { IDataCareersResponse } from "../../../types/Admin/Response.types";
+import { ArrowContainer } from "../../../styles/HomePage/General.styled";
 
-  const onSubmit = () => {
-    handleSubmit();
-  };
+const CareersContactForm = () => {
+  const { values, handleChange } = useFormikContext<IDataCareersResponse>();
+  const { CV, image, text, ...otheForm } = values.form;
 
   return (
     <MainContainer>
@@ -50,12 +47,12 @@ const CareersContactForm = () => {
         </ContactFormContainer>
         <div style={{ marginTop: 30 }}>
           <Styled.TicketsButtonContainer>
-            <Styled.TicketsButton onClick={onSubmit}>
+            <Styled.TicketsButton type="submit">
               Save Changes
+              <ArrowContainer>
+                <ButtonArrow />
+              </ArrowContainer>
             </Styled.TicketsButton>
-            <ArrowContainer>
-              <ButtonArrow />
-            </ArrowContainer>
           </Styled.TicketsButtonContainer>
         </div>
       </CareersContainer>

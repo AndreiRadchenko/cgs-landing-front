@@ -74,7 +74,7 @@ const MetaTagsBlock = ({
         adminSitemapService.updateSitemapData(updatedSitemap),
         {
           pending: "Pending update",
-          success: "Data updated successfully 👌",
+          success: "Site map updated successfully 👌",
           error: "Some things went wrong 🤯",
         }
       );

@@ -1,8 +1,11 @@
 ﻿import { Formik } from "formik";
 import React from "react";
 import { useMutation, useQuery } from "@tanstack/react-query";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 import ServiceMobileContentBlock from ".";
+import { CustomToast } from "../../CustomToast";
 
 import * as Styled from "../../../../styles/AdminPage";
 
@@ -20,7 +23,16 @@ const AdminServiceMobileContent = () => {
 
   const { mutateAsync: updateFaqPage } = useMutation(
     [queryKeys.updateServiceMobilePage],
-    (data: IServiceMobile) => adminMobileService.updateMobileServicePage(data)
+    async (data: IServiceMobile) => {
+      return await toast.promise(
+        adminMobileService.updateMobileServicePage(data),
+        {
+          pending: "Pending update",
+          success: "Mobile development updated successfully 👌",
+          error: "Some things went wrong 🤯",
+        }
+      );
+    }
   );
 
   const submitForm = async (values: IServiceMobile) => {
@@ -34,7 +46,10 @@ const AdminServiceMobileContent = () => {
     <Styled.AdminUnauthorizedModal>Loading...</Styled.AdminUnauthorizedModal>
   ) : data !== undefined ? (
     <Formik initialValues={data!} onSubmit={submitForm}>
-      <ServiceMobileContentBlock />
+      <>
+        <ServiceMobileContentBlock />
+        <CustomToast />
+      </>
     </Formik>
   ) : (
     <Styled.AdminUnauthorizedModal>
