@@ -1,6 +1,8 @@
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { Form, Formik, FormikHelpers } from "formik";
+import { toast } from "react-toastify";
 import React from "react";
+
 import { queryKeys } from "../../../consts/queryKeys";
 import { adminCalculatorService } from "../../../services/adminCalculator";
 import * as AdminPageStyled from "../../../styles/AdminPage";
@@ -15,7 +17,16 @@ const CalculatorTypeInput = () => {
   const queryClient = useQueryClient();
   const { mutateAsync } = useMutation(
     [queryKeys.addCalculatorType],
-    (data: ICalculatorType) => adminCalculatorService.addCalculatorType(data),
+    async (data: ICalculatorType) => {
+      return await toast.promise(
+        adminCalculatorService.addCalculatorType(data),
+        {
+          pending: "Pending update",
+          success: `Specialist "${data.name}" added successfully 👌`,
+          error: "Some things went wrong 🤯",
+        }
+      );
+    },
     {
       onSuccess: () => {
         queryClient.invalidateQueries([queryKeys.getCalculatorData]);

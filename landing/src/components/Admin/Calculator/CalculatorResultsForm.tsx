@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Formik } from "formik";
 import { Plugin } from "suneditor/src/plugins/Plugin";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
+import { toast } from "react-toastify";
 
 import { adminCalculatorService } from "../../../services/adminCalculator";
 import AdminBlockDropDown from "../Global/AdminBlockDropDown";
@@ -24,7 +25,16 @@ const CalculatorResultsForm = () => {
 
   const { mutateAsync } = useMutation(
     [queryKeys.updateCalculatorData],
-    (data: ICalculator) => adminCalculatorService.updateCalculatorData(data)
+    async (data: ICalculator) => {
+      return await toast.promise(
+        adminCalculatorService.updateCalculatorData(data),
+        {
+          pending: "Pending update",
+          success: "Calculator results data updated successfully 👌",
+          error: "Some things went wrong 🤯",
+        }
+      );
+    }
   );
   const [plugins, setPlugins] = useState<
     Array<Plugin> | Record<string, Plugin>
