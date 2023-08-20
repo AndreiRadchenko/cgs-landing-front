@@ -1,13 +1,16 @@
 import { useQuery } from "@tanstack/react-query";
 import React, { useEffect, useState } from "react";
-import { queryKeys } from "../../../consts/queryKeys";
-import { adminCalculatorService } from "../../../services/adminCalculator";
-import * as Styled from "../../../styles/AdminPage";
 
 import CalculatorPagerForm from "./CalculatorPager";
 import CalculatorPriceForm from "./CalculatorPriceForm";
 import CalculatorResultsForm from "./CalculatorResultsForm";
 import CalculatorStepsForm from "./CalculatorStepsForm";
+import { CustomToast } from "../CustomToast";
+
+import * as Styled from "../../../styles/AdminPage";
+import "react-toastify/dist/ReactToastify.css";
+import { queryKeys } from "../../../consts/queryKeys";
+import { adminCalculatorService } from "../../../services/adminCalculator";
 import { ICalculatorStep } from "../../../types/Admin/Response.types";
 
 const AdminCalculatorContent = () => {
@@ -90,6 +93,7 @@ const AdminCalculatorContent = () => {
           <CalculatorResultsForm />
           <CalculatorPriceForm key={`${isBlockchain}`} />
         </Styled.AdminBlocksContent>
+        <CustomToast />
       </Styled.AdminContentBlock>
     )) ||
     null

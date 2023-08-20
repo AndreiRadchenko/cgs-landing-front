@@ -26,7 +26,7 @@ const CvForm = ({ isNewCv, setIsNewCv, cv, current }: CvAddOrEditProps) => {
     async (cv: CvData) => {
       return await toast.promise(adminCvService.updateById(cv), {
         pending: "Pending update",
-        success: "CV updated successfully 👌",
+        success: "CV updated successfully",
         error: "Some things went wrong 🤯",
       });
     },
@@ -42,7 +42,7 @@ const CvForm = ({ isNewCv, setIsNewCv, cv, current }: CvAddOrEditProps) => {
     async (cv: CvData) => {
       return await toast.promise(adminCvService.postCv(cv), {
         pending: "Pending update",
-        success: "CV created successfully 👌",
+        success: "CV created successfully",
         error: "Some things went wrong 🤯",
       });
     },

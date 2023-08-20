@@ -59,7 +59,7 @@ const PublishedCvs = ({
     async (swapData: ISwapData) => {
       return await toast.promise(adminCvService.swapCvs(swapData), {
         pending: "Pending update",
-        success: "CV ID swapped successfully 👌",
+        success: "CV ID swapped successfully",
         error: "Some things went wrong 🤯",
       });
     },

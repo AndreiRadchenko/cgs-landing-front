@@ -24,7 +24,7 @@ const AdminCVsContent = () => {
     async (data: ICvPageData) => {
       return await toast.promise(adminCvService.updateCvPage(data), {
         pending: "Pending update",
-        success: "CVs page updated successfully 👌",
+        success: "CVs page updated successfully",
         error: "Some things went wrong 🤯",
       });
     }
