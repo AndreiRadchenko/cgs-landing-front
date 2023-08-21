@@ -55,7 +55,7 @@ const TestimonialsModal = ({
             </Styled.TestimonialsInfoText>
           </Styled.TestimonialsVideoInfoContainer>
         </Styled.TestimonialsModalVideoContainer>
-        <Styled.HoverBlockTestimonials>
+        <Styled.HoverBlockTestimonials className="main">
           <Styled.HoverBlackBlockTestimonials />
         </Styled.HoverBlockTestimonials>
       </Styled.TestimonialsVideoContainer>
