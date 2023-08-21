@@ -9,6 +9,8 @@ import SolutionBlock from "./SolutionBlock";
 import FreeServices from "../../../ServisesComponents/FreeServices/AdminComponent";
 import AdminBlockDropDown from "../../Global/AdminBlockDropDown";
 import TeamMembers from "../../../ServisesComponents/TeamMembers/AdminTeamMembers";
+import { queryKeys } from "../../../../consts/queryKeys";
+import { IServiceWeb } from "../../../../types/Admin/Response.types";
 
 import { AdminHeader, AdminPaddedBlock } from "../../../../styles/AdminPage";
 
@@ -34,7 +36,10 @@ const ServiceMobileContentBlock = () => {
         </AdminBlockDropDown>
 
         <AdminBlockDropDown title="TEAM MEMBERS">
-          <TeamMembers />
+          <TeamMembers<IServiceWeb>
+            serviceName={"web"}
+            queryKey={queryKeys.getServiceWebPage}
+          />
         </AdminBlockDropDown>
 
         <AdminBlockDropDown title="FREE SERVICES">

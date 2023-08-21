@@ -20,6 +20,7 @@ export interface IFreeService {
 export interface IFreeServicesComponent {
   title: string;
   services: IFreeService[];
+  lastModified?: string;
 }
 
 export interface IBonus {
@@ -36,6 +37,7 @@ export interface ITeamMembers {
   description: string;
   members: IDataTeamMember[];
   selectedMembers: IDataTeamMember[];
+  lastModified?: string;
 }
 
 export interface IDataTeamMember {
