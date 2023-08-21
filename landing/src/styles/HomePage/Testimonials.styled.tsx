@@ -17,7 +17,6 @@ export const TestimonialsVideoContainer = styled.div`
   position: relative;
   width: 59.5em;
   min-height: 53.3em;
-  /* border: 1.5px solid ${themes.primary.colors.primary}; */
   box-shadow: 0 0 0 1.5px black;
   background: ${themes.primary.colors.grey};
 
