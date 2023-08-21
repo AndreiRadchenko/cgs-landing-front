@@ -276,6 +276,8 @@ export const HoverBlockTestimonials = styled.div`
   align-items: flex-end;
 
   &.hidden {
+    right: -8px;
+    bottom: -8px;
     visibility: hidden;
   }
 
