@@ -506,11 +506,13 @@ export interface ICloudService {
 export interface ISubtitleWithText {
   subtitle: string;
   text: string;
+  lastModified?: string;
 }
 
 export interface ISubtitleWithList {
   subtitle: string;
   list: string[];
+  lastModified?: string;
 }
 
 export interface IServiceWeb {
@@ -520,16 +522,19 @@ export interface IServiceWeb {
     button: string;
     buttonLink: string;
     image: { url: string };
+    lastModified?: string;
   };
   comparisonBlock: {
     desktopColumn: ISubtitleWithList;
     webColumn: ISubtitleWithList;
+    lastModified?: string;
   };
   whyIsWebBlock: {
     subtitle: string;
     element1: ISubtitleWithText;
     element2: ISubtitleWithText;
     element3: ISubtitleWithText;
+    lastModified?: string;
   };
   solutionBlock: ISubtitleWithText;
   projects: string[];
@@ -540,6 +545,7 @@ export interface IServiceWeb {
     text: string;
     buttonLink: string;
     image: { url: string };
+    lastModified?: string;
   };
   teamMembers: ITeamMembers;
   freeServices: IFreeServicesComponent;

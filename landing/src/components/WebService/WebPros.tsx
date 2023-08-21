@@ -8,11 +8,15 @@ import { IServiceWeb } from "../../types/Admin/Response.types";
 import { MobileInfiniteText } from "../MobileInfiniteText/MobileInfiniteText";
 import { useOnScreen } from "../../hooks/useOnScreen";
 
+type ServiceDataType = Omit<IServiceWeb, "lastModified">;
+
 const WebPros = () => {
   const queryClient = useQueryClient();
-  const data = queryClient.getQueryData<IServiceWeb>([
+  const rawData = queryClient.getQueryData<ServiceDataType>([
     queryKeys.getServiceWebPage,
   ])?.comparisonBlock;
+
+  const { lastModified, ...data } = rawData!;
 
   const elRef = useRef<HTMLDivElement>(null);
 
