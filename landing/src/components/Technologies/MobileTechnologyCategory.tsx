@@ -1,17 +1,12 @@
 import React, { FC, MouseEvent, useState } from "react";
 import { useWindowDimension } from "../../hooks/useWindowDimension";
-import * as StyledThisComp from "../../styles/HomePage/MobileTechnologies.styled";
-import { SplitBrackets } from "../../utils/splitBrackets";
+
 import TechModal from "./TechModal";
 
-interface ITechnologyCategoryProps {
-  img: string;
-  title: string;
-  text: string;
-  stack: string[];
-  idx: number;
-  className?: string;
-}
+import * as StyledThisComp from "../../styles/HomePage/MobileTechnologies.styled";
+
+import { SplitBrackets } from "../../utils/splitBrackets";
+import { ITechnologyCategoryProps } from "../../types/Components.types";
 
 const MobileTechnologyCategory: FC<ITechnologyCategoryProps> = ({
   title,

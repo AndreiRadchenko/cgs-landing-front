@@ -1,8 +1,7 @@
 import Link from "next/link";
 import { useRouter } from "next/router";
 import React from "react";
-import { ROUTE_KEYS } from "../../../consts";
-import * as Styled from "../../../styles/AdminPage";
+
 import DropDownElement from "./DropDownElement";
 import {
   BlogIcon,
@@ -14,7 +13,12 @@ import {
   ServiceIcon,
   RateCardIcon,
   SupportChatIcon,
+  CVsIcon,
 } from "./ListItemImages";
+
+import * as Styled from "../../../styles/AdminPage";
+
+import { ROUTE_KEYS } from "../../../consts";
 
 const AdminSidebar = () => {
   const router = useRouter();
@@ -25,6 +29,7 @@ const AdminSidebar = () => {
   const pushEstimationForm = () => router.push(ROUTE_KEYS.AdminEstimationForm);
   const pushRateCard = () => router.push(ROUTE_KEYS.AdminRateCard);
   const pushSupportChat = () => router.push(ROUTE_KEYS.AdminSupportChat);
+  const pushCVs = () => router.push(ROUTE_KEYS.AdminCVs)
 
   const currentPath =
     router.pathname.split("/")[router.pathname.split("/").length - 1];
@@ -219,6 +224,14 @@ const AdminSidebar = () => {
         >
           <SupportChatIcon open={false} />
           support chat
+        </Styled.AdminSidebarMenuElement>
+        <Styled.AdminSidebarMenuElement
+          onClick={pushCVs}
+          itemProp={currentPath}
+          property={ROUTE_KEYS.AdminCVs}
+        >
+          <CVsIcon />
+          Devs CVs
         </Styled.AdminSidebarMenuElement>
       </Styled.AdminSidebarMenu>
     </Styled.AdminSidebar>

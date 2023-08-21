@@ -1,7 +1,10 @@
 import Image from "next/image";
 import React from "react";
+
 import * as Styled from "../../styles/MobileAuditService/HowDoWeAudit.styled";
+
 import { SplitBrackets } from "../../utils/splitBrackets";
+
 import CheckMarkIcon from "../../../public/MobileAuditService/auditCheckMark.svg";
 
 interface IAuditLisItemProps {

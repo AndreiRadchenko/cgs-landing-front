@@ -1,7 +1,9 @@
+import React from "react";
+
+import Logo from "../../HeaderNavNew/Logo";
+
 import { AdminMainHeader } from "../../../styles/AdminPage";
 import { AdminAuthTeamLogo } from "../../../styles/AdminAuth";
-import React from "react";
-import Logo from "../../HeaderNavNew/Logo";
 
 const AdminHeader = () => {
   return (

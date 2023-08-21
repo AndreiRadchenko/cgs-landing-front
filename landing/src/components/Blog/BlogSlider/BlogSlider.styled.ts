@@ -5,13 +5,19 @@ export const SliderWrapper = styled("div")`
   position: relative;
   overflow: hidden;
   display: flex;
-  padding: 30px 30px 30px 50px;
+  padding: 40px 32px 30px 51px;
   width: 67vw;
   height: 100%;
 
+  @media ${themes.primary.media.minPCFullHD} {
+    padding: 50px 40px 40px 51px;
+    width: 68.8vw;
+    height: 100%;
+  }
+
   @media ${themes.primary.media.maxMobile} {
     position: relative;
-    padding: 30px 12px 20px;
+    padding: 30px 12px 16px;
     width: 96vw;
   }
 
@@ -29,8 +35,12 @@ export const SliderWrapper = styled("div")`
   .swiper-pagination {
     position: static;
     text-align: start;
-    margin-top: 35px;
+    margin-top: 32px;
     line-height: 10px;
+
+    @media ${themes.primary.media.minPCFullHD} {
+      margin-top: 40px;
+    }
     @media ${themes.primary.media.maxMobile} {
       display: none;
     }

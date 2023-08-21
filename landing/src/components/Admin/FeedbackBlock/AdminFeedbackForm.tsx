@@ -41,7 +41,6 @@ const AdminFeedbackForm = ({ submit, isNewFeedback }: IFeedbackFormProps) => {
   const { values, handleChange } = useFormikContext<IFeedback>();
   const starsChange = (newValue: number) => (values.stars = newValue);
   const submitForm = (e: React.SyntheticEvent) => submitFunc(e, submit);
-  // const submitText = 
 
   const renderState = {
     companyName: values.companyName,
@@ -69,9 +68,7 @@ const AdminFeedbackForm = ({ submit, isNewFeedback }: IFeedbackFormProps) => {
             />
           </Styled.AdminStarsFlex>
         </Styled.AdminStarsGrid>
-        <div 
-          style={{display: "flex", flexDirection: "column"}}
-        >
+        <div style={{ display: "flex", flexDirection: "column" }}>
           {render(renderState, handleChange)}
 
           <BlackButton

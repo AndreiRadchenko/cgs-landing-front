@@ -1,18 +1,22 @@
 ﻿import React, { useRef } from "react";
 import parse from "html-react-parser";
+import { useQueryClient } from "@tanstack/react-query";
+
+import TextTypingAnimation from "../Typewrite";
+import NeedsAppsBenefitComponent from "../ServisesComponents/NeedsAppsBenefitComponent";
+
 import * as Styled from "../../styles/MobileService/WhoNeedApps.styled";
 
-import { useQueryClient } from "@tanstack/react-query";
 import { queryKeys } from "../../consts/queryKeys";
+
 import { IServiceMobile } from "../../types/Admin/Response.types";
 import { IServicesClassnameProps } from "../../types/Services.types";
 import { VisibleSubtitle } from "../../styles/MobileService/Layout";
 
+import { useOnScreen } from "../../hooks/useOnScreen";
+
 import WhyWorthItMobile from "../../../public/MobileSevice/whoNeedApps/whyWorthItMobile.svg";
 import WhyWorthIt from "../../../public/MobileSevice/whoNeedApps/whyWorthIt.svg";
-import TextTypingAnimation from "../Typewrite";
-import { useOnScreen } from "../../hooks/useOnScreen";
-import NeedsAppsBenefitComponent from "../Services/NeedsAppsBenefitComponent";
 
 const WhoNeedAppBlock = ({ className }: IServicesClassnameProps) => {
   const queryClient = useQueryClient();

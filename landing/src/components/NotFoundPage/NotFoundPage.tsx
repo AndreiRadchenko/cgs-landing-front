@@ -1,10 +1,12 @@
 import React from "react";
+
 import {
   ArrowContainer,
   BlackButton,
 } from "../../styles/HomePage/General.styled";
-import ButtonArrow from "../../utils/ButtonArrow";
 import * as Styled from "./NotFoundPage.styled";
+
+import ButtonArrow from "../../utils/ButtonArrow";
 
 const NotFoundContent = () => {
   return (

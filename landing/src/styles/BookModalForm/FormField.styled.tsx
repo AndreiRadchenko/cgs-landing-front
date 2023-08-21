@@ -4,15 +4,15 @@ import { Field } from "formik";
 import { TextareaAutosize } from "@mui/material";
 
 export const FormField = styled(Field)`
-  height: 54px;
+  height: 68px;
   width: 100%;
   background: none;
   border: none;
   border: 1px solid ${themes.primary.colors.inputGrey};
   font-family: ${themes.primary.font.family.namu};
-  font-size: 16px;
+  font-size: 20px;
   color: ${themes.primary.colors.black};
-  padding-left: 12px;
+  padding-inline: 15px;
   border-radius: 0;
 
   &::placeholder {
@@ -24,6 +24,11 @@ export const FormField = styled(Field)`
   }
   &.formikErrors {
     border: 1px solid ${themes.primary.colors.adminRed};
+  }
+
+  @media ${themes.primary.media.maxPCFullHD} {
+    font-size: 16px;
+    height: 54px;
   }
 
   @media ${themes.primary.media.estiomationFormWidth} {
@@ -119,11 +124,11 @@ export const CharCounter = styled.div`
 
 export const FormFieldLabel = styled.label`
   font-family: ${themes.primary.font.family.namu};
-  font-size: 16px;
+  font-size: 20px;
   color: ${themes.primary.colors.black};
 
-  @media ${themes.primary.media.minPCFullHD} {
-    /* font-size: 22px; */
+  @media ${themes.primary.media.maxPCFullHD} {
+    font-size: 16px;
   }
 
   @media ${themes.primary.media.estiomationFormWidth} {
@@ -136,28 +141,30 @@ export const FormFieldLabel = styled.label`
 `;
 
 export const FormFieldContainer = styled.div`
-  width: 103.75%;
+  width: 100%;
   position: relative;
   margin-top: 10px;
-  margin-bottom: 12px;
+  height: 88px;
 
-  @media ${themes.primary.media.minPCFullHD} {
+  @media ${themes.primary.media.maxPCFullHD} {
+    height: 70px;
+    margin-top: 8px;
   }
 
   @media ${themes.primary.media.estiomationFormWidth} {
-    margin-top: 4px;
+    margin-top: 8px;
+    height: 60px;
   }
 
   .react-tel-input {
-    height: 54px;
+    height: 68px;
     width: 100%;
     background: none;
     border: 1px solid ${themes.primary.colors.inputGrey};
     font-family: ${themes.primary.font.family.namu};
-    font-size: 16px;
+    font-size: 20px;
     color: ${themes.primary.colors.black};
     border-radius: 0;
-    margin-bottom: 15px;
 
     &::placeholder {
       color: ${themes.primary.colors.comment};
@@ -170,10 +177,14 @@ export const FormFieldContainer = styled.div`
       border: 1px solid ${themes.primary.colors.adminRed};
     }
 
+    @media ${themes.primary.media.maxPCFullHD} {
+      font-size: 16px;
+      height: 54px;
+    }
+
     @media ${themes.primary.media.estiomationFormWidth} {
       font-size: 12px;
       height: 44px;
-      margin-bottom: 12px;
     }
 
     .flag-dropdown,
@@ -206,12 +217,16 @@ export const FormFieldContainer = styled.div`
       height: 100%;
       width: 100%;
       border: none;
-      font-size: 16px;
+      font-size: 20px;
       font-family: ${themes.primary.font.family.namu};
       background: ${themes.primary.colors.blogBackground};
 
       &::placeholder {
         color: ${themes.primary.colors.comment};
+      }
+
+      @media ${themes.primary.media.maxPCFullHD} {
+        font-size: 16px;
       }
 
       @media ${themes.primary.media.estiomationFormWidth} {
@@ -252,9 +267,12 @@ export const FormFieldContainer = styled.div`
 
 export const ErrorField = styled.div`
   font-family: ${themes.primary.font.family.namu};
-  font-size: 12px;
+  font-size: 15px;
   color: ${themes.primary.colors.adminRed};
-  line-height: 19px;
+  line-height: normal;
   text-align: right;
   font-weight: ${themes.primary.font.weight.heavy};
+  @media ${themes.primary.media.maxPCFullHD} {
+    font-size: 12px;
+  }
 `;

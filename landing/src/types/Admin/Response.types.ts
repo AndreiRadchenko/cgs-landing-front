@@ -7,6 +7,7 @@ import {
   IBonusesComponent,
 } from "../../types/ServicesComponent.types";
 import { ITechnology } from "./AdminPortfolio.types";
+import { ITestimonial } from "../Components.types";
 export interface IEditInformation {
   title: string;
   subtitle: string;
@@ -104,6 +105,7 @@ export interface IDataResponse {
     logos: {
       image: { url: string } | null;
     }[];
+    twistedBlock: string;
   };
   FreeServicesBlock: {
     title: string;
@@ -118,6 +120,10 @@ export interface IDataResponse {
   CardsBlock: ICards;
   CalendlyPopupBlock: ICalendlyPopupBlock;
   FeedbackBlock: IFeedbackBlock;
+  TestimonialsBlock: {
+    title: string;
+    testimonials: ITestimonial[];
+  };
   TechnologyBlock: {
     items: ITech[];
   };
@@ -266,7 +272,6 @@ export interface IArticle {
   title: string;
   description: string;
   author: IAuthor;
-  scheduleArticle: string;
   updatedOn: string;
   date: string;
   publishedDate: string;
@@ -285,7 +290,6 @@ export interface IArticleWithoutId {
   title: string;
   description: string;
   author: IAuthor;
-  scheduleArticle: string;
   updatedOn: string;
   date: string;
   minutesToRead: number;

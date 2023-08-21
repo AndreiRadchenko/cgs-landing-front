@@ -1,11 +1,14 @@
-import React, { useRef, useState } from "react";
+import React, { ChangeEvent, useRef, useState } from "react";
+import ReactPlayer, { ReactPlayerProps } from "react-player";
+
 import * as Styled from "../../styles/Blog.styled";
+
+import { IPodcastItemProps } from "../../types/Blog.types";
+
 import PlayButton from "../../../public/BlogDecorations/Podcast/PlayButton.svg";
 import Podcast from "../../../public/BlogDecorations/Podcast/Podcast.svg";
 import PlayTriangle from "../../../public/BlogDecorations/Podcast/PlayTriangle.svg";
 import StopButton from "../../../public/StopButton.svg";
-import ReactPlayer from "react-player";
-import { IPodcastItemProps } from "../../types/Blog.types";
 
 const PodcastItem = ({ data }: IPodcastItemProps) => {
   const [playbackRate, setPlaybackRate] = useState(1);
@@ -20,7 +23,7 @@ const PodcastItem = ({ data }: IPodcastItemProps) => {
   const handlePlaybackRateClick = () =>
     playbackRate === 2 ? setPlaybackRate(1) : setPlaybackRate(2);
 
-  const handlePlayedSeconds = (state: any) => {
+  const handlePlayedSeconds = (state: ReactPlayerProps) => {
     const minute = Math.trunc(state.playedSeconds / 60);
     setPlayed(state.playedSeconds);
     const seconds = Math.floor(state.playedSeconds - minute * 60);
@@ -39,7 +42,7 @@ const PodcastItem = ({ data }: IPodcastItemProps) => {
     setSeeking(true);
   };
 
-  const handleSeekChange = (e: any) => {
+  const handleSeekChange = (e: ChangeEvent<HTMLInputElement>) => {
     setPlayed(parseFloat(e.target.value));
   };
 
@@ -67,7 +70,12 @@ const PodcastItem = ({ data }: IPodcastItemProps) => {
   return (
     <>
       <ReactPlayer
-        style={{ maxWidth: 1, maxHeight: 1, position: 'absolute', zIndex: '-9999999999'}}
+        style={{
+          maxWidth: 1,
+          maxHeight: 1,
+          position: "absolute",
+          zIndex: "-9999999999",
+        }}
         ref={playerRef}
         controls
         url={data.link}
@@ -117,7 +125,7 @@ const PodcastItem = ({ data }: IPodcastItemProps) => {
               </Styled.LeftArrow>
               <Styled.PlayButton
                 onClick={() => {
-                  setPlaying((prevState) => !prevState)
+                  setPlaying((prevState) => !prevState);
                 }}
                 src={playing ? StopButton.src : PlayButton.src}
               />
@@ -130,10 +138,12 @@ const PodcastItem = ({ data }: IPodcastItemProps) => {
             <div />
           </Styled.BackgroundCard>
         </Styled.RelativeContainer>
-        <Styled.FlexColumnContainer>
+        <Styled.FlexColumnContainer className="podcast">
           <Styled.FlexRowContainer>
-            <Styled.PodcastIcon src={Podcast.src} />
-            <Styled.PodcastWord>podcast</Styled.PodcastWord>
+            <Styled.FlexPodcast>
+              <Styled.PodcastIcon src={Podcast.src} />
+              <Styled.PodcastWord>podcast</Styled.PodcastWord>
+            </Styled.FlexPodcast>
             <Styled.PlayTag>
               <Styled.PlayTriangle src={PlayTriangle.src} />
               <div>

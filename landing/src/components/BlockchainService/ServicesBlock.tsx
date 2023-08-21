@@ -1,11 +1,16 @@
 import React, { useRef } from "react";
 import { useQueryClient } from "@tanstack/react-query";
-import { queryKeys } from "../../consts/queryKeys";
-import { IBlockchainService } from "../../types/Admin/Response.types";
 import parse from "html-react-parser";
-import * as Styled from "../../styles/BlockchainService/ServicesBlock.styled";
-import { useOnScreen } from "../../hooks/useOnScreen";
+
 import { MobileInfiniteText } from "../MobileInfiniteText/MobileInfiniteText";
+
+import * as Styled from "../../styles/BlockchainService/ServicesBlock.styled";
+
+import { queryKeys } from "../../consts/queryKeys";
+
+import { IBlockchainService } from "../../types/Admin/Response.types";
+
+import { useOnScreen } from "../../hooks/useOnScreen";
 
 const ServicesBlock = () => {
   const queryClient = useQueryClient();

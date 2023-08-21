@@ -1,13 +1,19 @@
 import React, { useRef } from "react";
 import { useQueryClient } from "@tanstack/react-query";
-import { queryKeys } from "../../consts/queryKeys";
+
+import { MobileInfiniteText } from "../MobileInfiniteText/MobileInfiniteText";
+
+import * as Styled from "../../styles/OngoingSupport/WorkBlock.styled";
+
 import { IServiceSupport } from "../../types/Admin/Response.types";
+
+import { queryKeys } from "../../consts/queryKeys";
+
+import { useOnScreen } from "../../hooks/useOnScreen";
+
 import cd from "../../../public/MobileSevice/worthIt/cd.svg";
 import tree from "../../../public/MobileSevice/worthIt/tree.svg";
 import window from "../../../public/MobileSevice/worthIt/window.svg";
-import * as Styled from "../../styles/OngoingSupport/WorkBlock.styled";
-import { useOnScreen } from "../../hooks/useOnScreen";
-import { MobileInfiniteText } from "../MobileInfiniteText/MobileInfiniteText";
 
 const WorkBlock = () => {
   const queryClient = useQueryClient();

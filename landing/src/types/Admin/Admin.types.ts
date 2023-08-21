@@ -21,6 +21,7 @@ export interface IPhotoBlock extends IPropsWithImage {
   className?: string;
   style?: CSSProperties;
   imageStyle?: CSSProperties;
+  unchangeable?: boolean;
 }
 
 export interface InputPropsInterface {
@@ -58,6 +59,8 @@ export interface InputWithHeader extends InputPropsInterface {
   id?: string;
   inputStyle?: any;
   isAdminBlog?: boolean;
+  isError? : boolean;
+  maxLength?: number;
 }
 
 export interface InputWithImage extends InputPropsInterface {

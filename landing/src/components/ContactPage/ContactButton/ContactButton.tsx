@@ -1,20 +1,11 @@
-import React, { CSSProperties } from "react";
-
-import emailIcon from "/public/email.svg";
-
-import * as Styled from "./ContactButton.styled";
+import React from "react";
 import Image from "next/image";
 
-export interface IContactButton {
-  className?: string;
-  picture?: string;
-  pictureWidth?: string;
-  pictureHeight?: string;
-  text?: string;
-  link?: string;
-  style?: CSSProperties;
-  newTab?: boolean;
-}
+import * as Styled from "./ContactButton.styled";
+
+import { IContactButton } from "../../../types/Button.types";
+
+import emailIcon from "/public/email.svg";
 
 export const ContactButton = ({
   className,

@@ -14,21 +14,27 @@ export const Subtitle = styled.div`
   font-weight: 900;
   font-size: 96px;
   line-height: 89px;
-  width: 95%;
+  width: 100%;
   height: auto;
+
+  @media (max-width: 2310px) {
+    width: 70%;
+  }
 
   @media ${themes.primary.media.maxPCFullHD} {
     font-size: 64px;
     line-height: 77px;
     margin: 77px 0 0;
-    width: 90%;
   }
 
   @media ${themes.primary.media.maxLaptop} {
     font-size: 64px;
     line-height: 77px;
     margin: 77px 0 0;
-    width: 70%;
+  }
+
+  @media (max-width: 1235px) {
+    width: 90%;
   }
 
   @media ${themes.primary.media.maxTabletPortrait} {
@@ -44,6 +50,7 @@ export const Subtitle = styled.div`
   }
 
   @media ${themes.primary.media.maxLowScreenMobile} {
+    width: 300px;
     & span {
       &.blue {
         height: 5vw;

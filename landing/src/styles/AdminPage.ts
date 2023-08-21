@@ -263,6 +263,11 @@ export const AdminHeader = styled.h2`
   font-size: ${themes.primary.font.size.secondary};
   font-family: ${themes.primary.font.family.namu};
   margin-bottom: 1.21em;
+
+  &.rateCard {
+    font-size: 20px;
+    padding-top: 34px;
+  }
 `;
 
 export const ExtraMargin = styled.div`
@@ -465,6 +470,14 @@ export const CategoryWrapper = styled.div`
   display: flex;
   flex-direction: column;
   row-gap: 14px;
+
+  &.cv {
+    margin-top: 20px;
+
+    &:first-child {
+      margin-top: 0;
+    }
+  }
 `;
 
 export const AdminNewCategoryInputWrapper = styled.div`
@@ -477,6 +490,10 @@ export const AdminCategoryAddBlockWrapper = styled.div`
   align-items: center;
   justify-content: center;
   width: 114px;
+
+  &.cvAchievement {
+    justify-content: flex-start;
+  }
 `;
 
 export const AdminCategoryAddBlockBtn = styled.button`
@@ -486,6 +503,7 @@ export const AdminCategoryAddBlockBtn = styled.button`
   padding: 0;
   font-family: ${themes.primary.font.family.inter};
   color: #5869dd;
+  background: none;
 `;
 
 export const AdminCategoryDeleteBlockWrapper = styled.div`
@@ -494,9 +512,13 @@ export const AdminCategoryDeleteBlockWrapper = styled.div`
   width: 43px;
   align-items: center;
   justify-content: center;
+
+  &.cvAchievement {
+    margin-bottom: 10px;
+  }
 `;
 
-export const AdminCategoryNameInput = styled.input`
+export const AdminCategoryNameInput = styled.input<{ isError?: boolean }>`
   height: 56px;
   border: 1px solid ${themes.primary.colors.comment};
   font-family: ${themes.primary.font.family.namu};
@@ -515,6 +537,28 @@ export const AdminCategoryNameInput = styled.input`
   &.error {
     &::placeholder {
       color: red;
+    }
+  }
+
+  &.cv {
+    max-width: 347px;
+    width: 347px;
+  }
+
+  &.cvSkills {
+    max-width: 263px;
+    width: 263px;
+  }
+
+  &.cvAchievements {
+    max-width: 318px;
+    width: 318px;
+    margin-bottom: 10px;
+
+    border: 1px solid ${({ isError }) => (isError ? "red" : "#8F8E93")};
+
+    &::placeholder {
+      font-size: 16px;
     }
   }
 `;
@@ -683,9 +727,9 @@ export const AdminDashedPositionGrid = styled.div`
 `;
 
 export const AdminDeleteText = styled.button`
-  text-align: center;
   color: ${themes.primary.colors.errorText};
-  margin: 10px;
+  margin: 10px 10px 10px 0;
+  padding-left: 0px;
   font-size: ${themes.primary.font.size.primary};
   cursor: pointer;
   border: none;
@@ -852,6 +896,10 @@ export const AdminFeedbackFrame = styled.div`
   position: relative;
   border: 1px solid ${themes.primary.colors.primary};
   padding: 5em 5em 4em 5em;
+
+  &.testimonialsFrame {
+    padding: 32px;
+  }
 `;
 
 export const AdminButton = styled.button`
@@ -924,6 +972,16 @@ export const AdminDeleteTextThin = styled.span`
   cursor: pointer;
 `;
 
+export const AdminDeleteTextTestimon = styled.span`
+  color: ${themes.primary.colors.adminRed};
+  font-family: ${themes.primary.font.family.gilroy};
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  cursor: pointer;
+`;
+
 export const AdminDeleteReview = styled.span`
   position: relative;
   color: ${themes.primary.colors.errorText};
@@ -951,6 +1009,11 @@ export const AdminFeedbackStars = styled.div`
 export const AdminStarsGrid = styled.div`
   display: flex;
   gap: ${themes.primary.spacing.tertiary};
+  align-items: center;
+`;
+
+export const AdminHeadingInput = styled.div`
+  flex: 1 1 100%;
 `;
 
 export const AdminStarsFlex = styled.div`
@@ -1120,6 +1183,14 @@ export const AdminCategoryBlock = styled.div`
     padding: 18px 14px;
     border: 1px solid #8f8e93;
   }
+
+  & .admin-cv-dropdown {
+    color: black;
+    font-size: 16px;
+    width: 347px;
+    padding: 18px 14px;
+    border: 1px solid #8f8e93;
+  }
 `;
 
 export const AdminDropDownMenu = styled.div<IBlockDropdownProps>`
@@ -1178,6 +1249,11 @@ export const AdminDropDownMenuList = styled.div`
   z-index: 70;
   &.blog-admin {
     position: relative;
+  }
+
+  &.admin-cv-dropdown {
+    width: 347px;
+    padding: 0;
   }
 `;
 
@@ -1357,6 +1433,12 @@ export const AdminPortfolioImageText = styled.div`
 export const AdminPortfolioReviewFrame = styled.div`
   border: 1px solid ${themes.primary.colors.primary};
   position: relative;
+`;
+
+export const AdminEditDeleteContainer = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 `;
 
 export const AdminEditIcon = styled.span`
@@ -1732,6 +1814,12 @@ export const AdminCompanyName = styled.p`
   margin-top: 0.4em;
 `;
 
+export const AdminTestimonialContainerModal = styled.p`
+  padding: 13.724px;
+  border: 0.858px solid ${themes.primary.colors.primary};
+  margin-bottom: 24px;
+`;
+
 export const AdminFeedbackText = styled.p`
   display: -webkit-box;
   font-family: ${themes.primary.font.family.namu};
@@ -1745,6 +1833,10 @@ export const AdminFeedbackText = styled.p`
 
 export const DraggableWrapper = styled.div`
   margin: 10px 0;
+
+  &.adminCv {
+    margin: 24px 0;
+  }
 `;
 
 export const SubtitleGrid = styled.div`

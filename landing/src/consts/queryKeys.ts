@@ -95,6 +95,14 @@ export const queryKeys = {
   getAllDomains: "getAllDomains",
   addDomainService: "addDomainService",
   removeDomainService: "removeDomainService",
+  getCvPage: "getCvPage",
+  getPaginatedAndFilteredCvs: "getPaginatedAndFilteredCvs",
+  updateCvPage: "updateCvPage",
+  getCvs: "getCvs",
+  getCvById: "getCvById",
+  postCv: "postCv",
+  updateCvById: "updateCvById",
+  deleteCvById: "deleteCvById",
   // history
   getContactsHistory: "getContactsHistory",
   // home page
@@ -114,4 +122,8 @@ export const queryKeys = {
   createRateCardService: "createRateCardService",
   updateRateCardService: "updateRateCardService",
   deleteRateCardService: "deleteRateCardService",
+  // technologies
+  getTechnologies: "getTechnologies",
+  updateTechnologies: "updateTechnologies",
+  removeTechnologies: "removeTechnologies",
 };

@@ -1,7 +1,11 @@
 import React, { useEffect, useRef, useState } from "react";
-import * as Styled from "./teamMembers.styled";
+
 import { MobileInfiniteText } from "../../../MobileInfiniteText/MobileInfiniteText";
+
+import * as Styled from "./teamMembers.styled";
+
 import { ITeamMembers } from "../../../../types/ServicesComponent.types";
+
 import { SplitBrackets } from "../../../../utils/splitBrackets";
 
 interface ITeamMembersProps {

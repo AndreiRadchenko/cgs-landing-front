@@ -1,9 +1,13 @@
 import React from "react";
-import * as Styled from "../../styles/WebAuditService/WhichProblem.styled";
-import { SplitBrackets } from "../../utils/splitBrackets";
 import { useQueryClient } from "@tanstack/react-query";
+
+import * as Styled from "../../styles/WebAuditService/WhichProblem.styled";
+
 import { IServiceWebAudit } from "../../types/Admin/Response.types";
+
 import { queryKeys } from "../../consts/queryKeys";
+
+import { SplitBrackets } from "../../utils/splitBrackets";
 
 const WhichProblemBlock = () => {
   const queryClient = useQueryClient();

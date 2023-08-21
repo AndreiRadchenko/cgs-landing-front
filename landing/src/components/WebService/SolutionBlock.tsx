@@ -1,15 +1,20 @@
 ﻿import React, { useRef } from "react";
 import parse from "html-react-parser";
+import { useQueryClient } from "@tanstack/react-query";
+
+import TextTypingAnimation from "../Typewrite";
+
 import * as Styled from "../../styles/WebService/SolutionBlock.styled";
 
-import { useQueryClient } from "@tanstack/react-query";
 import { IServiceWeb } from "../../types/Admin/Response.types";
 import { IServicesClassnameProps } from "../../types/Services.types";
+
 import { queryKeys } from "../../consts/queryKeys";
+
+import { useOnScreen } from "../../hooks/useOnScreen";
+
 import firsMobileBg from "../../../public/WebService/first-mobile.svg";
 import secondMobileBg from "../../../public/WebService/second-mobile.svg";
-import { useOnScreen } from "../../hooks/useOnScreen";
-import TextTypingAnimation from "../Typewrite";
 
 const SolutionBlock = ({ className }: IServicesClassnameProps) => {
   const queryClient = useQueryClient();

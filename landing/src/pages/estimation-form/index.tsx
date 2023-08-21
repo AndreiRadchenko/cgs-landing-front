@@ -6,7 +6,6 @@ import {
   Container,
   ContainerDate,
 } from "../../components/EstimationForm/index.styled";
-import * as Styled from "../../styles/AdminPage";
 
 import FooterNew from "../../components/FooterNew/FooterNew";
 import HeaderNavNew from "../../components/HeaderNavNew/HeaderNavNew";

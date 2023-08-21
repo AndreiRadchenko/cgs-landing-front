@@ -1,10 +1,11 @@
 import React, { FC, useEffect } from "react";
-
-import * as Styles from "../../../../styles/BlogTags.styled";
 import { useFormikContext } from "formik";
-import { IArticle } from "../../../../types/Admin/Response.types";
+
 import Dropdown from "./Dropdown";
 import TagItem from "./TagItem";
+
+import * as Styles from "../../../../styles/BlogTags.styled";
+import { IArticle } from "../../../../types/Admin/Response.types";
 
 interface IBlogTags {
   tags: string[];

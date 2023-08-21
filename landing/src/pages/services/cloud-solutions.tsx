@@ -5,18 +5,21 @@ import Head from "next/head";
 
 import HeaderNavNew from "../../components/HeaderNavNew/HeaderNavNew";
 import FooterNew from "../../components/FooterNew/FooterNew";
-import HeadBlock from "../../components/CloudService/HeadBlock";
+import HeadBlock from "../../components/CloudService/HeadBlockCloud";
 import ProvidesBlock from "../../components/CloudService/ProvidesBlock";
-import FooterBlock from "../../components/CloudService/FooterBlock";
+import FooterBlock from "../../components/CloudService/FooterBlockCloud";
 import ShowCase from "../../components/ShowCase";
 import CalendlyInfoModal from "../../components/Calendly/CalendlyInfoModal";
-import PerksOfCoopComponent from "../../components/Services/PerksOfCoopComponent";
+import PerksOfCoopComponent from "../../components/ServisesComponents/PerksOfCoopComponent";
 import { TeamMembers, FreeService } from "../../components/ServisesComponents";
 import { Loader, LoaderStub } from "../../components/Loader";
+import { calendlyPopupInfoHandler } from "../../utils/calendlyPopupInfoHandler";
 
 import * as Styled from "../../styles/CloudService/Layout";
 import { Layout, PageArticle } from "../../styles/Layout.styled";
+
 import { queryKeys } from "../../consts/queryKeys";
+
 import { adminCloudService } from "../../services/services/AdminServicesCloudSolution";
 import { adminGlobalService } from "../../services/adminHomePage";
 import { adminPortfolioService } from "../../services/adminPortfolioPage";
@@ -54,25 +57,7 @@ const CloudService = () => {
 
   const { customHead, metaDescription, metaTitle } = { ...data?.meta };
 
-  useEffect(() => {
-    const calendlyStatusFinder = (e: any) => {
-      window.dataLayer = window.dataLayer || [];
-
-      if (
-        e.data.event &&
-        e.data.event.indexOf("calendly") === 0 &&
-        e.data.event === "calendly.event_scheduled"
-      ) {
-        setIsCalendlySuccessfull(true);
-      }
-    };
-
-    window.addEventListener("message", calendlyStatusFinder);
-
-    return () => {
-      window.removeEventListener("message", calendlyStatusFinder);
-    };
-  }, []);
+  calendlyPopupInfoHandler(() => setIsCalendlySuccessfull(true));
 
   return (
     <Loader active={isLoading}>

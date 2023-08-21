@@ -1,9 +1,10 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 import themes from "../utils/themes";
 
 import MagnifyingGlass from "../../public/Portfolio/MagnifyingGlass.svg";
 import LightExitIcon from "../../public/Portfolio/LightExitIcon.svg";
 import DarkExitIcon from "../../public/Portfolio/DarkExitIcon.svg";
+import { arrowOne, arrowTwo } from "./HomePage/General.styled";
 
 interface IPortfolioInfoProps {
   readonly isInfoCont?: boolean;
@@ -69,6 +70,15 @@ export const PortfolioCategoryItem = styled.div<IPortfolioCategoryItem>`
     border-bottom-width: 4.5px;
   }
 
+  &.cv {
+    font-size: 1.1667em;
+
+    @media ${themes.primary.media.minPCFullHD} {
+      font-size: 17.5px;
+      padding: 15px 22.5px;
+    }
+  }
+
   &.active {
     transition: all 0.2s ease-in-out;
     padding: 12px 18px;
@@ -80,6 +90,19 @@ export const PortfolioCategoryItem = styled.div<IPortfolioCategoryItem>`
   @media ${themes.primary.media.maxTabletPortrait} {
     font-size: 16px;
     line-height: 19.2px;
+  }
+
+  @media ${themes.primary.media.maxMobile} {
+    font-size: 14px;
+
+    &.cv {
+      font-size: 14px;
+      max-height: 42px;
+    }
+
+    &.active {
+      max-height: 42px;
+    }
   }
 `;
 
@@ -162,6 +185,10 @@ export const PortfolioFilterWarning = styled.div`
   text-align: start;
   margin-top: 50px;
 
+  &.cv {
+    margin-bottom: 40px;
+  }
+
   @media ${themes.primary.media.maxTabletPortrait} {
     margin-right: 0;
     font-size: 18px;
@@ -185,6 +212,17 @@ export const PortfolioSearchWarning = styled.div`
 
   & .search-word {
     color: black;
+  }
+
+  &.cv {
+    @media ${themes.primary.media.minPCFullHD} {
+      font-size: 22.5px;
+    }
+
+    @media ${themes.primary.media.maxMobile} {
+      font-size: 16px;
+      line-height: 120%;
+    }
   }
 
   & ul {
@@ -233,7 +271,7 @@ export const PortfolioIndustryTagWrapper = styled.button<IPortfolioIndustryTag>`
 
   &:hover {
     background-color: ${(props) =>
-      props.isArticlePage && themes.primary.colors.hoveredBlogTag};
+    props.isArticlePage && themes.primary.colors.hoveredBlogTag};
     cursor: ${(props) => props.isArticlePage && "pointer"};
   }
 
@@ -429,6 +467,23 @@ export const PortfolioPaginationWrapper = styled.div`
   justify-content: center;
   padding: 42px 0;
 
+  &.cv {
+    padding: 0;
+    margin-top: -12px;
+    margin-bottom: 90px;
+
+    @media ${themes.primary.media.minPCFullHD} {
+    margin-bottom: 112px;
+    margin-top: -15px;
+    }
+
+    @media ${themes.primary.media.maxMobile} {
+      margin-top: 8px;
+      width: 100%;
+      margin-bottom: 53px;
+    }
+  }
+
   @media ${themes.primary.media.maxTabletPortrait} {
     padding: 30px 0 42px 0;
   }
@@ -436,13 +491,27 @@ export const PortfolioPaginationWrapper = styled.div`
 
 export const PortfolioPaginationItemsWrapper = styled.div`
   display: flex;
-  column-gap: 17px;
+  column-gap: 16px;
 
   & .active {
     background-color: #000;
     border: 1px solid #000;
     color: #f1efed;
   }
+
+  @media ${themes.primary.media.maxMobile} {
+    column-gap: 12.6px;
+  }
+`;
+
+export const PortfolioPaginationDots = styled.div`
+  display: flex;
+  height: 26px;
+  width: 26px;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  font-family: ${themes.primary.font.family.openSans};
 `;
 
 export const PortfolioPaginationButton = styled.div`
@@ -459,6 +528,10 @@ export const PortfolioPaginationButton = styled.div`
     background-color: #000;
     border: 1px solid #000;
     color: #f1efed;
+  }
+
+  @media ${themes.primary.media.minPCFullHD} {
+    font-size: 20px;
   }
 `;
 
@@ -488,6 +561,7 @@ export const ProjectsContainerHeaderLink = styled.div<IPortfolioInfoProps>`
       : themes.primary.colors.primary};
   margin: 0;
   cursor: ${({ isProjectLink }) => isProjectLink && "pointer"};
+  pointer-events: ${({ isProjectLink }) => (isProjectLink ? "normal" : "none")};
 
   p {
     margin: 0;
@@ -499,7 +573,7 @@ export const ProjectsContainerHeaderLink = styled.div<IPortfolioInfoProps>`
 
   & path {
     transition: ${({ isProjectLink }) =>
-      isProjectLink && "transform 1s ease-in-out"};
+    isProjectLink && "transform 1s ease-in-out"};
     opacity: ${({ isProjectLink }) => (!isProjectLink ? 0.3 : 1)};
   }
   & path:nth-child(1) {
@@ -507,10 +581,10 @@ export const ProjectsContainerHeaderLink = styled.div<IPortfolioInfoProps>`
   }
   &:hover {
     & path:nth-child(1) {
-      transform: translate(0px, 0px);
+      animation: ${arrowOne} 1s ease-in-out;
     }
     & path:nth-child(2) {
-      transform: translate(36px, -36px);
+      animation: ${arrowTwo} 1s ease-in-out;
     }
   }
 
@@ -636,11 +710,11 @@ export const ProjectsContainer = styled.div<IPortfolioInfoProps>`
 
   &:hover ${ProjectsContainerArrowContainer} {
     background: ${({ isProjectLink }) =>
-      !isProjectLink ? "#6a6745" : themes.primary.colors.portfolioHover};
+    !isProjectLink ? "#6a6745" : themes.primary.colors.portfolioHover};
     border: ${({ isProjectLink }) =>
-      !isProjectLink
-        ? `2.26667px solid #181817`
-        : `2.26667px solid ${themes.primary.colors.primary}`};
+    !isProjectLink
+      ? `2.26667px solid #181817`
+      : `2.26667px solid ${themes.primary.colors.primary}`};
   }
 
   &:hover ${ProjectsContainerInfoBtn} {

@@ -1,14 +1,8 @@
 import React from "react";
+
 import * as Styled from "../../styles/Inputs";
 
-interface IDateInput {
-  name: string;
-  value: string;
-  onChange: (e?: string | React.ChangeEvent<any>) => void;
-  header: string;
-  type: string;
-  style?: any;
-}
+import { IDateInput } from "../../types/Components.types";
 
 const InputWithType = ({
   name,

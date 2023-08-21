@@ -10,7 +10,7 @@ export const Title = styled.h1`
   width: 90%;
   line-height: 130%;
   @media ${themes.primary.media.minPCFullHD} {
-    font-size: ${themes.primary.font.size.bigTitle};
+    font-size: 3.91em;
   }
 
   @media ${themes.primary.media.maxTabletPortrait} {
@@ -19,12 +19,11 @@ export const Title = styled.h1`
 
   @media ${themes.primary.media.maxMobile} {
     font-size: 3rem;
-    margin-bottom: 1.375rem;
+    margin-bottom: 16px;
   }
 
   @media ${themes.primary.media.maxLowScreenMobile} {
-    font-size: 1.5rem;
-    margin-bottom: 1.375rem;
+    font-size: 24px;
   }
 `;
 
@@ -32,10 +31,9 @@ export const Article = styled.article`
   position: relative;
 `;
 
-export const SubTitle = styled.p`
+export const SubTitle = styled.div`
   width: 100%;
-  margin-top: 45px;
-  margin-bottom: 10px;
+  margin-top: 48px;
   font-size: ${themes.primary.font.size.faqQuestion};
   font-weight: ${themes.primary.font.weight.normal};
   font-family: ${themes.primary.font.family.openSans};
@@ -47,10 +45,11 @@ export const SubTitle = styled.p`
   }
   @media ${themes.primary.media.minPCFullHD} {
     font-size: ${themes.primary.font.size.aboutUsCardText};
+    margin-top: 60px;
   }
 
   @media ${themes.primary.media.maxMobile} {
-    margin-top: 2rem;
+    margin-top: 18px;
     font-size: 1rem;
   }
 `;
@@ -71,27 +70,39 @@ export const PageWrapper = styled.div`
   a {
     color: ${themes.primary.colors.darkBlue};
     text-decoration: none;
-    border-bottom: 1px solid;
+
     u {
       text-decoration: none;
     }
   }
   li {
-    padding-left: 12px;
     margin-bottom: 10px;
+    margin-left: 0;
   }
 
   ul {
-    margin-left: -1.3em;
     list-style-type: none;
     list-style-image: url(/listSquare.png);
+
+    li {
+      padding-left: 12px;
+    }
     @media ${themes.primary.media.maxTabletPortrait} {
       list-style-image: url(/listSquareMobile.png);
+    }
+
+    @media ${themes.primary.media.maxMobile} {
+      margin-left: -1.3em;
     }
   }
 
   @media ${themes.primary.media.minPCFullHD} {
-    max-width: 81.08em;
+    max-width: 64.2em;
+    margin-left: 0;
+  }
+
+  @media (min-width: 2400px) {
+    max-width: 80em;
   }
   @media ${themes.primary.media.maxTabletPortrait} {
     padding: 40px;
@@ -115,6 +126,32 @@ export const BannerImageContainer = styled.figure`
 export const BannerImage = styled.img`
   width: 100%;
   height: auto;
+  max-height: 310px;
+
+  @media ${themes.primary.media.minPCFullHD} {
+    max-height: 388px;
+    max-width: 720px;
+  }
+
+  @media (min-width: 2400px) {
+    max-width: none;
+  }
+
+  @media ${themes.primary.media.onlyLaptop} {
+    width: 576px;
+  }
+
+  @media ${themes.primary.media.maxTabletPortrait} {
+    max-height: 500px;
+  }
+
+  @media ${themes.primary.media.maxMobile} {
+    max-height: 400px;
+  }
+
+  @media (max-width: 400px) {
+    max-height: 180px;
+  }
 `;
 
 export const TagWrapper = styled.div`
@@ -146,7 +183,7 @@ export const BannerWrapper = styled.div`
   align-items: flex-end;
   column-gap: 20px;
   max-width: 965px;
-  margin-top: 6px;
+  margin-top: 8px;
 
   @media ${themes.primary.media.minPC} {
     column-gap: 40px;
@@ -155,7 +192,8 @@ export const BannerWrapper = styled.div`
 
   @media ${themes.primary.media.minPCFullHD} {
     max-width: 70.416em;
-    column-gap: 20px;
+    column-gap: 10px;
+    margin-top: 10px;
   }
 
   @media (min-width: 2400px) {
@@ -169,6 +207,10 @@ export const BannerWrapper = styled.div`
   @media ${themes.primary.media.maxTabletPortrait} {
     flex-direction: column;
     align-items: center;
+    margin-top: 0;
+  }
+
+  @media ${themes.primary.media.maxMobile} {
     margin-top: 0;
   }
 `;
@@ -228,9 +270,14 @@ export const HeaderBottomBg = styled.div`
 
 export const FirstHeaderBg = styled.figure`
   position: absolute;
-  top: 22%;
-  left: -750px;
+  top: 11.3%;
+  left: -780px;
   margin: 0;
+
+  @media ${themes.primary.media.minPCFullHD} {
+    left: -825px;
+  }
+
   @media ${themes.primary.media.maxMobile} {
     display: none;
   }
@@ -239,13 +286,19 @@ export const FirstHeaderBg = styled.figure`
 export const SecondHeaderBg = styled.figure`
   position: absolute;
   bottom: 26%;
-  right: -500px;
+  right: -420px;
   z-index: 1;
   margin: 0;
+  width: 60%;
 
-  @media ${themes.primary.media.maxPCFullHD} {
-    right: -490px;
+  @media ${themes.primary.media.minPCFullHD} {
+    right: -590px;
   }
+
+  @media (min-width: 2400px) {
+    right: -920px;
+  }
+
   @media ${themes.primary.media.maxTabletPortrait} {
     right: -540px;
   }
@@ -257,13 +310,18 @@ export const SecondHeaderBg = styled.figure`
 export const FooterBg = styled.figure`
   position: absolute;
   bottom: 10px;
-  right: -250px;
+  right: -340px;
   margin: 0;
+
+  @media ${themes.primary.media.minPCFullHD} {
+    right: -410px;
+  }
   @media ${themes.primary.media.maxTabletLandScape} {
+    width: 50%;
     right: -270px;
   }
   @media ${themes.primary.media.maxTabletPortrait} {
-    right: -250px;
+    right: -170px;
   }
   @media ${themes.primary.media.maxMobile} {
     display: none;

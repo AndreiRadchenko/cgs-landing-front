@@ -4,6 +4,12 @@ import {
   arrowOne,
   arrowTwo,
 } from "../components/ServisesComponents/Bonuses/Component/BonusItem/BonusItem.styled";
+import {
+  nextArrowOne,
+  nextArrowTwo,
+  prevArrowOne,
+  prevArrowTwo,
+} from "./Animations.styled";
 
 export const SliderWrapper = styled.div`
   position: relative;
@@ -62,6 +68,7 @@ export const SwiperArrowContainer = styled.div`
 
 export const FeedbackButtonWrapper = styled.div`
   display: flex;
+  gap: 2em;
 
   @media (max-width: 768px) {
     display: none;
@@ -93,10 +100,10 @@ export const ArrowContainer = styled.div`
     }
     &:hover {
       & path:nth-child(1) {
-        transform: translateX(0px);
+        animation: ${prevArrowOne} 1s 1 forwards ease-in-out;
       }
       & path:nth-child(2) {
-        transform: translateX(-30px);
+        animation: ${prevArrowTwo} 1s 1 forwards ease-in-out;
       }
     }
   }
@@ -122,10 +129,10 @@ export const ArrowContainer = styled.div`
     }
     &:hover {
       & path:nth-child(1) {
-        transform: translateX(0px);
+        animation: ${nextArrowOne} 1s 1 forwards ease-in-out;
       }
       & path:nth-child(2) {
-        transform: translateX(30px);
+        animation: ${nextArrowTwo} 1s 1 forwards ease-in-out;
       }
     }
   }
@@ -133,6 +140,28 @@ export const ArrowContainer = styled.div`
   & svg {
     width: 18px;
     height: 16px;
+  }
+
+  @media ${themes.primary.media.minPCFullHD} {
+    &.prevBtn {
+      width: 2.61em;
+      height: 2.61em;
+    }
+
+    &.nextBtn {
+      font-size: 0.95em;
+      width: 6.8em;
+      height: 2.77em;
+    }
+
+    &.feedbackPrevBtn,
+    &.swiper-button-next-feedback,
+    &.testimonial {
+      & svg {
+        width: 24px;
+        height: 21px;
+      }
+    }
   }
 `;
 

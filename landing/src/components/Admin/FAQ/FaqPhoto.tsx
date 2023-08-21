@@ -2,7 +2,7 @@
 import useDeleteImageFunction from "../../../hooks/useDeleteImageFunction";
 import useUploadImageFunction from "../../../hooks/useUploadImageFunction";
 import { IImage } from "../../../types/Admin/Admin.types";
-import { IQuestion } from "../../../types/Faq.types";
+import { IQuestion } from "../../../types/Company.types";
 import PhotoBlockDashed from "../Global/PhotoBlockDashed";
 
 interface IFaqPhoto {

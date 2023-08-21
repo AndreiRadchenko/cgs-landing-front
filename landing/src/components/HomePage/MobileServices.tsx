@@ -1,11 +1,16 @@
 import React, { useEffect, useState } from "react";
 import { dehydrate, QueryClient, useQuery } from "@tanstack/react-query";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { queryKeys } from "../../consts/queryKeys";
-import * as StyledThisComp from "../../styles/HomePage/MobileServices.styled";
-import params from "../../mock/MobileServicesSwiperParams";
-import { adminServices } from "../../services/services/commonServices";
+
 import MobileNextTechSlide from "./MobileNextTechSlide";
+
+import * as StyledThisComp from "../../styles/HomePage/MobileServices.styled";
+
+import { queryKeys } from "../../consts/queryKeys";
+
+import params from "../../mock/MobileServicesSwiperParams";
+
+import { adminServices } from "../../services/services/commonServices";
 
 export async function getServerSideProps() {
   const queryClient = new QueryClient();

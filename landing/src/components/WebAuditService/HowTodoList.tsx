@@ -1,6 +1,8 @@
 import React from "react";
-import * as Styled from "../../styles/WebAuditService/HowTodoList.styled";
+
 import HowTodoListItem from "./HowTodoListItem";
+
+import * as Styled from "../../styles/WebAuditService/HowTodoList.styled";
 
 interface IHowTodoListProps {
   data: Array<string>;

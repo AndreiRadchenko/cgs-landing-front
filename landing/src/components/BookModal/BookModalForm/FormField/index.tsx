@@ -1,14 +1,17 @@
 import { useFormikContext } from "formik";
 import React, { Dispatch, FC, SetStateAction } from "react";
-import PhoneInput from "react-phone-input-2";
-import { IFormState } from "..";
-import * as Styled from "../../../../styles/BookModalForm/FormField.styled";
 import "react-phone-input-2/lib/style.css";
+
+import PhoneInputField from "../PhoneInputField";
+
+import * as Styled from "../../../../styles/BookModalForm/FormField.styled";
+
+import { IFormState } from "../../../../types/ModalCategory.types";
+
+import { isEmailDomainPublic } from "../../../../utils/checkEmailDomain";
 
 export interface IFieldProps {
   setCountry: Dispatch<SetStateAction<string>>;
-  value: string;
-  setValue: Dispatch<SetStateAction<string>>;
   name: keyof IFormState;
   label: string;
   btnIsClicked: boolean;
@@ -17,37 +20,44 @@ export interface IFieldProps {
 
 const TextFieldWrapper: FC<IFieldProps> = ({
   setCountry,
-  value,
-  setValue,
   name,
   label,
   btnIsClicked,
   type = "text",
 }: IFieldProps) => {
-  const { errors } = useFormikContext<IFormState>();
+  const { errors, values } = useFormikContext<IFormState>();
 
-  const PHONE_OPTIONAL = "Phone number";
-
-  const handleOnChange = (...args: any[]) => {
-    setCountry(args[1].name);
-    setValue(args[0]);
-  };
+  const PHONE_OPTIONAL = "Phone Number";
 
   return (
     <>
       <Styled.FormFieldLabel htmlFor={label}>
-        {label}
-        {PHONE_OPTIONAL === label && <span> (Optional)</span>}
+        {PHONE_OPTIONAL === label ? (
+          isEmailDomainPublic(values.email) ? (
+            <>
+              {label}
+              <span style={{ marginLeft: "2px", color: "black" }}>*</span>
+            </>
+          ) : (
+            `${label}`
+          )
+        ) : (
+          <>
+            {label}
+            <span style={{ marginLeft: "2px", color: "black" }}>*</span>
+          </>
+        )}
       </Styled.FormFieldLabel>
       <Styled.FormFieldContainer>
         {PHONE_OPTIONAL === label ? (
-          <PhoneInput
-            country={"us"}
+          <PhoneInputField
+            className={
+              btnIsClicked && errors[name] ? "formikErrors" : "default"
+            }
             placeholder={label}
-            value={value}
-            onChange={handleOnChange}
-            enableSearch={true}
-            disableSearchIcon={true}
+            name={name}
+            country={"us"}
+            setCountry={setCountry}
           />
         ) : (
           <Styled.FormField

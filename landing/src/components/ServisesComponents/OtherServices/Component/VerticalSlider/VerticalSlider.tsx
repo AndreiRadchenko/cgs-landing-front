@@ -1,6 +1,7 @@
 import React, { FC, useRef } from "react";
 import { Autoplay, Navigation } from "swiper";
 import { Swiper, SwiperRef } from "swiper/react";
+
 import "swiper/css";
 import "swiper/css/bundle";
 

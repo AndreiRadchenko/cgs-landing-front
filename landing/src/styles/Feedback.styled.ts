@@ -17,6 +17,10 @@ export const FeedbackSectionTitle = styled.h3`
   margin: 0;
   text-transform: uppercase;
 
+  @media ${themes.primary.media.minPCFullHD} {
+    font-size: 2.8em;
+  }
+
   @media ${themes.primary.media.maxTabletLandScape} {
     font-size: ${themes.primary.font.size.reviewTitle};
   }
@@ -35,6 +39,11 @@ export const FeedbackSectionSubTitle = styled.h3`
   opacity: 0.7;
   margin-top: 0.75em;
   margin-bottom: 0;
+
+  @media ${themes.primary.media.minPCFullHD} {
+    margin-top: 20px;
+    font-size: 1.53em;
+  }
 
   @media ${themes.primary.media.maxTabletLandScape} {
     font-size: 1.2em;
@@ -60,6 +69,10 @@ export const FeedbackRow = styled.div`
   & .swiper {
     display: flex;
     flex-direction: column-reverse;
+  }
+
+  @media ${themes.primary.media.minPCFullHD} {
+    margin-bottom: 160px;
   }
 
   @media ${themes.primary.media.maxMobile} {

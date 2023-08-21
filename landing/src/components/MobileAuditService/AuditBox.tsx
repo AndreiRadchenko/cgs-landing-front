@@ -1,6 +1,8 @@
 import React from "react";
-import * as Styled from "../../styles/MobileAuditService/HowDoWeAudit.styled";
+
 import AuditListItem from "./AuditListItem";
+
+import * as Styled from "../../styles/MobileAuditService/HowDoWeAudit.styled";
 
 interface IAuditBoxProps {
   data: string[];

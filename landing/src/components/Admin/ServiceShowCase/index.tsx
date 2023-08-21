@@ -1,8 +1,7 @@
 import { useFormikContext } from "formik";
 import React, { useEffect, useState } from "react";
 import { useQuery } from "@tanstack/react-query";
-import { queryKeys } from "../../../consts/queryKeys";
-import { adminPortfolioService } from "../../../services/adminPortfolioPage";
+
 import {
   AdminBlockWrapper,
   AdminShowCaseCategoryDropdownHeader,
@@ -18,7 +17,13 @@ import {
   ArrowContainer,
   BlackButton,
 } from "../../../styles/HomePage/General.styled";
+
+import { queryKeys } from "../../../consts/queryKeys";
+
+import { adminPortfolioService } from "../../../services/adminPortfolioPage";
+
 import { IProjects } from "../../../types/Admin/Response.types";
+
 import ButtonArrow from "../../../utils/ButtonArrow";
 
 const ServiceShowCase = ({ noMargin }: { noMargin?: boolean }) => {
@@ -57,7 +62,6 @@ const ServiceShowCase = ({ noMargin }: { noMargin?: boolean }) => {
 
   const handleProjectClose = (el: string) => {
     setChoosenProjects(choosenProjects.filter((element) => element !== el));
-    values.projects = choosenProjects;
     setProject("");
   };
 
@@ -66,14 +70,15 @@ const ServiceShowCase = ({ noMargin }: { noMargin?: boolean }) => {
       setChoosenProjects([...choosenProjects, project]);
       setCategory("");
       setProject("");
-      values.projects = choosenProjects;
     }
   };
 
   useEffect(() => {
-    setFieldValue("projects", choosenProjects);
-    handleSubmit();
-  }, [choosenProjects, setFieldValue, handleSubmit]);
+    if (values.projects.length !== choosenProjects.length) {
+      setFieldValue("projects", choosenProjects);
+      handleSubmit();
+    }
+  }, [values.projects.length, choosenProjects, setFieldValue, handleSubmit]);
 
   return (
     <div style={{ marginInline: noMargin ? "0" : "40px" }}>

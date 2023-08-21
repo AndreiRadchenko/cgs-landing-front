@@ -3,7 +3,7 @@ import { NextPage } from "next";
 import { useRouter } from "next/router";
 import Image from "next/image";
 import Head from "next/head";
-import { animateScroll as scroll, scroller } from "react-scroll";
+import { scroller } from "react-scroll";
 import { dehydrate, QueryClient, useQuery } from "@tanstack/react-query";
 import parse, { HTMLReactParserOptions, Element } from "html-react-parser";
 
@@ -18,6 +18,9 @@ import ScrambleText from "../../components/HomePage/ScrambleText";
 import { Pagination } from "../../components/Portfolio/Pagination";
 import { useWindowDimension } from "../../hooks/useWindowDimension";
 import Dropdown from "../../utils/Select/Dropdown";
+import { calendlyPopupInfoHandler } from "../../utils/calendlyPopupInfoHandler";
+import { highestPagePointDisplayer } from "../../utils/highestPagePointDisplayer";
+import CalendlyInfoModal from "../../components/Calendly/CalendlyInfoModal";
 
 import {
   IPortfolioResponse,
@@ -30,7 +33,6 @@ import * as Styles from "../../styles/Portfolio.styled";
 import * as CSS from "../../styles/Portfolio/title.styled";
 import { DropdownContainer } from "../../styles/HomePage/General.styled";
 import longArrow from "../../../public/HomePageDecoration/longArrow.svg";
-import CalendlyInfoModal from "../../components/Calendly/CalendlyInfoModal";
 
 const PortfolioPage: NextPage = () => {
   const { width } = useWindowDimension();
@@ -174,7 +176,7 @@ const PortfolioPage: NextPage = () => {
     setIsPaginationTriggered(false);
   };
 
-  const updateURLParams = ({ category, selectedIndustries }: any) => {
+  const updateURLParams = ({ category, selectedIndustries, page }: any) => {
     const industriesQuery = selectedIndustries.join(",");
     const queryParams: any = {};
 
@@ -184,6 +186,10 @@ const PortfolioPage: NextPage = () => {
 
     if (selectedIndustries.length > 0) {
       queryParams.industries = industriesQuery;
+    }
+
+    if (page && page > 1) {
+      queryParams.page = page;
     }
 
     router.push(
@@ -277,7 +283,7 @@ const PortfolioPage: NextPage = () => {
   }, [searchTrigger]);
 
   useEffect(() => {
-    const { category, industries } = router.query;
+    const { category, industries, page } = router.query;
     const pickedIndustries =
       (typeof industries === "string" && industries?.split(",")) || [];
 
@@ -304,60 +310,48 @@ const PortfolioPage: NextPage = () => {
     ) {
       setSelectedIndustries(pickedIndustries);
     }
+
+    if (page && typeof page === "string") {
+      setCurrentPage(Number(page));
+    }
   }, [router.query]);
 
   useEffect(() => {
     if (category) {
-      updateURLParams({ category, selectedIndustries });
+      updateURLParams({ category, selectedIndustries, page: "" });
     } else {
-      updateURLParams({ category: "", selectedIndustries });
+      updateURLParams({ category: "", selectedIndustries, page: "" });
     }
   }, [category]);
 
   useEffect(() => {
     if (selectedIndustries.length > 0) {
-      updateURLParams({ category, selectedIndustries });
+      updateURLParams({ category, selectedIndustries, page: "" });
     } else {
-      updateURLParams({ category, selectedIndustries: [] });
+      updateURLParams({ category, selectedIndustries: [], page: "" });
     }
   }, [selectedIndustries]);
 
   useEffect(() => {
-    const calendlyStatusFinder = (e: any) => {
-      window.dataLayer = window.dataLayer || [];
+    if (currentPage) {
+      updateURLParams({ category, selectedIndustries, page: currentPage });
+    } else {
+      updateURLParams({ category, selectedIndustries, page: "" });
+    }
+  }, [currentPage]);
 
-      if (
-        e.data.event &&
-        e.data.event.indexOf("calendly") === 0 &&
-        e.data.event === "calendly.event_scheduled"
-      ) {
-        setIsCalendlySuccessfull(true);
-      }
-    };
+  highestPagePointDisplayer();
 
-    const handleRouteChange = () => {
-      window.scroll(0, 0);
-    };
-
-    router.events.on("routeChangeComplete", handleRouteChange);
-    window.addEventListener("message", calendlyStatusFinder);
-
-    return () => {
-      router.events.off("routeChangeComplete", handleRouteChange);
-      window.removeEventListener("message", calendlyStatusFinder);
-    };
-  }, []);
+  calendlyPopupInfoHandler(() => setIsCalendlySuccessfull(true));
 
   return (
-    <Loader
-      active={(isLoading || reviewsIsLoading || !isImagesLoaded) && isFirstLoad}
-    >
+    <Loader active={isLoading}>
       <Head>
         <title>{metaTitle || "Portfolio | CGS-team"}</title>
         <meta name="description" content={metaDescription} />
         {customHead && parse(customHead)}
       </Head>
-      {(isLoading || reviewsIsLoading) && isFirstLoad ? (
+      {isLoading ? (
         <LoaderStub />
       ) : data ? (
         <>
@@ -491,18 +485,7 @@ const PortfolioPage: NextPage = () => {
               </Styles.PortfolioFiltersWrapper>
 
               <Styles.PortfolioProjectsWrapper id="portfolio-wrapper">
-                <Loader
-                  isPortfolio={true}
-                  className="portfolio"
-                  active={
-                    (isLoading ||
-                      reviewsIsLoading ||
-                      (reviewsData?.reviews &&
-                        reviewsData.reviews.length > 0 &&
-                        !isImagesLoaded)) &&
-                    !isFirstLoad
-                  }
-                >
+                <Loader isPortfolio={true} className="portfolio" active={false}>
                   {(isLoading || reviewsIsLoading) && !isFirstLoad ? (
                     <LoaderStub />
                   ) : reviewsData?.reviews && reviewsData.reviews.length > 0 ? (

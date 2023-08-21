@@ -9,7 +9,11 @@ type BadgesData = {
 };
 
 export const BadgesBlockContainer = styled.div`
-  margin: 120px auto 90px;
+  margin: 120px auto 5.58em;
+  
+  @media ${themes.primary.media.minPCFullHD} {
+    margin-block: 8.35em;
+  }
 
   @media (max-width: 1200px) {
     margin: 80px auto 60px;
@@ -70,6 +74,11 @@ export const BadgeImageWrapper = styled.div`
   height: 200px;
   width: 200px;
 
+  @media ${themes.primary.media.minPCFullHD} {
+    width: 13.9em;
+    height: 13.9em;
+  }
+
   @media ${themes.primary.media.maxTabletLandScape} {
     height: 140px;
     width: 140px;
@@ -110,6 +119,10 @@ export const BgiContainer = styled.div<ILine>`
     );`};
   background-size: 100% 100%;
 
+  @media ${themes.primary.media.minPCFullHD} {
+    height: 153px;
+  }
+
   @media ${themes.primary.media.maxMobile} {
     height: 240px;
   }
@@ -148,6 +161,10 @@ export const LogosContainer = styled.div`
   column-gap: 100px;
   margin-top: 67px;
 
+  @media ${themes.primary.media.minPCFullHD} {
+    margin-top: 85px;
+  }
+
   @media ${themes.primary.media.maxMobile} {
     grid-template-columns: 1fr 1fr;
     margin-top: 48px;
@@ -163,6 +180,11 @@ export const LogoImageWrapper = styled.div`
   position: relative;
   height: 115px;
   width: 227px;
+
+  @media ${themes.primary.media.minPCFullHD} {
+    width: 302px;
+    height: 153px;
+  }
 
   @media ${themes.primary.media.maxServiceWeb} {
     height: 80px;

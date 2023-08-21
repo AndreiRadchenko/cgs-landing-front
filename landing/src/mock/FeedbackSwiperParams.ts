@@ -3,12 +3,11 @@ import { SwiperProps } from "swiper/react";
 const data: SwiperProps = {
   slidesPerView: 3,
   spaceBetween: 30,
-  loop: true,
   allowTouchMove: true,
   grabCursor: true,
   navigation: {
-    prevEl: ".swiper-button-prev",
-    nextEl: ".swiper-button-next",
+    prevEl: ".swiper-button-prev-feedback",
+    nextEl: ".swiper-button-next-feedback",
   },
   autoplay: {
     delay: 5000,

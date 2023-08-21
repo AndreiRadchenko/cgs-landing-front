@@ -1,15 +1,17 @@
 import React from "react";
 
-import { AdminPaddedBlock, AdminHeader } from "../../../../styles/AdminPage";
 import AdminBlockDropDown from "../../../Admin/Global/AdminBlockDropDown";
 import MetaTagsBlock from "../../MetaTagsBlock";
-import MainBlock from "./MainBlock";
-import FooterBlock from "./FooterBlock";
+import AdminHeadBlockDb from "./AdminHeadBlockDb";
+import AdminFooterBlockDb from "./AdminFooterBlockDb";
 import SelectBlock from "./SelectBlock";
 import FeaturesBlock from "./FeaturesBlock";
 import ServiceShowCase from "../../ServiceShowCase";
 import Bonuses from "../../../ServisesComponents/Bonuses/AdminComponent";
 import OtherServices from "../../../ServisesComponents/OtherServices/AdminComponent";
+
+import { AdminPaddedBlock, AdminHeader } from "../../../../styles/AdminPage";
+
 import { queryKeys } from "../../../../consts/queryKeys";
 
 const ServiceDbContentBlock = () => {
@@ -18,7 +20,7 @@ const ServiceDbContentBlock = () => {
       <AdminPaddedBlock>
         <AdminHeader>Db and Server solutions</AdminHeader>
         <AdminBlockDropDown title="Head block">
-          <MainBlock />
+          <AdminHeadBlockDb />
         </AdminBlockDropDown>
         <AdminBlockDropDown title="Features block">
           <FeaturesBlock />
@@ -36,7 +38,7 @@ const ServiceDbContentBlock = () => {
           <OtherServices queryKey={queryKeys.getServiceDbPage} />
         </AdminBlockDropDown>
         <AdminBlockDropDown title="Footer block">
-          <FooterBlock />
+          <AdminFooterBlockDb />
         </AdminBlockDropDown>
       </AdminPaddedBlock>
 

@@ -18,6 +18,7 @@ import MainBlogItem from "../../components/Blog/MainBlogItem";
 import SmallArticleItem from "../../components/Blog/SmallArticleItem";
 import { BlogSwiper } from "../../components/Blog/BlogSlider/BlogSlider";
 import { Loader, LoaderStub } from "../../components/Loader";
+import { highestPagePointDisplayer } from "../../utils/highestPagePointDisplayer";
 
 import {
   IArticlesDataResponse,
@@ -31,9 +32,13 @@ import leftLine from "../../../public/BlogDecorations/MainPage/leftLine.png";
 import rightLine from "../../../public/BlogDecorations/MainPage/rightLine.png";
 import * as Styled from "../../styles/Blog.styled";
 import { BlogPageSize } from "../../consts";
+import { useMediaQuery } from "@mui/material";
 
 const BlogPage = () => {
   const router = useRouter();
+
+  const isMobile = useMediaQuery("(max-width: 768px)");
+  const [pageReloaded, setPageReloaded] = useState(true);
 
   const [reversedArticles, setReversedArticles] = useState<IArticle[] | null>(
     null
@@ -108,17 +113,7 @@ const BlogPage = () => {
     setLoadedImagesCount(0);
   };
 
-  useEffect(() => {
-    const handleRouteChange = () => {
-      window.scroll(0, 0);
-    };
-
-    router.events.on("routeChangeComplete", handleRouteChange);
-
-    return () => {
-      router.events.off("routeChangeComplete", handleRouteChange);
-    };
-  }, []);
+  highestPagePointDisplayer();
 
   useEffect(() => {
     scrollFunc();
@@ -146,18 +141,37 @@ const BlogPage = () => {
       setReversedArticles(articles.reviews);
   }, [articles]);
 
+  const handleFilterFromURL = () => {
+    const { tag } = router.query;
+    if (typeof tag === "string") {
+      setFilters([tag]);
+    }
+  };
+
   useEffect(() => {
-    if (window.innerWidth < 769) window.scroll(0, 0);
-  }, [isMainSliderImageLoaded]);
+    handleFilterFromURL();
+    if (filters.length === 0) {
+      router.push("/blog", undefined, { shallow: true });
+    } else {
+      router.push(`/blog?tag=${filters[0]}`, undefined, { shallow: true });
+    }
+  }, []);
+
+  useEffect(() => {
+    if (isMobile && pageReloaded) {
+      window.scrollTo(0, 0);
+      setPageReloaded(false);
+    }
+  }, [isMobile, pageReloaded])
 
   return (
-    <Loader active={!isMainSliderImageLoaded && isFirstLoad}>
+    <Loader active={isLoading}>
       <Head>
         <title>{metaTitle}</title>
         <meta name="description" content={metaDescription} />
         {customHead && parse(customHead)}
       </Head>
-      {isLoading && isFirstLoad ? (
+      {isLoading ? (
         <LoaderStub />
       ) : (
         data && (
@@ -217,7 +231,7 @@ const BlogPage = () => {
                     ) : (
                       <Styled.AllArticlesContainer id="articles-container">
                         {articles && articles.tags && articles.tags.length && (
-                          <DropdownContainer>
+                          <DropdownContainer className="blog">
                             <>
                               {filters.length > 0 &&
                                 filters.map((filter, index) => (

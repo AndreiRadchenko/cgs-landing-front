@@ -1,15 +1,21 @@
 import React, { useRef } from "react";
 import { useQueryClient } from "@tanstack/react-query";
-import { queryKeys } from "../../consts/queryKeys";
+
+import { MobileInfiniteText } from "../MobileInfiniteText/MobileInfiniteText";
+
+import * as Styled from "../../styles/UxUiService/WhatDoWeDo.styled";
 
 import { IUxUiInterface } from "../../types/Admin/Response.types";
-import * as Styled from "../../styles/UxUiService/WhatDoWeDo.styled";
+
+import { queryKeys } from "../../consts/queryKeys";
+
+import { SplitBrackets } from "../../utils/splitBrackets";
+
+import { useOnScreen } from "../../hooks/useOnScreen";
+
 import cd from "../../../public/MobileSevice/worthIt/cd.svg";
 import tree from "../../../public/MobileSevice/worthIt/tree.svg";
 import window from "../../../public/MobileSevice/worthIt/window.svg";
-import { useOnScreen } from "../../hooks/useOnScreen";
-import { MobileInfiniteText } from "../MobileInfiniteText/MobileInfiniteText";
-import { SplitBrackets } from "../../utils/splitBrackets";
 
 const WhatDoWeDoBlock = () => {
   const queryClient = useQueryClient();

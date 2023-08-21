@@ -43,26 +43,23 @@ export const TitleWrapper = styled.div`
   display: flex;
   align-items: center;
   @media ${themes.primary.media.minPC} {
-    height: 145px;
   }
   @media ${themes.primary.media.minPCFullHD} {
-    height: 170px;
   }
   @media ${themes.primary.media.onlyLaptop} {
-    height: 90px;
     margin-bottom: 0;
   }
   @media ${themes.primary.media.onlyTabletLandScape} {
-    height: 98px;
   }
   @media ${themes.primary.media.onlyTabletPortrait} {
-    height: 90px;
   }
 `;
 
 export const Title = styled.p`
+  margin-top: 8px;
+  margin-bottom: 16px;
   & a {
-    font-size: ${themes.primary.font.size.quaternary};
+    font-size: 2.5em;
     font-weight: ${themes.primary.font.weight.extraBold};
     margin: 0;
     overflow: hidden;
@@ -79,21 +76,29 @@ export const Title = styled.p`
       color: ${themes.primary.colors.darkBlue};
     }
 
+    @media ${themes.primary.media.minPCFullHD} {
+      font-size: 1.98em;
+    }
+
     @media ${themes.primary.media.maxLaptop} {
       -webkit-line-clamp: 2;
       -webkit-box-orient: vertical;
     }
   }
+
+  @media ${themes.primary.media.minPCFullHD} {
+    margin-top: 10px;
+    margin-bottom: 20px;
+  }
 `;
 
 export const Description = styled.p`
-  font-size: ${themes.primary.font.size.oneAndHalf};
+  font-size: 1.7em;
   font-weight: ${themes.primary.font.weight.normal};
   line-height: 160%;
-  margin-bottom: 0;
+  margin: 0;
   overflow: hidden;
   width: 100%;
-  height: 105px;
   display: -webkit-box;
   -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;
@@ -103,27 +108,17 @@ export const Description = styled.p`
   }
 
   @media ${themes.primary.media.minPCFullHD} {
-    height: 140px;
-  }
-
-  @media ${themes.primary.media.onlyLaptop} {
-    height: 90px;
-  }
-  @media ${themes.primary.media.onlyTabletLandScape} {
-    height: 98px;
-  }
-  @media ${themes.primary.media.onlyTabletPortrait} {
-    height: 90px;
+    font-size: 1.31em;
   }
 `;
 
 export const ArticleWatchIcon = styled.img`
-  width: 22px;
-  height: 14px;
+  width: 21px;
+  height: 19px;
 
   @media ${themes.primary.media.minPCFullHD} {
-    width: 1.58em;
-    height: 1em;
+    width: 26px;
+    height: 23px;
   }
 `;
 
@@ -131,29 +126,44 @@ export const ViewsWrapper = styled.div`
   width: 58px;
   display: flex;
   align-items: center;
-  margin: 20px 0 12px 0;
+  margin: 24px 0 0;
+
+  @media ${themes.primary.media.minPCFullHD} {
+    margin: 30px 0 0;
+  }
 `;
 
 export const AmountViews = styled.span`
   font-size: ${themes.primary.font.size.tertiary};
   font-family: ${themes.primary.font.family.openSans};
   margin-left: 9px;
+  font-weight: 600;
+  color: #8f8e93;
+
+  @media ${themes.primary.media.minPCFullHD} {
+    font-size: 0.9em;
+  }
 `;
 
 export const ReadMoreButton = styled.button`
-  margin-top: 30px;
+  margin-top: 32px;
   border: 2px solid ${themes.primary.colors.primary};
   outline: 0;
-  padding: 8px 15px;
+  padding: 3.3px 16px;
   background-color: ${themes.primary.colors.primary};
-  color: ${themes.primary.colors.secondary};
+  color: ${themes.primary.colors.secondary} !important;
   font-family: ${themes.primary.font.family.openSans};
   font-weight: ${themes.primary.font.weight.semiBold};
   letter-spacing: 0.7px;
   cursor: pointer;
-  max-width: 115px;
-  font-size: 14px;
+  max-width: 128px;
+  font-size: 1.335em;
   transition: all 0.3s;
+
+  a {
+    border: 0;
+    color: ${themes.primary.colors.secondary};
+  }
 
   &:hover {
     background-color: transparent;
@@ -161,14 +171,26 @@ export const ReadMoreButton = styled.button`
       color: ${themes.primary.colors.primary};
     }
   }
-  a {
-    border: 0;
-    color: ${themes.primary.colors.secondary};
+
+  @media ${themes.primary.media.minPC} {
+    font-size: 1.18em;
   }
 
   @media ${themes.primary.media.minPCFullHD} {
-    max-width: 8.5em;
-    font-size: 1.166em;
-    padding: 0.66em 1.25em;
+    max-width: 160px;
+    line-height: 100%;
+    font-size: 1.05em;
+    padding: 8px 20px;
+    margin-top: 40px;
+  }
+
+  @media ${themes.primary.media.maxTabletLandScape} {
+    max-width: 140px;
+  }
+
+  @media ${themes.primary.media.maxMobile} {
+    a {
+      color: #fff !important;
+    }
   }
 `;

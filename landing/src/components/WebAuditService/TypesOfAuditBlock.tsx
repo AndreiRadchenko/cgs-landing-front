@@ -1,12 +1,17 @@
 import { useQueryClient } from "@tanstack/react-query";
 import React, { useEffect, useState } from "react";
-import { queryKeys } from "../../consts/queryKeys";
-import * as Styled from "../../styles/WebAuditService/TypesOfAudit.styled";
-import { IServiceWebAudit } from "../../types/Admin/Response.types";
+
 import { MobileInfiniteText } from "../MobileInfiniteText/MobileInfiniteText";
 import { TypesOfAuditDesktopCard } from "./TypesOfAuditDesktopCard";
-import { useWindowDimension } from "../../hooks/useWindowDimension";
 import TypesOfAuditMobileCard from "./TypesOfAuditMobileCard";
+
+import * as Styled from "../../styles/WebAuditService/TypesOfAudit.styled";
+
+import { IServiceWebAudit } from "../../types/Admin/Response.types";
+
+import { queryKeys } from "../../consts/queryKeys";
+
+import { useWindowDimension } from "../../hooks/useWindowDimension";
 
 const TypesOfAuditBlock = () => {
   const { width } = useWindowDimension();

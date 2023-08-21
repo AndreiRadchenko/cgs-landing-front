@@ -1,14 +1,13 @@
 import React from "react";
-import * as Styles from "./ArticleReadMoreItem.styled";
-import { IArticle } from "../../types/Admin/Response.types";
-import viewsIcon from "../../../public/Watch.svg";
 import { useRouter } from "next/router";
 
-interface IArticleReadMore {
-  article: IArticle;
-}
+import * as Styles from "./ArticleReadMoreItem.styled";
 
-const ArticleReadMoreItem = ({ article }: IArticleReadMore) => {
+import { IArticleReadMoreProps } from "../../types/Blog.types";
+
+import viewsIcon from "../../../public/Watch.svg";
+
+const ArticleReadMoreItem = ({ article }: IArticleReadMoreProps) => {
   const router = useRouter();
 
   const handleClick = (e: React.MouseEvent<HTMLAnchorElement>) => {

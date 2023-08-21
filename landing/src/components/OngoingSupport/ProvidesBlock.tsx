@@ -1,11 +1,15 @@
 import React from "react";
 import { useQueryClient } from "@tanstack/react-query";
-import { queryKeys } from "../../consts/queryKeys";
-import { IServiceSupport } from "../../types/Admin/Response.types";
-import { IServicesClassnameProps } from "../../types/Services.types";
-import * as Styled from "../../styles/OngoingSupport/ProvidesBlock.styled";
+
 import { MobileInfiniteText } from "../MobileInfiniteText/MobileInfiniteText";
 import MarioBlock from "./MarioBlock";
+
+import * as Styled from "../../styles/OngoingSupport/ProvidesBlock.styled";
+
+import { queryKeys } from "../../consts/queryKeys";
+
+import { IServiceSupport } from "../../types/Admin/Response.types";
+import { IServicesClassnameProps } from "../../types/Services.types";
 
 const ProvidesBlock = ({ className }: IServicesClassnameProps) => {
   const queryClient = useQueryClient();

@@ -1,13 +1,19 @@
 import React, { useRef } from "react";
 import { useQueryClient } from "@tanstack/react-query";
-import { queryKeys } from "../../consts/queryKeys";
-import { IServiceMobileAudit } from "../../types/Admin/Response.types";
-import * as Styled from "../../styles/MobileAuditService/WhatAppBlock.styled";
+
 import { MobileInfiniteText } from "../MobileInfiniteText/MobileInfiniteText";
+
+import * as Styled from "../../styles/MobileAuditService/WhatAppBlock.styled";
+
+import { queryKeys } from "../../consts/queryKeys";
+
+import { IServiceMobileAudit } from "../../types/Admin/Response.types";
+
+import { SplitBrackets } from "../../utils/splitBrackets";
+
 import disk from "../../../public/MobileAuditService/disk.svg";
 import window from "../../../public/MobileAuditService/window.svg";
 import tree from "../../../public/MobileAuditService/tree.svg";
-import { SplitBrackets } from "../../utils/splitBrackets";
 
 const WhatAppBlock = () => {
   const queryClient = useQueryClient();

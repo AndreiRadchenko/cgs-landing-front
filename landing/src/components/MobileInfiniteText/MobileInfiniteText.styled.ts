@@ -27,28 +27,8 @@ export const MovingText = styled.div`
     border: none;
     font-size: 24px !important;
     line-height: 56px !important;
-    background: linear-gradient(
-      90deg,
-      ${themes.primary.colors.mainGradientColor2} 0%,
-      ${themes.primary.colors.mainGradientColor1} 100%
-    );
     width: inherit;
   }
-
-  /* @media ${themes.primary.media.maxMobile} {
-    font-size: 24px;
-    line-height: 233% !important;
-    margin-bottom: 30px !important;
-
-    &.withoutMargin {
-      margin-bottom: 0 !important;
-    }
-
-    &.webDev {
-      margin-left: -35%;
-      width: 150%;
-    }
-  } */
 
   @media ${themes.primary.media.minMobile} {
     display: none;

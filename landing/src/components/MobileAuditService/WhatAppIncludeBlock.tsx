@@ -7,13 +7,17 @@ import React, {
 } from "react";
 import { useQueryClient } from "@tanstack/react-query";
 
-import { SplitBrackets } from "../../utils/splitBrackets";
 import WhatAppIncludeSubListItem from "./WhatAppIncludeSubList";
 
-import { queryKeys } from "../../consts/queryKeys";
-import { IServiceMobileAudit } from "../../types/Admin/Response.types";
 import { Separator } from "../../styles/MobileAuditService/Common.styled";
 import * as Styled from "../../styles/MobileAuditService/WhatAppInclude.styled";
+
+import { queryKeys } from "../../consts/queryKeys";
+
+import { IServiceMobileAudit } from "../../types/Admin/Response.types";
+
+import { SplitBrackets } from "../../utils/splitBrackets";
+
 import MobileAuditIcons from "./MobileAuditIcons";
 
 const WhatAppIncludeBlock = () => {

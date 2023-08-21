@@ -1,8 +1,11 @@
 import React from "react";
 import parse from "html-react-parser";
-import * as Styled from "../../styles/Blog.styled";
 import { useRouter } from "next/router";
+
+import * as Styled from "../../styles/Blog.styled";
+
 import { ISmallArticleItem } from "../../types/Blog.types";
+
 import ButtonArrow from "../../utils/ButtonArrow";
 
 const SmallArticleItem = ({ article, filters }: ISmallArticleItem) => {

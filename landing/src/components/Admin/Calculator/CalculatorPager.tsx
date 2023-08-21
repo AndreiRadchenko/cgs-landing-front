@@ -1,19 +1,18 @@
-import { useMutation } from "@tanstack/react-query";
-import { Formik } from "formik";
 import React from "react";
-import { queryKeys } from "../../../consts/queryKeys";
-import * as Styled from "../../../styles/Calculator/CalculatorAdmin.styled";
-import * as AdminPageStyled from "../../../styles/AdminPage";
+import { Formik } from "formik";
+import { useMutation } from "@tanstack/react-query";
+import { toast } from "react-toastify";
+
+import TextEditor from "../../TextEditor/TextEditor";
 import { adminCalculatorService } from "../../../services/adminCalculator";
-import { ICalculator } from "../../../types/Admin/Response.types";
 import SubHeaderWithInput from "../Global/SubHeaderWithInput";
 import AdminBlockDropDown from "../Global/AdminBlockDropDown";
 import SaveBtn from "../Global/SaveBtn";
-import dynamic from "next/dynamic";
 
-const TextEditor = dynamic(() => import("../../TextEditor/TextEditor"), {
-  ssr: false,
-});
+import { queryKeys } from "../../../consts/queryKeys";
+import * as Styled from "../../../styles/Calculator/CalculatorAdmin.styled";
+import * as AdminPageStyled from "../../../styles/AdminPage";
+import { ICalculator } from "../../../types/Admin/Response.types";
 
 interface ICalculatorPagerProps {
   data: ICalculator;
@@ -28,7 +27,16 @@ const CalculatorPager = ({
 }: ICalculatorPagerProps) => {
   const { mutateAsync } = useMutation(
     [queryKeys.updateCalculatorData],
-    (data: ICalculator) => adminCalculatorService.updateCalculatorData(data)
+    async (data: ICalculator) => {
+      return await toast.promise(
+        adminCalculatorService.updateCalculatorData(data),
+        {
+          pending: "Pending update",
+          success: "Calculator pager data updated successfully 👌",
+          error: "Some things went wrong 🤯",
+        }
+      );
+    }
   );
   const handleSubmit = async (values: ICalculator) => {
     document.body.style.cursor = "wait";

@@ -1,15 +1,16 @@
 import React from "react";
 
-import { AdminPaddedBlock, AdminHeader } from "../../../../styles/AdminPage";
 import AdminBlockDropDown from "../../../Admin/Global/AdminBlockDropDown";
 import MetaTagsBlock from "../../MetaTagsBlock";
-import HeadBlock from "./HeadBlock";
+import AdminHeadBlockCloud from "./AdminHeadBlockCloud";
 import WorthBlock from "./WorthBlock";
 import ProvidesBlock from "./ProvidesBlock";
-import FooterBlock from "./FooterBlock";
+import AdminFooterBlockCloud from "./AdminFooterBlockCloud";
 import ServiceShowCase from "../../ServiceShowCase";
 import TeamMembers from "../../../ServisesComponents/TeamMembers/AdminTeamMembers";
 import FreeServices from "../../../ServisesComponents/FreeServices/AdminComponent";
+
+import { AdminPaddedBlock, AdminHeader } from "../../../../styles/AdminPage";
 
 const ServiceCloudContentBlock = () => {
   return (
@@ -17,7 +18,7 @@ const ServiceCloudContentBlock = () => {
       <AdminPaddedBlock>
         <AdminHeader>CLOUD SOLUTIONS</AdminHeader>
         <AdminBlockDropDown title="HEAD BLOCK">
-          <HeadBlock />
+          <AdminHeadBlockCloud />
         </AdminBlockDropDown>
         <AdminBlockDropDown title="TEAM PROVIDES">
           <ProvidesBlock />
@@ -35,7 +36,7 @@ const ServiceCloudContentBlock = () => {
           <FreeServices />
         </AdminBlockDropDown>
         <AdminBlockDropDown title="FOOTER BLOCK">
-          <FooterBlock />
+          <AdminFooterBlockCloud />
         </AdminBlockDropDown>
       </AdminPaddedBlock>
 

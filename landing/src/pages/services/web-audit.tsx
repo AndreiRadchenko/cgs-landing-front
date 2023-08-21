@@ -1,28 +1,35 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { NextPage } from "next";
 import Head from "next/head";
 import { dehydrate, QueryClient, useQuery } from "@tanstack/react-query";
 import parse from "html-react-parser";
-import { queryKeys } from "../../consts/queryKeys";
-import { adminGlobalService } from "../../services/adminHomePage";
-import { adminWebAuditService } from "../../services/services/adminServiceWebAuditPage";
+
 import FooterNew from "../../components/FooterNew/FooterNew";
 import HeaderNavNew from "../../components/HeaderNavNew/HeaderNavNew";
-import HeadBlock from "../../components/WebAuditService/HeadBlock";
+import HeadBlock from "../../components/WebAuditService/HeadBlockWebAudit";
 import { Layout, PageArticle } from "../../styles/Layout.styled";
 import WhatIsAuditBlock from "../../components/WebAuditService/WhatIsAuditBlock";
 import WhichProblemBlock from "../../components/WebAuditService/WhichProblemBlock";
 import TypesOfAuditBlock from "../../components/WebAuditService/TypesOfAuditBlock";
 import HowToDoBlock from "../../components/WebAuditService/HowToDoBlock";
-import ProfessionalAuditBlock from "../../components/WebAuditService/ProfessionalAuditBlock";
+import FooterBlock from "../../components/WebAuditService/FooterBlockWebAudit";
 import ShowCase from "../../components/ShowCase";
+import CalendlyInfoModal from "../../components/Calendly/CalendlyInfoModal";
+import { Loader, LoaderStub } from "../../components/Loader";
+import { TeamMembers } from "../../components/ServisesComponents";
+
+import * as Styled from "../../styles/WebService/Layout";
 import {
   ShowcaseLayoutIgnore,
   ShowcaseWithoutDataSpacing,
 } from "../../styles/WebAuditService/ShowcaseLayoutIgnore.styled";
-import CalendlyInfoModal from "../../components/Calendly/CalendlyInfoModal";
-import { Loader, LoaderStub } from "../../components/Loader";
-import { TeamMembers } from "../../components/ServisesComponents";
+
+import { queryKeys } from "../../consts/queryKeys";
+
+import { adminGlobalService } from "../../services/adminHomePage";
+import { adminWebAuditService } from "../../services/services/adminServiceWebAuditPage";
+
+import { calendlyPopupInfoHandler } from "../../utils/calendlyPopupInfoHandler";
 
 export async function getServerSideProps() {
   const queryClient = new QueryClient();
@@ -51,25 +58,7 @@ const WebAuditPage: NextPage = () => {
   useQuery([queryKeys.getFullHomePage], () => adminGlobalService.getFullPage());
   const { metaTitle, metaDescription, customHead } = { ...data?.meta };
 
-  useEffect(() => {
-    const calendlyStatusFinder = (e: any) => {
-      window.dataLayer = window.dataLayer || [];
-
-      if (
-        e.data.event &&
-        e.data.event.indexOf("calendly") === 0 &&
-        e.data.event === "calendly.event_scheduled"
-      ) {
-        setIsCalendlySuccessfull(true);
-      }
-    };
-
-    window.addEventListener("message", calendlyStatusFinder);
-
-    return () => {
-      window.removeEventListener("message", calendlyStatusFinder);
-    };
-  }, []);
+  calendlyPopupInfoHandler(() => setIsCalendlySuccessfull(true));
 
   return (
     <Loader active={isLoading}>
@@ -91,7 +80,9 @@ const WebAuditPage: NextPage = () => {
           <HeaderNavNew />
           <PageArticle>
             <Layout>
-              <HeadBlock />
+              <Styled.Layout>
+                <HeadBlock />
+              </Styled.Layout>
               <WhatIsAuditBlock />
               <WhichProblemBlock />
               <TypesOfAuditBlock />
@@ -107,7 +98,7 @@ const WebAuditPage: NextPage = () => {
                 <ShowcaseWithoutDataSpacing />
               )}
               <HowToDoBlock />
-              <ProfessionalAuditBlock />
+              <FooterBlock />
             </Layout>
           </PageArticle>
           <FooterNew />

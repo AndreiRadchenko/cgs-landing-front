@@ -6,8 +6,11 @@ import TextTypingAnimation from "../Typewrite";
 import EssentialImage from "./EssentialImage";
 
 import * as Styled from "../../styles/UxUiService/EssentialBlock.styled";
+
 import { queryKeys } from "../../consts/queryKeys";
+
 import { IUxUiInterface } from "../../types/Admin/Response.types";
+
 import { useOnScreen } from "../../hooks/useOnScreen";
 
 const EssentialBlock = () => {

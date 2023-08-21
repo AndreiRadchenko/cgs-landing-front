@@ -21,7 +21,6 @@ import {
 
 const RateCardLevelsInput = () => {
   const { values } = useFormikContext<IService>();
-  console.log(values);
 
   const newLevel = {
     name: "",
@@ -97,7 +96,7 @@ const RateCardLevelsInput = () => {
                       </RateCardJointWrapper>
                     </div>
                     <div style={{ minWidth: "225px" }}>
-                      <RateCardJointWrapper>
+                      <RateCardJointWrapper className={"costWrapper"}>
                         <span>Cost</span>
                         <JointCheckboxWrapper>
                           <Field
@@ -124,12 +123,22 @@ const RateCardLevelsInput = () => {
                           >
                             <div style={{ width: "100%" }}>
                               <RateCardTechnology
+                                className={
+                                  valIdx !== level.values.length - 1
+                                    ? "noBorder"
+                                    : ""
+                                }
                                 placeholder="Enter technology..."
                                 name={`levels[${idx}].values[${valIdx}].technology`}
                               />
                             </div>
                             <div style={{ minWidth: "225px" }}>
                               <RateCardCost
+                                className={
+                                  valIdx !== level.values.length - 1
+                                    ? "noBorder"
+                                    : ""
+                                }
                                 placeholder="Enter cost..."
                                 name={`levels[${idx}].values[${valIdx}].cost`}
                               />

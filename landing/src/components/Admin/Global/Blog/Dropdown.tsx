@@ -1,7 +1,8 @@
 ﻿import React, { useState } from "react";
+import Image from "next/image";
+
 import * as Styled from "../../../../styles/BlogTags.styled";
 import Arrow from "../../../../../public/upArrowSidebar.svg";
-import Image from "next/image";
 
 interface IDropdownProps {
   chosenTags: string[];

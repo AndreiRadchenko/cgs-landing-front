@@ -1,19 +1,25 @@
-﻿import React, { useEffect, useState, FC } from "react";
+﻿import React, { useEffect, useState } from "react";
 import { useFormikContext } from "formik";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 import SubHeaderWithInput from "../Global/SubHeaderWithInput";
+import HistoryLink from "../HistoryLink";
+
+import * as Styled from "../../../styles/AdminPage";
 import { Counter, Message, Text } from "../../../styles/AdminBlogPage";
 import {
   ArrowContainer,
   BlackButton,
 } from "../../../styles/HomePage/General.styled";
-import ButtonArrow from "../../../utils/ButtonArrow";
-import HistoryLink from "../HistoryLink";
 
-import * as Styled from "../../../styles/AdminPage";
+import ButtonArrow from "../../../utils/ButtonArrow";
+
 import { IMetaBlock, ISitemapData } from "../../../types/Admin/Response.types";
+
 import { queryKeys } from "../../../consts/queryKeys";
+
 import { adminSitemapService } from "../../../services/adminSitemapPage";
 
 interface IMetaHistory {
@@ -63,8 +69,17 @@ const MetaTagsBlock = ({
 
   const { mutateAsync } = useMutation(
     [queryKeys.updateSitemap],
-    (updatedSitemap: ISitemapData) =>
-      adminSitemapService.updateSitemapData(updatedSitemap),
+    async (updatedSitemap: ISitemapData) => {
+      const response = await toast.promise(
+        adminSitemapService.updateSitemapData(updatedSitemap),
+        {
+          pending: "Pending update",
+          success: "Site map updated successfully 👌",
+          error: "Some things went wrong 🤯",
+        }
+      );
+      return response;
+    },
     {
       onSuccess: () => {
         queryClient.invalidateQueries([queryKeys.getSitemapData]);

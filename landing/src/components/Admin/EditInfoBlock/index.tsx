@@ -50,6 +50,7 @@ const EditInformationBlock = () => {
                 deleteFlag={true}
                 uploadFunction={uploadFunc}
                 deleteFunction={deleteFunc}
+                unchangeable
               />
             </Styled.MainPhoto>
           </Styled.AdminHomepageHeader>

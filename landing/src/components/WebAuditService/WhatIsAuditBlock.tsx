@@ -1,11 +1,15 @@
 import { useQueryClient } from "@tanstack/react-query";
 import React from "react";
-import { queryKeys } from "../../consts/queryKeys";
-import * as Styled from "../../styles/WebAuditService/WhatIsAudit.styled";
-import { IServiceWebAudit } from "../../types/Admin/Response.types";
+
 import { SplitBrackets } from "../../utils/splitBrackets";
 import { MobileInfiniteText } from "../MobileInfiniteText/MobileInfiniteText";
+
+import * as Styled from "../../styles/WebAuditService/WhatIsAudit.styled";
 import { Subtitle } from "../../styles/WebAuditService/WhatIsAudit.styled";
+
+import { IServiceWebAudit } from "../../types/Admin/Response.types";
+
+import { queryKeys } from "../../consts/queryKeys";
 
 const WhatIsAuditBlock = () => {
   const queryClient = useQueryClient();

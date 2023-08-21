@@ -1,4 +1,5 @@
 import React from "react";
+
 import * as Styled from "./MobileInfiniteText.styled";
 
 import Marquee from "react-fast-marquee";

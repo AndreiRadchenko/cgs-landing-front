@@ -7,14 +7,23 @@ export const Wrapper = styled.div`
   max-width: 356px;
   flex-wrap: wrap;
   gap: 12px;
-  margin-top: 22px;
+  column-gap: 8px;
+  row-gap: 10px;
+  margin-top: 16px;
 
   @media ${themes.primary.media.minPCFullHD} {
     max-width: none;
+    column-gap: 10px;
+    margin-top: 20px;
   }
 
   @media ${themes.primary.media.maxTabletPortrait} {
     margin-block: 1.75rem 2rem;
+  }
+
+  @media ${themes.primary.media.maxMobile} {
+    margin-top: 24px;
+    margin-bottom: 24px;
   }
 `;
 
@@ -23,7 +32,7 @@ export const TagItem = styled.div`
   justify-content: center;
   align-items: center;
   text-align: center;
-  padding: 2px 14px;
+  padding: 3px 10px;
   color: white;
   background-color: ${themes.primary.colors.darkBlue};
   font-family: ${themes.primary.font.family.openSans};
@@ -40,7 +49,9 @@ export const TagItem = styled.div`
   }
 
   @media ${themes.primary.media.minPCFullHD} {
-    padding: 4px 14px;
+    padding: 3.75px 12.5px;
+    font-size: 1.05em;
+    height: 32.5px;
   }
 
   @media ${themes.primary.media.maxMobile} {

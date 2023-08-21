@@ -62,6 +62,10 @@ export const ExplanationEmailFieldTooltip = styled.div`
     bottom: 45px;
   }
 
+  @media ${themes.primary.media.maxTabletPortrait} {
+    display: none;
+  }
+
   &:after {
     content: "";
     position: absolute;
@@ -248,10 +252,6 @@ export const NavList = styled.nav`
     align-items: center;
     padding: 20px 0 0;
   }
-`;
-
-export const BurgerLinkText = styled.p`
-  cursor: pointer;
 `;
 
 export const MailIcon = styled.svg`

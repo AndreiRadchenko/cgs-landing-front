@@ -27,6 +27,12 @@ export const BigDigit = styled.p`
     text-fill-color: transparent;
   }
 
+  @media ${themes.primary.media.minPCFullHD} {
+    font-size: 200px;
+    line-height: 200px;
+    margin-right: 31px;
+  }
+
   @media ${themes.primary.media.maxTabletLandScape} {
     font-size: 110px;
     line-height: 120px;
@@ -69,7 +75,7 @@ export const Title = styled.h2`
   text-transform: uppercase;
 
   @media ${themes.primary.media.minPCFullHD} {
-    padding-bottom: 20px;
+    font-size: 2.8em;
   }
 
   @media ${themes.primary.media.maxTabletLandScape} {
@@ -88,6 +94,10 @@ export const CardsWrapper = styled.section`
   display: grid;
   grid-template-columns: 1fr;
   row-gap: 50px;
+
+  @media ${themes.primary.media.minPCFullHD} {
+    row-gap: 67px;
+  }
 
   @media ${themes.primary.media.maxMobile} {
     position: relative;
@@ -175,20 +185,20 @@ export const CardContainer = styled.article`
     &:nth-child(2) {
       & img {
         width: 27em;
-        top: -107%;
+        top: -110%;
         right: 30%;
       }
     }
     &:nth-child(3) {
       & img {
-        top: -73%;
+        top: -55%;
         left: 20%;
+        scale: calc(0.8);
       }
     }
     &:nth-child(4) {
       & img {
-        width: 25em;
-        top: -120%;
+        top: -90%;
         right: 45%;
       }
     }
@@ -412,7 +422,7 @@ export const CardTitle = styled.div`
   align-items: flex-end;
 
   @media ${themes.primary.media.minPCFullHD} {
-    font-size: 4.45em;
+    font-size: 4.7em;
   }
 
   @media ${themes.primary.media.maxTabletLandScape} {
@@ -460,6 +470,7 @@ export const CardContent = styled.div`
   }
   @media ${themes.primary.media.minPCFullHD} {
     max-width: 1000px;
+    font-size: 1.55em;
   }
   @media (min-width: 2400px) {
     max-width: 1200px;

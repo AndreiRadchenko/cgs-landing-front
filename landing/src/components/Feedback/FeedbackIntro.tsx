@@ -1,5 +1,7 @@
 import React, { FC } from "react";
+
 import * as StyledThisComp from "../../styles/Feedback.styled";
+
 import { SplitBrackets } from "../../utils/splitBrackets";
 
 interface IFeedbackProps {

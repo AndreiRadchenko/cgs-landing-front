@@ -1,14 +1,14 @@
-import { useMutation, useQueryClient } from "@tanstack/react-query";
+import { useQueryClient } from "@tanstack/react-query";
 import { useFormikContext } from "formik";
 import React from "react";
-import { queryKeys } from "../../../consts/queryKeys";
-import { adminCalculatorService } from "../../../services/adminCalculator";
+
 import * as AdminPageStyled from "../../../styles/AdminPage";
 import * as Styled from "../../../styles/Calculator/CalculatorAdmin.styled";
 import {
   ICalculator,
   ICalculatorRole,
 } from "../../../types/Admin/Response.types";
+import { queryKeys } from "../../../consts/queryKeys";
 
 interface ICalculatorRateComponentProps {
   type: string;
@@ -29,21 +29,10 @@ const CalculatorRateComponent = ({
     queryKeys.getCalculatorData,
   ]);
 
-  const { mutateAsync } = useMutation(
-    [queryKeys.updateCalculatorData],
-    (data: ICalculator) => adminCalculatorService.updateCalculatorData(data),
-    {
-      onSuccess: () => {
-        queryClient.invalidateQueries([queryKeys.getCalculatorData]);
-      },
-    }
-  );
-
   const handleDelete = () => {
     if (data) {
       const filtered = data;
       filtered.roles = filtered.roles.filter((role) => role.name !== type);
-      mutateAsync(filtered);
       values.roles = filtered.roles;
       handleSubmit();
     }

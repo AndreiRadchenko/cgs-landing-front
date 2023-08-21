@@ -33,11 +33,12 @@ import {
 
 import { queryKeys } from "../../../consts/queryKeys";
 import { adminPortfolioService } from "../../../services/adminPortfolioPage";
+import { technologiesService } from "../../../services/technologies";
 
 interface IAddReviewProps {
   categories: string[];
   industries: string[];
-  technologies: ITechnology[];
+  technologies: ITechnology[] | undefined;
 }
 
 const AddReview = ({
@@ -96,9 +97,9 @@ const AddReview = ({
   );
 
   const { mutateAsync: addTech } = useMutation(
-    [queryKeys.addPortfolioTech],
+    [queryKeys.updateTechnologies],
     (technology: ITechnology) =>
-      adminPortfolioService.addTechnology(technology),
+      technologiesService.addTechnology(technology),
     {
       onSuccess: () => {
         values.technologyNew.name = "";
@@ -369,7 +370,7 @@ const AddReview = ({
                 className="plus"
                 onClick={() => {
                   if (
-                    technologies.some(
+                    technologies?.some(
                       (e) => e.name === values.technologyNew.name
                     )
                   ) {

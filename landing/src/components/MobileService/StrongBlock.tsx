@@ -1,13 +1,19 @@
 ﻿import React from "react";
 import { useQueryClient } from "@tanstack/react-query";
-import { queryKeys } from "../../consts/queryKeys";
+
+import { MobileInfiniteText } from "../MobileInfiniteText/MobileInfiniteText";
+
 import { Subtitle } from "../../styles/MobileService/Layout";
 import * as Styled from "../../styles/MobileService/StrongBlock.styled";
+
+import { queryKeys } from "../../consts/queryKeys";
+
 import { IServiceMobile } from "../../types/Admin/Response.types";
+
+import { handleRandomOffset } from "../../utils/getRandomAnimationOffset";
+
 import android from "../../../public/MobileSevice/strongBlock/android.svg";
 import apple from "../../../public/MobileSevice/strongBlock/apple.svg";
-import { handleRandomOffset } from "../../utils/getRandomAnimationOffset";
-import { MobileInfiniteText } from "../MobileInfiniteText/MobileInfiniteText";
 
 const StrongBlock = () => {
   const queryClient = useQueryClient();

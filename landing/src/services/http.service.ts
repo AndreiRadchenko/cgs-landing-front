@@ -69,7 +69,9 @@ export class HttpService implements IHttpClient {
   private errorHandler(error: AxiosError<IErrorResponse>) {
     const errorResponse = error.response;
 
-    if (errorResponse?.status === 401) {
+    const isAdminPanel = Router.pathname.startsWith("/Admin");
+
+    if (isAdminPanel && errorResponse?.status === 401) {
       Router.push("/401");
       return;
     }
@@ -81,6 +83,7 @@ export class HttpService implements IHttpClient {
 
     const event = new CustomEvent("http-error", { detail: errorData });
     document.dispatchEvent(event);
+    throw new Error(JSON.stringify(errorData));
   }
 
   private checkResponseStatus<T>(result: IResponse<T>) {

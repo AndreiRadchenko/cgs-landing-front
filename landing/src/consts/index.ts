@@ -114,6 +114,19 @@ export const feedbackInit = {
   stars: 1,
 };
 
+export const testimonialsInit = {
+  slideTitle: "",
+  stars: 1,
+  slideBanner: {
+    image: null,
+  },
+  name: "",
+  company: "",
+  videoUrl: "",
+  link: "",
+  text: "",
+};
+
 export const newReviewInit = {
   image: null,
   category: "",
@@ -204,6 +217,7 @@ export enum ROUTE_KEYS {
   AdminEstimationForm = "AdminEstimationForm",
   AdminRateCard = "AdminRateCard",
   AdminSupportChat = "AdminSupportChat",
+  AdminCVs = "AdminCVs",
 }
 
 export enum FaqPageTypes {
@@ -326,7 +340,6 @@ export const newBlogArticle = {
     specialization: "",
   },
   updatedOn: "",
-  scheduleArticle: "",
   date: "",
   minutesToRead: 2,
   content: "",
@@ -367,3 +380,67 @@ export const BlogPageSize = 4;
 export const PortfolioPageSize = 8;
 
 export const AdminPortfolioPageSize = 6;
+
+export const META_TITLE_MAX = 60;
+export const META_DESCRIPTION_MAX = 160;
+
+export const NewCv = {
+  image: null,
+  category: "",
+  personal: {
+    name: "",
+    summary: "",
+    role: "",
+  },
+  info: {
+    title: "INFO:",
+    content: [
+      {
+        subtitle: "Education",
+        text: "",
+      },
+      {
+        subtitle: "Timezone",
+        text: "",
+      },
+      {
+        subtitle: "English",
+        text: "",
+      },
+      {
+        subtitle: "Experience",
+        text: "",
+      },
+    ],
+  },
+  skills: {
+    title: "SKILLS:",
+    card: [
+      {
+        subtitle: "",
+        stack: [""],
+      },
+      {
+        subtitle: "",
+        stack: [""],
+      },
+      {
+        subtitle: "",
+        stack: [""],
+      },
+    ],
+  },
+  projects: {
+    title: "PROJECTS:",
+    project: [
+      {
+        projectName: "",
+        role: "",
+        date: "",
+        summary: "",
+        achievements: [""],
+        technology: [],
+      },
+    ],
+  },
+};

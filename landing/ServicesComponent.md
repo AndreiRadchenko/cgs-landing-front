@@ -122,7 +122,7 @@ export interface ICloudService {
   <Styled.Layout>
     <WorkBlock />
     <FreeService freeServices={data?.freeServices} />
-    <FooterBlock />
+    <AdminFooterBlockDb />
   </Styled.Layout>
 </Layout>
 ```
@@ -215,7 +215,7 @@ export interface ICloudService {
   <Styled.Layout>
     <WorkBlock />
     <FreeService freeServices={data?.freeServices} />
-    <FooterBlock />
+    <AdminFooterBlockDb />
   </Styled.Layout>
 </Layout>
 ```

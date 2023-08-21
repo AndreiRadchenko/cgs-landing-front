@@ -1,13 +1,18 @@
 import React, { useCallback, useEffect, useRef, useState } from "react";
 import { useQueryClient } from "@tanstack/react-query";
-import { queryKeys } from "../../consts/queryKeys";
+
+import LinedText from "../BlockchainService/LinedText";
+
+import * as Styled from "../../styles/UxUiService/DesignBlock.styled";
+import { Separator } from "../../styles/MobileAuditService/Common.styled";
+
 import { IUxUiInterface } from "../../types/Admin/Response.types";
 import { IServicesShowcaseProps } from "../../types/Services.types";
-import LinedText from "../BlockchainService/LinedText";
-import * as Styled from "../../styles/UxUiService/DesignBlock.styled";
+
+import { queryKeys } from "../../consts/queryKeys";
+
 import { useWindowDimension } from "../../hooks/useWindowDimension";
 import { useOnScreen } from "../../hooks/useOnScreen";
-import { Separator } from "../../styles/MobileAuditService/Common.styled";
 
 const DesignBlock = ({ withoutShowcase }: IServicesShowcaseProps) => {
   const queryClient = useQueryClient();

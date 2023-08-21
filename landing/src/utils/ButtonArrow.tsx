@@ -2,7 +2,13 @@
 
 const ButtonArrow = () => {
   return (
-    <svg viewBox="5 5 25 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <svg
+      viewBox="5 5 25 25"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      aria-label="an arrow"
+      style={{ pointerEvents: "none" }}
+    >
       <path
         fillRule="evenodd"
         clipRule="evenodd"

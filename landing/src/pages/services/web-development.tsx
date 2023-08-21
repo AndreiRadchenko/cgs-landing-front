@@ -1,23 +1,28 @@
 ﻿import { NextPage } from "next";
 import parse from "html-react-parser";
 import Head from "next/head";
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { dehydrate, QueryClient, useQuery } from "@tanstack/react-query";
+
 import FooterNew from "../../components/FooterNew/FooterNew";
 import HeaderNavNew from "../../components/HeaderNavNew/HeaderNavNew";
-import { queryKeys } from "../../consts/queryKeys";
-import { adminGlobalService } from "../../services/adminHomePage";
-import { adminWebService } from "../../services/services/adminServicesWebPage";
-import HeadBlock from "../../components/WebService/HeadBlock";
-import * as Styled from "../../styles/WebService/Layout";
+import HeadBlock from "../../components/WebService/HeadBlockWebDev";
 import WebPros from "../../components/WebService/WebPros";
 import SolutionBlock from "../../components/WebService/SolutionBlock";
-import FooterBlock from "../../components/WebService/FooterBlock";
+import FooterBlock from "../../components/WebService/FooterBlockWebDev";
 import { Layout } from "../../styles/Layout.styled";
 import ShowCase from "../../components/ShowCase";
 import CalendlyInfoModal from "../../components/Calendly/CalendlyInfoModal";
 import { Loader, LoaderStub } from "../../components/Loader";
 import { FreeService, TeamMembers } from "../../components/ServisesComponents";
+import { calendlyPopupInfoHandler } from "../../utils/calendlyPopupInfoHandler";
+
+import * as Styled from "../../styles/WebService/Layout";
+
+import { queryKeys } from "../../consts/queryKeys";
+
+import { adminGlobalService } from "../../services/adminHomePage";
+import { adminWebService } from "../../services/services/adminServicesWebPage";
 
 export async function getServerSideProps() {
   const queryClient = new QueryClient();
@@ -47,25 +52,7 @@ const WebDevelopment: NextPage = () => {
 
   const { metaTitle, metaDescription, customHead } = { ...data?.meta };
 
-  useEffect(() => {
-    const calendlyStatusFinder = (e: any) => {
-      window.dataLayer = window.dataLayer || [];
-
-      if (
-        e.data.event &&
-        e.data.event.indexOf("calendly") === 0 &&
-        e.data.event === "calendly.event_scheduled"
-      ) {
-        setIsCalendlySuccessfull(true);
-      }
-    };
-
-    window.addEventListener("message", calendlyStatusFinder);
-
-    return () => {
-      window.removeEventListener("message", calendlyStatusFinder);
-    };
-  }, []);
+  calendlyPopupInfoHandler(() => setIsCalendlySuccessfull(true));
 
   return (
     <Loader active={isLoading}>

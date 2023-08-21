@@ -23,7 +23,7 @@ interface IBreadcrumbs {
 export const Breadcrumbs = styled.div<IBreadcrumbs>`
   font-family: ${themes.primary.font.family.namu};
   margin: 32px 0 16px 51px;
-  font-size: 16px;
+  font-size: 1.35em;
   line-height: 19.2px;
   color: #8f8e93;
 
@@ -44,6 +44,10 @@ export const Breadcrumbs = styled.div<IBreadcrumbs>`
     color: black;
   }
 
+  @media ${themes.primary.media.minPCFullHD} {
+    font-size: 1.25em;
+  }
+
   @media ${themes.primary.media.maxTabletPortrait} {
     margin: ${({ isBlog }) => isBlog && "32px 0 16px 65px"};
   }
@@ -51,7 +55,7 @@ export const Breadcrumbs = styled.div<IBreadcrumbs>`
   @media ${themes.primary.media.maxMobile} {
     font-size: 14px;
     margin: ${({ isBlog }) =>
-      isBlog ? "0 19px 12px 23px" : "0 19px 22px 19px"};
+      isBlog ? "0 19px 6px 23px" : "0 19px 22px 19px"};
 
     & a:first-child {
       display: none;
@@ -64,11 +68,11 @@ export const Breadcrumbs = styled.div<IBreadcrumbs>`
 `;
 
 export const BreadcrumbSeparator = styled.span`
-  margin: 0 6px;
+  margin: 0 8px;
   color: #bbb;
 
-  @media ${themes.primary.media.maxMobile} {
-    margin: 0 4px;
+  @media ${themes.primary.media.minPCFullHD} {
+    margin: 0 10px;
   }
 `;
 

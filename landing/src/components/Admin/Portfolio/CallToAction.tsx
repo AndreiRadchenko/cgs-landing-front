@@ -1,24 +1,35 @@
 import React from "react";
 import { useFormik } from "formik";
 import { useMutation } from "@tanstack/react-query";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
-import PhotoBlockDashedHorizontal from "../Global/PhotoBlockdashedHorizontal";
-import SaveBtn from "../Global/SaveBtn";
-import SubHeaderWithInput from "../Global/SubHeaderWithInput";
+import { adminPortfolioService } from "../../../services/adminPortfolioPage";
+import useDeleteImageFunction from "../../../hooks/useDeleteImageFunction";
+import useUploadImageFunction from "../../../hooks/useUploadImageFunction";
 
 import * as Styled from "../../../styles/AdminPage";
 import {
   ICTAData,
   ICallToActionProps,
 } from "../../../types/Admin/AdminPortfolio.types";
+import SaveBtn from "../Global/SaveBtn";
+import SubHeaderWithInput from "../Global/SubHeaderWithInput";
 import { IImage } from "../../../types/Admin/Admin.types";
-import { adminPortfolioService } from "../../../services/adminPortfolioPage";
-import useDeleteImageFunction from "../../../hooks/useDeleteImageFunction";
-import useUploadImageFunction from "../../../hooks/useUploadImageFunction";
+import PhotoBlockDashedHorizontal from "../Global/PhotoBlockdashedHorizontal";
 
 const CallToAction = ({ initValues }: ICallToActionProps) => {
-  const { mutateAsync: updatePortfolioCTA } = useMutation((data: ICTAData) =>
-    adminPortfolioService.updatePortfolioCTA(data)
+  const { mutateAsync: updatePortfolioCTA } = useMutation(
+    async (data: ICTAData) => {
+      return await toast.promise(
+        adminPortfolioService.updatePortfolioCTA(data),
+        {
+          pending: "Pending update",
+          success: "CTA data updated successfully 👌",
+          error: "Some things went wrong 🤯",
+        }
+      );
+    }
   );
 
   const formik = useFormik<ICTAData>({

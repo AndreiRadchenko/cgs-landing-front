@@ -4,16 +4,20 @@ import { useQueryClient } from "@tanstack/react-query";
 import parse, { HTMLReactParserOptions, Element } from "html-react-parser";
 
 import Partners from "../Partners/Partners";
-import { queryKeys } from "../../consts/queryKeys";
 import ButtonArrow from "../../utils/ButtonArrow";
 import ScrambleText from "./ScrambleText";
-import FreeServices from "../FreeServices/FreeServices";
-import { IDataResponse } from "../../types/Admin/Response.types";
-import longArrow from "../../../public/HomePageDecoration/longArrow.svg";
-import * as CSS from "../../styles/Portfolio/title.styled";
 import Badges from "./Badges";
+import TwistedBlock from "./TwistedBlock";
+import Testimonials from "./Testimonials";
 
+import * as CSS from "../../styles/Portfolio/title.styled";
 import * as Styled from "../../styles/HomePage/General.styled";
+
+import { IDataResponse } from "../../types/Admin/Response.types";
+
+import longArrow from "../../../public/HomePageDecoration/longArrow.svg";
+
+import { queryKeys } from "../../consts/queryKeys";
 
 const NextTech = () => {
   const options: HTMLReactParserOptions = {
@@ -97,7 +101,9 @@ const NextTech = () => {
         {text && parse(text.title, options)}
       </Styled.Subtitle>
       <Badges />
-      <FreeServices />
+      <TwistedBlock />
+      <Testimonials />
+      {/* <FreeServices /> */}
       <Styled.Subtitle className="textOnFilm">
         {data?.textOnFilm && parse(data?.textOnFilm, options2)}
       </Styled.Subtitle>

@@ -1,16 +1,21 @@
 import React, { useRef } from "react";
 import { useQueryClient } from "@tanstack/react-query";
 
+import TextTypingAnimation from "../Typewrite";
+
+import * as Styled from "../../styles/DbService/FeaturesBlock.styled";
+
 import { IServiceDb } from "../../types/Admin/Response.types";
+
+import { queryKeys } from "../../consts/queryKeys";
+
 import { SplitBrackets } from "../../utils/splitBrackets";
+
+import { useOnScreen } from "../../hooks/useOnScreen";
+
 import bgImage from "../../../public/DbService/featuresBg.svg";
 // import bgImageMobile from "../../../public/DbService/database-mobile-svg.svg";
 import bgImageMobile from "../../../public/DbService/feature-mobile-bg.svg";
-
-import * as Styled from "../../styles/DbService/FeaturesBlock.styled";
-import { useOnScreen } from "../../hooks/useOnScreen";
-import { queryKeys } from "../../consts/queryKeys";
-import TextTypingAnimation from "../Typewrite";
 
 const FeaturesBlock = () => {
   const queryClient = useQueryClient();

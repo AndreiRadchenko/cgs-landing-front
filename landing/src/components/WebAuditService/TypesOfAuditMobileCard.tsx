@@ -1,7 +1,9 @@
 import React from "react";
-import * as Styled from "../../styles/WebAuditService/TypesOfAuditMobileCard.styled";
-import { webAuditTypesOfAuditImages } from "../../utils/variables";
 import Image from "next/image";
+
+import * as Styled from "../../styles/WebAuditService/TypesOfAuditMobileCard.styled";
+
+import { webAuditTypesOfAuditImages } from "../../utils/variables";
 import { SplitBrackets } from "../../utils/splitBrackets";
 
 type ITypesOfAuditMobileCardProps = {

@@ -1,10 +1,18 @@
 import { Formik } from "formik";
 import React from "react";
 import { useMutation, useQuery } from "@tanstack/react-query";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
 import ServiceAiSolutionsContentBlock from ".";
-import { queryKeys } from "../../../../consts/queryKeys";
+import { CustomToast } from "../../CustomToast";
+
 import * as Styled from "../../../../styles/AdminPage";
+
+import { queryKeys } from "../../../../consts/queryKeys";
+
 import { IServiceAi } from "../../../../types/Admin/Response.types";
+
 import { adminAiService } from "../../../../services/services/AdminServiceAiSolution";
 
 const AdminServiceAiSolutionsContent = () => {
@@ -15,7 +23,13 @@ const AdminServiceAiSolutionsContent = () => {
 
   const { mutateAsync: updateFaqPage } = useMutation(
     [queryKeys.updateServiceAiPage],
-    (data: IServiceAi) => adminAiService.updateAiServicePage(data)
+    async (data: IServiceAi) => {
+      return await toast.promise(adminAiService.updateAiServicePage(data), {
+        pending: "Pending update",
+        success: "Dapp audit updated successfully 👌",
+        error: "Some things went wrong 🤯",
+      });
+    }
   );
 
   const submitForm = async (values: IServiceAi) => {
@@ -29,7 +43,10 @@ const AdminServiceAiSolutionsContent = () => {
     <Styled.AdminUnauthorizedModal>Loading...</Styled.AdminUnauthorizedModal>
   ) : data !== undefined ? (
     <Formik initialValues={data!} onSubmit={submitForm}>
-      <ServiceAiSolutionsContentBlock />
+      <>
+        <ServiceAiSolutionsContentBlock />
+        <CustomToast />
+      </>
     </Formik>
   ) : (
     <Styled.AdminUnauthorizedModal>

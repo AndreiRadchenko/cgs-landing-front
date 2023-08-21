@@ -1,10 +1,12 @@
 import React from "react";
+
+import AdminImage from "../AdminImage";
 import useUploadModal from "../../../../hooks/useUploadModal";
+import AdminAuthorEmptyImage from "./AdminAuthorEmptyImage";
+import AdminUploadModal from "../../UploadModal";
+
 import * as Styled from "../../../../styles/AdminPage";
 import { IPhotoBlock } from "../../../../types/Admin/Admin.types";
-import AdminUploadModal from "../../UploadModal";
-import AdminImage from "../AdminImage";
-import AdminAuthorEmptyImage from "./AdminAuthorEmptyImage";
 
 const AuthorPhotoDashed = ({
   photo,

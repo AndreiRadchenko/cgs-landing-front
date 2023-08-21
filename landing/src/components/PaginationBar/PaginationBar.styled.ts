@@ -6,10 +6,8 @@ export const PaginationWrapper = styled.div`
   justify-content: center;
   align-items: center;
   column-gap: 30px;
-  margin-top: 90px;
 
   @media ${themes.primary.media.maxMobile} {
-    margin-top: 45px;
   }
 `;
 
@@ -22,6 +20,7 @@ export const FontSettings = styled.div`
 export const PaginationItem = styled(FontSettings)`
   width: 26px;
   height: 26px;
+  font-size: 1.35em;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -41,26 +40,11 @@ export const PaginationItem = styled(FontSettings)`
   @media ${themes.primary.media.minPCFullHD} {
     width: 2em;
     height: 2em;
+    font-size: 0.85em;
   }
   @media ${themes.primary.media.maxMobile} {
     font-size: 1rem;
   }
-`;
-
-export const CurrentPaginationItem = styled(PaginationItem)`
-  background-color: ${themes.primary.colors.blogDarkText};
-  border: 1px solid ${themes.primary.colors.primary};
-  color: ${themes.primary.colors.secondary};
-
-  @media ${themes.primary.media.maxMobile} {
-    font-size: 1rem;
-  }
-`;
-
-export const Dots = styled.span`
-  font-family: ${themes.primary.font.family.sourceCode};
-  font-weight: ${themes.primary.font.weight.medium};
-  font-size: ${themes.primary.font.size.tertiary};
 `;
 
 export const PaginationItemsWrapper = styled.div`

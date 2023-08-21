@@ -1,12 +1,12 @@
-import React, { FC, MouseEvent } from "react";
-import * as Styles from "../../../styles/BookModalForm/BookModalInput.styled";
-import CloseButton from "../../../../public/CareerDecorations/close.svg";
+import React, { FC } from "react";
+
 import BookForm from "../BookModalForm";
 
-interface IModalProps {
-  onClose: (e?: MouseEvent<HTMLDivElement | HTMLButtonElement>) => void;
-  isOpen: boolean;
-}
+import * as Styles from "../../../styles/BookModalForm/BookModalInput.styled";
+
+import { IModalProps } from "../../../types/ModalCategory.types";
+
+import CloseButton from "../../../../public/CareerDecorations/close.svg";
 
 const BookModalInputForms: FC<IModalProps> = ({
   onClose,

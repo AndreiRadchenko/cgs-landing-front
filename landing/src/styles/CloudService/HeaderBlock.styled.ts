@@ -29,45 +29,6 @@ export const ContentWrapper = styled.div`
   }
 `;
 
-export const ButtonWrapper = styled.div`
-  display: flex;
-
-  @media ${themes.primary.media.maxMobile} {
-    flex-direction: column;
-  }
-`;
-
-export const Title = styled.h1`
-  font-size: 4.125em;
-  line-height: 120%;
-  font-weight: inherit;
-  text-transform: uppercase;
-  margin: 0;
-  white-space: nowrap;
-
-  @media ${themes.primary.media.maxMobile} {
-    font-size: 2.5em;
-    white-space: pre-wrap;
-    line-height: 1.25;
-
-    br {
-      display: block;
-    }
-  }
-`;
-
-export const Description = styled.div`
-  font-size: 1.375em;
-  line-height: 160%;
-  margin: 1.28em 0 1.8185em;
-  max-width: 27.27em;
-
-  @media ${themes.primary.media.maxMobile} {
-    font-size: 1em;
-    margin: 18px 0 1.75em;
-  }
-`;
-
 export const Image = styled.img`
   margin: 0.5em -2.84em 0 0;
   max-width: 40em;

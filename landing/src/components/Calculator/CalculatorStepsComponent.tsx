@@ -1,7 +1,7 @@
 import React, { Children, ReactNode } from "react";
 import CalculatorStepsFormContent from "./CalculatorStepsFormContent";
 import CalculatorQuittingPager from "./CalculatorQuttingPager";
-import { ICalendlyUserData } from "../HomePage/Content";
+import { ICalendlyUserData } from "../../types/ModalCategory.types";
 
 interface ICalculatorStepsComponentProps {
   step: number;

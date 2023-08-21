@@ -1,6 +1,7 @@
 import { useMediaQuery } from "@mui/material";
 import parse from "html-react-parser";
 import React, { Fragment, useEffect, useState, useMemo } from "react";
+
 import * as Styled from "../../styles/TextTypewrite.styled";
 
 interface ITextTypingAnimationProps {

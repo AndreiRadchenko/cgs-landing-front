@@ -1,20 +1,22 @@
 import React from "react";
 import { useFormikContext } from "formik";
 
+import SubHeaderWithInput from "../../Global/SubHeaderWithInput";
+
 import {
   AdminPaddedBlock,
   SubtitleGrid,
   AdminHalfGrid,
 } from "../../../../styles/AdminPage";
-import SubHeaderWithInput from "../../Global/SubHeaderWithInput";
-import ButtonArrow from "../../../../utils/ButtonArrow";
 import {
   ArrowContainer,
   BlackButton,
 } from "../../../../styles/HomePage/General.styled";
 
-import { IUxUiInterface } from "../../../../types/Admin/Response.types";
+import ButtonArrow from "../../../../utils/ButtonArrow";
 import { renderInputs } from "../../../../utils/renderInputs";
+
+import { IUxUiInterface } from "../../../../types/Admin/Response.types";
 
 const WhatDoWeDoBlock = () => {
   const { values, handleChange, handleSubmit } =

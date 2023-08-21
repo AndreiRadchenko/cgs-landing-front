@@ -5,16 +5,22 @@
   useRef,
   useState,
 } from "react";
-import textPoint from "../../../public/MobileSevice/textPoint.svg";
-import textPointReversed from "../../../public/MobileSevice/textPointReversed.svg";
 import { useQueryClient } from "@tanstack/react-query";
-import { queryKeys } from "../../consts/queryKeys";
+
 import * as Styled from "../../styles/MobileService/HowDoWeWork.styled";
 import { VisibleSubtitle } from "../../styles/MobileService/Layout";
+
+import { queryKeys } from "../../consts/queryKeys";
+
 import { IServiceMobile } from "../../types/Admin/Response.types";
+
 import { SplitBrackets } from "../../utils/splitBrackets";
+
 import { useWindowDimension } from "../../hooks/useWindowDimension";
 import { useOnScreen } from "../../hooks/useOnScreen";
+
+import textPoint from "../../../public/MobileSevice/textPoint.svg";
+import textPointReversed from "../../../public/MobileSevice/textPointReversed.svg";
 
 const HowDoWeWork = () => {
   const { width } = useWindowDimension();

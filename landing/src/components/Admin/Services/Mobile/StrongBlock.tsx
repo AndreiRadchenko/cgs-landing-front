@@ -1,13 +1,17 @@
 ﻿import { useFormikContext } from "formik";
 import React from "react";
-import { AdminHalfGrid, AdminPaddedBlock } from "../../../../styles/AdminPage";
-import { IServiceMobile } from "../../../../types/Admin/Response.types";
-import { renderInputs } from "../../../../utils/renderInputs";
+
 import SubHeaderWithInput from "../../Global/SubHeaderWithInput";
+
+import { AdminHalfGrid, AdminPaddedBlock } from "../../../../styles/AdminPage";
 import {
   ArrowContainer,
   BlackButton,
 } from "../../../../styles/HomePage/General.styled";
+
+import { IServiceMobile } from "../../../../types/Admin/Response.types";
+
+import { renderInputs } from "../../../../utils/renderInputs";
 import ButtonArrow from "../../../../utils/ButtonArrow";
 
 const StrongBlock = () => {

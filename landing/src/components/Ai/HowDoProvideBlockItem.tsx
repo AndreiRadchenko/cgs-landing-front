@@ -1,5 +1,7 @@
 import React from "react";
+
 import * as Styled from "../../styles/AiService/HowDoProvideBlock.styled";
+
 import { SplitBrackets } from "../../utils/splitBrackets";
 
 interface IHowToProvideBlockItemProps {

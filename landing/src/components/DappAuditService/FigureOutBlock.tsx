@@ -1,14 +1,17 @@
 import Image from "next/image";
 import React from "react";
+import { useQueryClient } from "@tanstack/react-query";
+
+import { MobileInfiniteText } from "../MobileInfiniteText/MobileInfiniteText";
 
 import { Wrapper, Subtitle } from "../../styles/DappAuditService/Common.styled";
 import * as Styled from "../../styles/DappAuditService/FigureOutBlock.styled";
 
-import { SplitBrackets } from "../../utils/splitBrackets";
-import { MobileInfiniteText } from "../MobileInfiniteText/MobileInfiniteText";
-import { useQueryClient } from "@tanstack/react-query";
 import { IServiceAi } from "../../types/Admin/Response.types";
+
 import { queryKeys } from "../../consts/queryKeys";
+
+import { SplitBrackets } from "../../utils/splitBrackets";
 
 const FigureOutBlock = () => {
   const queryClient = useQueryClient();

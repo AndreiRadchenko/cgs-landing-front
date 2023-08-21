@@ -2,11 +2,13 @@ import React, { useState, useCallback, useEffect, useRef } from "react";
 import Image from "next/image";
 import { useQueryClient } from "@tanstack/react-query";
 
+import * as Styled from "../../styles/HomePage/Badges.styled";
+
 import { queryKeys } from "../../consts/queryKeys";
+
 import { IDataResponse } from "../../types/Admin/Response.types";
 
 import { useOnScreen } from "../../hooks/useOnScreen";
-import * as Styled from "../../styles/HomePage/Badges.styled";
 
 const Badges = () => {
   const queryClient = useQueryClient();

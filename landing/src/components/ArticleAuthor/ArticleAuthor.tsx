@@ -1,19 +1,13 @@
 import React, { FC } from "react";
-import Timer from "../../../public/Timer.svg";
-import * as Styles from "./ArticleAuthor.styled";
-import { IAuthor } from "../../types/Admin/Response.types";
-import * as Styled from "../../styles/Blog.styled";
-import Watch from "../../../public/Watch.svg";
-import AuthorPlaceholder from "../../../public/authorPlaceholder.png";
-import { useWindowDimension } from "../../hooks/useWindowDimension";
 
-interface IArticleAuthor {
-  author: IAuthor;
-  date: string;
-  update: string;
-  time: number;
-  views?: number;
-}
+import * as Styles from "./ArticleAuthor.styled";
+import * as Styled from "../../styles/Blog.styled";
+
+import { IArticleAuthor } from "../../types/Blog.types";
+
+import Timer from "../../../public/Timer.svg";
+import Watch from "../../../public/Watch.svg";
+import AuthorPlaceholder from "../../../public/authorPlaceholder.svg";
 
 const ArticleAuthor: FC<IArticleAuthor> = ({
   author,
@@ -22,7 +16,6 @@ const ArticleAuthor: FC<IArticleAuthor> = ({
   time,
   views,
 }) => {
-  const { width } = useWindowDimension();
   const formatDate = (date: string) => {
     return date.split("-").reverse().join(".");
   };
@@ -41,19 +34,19 @@ const ArticleAuthor: FC<IArticleAuthor> = ({
               By {author.name} / {author.specialization}
             </Styles.AuthorName>
             <Styles.SpaceBetween>
-                <Styles.DatesContainer>
-                  {(update && (
-                    <Styled.GrayText>
-                      {"Updated on "}
-                      <Styled.TimeText>{formatDate(update)}</Styled.TimeText>
-                    </Styled.GrayText>
-                  )) || (
-                    <Styled.GrayText>
-                      {"Published on "}
-                      <Styled.TimeText>{formatDate(date)}</Styled.TimeText>
-                    </Styled.GrayText>
-                  )}
-                </Styles.DatesContainer>
+              <Styles.DatesContainer>
+                {(update && (
+                  <Styled.GrayText className="articleText">
+                    {"Updated on "}
+                    <Styled.TimeText>{formatDate(update)}</Styled.TimeText>
+                  </Styled.GrayText>
+                )) || (
+                  <Styled.GrayText className="articleText">
+                    {"Published on "}
+                    <Styled.TimeText>{formatDate(date)}</Styled.TimeText>
+                  </Styled.GrayText>
+                )}
+              </Styles.DatesContainer>
               <Styles.StatisticWrapper>
                 <Styled.ArticleWatchContainer>
                   <Styled.WatchIcon src={Watch.src} alt="watch icon" />
@@ -63,7 +56,7 @@ const ArticleAuthor: FC<IArticleAuthor> = ({
                 </Styled.ArticleWatchContainer>
                 <Styled.ArticleTimerContainer>
                   <Styled.TimerIcon src={Timer.src} alt="timer img" />
-                  <Styled.GrayText>
+                  <Styled.GrayText className="articleText">
                     <Styled.TimeText>{time}</Styled.TimeText> min
                   </Styled.GrayText>
                 </Styled.ArticleTimerContainer>

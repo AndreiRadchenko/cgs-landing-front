@@ -1,27 +1,24 @@
 import React, { useEffect, useState } from "react";
-import dynamic from "next/dynamic";
+import { FieldArray, useFormikContext } from "formik";
+import { Plugin } from "suneditor/src/plugins/Plugin";
+
 import AdminBlockDropDown from "../Global/AdminBlockDropDown";
-import * as Styled from "../../../styles/Calculator/CalculatorAdmin.styled";
 import SaveBtn from "../Global/SaveBtn";
 import CalculatoSubStepItem from "./CalculatoSubStepItem";
-
-const TextEditor = dynamic(() => import("../../TextEditor/TextEditor"), {
-  ssr: false,
-});
-
+import TextEditor from "../../TextEditor/TextEditor";
 import { letterCaseSubmenu } from "./letterCaseSubmenuPlugin";
 import { letterWeightSubmenu } from "./letterWeightSubmenuPlugin";
-import { Plugin } from "suneditor/src/plugins/Plugin";
-import { FieldArray, useFormikContext } from "formik";
+import CalculatorOptionTypeSelect from "./CalculatorOptionTypeSelect";
+import CalculatorQuestionItem from "./CalculatorQuestionItem";
+import CalculatoTieUpItem from "./CalculatorTieUpItem";
+
+import * as Styled from "../../../styles/Calculator/CalculatorAdmin.styled";
 import {
   ICalculatorStep,
   ICalculatorSubStep,
   ICalculatorTieUpStep,
 } from "../../../types/Admin/Response.types";
-import CalculatoTieUpItem from "./CalculatorTieUpItem";
 import { AdminSubTitle } from "../../../styles/AdminPage";
-import CalculatorOptionTypeSelect from "./CalculatorOptionTypeSelect";
-import CalculatorQuestionItem from "./CalculatorQuestionItem";
 import { emptyCalculatorOption } from "../../../utils/variables";
 
 interface ICalculatorStepItemComponentProps {

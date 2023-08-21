@@ -170,6 +170,17 @@ ${css`
 `}
 `;
 
+export const twistedBlockAnimation = (positionY: number) => keyframes`
+${css`
+  from {
+    background-position-y: 0;
+  }
+  to {
+    background-position-y: -${positionY}px;
+  }
+`}
+`;
+
 export const infiniteBlogText = keyframes`
 ${css`
   from {
@@ -341,3 +352,39 @@ ${css`
     overflow: visible;
   }
 `}`;
+
+export const nextArrowOne = keyframes`
+  0% {
+    transform: translate(0px, 0);
+  }
+  100% {
+    transform: translate(30px, 0px);;
+  }
+`;
+
+export const nextArrowTwo = keyframes`
+  0% {
+    transform: translate(-30px, 0px);
+  }
+  100% {
+    transform: translate(0px, 0px);;
+  }
+`;
+
+export const prevArrowOne = keyframes`
+  0% {
+    transform: translate(30px, 0);
+  }
+  100% {
+    transform: translate(0px, 0px);;
+  }
+`;
+
+export const prevArrowTwo = keyframes`
+  0% {
+    transform: translate(0px, 0px);
+  }
+  100% {
+    transform: translate(-30px, 0px);;
+  }
+`;

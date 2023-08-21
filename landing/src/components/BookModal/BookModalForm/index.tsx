@@ -1,4 +1,4 @@
-import React, { useEffect, useState, MouseEvent } from "react";
+import React, { useEffect, useState } from "react";
 import { useFormik } from "formik";
 import { useMutation } from "@tanstack/react-query";
 
@@ -7,23 +7,13 @@ import BookACallButton from "../../BookACallButton";
 
 import * as Styled from "../../../styles/BookModalForm/Form.styled";
 import * as Styles from "../../../styles/HomePage/General.styled";
+
 import { IBookModalData } from "../../../types/Mail.types";
+import { IFormProps, IFormState } from "../../../types/ModalCategory.types";
+
 import { adminBookService } from "../../../services/adminBookServiceModal";
+
 import { BookModalValidation } from "../../../validations/BookModalValidation";
-
-export interface IFormState {
-  name: string;
-  email: string;
-  phone: string;
-  country: string;
-  service: string;
-  details: string;
-}
-
-interface IFormProps {
-  onClose: (e?: MouseEvent<HTMLDivElement | HTMLButtonElement>) => void;
-  isOpen: boolean;
-}
 
 declare global {
   interface Window {
@@ -33,7 +23,6 @@ declare global {
 
 const BookForm = ({ onClose, isOpen }: IFormProps) => {
   const [calendlyIsOpen, setCalendlyIsOpen] = useState<boolean>(false);
-  const [value, setValue] = useState<string>("");
   const [country, setCountry] = useState<string>("");
   const [name, setName] = useState<string>("");
   const [email, setEmail] = useState<string>("");
@@ -44,9 +33,9 @@ const BookForm = ({ onClose, isOpen }: IFormProps) => {
   });
 
   const fieldContent = {
-    name: "Your name",
+    name: "Your Name",
     email: "Email",
-    phone: "Phone number",
+    phone: "Phone Number",
   };
 
   const sendTeamEmail = useMutation((data: IBookModalData) =>
@@ -70,7 +59,7 @@ const BookForm = ({ onClose, isOpen }: IFormProps) => {
       sendTeamEmail.mutate({
         name: values.name,
         email: values.email,
-        phone: value,
+        phone: values.phone,
         country: country,
         service: "Mobile Development",
         details: "",
@@ -89,7 +78,6 @@ const BookForm = ({ onClose, isOpen }: IFormProps) => {
       setErrors({});
       resetForm();
       setCountry("");
-      setValue("");
     },
   });
 
@@ -128,8 +116,6 @@ const BookForm = ({ onClose, isOpen }: IFormProps) => {
       >
         {Object.entries(fieldContent).map(([key, label]) => (
           <FormField
-            value={value}
-            setValue={setValue}
             setCountry={setCountry}
             btnIsClicked={btnState.isClicked}
             name={key as keyof IFormState}

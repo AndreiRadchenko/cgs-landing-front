@@ -1,13 +1,13 @@
 import React from "react";
+
 import ArticleReadMoreItem from "../ArticleReadMoreItem/ArticleReadMoreItem";
-import * as Styles from "./ArticleReadMore.styled";
-import { IArticle } from "../../types/Admin/Response.types";
-import { useWindowDimension } from "../../hooks/useWindowDimension";
 import BlogItem from "../Blog/BlogItem";
 
-interface IArticleReadMore {
-  readMore: IArticle[];
-}
+import * as Styles from "./ArticleReadMore.styled";
+
+import { IArticleReadMore } from "../../types/Blog.types";
+
+import { useWindowDimension } from "../../hooks/useWindowDimension";
 
 const ArticleReadMore = ({ readMore }: IArticleReadMore) => {
   const { width } = useWindowDimension();
@@ -20,15 +20,9 @@ const ArticleReadMore = ({ readMore }: IArticleReadMore) => {
       <Styles.ReadMoreItemsWrapper>
         {readMore.map((article) =>
           width && width >= 768 ? (
-            <ArticleReadMoreItem
-              key={article._id}
-              article={article}
-            />
+            <ArticleReadMoreItem key={article._id} article={article} />
           ) : (
-            <BlogItem
-              article={article}
-              key={article._id}
-            />
+            <BlogItem article={article} key={article._id} />
           )
         )}
       </Styles.ReadMoreItemsWrapper>

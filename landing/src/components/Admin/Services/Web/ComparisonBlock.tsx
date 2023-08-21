@@ -13,6 +13,7 @@ import {
   ArrowContainer,
   BlackButton,
 } from "../../../../styles/HomePage/General.styled";
+
 import ButtonArrow from "../../../../utils/ButtonArrow";
 import HistoryLink from "../../HistoryLink";
 

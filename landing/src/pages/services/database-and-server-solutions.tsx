@@ -1,10 +1,10 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { NextPage } from "next";
 import parse from "html-react-parser";
 import { useQuery, QueryClient, dehydrate } from "@tanstack/react-query";
 import Head from "next/head";
 
-import HeadBlock from "../../components/DbService/HeadBlock";
+import HeadBlock from "../../components/DbService/HeadBlockDb";
 import HeaderNavNew from "../../components/HeaderNavNew/HeaderNavNew";
 import FooterNew from "../../components/FooterNew/FooterNew";
 import { adminGlobalService } from "../../services/adminHomePage";
@@ -12,7 +12,7 @@ import { adminDbService } from "../../services/services/adminServicesDbPage";
 import { adminPortfolioService } from "../../services/adminPortfolioPage";
 import SelectBlock from "../../components/DbService/SelectBlock";
 import FeaturesBlock from "../../components/DbService/FeaturesBlock";
-import FooterBlock from "../../components/DbService/FooterBlock";
+import FooterBlock from "../../components/DbService/FooterBlockDb";
 import ShowCase from "../../components/ShowCase";
 import {
   BonusesComponent,
@@ -20,9 +20,11 @@ import {
 } from "../../components/ServisesComponents";
 import CalendlyInfoModal from "../../components/Calendly/CalendlyInfoModal";
 import { Loader, LoaderStub } from "../../components/Loader";
+import { calendlyPopupInfoHandler } from "../../utils/calendlyPopupInfoHandler";
 
 import * as Styled from "../../styles/DbService/Layout";
 import { Layout, PageArticle } from "../../styles/Layout.styled";
+
 import { queryKeys } from "../../consts/queryKeys";
 
 export async function getServerSideProps() {
@@ -58,25 +60,7 @@ const DbSolutions: NextPage = () => {
 
   const { metaTitle, metaDescription, customHead } = { ...data?.meta };
 
-  useEffect(() => {
-    const calendlyStatusFinder = (e: any) => {
-      window.dataLayer = window.dataLayer || [];
-
-      if (
-        e.data.event &&
-        e.data.event.indexOf("calendly") === 0 &&
-        e.data.event === "calendly.event_scheduled"
-      ) {
-        setIsCalendlySuccessfull(true);
-      }
-    };
-
-    window.addEventListener("message", calendlyStatusFinder);
-
-    return () => {
-      window.removeEventListener("message", calendlyStatusFinder);
-    };
-  }, []);
+  calendlyPopupInfoHandler(() => setIsCalendlySuccessfull(true));
 
   return (
     <Loader active={isLoading}>
@@ -115,7 +99,7 @@ const DbSolutions: NextPage = () => {
 
             <Layout>
               <Styled.BonusesAlign>
-              <BonusesComponent bonuses={data?.bonuses}/>
+                <BonusesComponent bonuses={data?.bonuses} />
               </Styled.BonusesAlign>
               <OtherServices otherServices={data?.otherServices} />
               <Styled.Layout>

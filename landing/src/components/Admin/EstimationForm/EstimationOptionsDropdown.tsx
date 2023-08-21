@@ -5,7 +5,7 @@ import AdminDropDown from "../Global/AdminDropDown";
 
 const options = [
   { optionType: "RADIO_BUTTON", optionText: "Radio button" },
-  { optionType: "CHECKBOX", optionText: "List" },
+  { optionType: "CHECKBOX", optionText: "Checkbox" },
   { optionType: "TEXT", optionText: "< Text >" },
 ];
 
@@ -17,7 +17,7 @@ const EstimationOptionsDropdown = () => {
           <AdminDropDown
             size="primary"
             optionsMenu={options}
-            value="select an option"
+            value={field.value || "select an option"}
             setValue={field.onChange(field.name)}
           />
         );

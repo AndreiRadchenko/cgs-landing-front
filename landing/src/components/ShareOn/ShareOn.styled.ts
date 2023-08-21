@@ -3,8 +3,7 @@ import themes from "../../utils/themes";
 
 export const Wrapper = styled.section`
   display: flex;
-  justify-content: space-between;
-  column-gap: 20px;
+  column-gap: 24px;
   align-items: center;
   width: 356px;
 
@@ -13,7 +12,8 @@ export const Wrapper = styled.section`
   }
 
   @media ${themes.primary.media.minPCFullHD} {
-    width: 470px;
+    column-gap: 30px;
+    width: 432px;
   }
   @media ${themes.primary.media.maxTabletPortrait} {
     align-items: center;
@@ -22,7 +22,7 @@ export const Wrapper = styled.section`
 
   @media ${themes.primary.media.maxMobile} {
     flex-direction: column;
-    row-gap: 1.375rem;
+    row-gap: 16px;
     align-items: flex-start;
 
     &.web {
@@ -30,7 +30,7 @@ export const Wrapper = styled.section`
     }
 
     &.mobile {
-      margin-top: 24px;
+      margin-top: 10px;
       display: flex;
     }
   }
@@ -41,12 +41,35 @@ export const Text = styled.div`
   font-weight: ${themes.primary.font.weight.semiBold};
   font-family: ${themes.primary.font.family.openSans};
   min-width: 125px;
-  margin-right: 5px;
+  color: #272C2F;
+
+  &.articleShare {
+    font-size: 2.1em;
+  }
+
   @media ${themes.primary.media.minPC} {
     font-size: ${themes.primary.font.size.articleTagDescription};
+
+    &.articleShare {
+      font-size: 1.8em;
+    }
   }
   @media ${themes.primary.media.minPCFullHD} {
     font-size: ${themes.primary.font.size.articleSubtitle};
+
+    &.articleShare {
+      font-size: 1.615em;
+    }
+  }
+
+  @media ${themes.primary.media.maxTabletLandScape} {
+    &.articleShare {
+      font-size: 1.8em;
+    }
+  }
+
+  @media ${themes.primary.media.maxMobile} {
+    font-size: 20px;
   }
 `;
 
@@ -54,6 +77,13 @@ export const IconImage = styled.img`
   max-width: 26px;
   max-height: 26px;
   object-fit: contain;
+
+  @media ${themes.primary.media.minPCFullHD} {
+    max-width: 42.5px;
+    max-height: 42.5px;
+    width: 35px;
+    height: 35px;
+  }
 `;
 
 export const IconBlock = styled.div`
@@ -72,9 +102,22 @@ export const IconBlock = styled.div`
     filter: invert(100%) sepia(100%) saturate(0%) hue-rotate(205deg)
       brightness(111%) contrast(101%);
   }
+
+  @media ${themes.primary.media.minPCFullHD} {
+    width: 65px;
+    height: 65px;
+  }
+
+  @media ${themes.primary.media.maxMobile} {
+    border-top: 0.7px solid rgba(0, 0, 0, 0.25);
+  }
 `;
 
 export const IconsWrapper = styled.div`
   display: flex;
-  column-gap: 20px;
+  column-gap: 16px;
+
+  @media ${themes.primary.media.minPCFullHD} {
+    column-gap: 20px;
+  }
 `;

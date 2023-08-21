@@ -1,10 +1,8 @@
 import React, { FC } from "react";
+
 import * as StyledThisComp from "../../styles/Burger.styles";
 
-interface IBurgerButtonProps {
-  isOpen: boolean;
-  onToggle: () => void;
-}
+import { IBurgerButtonProps } from "../../types/Button.types";
 
 const BurgerButton: FC<IBurgerButtonProps> = ({ isOpen, onToggle }) => {
   return (

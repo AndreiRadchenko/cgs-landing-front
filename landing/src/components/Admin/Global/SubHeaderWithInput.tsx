@@ -1,5 +1,7 @@
 import React from "react";
+
 import * as Styled from "../../../styles/AdminPage";
+
 import { InputWithHeader } from "../../../types/Admin/Admin.types";
 
 const SubHeaderWithInput = ({
@@ -17,6 +19,8 @@ const SubHeaderWithInput = ({
   id,
   inputStyle,
   isMetaField = false,
+  isError,
+  maxLength,
 }: InputWithHeader) => {
   return (
     <div>
@@ -24,12 +28,14 @@ const SubHeaderWithInput = ({
         {header}
       </Styled.AdminSubTitle>
       <Styled.AdminInput
+        isError={isError}
         className={isMetaField ? "metaField" : undefined}
         onInput={onInputFunction}
         placeholder={placeholder}
         value={inputValue}
         onChange={onChangeFunction}
         name={name}
+        maxLength={maxLength}
         minRows={minRows}
         height={height}
         width={width}

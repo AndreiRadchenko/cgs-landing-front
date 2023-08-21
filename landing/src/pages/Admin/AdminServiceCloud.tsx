@@ -1,11 +1,15 @@
 import React from "react";
 import { useQuery } from "@tanstack/react-query";
-import { queryKeys } from "../../consts/queryKeys";
-import { validTokenGlobal } from "../../services/validToken";
+
 import AdminSidebar from "../../components/Admin/SideBar/AdminSidebar";
-import * as Styled from "../../styles/AdminPage";
 import AdminServiceCloudContent from "../../components/Admin/Services/Cloud/AdminServiceCloudContent";
 import AdminHeader from "../../components/Admin/Header/AdminHeader";
+
+import * as Styled from "../../styles/AdminPage";
+
+import { queryKeys } from "../../consts/queryKeys";
+
+import { validTokenGlobal } from "../../services/validToken";
 
 const AdminServiceCloud = () => {
   const { data } = useQuery([queryKeys.validToken], () =>

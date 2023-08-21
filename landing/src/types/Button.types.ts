@@ -1,4 +1,4 @@
-import React from "react";
+import React, { CSSProperties, ReactNode, SetStateAction } from "react";
 
 export interface IBaseButtonProps {
   children: React.ReactNode;
@@ -24,11 +24,43 @@ export interface IStyledButtonProps {
   letterSpacing: string;
 }
 
-export interface IButtonTextProps {
-  fontSize?: string;
-  children: React.ReactNode;
+export interface IBlackButtonProps {
+  href?: string;
+  style?: CSSProperties;
+  text?: string;
+  onClick?: () => void;
 }
 
-export type LetsCodeFormPropTypes = {
-  setButtonIsHovered: React.Dispatch<React.SetStateAction<boolean>>;
-};
+export interface IBookACallButtonProps {
+  name: string;
+  email: string;
+  buttonText?: string;
+  buttonLink: string;
+  buttonClassName?: string;
+  type?: string;
+  handleClose?: any;
+  calendlyIsOpen: boolean;
+  setCalendlyIsOpen: React.Dispatch<SetStateAction<boolean>>;
+}
+
+export interface IBurgerButtonProps {
+  isOpen: boolean;
+  onToggle: () => void;
+}
+
+export interface IBurgerMenuProps {
+  isOpen: boolean;
+  children?: ReactNode[];
+  burgerRef?: React.RefObject<HTMLDivElement>;
+}
+
+export interface IContactButton {
+  className?: string;
+  picture?: string;
+  pictureWidth?: string;
+  pictureHeight?: string;
+  text?: string;
+  link?: string;
+  style?: CSSProperties;
+  newTab?: boolean;
+}

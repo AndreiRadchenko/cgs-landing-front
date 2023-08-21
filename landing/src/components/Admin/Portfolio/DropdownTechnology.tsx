@@ -3,21 +3,21 @@ import Image from "next/image";
 import { Field, useFormikContext } from "formik";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 
+import { technologiesService } from "../../../services/technologies";
+import { queryKeys } from "../../../consts/queryKeys";
+import TrashIconBtn from "../RateCard/trashIconBtn";
+import Arrow from "../../../../public/upArrowSidebar.svg";
+
 import * as Styled from "../../../styles/AdminPortfolio";
 import * as Styles from "../../../styles/AdminPage";
-
-import Arrow from "../../../../public/upArrowSidebar.svg";
 
 import {
   IPortfolioReview,
   ITechnology,
 } from "../../../types/Admin/AdminPortfolio.types";
-import TrashIconBtn from "../RateCard/trashIconBtn";
-import { queryKeys } from "../../../consts/queryKeys";
-import { adminPortfolioService } from "../../../services/adminPortfolioPage";
 
 interface IDropdownProps {
-  technologies: ITechnology[];
+  technologies: ITechnology[] | undefined;
   isError?: boolean;
 }
 
@@ -32,8 +32,8 @@ const DropdownTechnology = ({ technologies, isError }: IDropdownProps) => {
   );
 
   const { mutateAsync: deleteTech } = useMutation(
-    [queryKeys.removePortfolioTech],
-    (id: string) => adminPortfolioService.removeTechnology(id),
+    [queryKeys.removeTechnologies],
+    (id: string) => technologiesService.removeTechnology(id),
     {
       onSuccess: () => {
         queryClient.invalidateQueries([queryKeys.getPortfolioPage]);
@@ -47,6 +47,7 @@ const DropdownTechnology = ({ technologies, isError }: IDropdownProps) => {
       !prevState.includes(tech) ? [tech, ...prevState] : prevState
     );
   };
+
   const removeTagHandler = (idx: number) => {
     const temp = [...techArr];
     temp.splice(idx, 1);
@@ -75,9 +76,10 @@ const DropdownTechnology = ({ technologies, isError }: IDropdownProps) => {
   useEffect(() => {
     setFieldValue("technologies", techArr);
   }, [techArr]);
+
   useEffect(() => {
     const thirdArray = values.technologies.filter((elem) => {
-      return technologies.some((ele) => {
+      return technologies?.some((ele) => {
         return ele._id === elem._id && ele.name === elem.name;
       });
     });

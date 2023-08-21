@@ -69,18 +69,35 @@ export const BlackButton = styled.a<IFontSize>`
     height: 3.225em;
   }
 
+  &.ai,
+  &.cloudSolution,
+  &.webDev,
   &.social-button {
-    display: flex;
+    display: inline-flex;
     justify-content: center;
-    padding: 0;
-    align-items: center;
-    min-width: 12.45em;
-    height: 3.225em;
-    font-size: 1.125em;
+    align-items: flex-start;
+    text-align: center;
+    font-weight: 900;
+    padding: 16px 15.4px;
+    font-size: 1.375em;
+    text-transform: uppercase;
+  }
+
+  &.mobileDev {
+    display: inline-flex;
+    justify-content: center;
+    align-items: flex-start;
+    text-align: center;
+    font-weight: 900;
+    padding: 16px 15.4px;
+    font-size: 1.83333em;
+    text-transform: uppercase;
   }
 
   &.services {
-    font-size: 1.5em;
+    font-size: 22px;
+    padding: 16.5px 15.5px;
+    text-transform: uppercase;
   }
 
   &.cta-button {
@@ -143,7 +160,38 @@ export const BlackButton = styled.a<IFontSize>`
     &.homePage,
     &.main,
     &.scrolled {
+      padding: 0.822em 0.78em;
+      font-size: 1.52em;
+    }
+
+    &.webDev {
       padding: 0.8em 1em;
+    }
+
+    &.cloudSolution {
+      padding: 0.8em 1em;
+      font-size: 1.58em;
+    }
+
+    &.ai,
+    &.social-button {
+      padding: 0.8em 1em;
+      font-size: 1.83em;
+    }
+
+    &.mobileDev {
+      padding: 0.8em 1em;
+      font-size: 2.2em;
+    }
+
+    &.services {
+      font-size: 33px;
+      padding: 24.75px 23.25px;
+    }
+
+    &.seeAll {
+      font-size: 1.52em;
+      padding: 0.825em 0.821em 0.8213em 0.78em;
     }
   }
 
@@ -153,10 +201,21 @@ export const BlackButton = styled.a<IFontSize>`
 
   @media (max-width: 992px) {
     &.seeAll,
+    &.mobileDev,
     &.homePage,
     &.main,
     &.scrolled {
       font-size: 1.33em;
+    }
+
+    &.ai,
+    &.cloudSolution,
+    &.webDev {
+      font-size: 1.13em;
+    }
+
+    &.social-button {
+      font-size: 1.42em;
     }
   }
 
@@ -179,9 +238,17 @@ export const BlackButton = styled.a<IFontSize>`
       font-size: 16px;
     }
 
+    &.ai,
+    &.webDev,
+    &.cloudSolution,
     &.social-button {
-      min-width: 178px;
-      height: 54px;
+      padding: 17.1px 17.55px;
+      font-size: 16px;
+    }
+
+    &.mobileDev {
+      min-width: 209px;
+      padding: 17.1px 17.55px;
       font-size: 16px;
     }
 
@@ -198,6 +265,14 @@ export const BlackButton = styled.a<IFontSize>`
 
     &.footer-home {
       margin-top: 1em;
+    }
+
+    &.services {
+      font-size: 16px;
+      padding: 17.5px 31.5px;
+    }
+    &.services&.header {
+      padding: 17.5px 18px;
     }
   }
 
@@ -282,9 +357,17 @@ export const MainSubtitle = styled.div`
     }
   }
 
+  @media ${themes.primary.media.minPCFullHD} {
+    &.homePage {
+      font-size: 1.803em;
+      margin-top: 37px;
+      margin-bottom: 53px;
+    }
+  }
+
   @media (max-width: 2560px) {
     &.homePage {
-      width: 22em;
+      width: 23em;
     }
   }
 
@@ -332,7 +415,11 @@ export const HeadBlockContent = styled.header`
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  margin-top: 8.75em;
+  margin-top: 119px;
+
+  @media ${themes.primary.media.minPCFullHD} {
+    margin-top: 158px;
+  }
 
   @media ${themes.primary.media.maxMobile} {
     margin-top: 0;
@@ -346,8 +433,8 @@ export const Tetris = styled.div`
   top: 18px;
 
   @media ${themes.primary.media.minPCFullHD} {
-    top: 80px;
-    width: 28em;
+    top: 32px;
+    width: 32.7em;
   }
   @media (max-width: 1400px) {
     right: 70px;
@@ -382,8 +469,12 @@ export const TetrisGroup = styled.g<{ coinsTranslate: string }>`
 
 export const HeadBlockRow = styled.section`
   display: flex;
-  margin-top: 38px;
+  margin-top: 24px;
   width: 100%;
+
+  @media ${themes.primary.media.minPCFullHD} {
+    margin-top: 32px;
+  }
 
   @media ${themes.primary.media.maxTabletPortrait} {
     margin-top: 0;
@@ -471,7 +562,8 @@ export const Subtitle = styled.div<ISubtitle>`
   }
 
   @media ${themes.primary.media.minPCFullHD} {
-    font-size: 5em;
+    font-size: 5.105em;
+    margin: 0;
 
     span {
       &.tech {
@@ -479,6 +571,14 @@ export const Subtitle = styled.div<ISubtitle>`
         height: 1.3229em;
       }
     }
+
+    .foooter {
+    margin-top: 160px;
+    margin-bottom: -7px;
+    p {
+      margin: 0;
+    }
+  }
   }
 
   @media (max-width: 1370px) {
@@ -584,7 +684,7 @@ export const NextTech = styled.section`
   margin-top: 18.5em;
 
   @media ${themes.primary.media.minPCFullHD} {
-    margin-top: 10.5em;
+    margin-top: 20.42em;
   }
   @media ${themes.primary.media.maxTabletLandScape} {
     margin-top: 10.5em;
@@ -627,6 +727,10 @@ export const FooterButtonWrapper = styled.span`
 
 export const FooterWhatsAppContainer = styled.div`
   margin-bottom: 162px;
+
+  @media ${themes.primary.media.minPCFullHD} {
+    margin-bottom: 217px;
+  }
 
   @media ${themes.primary.media.maxMobile} {
     margin-bottom: 6em;
@@ -763,7 +867,44 @@ export const WhatsAppWrapper = styled.div`
     }
   }
 
+  &.services {
+    font-size: 18px;
+  }
+
+  @media ${themes.primary.media.minPCFullHD} {
+    &.homePage {
+      font-size: 1.25em;
+    }
+
+    &.webDev {
+      font-size: 1.1em;
+    }
+
+    &.cloudSolution {
+      font-size: 1.25em;
+    }
+
+    &.mobileDev,
+    &.webAudit {
+      font-size: 1.8em;
+    }
+
+    &.services {
+      font-size: 27px;
+    }
+  }
+
   @media (max-width: 992px) {
+    &.webDev {
+      font-size: 1.13em;
+    }
+
+    &.blockchain {
+      font-size: 1.41em;
+    }
+
+    &.webAudit,
+    &.mobileDev,
     &.homePage {
       font-size: 1.33em;
     }
@@ -777,9 +918,7 @@ export const WhatsAppWrapper = styled.div`
     &.cta-share-button,
     &.portfolio-share-button,
     &.homePage,
-    &.webAudit,
-    &.mobileDev,
-    &.dappAuditShare {
+    &.services {
       font-size: 16px;
     }
   }
@@ -809,6 +948,10 @@ export const TelegramWrapper = styled.div`
     font-size: 1.5em;
   }
 
+  &.services {
+    font-size: 18px;
+  }
+
   &:hover {
     color: ${themes.primary.colors.darkBlue};
 
@@ -817,7 +960,40 @@ export const TelegramWrapper = styled.div`
     }
   }
 
+  @media ${themes.primary.media.minPCFullHD} {
+    &.homePage {
+      font-size: 1.25em;
+    }
+    
+    &.webDev {
+      font-size: 1.1em;
+    }
+
+    &.cloudSolution {
+      font-size: 1.25em;
+    }
+
+    &.mobileDev,
+    &.webAudit {
+      font-size: 1.8em;
+    }
+
+    &.services {
+      font-size: 27px;
+    }
+  }
+
   @media (max-width: 992px) {
+    &.webDev {
+      font-size: 1.13em;
+    }
+
+    &.blockchain {
+      font-size: 1.41em;
+    }
+
+    &.webAudit,
+    &.mobileDev,
     &.homePage {
       font-size: 1.33em;
     }
@@ -832,9 +1008,7 @@ export const TelegramWrapper = styled.div`
     &.cta-share-button,
     &.portfolio-share-button,
     &.homePage,
-    &.webAudit,
-    &.mobileDev,
-    &.dappAuditShare {
+    &.services {
       font-size: 16px;
     }
   }
@@ -850,8 +1024,8 @@ export const TelegramIconWrapper = styled.div`
   width: 22px;
   height: 22px;
   @media ${themes.primary.media.minPCFullHD} {
-    width: 1.4em;
-    height: 1.4em;
+    width: 1.22em;
+    height: 1.22em;
   }
 
   @media ${themes.primary.media.maxMobile} {
@@ -886,8 +1060,8 @@ export const WhatsAppIconWrapper = styled.div`
   filter: brightness(0);
 
   @media ${themes.primary.media.minPCFullHD} {
-    width: 1.4em;
-    height: 1.4em;
+    width: 1.22em;
+    height: 1.22em;
   }
 
   @media ${themes.primary.media.maxMobile} {
@@ -990,6 +1164,16 @@ export const DropdownButton = styled.button<{ isHeader?: boolean }>`
   &.blog {
     font-size: 1.1667em;
 
+    @media ${themes.primary.media.minPCFullHD} {
+      font-size: 0.75em;
+      padding: 0 15px;
+      height: 2.45em;
+
+      &.blog {
+        width: 9.2em;
+      }
+    }
+
     @media ${themes.primary.media.maxMobile} {
       font-size: 0.875rem;
     }
@@ -1047,6 +1231,16 @@ export const DropdownContent = styled.div`
     &.checked {
       color: ${themes.primary.colors.comment};
     }
+
+    @media ${themes.primary.media.maxMobile} {
+      font-size: 14px;
+    }
+  }
+
+  @media ${themes.primary.media.minPCFullHD} {
+    div {
+      font-size: 0.75em;
+    }
   }
 
   @media ${themes.primary.media.maxMobile} {
@@ -1057,11 +1251,17 @@ export const DropdownContent = styled.div`
 export const DropdownContainer = styled.div`
   display: flex;
   justify-content: right;
-  margin-bottom: 25px;
+  margin-bottom: 32px;
   align-items: flex-end;
   column-gap: 20px;
   flex-wrap: wrap;
   row-gap: 12px;
+
+  @media ${themes.primary.media.minPCFullHD} {
+    &.blog {
+      margin-bottom: 40px;
+    }
+  }
 
   @media ${themes.primary.media.maxMobile} {
     margin-bottom: 1.375rem;

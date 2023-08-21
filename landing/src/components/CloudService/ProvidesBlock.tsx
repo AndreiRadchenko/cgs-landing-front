@@ -1,16 +1,23 @@
 import React, { useRef } from "react";
 import { useQueryClient } from "@tanstack/react-query";
+import parse from "html-react-parser";
+
+import { MobileInfiniteText } from "../MobileInfiniteText/MobileInfiniteText";
+
+import * as Styled from "../../styles/CloudService/Provides.styled";
+import { Subtitle } from "../../styles/CloudService/Layout";
+
 import { queryKeys } from "../../consts/queryKeys";
+
 import { ICloudService } from "../../types/Admin/Response.types";
 import { IServicesClassnameProps } from "../../types/Services.types";
-import { Subtitle } from "../../styles/CloudService/Layout";
+
 import { SplitBrackets } from "../../utils/splitBrackets";
+
+import { useOnScreen } from "../../hooks/useOnScreen";
+
 import cloudProvidesBgi from "../../../public/CloudServicePage/cloudProvidesBgi.svg";
 import cloudProvidesMobile from "../../../public/CloudServicePage/cloud-provides-mobile-new.svg";
-import * as Styled from "../../styles/CloudService/Provides.styled";
-import parse from "html-react-parser";
-import { useOnScreen } from "../../hooks/useOnScreen";
-import { MobileInfiniteText } from "../MobileInfiniteText/MobileInfiniteText";
 
 const ProvidesBlock = ({ className }: IServicesClassnameProps) => {
   const queryClient = useQueryClient();

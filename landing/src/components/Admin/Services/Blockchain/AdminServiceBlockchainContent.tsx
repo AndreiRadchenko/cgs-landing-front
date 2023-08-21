@@ -1,11 +1,19 @@
 import { Formik } from "formik";
 import React from "react";
 import { useMutation, useQuery } from "@tanstack/react-query";
-import { queryKeys } from "../../../../consts/queryKeys";
-import { IBlockchainService } from "../../../../types/Admin/Response.types";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
 import ServiceBlockchainContentBlock from ".";
-import { adminBlockchainService } from "../../../../services/services/AdminServiceBlockchainPage";
+import { CustomToast } from "../../CustomToast";
+
 import * as Styled from "../../../../styles/AdminPage";
+
+import { queryKeys } from "../../../../consts/queryKeys";
+
+import { IBlockchainService } from "../../../../types/Admin/Response.types";
+
+import { adminBlockchainService } from "../../../../services/services/AdminServiceBlockchainPage";
 
 const AdminServiceBlockchainContent = () => {
   const { data, isLoading, refetch } = useQuery(
@@ -15,8 +23,16 @@ const AdminServiceBlockchainContent = () => {
 
   const { mutateAsync: updateFaqPage } = useMutation(
     [queryKeys.updateServiceBlockchainPage],
-    (data: IBlockchainService) =>
-      adminBlockchainService.updateBlockchainDevelopmentPage(data)
+    async (data: IBlockchainService) => {
+      return await toast.promise(
+        adminBlockchainService.updateBlockchainDevelopmentPage(data),
+        {
+          pending: "Pending update",
+          success: "Blockchain updated successfully 👌",
+          error: "Some things went wrong 🤯",
+        }
+      );
+    }
   );
 
   const submitForm = async (values: IBlockchainService) => {
@@ -30,7 +46,10 @@ const AdminServiceBlockchainContent = () => {
     <Styled.AdminUnauthorizedModal>Loading...</Styled.AdminUnauthorizedModal>
   ) : data !== undefined ? (
     <Formik initialValues={data!} onSubmit={submitForm}>
-      <ServiceBlockchainContentBlock />
+      <>
+        <ServiceBlockchainContentBlock />
+        <CustomToast />
+      </>
     </Formik>
   ) : (
     <Styled.AdminUnauthorizedModal>

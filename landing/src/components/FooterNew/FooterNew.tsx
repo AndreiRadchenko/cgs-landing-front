@@ -6,18 +6,24 @@ import React, {
   useRef,
   useState,
 } from "react";
-import * as StyledThisComp from "./Footer.styled";
 import Link from "next/link";
-import { useWindowDimension } from "../../hooks/useWindowDimension";
-import { DisableScrollBarHandler } from "../../utils/disableScrollBarHandler";
-import { useQuery } from "@tanstack/react-query";
-import { IDataResponse } from "../../types/Admin/Response.types";
-import { queryKeys } from "../../consts/queryKeys";
 import Image from "next/image";
-import smallMountain from "/public/smallMountain.svg";
+import { useQuery } from "@tanstack/react-query";
+
 import Logo from "../HeaderNavNew/Logo";
 import ExplanationEmailField from "./ExplanationEmailField/ExplanationEmailField";
+
+import * as StyledThisComp from "./Footer.styled";
+
+import { IDataResponse } from "../../types/Admin/Response.types";
+
+import { DisableScrollBarHandler } from "../../utils/disableScrollBarHandler";
+
+import { queryKeys } from "../../consts/queryKeys";
+import { useWindowDimension } from "../../hooks/useWindowDimension";
 import { adminGlobalService } from "../../services/adminHomePage";
+
+import smallMountain from "/public/smallMountain.svg";
 
 interface IFooterProps {
   className?: string;
