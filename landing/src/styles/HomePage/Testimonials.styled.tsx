@@ -15,12 +15,13 @@ export const TestimonialsModalContainer = styled.div`
 
 export const TestimonialsVideoContainer = styled.div`
   position: relative;
-  width: 59.9em;
+  width: 59.5em;
   min-height: 53.3em;
-  border: 1.5px solid ${themes.primary.colors.primary};
+  box-shadow: 0 0 0 1.5px black;
   background: ${themes.primary.colors.grey};
 
   @media ${themes.primary.media.maxMobile} {
+    box-shadow: 0 0 0 1px black;
     width: 360px;
     min-height: 448px;
 
@@ -56,7 +57,14 @@ export const TestimonialsCrossWrapper = styled.div`
 `;
 
 export const TestimonialsModalVideoContainer = styled.div`
+  box-shadow: 0 0 0 0.5px black;
   padding: 1.5em 2em 2em;
+
+  @media ${themes.primary.media.maxMobile} {
+    box-shadow: none;
+    padding: 0.67em;
+    padding-top: 0.77em;
+  }
 `;
 
 export const TestimonialsVideoInfoContainer = styled.div`
@@ -260,8 +268,8 @@ export const HoverBlockTestimonials = styled.div`
   height: 100%;
   position: absolute;
   background: ${themes.primary.colors.blogBackground};
-  right: -10px;
-  bottom: -10px;
+  right: -14px;
+  bottom: -14px;
   border: 1.5px solid ${themes.primary.colors.primary};
   z-index: -1;
   display: flex;
@@ -322,6 +330,10 @@ export const TestimonialsSwiperContainer = styled.div`
     height: 25em;
   }
 
+  .swiper-wrapper {
+    column-gap: 24px;
+  }
+
   @media ${themes.primary.media.minPCFullHD} {
     margin-top: 1.67em;
     margin-bottom: 8.34em;
@@ -336,13 +348,19 @@ export const TestimonialsSwiperContainer = styled.div`
     margin-top: 16px;
     margin-bottom: 90px;
     margin-inline: -1.925em;
+
+    .swiper-wrapper {
+      column-gap: 0px;
+    }
   }
+
   @media ${themes.primary.media.maxLowScreenMobile} {
     .swiper-slide {
       width: 100%;
       height: 293px;
     }
   }
+
   @media (max-width: 380px) {
     .swiper-slide {
       width: 100%;
