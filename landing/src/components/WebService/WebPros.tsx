@@ -14,11 +14,9 @@ import { useOnScreen } from "../../hooks/useOnScreen";
 import bgImage from "../../../public/WebService/secondBlockBg.svg";
 import bgMobileImage from "../../../public/WebService/web-development-mobile.svg";
 
-type ServiceDataType = Omit<IServiceWeb, "lastModified">;
-
 const WebPros = () => {
   const queryClient = useQueryClient();
-  const rawData = queryClient.getQueryData<ServiceDataType>([
+  const rawData = queryClient.getQueryData<IServiceWeb>([
     queryKeys.getServiceWebPage,
   ])?.comparisonBlock;
 
