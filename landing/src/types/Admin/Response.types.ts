@@ -516,7 +516,6 @@ export interface ISubtitleWithText {
 export interface ISubtitleWithList {
   subtitle: string;
   list: string[];
-  lastModified?: string;
 }
 
 export interface IServiceWeb {
@@ -542,7 +541,11 @@ export interface IServiceWeb {
   };
   solutionBlock: ISubtitleWithText;
   projects: string[];
-  perksBlock: ISubtitleWithList;
+  perksBlock: {
+    subtitle: string;
+    list: string[];
+    lastModified?: string;
+  };
   footerBlock: {
     subtitle: string;
     button: string;
