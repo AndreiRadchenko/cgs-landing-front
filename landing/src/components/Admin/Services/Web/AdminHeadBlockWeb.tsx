@@ -1,19 +1,12 @@
 ﻿import { useFormikContext } from "formik";
 import React from "react";
-<<<<<<< HEAD:landing/src/components/Admin/Services/Web/MainBlock.tsx
 import { useQueryClient } from "@tanstack/react-query";
-=======
-
-import PhotoBlockDashed from "../../Global/PhotoBlockDashed";
-import SubHeaderWithInput from "../../Global/SubHeaderWithInput";
->>>>>>> staging:landing/src/components/Admin/Services/Web/AdminHeadBlockWeb.tsx
 
 import {
   AdminHeader,
   AdminHeaderGrid,
   AdminPaddedBlock,
 } from "../../../../styles/AdminPage";
-<<<<<<< HEAD:landing/src/components/Admin/Services/Web/MainBlock.tsx
 import PhotoBlockDashed from "../../Global/PhotoBlockDashed";
 import SubHeaderWithInput from "../../Global/SubHeaderWithInput";
 import HistoryLink from "../../HistoryLink";
@@ -21,35 +14,22 @@ import HistoryLink from "../../HistoryLink";
 import { IImage } from "../../../../types/Admin/Admin.types";
 import { IServiceWeb } from "../../../../types/Admin/Response.types";
 import { renderInputs } from "../../../../utils/renderInputs";
-=======
->>>>>>> staging:landing/src/components/Admin/Services/Web/AdminHeadBlockWeb.tsx
 import {
   ArrowContainer,
   BlackButton,
 } from "../../../../styles/HomePage/General.styled";
 
-import { IImage } from "../../../../types/Admin/Admin.types";
-import { IServiceWeb } from "../../../../types/Admin/Response.types";
-
-import { renderInputs } from "../../../../utils/renderInputs";
 import ButtonArrow from "../../../../utils/ButtonArrow";
 import useDeleteImageFunction from "../../../../hooks/useDeleteImageFunction";
 import useUploadImageFunction from "../../../../hooks/useUploadImageFunction";
 import { queryKeys } from "../../../../consts/queryKeys";
 
-<<<<<<< HEAD:landing/src/components/Admin/Services/Web/MainBlock.tsx
-const MainBlock = () => {
+const AdminHeadBlockWeb = () => {
   const queryClient = useQueryClient();
   const data = queryClient.getQueryData<IServiceWeb>([
     queryKeys.getServiceWebPage,
   ])?.headerBlock;
 
-=======
-import useDeleteImageFunction from "../../../../hooks/useDeleteImageFunction";
-import useUploadImageFunction from "../../../../hooks/useUploadImageFunction";
-
-const AdminHeadBlockWeb = () => {
->>>>>>> staging:landing/src/components/Admin/Services/Web/AdminHeadBlockWeb.tsx
   const { values, handleChange, handleSubmit } =
     useFormikContext<IServiceWeb>();
 
