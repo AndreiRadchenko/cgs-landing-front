@@ -29,7 +29,6 @@ interface IEstimationFormPageProps {
   values: IEstimationFormPage;
   pageNumber: number;
   refetch: () => void;
-  setIsCustomLoading: React.Dispatch<React.SetStateAction<boolean>>;
   pages: IEstimationFormPages;
 }
 
@@ -38,7 +37,6 @@ const EstimationFormPage = ({
   pageNumber,
   refetch,
   pages,
-  setIsCustomLoading,
 }: IEstimationFormPageProps) => {
   const textInput = useRef<HTMLTextAreaElement>(null);
   const buttonTextInput = useRef<HTMLTextAreaElement>(null);
@@ -61,7 +59,6 @@ const EstimationFormPage = ({
   const [isQuestionChanged, setIsQuestionChanged] = useState(false);
 
   const saveChagesHandler = useCallback(async () => {
-    setIsCustomLoading((prev) => !prev);
     document.body.style.cursor = "wait";
     await mutateAsync({
       pageId: values._id,
@@ -75,8 +72,7 @@ const EstimationFormPage = ({
     });
     await refetch();
     document.body.style.cursor = "auto";
-    setIsCustomLoading((prev) => !prev);
-  }, [mutateAsync, questions, refetch, setIsCustomLoading, values]);
+  }, [mutateAsync, questions, refetch, values]);
 
   const removeQuestion = (index: number) => {
     setQuestions(questions.filter((_, i) => i !== index));
