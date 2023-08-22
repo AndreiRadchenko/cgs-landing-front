@@ -10,7 +10,6 @@ import {
   EstimateFileType,
   EstimationFieldLabel,
   EstimationTextInput,
-  EstimationTextOfInput,
 } from "../../styles/EstimationForm.styled";
 import { EstimationField } from "../../types/EstimationForm.types";
 
@@ -36,6 +35,7 @@ const TextField = ({
   optionsType,
   optional,
   formData,
+  name,
   ...props
 }: EstimationField) => {
   const [filesPerQuestion, setFilesPerQuestion] = useState<File[]>(
@@ -122,6 +122,13 @@ const TextField = ({
     if (getTextFromHtml(title) === "Your Email")
       formik.setFieldValue(`email`, e.target.value);
   };
+
+  const getRightName = (title: string) => {
+    if (getTextFromHtml(title) === "Your Name") return "username";
+    if (getTextFromHtml(title) === "Your Email") return "email";
+    return `questionsArr.${index}.value`;
+  };
+
   return (
     <div style={{ position: "relative" }}>
       <EstimationFieldLabel dangerouslySetInnerHTML={{ __html: title }} />
@@ -145,7 +152,7 @@ const TextField = ({
           placeholder={
             attachFile ? "< Put your link//file here > " : `< ${placeholder} >`
           }
-          {...props}
+          name={getRightName(name)}
         />
         {attachFile && (
           <div>
