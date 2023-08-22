@@ -1,5 +1,10 @@
 import { IImage } from "./Admin/Admin.types";
 
+export interface IServiceHistory {
+  serviceName?: string;
+  queryKey?: string;
+}
+
 export interface IOtherService {
   imageColor: IImage;
   imageGrayscale: IImage;

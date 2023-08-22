@@ -20,8 +20,6 @@ const WebPros = () => {
     queryKeys.getServiceWebPage,
   ])?.comparisonBlock;
 
-  // const { lastModified, ...data } = rawData!;
-
   const elRef = useRef<HTMLDivElement>(null);
 
   const isScrolled = useOnScreen(elRef, true);

@@ -34,7 +34,7 @@ interface IMetaBlockProps {
   nameBefore?: string;
   sitemap?: string;
   queryKey?: string;
-  historyLink?: string;
+  serviceName?: string;
 }
 
 const META_TITLE_MIN = 10;
@@ -48,7 +48,7 @@ const MetaTagsBlock = ({
   nameBefore = "",
   sitemap,
   queryKey = "",
-  historyLink,
+  serviceName = "",
 }: IMetaBlockProps) => {
   const queryClient = useQueryClient();
   let metaData = null;
@@ -199,11 +199,11 @@ const MetaTagsBlock = ({
           }
           onChangeFunction={handleChange}
         />
-        {metaData?.lastModified && historyLink && (
+        {metaData?.lastModified && serviceName && (
           <HistoryLink
             sectionName="Meta"
             lastModified={metaData?.lastModified}
-            link={historyLink}
+            link={`/history/${serviceName}/meta`}
           />
         )}
         <BlackButton
