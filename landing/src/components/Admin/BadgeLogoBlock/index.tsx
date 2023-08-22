@@ -1,6 +1,6 @@
 import React from "react";
 import { useFormikContext } from "formik";
-import dynamic from "next/dynamic";
+// import dynamic from "next/dynamic";
 
 import useDeleteImageFunction from "../../../hooks/useDeleteImageFunction";
 import useUploadImageFunction from "../../../hooks/useUploadImageFunction";
@@ -12,9 +12,9 @@ import { IDataResponse } from "../../../types/Admin/Response.types";
 import * as Styled from "../../../styles/AdminPage";
 import removeLink from "../../../../public/linkIcon.svg";
 
-const TextEditor = dynamic(() => import("../../TextEditor/TextEditor"), {
-  ssr: false,
-});
+// const TextEditor = dynamic(() => import("../../TextEditor/TextEditor"), {
+//   ssr: false,
+// });
 
 const BadgeLogoBlock = () => {
   const deleteImageFunction = useDeleteImageFunction();
@@ -100,7 +100,7 @@ const BadgeLogoBlock = () => {
         ))}
       </Styled.AdminFreeServicesContent>
 
-      <Styled.AdminCalendlyPopup>
+      {/* <Styled.AdminCalendlyPopup>
         <Styled.AdminCalendlyPopupDescription>
           <TextEditor
             header="Twisted block"
@@ -110,7 +110,35 @@ const BadgeLogoBlock = () => {
             }}
           />
         </Styled.AdminCalendlyPopupDescription>
-      </Styled.AdminCalendlyPopup>
+      </Styled.AdminCalendlyPopup> */}
+
+      <div style={{ maxWidth: "50%" }}>
+        <h1>Projector block</h1>
+        <SubHeaderWithInput
+          inputValue={data.projectorBlock.title}
+          onChangeFunction={handleChange}
+          name="BadgesBlock.projectorBlock.title"
+          header="Title"
+        />
+        <SubHeaderWithInput
+          inputValue={data.projectorBlock.text}
+          onChangeFunction={handleChange}
+          name="BadgesBlock.projectorBlock.text"
+          header="Text"
+        />
+        <SubHeaderWithInput
+          inputValue={data.projectorBlock.button}
+          onChangeFunction={handleChange}
+          name="BadgesBlock.projectorBlock.button"
+          header="Button"
+        />
+        <SubHeaderWithInput
+          inputValue={data.projectorBlock.buttonLink}
+          onChangeFunction={handleChange}
+          name="BadgesBlock.projectorBlock.buttonLink"
+          header="Button Link"
+        />
+      </div>
     </Styled.AdminFreeServicesWrapper>
   );
 };
