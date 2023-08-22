@@ -8,6 +8,7 @@ import Badges from "./Badges";
 import FreeServices from "../FreeServices/FreeServices";
 import ButtonArrow from "../../utils/ButtonArrow";
 import TwistedBlock from "./TwistedBlock";
+import ProjectorBlock from "./ProjectorBlock";
 
 import * as Styled from "../../styles/HomePage/MobileGeneral.styled";
 import * as CSS from "../../styles/Portfolio/title.styled";
@@ -118,8 +119,9 @@ const MobileNextTech = () => {
           </ArrowContainer>
         </Styled.BlackButton>
       </Styled.SideOppositeContainer>
+      <ProjectorBlock />
       {/* <FreeServices /> */}
-      <TwistedBlock />
+      {/* <TwistedBlock /> */}
       <Testimonials />
     </Styled.NextTech>
   );

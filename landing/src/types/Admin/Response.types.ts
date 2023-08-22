@@ -90,6 +90,13 @@ export interface IButtonWithLinkBlock {
   buttonLink: string;
 }
 
+interface IProjectorBlock {
+  title: string;
+  text: string;
+  button: string;
+  buttonLink: string;
+}
+
 export interface IDataResponse {
   MainLogoBlock: { image: { url: string } | null };
   EditInformationBlock: IEditInformation;
@@ -106,6 +113,7 @@ export interface IDataResponse {
       image: { url: string } | null;
     }[];
     twistedBlock: string;
+    projectorBlock: IProjectorBlock;
   };
   FreeServicesBlock: {
     title: string;
