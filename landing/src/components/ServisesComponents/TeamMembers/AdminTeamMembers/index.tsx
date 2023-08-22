@@ -12,7 +12,10 @@ import {
 } from "../../../../styles/HomePage/General.styled";
 import TrashIcon from "../../../Admin/Portfolio/TrashIcon";
 
-import { ITeamMembers } from "../../../../types/ServicesComponent.types";
+import {
+  ITeamMembers,
+  IServiceHistory,
+} from "../../../../types/ServicesComponent.types";
 
 import ButtonArrow from "../../../../utils/ButtonArrow";
 import Arrow from "../../../../../public/upArrowSidebar.svg";
@@ -21,15 +24,10 @@ interface ITeamMembersComponent {
   teamMembers: ITeamMembers;
 }
 
-interface IProps {
-  serviceName?: string;
-  queryKey?: string;
-}
-
 const TeamMembers = <T extends ITeamMembersComponent>({
   serviceName = "",
   queryKey = "",
-}: IProps) => {
+}: IServiceHistory) => {
   const queryClient = useQueryClient();
   const data = queryClient.getQueryData<T>([queryKey])?.teamMembers;
 

@@ -59,7 +59,7 @@ export interface InputWithHeader extends InputPropsInterface {
   id?: string;
   inputStyle?: any;
   isAdminBlog?: boolean;
-  isError? : boolean;
+  isError?: boolean;
   maxLength?: number;
 }
 
