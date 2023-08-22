@@ -26,7 +26,7 @@ const getFieldErrorNames = (formikErrors: any) => {
 };
 
 const FocusError = () => {
-  const { submitCount, isValid, errors } = useFormikContext();
+  const { isValidating, isSubmitting, isValid, errors } = useFormikContext();
 
   useEffect(() => {
     if (isValid) return;
@@ -40,7 +40,7 @@ const FocusError = () => {
 
     // Scroll to first known error into view
     element.scrollIntoView({ behavior: "smooth", block: "center" });
-  }, [submitCount]); // eslint-disable-line react-hooks/exhaustive-deps
+  }, [errors, isSubmitting, isValidating]); // eslint-disable-line react-hooks/exhaustive-deps
 
   return null;
 };

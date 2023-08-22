@@ -21,6 +21,7 @@ const CheckboxField = ({
   touched,
   required,
   optionsType,
+  name,
   ...props
 }: EstimationField) => {
   const formik = useFormikContext();
@@ -106,6 +107,7 @@ const CheckboxField = ({
                   )
                 }
                 value={getTextFromHtml(option.text)}
+                name={`questionsArr.${index}.value`}
                 {...props}
               />
               <EstimationFieldOptionCheckbox

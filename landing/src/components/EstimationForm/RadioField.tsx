@@ -25,6 +25,7 @@ const RadioField = ({
   touched,
   required,
   optionsType,
+  name,
   ...props
 }: EstimationField) => {
   const formik = useFormikContext();
@@ -74,6 +75,7 @@ const RadioField = ({
                 }}
                 checked={getTextFromHtml(option.text) === meta.value.value}
                 value={getTextFromHtml(option.text)}
+                name={`questionsArr.${index}.value`}
                 {...props}
               />
               <EstimationFieldOptionRadio

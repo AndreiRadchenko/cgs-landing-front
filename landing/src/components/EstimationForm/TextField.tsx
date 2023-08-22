@@ -126,6 +126,7 @@ const TextField = ({
   const getRightName = (title: string) => {
     if (getTextFromHtml(title) === "Your Name") return "username";
     if (getTextFromHtml(title) === "Your Email") return "email";
+    return `questionsArr.${index}.value`;
   };
 
   return (
