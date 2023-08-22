@@ -60,16 +60,6 @@ const CvForm = ({ isNewCv, setIsNewCv, cv, current }: CvAddOrEditProps) => {
       });
       return {};
     } catch (validationError) {
-      // const errors: FormikErrors<IArticle> = {};
-      // if (validationError instanceof Yup.ValidationError) {
-      //   // console.log(validationError);
-      //   validationError.inner.forEach((error: Yup.ValidationError) => {
-      //     if (error.path) {
-      //       errors[error.path] = error.message;
-      //       toast.error(`${error.path}: ${error.message}`);
-      //     }
-      //   });
-      // }
       toast.error(`Please fill all form fields`);
       return validationError;
     }

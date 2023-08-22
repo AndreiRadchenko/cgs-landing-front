@@ -41,7 +41,7 @@ const AdminHeadBlockWeb = () => {
   const headerBlock = { text, button, buttonLink };
 
   const handleClick = () => handleSubmit();
-  // const handleClick = () => null;
+
   return (
     <AdminPaddedBlock>
       <AdminHeader>Web // Desktop Development</AdminHeader>

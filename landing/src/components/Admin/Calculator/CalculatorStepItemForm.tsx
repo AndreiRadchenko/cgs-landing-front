@@ -53,18 +53,6 @@ const CalculatorStepItem = ({
     }
   );
 
-  // const mutate = isBlockchain
-  //   ? useMutation(
-  //       [queryKeys.getCalculatorBlockchainSteps],
-  //       (data: ICalculatorStep) =>
-  //         adminCalculatorService.updateCalculatorBlockchainStepById(data)
-  //     ).mutateAsync
-  //   : useMutation(
-  //       [queryKeys.getCalculatorClassicSteps],
-  //       (data: ICalculatorStep) =>
-  //         adminCalculatorService.updateCalculatorClassicStepById(data)
-  //     ).mutateAsync;
-
   const handleSubmit = async (values: ICalculatorStep) => {
     const converted = values;
 

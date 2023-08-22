@@ -24,7 +24,12 @@ const TestimonialsSlide = ({
 
   return (
     <Styled.TestimonialsSlideContainer onClick={clickHandler}>
-      <Image layout={"fill"} src={testimonialImg} alt={"clients"} />
+      <Image
+        className="slideImage"
+        layout={"fill"}
+        src={testimonialImg}
+        alt={"clients"}
+      />
       <Styled.TestimonialsSlideHeadline>
         {subtitle}
       </Styled.TestimonialsSlideHeadline>

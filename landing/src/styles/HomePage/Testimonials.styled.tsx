@@ -303,6 +303,12 @@ export const TestimonialsSlideContainer = styled.div`
   width: 100%;
   height: 97.35%;
   position: relative;
+  display: grid;
+  place-content: center;
+
+  & .slideImage {
+    object-fit: cover;
+  }
 
   &.adminSlide {
     height: 255px;
@@ -313,8 +319,6 @@ export const TestimonialsSlideContainer = styled.div`
       visibility: visible;
     }
   }
-  display: grid;
-  place-content: center;
 
   @media ${themes.primary.media.maxLowScreenMobile} {
     height: auto;
