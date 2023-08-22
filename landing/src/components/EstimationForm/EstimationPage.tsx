@@ -20,6 +20,7 @@ import {
   IFormFileData,
   ISendData,
 } from "../../types/EstimationForm.types";
+import FocusError from "./FocusError";
 
 const EstimationPage = ({
   formData,
@@ -221,6 +222,7 @@ const EstimationPage = ({
                   </div>
                 </EstimateNavigation>
               )}
+              <FocusError />
             </Form>
           );
         }}
