@@ -29,13 +29,13 @@ const ProjectorBlock = () => {
         if (isScrolled && timer > 1) {
             const timeout = setTimeout(() => {
                 setTimer((prev) => prev - 1);
-            }, 700);
+            }, 500);
 
             return () => {
                 clearTimeout(timeout);
                 setTimeout(() => {
                     setVisibleContent(true)
-                }, 1600)
+                }, 950)
             };
         }
     }, [isScrolled, timer]);
