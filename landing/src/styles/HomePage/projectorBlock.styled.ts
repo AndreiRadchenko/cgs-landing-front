@@ -417,7 +417,8 @@ export const MobileCamera = styled.img`
     @media (max-width: 474px) {
         width: 430px;
         height: 392.5px;
-        right: -90px;
+        right: -110px;
+        margin-top: -110px;
     }
 `;
 
