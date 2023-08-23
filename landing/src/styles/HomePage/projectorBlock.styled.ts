@@ -174,7 +174,7 @@ export const ProjectorIcon = styled.img`
         margin-top: 3.8em;
 
         &.visibleText {
-            left: -10px;
+            /* left: -10px; */
         }
     }
 

@@ -26,7 +26,7 @@ const ProjectorBlock = () => {
     ])?.BadgesBlock.projectorBlock;
 
     useEffect(() => {
-        if (isScrolled && timer > 0) {
+        if (isScrolled && timer > 1) {
             const timeout = setTimeout(() => {
                 setTimer((prev) => prev - 1);
             }, 700);
