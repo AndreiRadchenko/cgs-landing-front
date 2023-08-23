@@ -325,7 +325,7 @@ export const projectorLoaderBg = styled.div`
   opacity: 1;
   
   &.isScrolled {
-    animation: ${projectorLoader} 2.3s linear;
+    animation: ${projectorLoader} 1.4s linear;
   }
 `;
 
