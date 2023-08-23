@@ -434,7 +434,7 @@ export const Tetris = styled.div`
 
   @media ${themes.primary.media.minPCFullHD} {
     top: 32px;
-    width: 32.7em;
+    width: 32.9em;
   }
   @media (max-width: 1400px) {
     right: 70px;
@@ -819,6 +819,10 @@ export const ButtonShareTextWrapper = styled.div`
 
   &.footer {
     margin-inline: 1.1666em 0;
+  }
+
+  @media ${themes.primary.media.minPCFullHD} {
+    margin-left: 37px;
   }
 
   @media ${themes.primary.media.maxMobile} {
