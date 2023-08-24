@@ -12,6 +12,10 @@ export const ProjectorBlockWrapper = styled.div`
   justify-content: space-between;
   min-height: 390px;
 
+  @media ${themes.primary.media.minPCFullHD} {
+    margin-block: 160px;
+  }
+  
   @media (max-width: 1250px) {
     min-height: 0;
   }

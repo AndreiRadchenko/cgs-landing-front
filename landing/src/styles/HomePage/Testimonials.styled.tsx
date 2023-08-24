@@ -344,6 +344,10 @@ export const TestimonialsSwiperContainer = styled.div`
     margin-top: 1.67em;
     margin-bottom: 8.34em;
 
+    .swiper-wrapper {
+    column-gap: 32px;
+  }
+
     .swiper-slide {
       width: 36.1em;
       height: 20.815em;
