@@ -1,7 +1,9 @@
 import React, { useState } from "react";
 import { useFormikContext } from "formik";
-import { useQuery } from "@tanstack/react-query";
+import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import dynamic from "next/dynamic";
+import { toast } from "react-toastify";
+import SortableList, { SortableItem } from "react-easy-sort";
 
 import PhotoBlockDashed from "../Global/PhotoBlockDashed";
 import useDeleteImageFunction from "../../../hooks/useDeleteImageFunction";
@@ -20,13 +22,25 @@ import * as Styled from "../../../styles/AdminPage";
 import * as Styles from "../../../styles/AdminCvPage"
 import { ArrowContainer, BlackButton } from "../../../styles/HomePage/General.styled";
 
-import { CvData } from "../../../types/Admin/AdminCv.types";
+import { CvData, CvProject } from "../../../types/Admin/AdminCv.types";
 import { IImage } from "../../../types/Admin/Admin.types";
 import { ITechnology } from "../../../types/Admin/technologies.types";
 import TextEditor from "../../TextEditor/TextEditor";
+import { ISwapCvProjectsData } from "../../../types/Admin/Response.types";
 
-const CvAddOrEdit = () => {
+interface ICvAddOrEditProps {
+    isNewCv: boolean
+}
+
+interface ICvProjectsProps {
+    idx: number;
+    project: CvProject;
+}
+
+const CvAddOrEdit = ({ isNewCv }: ICvAddOrEditProps) => {
     const { values, handleChange, errors, handleSubmit, setValues } = useFormikContext<CvData>();
+    const queryClient = useQueryClient();
+
     const [focusedAchievementIdx, setFocusedAchievementIdx] = useState(-1);
 
     const { data: category } = useQuery([queryKeys.getCvPage], () =>
@@ -35,6 +49,22 @@ const CvAddOrEdit = () => {
 
     const { data: technologies } = useQuery([queryKeys.getTechnologies], () =>
         technologiesService.getTechnologies()
+    );
+
+    const { mutateAsync: swapCvProjects } = useMutation(
+        [queryKeys.swapCvProjects],
+        async (swapData: ISwapCvProjectsData) => {
+            return await toast.promise(adminCvService.swapCvProjects(swapData), {
+                pending: "Pending update",
+                success: "CV projects swapped successfully",
+                error: "Some things went wrong 🤯",
+            });
+        },
+        {
+            onSuccess: () => {
+                queryClient.invalidateQueries([queryKeys.getCvById]);
+            },
+        }
     );
 
     const handleClick = () => {
@@ -221,6 +251,147 @@ const CvAddOrEdit = () => {
         return textWithoutSpecialChars.length;
     };
 
+    const handleProjectDragEnd = async (oldIndex: number, newIndex: number) => {
+        const updatedProjects = [...values.projects.project];
+        const movedProject = updatedProjects.splice(oldIndex, 1)[0];
+        updatedProjects.splice(newIndex, 0, movedProject);
+
+        setValues(prevValues => ({
+            ...prevValues,
+            projects: {
+                ...prevValues.projects,
+                project: updatedProjects,
+            },
+        }));
+
+        await swapCvProjects({
+            cvId: values._id,
+            desInd: oldIndex,
+            srcInd: newIndex,
+        });
+    };
+
+    const CvProjects = ({ project, idx }: ICvProjectsProps) => {
+        return (
+            <Styles.ProjectWrapper>
+                <Styles.ProjectNumberWrapper>
+                    <Styles.ProjectNumber>#{idx + 1}</Styles.ProjectNumber>
+                    {idx !== 0 ? (
+                        <div
+                            style={{ color: "red", fontSize: 14 }}
+                            onClick={() => handleDeleteProject(idx)}
+                        >
+                            delete project
+                        </div>
+                    ) : (
+                        null
+                    )}
+                </Styles.ProjectNumberWrapper>
+                <Styles.ProjectInfo>
+                    <Styles.FirstProjectInfoBlock>
+                        <SubHeaderWithInput
+                            isError={!!errors?.projects?.project?.[idx] && !project.projectName}
+                            inputValue={project.projectName}
+                            onChangeFunction={handleChange}
+                            header="Project name"
+                            name={`projects.project[${idx}].projectName`}
+                            placeholder="NAME"
+                        />
+                        <SubHeaderWithInput
+                            isError={!!errors?.projects?.project?.[idx] && !project.role}
+                            inputValue={project.role}
+                            onChangeFunction={handleChange}
+                            header="Role"
+                            name={`projects.project[${idx}].role`}
+                            placeholder="Role (ex.: Role: Full-stack developer)"
+                        />
+                        <SubHeaderWithInput
+                            isError={!!errors?.projects?.project?.[idx] && !project.date}
+                            inputValue={project.date}
+                            onChangeFunction={handleChange}
+                            header="Date"
+                            name={`projects.project[${idx}].date`}
+                            placeholder="Date (ex.: Aug `22 - Jan `23 • (6 months))"
+                        />
+                    </Styles.FirstProjectInfoBlock>
+                    <SubHeaderWithInput
+                        isError={!!errors?.projects?.project?.[idx] && !project.summary}
+                        inputValue={project.summary}
+                        onChangeFunction={handleChange}
+                        header="Summary"
+                        name={`projects.project[${idx}].summary`}
+                        placeholder="Text"
+                        maxLength={370}
+                    />
+                    <Styled.BottomText className="portfolio-admin-description">
+                        <Styled.TextCounter>
+                            {project.summary.length}/370
+                        </Styled.TextCounter>
+                    </Styled.BottomText>
+                    <Styles.LastProjectInfoBlock>
+                        <div>
+                            <h2>Achievements</h2>
+                            {values?.projects?.project[idx]?.achievements?.map((achievement, achievementIdx) => (
+                                <div>
+                                    <Styles.AchievementsGrid key={achievementIdx}>
+                                        <div>
+                                            <Styled.AdminCategoryNameInput
+                                                isError={!!errors?.projects?.project?.[idx] && !achievement}
+                                                value={achievement}
+                                                onChange={handleChange}
+                                                name={`projects.project[${idx}].achievements[${achievementIdx}]`}
+                                                className="cvAchievements"
+                                                placeholder="Add new achievements"
+                                                onFocus={() => setFocusedAchievementIdx(achievementIdx)}
+                                                onBlur={() => setFocusedAchievementIdx(-1)}
+                                                maxLength={94}
+                                            />
+                                            {achievementIdx === focusedAchievementIdx &&
+                                                <Styled.BottomText className="portfolio-admin-description">
+                                                    <Styled.TextCounter>
+                                                        {achievement.length}/94
+                                                    </Styled.TextCounter>
+                                                </Styled.BottomText>
+                                            }
+                                        </div>
+                                        {achievementIdx === 0 ? (
+                                            null
+                                        ) : (
+                                            <Styled.AdminCategoryDeleteBlockWrapper
+                                                onClick={() => handleDeleteAchievement(idx, achievementIdx)}
+                                                className="cvAchievement"
+                                            >
+                                                <TrashIcon />
+                                            </Styled.AdminCategoryDeleteBlockWrapper>
+                                        )}
+                                    </Styles.AchievementsGrid>
+                                    {achievementIdx === values.projects.project[idx].achievements.length - 1 ? (
+                                        <Styled.AdminCategoryAddBlockWrapper onClick={() => handleAddAchievement(idx)} className="cvAchievement">
+                                            <Styled.AdminCategoryAddBlockBtn type="button">
+                                                {"[ +add next ]"}
+                                            </Styled.AdminCategoryAddBlockBtn>
+                                        </Styled.AdminCategoryAddBlockWrapper>
+                                    ) : (null)}
+                                </div>
+                            ))}
+                        </div>
+                        <div>
+                            <h2>Technologies</h2>
+                            <TechnologyDropdown
+                                isError={!!errors?.projects?.project?.[idx] && !project.technology[idx]}
+                                technologies={technologies?.technologies}
+                                cvTechnologies={project.technology}
+                                handleSelectTechnology={handleSelectTechnology}
+                                projectIdx={idx}
+                                handleDeleteTechnology={handleDeleteTechnology}
+                            />
+                        </div>
+                    </Styles.LastProjectInfoBlock>
+                </Styles.ProjectInfo>
+            </Styles.ProjectWrapper>
+        )
+    }
+
     return (
         <Styles.AdminCvGrid>
             <div>
@@ -401,124 +572,25 @@ const CvAddOrEdit = () => {
                             header="Title"
                             name="projects.title"
                         />
-                        {values?.projects?.project?.map((project, idx) => (
-                            <Styles.ProjectWrapper>
-                                <Styles.ProjectNumberWrapper>
-                                    <Styles.ProjectNumber>#{idx + 1}</Styles.ProjectNumber>
-                                    {idx !== 0 ? (
-                                        <div
-                                            style={{ color: "red", fontSize: 14 }}
-                                            onClick={() => handleDeleteProject(idx)}
-                                        >
-                                            delete project
-                                        </div>
-                                    ) : (
-                                        null
-                                    )}
-                                </Styles.ProjectNumberWrapper>
-                                <Styles.ProjectInfo>
-                                    <Styles.FirstProjectInfoBlock>
-                                        <SubHeaderWithInput
-                                            isError={!!errors?.projects?.project?.[idx] && !project.projectName}
-                                            inputValue={project.projectName}
-                                            onChangeFunction={handleChange}
-                                            header="Project name"
-                                            name={`projects.project[${idx}].projectName`}
-                                            placeholder="NAME"
-                                        />
-                                        <SubHeaderWithInput
-                                            isError={!!errors?.projects?.project?.[idx] && !project.role}
-                                            inputValue={project.role}
-                                            onChangeFunction={handleChange}
-                                            header="Role"
-                                            name={`projects.project[${idx}].role`}
-                                            placeholder="Role (ex.: Role: Full-stack developer)"
-                                        />
-                                        <SubHeaderWithInput
-                                            isError={!!errors?.projects?.project?.[idx] && !project.date}
-                                            inputValue={project.date}
-                                            onChangeFunction={handleChange}
-                                            header="Date"
-                                            name={`projects.project[${idx}].date`}
-                                            placeholder="Date (ex.: Aug `22 - Jan `23 • (6 months))"
-                                        />
-                                    </Styles.FirstProjectInfoBlock>
-                                    <SubHeaderWithInput
-                                        isError={!!errors?.projects?.project?.[idx] && !project.summary}
-                                        inputValue={project.summary}
-                                        onChangeFunction={handleChange}
-                                        header="Summary"
-                                        name={`projects.project[${idx}].summary`}
-                                        placeholder="Text"
-                                        maxLength={370}
-                                    />
-                                    <Styled.BottomText className="portfolio-admin-description">
-                                        <Styled.TextCounter>
-                                            {project.summary.length}/370
-                                        </Styled.TextCounter>
-                                    </Styled.BottomText>
-                                    <Styles.LastProjectInfoBlock>
+                        {isNewCv ? (
+                            <>
+                                {values?.projects?.project?.map((project, idx) => (
+                                    <div key={idx}>
+                                        <CvProjects project={project} idx={idx} />
+                                    </div>
+                                ))}
+                            </>
+                        ) : (
+                            <SortableList onSortEnd={handleProjectDragEnd}>
+                                {values?.projects?.project?.map((project, idx) => (
+                                    <SortableItem key={idx}>
                                         <div>
-                                            <h2>Achievements</h2>
-                                            {values?.projects?.project[idx]?.achievements?.map((achievement, achievementIdx) => (
-                                                <div>
-                                                    <Styles.AchievementsGrid key={achievementIdx}>
-                                                        <div>
-                                                            <Styled.AdminCategoryNameInput
-                                                                isError={!!errors?.projects?.project?.[idx] && !achievement}
-                                                                value={achievement}
-                                                                onChange={handleChange}
-                                                                name={`projects.project[${idx}].achievements[${achievementIdx}]`}
-                                                                className="cvAchievements"
-                                                                placeholder="Add new achievements"
-                                                                onFocus={() => setFocusedAchievementIdx(achievementIdx)}
-                                                                onBlur={() => setFocusedAchievementIdx(-1)}
-                                                                maxLength={94}
-                                                            />
-                                                            {achievementIdx === focusedAchievementIdx &&
-                                                                <Styled.BottomText className="portfolio-admin-description">
-                                                                    <Styled.TextCounter>
-                                                                        {achievement.length}/94
-                                                                    </Styled.TextCounter>
-                                                                </Styled.BottomText>
-                                                            }
-                                                        </div>
-                                                        {achievementIdx === 0 ? (
-                                                            null
-                                                        ) : (
-                                                            <Styled.AdminCategoryDeleteBlockWrapper
-                                                                onClick={() => handleDeleteAchievement(idx, achievementIdx)}
-                                                                className="cvAchievement"
-                                                            >
-                                                                <TrashIcon />
-                                                            </Styled.AdminCategoryDeleteBlockWrapper>
-                                                        )}
-                                                    </Styles.AchievementsGrid>
-                                                    {achievementIdx === values.projects.project[idx].achievements.length - 1 ? (
-                                                        <Styled.AdminCategoryAddBlockWrapper onClick={() => handleAddAchievement(idx)} className="cvAchievement">
-                                                            <Styled.AdminCategoryAddBlockBtn type="button">
-                                                                {"[ +add next ]"}
-                                                            </Styled.AdminCategoryAddBlockBtn>
-                                                        </Styled.AdminCategoryAddBlockWrapper>
-                                                    ) : (null)}
-                                                </div>
-                                            ))}
+                                            <CvProjects project={project} idx={idx} />
                                         </div>
-                                        <div>
-                                            <h2>Technologies</h2>
-                                            <TechnologyDropdown
-                                                isError={!!errors?.projects?.project?.[idx] && !project.technology[idx]}
-                                                technologies={technologies?.technologies}
-                                                cvTechnologies={project.technology}
-                                                handleSelectTechnology={handleSelectTechnology}
-                                                projectIdx={idx}
-                                                handleDeleteTechnology={handleDeleteTechnology}
-                                            />
-                                        </div>
-                                    </Styles.LastProjectInfoBlock>
-                                </Styles.ProjectInfo>
-                            </Styles.ProjectWrapper>
-                        ))}
+                                    </SortableItem>
+                                ))}
+                            </SortableList>
+                        )}
                         <Styles.AddProjectBtn type="button" onClick={() => handleAddProject()}>
                             ADD PROJECT
                             <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18" fill="none">

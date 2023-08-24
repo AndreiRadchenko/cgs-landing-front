@@ -2,7 +2,7 @@ import { EnhancedWithAuthHttpService } from "../httpAuth.service";
 import { HttpServiceFactory } from "../index";
 
 import { ICvPageData, CvData } from "../../types/Admin/AdminCv.types";
-import { ISwapData } from "../../types/Admin/Response.types";
+import { ISwapCvProjectsData, ISwapData } from "../../types/Admin/Response.types";
 
 export class AdminCvService {
   constructor(private httpService: EnhancedWithAuthHttpService) {}
@@ -47,6 +47,10 @@ export class AdminCvService {
 
   public swapCvs(swapData: ISwapData) {
     return this.httpService.put(`api/devs-info/swap`, swapData);
+  }
+
+  public swapCvProjects(swapData: ISwapCvProjectsData) {
+    return this.httpService.put(`api/devs-info/swap-projects`, swapData);
   }
 }
 
