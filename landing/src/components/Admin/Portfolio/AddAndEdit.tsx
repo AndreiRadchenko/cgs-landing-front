@@ -15,13 +15,13 @@ import {
   IPortfolioPageData,
   IPortfolioReview,
 } from "../../../types/Admin/AdminPortfolio.types";
-import { technologiesService } from "../../../services/technologies";
 
 const AddAndEdit = ({
   current,
   isNewStatus,
   reviews,
   setIsNewStatus,
+  technologies,
 }: IAddAndEditProps) => {
   const { values } = useFormikContext<IPortfolioPageData>();
   const queryClient = useQueryClient();
@@ -57,10 +57,6 @@ const AddAndEdit = ({
         queryClient.invalidateQueries([queryKeys.getPortfolio]);
       },
     }
-  );
-
-  const { data: technologies } = useQuery([queryKeys.getTechnologies], () =>
-    technologiesService.getTechnologies()
   );
 
   const handleSubmit = (values: any, action: FormikHelpers<any>) => {
