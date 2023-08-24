@@ -1,6 +1,7 @@
 import { IMetaBlock } from "./Response.types";
 import { IImage } from "./Admin.types";
 import { Dispatch, SetStateAction } from "react";
+import { ITechnologies } from "./technologies.types";
 
 export interface ITechnology {
   _id?: string;
@@ -52,7 +53,7 @@ export interface IPortfolioReview {
 export interface IPortfolioPageData {
   categories: ICategory[];
   industries: string[];
-  technologies: ITechnology[];
+  technologyNew: ITechnology;
   meta: IMetaBlock;
   cta: ICTAData;
   individualProjectPage: IIPPData;
@@ -97,6 +98,7 @@ export interface IAddAndEditProps {
   isNewStatus: boolean;
   setIsNewStatus: Dispatch<SetStateAction<boolean>>;
   reviews: IPortfolioReview[] | undefined | void;
+  technologies: ITechnologies | undefined | void;
 }
 
 export interface IPortfolioCTAResponse {
