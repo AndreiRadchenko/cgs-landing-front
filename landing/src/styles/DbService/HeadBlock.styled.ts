@@ -29,9 +29,6 @@ export const ContentContainer = styled.div`
 
   @media (max-width: 1350px) {
     width: 50%;
-    & br {
-      display: none;
-    }
   }
 
   @media ${themes.primary.media.maxMobile} {
