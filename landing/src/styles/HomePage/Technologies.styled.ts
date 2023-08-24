@@ -115,6 +115,10 @@ export const CategoryContainer = styled.article`
     width: 400px;
   }
 
+  @media (max-width: 900px) {
+    width: 300px;
+  }
+
   @media ${themes.primary.media.maxMobile} {
     display: none;
     width: 100%;
@@ -215,15 +219,19 @@ export const CategorySubtitle = styled.p`
     font-size: 1.25em;
   }
 
+  @media (max-width: 1260px) {
+    & br {
+      display: none;
+    }
+  }
+
   @media ${themes.primary.media.maxTabletLandScape} {
     font-size: ${themes.primary.font.size.vistaco};
     width: 400px;
   }
 
-  @media (max-width: 1260px) {
-    & br {
-      display: none;
-    }
+  @media (max-width: 900px) {
+    width: 300px;
   }
 
   @media ${themes.primary.media.maxMobile} {
@@ -279,6 +287,11 @@ export const ArrowContainer = styled.div`
   @media ${themes.primary.media.minPCFullHD} {
     width: 100px;
     height: 100px;
+  }
+
+  @media (max-width: 900px) {
+    width: 60px;
+    height: 60px;
   }
 
   @media ${themes.primary.media.maxMobile} {

@@ -160,7 +160,7 @@ export const BlackButton = styled.a<IFontSize>`
     &.homePage,
     &.main,
     &.scrolled {
-      padding: 0.822em 0.78em;
+      padding: 0.757em 0.78em;
       font-size: 1.52em;
     }
 
@@ -191,7 +191,7 @@ export const BlackButton = styled.a<IFontSize>`
 
     &.seeAll {
       font-size: 1.52em;
-      padding: 0.825em 0.821em 0.8213em 0.78em;
+      padding: 0.757em 0.821em 0.757em 0.78em;
     }
   }
 
@@ -510,10 +510,10 @@ export const Subtitle = styled.div<ISubtitle>`
   }
 
   &.foooter {
-    margin-top: 96px;
+    margin-top: 120px;
     margin-bottom: 14px;
     p {
-      margin-bottom: 0;
+      margin: 0;
     }
   }
 
@@ -572,7 +572,7 @@ export const Subtitle = styled.div<ISubtitle>`
       }
     }
 
-    .foooter {
+    &.foooter {
     margin-top: 160px;
     margin-bottom: -7px;
     p {
@@ -714,6 +714,12 @@ export const FooterButtonWrapper = styled.span`
   &.btn {
     margin-top: 2.5rem;
     margin-left: 0;
+  }
+
+  @media ${themes.primary.media.minPCFullHD} {
+    &.btn {
+      margin-top: 38px;
+    }
   }
 
   @media ${themes.primary.media.maxMobile} {
