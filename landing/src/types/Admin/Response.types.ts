@@ -316,6 +316,12 @@ export interface ISwapData {
   srcInd: number;
 }
 
+export interface ISwapCvProjectsData {
+  cvId: string;
+  desInd: number;
+  srcInd: number;
+}
+
 export interface IBlogPageResponse {
   possibleTags: string[];
   podcast: {
