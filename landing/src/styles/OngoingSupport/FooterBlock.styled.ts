@@ -32,6 +32,7 @@ export const Image = styled.img`
   right: 0;
   bottom: 3.81em;
   width: 26.3em;
+  z-index: -1;
 
   @media ${themes.primary.media.onlyTabletPortrait} {
     width: 20.3em;

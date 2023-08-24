@@ -9,7 +9,7 @@ export const Container = styled.section`
 
   @media ${themes.primary.media.maxMobile} {
     flex-direction: column;
-    padding-top: 1.52em;
+    padding-top: 0.65em;
     padding-bottom: 0;
   }
 `;
