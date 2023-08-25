@@ -13,6 +13,7 @@ import close from "../../../../public/bigClose.svg";
 import { ArrowContainer } from "../../../styles/Blog.styled";
 
 import { CvData } from "../../../types/Admin/AdminCv.types";
+import CvPdf from "./CvPdf";
 
 interface IItemProps {
     cv: CvData;
@@ -49,13 +50,13 @@ const AdminCvItem = ({
 
 
     const generatePDF = async (id: string) => {
-        const input = document.getElementById(id);
-        if (!input) return;
+        const el = document.getElementById(id);
+        if (!el) return;
 
-        // const canvas = await html2canvas(input);
+        // const canvas = await html2canvas(el);
         // const imgData = canvas.toDataURL('image/png');
 
-        const canvas = await html2canvas(input, {
+        const canvas = await html2canvas(el, {
             backgroundColor: "none",
             logging: true,
             useCORS: true
@@ -66,15 +67,18 @@ const AdminCvItem = ({
         const pdf = new jsPDF();
         const width = pdf.internal.pageSize.getWidth();
         const height = (canvas.height * width) / canvas.width;
-        pdf.addImage(data, 'PNG', 0, 0, width, height);
+        pdf.addImage(data, 'PNG', 0, 0, 210, height);
         pdf.save('cv.pdf');
     };
 
     return (
         <>
+            <Styles.CvPdfWrapper id={cv._id}>
+                <CvPdf data={cv} />
+            </Styles.CvPdfWrapper>
             <Styles.AdminCvItemFrame className={editFlag ? undefined : !editFlag && current !== idx ? "fade" : undefined}>
                 <Styles.AdminCvItemFlexContent>
-                    <Styles.AdminCvItemLeftFlex id={cv._id}>
+                    <Styles.AdminCvItemLeftFlex>
                         <img
                             src={cv.image.url}
                             width={155}

@@ -306,3 +306,8 @@ export const AdminCvItemDelete = styled.div`
   font-weight: 900;
   cursor: pointer;
 `;
+
+export const CvPdfWrapper = styled.div`
+  position: absolute;
+  z-index: -10000;
+`;
