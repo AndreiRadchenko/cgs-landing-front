@@ -402,6 +402,17 @@ export const slideUpProjector = keyframes`
  `}
 `;
 
+export const opacityAppear = keyframes`
+ ${css`
+   from {
+     opacity: 0;
+   }
+   to {
+     opacity: 1;
+   }
+ `}
+`;
+
 export const projectorLoader = keyframes`
   0%       { background: conic-gradient(#0000 0, #8f8e931a 0); }
   2.5%     { background: conic-gradient(#0000 9deg, #8f8e931a 0); }

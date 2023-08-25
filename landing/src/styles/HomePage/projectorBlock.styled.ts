@@ -1,10 +1,14 @@
 import styled from "styled-components";
 import themes from "../../utils/themes";
 
-import { slideUpProjector, projectorLoader } from "../Animations.styled";
+import {
+  slideUpProjector,
+  projectorLoader,
+  opacityAppear,
+} from "../Animations.styled";
 import screen from "../../../public/HomePageDecoration/ProjectorBlock/screen.svg";
+import screenNew from "../../../public/HomePageDecoration/ProjectorBlock/screenNew.svg";
 import mobileScreen from "../../../public/HomePageDecoration/ProjectorBlock/mobileScreen.svg";
-
 
 export const ProjectorBlockWrapper = styled.div`
   margin-block: 120px;
@@ -15,7 +19,7 @@ export const ProjectorBlockWrapper = styled.div`
   @media ${themes.primary.media.minPCFullHD} {
     margin-block: 160px;
   }
-  
+
   @media (max-width: 1250px) {
     min-height: 0;
   }
@@ -53,29 +57,15 @@ export const ScrollContent = styled.div`
 `;
 
 export const TextContent = styled.div`
-  margin-right: 21px;
-  max-width: 660px;
   width: 103%;
   height: 100%;
-  margin-left: 240px;
   text-align: start;
-  animation: ${slideUpProjector} .4s ease;
-
-  @media ${themes.primary.media.minPC} {
-    margin-left: 258px;
-  }
+  animation: ${slideUpProjector} 0.4s ease;
+  margin: 4.15em 3.35em;
+  max-width: 660px;
 
   @media ${themes.primary.media.minPCFullHD} {
     max-width: 850px;
-    margin-left: 210px;
-  }
-
-  @media (min-width: 1900px) {
-    margin-left: 340px;
-  }
-
-  @media (max-width: 1400px) {
-    margin-left: 160px;
   }
 
   @media (max-width: 1199px) {
@@ -88,7 +78,7 @@ export const TextContent = styled.div`
 
   @media ${themes.primary.media.maxMobile} {
     width: 100%;
-    margin-left: 0;
+    margin: 0;
     max-width: none;
     height: 300px;
   }
@@ -154,72 +144,72 @@ export const Text = styled.div`
 `;
 
 export const ProjectorIcon = styled.img`
-    position: relative;
-    z-index: 3;
-    margin-top: 5em;
-    width: 35.4em;
+  position: relative;
+  z-index: 3;
+  margin-top: 5em;
+  width: 35.4em;
+  height: 32.5em;
+
+  @media ${themes.primary.media.minPC} {
+    width: 32em;
     height: 32.5em;
+    margin-top: 3em;
+  }
 
-    @media ${themes.primary.media.minPC} {
-        width: 32em;
-        height: 32.5em;
-        margin-top: 3em;
+  @media ${themes.primary.media.minPCFullHD} {
+    width: 540px;
+    height: 480px;
+    margin-top: 3em;
+  }
+
+  @media (min-width: 1900px) {
+    width: 586px;
+    height: 520px;
+    margin-top: 3.8em;
+
+    &.visibleText {
+      /* left: -10px; */
     }
+  }
 
-    @media ${themes.primary.media.minPCFullHD} {
-        width: 540px;
-        height: 480px;
-        margin-top: 3em;
+  @media (min-width: 2200px) {
+    margin-top: 3.6em;
+    &.visibleText {
+      left: 0;
     }
+  }
 
-    @media (min-width: 1900px) {
-        width: 586px;
-        height: 520px;
-        margin-top: 3.8em;
+  @media (max-width: 1400px) {
+    width: 30em;
+    height: 28em;
+  }
 
-        &.visibleText {
-            /* left: -10px; */
-        }
+  @media (max-width: 1250px) {
+    width: 28em;
+    height: 26em;
+    margin-top: 3.8em;
+  }
+
+  @media (max-width: 1199px) {
+    width: 24em;
+    height: 22em;
+    margin-top: 1.8em;
+  }
+
+  @media ${themes.primary.media.maxTabletPortrait} {
+    &.visibleText {
+      left: -2.9em;
     }
+  }
 
-    @media (min-width: 2200px) {
-        margin-top: 3.6em;
-        &.visibleText {
-            left: 0;
-        }
+  @media (max-width: 860px) {
+    width: 22em;
+    height: 20em;
+    margin-top: 1em;
+    &.visibleText {
+      left: 1.5em;
     }
-
-    @media (max-width: 1400px) {
-        width: 30em;
-        height: 28em;
-    }
-
-    @media (max-width: 1250px) {
-        width: 28em;
-        height: 26em;
-        margin-top: 3.8em;
-    }
-
-    @media (max-width: 1199px) {
-        width: 24em;
-        height: 22em;
-        margin-top: 1.8em;
-    }
-
-    @media ${themes.primary.media.maxTabletPortrait} {
-        &.visibleText {
-            left: -2.9em;
-        }
-    }
-
-    @media (max-width: 860px) {
-        width: 22em;
-        height: 20em;
-        margin-top: 1em;
-        &.visibleText {
-            left: 1.5em;
-        }
-    }
+  }
 `;
 
 export const ScreenBlock = styled.div`
@@ -228,6 +218,25 @@ export const ScreenBlock = styled.div`
   width: 58em;
   height: 32.59em;
   background-size: contain;
+
+  &.screenNew {
+    position: relative;
+    background: none;
+  }
+  &.screenNew:before {
+    content: " ";
+    background: url(${screenNew.src});
+    background-size: contain;
+    background-repeat: no-repeat;
+    display: block;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    opacity: 0.5;
+  }
 
   @media ${themes.primary.media.minPC} {
     width: 53em;
@@ -256,7 +265,7 @@ export const ScreenBlock = styled.div`
   @media (max-width: 1199px) {
     width: 35.5em;
     height: 20em;
-   }
+  }
   @media (max-width: 860px) {
     width: 30em;
     height: 17em;
@@ -276,13 +285,13 @@ export const ScreenBlock = styled.div`
     }
 
     @media (max-width: 400px) {
-        height: 270px;
+      height: 270px;
     }
   }
 `;
 
 export const TimerNumber = styled.div`
-  color: #B5B3B5;
+  color: #b5b3b5;
   margin-bottom: 20px;
   margin-right: 5px;
   font-family: ${themes.primary.font.family.namu};
@@ -327,55 +336,19 @@ export const projectorLoaderBg = styled.div`
   justify-content: center;
   z-index: 10;
   opacity: 1;
-  
+
   &.isScrolled {
     animation: ${projectorLoader} 1.4s linear;
   }
 `;
 
-export const Light = styled.img`
-  width: 24.1em;
-  height: 32.59em;
-  position: relative;
-
-  @media ${themes.primary.media.minPC} {
-    width: 22em;
-    height: 30em;
-  }
-
-  @media ${themes.primary.media.minPCFullHD} {
-    width: 340px;
-    height: 460px;
-  }
-
-  @media (min-width: 1900px) {
-    width: 385px;
-    height: 521px;
-  }
-
-  @media (max-width: 1400px) {
-    width: 22em;
-    height: 30em;
-   }
-
-   @media (max-width: 1250px) {
-     width: 19em;
-     height: 26em;
-    }
-
-    @media (max-width: 1199px) {
-      width: 14.7em;
-      height: 20em;
-    }
-    @media (max-width: 860px) {
-      width: 12.5em;
-      height: 17em;
-    }
-`;
-
 export const ScreenWithLight = styled.div`
   display: flex;
   margin-left: -6em;
+
+  &.newScreen {
+    animation: ${opacityAppear} 0.2s linear;
+  }
 
   @media ${themes.primary.media.minPCFullHD} {
     margin-left: -5.2em;
@@ -402,28 +375,70 @@ export const ScreenWithLight = styled.div`
   }
 `;
 
-export const MobileWrapper = styled.div`
-    width: 100%;
-    height: 510px;
+export const Light = styled.img`
+  width: 24.1em;
+  height: 32.59em;
+  position: relative;
 
-    @media (max-width: 474px) {
-        height: 430px;
-    }
+  &.addOpacity {
+    opacity: 0.4;
+  }
+
+  @media ${themes.primary.media.minPC} {
+    width: 22em;
+    height: 30em;
+  }
+
+  @media ${themes.primary.media.minPCFullHD} {
+    width: 340px;
+    height: 460px;
+  }
+
+  @media (min-width: 1900px) {
+    width: 385px;
+    height: 521px;
+  }
+
+  @media (max-width: 1400px) {
+    width: 22em;
+    height: 30em;
+  }
+
+  @media (max-width: 1250px) {
+    width: 19em;
+    height: 26em;
+  }
+
+  @media (max-width: 1199px) {
+    width: 14.7em;
+    height: 20em;
+  }
+  @media (max-width: 860px) {
+    width: 12.5em;
+    height: 17em;
+  }
+`;
+
+export const MobileWrapper = styled.div`
+  width: 100%;
+  height: 510px;
+
+  @media (max-width: 474px) {
+    height: 430px;
+  }
 `;
 
 export const MobileCamera = styled.img`
-    position: absolute;
+  position: absolute;
+  width: 430px;
+  height: 452.5px;
+  right: -30px;
+  margin-top: -150px;
+
+  @media (max-width: 474px) {
     width: 430px;
-    height: 452.5px;
-    right: -30px;
-    margin-top: -150px;
-
-    @media (max-width: 474px) {
-        width: 430px;
-        height: 392.5px;
-        right: -110px;
-        margin-top: -110px;
-    }
+    height: 392.5px;
+    right: -110px;
+    margin-top: -110px;
+  }
 `;
-
-
