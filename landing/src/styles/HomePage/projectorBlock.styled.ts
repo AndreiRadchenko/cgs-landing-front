@@ -68,6 +68,10 @@ export const TextContent = styled.div`
     max-width: 850px;
   }
 
+  @media ${themes.primary.media.minPC} {
+    margin: 30px 3.2em;
+  }
+
   @media (max-width: 1199px) {
     max-width: 430px;
   }
@@ -102,6 +106,10 @@ export const Title = styled.div`
     font-size: 50px;
   }
 
+  @media ${themes.primary.media.minPC} {
+    font-size: 44px;
+  }
+
   @media (max-width: 1199px) {
     font-size: 2.8em;
   }
@@ -127,6 +135,10 @@ export const Text = styled.div`
 
   @media ${themes.primary.media.minPCFullHD} {
     font-size: 27.5px;
+  }
+
+  @media ${themes.primary.media.minPC} {
+    font-size: 24px;
   }
 
   @media (max-width: 1199px) {
