@@ -41,21 +41,14 @@ export const ImageWrapper = styled.div`
     position: relative;
     width: 400px;
     height: 400px;
-
-    img {
-        position: absolute;
-        z-index: 10;
-        width: 400px;
-        height: 400px;
-    }
 `;
 
 export const ImageBackground = styled.div`
   position: absolute;
   bottom: -8px;
   right: -8px;
-  width: 97.6%;
-  height: 97.6%;
+  width: 400px;
+  height: 400px;
   border: 1.56px solid ${themes.primary.colors.black};
   background-image: linear-gradient(
       180deg,
@@ -64,6 +57,7 @@ export const ImageBackground = styled.div`
       black 50%,
       black 100%
       );
+  z-index: -10;
 `;
 
 export const InfoBlock = styled.div`
@@ -238,59 +232,220 @@ export const SkillsCardStackText = styled.p`
 `;
 
 export const ProjectsBlock = styled.div`
+  margin-top: 100px;
+  margin-bottom: 100px;
+  margin-inline: 55px;
+`;
+
+export const ProjectsBlockTitle = styled.div`
+  font-family: ${themes.primary.font.family.namu};
+  font-size: 40px;
+  line-height: 2.33;
+  text-transform: uppercase;
+`;
+
+export const ProjectWrapper = styled.div`
   position: relative;
   margin: 0;
   padding-top: 20px;
-  margin-left: -20px;
+  padding-bottom: 20px;
+  margin-bottom: 20px;
   padding-inline: 20px;
-  width: 100vw;
-  background: red;
+  width: 100%;
+  background: transparent;
+  border: 2px solid black;
 `;
 
-export const ProjectsBlockTitle = styled.div``;
+export const ProjectNumberTitle = styled.div`
+  width: 100%;
+  margin: 0 0 0 0;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 28.5px;
+  align-self: stretch;
+`;
 
-export const ProjectWrapper = styled.div``;
-
-export const ProjectNumberTitle = styled.div``;
-
-export const ProjectNumber = styled.div``;
+export const ProjectNumber = styled.div`
+  margin: 0 0 0 0;
+  padding: 0;
+  color: ${themes.primary.colors.estimationAdminBg};
+  text-align: center;
+  font-variant-numeric: lining-nums proportional-nums;
+  -webkit-text-stroke: 1.2px black;
+  text-shadow: 4px 1px 0px #000;
+  font-family: ${themes.primary.font.family.namu};
+  font-size: 87px;
+  line-height: normal;
+`;
 
 export const ProjectTitleWrapper = styled.div``;
 
-export const ProjectTitleContainer = styled.div``;
+export const ProjectTitleContainer = styled.div`
+  width: 100%;
+  margin: 0 0 0 0;
+  display: flex;
+  column-gap: 8px;
+`;
 
-export const ProjectTitle = styled.div``;
+export const ProjectTitle = styled.div`
+  margin: 0 0 0 0;
+  padding: 0;
+  color: ${themes.primary.colors.primary};
+  font-size: 24px;
+  line-height: normal;
 
-export const ProjectDate = styled.div``;
+`;
 
-export const ProjectRole = styled.div``;
+export const ProjectDate = styled.div`
+  margin: 8px 0 0 0;
+  padding: 0;
+  color: ${themes.primary.colors.blogArticleText};
+  font-size: 16px;
+  line-height: normal;
+`;
 
-export const ProjectAboutBlock = styled.div``;
+export const ProjectRole = styled.div`
+  margin: 8px 0 0 0;
+  padding: 0;
+  color: ${themes.primary.colors.blogArticleText};
+  font-size: 22px;
+  line-height: normal;
+`;
 
-export const ProjectAboutTitle = styled.div``;
+export const ProjectAboutBlock = styled.div`
+  margin: 24px 0 0 0;
+  padding: 0;
+`;
 
-export const ProjectAboutText = styled.div``;
+export const ProjectAboutTitle = styled.div`
+  margin: 0;
+  padding: 0;
+  color: ${themes.primary.colors.primary};
+  font-size: 22px;
+  line-height: 1.6;
+  text-transform: uppercase;
+`;
 
-export const ProjectAchievementTechnologyWrapper = styled.div``;
+export const ProjectAboutText = styled.div`
+  margin: 8px 0 0 0;
+  padding: 0;
+  color: ${themes.primary.colors.primary};
+  font-size: 16px;
+  line-height: 1.6;
+`;
 
-export const ProjectAchievementWrapper = styled.div``;
+export const ProjectAchievementTechnologyWrapper = styled.div`
+  display: flex;
+  justify-content: space-between;
+  gap: 58px;
+`;
 
-export const ProjectAchievementTitle = styled.div``;
+export const ProjectAchievementWrapper = styled.div`
+  margin: 24px 0 0 0;
+  padding: 0;
+  width: 600px;
+`;
 
-export const ProjectAchievementListWrapper = styled.div``;
+export const ProjectAchievementTitle = styled.div`
+  font-size: 30px;
+  line-height: normal;
+  text-align: center;
+`;
 
-export const ProjectAchievementList = styled.div``;
+export const ProjectAchievementListWrapper = styled.div`
+  position: relative;
+  border: 2px solid ${themes.primary.colors.primary};
+  border-right: none;
+  background-color: #fff;
+  z-index: 5;
+  margin-top: 16px;
+  padding: 16px 0 16px 16px;
+`;
 
-export const ProjectAchievementItem = styled.div``;
+export const ProjectAchievementList = styled.div`
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  padding: 16px;
+  list-style: none;
+  background-color: #fff;
+  padding: 0;
+  padding-left: 16px;
+  direction: rtl;
+`;
 
-export const ProjectAchievementListIcon = styled.img``;
+export const ProjectAchievementItem = styled.div`
+  padding-right: 40px;
+  gap: 24px;
+  margin: 0;
+  padding-block: 16px;
+  display: flex;
+  gap: 16px;
+  align-items: center;
+  border-bottom: 1px solid ${themes.primary.colors.darkGrey};
+  direction: ltr;
+`;
 
-export const ProjectAchievementListText = styled.div``;
+export const ProjectAchievementListIcon = styled.div`
+  width: 32px;
+  height: 32px;
+`;
 
-export const ProjectAchievementListShadow = styled.div``;
+export const ProjectAchievementListText = styled.div`
+  margin: 0;
+  padding: 0;
+  color: ${themes.primary.colors.primary};
+  font-size: 20px;
+  line-height: normal;
+  text-align: left;
+`;
 
-export const ProjectTechnologiesWrapper = styled.div``;
+export const ProjectAchievementListShadow = styled.div`
+  position: absolute;
+  top: -2px;
+  right: -16px;
+  width: 0px;
+  height: calc(100% + 4px);
+  z-index: -1;
+  border: 10px solid ${themes.primary.colors.primary};
+  border-color: transparent transparent transparent
+  ${themes.primary.colors.primary};
+  right: -20px;
+`;
 
-export const ProjectTechnologiesTitle = styled.div``;
+export const ProjectTechnologiesWrapper = styled.div`
+  margin: 24px 0 0 0;
+  padding: 0;
+  width: 100%;
+  flex: 1;
+`;
 
-export const ProjectTechnologiesIconContainer = styled.div``;
+export const ProjectTechnologiesTitle = styled.div`
+  margin: 0;
+  padding: 0;
+  font-size: 30px;
+  text-align: center;
+  line-height: normal;
+`;
+
+export const ProjectTechnologiesIconContainer = styled.div`
+  width: 100%;
+  display: grid;
+  margin-top: 16px;
+  padding-bottom: 20px;
+  grid-template-columns: repeat(auto-fill, minmax(110px, 110px));
+  row-gap: 20px;
+  margin: 8px;
+  filter: invert(1) contrast(10);
+  > span {
+    position: unset !important;
+  }
+
+  .image {
+    object-fit: contain;
+    position: relative;
+    width: 100%;
+    height: 95px;
+  }
+`;

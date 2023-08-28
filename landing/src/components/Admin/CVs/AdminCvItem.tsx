@@ -13,7 +13,6 @@ import close from "../../../../public/bigClose.svg";
 import { ArrowContainer } from "../../../styles/Blog.styled";
 
 import { CvData } from "../../../types/Admin/AdminCv.types";
-import CvPdf from "./CvPdf";
 
 interface IItemProps {
     cv: CvData;
@@ -53,13 +52,10 @@ const AdminCvItem = ({
         const el = document.getElementById(id);
         if (!el) return;
 
-        // const canvas = await html2canvas(el);
-        // const imgData = canvas.toDataURL('image/png');
-
         const canvas = await html2canvas(el, {
             backgroundColor: "none",
             logging: true,
-            useCORS: true
+            useCORS: true,
         });
 
         const data = canvas.toDataURL("image/png");
@@ -67,15 +63,22 @@ const AdminCvItem = ({
         const pdf = new jsPDF();
         const width = pdf.internal.pageSize.getWidth();
         const height = (canvas.height * width) / canvas.width;
-        pdf.addImage(data, 'PNG', 0, 0, 210, height);
+        const totalPages = Math.ceil(height / pdf.internal.pageSize.getHeight());
+
+        let yPosition = 0;
+        for (let page = 0; page < totalPages; page++) {
+            if (page > 0) {
+                pdf.addPage();
+            }
+            pdf.addImage(data, 'PNG', 0, yPosition, width, height);
+            yPosition -= pdf.internal.pageSize.getHeight();
+        }
+
         pdf.save('cv.pdf');
     };
 
     return (
         <>
-            <Styles.CvPdfWrapper id={cv._id}>
-                <CvPdf data={cv} />
-            </Styles.CvPdfWrapper>
             <Styles.AdminCvItemFrame className={editFlag ? undefined : !editFlag && current !== idx ? "fade" : undefined}>
                 <Styles.AdminCvItemFlexContent>
                     <Styles.AdminCvItemLeftFlex>

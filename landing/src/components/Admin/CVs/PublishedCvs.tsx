@@ -7,8 +7,10 @@ import { queryKeys } from "../../../consts/queryKeys";
 import { adminCvService } from "../../../services/adminCvPage";
 import AdminDropDown from "../Global/AdminDropDown";
 import AdminCvItem from "./AdminCvItem";
+import CvPdf from "./CvPdf";
 
 import * as Styled from "../../../styles/AdminPage";
+import * as Styles from "../../../styles/AdminCvPage";
 
 import { CvData, ICvPageData } from "../../../types/Admin/AdminCv.types";
 import { ISitemapData, ISwapData } from "../../../types/Admin/Response.types";
@@ -100,6 +102,13 @@ const PublishedCvs = ({
                     className="admin-cv-dropdown"
                 />
             </Styled.AdminCategoryBlock>
+            {(filteredData &&
+                filteredData.length !== 0 &&
+                filteredData.map((cv, idx) => (
+                    <Styles.CvPdfWrapper id={cv._id} key={idx}>
+                        <CvPdf data={cv} />
+                    </Styles.CvPdfWrapper>
+                )))}
             <SortableList onSortEnd={handleDragEnd}>
                 {(filteredData &&
                     filteredData.length !== 0 &&

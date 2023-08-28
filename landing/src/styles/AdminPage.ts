@@ -1833,6 +1833,7 @@ export const AdminFeedbackText = styled.p`
 
 export const DraggableWrapper = styled.div`
   margin: 10px 0;
+  background-color: ${themes.primary.colors.blogBackground};
 
   &.adminCv {
     margin: 24px 0;
