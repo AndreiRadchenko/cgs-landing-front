@@ -135,7 +135,7 @@ const PortfolioPage: NextPage = () => {
   };
 
   const handleSearchRequest = () => {
-    if (isSearchOpen) {
+    if (isSearchOpen || window.innerWidth <= 992) {
       setIsFirstLoad(false);
       setIsPaginationTriggered(false);
       setSearchTrigger(searchText);
@@ -151,7 +151,7 @@ const PortfolioPage: NextPage = () => {
   };
 
   const scrollFunction = () => {
-    if (window.innerWidth > 992 && !isPaginationTriggered) return;
+    if (window.innerWidth >= 992 && !isPaginationTriggered) return;
 
     const topHeight = window.innerWidth > 768 ? -70 : -100;
 
