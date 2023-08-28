@@ -28,6 +28,7 @@ export const MovingText = styled.div`
     font-size: 24px !important;
     line-height: 56px !important;
     width: inherit;
+    margin-left: 0;
   }
 
   @media ${themes.primary.media.minMobile} {

@@ -139,6 +139,7 @@ const AdminAddService = ({ servicesAvailable, service }: IAddServiceProps) => {
                 fontSize: "18px",
                 display: "flex",
                 justifyContent: "center",
+                alignItems: "center",
               }}
               handleClick={handleSubmit}
             />
