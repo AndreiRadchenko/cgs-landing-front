@@ -64,7 +64,7 @@ const Badges = () => {
         <Styled.BadgesData columnsNumber={data.badges.length}>
           {data.badges.map((elem, idx) =>
             elem.image ? (
-              <Styled.BadgeCard key={idx}>
+              <Styled.BadgeCard key={`${elem.link}${idx}`}>
                 <a href={elem.link} target={"_blank"} rel={"noreferrer"}>
                   <Styled.BadgeImageWrapper>
                     <Image
