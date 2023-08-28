@@ -1,6 +1,7 @@
 import React from "react";
 import { Formik } from "formik";
 import { useMutation } from "@tanstack/react-query";
+import { toast } from "react-toastify";
 
 import TextEditor from "../../TextEditor/TextEditor";
 import { adminCalculatorService } from "../../../services/adminCalculator";
@@ -26,7 +27,16 @@ const CalculatorPager = ({
 }: ICalculatorPagerProps) => {
   const { mutateAsync } = useMutation(
     [queryKeys.updateCalculatorData],
-    (data: ICalculator) => adminCalculatorService.updateCalculatorData(data)
+    async (data: ICalculator) => {
+      return await toast.promise(
+        adminCalculatorService.updateCalculatorData(data),
+        {
+          pending: "Pending update",
+          success: "Calculator pager data updated successfully 👌",
+          error: "Some things went wrong 🤯",
+        }
+      );
+    }
   );
   const handleSubmit = async (values: ICalculator) => {
     document.body.style.cursor = "wait";

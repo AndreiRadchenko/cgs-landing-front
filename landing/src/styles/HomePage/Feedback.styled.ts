@@ -12,6 +12,10 @@ export const Navigationwrapper = styled.div`
     margin-right: 2.5rem;
   }
 
+  @media ${themes.primary.media.minPCFullHD} {
+    margin-bottom: 66px;
+  }
+
   @media ${themes.primary.media.maxTabletLandScape} {
     margin-top: 1.25rem;
   }

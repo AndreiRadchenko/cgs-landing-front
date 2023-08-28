@@ -103,6 +103,7 @@ export const queryKeys = {
   postCv: "postCv",
   updateCvById: "updateCvById",
   deleteCvById: "deleteCvById",
+  swapCvProjects: "swapCvProjects",
   // history
   getContactsHistory: "getContactsHistory",
   // home page

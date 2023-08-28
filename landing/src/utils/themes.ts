@@ -110,7 +110,7 @@ const themes = {
         homeHeader: "8.334em",
         homeHeaderTablet: "8.15em",
         homeHeaderPc: "8.2em",
-        homeHeaderPcHd: "7.9em",
+        homeHeaderPcHd: "6.945em",
         homeSubtitle: "6.2em",
         homeSmallTitle: "5.6em",
         homeCardSubtitle: "5.68em",

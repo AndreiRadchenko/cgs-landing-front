@@ -160,7 +160,8 @@ export const BlackButton = styled.a<IFontSize>`
     &.homePage,
     &.main,
     &.scrolled {
-      padding: 0.8em 1em;
+      padding: 0.757em 0.78em;
+      font-size: 1.52em;
     }
 
     &.webDev {
@@ -186,6 +187,11 @@ export const BlackButton = styled.a<IFontSize>`
     &.services {
       font-size: 33px;
       padding: 24.75px 23.25px;
+    }
+
+    &.seeAll {
+      font-size: 1.52em;
+      padding: 0.757em 0.821em 0.757em 0.78em;
     }
   }
 
@@ -351,9 +357,17 @@ export const MainSubtitle = styled.div`
     }
   }
 
+  @media ${themes.primary.media.minPCFullHD} {
+    &.homePage {
+      font-size: 1.803em;
+      margin-top: 37px;
+      margin-bottom: 53px;
+    }
+  }
+
   @media (max-width: 2560px) {
     &.homePage {
-      width: 22em;
+      width: 23em;
     }
   }
 
@@ -401,7 +415,11 @@ export const HeadBlockContent = styled.header`
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  margin-top: 8.75em;
+  margin-top: 119px;
+
+  @media ${themes.primary.media.minPCFullHD} {
+    margin-top: 158px;
+  }
 
   @media ${themes.primary.media.maxMobile} {
     margin-top: 0;
@@ -415,8 +433,8 @@ export const Tetris = styled.div`
   top: 18px;
 
   @media ${themes.primary.media.minPCFullHD} {
-    top: 80px;
-    width: 28em;
+    top: 32px;
+    width: 32.9em;
   }
   @media (max-width: 1400px) {
     right: 70px;
@@ -451,8 +469,12 @@ export const TetrisGroup = styled.g<{ coinsTranslate: string }>`
 
 export const HeadBlockRow = styled.section`
   display: flex;
-  margin-top: 38px;
+  margin-top: 24px;
   width: 100%;
+
+  @media ${themes.primary.media.minPCFullHD} {
+    margin-top: 32px;
+  }
 
   @media ${themes.primary.media.maxTabletPortrait} {
     margin-top: 0;
@@ -488,10 +510,10 @@ export const Subtitle = styled.div<ISubtitle>`
   }
 
   &.foooter {
-    margin-top: 96px;
+    margin-top: 120px;
     margin-bottom: 14px;
     p {
-      margin-bottom: 0;
+      margin: 0;
     }
   }
 
@@ -540,7 +562,8 @@ export const Subtitle = styled.div<ISubtitle>`
   }
 
   @media ${themes.primary.media.minPCFullHD} {
-    font-size: 5em;
+    font-size: 5.105em;
+    margin: 0;
 
     span {
       &.tech {
@@ -548,6 +571,14 @@ export const Subtitle = styled.div<ISubtitle>`
         height: 1.3229em;
       }
     }
+
+    &.foooter {
+    margin-top: 160px;
+    margin-bottom: -7px;
+    p {
+      margin: 0;
+    }
+  }
   }
 
   @media (max-width: 1370px) {
@@ -653,7 +684,7 @@ export const NextTech = styled.section`
   margin-top: 18.5em;
 
   @media ${themes.primary.media.minPCFullHD} {
-    margin-top: 10.5em;
+    margin-top: 20.42em;
   }
   @media ${themes.primary.media.maxTabletLandScape} {
     margin-top: 10.5em;
@@ -685,6 +716,12 @@ export const FooterButtonWrapper = styled.span`
     margin-left: 0;
   }
 
+  @media ${themes.primary.media.minPCFullHD} {
+    &.btn {
+      margin-top: 38px;
+    }
+  }
+
   @media ${themes.primary.media.maxMobile} {
     &.btn {
       margin-top: 28px;
@@ -696,6 +733,10 @@ export const FooterButtonWrapper = styled.span`
 
 export const FooterWhatsAppContainer = styled.div`
   margin-bottom: 162px;
+
+  @media ${themes.primary.media.minPCFullHD} {
+    margin-bottom: 217px;
+  }
 
   @media ${themes.primary.media.maxMobile} {
     margin-bottom: 6em;
@@ -786,6 +827,10 @@ export const ButtonShareTextWrapper = styled.div`
     margin-inline: 1.1666em 0;
   }
 
+  @media ${themes.primary.media.minPCFullHD} {
+    margin-left: 37px;
+  }
+
   @media ${themes.primary.media.maxMobile} {
     margin-top: 16px;
     margin-left: 1px;
@@ -837,6 +882,10 @@ export const WhatsAppWrapper = styled.div`
   }
 
   @media ${themes.primary.media.minPCFullHD} {
+    &.homePage {
+      font-size: 1.25em;
+    }
+
     &.webDev {
       font-size: 1.1em;
     }
@@ -922,6 +971,10 @@ export const TelegramWrapper = styled.div`
   }
 
   @media ${themes.primary.media.minPCFullHD} {
+    &.homePage {
+      font-size: 1.25em;
+    }
+    
     &.webDev {
       font-size: 1.1em;
     }
@@ -981,8 +1034,8 @@ export const TelegramIconWrapper = styled.div`
   width: 22px;
   height: 22px;
   @media ${themes.primary.media.minPCFullHD} {
-    width: 1.4em;
-    height: 1.4em;
+    width: 1.22em;
+    height: 1.22em;
   }
 
   @media ${themes.primary.media.maxMobile} {
@@ -1017,8 +1070,8 @@ export const WhatsAppIconWrapper = styled.div`
   filter: brightness(0);
 
   @media ${themes.primary.media.minPCFullHD} {
-    width: 1.4em;
-    height: 1.4em;
+    width: 1.22em;
+    height: 1.22em;
   }
 
   @media ${themes.primary.media.maxMobile} {

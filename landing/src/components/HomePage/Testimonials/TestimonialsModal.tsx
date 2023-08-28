@@ -15,48 +15,47 @@ const TestimonialsModal = ({
 }: ITestimonialsModalProps) => {
   return (
     <Styled.TestimonialsModalContainer>
-      <Styled.TestimonialsCrossContainer onClick={() => setIsOpen(false)}>
-        <Image alt={"cross"} src={cross} width={"100%"} height={"100%"} />
-      </Styled.TestimonialsCrossContainer>
       <Styled.TestimonialsVideoContainer>
-        <ReactPlayer
-          url={testimonial.videoUrl}
-          width={"100%"}
-          height={"34.7em"}
-        />
-        <Styled.TestimonialsCrossMobileContainer
-          onClick={() => setIsOpen(false)}
-        >
-          <Image alt={"cross"} src={cross} width={"100%"} height={"100%"} />
-        </Styled.TestimonialsCrossMobileContainer>
-        <Styled.TestimonialsVideoInfoContainer>
-          <Styled.TestimonialsInfoHeader>
-            <div>
-              <Styled.TestimonialsHeaderName>
-                {testimonial.name}
-              </Styled.TestimonialsHeaderName>
-              <Styled.TestimonialsHeaderPosition className={"desktop"}>
-                <a href={testimonial.link} target={"_blank"} rel="noreferrer">
-                  {testimonial.company}
-                </a>
-              </Styled.TestimonialsHeaderPosition>
-            </div>
-            <Styled.TestimonialsHeaderStar>
-              {[...Array(Math.round(testimonial.stars))].map((_, i) => (
-                <Image key={i} src={star} alt={"star"} />
-              ))}
-            </Styled.TestimonialsHeaderStar>
-          </Styled.TestimonialsInfoHeader>
-          <Styled.TestimonialsHeaderPosition className={"mobile"}>
-            <a href={testimonial.link} target={"_blank"} rel="noreferrer">
-              {testimonial.company}
-            </a>
-          </Styled.TestimonialsHeaderPosition>
-          <Styled.TestimonialsInfoText>
-            {testimonial.text}
-          </Styled.TestimonialsInfoText>
-        </Styled.TestimonialsVideoInfoContainer>
-        <Styled.HoverBlockTestimonials>
+        <Styled.TestimonialsCrossContainer onClick={() => setIsOpen(false)}>
+          <Styled.TestimonialsCrossWrapper>
+            <Image alt={"cross"} src={cross} width={"100%"} height={"100%"} />
+          </Styled.TestimonialsCrossWrapper>
+        </Styled.TestimonialsCrossContainer>
+        <Styled.TestimonialsModalVideoContainer>
+          <ReactPlayer
+            url={testimonial.videoUrl}
+            width={"100%"}
+            height={"31.3em"}
+          />
+          <Styled.TestimonialsVideoInfoContainer>
+            <Styled.TestimonialsInfoHeader>
+              <div>
+                <Styled.TestimonialsHeaderName>
+                  {testimonial.name}
+                </Styled.TestimonialsHeaderName>
+                <Styled.TestimonialsHeaderPosition className={"desktop"}>
+                  <a href={testimonial.link} target={"_blank"} rel="noreferrer">
+                    {testimonial.company}
+                  </a>
+                </Styled.TestimonialsHeaderPosition>
+              </div>
+              <Styled.TestimonialsHeaderStar>
+                {[...Array(Math.round(testimonial.stars))].map((_, i) => (
+                  <Image key={i} src={star} alt={"star"} />
+                ))}
+              </Styled.TestimonialsHeaderStar>
+            </Styled.TestimonialsInfoHeader>
+            <Styled.TestimonialsHeaderPosition className={"mobile"}>
+              <a href={testimonial.link} target={"_blank"} rel="noreferrer">
+                {testimonial.company}
+              </a>
+            </Styled.TestimonialsHeaderPosition>
+            <Styled.TestimonialsInfoText>
+              {testimonial.text}
+            </Styled.TestimonialsInfoText>
+          </Styled.TestimonialsVideoInfoContainer>
+        </Styled.TestimonialsModalVideoContainer>
+        <Styled.HoverBlockTestimonials className="main">
           <Styled.HoverBlackBlockTestimonials />
         </Styled.HoverBlockTestimonials>
       </Styled.TestimonialsVideoContainer>

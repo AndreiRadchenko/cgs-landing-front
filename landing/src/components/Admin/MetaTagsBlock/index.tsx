@@ -1,6 +1,8 @@
 ﻿import React, { useEffect, useState } from "react";
 import { useFormikContext } from "formik";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 import SubHeaderWithInput from "../Global/SubHeaderWithInput";
 import HistoryLink from "../HistoryLink";
@@ -32,7 +34,7 @@ interface IMetaBlockProps {
   nameBefore?: string;
   sitemap?: string;
   queryKey?: string;
-  historyLink?: string;
+  serviceName?: string;
 }
 
 const META_TITLE_MIN = 10;
@@ -46,7 +48,7 @@ const MetaTagsBlock = ({
   nameBefore = "",
   sitemap,
   queryKey = "",
-  historyLink,
+  serviceName = "",
 }: IMetaBlockProps) => {
   const queryClient = useQueryClient();
   let metaData = null;
@@ -67,8 +69,17 @@ const MetaTagsBlock = ({
 
   const { mutateAsync } = useMutation(
     [queryKeys.updateSitemap],
-    (updatedSitemap: ISitemapData) =>
-      adminSitemapService.updateSitemapData(updatedSitemap),
+    async (updatedSitemap: ISitemapData) => {
+      const response = await toast.promise(
+        adminSitemapService.updateSitemapData(updatedSitemap),
+        {
+          pending: "Pending update",
+          success: "Site map updated successfully 👌",
+          error: "Some things went wrong 🤯",
+        }
+      );
+      return response;
+    },
     {
       onSuccess: () => {
         queryClient.invalidateQueries([queryKeys.getSitemapData]);
@@ -188,11 +199,11 @@ const MetaTagsBlock = ({
           }
           onChangeFunction={handleChange}
         />
-        {metaData?.lastModified && historyLink && (
+        {metaData?.lastModified && serviceName && (
           <HistoryLink
             sectionName="Meta"
             lastModified={metaData?.lastModified}
-            link={historyLink}
+            link={`/history/${serviceName}/meta`}
           />
         )}
         <BlackButton

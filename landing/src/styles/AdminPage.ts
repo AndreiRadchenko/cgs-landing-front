@@ -1669,8 +1669,6 @@ export const AdminPageAddTechnologyWrapper = styled.div`
     line-height: 42px;
     cursor: pointer;
   }
-
-  border-top: 1px solid ${themes.primary.colors.comment};
 `;
 
 export const AdminPageFourthTechTagWrapper = styled.div`

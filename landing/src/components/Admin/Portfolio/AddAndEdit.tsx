@@ -1,6 +1,8 @@
 import React from "react";
 import { Formik, FormikHelpers, useFormikContext } from "formik";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 import AddReview from "../PortfolioReview/AddReview";
 import { adminPortfolioService } from "../../../services/adminPortfolioPage";
@@ -13,20 +15,26 @@ import {
   IPortfolioPageData,
   IPortfolioReview,
 } from "../../../types/Admin/AdminPortfolio.types";
-import { technologiesService } from "../../../services/technologies";
 
 const AddAndEdit = ({
   current,
   isNewStatus,
   reviews,
   setIsNewStatus,
+  technologies,
 }: IAddAndEditProps) => {
   const { values } = useFormikContext<IPortfolioPageData>();
   const queryClient = useQueryClient();
 
   const { mutateAsync: editReview } = useMutation(
     [queryKeys.updatePortfolioReview],
-    (review: IPortfolioReview) => adminPortfolioService.updateReview(review),
+    async (review: IPortfolioReview) => {
+      return await toast.promise(adminPortfolioService.updateReview(review), {
+        pending: "Pending update",
+        success: "Data updated successfully 👌",
+        error: "Some things went wrong 🤯",
+      });
+    },
     {
       onSuccess: () => {
         queryClient.invalidateQueries([queryKeys.getPortfolio]);
@@ -37,17 +45,19 @@ const AddAndEdit = ({
 
   const { mutateAsync: addReview } = useMutation(
     [queryKeys.addPortfolioReview],
-    (review: IPortfolioReview) => adminPortfolioService.addReview(review),
+    async (review: IPortfolioReview) => {
+      return await toast.promise(adminPortfolioService.addReview(review), {
+        pending: "Pending update",
+        success: "Data updated successfully 👌",
+        error: "Some things went wrong 🤯",
+      });
+    },
     {
       onSuccess: () => {
         queryClient.invalidateQueries([queryKeys.getPortfolio]);
       },
     }
   );
-
-  const { data: technologies } = useQuery([queryKeys.getTechnologies], () =>
-        technologiesService.getTechnologies()
-    );
 
   const handleSubmit = (values: any, action: FormikHelpers<any>) => {
     // eslint-disable-next-line @typescript-eslint/no-unused-vars
@@ -65,6 +75,18 @@ const AddAndEdit = ({
     action.setFieldValue("imageBanner.image", null);
     action.setFieldValue("imageProjectBanner.image", null);
     setIsNewStatus(true);
+  };
+
+  const validateForm = async (values: IPortfolioReview) => {
+    try {
+      await AdminPortfolioValidation().validate(values, {
+        abortEarly: false,
+      });
+      return {};
+    } catch (validationError) {
+      toast.error(`Please fill all form fields`);
+      return validationError;
+    }
   };
 
   return (
@@ -92,6 +114,7 @@ const AddAndEdit = ({
       }
       onSubmit={handleSubmit}
       validationSchema={AdminPortfolioValidation}
+      validate={validateForm}
     >
       <AddReview
         categories={values.categories.map((elem) => elem.name)}

@@ -46,12 +46,18 @@ const TestimonialsAdmin = () => {
         <Formik
           enableReinitialize
           key={`testimonialsBlock${isNewTestimonial}`}
-          validateOnChange={true}
+          validateOnChange={false}
+          validateOnBlur={false}
           onSubmit={isNewTestimonial ? submitFunction : editFunction}
           validationSchema={AdminTestimonialsValidation}
           initialValues={
             isNewTestimonial
-              ? testimonialsInit
+              ? {
+                  ...testimonialsInit,
+                  slideBanner: {
+                    image: null,
+                  },
+                }
               : values.TestimonialsBlock.testimonials[testimonial]
           }
         >

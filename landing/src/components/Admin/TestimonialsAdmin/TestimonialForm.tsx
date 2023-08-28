@@ -35,12 +35,23 @@ const TestimonialForm = ({
 
   const { submitFunc } = usePushTestimonial();
 
-  const deleteImageFunction = useDeleteImageFunction(values.slideBanner);
-  const uploadImageFunction = useUploadImageFunction(values.slideBanner);
+  const deleteImageFunction = useDeleteImageFunction(
+    values.slideBanner,
+    "testimonialImage",
+    false,
+    "slideBanner.image"
+  );
+  const uploadImageFunction = useUploadImageFunction(
+    values.slideBanner,
+    "testimonialImage",
+    false,
+    "slideBanner.image"
+  );
 
   const uploadFunc = (image: IImage) => uploadImageFunction(image);
   const deleteFunc = async () => (await deleteImageFunction)();
   const starsChange = (newValue: number) => (values.stars = newValue);
+
   const submitForm = (e: React.SyntheticEvent) => {
     submitFunc(e, submit);
     setIsEditing(true);
@@ -52,7 +63,7 @@ const TestimonialForm = ({
       <Styled.AdminStarsGrid>
         <Styled.AdminHeadingInput>
           <SubHeaderWithInput
-            isError={!!errors.slideTitle}
+            isError={!!errors.slideTitle && !values.slideTitle}
             inputValue={values.slideTitle}
             onChangeFunction={handleChange}
             placeholder="Name"
@@ -88,14 +99,14 @@ const TestimonialForm = ({
       <div style={{ marginTop: "24px" }}>
         <Styled.AdminSubTitle>Pop-up info</Styled.AdminSubTitle>
         <SubHeaderWithInput
-          isError={!!errors.name}
+          isError={!!errors.name && !values.name}
           inputValue={values.name}
           onChangeFunction={handleChange}
           placeholder="Name"
           name="name"
         />
         <SubHeaderWithInput
-          isError={!!errors.company}
+          isError={!!errors.company && !values.company}
           inputValue={values.company}
           onChangeFunction={handleChange}
           placeholder="Company"
@@ -109,14 +120,14 @@ const TestimonialForm = ({
           name="videoUrl"
         />
         <SubHeaderWithInput
-          isError={!!errors.link}
+          isError={!!errors.link && !values.link}
           inputValue={values.link}
           onChangeFunction={handleChange}
           placeholder="Portfolio link"
           name="link"
         />
         <SubHeaderWithInput
-          isError={!!errors.text}
+          isError={!!errors.text && !values.text}
           inputValue={values.text}
           onChangeFunction={handleChange}
           placeholder="Text"

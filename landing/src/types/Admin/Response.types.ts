@@ -90,6 +90,13 @@ export interface IButtonWithLinkBlock {
   buttonLink: string;
 }
 
+interface IProjectorBlock {
+  title: string;
+  text: string;
+  button: string;
+  buttonLink: string;
+}
+
 export interface IDataResponse {
   MainLogoBlock: { image: { url: string } | null };
   EditInformationBlock: IEditInformation;
@@ -106,6 +113,7 @@ export interface IDataResponse {
       image: { url: string } | null;
     }[];
     twistedBlock: string;
+    projectorBlock: IProjectorBlock;
   };
   FreeServicesBlock: {
     title: string;
@@ -304,6 +312,12 @@ export interface IArticleWithInd {
 }
 
 export interface ISwapData {
+  desInd: number;
+  srcInd: number;
+}
+
+export interface ISwapCvProjectsData {
+  cvId: string;
   desInd: number;
   srcInd: number;
 }
@@ -510,6 +524,7 @@ export interface ICloudService {
 export interface ISubtitleWithText {
   subtitle: string;
   text: string;
+  lastModified?: string;
 }
 
 export interface ISubtitleWithList {
@@ -524,26 +539,34 @@ export interface IServiceWeb {
     button: string;
     buttonLink: string;
     image: { url: string };
+    lastModified?: string;
   };
   comparisonBlock: {
     desktopColumn: ISubtitleWithList;
     webColumn: ISubtitleWithList;
+    lastModified?: string;
   };
   whyIsWebBlock: {
     subtitle: string;
     element1: ISubtitleWithText;
     element2: ISubtitleWithText;
     element3: ISubtitleWithText;
+    lastModified?: string;
   };
   solutionBlock: ISubtitleWithText;
   projects: string[];
-  perksBlock: ISubtitleWithList;
+  perksBlock: {
+    subtitle: string;
+    list: string[];
+    lastModified?: string;
+  };
   footerBlock: {
     subtitle: string;
     button: string;
     text: string;
     buttonLink: string;
     image: { url: string };
+    lastModified?: string;
   };
   teamMembers: ITeamMembers;
   freeServices: IFreeServicesComponent;

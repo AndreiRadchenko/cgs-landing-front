@@ -131,7 +131,8 @@ export const Image = styled.img`
 
 export const BurgerPrivacy = styled.a`
   margin-left: 20px;
-  padding-bottom: 140px;
+  margin-bottom: 140px;
+  padding-bottom: 90px;
   color: ${themes.primary.colors.comment};
   font-size: 16px;
   font-family: ${themes.primary.font.family.namu};
@@ -144,7 +145,7 @@ export const BurgerPrivacy = styled.a`
 
 export const WhatsAppLink = styled.div`
   padding-left: 1.25rem;
-  margin-bottom: 40px;
+  margin-bottom: 24px;
 `;
 
 export const FooterLink = styled.a`

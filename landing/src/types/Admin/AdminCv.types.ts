@@ -18,7 +18,7 @@ interface CvCard {
   stack: string[];
 }
 
-interface CvProject {
+export interface CvProject {
   projectName: string;
   role: string;
   date: string;

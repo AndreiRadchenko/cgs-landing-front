@@ -18,7 +18,6 @@ import PhotoBlockDashedHorizontal from "../Global/PhotoBlockdashedHorizontal";
 import DropdownIndustry from "../Portfolio/DropdownIndustry";
 import DropdownTechnology from "../Portfolio/DropdownTechnology";
 import SaveBtn from "../Global/SaveBtn";
-import AddProjectTechIcon from "../Portfolio/AddProjectTechIcon";
 
 import * as Styled from "../../../styles/AdminPage";
 
@@ -33,7 +32,6 @@ import {
 
 import { queryKeys } from "../../../consts/queryKeys";
 import { adminPortfolioService } from "../../../services/adminPortfolioPage";
-import { technologiesService } from "../../../services/technologies";
 
 interface IAddReviewProps {
   categories: string[];
@@ -49,7 +47,6 @@ const AddReview = ({
   const queryClient = useQueryClient();
 
   const [errorMsg, setErrorMsg] = useState("");
-  const [errorMsgTech, setErrorMsgTech] = useState("");
 
   const { values, handleChange, errors, handleSubmit, setFieldValue } =
     useFormikContext<IPortfolioReview>();
@@ -96,20 +93,6 @@ const AddReview = ({
     }
   );
 
-  const { mutateAsync: addTech } = useMutation(
-    [queryKeys.updateTechnologies],
-    (technology: ITechnology) =>
-      technologiesService.addTechnology(technology),
-    {
-      onSuccess: () => {
-        values.technologyNew.name = "";
-        values.technologyNew.image = null as any;
-        values.technologyNew.main = false;
-        queryClient.invalidateQueries([queryKeys.getPortfolioPage]);
-      },
-    }
-  );
-
   const changeCountryHandler = (e: SingleValue<CountryData>) => {
     setFieldValue("country", e.label);
     setFieldValue("flag", e.value);
@@ -125,8 +108,7 @@ const AddReview = ({
 
   useEffect(() => {
     setTimeout(() => setErrorMsg(""), 2000);
-    setTimeout(() => setErrorMsgTech(""), 2000);
-  }, [errorMsg, errorMsgTech]);
+  }, [errorMsg]);
 
   return (
     <>
@@ -358,33 +340,6 @@ const AddReview = ({
               isError={!!errors.technologies && !values.technologies.length}
               technologies={technologies}
             />
-            {errorMsgTech && <p>{errorMsgTech}</p>}
-            <Styled.AdminPageAddTechnologyWrapper>
-              <Field
-                name="technologyNew.name"
-                type="text"
-                placeholder="Name the new technology"
-              />
-              <AddProjectTechIcon />
-              <div
-                className="plus"
-                onClick={() => {
-                  if (
-                    technologies?.some(
-                      (e) => e.name === values.technologyNew.name
-                    )
-                  ) {
-                    setErrorMsgTech("Such technology already exists");
-                  } else {
-                    values.technologyNew.name.length > 0 &&
-                      values.technologyNew.image !== null &&
-                      addTech(values.technologyNew);
-                  }
-                }}
-              >
-                +
-              </div>
-            </Styled.AdminPageAddTechnologyWrapper>
           </Styled.AdminPageFourthBlockLayout>
           <SaveBtn handleClick={handleSubmit} />
           {Object.keys(errors).length > 0 && errors.constructor === Object && (

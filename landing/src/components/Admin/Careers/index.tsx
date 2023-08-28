@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import Image from "next/image";
 import { useFormikContext } from "formik";
+import { toast } from "react-toastify";
 
 import CareersTicket from "../../CareersTicket";
 import edit from "../../../../public/editIcon.svg";
@@ -34,14 +35,24 @@ const Careers = ({
   setTicket,
   refetch,
 }: ICareers) => {
-  const { values, handleChange } = useFormikContext<IDataCareersResponse>();
+  const { values, setFieldValue, handleChange, handleSubmit } =
+    useFormikContext<IDataCareersResponse>();
   const [info, setInfo] = useState<number>(0);
   const [ticketId, setTicketId] = useState<number | null>();
   const isAdminPanel = true;
 
   const { mutateAsync } = useMutation(
     [queryKeys.deleteTicketAndVacancy],
-    (id: string) => adminCareersService.deleteTicketAndVacancy(id)
+    async (id: string) => {
+      return await toast.promise(
+        adminCareersService.deleteTicketAndVacancy(id),
+        {
+          pending: "Pending update",
+          success: "Vacancy deleted successfully 👌",
+          error: "Some things went wrong 🤯",
+        }
+      );
+    }
   );
 
   const deleteTicket = async (index: number) => {
@@ -62,27 +73,19 @@ const Careers = ({
     (data: IVacancies) => adminCareersService.addTicketCareersPage(data)
   );
 
-  const addOrEditTicket = async () => {
-    document.body.style.cursor = "wait";
+  const addOrEditTicket = () => {
     if (!isNewTicket && values.vacancy) {
       const id = `${Math.random() * 1000000}`;
       const ticket = { ...values.vacancy, id };
-      await putData({
-        tickets: [...values.tickets, ticket],
-        vacancy: newVacancy,
-      });
       values.tickets = [...values.tickets, ticket];
       values.vacancy = newVacancy;
+      handleSubmit();
     }
     if (isNewTicket) {
       setIsNewTicket(!isNewTicket);
-      await putData({
-        tickets: [...values.tickets],
-        vacancy: newVacancy,
-      });
+      values.vacancy = newVacancy;
+      handleSubmit();
     }
-    await refetch();
-    document.body.style.cursor = "auto";
   };
 
   const editTicket = (index: number) => {

@@ -1,32 +1,20 @@
-import React, { useState } from "react";
+import React from "react";
 import { useQuery } from "@tanstack/react-query";
 import { queryKeys } from "../../../consts/queryKeys";
+
+import { CustomToast } from "../CustomToast";
 import EstimationFormPage from "./EstimationFormPage";
+
+import * as Styled from "../../../styles/AdminPage";
 import { IEstimationFormPagesResponse } from "../../../types/Admin/AdminEstimationForm.types";
 import { adminEstimationFormService } from "../../../services/adminEstimationForm";
-import * as Styled from "../../../styles/AdminPage";
+import "react-toastify/dist/ReactToastify.css";
 
 const EstimationFormMainContent = () => {
-  const { data, isLoading, refetch }: IEstimationFormPagesResponse = useQuery(
+  const { data, refetch }: IEstimationFormPagesResponse = useQuery(
     [queryKeys.getEstimationFormPage],
     () => adminEstimationFormService.getPages()
   );
-
-  const [isCustomLoading, setIsCustomLoading] = useState(false);
-
-  if (isLoading) {
-    return (
-      <Styled.AdminUnauthorizedModal>Loading...</Styled.AdminUnauthorizedModal>
-    );
-  }
-
-  if (isCustomLoading) {
-    return (
-      <Styled.AdminPaddedBlock>
-        <Styled.AdminHeader>Loading...</Styled.AdminHeader>
-      </Styled.AdminPaddedBlock>
-    );
-  }
 
   return (
     <Styled.AdminPaddedBlock>
@@ -40,9 +28,9 @@ const EstimationFormMainContent = () => {
             pageNumber={i + 1}
             key={el._id}
             refetch={refetch}
-            setIsCustomLoading={setIsCustomLoading}
           />
         ))}
+      <CustomToast />
     </Styled.AdminPaddedBlock>
   );
 };

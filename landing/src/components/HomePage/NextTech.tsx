@@ -9,6 +9,7 @@ import ScrambleText from "./ScrambleText";
 import Badges from "./Badges";
 import TwistedBlock from "./TwistedBlock";
 import Testimonials from "./Testimonials";
+import ProjectorBlock from "./ProjectorBlock";
 
 import * as CSS from "../../styles/Portfolio/title.styled";
 import * as Styled from "../../styles/HomePage/General.styled";
@@ -101,7 +102,8 @@ const NextTech = () => {
         {text && parse(text.title, options)}
       </Styled.Subtitle>
       <Badges />
-      <TwistedBlock />
+      {/* <TwistedBlock /> */}
+      <ProjectorBlock />
       <Testimonials />
       {/* <FreeServices /> */}
       <Styled.Subtitle className="textOnFilm">

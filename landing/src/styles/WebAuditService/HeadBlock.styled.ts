@@ -6,7 +6,7 @@ export const Wrapper = styled.section`
   position: relative;
 
   @media ${themes.primary.media.maxMobile} {
-    margin-top: 1.25em;
+    margin-top: 0.65em;
   }
 `;
 

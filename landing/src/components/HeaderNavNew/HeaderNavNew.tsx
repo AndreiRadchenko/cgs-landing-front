@@ -12,6 +12,8 @@ import HeaderDropdown from "./HeaderDropdown";
 import HeaderBurgerDropdown from "./HeaderBurgerDropdown";
 import BurgerButton from "../BurgerMenu/BurgerButton";
 import BurgerMenu from "../BurgerMenu/BurgerMenu";
+import ProgrammableSearchBar from "./ProgrammableSearchBar";
+
 import { useWindowDimension } from "../../hooks/useWindowDimension";
 import { DisableScrollBarHandler } from "../../utils/disableScrollBarHandler";
 
@@ -92,6 +94,7 @@ const HeaderNavNew = ({
           </StyledThisComp.LogoLinkWrapper>
           <BurgerButton isOpen={isOpen} onToggle={toggleBurgerHandler} />
         </StyledThisComp.NavBarWrapper>
+        {width && width > 768 && <ProgrammableSearchBar />}
         <BurgerMenu isOpen={isOpen} burgerRef={burgerRef}>
           {navigationRoutesNamesNew.map(({ route, withDropdown, tags }, ind) =>
             withDropdown ? (
@@ -106,7 +109,7 @@ const HeaderNavNew = ({
                   onClick={
                     routersNew[ind] === "/portfolio"
                       ? handlePortfolioClick
-                      : () => {}
+                      : undefined
                   }
                 >
                   {route}
@@ -124,7 +127,7 @@ const HeaderNavNew = ({
                   onClick={
                     routersNew[ind] === "/portfolio"
                       ? handlePortfolioClick
-                      : () => {}
+                      : undefined
                   }
                 >
                   <StyledThisComp.LinkText>{route}</StyledThisComp.LinkText>

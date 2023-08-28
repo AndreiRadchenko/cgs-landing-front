@@ -26,7 +26,7 @@ const AboutUsForm = () => {
           </AdminBlockDropDown>
         </Styled.AdminBlocksContent>
         <Styled.MetaBlockWraper>
-          <MetaTagsBlock theme="dark" sitemap="/" />
+          <MetaTagsBlock theme="dark" sitemap="about-us" />
         </Styled.MetaBlockWraper>
       </Form>
     </Styled.AdminContentBlock>

@@ -35,7 +35,7 @@ const ContactForm = () => {
             theme="dark"
             sitemap="/"
             queryKey={queryKeys.getContactPage}
-            historyLink="/history/contacts/meta"
+            serviceName={"contacts"}
           />
         </Styled.MetaBlockWraper>
       </Form>

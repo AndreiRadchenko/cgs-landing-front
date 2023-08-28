@@ -1,5 +1,10 @@
 import { IImage } from "./Admin/Admin.types";
 
+export interface IServiceHistory {
+  serviceName?: string;
+  queryKey?: string;
+}
+
 export interface IOtherService {
   imageColor: IImage;
   imageGrayscale: IImage;
@@ -20,6 +25,7 @@ export interface IFreeService {
 export interface IFreeServicesComponent {
   title: string;
   services: IFreeService[];
+  lastModified?: string;
 }
 
 export interface IBonus {
@@ -36,6 +42,7 @@ export interface ITeamMembers {
   description: string;
   members: IDataTeamMember[];
   selectedMembers: IDataTeamMember[];
+  lastModified?: string;
 }
 
 export interface IDataTeamMember {

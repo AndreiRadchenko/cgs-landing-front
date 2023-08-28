@@ -1,4 +1,15 @@
-import React, { Fragment, useRef, useState, memo } from "react";
+import React, {
+  Fragment,
+  useRef,
+  useState,
+  memo,
+  useEffect,
+  useCallback,
+} from "react";
+import { useMutation } from "@tanstack/react-query";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
 import BlockDropdown from "../BlockDropdown";
 import QuestionBlock from "./QuestionBlock";
 import {
@@ -10,7 +21,7 @@ import {
 import AddQuestionButton from "./AddQuestionButton";
 import SaveBtn from "../Global/SaveBtn";
 import Title from "./Title";
-import { useMutation } from "@tanstack/react-query";
+
 import { queryKeys } from "../../../consts/queryKeys";
 import { adminEstimationFormService } from "../../../services/adminEstimationForm";
 
@@ -18,7 +29,6 @@ interface IEstimationFormPageProps {
   values: IEstimationFormPage;
   pageNumber: number;
   refetch: () => void;
-  setIsCustomLoading: React.Dispatch<React.SetStateAction<boolean>>;
   pages: IEstimationFormPages;
 }
 
@@ -27,20 +37,28 @@ const EstimationFormPage = ({
   pageNumber,
   refetch,
   pages,
-  setIsCustomLoading,
 }: IEstimationFormPageProps) => {
   const textInput = useRef<HTMLTextAreaElement>(null);
   const buttonTextInput = useRef<HTMLTextAreaElement>(null);
 
   const { mutateAsync } = useMutation(
     [queryKeys.updateEstimationForm],
-    (data: IUpdatePageBody) => adminEstimationFormService.updatePageData(data)
+    async (data: IUpdatePageBody) => {
+      return await toast.promise(
+        adminEstimationFormService.updatePageData(data),
+        {
+          pending: "Pending update",
+          success: "Estimation form updated successfully 👌",
+          error: "Some things went wrong 🤯",
+        }
+      );
+    }
   );
 
   const [questions, setQuestions] = useState(values.questions ?? []);
+  const [isQuestionChanged, setIsQuestionChanged] = useState(false);
 
-  const saveChagesHandler = async () => {
-    setIsCustomLoading((prev) => !prev);
+  const saveChagesHandler = useCallback(async () => {
     document.body.style.cursor = "wait";
     await mutateAsync({
       pageId: values._id,
@@ -54,16 +72,17 @@ const EstimationFormPage = ({
     });
     await refetch();
     document.body.style.cursor = "auto";
-    setIsCustomLoading((prev) => !prev);
-  };
+  }, [mutateAsync, questions, refetch, values]);
 
   const removeQuestion = (index: number) => {
     setQuestions(questions.filter((_, i) => i !== index));
+    setIsQuestionChanged(true);
   };
   const saveQuestion = (obj: IEstimationFormQuestion, index: number) => {
     const newQuestions = questions;
     newQuestions[index] = obj;
     setQuestions(newQuestions);
+    setIsQuestionChanged(true);
   };
 
   const addQuestion = () => {
@@ -83,6 +102,13 @@ const EstimationFormPage = ({
       },
     ]);
   };
+
+  useEffect(() => {
+    if (isQuestionChanged) {
+      saveChagesHandler();
+      setIsQuestionChanged(false);
+    }
+  }, [saveChagesHandler, isQuestionChanged]);
 
   return (
     <BlockDropdown isOpened={pageNumber === 1} title={`Page ${pageNumber}`}>

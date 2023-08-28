@@ -79,8 +79,17 @@ const ArticleForm = ({
 
   const { mutateAsync: updateSitemap } = useMutation(
     [queryKeys.updateSitemap],
-    (updatedSitemap: ISitemapData) =>
-      adminSitemapService.updateSitemapData(updatedSitemap),
+    async (updatedSitemap: ISitemapData) => {
+      const response = await toast.promise(
+        adminSitemapService.updateSitemapData(updatedSitemap),
+        {
+          pending: "Pending update",
+          success: "Data updated successfully 👌",
+          error: "Some things went wrong 🤯",
+        }
+      );
+      return response;
+    },
     {
       onSuccess: () => {
         queryClient.invalidateQueries([queryKeys.getSitemapData]);
@@ -90,21 +99,11 @@ const ArticleForm = ({
 
   const validateForm = async (values: IArticle) => {
     try {
-      const result = await AdminBlogValidation().validate(values, {
+      await AdminBlogValidation().validate(values, {
         abortEarly: false,
       });
       return {};
     } catch (validationError) {
-      // const errors: FormikErrors<IArticle> = {};
-      // if (validationError instanceof Yup.ValidationError) {
-      //   // console.log(validationError);
-      //   validationError.inner.forEach((error: Yup.ValidationError) => {
-      //     if (error.path) {
-      //       errors[error.path] = error.message;
-      //       toast.error(`${error.path}: ${error.message}`);
-      //     }
-      //   });
-      // }
       toast.error(`Please fill all form fields`);
       return validationError;
     }
@@ -189,7 +188,6 @@ const ArticleForm = ({
             />
           </Form>
         </Formik>
-        <CustomToast />
       </>
     ) || <div>no Articles</div>
   );

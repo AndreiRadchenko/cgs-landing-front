@@ -1,8 +1,9 @@
 ﻿import { useFormikContext } from "formik";
 import React from "react";
+import { useQueryClient } from "@tanstack/react-query";
 
 import PhotoBlockDashed from "../../Global/PhotoBlockDashed";
-
+import HistoryLink from "../../HistoryLink";
 import { AdminHalfGrid, AdminPaddedBlock } from "../../../../styles/AdminPage";
 import {
   ArrowContainer,
@@ -17,8 +18,14 @@ import ButtonArrow from "../../../../utils/ButtonArrow";
 
 import useDeleteImageFunction from "../../../../hooks/useDeleteImageFunction";
 import useUploadImageFunction from "../../../../hooks/useUploadImageFunction";
+import { queryKeys } from "../../../../consts/queryKeys";
 
 const AdminFooterBlockWeb = () => {
+  const queryClient = useQueryClient();
+  const data = queryClient.getQueryData<IServiceWeb>([
+    queryKeys.getServiceWebPage,
+  ])?.footerBlock;
+
   const { values, handleChange, handleSubmit } =
     useFormikContext<IServiceWeb>();
   const deleteMainImage = useDeleteImageFunction(values.footerBlock);
@@ -44,6 +51,13 @@ const AdminFooterBlockWeb = () => {
           deleteFlag={true}
         />
       </AdminHalfGrid>
+      {data?.lastModified && (
+        <HistoryLink
+          sectionName="Footer"
+          lastModified={data?.lastModified}
+          link={"/history/web/footerBlock"}
+        />
+      )}
       <BlackButton
         size={"1.5em"}
         padding={"1.11em 3em"}

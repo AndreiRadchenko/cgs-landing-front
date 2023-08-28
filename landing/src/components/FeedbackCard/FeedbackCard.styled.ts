@@ -25,6 +25,11 @@ export const FeedbackCardName = styled.h2`
   font-size: ${themes.primary.font.size.feedbackName};
   cursor: default;
 
+  @media ${themes.primary.media.minPCFullHD} {
+    font-size: 1.55em;
+    margin-right: 16px;
+  }
+
   @media ${themes.primary.media.maxTabletLandScape} {
     font-size: ${themes.primary.font.size.tertiary};
   }
@@ -47,6 +52,11 @@ export const Stars = styled.div`
 export const StarImage = styled.img`
   height: 100%;
   width: 26px;
+
+  @media ${themes.primary.media.minPCFullHD} {
+    width: 34px;
+    height: 33px;
+  }
   @media ${themes.primary.media.maxTabletLandScape} {
     width: 18.5px;
   }
@@ -64,6 +74,11 @@ export const FeedbackCardCompany = styled.a`
   transition: 300ms;
   color: ${themes.primary.colors.headerBorder};
   cursor: pointer;
+
+  @media ${themes.primary.media.minPCFullHD} {
+    font-size: 1.25em;
+  }
+
   @media ${themes.primary.media.maxTabletLandScape} {
     font-size: ${themes.primary.font.size.reviewSmallText};
     margin: 0.4em 0;
@@ -94,6 +109,11 @@ export const FeedbackButton = styled.a`
     color: ${themes.primary.colors.primary};
   }
 
+  @media ${themes.primary.media.minPCFullHD} {
+    width: 8.03em;
+    font-size: 0.95em;
+  }
+
   @media ${themes.primary.media.maxMobile} {
     font-size: 0.875rem;
     width: 7.8em;
@@ -112,6 +132,12 @@ export const FeedbackCardDescription = styled.p`
   line-height: 160%;
 
   font-weight: ${themes.primary.font.weight.light};
+
+  @media ${themes.primary.media.minPCFullHD} {
+    font-size: 1.25em;
+    margin-bottom: 26px;
+  }
+
   @media ${themes.primary.media.maxTabletLandScape} {
     font-size: ${themes.primary.font.size.reviewSmallText};
     margin: 0.6em 0 0.8em 0;

@@ -1,29 +1,35 @@
 ﻿import { useFormikContext } from "formik";
 import React from "react";
-
-import PhotoBlockDashed from "../../Global/PhotoBlockDashed";
-import SubHeaderWithInput from "../../Global/SubHeaderWithInput";
+import { useQueryClient } from "@tanstack/react-query";
 
 import {
   AdminHeader,
   AdminHeaderGrid,
   AdminPaddedBlock,
 } from "../../../../styles/AdminPage";
+import PhotoBlockDashed from "../../Global/PhotoBlockDashed";
+import SubHeaderWithInput from "../../Global/SubHeaderWithInput";
+import HistoryLink from "../../HistoryLink";
+
+import { IImage } from "../../../../types/Admin/Admin.types";
+import { IServiceWeb } from "../../../../types/Admin/Response.types";
+import { renderInputs } from "../../../../utils/renderInputs";
 import {
   ArrowContainer,
   BlackButton,
 } from "../../../../styles/HomePage/General.styled";
 
-import { IImage } from "../../../../types/Admin/Admin.types";
-import { IServiceWeb } from "../../../../types/Admin/Response.types";
-
-import { renderInputs } from "../../../../utils/renderInputs";
 import ButtonArrow from "../../../../utils/ButtonArrow";
-
 import useDeleteImageFunction from "../../../../hooks/useDeleteImageFunction";
 import useUploadImageFunction from "../../../../hooks/useUploadImageFunction";
+import { queryKeys } from "../../../../consts/queryKeys";
 
 const AdminHeadBlockWeb = () => {
+  const queryClient = useQueryClient();
+  const data = queryClient.getQueryData<IServiceWeb>([
+    queryKeys.getServiceWebPage,
+  ])?.headerBlock;
+
   const { values, handleChange, handleSubmit } =
     useFormikContext<IServiceWeb>();
 
@@ -63,6 +69,13 @@ const AdminHeadBlockWeb = () => {
           className="fullWidth"
         />
       </AdminHeaderGrid>
+      {data?.lastModified && (
+        <HistoryLink
+          sectionName="Head Block"
+          lastModified={data?.lastModified}
+          link={"/history/web/headerBlock"}
+        />
+      )}
       <BlackButton
         size={"1.5em"}
         padding={"1.11em 3em"}

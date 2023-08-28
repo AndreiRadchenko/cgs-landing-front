@@ -388,3 +388,71 @@ export const prevArrowTwo = keyframes`
     transform: translate(-30px, 0px);;
   }
 `;
+
+export const slideUpProjector = keyframes`
+ ${css`
+   from {
+     opacity: 0;
+     transform: translateY(30px);
+   }
+   to {
+     opacity: 1;
+     transform: translateY(0);
+   }
+ `}
+`;
+
+export const opacityAppear = keyframes`
+ ${css`
+   from {
+     opacity: 0;
+   }
+   to {
+     opacity: 1;
+   }
+ `}
+`;
+
+export const projectorLoader = keyframes`
+  0%       { background: conic-gradient(#0000 0, #8f8e931a 0); }
+  2.5%     { background: conic-gradient(#0000 9deg, #8f8e931a 0); }
+  5%       { background: conic-gradient(#0000 18deg, #8f8e931a 0); }
+  7.5%     { background: conic-gradient(#0000 27deg, #8f8e931a 0); }
+  10%      { background: conic-gradient(#0000 36deg, #8f8e931a 0); }
+  12.5%    { background: conic-gradient(#0000 45deg, #8f8e931a 0); }
+  15%      { background: conic-gradient(#0000 54deg, #8f8e931a 0); }
+  17.5%    { background: conic-gradient(#0000 63deg, #8f8e931a 0); }
+  20%      { background: conic-gradient(#0000 72deg, #8f8e931a 0); }
+  22.5%    { background: conic-gradient(#0000 81deg, #8f8e931a 0); }
+  25%      { background: conic-gradient(#0000 90deg, #8f8e931a 0); }
+  27.5%    { background: conic-gradient(#0000 99deg, #8f8e931a 0); }
+  30%      { background: conic-gradient(#0000 108deg, #8f8e931a 0); }
+  32.5%    { background: conic-gradient(#0000 117deg, #8f8e931a 0); }
+  35%      { background: conic-gradient(#0000 126deg, #8f8e931a 0); }
+  37.5%    { background: conic-gradient(#0000 135deg, #8f8e931a 0); }
+  40%      { background: conic-gradient(#0000 144deg, #8f8e931a 0); }
+  42.5%    { background: conic-gradient(#0000 153deg, #8f8e931a 0); }
+  45%      { background: conic-gradient(#0000 162deg, #8f8e931a 0); }
+  47.5%    { background: conic-gradient(#0000 171deg, #8f8e931a 0); }
+  50%      { background: conic-gradient(#0000 180deg, #8f8e931a 0); }
+  52.5%    { background: conic-gradient(#0000 189deg, #8f8e931a 0); }
+  55%      { background: conic-gradient(#0000 198deg, #8f8e931a 0); }
+  57.5%    { background: conic-gradient(#0000 207deg, #8f8e931a 0); }
+  60%      { background: conic-gradient(#0000 216deg, #8f8e931a 0); }
+  62.5%    { background: conic-gradient(#0000 225deg, #8f8e931a 0); }
+  65%      { background: conic-gradient(#0000 234deg, #8f8e931a 0); }
+  67.5%    { background: conic-gradient(#0000 243deg, #8f8e931a 0); }
+  70%      { background: conic-gradient(#0000 252deg, #8f8e931a 0); }
+  72.5%    { background: conic-gradient(#0000 261deg, #8f8e931a 0); }
+  75%      { background: conic-gradient(#0000 270deg, #8f8e931a 0); }
+  77.5%    { background: conic-gradient(#0000 279deg, #8f8e931a 0); }
+  80%      { background: conic-gradient(#0000 288deg, #8f8e931a 0); }
+  82.5%    { background: conic-gradient(#0000 297deg, #8f8e931a 0); }
+  85%      { background: conic-gradient(#0000 306deg, #8f8e931a 0); }
+  87.5%    { background: conic-gradient(#0000 315deg, #8f8e931a 0); }
+  90%      { background: conic-gradient(#0000 324deg, #8f8e931a 0); }
+  92.5%    { background: conic-gradient(#0000 333deg, #8f8e931a 0); }
+  95%      { background: conic-gradient(#0000 342deg, #8f8e931a 0); }
+  97.5%    { background: conic-gradient(#0000 351deg, #8f8e931a 0); }
+  100%     { background: conic-gradient(#0000 360deg, #8f8e931a 0); }
+`;

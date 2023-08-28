@@ -1,10 +1,13 @@
 ﻿import React from "react";
 import { Formik } from "formik";
 import { useMutation, useQuery } from "@tanstack/react-query";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 import { queryKeys } from "../../../consts/queryKeys";
 import { adminAboutUsService } from "../../../services/adminAboutUsPage";
 import AboutUsForm from "./AboutUsForm";
+import { CustomToast } from "../CustomToast";
 
 import * as Styled from "../../../styles/AdminPage";
 import { IAbout, IAboutUsResponse } from "../../../types/Admin/Response.types";
@@ -17,7 +20,13 @@ const AdminAboutUsContent = () => {
 
   const { mutateAsync: updateAboutPage } = useMutation(
     [queryKeys.updateAboutUsPage],
-    (data: IAbout) => adminAboutUsService.updateAboutUsPage(data)
+    async (data: IAbout) => {
+      return await toast.promise(adminAboutUsService.updateAboutUsPage(data), {
+        pending: "Pending update",
+        success: "About us updated successfully 👌",
+        error: "Some things went wrong 🤯",
+      });
+    }
   );
 
   const submitForm = async (values: IAbout) => {
@@ -32,7 +41,10 @@ const AdminAboutUsContent = () => {
     <Styled.AdminUnauthorizedModal>Loading...</Styled.AdminUnauthorizedModal>
   ) : data !== undefined ? (
     <Formik initialValues={data} onSubmit={submitForm}>
-      <AboutUsForm />
+      <>
+        <AboutUsForm />
+        <CustomToast />
+      </>
     </Formik>
   ) : (
     <Styled.AdminUnauthorizedModal>
