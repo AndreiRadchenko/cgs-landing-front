@@ -18,7 +18,7 @@ interface IEmptyProps {
 
 const AdminEmptyImage = ({
   func,
-  header = "Drop new image here",
+  header = "Click to drop new image here",
   className,
   style,
 }: IEmptyProps) => {

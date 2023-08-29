@@ -45,7 +45,7 @@ const FreeServicesBlock = () => {
               deleteFunction={deleteFunc(elem)}
               uploadFunction={uploadFunc(elem)}
               photo={elem.image}
-              header="Drop new image here"
+              header="Click to drop new image here"
               deleteFlag={true}
             />
             <Styled.AdminInput

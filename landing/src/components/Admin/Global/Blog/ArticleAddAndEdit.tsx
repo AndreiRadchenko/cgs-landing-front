@@ -182,7 +182,7 @@ const ArticleAddAndEdit = ({
       values.publishedDate = formatsDateWithTime();
       setShouldValidate(true);
       handleSubmit();
-    } else if(values.disabled === true){
+    } else if (values.disabled === true) {
       values.draft = false;
       values.disabled = true;
       values.publishedDate = "";
@@ -214,7 +214,7 @@ const ArticleAddAndEdit = ({
                 deleteFlag={true}
                 uploadFunction={uploadBannerFunc}
                 deleteFunction={deleteBannerFunc}
-                header="Drop new image here"
+                header="Click to drop new image here"
               />
               {errors.image && shouldValidate && (
                 <Styled.AdminBlogErrorMessage>
