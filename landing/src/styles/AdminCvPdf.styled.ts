@@ -31,7 +31,7 @@ export const Role = styled.div`
 `;
 
 export const Summary = styled.div`
-    font-size: 18px;
+    font-size: 22px;
     font-family: ${themes.primary.font.family.namu};
     font-weight: 400;
     margin-top: 16px;
@@ -232,8 +232,7 @@ export const SkillsCardStackText = styled.p`
 `;
 
 export const ProjectsBlock = styled.div`
-  margin-top: 100px;
-  margin-bottom: 100px;
+  margin-bottom: 50px;
   margin-inline: 55px;
 `;
 
@@ -241,6 +240,7 @@ export const ProjectsBlockTitle = styled.div`
   font-family: ${themes.primary.font.family.namu};
   font-size: 40px;
   line-height: 2.33;
+  padding-inline: 55px;
   text-transform: uppercase;
 `;
 
@@ -253,7 +253,7 @@ export const ProjectWrapper = styled.div`
   padding-inline: 20px;
   width: 100%;
   background: transparent;
-  border: 2px solid black;
+  border: 2px solid ${themes.primary.colors.darkGrey};
 `;
 
 export const ProjectNumberTitle = styled.div`
