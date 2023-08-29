@@ -68,16 +68,17 @@ export const TextContent = styled.div`
     max-width: 850px;
   }
 
-  @media ${themes.primary.media.minPC} {
+  @media ${themes.primary.media.onlyPC} {
     margin: 30px 3.2em;
   }
 
-  @media (max-width: 1199px) {
-    max-width: 430px;
+  @media (max-width: 1250px) {
+    margin: 25px 30px;
+    max-width: 90%;
   }
 
-  @media ${themes.primary.media.maxTabletPortrait} {
-    max-width: 360px;
+  @media (max-width: 1199px) {
+    margin: 15px 20px;
   }
 
   @media ${themes.primary.media.maxMobile} {
@@ -102,20 +103,20 @@ export const Title = styled.div`
   text-transform: uppercase;
   margin-bottom: 8px;
 
-  @media ${themes.primary.media.minPCFullHD} {
-    font-size: 50px;
-  }
-
   @media ${themes.primary.media.minPC} {
     font-size: 44px;
   }
 
-  @media (max-width: 1199px) {
-    font-size: 2.8em;
+  @media ${themes.primary.media.minPCFullHD} {
+    font-size: 50px;
   }
 
-  @media ${themes.primary.media.maxTabletPortrait} {
-    font-size: 2.2em;
+  @media (max-width: 1250px) {
+    font-size: 28px;
+  }
+
+  @media (max-width: 1199px) {
+    font-size: 24px;
   }
 
   @media ${themes.primary.media.maxMobile} {
@@ -133,20 +134,21 @@ export const Text = styled.div`
   line-height: 160%; /* 35.2px */
   margin-bottom: 38px;
 
-  @media ${themes.primary.media.minPCFullHD} {
-    font-size: 27.5px;
-  }
-
   @media ${themes.primary.media.minPC} {
     font-size: 24px;
   }
 
-  @media (max-width: 1199px) {
-    font-size: 1.4em;
+  @media ${themes.primary.media.minPCFullHD} {
+    font-size: 27.5px;
   }
 
-  @media ${themes.primary.media.maxTabletPortrait} {
-    font-size: 1.35em;
+  @media (max-width: 1250px) {
+    font-size: 20px;
+  }
+
+  @media (max-width: 1199px) {
+    font-size: 16px;
+    margin-bottom: 28px;
   }
 
   @media ${themes.primary.media.maxMobile} {
