@@ -124,7 +124,7 @@ const AddReview = ({
               <Styled.ImageErrorBox />
             )}
             <PhotoBlockDashedHorizontal
-              emptyHeader="Drop new image here"
+              emptyHeader="Click to drop new image here"
               photo={values.image ? values.image : values.imageBanner.image}
               deleteFunction={deleteFuncBanner}
               uploadFunction={uploadFuncBanner}
@@ -140,7 +140,7 @@ const AddReview = ({
             {!!errors.imageProjectBanner?.image &&
               !values.imageProjectBanner?.image && <Styled.ImageErrorBox />}
             <PhotoBlockDashedHorizontal
-              emptyHeader="Drop new image here"
+              emptyHeader="Click to drop new image here"
               photo={
                 values.image ? values.image : values.imageProjectBanner.image
               }

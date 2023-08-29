@@ -56,7 +56,6 @@ const BadgeLogoBlock = () => {
               deleteFunction={deleteFunc(elem)}
               uploadFunction={uploadFunc(elem)}
               photo={elem.image}
-              header="Drop new image here"
               deleteFlag={true}
             />
             <Styled.AdminInput
@@ -93,7 +92,6 @@ const BadgeLogoBlock = () => {
               deleteFunction={deleteFunc(elem)}
               uploadFunction={uploadFunc(elem)}
               photo={elem.image}
-              header="Drop new image here"
               deleteFlag={true}
             />
           </Styled.AdminFreeServicesCard>

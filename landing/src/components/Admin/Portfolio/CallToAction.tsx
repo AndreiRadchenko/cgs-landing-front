@@ -52,7 +52,7 @@ const CallToAction = ({ initValues }: ICallToActionProps) => {
       <Styled.AdminPageFirstBlockLayout>
         <Styled.AdminPortfolioImage>
           <PhotoBlockDashedHorizontal
-            emptyHeader="Drop new image here"
+            emptyHeader="Click to drop new image here"
             photo={formik.values.image}
             deleteFunction={deleteFunc}
             uploadFunction={uploadFunc}

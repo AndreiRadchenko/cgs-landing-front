@@ -14,7 +14,7 @@ import { IPhotoBlock } from "../../../types/Admin/Admin.types";
 const PhotoBlockDashed = ({
   photo,
   deleteFlag,
-  header = "Drop new image here",
+  header = "Click to drop new image here",
   deleteFunction,
   uploadFunction,
   className,

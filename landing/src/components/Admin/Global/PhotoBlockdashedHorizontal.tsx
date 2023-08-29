@@ -8,7 +8,7 @@ import AdminImage from "./AdminImage";
 
 const PhotoBlockDashedHorizontal = ({
   photo,
-  header = "Drop new image here",
+  header = "Click to drop new image here",
   emptyHeader,
   deleteFunction,
   uploadFunction,

@@ -284,6 +284,7 @@ export const AdminSubTitle = styled.h3<{
   font-family: ${themes.primary.font.family.namu};
   font-weight: ${themes.primary.font.weight.heavy};
   margin: ${({ isAdminBlog }) => (isAdminBlog ? "10px 0" : "0 0 10px 0")};
+  text-align: center;
 
   &.imageUploader {
     margin-top: 22%;
@@ -294,6 +295,7 @@ export const AdminUploadSubTitle = styled.h3`
   font-size: ${themes.primary.font.size.vistaco};
   font-family: ${themes.primary.font.family.gilroy};
   font-weight: ${themes.primary.font.weight.semiBold};
+  text-align: center;
 `;
 
 export const AdminComment = styled.p`
