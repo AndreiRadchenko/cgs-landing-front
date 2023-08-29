@@ -208,6 +208,7 @@ export const AddProjectBtn = styled.button`
 
 export const AdminCvItemFrame = styled.div`
   border: 1px solid #8F8E93;
+  background-color: ${themes.primary.colors.blogBackground};
 
   &.fade {
     &::after {
@@ -305,4 +306,13 @@ export const AdminCvItemDelete = styled.div`
   font-family: ${themes.primary.font.family.namu};
   font-weight: 900;
   cursor: pointer;
+`;
+
+export const CvPdfWrapper = styled.div`
+  position: absolute;
+  left: 0;
+  z-index: -10;
+  width: 1440px;
+  height: 900px;
+  overflow: hidden;
 `;

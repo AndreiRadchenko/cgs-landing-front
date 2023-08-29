@@ -8,8 +8,10 @@ import { queryKeys } from "../../../consts/queryKeys";
 import { adminCvService } from "../../../services/adminCvPage";
 import AdminDropDown from "../Global/AdminDropDown";
 import AdminCvItem from "./AdminCvItem";
+import CvPdf from "./CvPdf";
 
 import * as Styled from "../../../styles/AdminPage";
+import * as Styles from "../../../styles/AdminCvPage";
 
 import { CvData, ICvPageData } from "../../../types/Admin/AdminCv.types";
 import { ISitemapData, ISwapData } from "../../../types/Admin/Response.types";
@@ -112,28 +114,40 @@ const PublishedCvs = ({
           className="admin-cv-dropdown"
         />
       </Styled.AdminCategoryBlock>
-      <SortableList onSortEnd={handleDragEnd}>
-        {(filteredData &&
-          filteredData.length !== 0 &&
-          filteredData.map((cv, idx) => (
-            <SortableItem key={idx}>
-              <Styled.DraggableWrapper className="adminCv">
-                <AdminCvItem
-                  cv={cv}
-                  idx={idx}
-                  current={current}
-                  setCurrent={setCurrent}
-                  editFlag={isNewCv}
-                  editTrigger={setIsNewCv}
-                  onScroll={scrollFunc}
-                  deleteFunc={() => cv._id && deleteFunc(cv._id)}
-                />
-              </Styled.DraggableWrapper>
-            </SortableItem>
-          ))) || <Styled.AdminSubTitle>no CVs</Styled.AdminSubTitle>}
-      </SortableList>
-    </>
-  );
-};
+            {(filteredData &&
+                filteredData.length !== 0 &&
+                filteredData.map((cv, idx) => (
+                    <Styles.CvPdfWrapper id={cv._id} key={idx}>
+                        <CvPdf data={cv} />
+                    </Styles.CvPdfWrapper>
+                )))}
+            <SortableList onSortEnd={handleDragEnd}>
+                {(filteredData &&
+                    filteredData.length !== 0 &&
+                    filteredData.map((cv, idx) => (
+                        <SortableItem key={idx}>
+                            <Styled.DraggableWrapper className="adminCv">
+                                <AdminCvItem
+                                    cv={cv}
+                                    idx={idx}
+                                    current={current}
+                                    setCurrent={setCurrent}
+                                    editFlag={isNewCv}
+                                    editTrigger={setIsNewCv}
+                                    onScroll={scrollFunc}
+                                    deleteFunc={() =>
+                                        cv._id &&
+                                        deleteFunc(
+                                            cv._id,
+                                        )
+                                    }
+                                />
+                            </Styled.DraggableWrapper>
+                        </SortableItem>
+                    ))) || <Styled.AdminSubTitle>no CVs</Styled.AdminSubTitle>}
+            </SortableList>
+        </>
+    )
+}
 
 export default PublishedCvs;

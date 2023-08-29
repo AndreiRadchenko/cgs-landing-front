@@ -48,33 +48,51 @@ const AdminCvItem = ({
     };
 
 
-    const generatePDF = async (id: string) => {
-        const input = document.getElementById(id);
-        if (!input) return;
-
-        // const canvas = await html2canvas(input);
-        // const imgData = canvas.toDataURL('image/png');
-
-        const canvas = await html2canvas(input, {
-            backgroundColor: "none",
-            logging: true,
-            useCORS: true
-        });
-
-        const data = canvas.toDataURL("image/png");
-
+    const generatePDF = async (id: string, name: string) => {
+        const el = document.getElementById(id);
+        if (!el) return;
+    
         const pdf = new jsPDF();
         const width = pdf.internal.pageSize.getWidth();
-        const height = (canvas.height * width) / canvas.width;
-        pdf.addImage(data, 'PNG', 0, 0, width, height);
-        pdf.save('cv.pdf');
+    
+        const projects = el.getElementsByClassName('project-wrapper');
+    
+        for (let i = 0; i < projects.length; i++) {
+            const project = projects[i] as HTMLElement;
+            const canvas = await html2canvas(project, {
+                backgroundColor: "none",
+                logging: true,
+                useCORS: true,
+            });
+    
+            const data = canvas.toDataURL("image/png");
+    
+            const height = (canvas.height * width) / canvas.width;
+            const totalPages = Math.ceil(height / pdf.internal.pageSize.getHeight());
+    
+            let yPosition = 0;
+            for (let page = 0; page < totalPages; page++) {
+                if (page > 0) {
+                    pdf.addPage();
+                }
+                pdf.addImage(data, 'PNG', 0, yPosition, width, height);
+                yPosition -= pdf.internal.pageSize.getHeight();
+            }
+    
+            if (i < projects.length - 1) {
+                pdf.addPage();
+            }
+        }
+    
+        pdf.save(`cv-${name.toLowerCase().replace(/\s+/g, '-')}.pdf`);
     };
+    
 
     return (
         <>
             <Styles.AdminCvItemFrame className={editFlag ? undefined : !editFlag && current !== idx ? "fade" : undefined}>
                 <Styles.AdminCvItemFlexContent>
-                    <Styles.AdminCvItemLeftFlex id={cv._id}>
+                    <Styles.AdminCvItemLeftFlex>
                         <img
                             src={cv.image.url}
                             width={155}
@@ -93,7 +111,7 @@ const AdminCvItem = ({
                                 <ButtonArrow />
                             </ArrowContainer>
                         </Styles.AdminCvItemLink>
-                        <Styles.AdminCvItemExport onClick={() => generatePDF(cv._id)}>export as PDF</Styles.AdminCvItemExport>
+                        <Styles.AdminCvItemExport onClick={() => generatePDF(cv._id, cv.personal.name)}>export as PDF</Styles.AdminCvItemExport>
                     </Styles.AdminCvItemRightFlex>
                 </Styles.AdminCvItemFlexContent>
                 <Styles.AdminCvItemEditDelete>
