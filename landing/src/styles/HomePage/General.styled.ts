@@ -573,12 +573,12 @@ export const Subtitle = styled.div<ISubtitle>`
     }
 
     &.foooter {
-    margin-top: 160px;
-    margin-bottom: -7px;
-    p {
-      margin: 0;
+      margin-top: 160px;
+      margin-bottom: -7px;
+      p {
+        margin: 0;
+      }
     }
-  }
   }
 
   @media (max-width: 1370px) {
@@ -681,7 +681,7 @@ export const Subtitle = styled.div<ISubtitle>`
 `;
 
 export const NextTech = styled.section`
-  margin-top: 18.5em;
+  margin-top: 24.5em;
 
   @media ${themes.primary.media.minPCFullHD} {
     margin-top: 20.42em;
@@ -974,7 +974,7 @@ export const TelegramWrapper = styled.div`
     &.homePage {
       font-size: 1.25em;
     }
-    
+
     &.webDev {
       font-size: 1.1em;
     }

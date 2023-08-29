@@ -18,7 +18,6 @@ export const BookModalValidation = () => {
     phone: yup
       .string()
       .matches(/^[+0-9-()]+$/, "The number can’t contain letters")
-      .min(10, "Phone number must be at least 10 digits")
       .when("email", {
         is: (val: string) => isEmailDomainPublic(val),
         then: yup.string().required("Enter your phone number"),
