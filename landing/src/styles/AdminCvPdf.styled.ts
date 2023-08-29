@@ -127,7 +127,34 @@ export const InfoArrowContainer = styled.div`
   position: relative;
   width: 36px;
   height: 36px;
-  `;
+`;
+
+export const Line1 = styled.div`
+  font-size: 14px;
+  transform: rotate(90deg);
+  position: absolute;
+  left: 10px;
+  top: 2px;
+  font-weight: 600;
+`;
+
+export const Line2 = styled.div`
+  font-size: 18px;
+  transform: rotate(45deg);
+  position: absolute;
+  left: 0;
+  top: 0.5px;
+  font-weight: 600;
+`;
+
+export const Line3 = styled.div`
+  font-size: 14px;
+  position: absolute;
+  left: -1px;
+  bottom: -6.3px;
+  font-weight: 600;
+`;
+
 
 export const InfoText = styled.div`
   color: ${themes.primary.colors.primary};
@@ -390,6 +417,44 @@ export const ProjectAchievementItem = styled.div`
 export const ProjectAchievementListIcon = styled.div`
   width: 32px;
   height: 32px;
+  font-size: 32px;
+  border: 1.5px solid black;
+  position: relative;
+`;
+
+export const AcLine1 = styled.div`
+  width: 35px;
+  height: 5px;
+  position: absolute;
+  left: 8px;
+  top: 5px;
+  transform: rotate(130deg);
+  border: 1px solid black;
+  background: linear-gradient(
+  90deg,
+  rgba(80, 95, 177, 0.8) 0%,
+  rgba(177, 212, 198, 0.8) 100%
+  ),
+  #f1efed;
+  z-index: 1;
+`;
+
+export const AcLine2 = styled.div`
+  width: 13px;
+  height: 5px;
+  transform: rotate(40deg);
+  position: absolute;
+  top: 11.4px;
+  left: 3.5px;
+  border: 1px solid black;
+  border-right: none;
+  background: linear-gradient(
+  90deg,
+  rgba(197, 236, 192, 0.8) 0%,
+  rgba(177, 212, 198, 0.8) 100%
+  ),
+  #f1efed;
+  z-index: 2;
 `;
 
 export const ProjectAchievementListText = styled.div`

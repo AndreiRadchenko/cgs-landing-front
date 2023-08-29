@@ -4,8 +4,6 @@ import Image from "next/image";
 import { SplitBrackets } from "../../../utils/splitBrackets";
 
 import * as Styles from "../../../styles/AdminCvPdf.styled";
-import achievement from "../../../../../landing/public/CV/achievement.svg";
-import Arrow from "../../../../public/CV/arrow.svg";
 
 import { CvData } from "../../../types/Admin/AdminCv.types";
 
@@ -52,13 +50,11 @@ const CvPdf = ({ data }: CvPdfProps) => {
                             <Styles.InfoCard key={idx}>
                                 <Styles.InfoCardTitle>
                                     {item.subtitle}
-                                    <Image
-                                        src={Arrow}
-                                        alt="arrow"
-                                        width={30}
-                                        height={30}
-                                        objectFit="contain"
-                                    />
+                                    <Styles.InfoArrowContainer>
+                                        <Styles.Line1>⎯</Styles.Line1>
+                                        <Styles.Line2>⎯</Styles.Line2>
+                                        <Styles.Line3>⎯</Styles.Line3>
+                                    </Styles.InfoArrowContainer>
                                 </Styles.InfoCardTitle>
                                 <Styles.InfoText>{item.text.replace(/<\/?[^>]+(>|$)/g, "")}</Styles.InfoText>
                             </Styles.InfoCard>
@@ -113,13 +109,8 @@ const CvPdf = ({ data }: CvPdfProps) => {
                                                         {acIdx < 6 ?
                                                             <Styles.ProjectAchievementItem key={acIdx}>
                                                                 <Styles.ProjectAchievementListIcon>
-                                                                    <Image
-                                                                        src={achievement}
-                                                                        alt="checkbox done"
-                                                                        objectFit="contain"
-                                                                        width={32}
-                                                                        height={32}
-                                                                    />
+                                                                <Styles.AcLine1></Styles.AcLine1> 
+                                                                <Styles.AcLine2></Styles.AcLine2>
                                                                 </Styles.ProjectAchievementListIcon>
                                                                 <Styles.ProjectAchievementListText>{ac}</Styles.ProjectAchievementListText>
                                                             </Styles.ProjectAchievementItem>
