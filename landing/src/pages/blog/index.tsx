@@ -162,7 +162,7 @@ const BlogPage = () => {
       window.scrollTo(0, 0);
       setPageReloaded(false);
     }
-  }, [isMobile, pageReloaded]);
+  }, [isMobile, pageReloaded, isLoading]);
 
   return (
     <Loader active={isLoading}>
