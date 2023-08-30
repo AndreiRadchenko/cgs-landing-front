@@ -191,7 +191,7 @@ export const BlackButton = styled.a<IFontSize>`
 
     &.seeAll {
       font-size: 1em;
-      padding: 0.757em 0.821em 0.757em 0.78em;
+      padding: 1.05em 2.2em !important;
     }
   }
 
