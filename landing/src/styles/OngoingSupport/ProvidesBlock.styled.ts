@@ -10,7 +10,7 @@ interface Moving {
 }
 
 export const Container = styled.section`
-  margin-block: 3em -0.8em;
+  margin-block: 4em -0.8em;
   position: relative;
   width: 100%;
 

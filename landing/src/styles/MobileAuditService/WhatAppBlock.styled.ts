@@ -2,7 +2,7 @@ import styled from "styled-components";
 import themes from "../../utils/themes";
 
 export const Container = styled.section`
-  margin-top: 21.75em;
+  margin-top: 24.5em;
   @media ${themes.primary.media.maxMobile} {
     margin-block: 4em 60px;
   }

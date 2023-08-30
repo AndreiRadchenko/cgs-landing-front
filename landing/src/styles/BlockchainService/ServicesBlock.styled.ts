@@ -6,7 +6,7 @@ import { slideDownText } from "../Animations.styled";
 import { ISlide } from "../../types/Decoration.types";
 
 export const Container = styled.section`
-  margin-top: 9.8em;
+  margin-top: 13.35em;
   @media ${themes.primary.media.maxMobile} {
     margin-top: 4em;
   }
@@ -223,7 +223,7 @@ export const SubText = styled.p<ISlide>`
 `;
 
 export const DescriptionContainer = styled.div`
-  margin-top: 7.5em;
+  margin-top: 8.75em;
   padding: 0 2.75em;
   display: flex;
   justify-content: center;

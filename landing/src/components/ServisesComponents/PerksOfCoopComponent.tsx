@@ -37,32 +37,34 @@ const PerksOfCoopComponent = ({
       <MobileInfiniteText withoutMargin title={data?.subtitle} />
       <Styles.ContentLayout>
         {dataWealth &&
-          Object.entries(dataWealth).map((el: any, idx) => (
-            <Styles.WorthBlock key={`${el[0]} ${idx}`} ind={idx}>
-              <Styles.WorthTitleContainer className={className}>
-                <Styles.Icon
-                  src={titleIllustration[idx].src}
-                  alt="worth it title image"
-                  xOffset={handleRandomOffset()}
-                />
-                <p>{el[1].subtitle}</p>
-              </Styles.WorthTitleContainer>
-              <Styles.WorthCardInfo>
-                <Styles.WorthCardTitle className={className}>
+          Object.entries(dataWealth)
+            .splice(0, 3)
+            .map((el: any, idx) => (
+              <Styles.WorthBlock key={`${el[0]} ${idx}`} ind={idx}>
+                <Styles.WorthTitleContainer className={className}>
                   <Styles.Icon
-                    className={"iconCard"}
                     src={titleIllustration[idx].src}
                     alt="worth it title image"
                     xOffset={handleRandomOffset()}
                   />
                   <p>{el[1].subtitle}</p>
-                </Styles.WorthCardTitle>
-                <Styles.WorthText className={className}>
-                  <SplitBrackets text={el[1].text} />
-                </Styles.WorthText>
-              </Styles.WorthCardInfo>
-            </Styles.WorthBlock>
-          ))}
+                </Styles.WorthTitleContainer>
+                <Styles.WorthCardInfo>
+                  <Styles.WorthCardTitle className={className}>
+                    <Styles.Icon
+                      className={"iconCard"}
+                      src={titleIllustration[idx].src}
+                      alt="worth it title image"
+                      xOffset={handleRandomOffset()}
+                    />
+                    <p>{el[1].subtitle}</p>
+                  </Styles.WorthCardTitle>
+                  <Styles.WorthText className={className}>
+                    <SplitBrackets text={el[1].text} />
+                  </Styles.WorthText>
+                </Styles.WorthCardInfo>
+              </Styles.WorthBlock>
+            ))}
       </Styles.ContentLayout>
     </Styles.Container>
   );

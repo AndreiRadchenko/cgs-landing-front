@@ -34,19 +34,21 @@ const SubtitleBlock = () => {
         />
       </AdminHalfGrid>
       <SubtitleGrid>
-        {Object.entries(values.howDoWeWorkBlock).map((el, idx) => {
-          return (
-            idx !== 0 && (
-              <div key={`howDoWeWorkBlock ${idx}`}>
-                {renderInputs({
-                  props: { name: `howDoWeWorkBlock.${el[0]}` },
-                  state: el[1],
-                  onChangeFunction: handleChange,
-                })}
-              </div>
-            )
-          );
-        })}
+        {Object.entries(values.howDoWeWorkBlock)
+          .splice(0, 4)
+          .map((el, idx) => {
+            return (
+              idx !== 0 && (
+                <div key={`howDoWeWorkBlock ${idx}`}>
+                  {renderInputs({
+                    props: { name: `howDoWeWorkBlock.${el[0]}` },
+                    state: el[1],
+                    onChangeFunction: handleChange,
+                  })}
+                </div>
+              )
+            );
+          })}
       </SubtitleGrid>
       <BlackButton
         size={"1.5em"}

@@ -4,7 +4,7 @@ import themes from "../../utils/themes";
 import { slideDownText } from "../Animations.styled";
 
 export const Container = styled.section`
-  margin-top: 6em;
+  margin-top: 11em;
   position: relative;
   background-color: ${themes.primary.colors.blogBackground};
   padding-bottom: 4.8%;
