@@ -158,11 +158,11 @@ const BlogPage = () => {
   }, []);
 
   useEffect(() => {
-    if (isMobile && pageReloaded) {
+    if (!isLoading && isMobile && pageReloaded) {
       window.scrollTo(0, 0);
       setPageReloaded(false);
     }
-  }, [isMobile, pageReloaded])
+  }, [isMobile, pageReloaded]);
 
   return (
     <Loader active={isLoading}>
