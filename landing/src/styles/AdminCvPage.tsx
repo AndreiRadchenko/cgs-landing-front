@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled, {keyframes} from "styled-components";
 import themes from "../utils/themes";
 
 export const AdminCvGrid = styled.div`
@@ -276,14 +276,16 @@ export const AdminCvItemLink = styled.div`
 `;
 
 export const AdminCvItemExport = styled.div`
-color: #5869DD;
-font-family: ${themes.primary.font.family.namu};
-font-size: 14px;
-font-style: normal;
-font-weight: 900;
-line-height: normal;
-margin-top: 16px;
-cursor: pointer;
+  p {
+    color: #5869DD;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 900;
+    line-height: normal;
+    margin-top: 16px;
+    cursor: pointer;
+    font-family: ${themes.primary.font.family.namu};
+  }
 `;
 
 export const AdminCvItemEditDelete = styled.div`
@@ -315,4 +317,22 @@ export const CvPdfWrapper = styled.div`
   width: 1440px;
   height: 900px;
   overflow: hidden;
+`;
+
+const rotate360 = keyframes`
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+`;
+
+export const Loader = styled.img`
+  margin-top: 15px;
+  margin-left: 5px;
+  width: 22px;
+  height: 22px;
+
+  animation: ${rotate360} 1s linear infinite;
 `;

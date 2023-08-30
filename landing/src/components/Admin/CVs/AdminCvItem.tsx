@@ -1,11 +1,12 @@
 import { useQueryClient } from "@tanstack/react-query";
-import React from "react";
+import React, { useState } from "react";
 import Image from "next/image";
 import html2canvas from 'html2canvas';
 import jsPDF from 'jspdf';
 
 import { queryKeys } from "../../../consts/queryKeys";
 import ButtonArrow from "../../../utils/ButtonArrow";
+import Loading from "../../../../public/CareerDecorations/loading.svg";
 
 import * as Styles from "../../../styles/AdminCvPage";
 import edit from "../../../../public/editIcon.svg";
@@ -39,6 +40,9 @@ const AdminCvItem = ({
     const data = queryClient.getQueryData<CvData[]>([
         queryKeys.getCvs,
     ]);
+
+    const [pdfLoad, setPdfLoad] = useState(false);
+
     const editTriggerFunc = () => {
         if (setCurrent && typeof idx === "number" && editTrigger && data) {
             setCurrent(data.findIndex((val) => val._id === cv._id));
@@ -49,14 +53,15 @@ const AdminCvItem = ({
 
 
     const generatePDF = async (id: string, name: string) => {
+        setPdfLoad(true);
         const el = document.getElementById(id);
         if (!el) return;
-    
+
         const pdf = new jsPDF();
         const width = pdf.internal.pageSize.getWidth();
-    
+
         const projects = el.getElementsByClassName('project-wrapper');
-    
+
         for (let i = 0; i < projects.length; i++) {
             const project = projects[i] as HTMLElement;
             const canvas = await html2canvas(project, {
@@ -64,12 +69,12 @@ const AdminCvItem = ({
                 logging: true,
                 useCORS: true,
             });
-    
+
             const data = canvas.toDataURL("image/png");
-    
+
             const height = (canvas.height * width) / canvas.width;
             const totalPages = Math.ceil(height / pdf.internal.pageSize.getHeight());
-    
+
             let yPosition = 0;
             for (let page = 0; page < totalPages; page++) {
                 if (page > 0) {
@@ -78,15 +83,16 @@ const AdminCvItem = ({
                 pdf.addImage(data, 'PNG', 0, yPosition, width, height);
                 yPosition -= pdf.internal.pageSize.getHeight();
             }
-    
+
             if (i < projects.length - 1) {
                 pdf.addPage();
             }
         }
-    
+
         pdf.save(`cv-${name.toLowerCase().replace(/\s+/g, '-')}.pdf`);
+        setPdfLoad(false);
     };
-    
+
 
     return (
         <>
@@ -111,7 +117,16 @@ const AdminCvItem = ({
                                 <ButtonArrow />
                             </ArrowContainer>
                         </Styles.AdminCvItemLink>
-                        <Styles.AdminCvItemExport onClick={() => generatePDF(cv._id, cv.personal.name)}>export as PDF</Styles.AdminCvItemExport>
+                        <Styles.AdminCvItemExport onClick={() => generatePDF(cv._id, cv.personal.name)}>
+                            {!pdfLoad ? (
+                                <p>export as PDF</p>
+                            ) : (
+                                <Styles.Loader 
+                                    src={Loading.src}
+                                    alt="pdf loader"
+                                />
+                            )}
+                        </Styles.AdminCvItemExport>
                     </Styles.AdminCvItemRightFlex>
                 </Styles.AdminCvItemFlexContent>
                 <Styles.AdminCvItemEditDelete>
