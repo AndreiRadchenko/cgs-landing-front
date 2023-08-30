@@ -109,8 +109,8 @@ const CvPdf = ({ data }: CvPdfProps) => {
                                                         {acIdx < 6 ?
                                                             <Styles.ProjectAchievementItem key={acIdx}>
                                                                 <Styles.ProjectAchievementListIcon>
-                                                                <Styles.AcLine1></Styles.AcLine1> 
-                                                                <Styles.AcLine2></Styles.AcLine2>
+                                                                    <Styles.AcLine1></Styles.AcLine1>
+                                                                    <Styles.AcLine2></Styles.AcLine2>
                                                                 </Styles.ProjectAchievementListIcon>
                                                                 <Styles.ProjectAchievementListText>{ac}</Styles.ProjectAchievementListText>
                                                             </Styles.ProjectAchievementItem>

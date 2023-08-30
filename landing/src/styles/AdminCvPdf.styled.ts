@@ -417,8 +417,9 @@ export const ProjectAchievementItem = styled.div`
 export const ProjectAchievementListIcon = styled.div`
   width: 32px;
   height: 32px;
+  min-width: 32px;
   font-size: 32px;
-  border: 1.5px solid black;
+  border: 2px solid black;
   position: relative;
 `;
 
