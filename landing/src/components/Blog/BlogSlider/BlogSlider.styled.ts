@@ -51,7 +51,7 @@ export const SliderWrapper = styled("div")`
     width: 10px;
     border: 1px solid #000;
     border-radius: 0;
-    background-color: #fff;
+    background-color: transparent;
     opacity: 10;
     :nth-child(1) {
       margin-left: 0;
