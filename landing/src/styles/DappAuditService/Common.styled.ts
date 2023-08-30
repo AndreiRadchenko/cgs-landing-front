@@ -14,7 +14,7 @@ export const Layout = styled.div`
 `;
 
 export const Wrapper = styled.section`
-  margin-top: 9.8em;
+  margin-top: 12.6em;
   margin-bottom: 130px;
 
   @media (min-width: 1800px) {

@@ -10,8 +10,8 @@ interface ScrollBar {
 }
 
 export const Wrapper = styled.div`
-  margin-top: 13.2em;
-  margin-bottom: 11.65em;
+  margin-top: 11.7em;
+  margin-bottom: 11.7em;
   display: flex;
   justify-content: space-between;
 
@@ -30,8 +30,8 @@ export const Wrapper = styled.div`
   }
 
   &.blockchainTeam {
-    margin-top: 12.45em;
-    margin-bottom: 13.917em;
+    margin-top: 11.65em;
+    margin-bottom: 13.6em;
   }
 
   &.supportTeam {

@@ -11,7 +11,7 @@ interface IsFirst {
 }
 
 export const Wrapper = styled.div`
-  margin-bottom: 14.75em;
+  margin-bottom: 11.65em;
   width: 100%;
 
   @media (min-width: 1920px) {
@@ -402,14 +402,12 @@ export const Text = styled.div`
   }
 `;
 
-export const MobileContent = styled.div`
-
-`;
+export const MobileContent = styled.div``;
 
 export const AdvantagesItem = styled.div`
   display: flex;
   column-gap: 11px;
-  height: auto; 
+  height: auto;
   position: relative;
 `;
 
@@ -422,12 +420,12 @@ export const NumberMobileItem = styled.div`
 export const TextMobileItem = styled.div<ISlide>`
   margin-bottom: 18px;
   &.scrolled {
-      transform-origin: left center;
-      animation: ${({ ind }) =>
-        css`
-          ${slideDownText} 700ms ${ind * 100}ms ease-in forwards
-        `};
-    }
+    transform-origin: left center;
+    animation: ${({ ind }) =>
+      css`
+        ${slideDownText} 700ms ${ind * 100}ms ease-in forwards
+      `};
+  }
 `;
 
 export const MobileNumber = styled.div`
@@ -441,7 +439,7 @@ export const MobileNumber = styled.div`
   }
 
   ::after {
-    content: '';
+    content: "";
     position: absolute;
     top: 70%;
     background-color: #8f8e93;
@@ -451,7 +449,7 @@ export const MobileNumber = styled.div`
   }
 
   ::before {
-    content: '';
+    content: "";
     position: absolute;
     top: 50px;
     background-color: #8f8e93;
@@ -468,11 +466,11 @@ export const Circle = styled.img`
 export const SmallCircle = styled.img`
   @media ${themes.primary.media.maxMobile} {
     width: 14px;
-    border: 4px solid #F1EFED;
+    border: 4px solid #f1efed;
     position: absolute;
     top: 60%;
     left: 0.55%;
-    
+
     &.oneLine {
       top: 65%;
     }
@@ -489,11 +487,11 @@ export const SmallCircle = styled.img`
 
   @media (max-width: 475px) {
     width: 12px;
-    border: 4px solid #F1EFED;
+    border: 4px solid #f1efed;
     position: absolute;
     top: 62%;
     left: 1.2%;
-    
+
     &.oneLine {
       top: 75%;
     }

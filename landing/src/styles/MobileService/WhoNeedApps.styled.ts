@@ -6,7 +6,7 @@ export const Wrapper = styled.section`
   position: relative;
 
   &.mobileDev {
-    margin-top: 11.1em;
+    margin-top: 11.7em;
   }
   &.withoutShowcase {
     margin-bottom: 12.9em;

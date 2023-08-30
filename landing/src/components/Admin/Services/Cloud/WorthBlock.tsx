@@ -32,17 +32,19 @@ const WorthBlock = () => {
         />
       </AdminHalfGrid>
       <SubtitleGrid>
-        {Object.entries(blocks).map((el, idx) => {
-          return (
-            <div key={idx}>
-              {renderInputs({
-                props: { name: `worthBlock.${el[0]}` },
-                state: el[1],
-                onChangeFunction: handleChange,
-              })}
-            </div>
-          );
-        })}
+        {Object.entries(blocks)
+          .splice(0, 3)
+          .map((el, idx) => {
+            return (
+              <div key={idx}>
+                {renderInputs({
+                  props: { name: `worthBlock.${el[0]}` },
+                  state: el[1],
+                  onChangeFunction: handleChange,
+                })}
+              </div>
+            );
+          })}
       </SubtitleGrid>
       <div>
         <BlackButton

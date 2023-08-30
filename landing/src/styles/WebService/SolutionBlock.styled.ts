@@ -4,12 +4,12 @@ import themes from "../../utils/themes";
 
 export const Container = styled.section`
   position: relative;
-  margin-top: 9em;
+  margin-top: 8.75em;
   padding-bottom: 13%;
   background-image: url(${solutionBg.src});
   background-size: 100% 100%;
   background-repeat: no-repeat;
-  margin-bottom: 2.45em;
+  margin-bottom: 6.5em;
 
   @media ${themes.primary.media.maxServiceWeb} {
     margin-top: 6.4em;

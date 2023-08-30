@@ -4,7 +4,7 @@ import { IIcon, ISlide } from "../types/Decoration.types";
 import { float } from "./Animations.styled";
 
 export const Container = styled.section`
-  margin-top: 50px;
+  margin-top: 140px;
   margin-bottom: 140px;
   &.mobileAudit {
     margin-top: 8.95rem;
@@ -279,7 +279,7 @@ export const WhoNeedContainer = styled.div`
     ${themes.primary.colors.gradientColor1RateCard} 0%,
     ${themes.primary.colors.gradientColor2RateCard} 100%
   );
-  margin-bottom: 70px;
+  margin-bottom: 90px;
   display: flex;
   gap: 97px;
   align-items: center;

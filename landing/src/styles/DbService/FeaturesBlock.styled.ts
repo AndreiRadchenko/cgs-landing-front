@@ -24,7 +24,7 @@ export const Container = styled.section`
 `;
 
 export const Title = styled.h2`
-  margin: 4.325em 0 0;
+  margin: 5.5em 0 0;
   line-height: 140%;
   font-size: 2.5em;
   text-transform: uppercase;
@@ -67,20 +67,20 @@ export const TextContent = styled.div<ISlide>`
 
   @media (min-width: 1560px) {
     &:nth-child(n + 3) {
-    padding-top: 1.95em;
-    }  
+      padding-top: 1.95em;
+    }
   }
 
   @media (min-width: 1800px) {
     &:nth-child(n + 3) {
-    padding-top: 1.25em;
-    }  
+      padding-top: 1.25em;
+    }
   }
 
   @media (min-width: 1900px) {
     &:nth-child(n + 3) {
-    padding-top: 1.75em;
-    }  
+      padding-top: 1.75em;
+    }
   }
 
   @media (min-width: 2200px) {

@@ -4,7 +4,7 @@ import themes from "../../utils/themes";
 import { slideRight } from "../Animations.styled";
 
 export const Container = styled.section`
-  margin-top: 5.9em;
+  margin-top: 8.75em;
   position: relative;
   padding-bottom: 20px;
 

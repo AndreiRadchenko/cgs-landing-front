@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import parse from "html-react-parser";
 import { dehydrate, QueryClient, useQuery } from "@tanstack/react-query";
 import Head from "next/head";

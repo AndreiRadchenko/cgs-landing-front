@@ -962,7 +962,7 @@ export interface IServiceWebAudit {
     problems: [string];
   };
   teamMembers: TeamMembers;
-  typesOfAuditBlock: [{ _id: string; title: string; text: string }];
+  typesOfAuditBlock: { types: [{ _id: string; title: string; text: string }] };
   projects: [string];
   howToDoAudit: {
     subtitle: string;

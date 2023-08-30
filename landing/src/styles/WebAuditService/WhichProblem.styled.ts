@@ -2,7 +2,7 @@ import styled from "styled-components";
 import themes from "../../utils/themes";
 
 export const Wrapper = styled.section`
-  margin-top: 14.2em;
+  margin-top: 11.7em;
   position: relative;
   display: flex;
   gap: 32px;

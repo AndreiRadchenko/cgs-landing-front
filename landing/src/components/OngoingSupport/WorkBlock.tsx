@@ -33,19 +33,21 @@ const WorkBlock = () => {
       <Styled.Title>{subtitle}</Styled.Title>
       <MobileInfiniteText title={subtitle}></MobileInfiniteText>
       <Styled.TextWrapper ref={elRef}>
-        {Object.values(blocks).map((el, idx) => (
-          <Styled.Wrapper
-            key={idx}
-            ind={idx}
-            className={isScrolled ? "scrolled" : undefined}
-          >
-            <Styled.Subtitle>
-              <Styled.Svg src={figures[idx].src} alt={figuresAlt[idx]} />
-              {el.subtitle}
-            </Styled.Subtitle>
-            <Styled.Text>{el.text}</Styled.Text>
-          </Styled.Wrapper>
-        ))}
+        {Object.values(blocks)
+          .splice(0, 3)
+          .map((el, idx) => (
+            <Styled.Wrapper
+              key={idx}
+              ind={idx}
+              className={isScrolled ? "scrolled" : undefined}
+            >
+              <Styled.Subtitle>
+                <Styled.Svg src={figures[idx].src} alt={figuresAlt[idx]} />
+                {el.subtitle}
+              </Styled.Subtitle>
+              <Styled.Text>{el.text}</Styled.Text>
+            </Styled.Wrapper>
+          ))}
       </Styled.TextWrapper>
     </Styled.Container>
   );

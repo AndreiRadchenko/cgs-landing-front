@@ -22,7 +22,7 @@ const TypesBlock = () => {
   return (
     <AdminBlockDropDown title="TYPES OF AUDIT">
       <Styled.ThreeInARowGrid>
-        {values.typesOfAuditBlock.map((type, idx) => (
+        {values.typesOfAuditBlock.types.map((type, idx) => (
           <div key={type._id}>
             <SubHeaderWithInput
               inputValue={type.title}

@@ -4,7 +4,7 @@ import themes from "../../utils/themes";
 import { slideRight } from "../Animations.styled";
 
 export const Container = styled.section`
-  margin-top: 11.875em;
+  margin-top: 14.95em;
   display: flex;
 
   @media ${themes.primary.media.maxMobile} {
