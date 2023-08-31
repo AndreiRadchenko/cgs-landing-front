@@ -6,19 +6,21 @@ import {
   StyledH,
 } from "./index.styled";
 
-const Marquee = () => {
+const Marquee = ({ title }: { title: string }) => {
   return (
     <WrapperStyledH>
       <MarqueeBox>
         <MarqueeContent aria-hidden="true">
           {[...Array(6)].map((_, i) => (
-            <StyledH key={i}>Estimation Form </StyledH>
+            <>
+              <StyledH key={i}>{title} </StyledH>
+            </>
           ))}
         </MarqueeContent>
 
         <MarqueeContent aria-hidden="true">
           {[...Array(6)].map((_, i) => (
-            <StyledH key={i}>Estimation Form </StyledH>
+            <StyledH key={i}>{title} </StyledH>
           ))}
         </MarqueeContent>
       </MarqueeBox>

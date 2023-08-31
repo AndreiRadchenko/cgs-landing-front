@@ -3,12 +3,12 @@ import { MobileInfiniteText } from "../MobileInfiniteText/MobileInfiniteText";
 import { MobleTextWrapper } from "./index.styled";
 import Marquee from "./Marquee";
 
-export const HeaderText = () => {
+export const HeaderText = ({ title }: { title: string }) => {
   return (
     <>
-      <Marquee />
+      <Marquee title={title} />
       <MobleTextWrapper>
-        <MobileInfiniteText title="Estimation Form" />
+        <MobileInfiniteText title={title} />
       </MobleTextWrapper>
     </>
   );

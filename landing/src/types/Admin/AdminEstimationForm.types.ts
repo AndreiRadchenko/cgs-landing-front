@@ -22,6 +22,7 @@ export interface IUpdatePageBody {
 export interface IEstimationFormPages {
   _id: string;
   formName: string;
+  title: string;
   pages: IEstimationFormPage[];
 }
 export interface IEstimationFormData {

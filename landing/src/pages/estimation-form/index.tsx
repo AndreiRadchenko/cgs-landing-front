@@ -19,6 +19,7 @@ import { dehydrate, QueryClient, useQuery } from "@tanstack/react-query";
 import { queryKeys } from "../../consts/queryKeys";
 import { adminGlobalService } from "../../services/adminHomePage";
 import { adminEstimationFormService } from "../../services/adminEstimationForm";
+import { IEstimationFormPagesResponse } from "../../types/Admin/AdminEstimationForm.types";
 
 export async function getServerSideProps() {
   const queryClient = new QueryClient();
@@ -52,6 +53,10 @@ const EstimationsForm = () => {
   const { data, isLoading } = useQuery(
     [queryKeys.getEstimationFormData, page],
     () => adminEstimationFormService.getPageData(page.toString())
+  );
+  const { data: estimationData }: IEstimationFormPagesResponse = useQuery(
+    [queryKeys.getEstimationFormPage],
+    () => adminEstimationFormService.getPages()
   );
 
   useEffect(() => {
@@ -87,7 +92,7 @@ const EstimationsForm = () => {
             {openFailedModal && (
               <EstimationFailModal setOpenFailedModal={setOpenFailedModal} />
             )}
-            <HeaderText />
+            {estimationData && <HeaderText title={estimationData?.title} />}
             <EstimationPage
               setOpenSuccessModal={setOpenSuccessModal}
               attachFiles={attachFiles}
