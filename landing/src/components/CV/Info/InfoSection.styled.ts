@@ -23,7 +23,7 @@ export const InfoSectionContainer = styled.div`
 export const Title = styled.h2`
   font-family: ${themes.primary.font.family.namu};
   font-size: 24px;
-  line-height: 2.33;
+  line-height: 140%;
   text-transform: uppercase;
   text-align: center;
   margin: 0;
