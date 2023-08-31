@@ -13,7 +13,7 @@ export const PersonalContainer = styled.div`
   }
 
   @media ${themes.primary.media.minPCFullHD} {
-    height: 573px;
+    height: 336px;
     margin-top: 130px;
   }
 `;
@@ -31,8 +31,8 @@ export const Name = styled.h1`
   }
 
   @media ${themes.primary.media.minPCFullHD} {
-    font-size: 88px;
-    letter-spacing: 4.4px;
+    font-size: 75px;
+    letter-spacing: 3.7px;
   }
 `;
 
@@ -51,15 +51,15 @@ export const Role = styled.h2`
   }
 
   @media ${themes.primary.media.minPCFullHD} {
-    font-size: 42.667px;
+    font-size: 35px;
     margin-top: 21px;
   }
 `;
 
 export const ImageWrapper = styled.div`
   position: relative;
-  width: 282px;
-  height: 282px;
+  width: 215px;
+  height: 215px;
   margin: 16px auto;
   z-index: 5;
 
@@ -74,10 +74,10 @@ export const ImageWrapper = styled.div`
   }
 
   @media ${themes.primary.media.minPCFullHD} {
-    max-width: 573px;
-    max-height: 573px;
-    width: 573px;
-    height: 573px;
+    max-width: 325px;
+    max-height: 325px;
+    width: 325px;
+    height: 325px;
   }
 `;
 
@@ -133,10 +133,10 @@ export const Summary = styled.p`
   }
 
   @media ${themes.primary.media.minPCFullHD} {
-    font-size: 29.333px;
+    font-size: 24px;
     margin-top: 32px;
-    max-width: 933px;
-    width: 53%;
+    max-width: 1070px;
+    width: 63%;
   }
 `;
 

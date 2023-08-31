@@ -52,7 +52,7 @@ export const Project = ({
       </Styled.NumberTitleWrapp>
       <Styled.Role className="mobile">Role: {role}</Styled.Role>
       <Styled.About>
-        <Styled.AboutTitle>ABOUT PROJECT:</Styled.AboutTitle>
+        <Styled.AboutTitle>About project:</Styled.AboutTitle>
         <Styled.AboutText>
           <SplitBrackets text={summary} />
         </Styled.AboutText>

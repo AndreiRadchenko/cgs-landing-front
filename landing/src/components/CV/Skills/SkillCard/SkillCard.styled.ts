@@ -97,13 +97,13 @@ export const TitleWrapp = styled.div`
 `;
 
 export const Icon = styled.img<IIcon>`
-  width: 40px;
-  height: 40px;
+  width: 32px;
+  height: 32px;
   margin-right: 16px;
   animation: none;
   @media ${themes.primary.media.minMobile} {
-    width: 56px;
-    height: 56px;
+    width: 48px;
+    height: 48px;
     animation: ${({ xOffset }) =>
       css`
         ${float(xOffset)} 3s infinite linear
@@ -120,7 +120,7 @@ export const Icon = styled.img<IIcon>`
 export const Title = styled.h3`
   color: ${themes.primary.colors.primary};
   font-family: ${themes.primary.font.family.namu};
-  font-size: 22px;
+  font-size: 18px;
   font-style: normal;
   font-weight: 900;
   line-height: 160%;
@@ -128,7 +128,7 @@ export const Title = styled.h3`
   margin: 0;
 
   @media ${themes.primary.media.minMobile} {
-    font-size: 30px;
+    font-size: 24px;
     letter-spacing: 1.5px;
   }
 
