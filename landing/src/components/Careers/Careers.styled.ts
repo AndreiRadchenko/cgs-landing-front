@@ -150,6 +150,17 @@ export const Title = styled.header`
     margin: 0;
   }
 
+  span {
+    &.blue {
+      color: ${themes.primary.colors.darkBlue};
+      height: 6vw;
+      display: inline-flex;
+      white-space: nowrap;
+      min-width: 830px;
+      width: 830px;
+    }
+  }
+
   @media (min-width: 2561px) {
     width: 80vw;
     margin-left: 11vw;
@@ -171,7 +182,7 @@ export const Title = styled.header`
   }
 
   @media (max-width: 1440px) {
-    margin-left: 1em;
+    margin-left: 0.5em;
     font-size: 6.167em;
   }
 
