@@ -110,7 +110,7 @@ export const Number = styled.h3`
   }
 
   @media ${themes.primary.media.minPCFullHD} {
-    font-size: 116px;
+    font-size: 102px;
   }
 `;
 
@@ -149,7 +149,7 @@ export const Title = styled.h4`
   }
 
   @media ${themes.primary.media.minPCFullHD} {
-    font-size: 53.333px;
+    font-size: 48px;
   }
 `;
 
@@ -165,7 +165,7 @@ export const Date = styled.p`
   }
 
   @media ${themes.primary.media.minPCFullHD} {
-    font-size: 29.333px;
+    font-size: 24px;
   }
 `;
 
@@ -193,7 +193,7 @@ export const Role = styled.p`
   }
 
   @media ${themes.primary.media.minPCFullHD} {
-    font-size: 40px;
+    font-size: 29px;
     margin-top: 10px;
   }
 `;
@@ -222,7 +222,7 @@ export const AboutTitle = styled.h4`
   }
 
   @media ${themes.primary.media.minPCFullHD} {
-    font-size: 40px;
+    font-size: 29px;
   }
 `;
 
@@ -238,7 +238,7 @@ export const AboutText = styled.p`
   }
 
   @media ${themes.primary.media.minPCFullHD} {
-    font-size: 29.333px;
+    font-size: 24px;
     margin-top: 10px;
   }
 `;
@@ -280,7 +280,7 @@ export const TechnologiesTitle = styled.h4`
   }
 
   @media ${themes.primary.media.minPCFullHD} {
-    font-size: 40px;
+    font-size: 29px;
   }
 `;
 

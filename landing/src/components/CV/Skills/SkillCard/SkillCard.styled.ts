@@ -112,8 +112,8 @@ export const Icon = styled.img<IIcon>`
 
   @media ${themes.primary.media.minPCFullHD} {
     margin-right: 21px;
-    width: 74.66px;
-    height: 74.66px;
+    width: 64px;
+    height: 64px;
   }
 `;
 
@@ -124,17 +124,17 @@ export const Title = styled.h3`
   font-style: normal;
   font-weight: 900;
   line-height: 160%;
-  letter-spacing: 1.1px;
+  letter-spacing: 0.9px;
   margin: 0;
 
   @media ${themes.primary.media.minMobile} {
     font-size: 24px;
-    letter-spacing: 1.5px;
+    letter-spacing: 1.2px;
   }
 
   @media ${themes.primary.media.minPCFullHD} {
-    font-size: 40px;
-    letter-spacing: 2px;
+    font-size: 32px;
+    letter-spacing: 1.6px;
   }
 `;
 

@@ -26,7 +26,7 @@ export const AchievementsTitle = styled.h4`
   }
 
   @media ${themes.primary.media.minPCFullHD} {
-    font-size: 40px;
+    font-size: 29px;
   }
 `;
 
@@ -79,6 +79,7 @@ export const AchievementsListItem = styled.li`
     padding-block: 8px;
   }
   @media ${themes.primary.media.minPCFullHD} {
+    padding-block: 10px;
   }
 `;
 
@@ -92,6 +93,7 @@ export const AchievementsListPintWrapper = styled.div`
     left: -40px;
   }
   @media ${themes.primary.media.minPCFullHD} {
+    left: -53.33px;
   }
 `;
 
@@ -103,6 +105,7 @@ export const AchievementsListPintLine = styled.div`
     width: 40px;
   }
   @media ${themes.primary.media.minPCFullHD} {
+    width: 53.33px;
   }
 `;
 
@@ -119,6 +122,8 @@ export const AchievementsListPintDiamond = styled.div`
     height: 25px;
   }
   @media ${themes.primary.media.minPCFullHD} {
+    width: 33px;
+    height: 33px;
   }
 `;
 
@@ -137,5 +142,7 @@ export const AchievementText = styled.p`
   }
 
   @media ${themes.primary.media.minPCFullHD} {
+    padding-left: 68px;
+    font-size: 24px;
   }
 `;
