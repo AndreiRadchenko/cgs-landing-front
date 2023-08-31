@@ -4,6 +4,7 @@ import { queryKeys } from "../../../consts/queryKeys";
 
 import { CustomToast } from "../CustomToast";
 import EstimationFormPage from "./EstimationFormPage";
+import EstimationFormTitle from "../../EstimationForm/EstimationFormTitle";
 
 import * as Styled from "../../../styles/AdminPage";
 import { IEstimationFormPagesResponse } from "../../../types/Admin/AdminEstimationForm.types";
@@ -19,7 +20,7 @@ const EstimationFormMainContent = () => {
   return (
     <Styled.AdminPaddedBlock>
       <Styled.AdminHeader>Estimation Form</Styled.AdminHeader>
-
+      {data && <EstimationFormTitle title={data?.title} />}
       {data &&
         data.pages.map((el, i) => (
           <EstimationFormPage
