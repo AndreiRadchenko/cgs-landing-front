@@ -6,7 +6,7 @@ export const Container = styled.section`
 `;
 
 export const ContentWrapper = styled.div`
-  padding-top: 9.3em;
+  padding-top: 11.25em;
   max-width: 50%;
 
   @media ${themes.primary.media.minPCFullHD} {

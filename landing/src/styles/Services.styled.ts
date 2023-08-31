@@ -12,7 +12,7 @@ export const Container = styled.section`
   }
 
   &.mobileDev {
-    margin-top: 1.4em;
+    margin-top: 11.7em;
   }
 
   @media ${themes.primary.media.maxMobile} {
