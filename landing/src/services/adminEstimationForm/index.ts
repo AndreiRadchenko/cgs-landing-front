@@ -28,6 +28,10 @@ export class AdminEstimationFormService {
     return this.httpService.post(`api/poll-table/submit`, formData);
   }
 
+  public updateEstimationFormTitle(title: string): Promise<ISendData | void> {
+    return this.httpService.post(`api/poll-table/title`, title);
+  }
+
   public sendEstimationFormEmail(estimationEmail: FormData) {
     return this.httpService.post(
       `api/poll-table/upload-files`,
