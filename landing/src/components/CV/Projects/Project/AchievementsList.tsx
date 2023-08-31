@@ -15,12 +15,12 @@ export const AchievementsList = ({ achievements }: IProps) => {
         <Styled.AchievementsTitle>Achievements:</Styled.AchievementsTitle>
         <Styled.AchievementsListWrapper>
           <Styled.AchievementsList>
-            {achievements.map((e, idx) => (
+            {achievements.slice(0, 6).map((e, idx) => (
               <Styled.AchievementsListItem key={idx}>
-                <Styled.AchievementIcon
-                  src={achievement.src}
-                  alt="checkbox done"
-                />
+                <Styled.AchievementsListPintWrapper>
+                  <Styled.AchievementsListPintLine />
+                  <Styled.AchievementsListPintDiamond />
+                </Styled.AchievementsListPintWrapper>
                 <Styled.AchievementText>{e}</Styled.AchievementText>
               </Styled.AchievementsListItem>
             ))}

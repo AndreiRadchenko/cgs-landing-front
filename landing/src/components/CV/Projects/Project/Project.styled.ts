@@ -84,7 +84,7 @@ export const NumberTitleWrapp = styled.div`
 
   @media ${themes.primary.media.minMobile} {
     gap: 40px;
-    align-items: flex-start;
+    align-items: center;
   }
 
   @media ${themes.primary.media.minPCFullHD} {
@@ -101,17 +101,16 @@ export const Number = styled.h3`
   -webkit-text-stroke: 1.2px black;
   text-shadow: 4px 1px 0px #000;
   font-family: ${themes.primary.font.family.namu};
-  font-size: 87px;
+  font-size: 77px;
   line-height: normal;
 
   @media ${themes.primary.media.minMobile} {
     -webkit-text-stroke: 2px black;
     text-shadow: 7px 2px 0px #000;
-    font-size: 87px;
   }
 
   @media ${themes.primary.media.minPCFullHD} {
-    font-size: 116px;
+    font-size: 102px;
   }
 `;
 
@@ -142,15 +141,15 @@ export const Title = styled.h4`
   margin: 0 0 0 0;
   padding: 0;
   color: ${themes.primary.colors.primary};
-  font-size: 24px;
+  font-size: 22px;
   line-height: normal;
 
   @media ${themes.primary.media.minMobile} {
-    font-size: 40px;
+    font-size: 36px;
   }
 
   @media ${themes.primary.media.minPCFullHD} {
-    font-size: 53.333px;
+    font-size: 48px;
   }
 `;
 
@@ -162,11 +161,11 @@ export const Date = styled.p`
   line-height: normal;
 
   @media ${themes.primary.media.minMobile} {
-    font-size: 22px;
+    font-size: 18px;
   }
 
   @media ${themes.primary.media.minPCFullHD} {
-    font-size: 29.333px;
+    font-size: 24px;
   }
 `;
 
@@ -174,7 +173,7 @@ export const Role = styled.p`
   margin: 8px 0 0 0;
   padding: 0;
   color: ${themes.primary.colors.blogArticleText};
-  font-size: 22px;
+  font-size: 18px;
   line-height: normal;
   &.mobile {
     display: block;
@@ -190,11 +189,11 @@ export const Role = styled.p`
     &.desktop {
       display: block;
     }
-    font-size: 30px;
+    font-size: 22px;
   }
 
   @media ${themes.primary.media.minPCFullHD} {
-    font-size: 40px;
+    font-size: 29px;
     margin-top: 10px;
   }
 `;
@@ -214,17 +213,16 @@ export const About = styled.div`
 export const AboutTitle = styled.h4`
   margin: 0;
   padding: 0;
-  color: ${themes.primary.colors.primary};
-  font-size: 22px;
-  line-height: 1.6;
-  text-transform: uppercase;
+  color: ${themes.primary.colors.blogArticleText};
+  font-size: 18px;
+  line-height: normal;
 
   @media ${themes.primary.media.minMobile} {
-    font-size: 30px;
+    font-size: 22px;
   }
 
   @media ${themes.primary.media.minPCFullHD} {
-    font-size: 40px;
+    font-size: 29px;
   }
 `;
 
@@ -236,11 +234,11 @@ export const AboutText = styled.p`
   line-height: 1.6;
 
   @media ${themes.primary.media.minMobile} {
-    font-size: 22px;
+    font-size: 18px;
   }
 
   @media ${themes.primary.media.minPCFullHD} {
-    font-size: 29.333px;
+    font-size: 24px;
     margin-top: 10px;
   }
 `;
@@ -273,16 +271,16 @@ export const Technologies = styled.div`
 export const TechnologiesTitle = styled.h4`
   margin: 0;
   padding: 0;
-  font-size: 22px;
+  font-size: 18px;
   text-align: center;
+  line-height: normal;
 
   @media ${themes.primary.media.minMobile} {
-    font-size: 30px;
-    line-height: normal;
+    font-size: 22px;
   }
 
   @media ${themes.primary.media.minPCFullHD} {
-    font-size: 40px;
+    font-size: 29px;
   }
 `;
 

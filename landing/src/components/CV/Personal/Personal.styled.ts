@@ -6,14 +6,14 @@ export const PersonalContainer = styled.div`
   margin-top: 8px;
   @media ${themes.primary.media.minMobile} {
     margin-top: 100px;
-    height: 430px;
+    height: 21em;
     display: flex;
     flex-direction: column;
     justify-content: center;
   }
 
   @media ${themes.primary.media.minPCFullHD} {
-    height: 573px;
+    height: 336px;
     margin-top: 130px;
   }
 `;
@@ -21,68 +21,63 @@ export const PersonalContainer = styled.div`
 export const Name = styled.h1`
   font-family: ${themes.primary.font.family.namu};
   font-size: 32px;
-  line-height: 1.2;
+  line-height: 120%;
   text-transform: uppercase;
   margin: 0;
 
   @media ${themes.primary.media.minMobile} {
-    font-size: 66px;
-    line-height: normal;
-    letter-spacing: 3.3px;
-    width: 65.5%;
+    font-size: 56px;
+    letter-spacing: 2.8px;
   }
 
   @media ${themes.primary.media.minPCFullHD} {
-    font-size: 88px;
-    letter-spacing: 4.4px;
+    font-size: 75px;
+    letter-spacing: 3.7px;
   }
 `;
 
 export const Role = styled.h2`
   font-family: ${themes.primary.font.family.namu};
   font-size: 22px;
-  line-height: normal;
+  line-height: 99%;
   text-transform: uppercase;
   margin: 8px 0 0 0;
   color: ${themes.primary.colors.darkBlue};
 
   @media ${themes.primary.media.minMobile} {
-    font-size: 32px;
+    font-size: 26px;
     margin-top: 16px;
     width: 50%;
   }
 
   @media ${themes.primary.media.minPCFullHD} {
-    font-size: 42.667px;
+    font-size: 35px;
     margin-top: 21px;
   }
 `;
 
 export const ImageWrapper = styled.div`
   position: relative;
-  width: 282px;
-  height: 282px;
+  width: 215px;
+  height: 215px;
   margin: 16px auto;
   z-index: 5;
 
   @media ${themes.primary.media.minMobile} {
     margin: 0;
     position: absolute;
-    right: 0;
-    top: 0;
-    max-width: 430px;
-    max-height: 430px;
-    min-width: 300px;
-    min-height: 300px;
-    width: 29.86vw;
-    height: 29.86vw;
+    right: 6.7em;
+    max-width: 244px;
+    max-height: 244px;
+    width: 16.9vw;
+    height: 16.9vw;
   }
 
   @media ${themes.primary.media.minPCFullHD} {
-    max-width: 573px;
-    max-height: 573px;
-    width: 573px;
-    height: 573px;
+    max-width: 325px;
+    max-height: 325px;
+    width: 325px;
+    height: 325px;
   }
 `;
 
@@ -131,17 +126,17 @@ export const Summary = styled.p`
   color: ${themes.primary.colors.primary};
 
   @media ${themes.primary.media.minMobile} {
-    font-size: 22px;
-    max-width: 700px;
+    font-size: 18px;
+    max-width: 800px;
     margin-top: 24px;
-    width: 53%;
+    width: 55%;
   }
 
   @media ${themes.primary.media.minPCFullHD} {
-    font-size: 29.333px;
+    font-size: 24px;
     margin-top: 32px;
-    max-width: 933px;
-    width: 53%;
+    max-width: 1070px;
+    width: 63%;
   }
 `;
 
