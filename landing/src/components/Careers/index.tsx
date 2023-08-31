@@ -5,6 +5,7 @@ import parse, { HTMLReactParserOptions, Element } from "html-react-parser";
 
 import CareersTicket from "../../components/CareersTicket";
 import CareersForm from "../CareersForm";
+import ScrambleText from "../HomePage/ScrambleText";
 
 import * as Styles from "./Careers.styled";
 import * as CSS from "../../styles/Portfolio/title.styled";
@@ -65,6 +66,23 @@ const Careers: FC<ICareersProps> = ({ data }) => {
               />
             </CSS.ArrowWrapper>
           </>
+        );
+      }
+      if (
+        domNode instanceof Element &&
+        domNode.attribs &&
+        domNode.attribs.style &&
+        domNode.attribs.style.includes("color: rgb(88, 105, 221)")
+      ) {
+        return (
+          <span className="blue">
+            <ScrambleText
+              text={
+                domNode.children[0].type === "text" &&
+                (domNode.children[0] as any).data
+              }
+            />
+          </span>
         );
       }
     },
