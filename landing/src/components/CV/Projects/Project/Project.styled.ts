@@ -314,7 +314,7 @@ export const PortfolioPageIconContainer = styled.div<IPortfolioIconProps>`
     grid-template-columns: repeat(auto-fill, minmax(110px, 110px));
     .image {
       height: 95px;
-      margin: 8px;
+      margin: 4px;
     }
   }
   @media ${themes.primary.media.minPCFullHD} {

@@ -75,9 +75,6 @@ export const AchievementsListItem = styled.li`
   display: flex;
   align-items: center;
 
-  @media ${themes.primary.media.minMobile} {
-    padding-block: 8px;
-  }
   @media ${themes.primary.media.minPCFullHD} {
     padding-block: 10px;
   }

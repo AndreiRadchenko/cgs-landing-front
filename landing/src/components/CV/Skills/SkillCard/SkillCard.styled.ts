@@ -143,12 +143,12 @@ export const SkillsList = styled.ul`
   padding: 16px 20px 32px;
   @media ${themes.primary.media.minMobile} {
     padding-right: 0;
-    padding-bottom: 19px;
+    padding-bottom: 27px;
   }
 
   @media ${themes.primary.media.minPCFullHD} {
     padding-top: 21px;
-    padding-bottom: 34px;
+    padding-bottom: 35px;
   }
 `;
 
