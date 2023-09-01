@@ -147,6 +147,10 @@ export const Title = styled.header`
   margin-bottom: 40px;
   line-height: 125%;
 
+  & .careers {
+    min-width: 170px;
+  }
+
   p {
     margin: 0;
   }

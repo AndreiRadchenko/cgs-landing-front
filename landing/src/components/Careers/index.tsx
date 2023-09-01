@@ -21,6 +21,7 @@ import longArrow from "../../../public/HomePageDecoration/longArrow.svg";
 import shortArrow from "../../../public/HomePageDecoration/longArrow.svg";
 
 const Careers: FC<ICareersProps> = ({ data }) => {
+  const [parsedSubtitle, setParsedSubtitle] = React.useState<any>("");
   const is768px = useMediaQuery("(max-width: 768px)");
   const ref = useRef<HTMLDivElement>(null);
 
@@ -119,13 +120,17 @@ const Careers: FC<ICareersProps> = ({ data }) => {
     ));
   };
 
+  React.useEffect(() => {
+    setParsedSubtitle(parse(data?.subtitle, options));
+  }, [data?.subtitle]);
+
   return (
     <Styles.Layout>
       <Styles.CareersContainer>
         <Styles.TopRightImageText src={topRightText.src} />
         <Styles.BottomRightImageText src={bottomRightText.src} />
         <Styles.BottomRightImageGlass src={rightGlass.src} />
-        <Styles.Title>{data && parse(subtitle, options)}</Styles.Title>
+        <Styles.Title>{parsedSubtitle}</Styles.Title>
         <Styles.TicketsWrapper>
           <Styles.TicketsContainer>{mapTickets()}</Styles.TicketsContainer>
         </Styles.TicketsWrapper>
