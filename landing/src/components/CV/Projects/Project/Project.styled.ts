@@ -324,7 +324,7 @@ export const PortfolioPageIconContainer = styled.div<IPortfolioIconProps>`
     column-gap: 10.67px;
     .image {
       height: 127px;
-      margin: 10px;
+      margin: 5px;
     }
   }
 `;

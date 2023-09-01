@@ -74,10 +74,6 @@ export const AchievementsListItem = styled.li`
   list-style: none;
   display: flex;
   align-items: center;
-
-  @media ${themes.primary.media.minPCFullHD} {
-    padding-block: 10px;
-  }
 `;
 
 export const AchievementsListPintWrapper = styled.div`

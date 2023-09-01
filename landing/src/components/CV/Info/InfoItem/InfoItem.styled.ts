@@ -90,7 +90,7 @@ export const Text = styled.div`
   }
 
   @media ${themes.primary.media.minPCFullHD} {
-    font-size: 24px;
+    font-size: 22px;
     line-height: 150%;
     margin-top: 11px;
     & p {
