@@ -26,6 +26,9 @@ export const Title = styled.h2`
   line-height: 140%;
   text-transform: uppercase;
   text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   margin: 0;
   margin-left: -20px;
   width: 100vw;
@@ -46,7 +49,6 @@ export const Title = styled.h2`
     margin-left: -51px;
     font-size: 40px;
     line-height: 1.4;
-    padding-top: 59px;
   }
   @media ${themes.primary.media.minMobile} and (max-width: 1375px) {
     height: 190px;
@@ -56,7 +58,6 @@ export const Title = styled.h2`
     font-size: 53.333px;
     margin-left: -68px;
     height: 232px;
-    padding-top: 79px;
     width: 29.88%;
   }
 `;
