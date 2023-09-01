@@ -93,6 +93,7 @@ export const TitleWrapp = styled.div`
     height: 130px;
   }
   @media ${themes.primary.media.minPCFullHD} {
+    align-items: center;
   }
 `;
 
