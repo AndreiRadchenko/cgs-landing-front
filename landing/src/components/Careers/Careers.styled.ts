@@ -145,6 +145,7 @@ export const Title = styled.header`
   font-size: 6.167em;
   margin-top: 75px;
   margin-bottom: 40px;
+  line-height: 125%;
 
   p {
     margin: 0;
