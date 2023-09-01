@@ -33,8 +33,9 @@ export const Title = styled.h2`
     ),
     #f1efed;
   @media ${themes.primary.media.minMobile} {
+    height: auto;
     font-size: 40px;
-    line-height: 1.4;
+    line-height: 140%;
     text-align: left;
     border: none;
     background: transparent;
