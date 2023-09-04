@@ -51,24 +51,6 @@ export const AchievementsList = styled.ul`
   }
 `;
 
-export const Shadow = styled.div`
-  position: absolute;
-  top: -2px;
-  right: -16px;
-  width: 0px;
-  height: calc(100% + 4px);
-  border: 8px solid ${themes.primary.colors.primary};
-  border-color: transparent transparent transparent
-    ${themes.primary.colors.primary};
-  z-index: 10;
-  @media ${themes.primary.media.minMobile} {
-    border: 10px solid ${themes.primary.colors.primary};
-    border-color: transparent transparent transparent
-      ${themes.primary.colors.primary};
-    right: -20px;
-  }
-`;
-
 export const AchievementsListItem = styled.li`
   position: relative;
   list-style: none;
