@@ -8,29 +8,18 @@ export const InfoCard = styled.div`
   margin-left: -20px;
   padding-inline: 20px;
   width: 100vw;
-  background-color: transparent;
-  &::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
+  background: transparent;
+  transition: all 0.3s ease-in-out;
+
+  &.intersecting {
     background: linear-gradient(
         90deg,
         rgba(214, 255, 187, 0.3) 0%,
         rgba(88, 105, 221, 0.3) 100%
       ),
       #f1efed;
-    z-index: -1;
-    opacity: 0;
-    transition: all 0.3s ease-in-out;
   }
-  &.intersecting {
-    &::before {
-      opacity: 1;
-    }
-  }
+
   &::after {
     content: "";
     position: absolute;
@@ -43,23 +32,25 @@ export const InfoCard = styled.div`
   &:nth-child(2) h3 {
     padding-left: 16px;
   }
+
   @media ${themes.primary.media.minMobile} {
     width: 100%;
     margin-left: 0;
     padding: 40px;
     margin-bottom: 50px;
     margin-top: 24px;
+    border: 1px solid ${themes.primary.colors.darkGrey};
+
+    &.intersecting {
+      border-color: #f1efed;
+    }
+
+    &:nth-child(2) h3 {
+      padding-left: 12.5px;
+    }
     &::after {
       content: "";
       height: 0;
-    }
-    border: 1px solid ${themes.primary.colors.darkGrey};
-    transition: border-color 0.3s ease-in-out;
-    &.intersecting {
-      border-color: transparent;
-    }
-    &:nth-child(2) h3 {
-      padding-left: 12.5px;
     }
   }
 
@@ -67,6 +58,7 @@ export const InfoCard = styled.div`
     margin-top: 32px;
     margin-bottom: 64px;
     padding: 53px;
+
     &:nth-child(2) h3 {
       padding-left: 21.5px;
     }
