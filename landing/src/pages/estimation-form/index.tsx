@@ -39,6 +39,7 @@ const EstimationsForm = () => {
 
   const [page, setPage] = useState<number>(1);
   const [attachFiles, setAttachFiles] = useState<IFormFileData[]>([]);
+  const [link, setLink] = useState<string>("");
 
   const [openSuccessModal, setOpenSuccessModal] = useState(false);
   const [openFailedModal, setOpenFailedModal] = useState(false);
@@ -60,7 +61,8 @@ const EstimationsForm = () => {
   );
 
   useEffect(() => {
-    const handleBrowseAway = () => {
+    const handleBrowseAway = (url: string) => {
+      setLink(url);
       setOpenFailedModal(true);
       router.events.emit("routeChangeError");
       throw "routeChange aborted.";
@@ -71,6 +73,7 @@ const EstimationsForm = () => {
       router.events.off("routeChangeStart", handleBrowseAway);
     };
   }, []);
+
   useEffect(() => {
     if (openSuccessModal || openFailedModal)
       document.body.style.overflow = "hidden";
@@ -84,13 +87,17 @@ const EstimationsForm = () => {
       ) : (
         <Container>
           <HeaderNavNew
+            setLink={setLink}
             clickFromEstimationForm={true}
             setOpenFailedModal={setOpenFailedModal}
           />
           <ContainerDate>
             {openSuccessModal && <EstimationCongratsModal />}
             {openFailedModal && (
-              <EstimationFailModal setOpenFailedModal={setOpenFailedModal} />
+              <EstimationFailModal
+                link={link}
+                setOpenFailedModal={setOpenFailedModal}
+              />
             )}
             {estimationData && <HeaderText title={estimationData?.title} />}
             <EstimationPage
