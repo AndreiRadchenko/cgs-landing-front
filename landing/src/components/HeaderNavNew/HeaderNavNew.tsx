@@ -21,9 +21,11 @@ import * as StyledThisComp from "./HeaderNav.styled";
 import { navigationRoutesNamesNew, routersNew } from "../../utils/variables";
 
 const HeaderNavNew = ({
+  setLink,
   setOpenFailedModal,
   clickFromEstimationForm,
 }: {
+  setLink?: Dispatch<SetStateAction<string>>;
   setOpenFailedModal?: Dispatch<SetStateAction<boolean>>;
   clickFromEstimationForm?: boolean;
 }): JSX.Element => {
@@ -86,6 +88,7 @@ const HeaderNavNew = ({
               if (clickFromEstimationForm) {
                 e.preventDefault();
                 setOpenFailedModal!(true);
+                setLink!("/");
               }
             }}
             href={"/"}

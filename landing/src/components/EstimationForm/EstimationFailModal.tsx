@@ -12,8 +12,10 @@ import Image from "next/image";
 import cross from "../../../public/closeBtn.svg";
 
 const EstimationFailModal = ({
+  link,
   setOpenFailedModal,
 }: {
+  link: string;
   setOpenFailedModal: Dispatch<SetStateAction<boolean>>;
 }) => {
   return (
@@ -36,7 +38,7 @@ const EstimationFailModal = ({
               gap: "20px",
             }}
           >
-            <EstimateModalButton white href={"/"}>
+            <EstimateModalButton white href={link}>
               Quit
             </EstimateModalButton>
             <EstimateModalButton onClick={() => setOpenFailedModal(false)}>
