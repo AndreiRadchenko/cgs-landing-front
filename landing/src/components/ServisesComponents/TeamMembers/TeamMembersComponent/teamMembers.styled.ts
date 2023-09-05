@@ -30,7 +30,7 @@ export const Wrapper = styled.div`
   }
 
   &.blockchainTeam {
-    margin-top: 11.65em;
+    margin-top: 12.85em;
     margin-bottom: 13.6em;
   }
 

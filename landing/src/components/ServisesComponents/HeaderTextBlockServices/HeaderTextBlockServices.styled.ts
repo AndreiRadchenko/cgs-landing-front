@@ -61,6 +61,9 @@ export const Description = styled.div`
     margin: 0.8em 0px 1.8185em;
     max-width: 27.27em;
   }
+  &.blockchain {
+    margin: 0.6em 0 1.7em;
+  }
 
   @media ${themes.primary.media.minPCFullHD} {
     font-size: 1.0315em;

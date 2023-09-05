@@ -102,7 +102,7 @@ export const SubTextContainer = styled.div`
 `;
 
 export const Subtitle = styled.h2`
-  margin: 20px 0;
+  margin: 20px 0 27px;
   text-transform: uppercase;
   font-weight: ${themes.primary.font.weight.heavy};
   font-size: 1.82em;
@@ -152,7 +152,7 @@ export const SubText = styled.p<ISlide>`
   font-size: 1.5em;
   line-height: 233%;
   text-transform: uppercase;
-  margin: -12px 0 1.7vw 2em;
+  margin: -12px 0 1.7vw 2.5em;
   padding: 0;
   opacity: 0;
   white-space: nowrap;
@@ -261,7 +261,7 @@ export const Image = styled.img`
 export const Description = styled.div`
   font-size: 1.375em;
   line-height: 160%;
-  margin: 4em 0 0;
+  margin: 3.8em 0 0;
   max-width: 27.95em;
 
   p {
