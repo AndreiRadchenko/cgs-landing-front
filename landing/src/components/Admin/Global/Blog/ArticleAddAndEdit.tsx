@@ -224,7 +224,7 @@ const ArticleAddAndEdit = ({
             </div>
             <Styles.ArticleInputsWrapper style={{ marginLeft: "40px" }}>
               <SubHeaderWithInput
-                isAdminBlog={true}
+                isadminblog={true}
                 inputValue={values.author.name}
                 onChangeFunction={handleChange}
                 name="author.name"
@@ -237,7 +237,7 @@ const ArticleAddAndEdit = ({
                 </Styled.AdminBlogErrorMessage>
               )}
               <SubHeaderWithInput
-                isAdminBlog={true}
+                isadminblog={true}
                 inputValue={values.url}
                 onChangeFunction={handleChange}
                 name="url"
@@ -280,7 +280,7 @@ const ArticleAddAndEdit = ({
             </Styles.ArticleInputsWrapper>
             <Styles.ArticleInputsWrapper style={{ marginLeft: "24px" }}>
               <SubHeaderWithInput
-                isAdminBlog={true}
+                isadminblog={true}
                 inputValue={values.author.specialization}
                 onChangeFunction={handleChange}
                 name="author.specialization"
@@ -323,7 +323,7 @@ const ArticleAddAndEdit = ({
             </Styles.ArticleInputsWrapper>
           </Styles.AdminBlogGrid>
           <SubHeaderWithInput
-            isAdminBlog={true}
+            isadminblog={true}
             onInputFunction={handleTitle}
             inputValue={values.title}
             onChangeFunction={handleChange}

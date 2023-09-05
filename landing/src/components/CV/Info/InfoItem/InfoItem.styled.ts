@@ -55,8 +55,20 @@ export const Title = styled.h3`
 
 export const ArrowContainer = styled.div`
   position: relative;
+  display: flex;
   width: 36px;
   height: 36px;
+
+  & > span {
+    /* height: 36px !important;
+    width: 36px !important; */
+    height: 18px !important;
+    width: 18px !important;
+  }
+
+  & img {
+  }
+
   @media ${themes.primary.media.minMobile} {
   }
 

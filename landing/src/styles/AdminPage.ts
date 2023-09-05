@@ -42,8 +42,8 @@ interface IAdminInput {
   height?: string;
   width?: string;
   isAdmin?: string;
-  isAdminBlog?: boolean;
-  isError?: boolean;
+  isadminblog?: boolean;
+  iserror: boolean;
 }
 
 interface IBox {
@@ -276,14 +276,14 @@ export const ExtraMargin = styled.div`
 
 export const AdminSubTitle = styled.h3<{
   isBlog?: boolean;
-  isAdminBlog?: boolean;
+  isadminblog?: boolean;
   size?: string;
 }>`
   font-size: ${(props) =>
     props.size ? props.size : themes.primary.font.size.oneAndHalf};
   font-family: ${themes.primary.font.family.namu};
   font-weight: ${themes.primary.font.weight.heavy};
-  margin: ${({ isAdminBlog }) => (isAdminBlog ? "10px 0" : "0 0 10px 0")};
+  margin: ${({ isadminblog }) => (isadminblog ? "10px 0" : "0 0 10px 0")};
   text-align: center;
 
   &.imageUploader {
@@ -387,11 +387,11 @@ export const SmallProjectInfoWrapper = styled.div`
   gap: 40px;
 `;
 
-export const SmallInputWrapper = styled.div<{ isError?: boolean }>`
+export const SmallInputWrapper = styled.div<{ iserror?: boolean }>`
   input {
     border: 1px solid
-      ${({ isError }) =>
-        isError ? "red" : themes.primary.colors.adminInputBorder};
+      ${({ iserror }) =>
+        iserror ? "red" : themes.primary.colors.adminInputBorder};
     background: transparent;
     font-family: ${themes.primary.font.family.namu};
     font-weight: ${themes.primary.font.weight.heavy};
@@ -426,8 +426,8 @@ export const AdminInput = styled(TextareaAutosize)<IAdminInput>`
   resize: vertical;
   width: ${({ width }) => (width ? width : "100%")};
   border: 1px solid
-    ${({ isError }) =>
-      isError ? "red" : themes.primary.colors.adminInputBorder};
+    ${({ iserror }) =>
+      iserror ? "red" : themes.primary.colors.adminInputBorder};
   background-color: ${themes.primary.colors.blogBackground};
   outline: ${({ isAdmin }) =>
     isAdmin ? `1px solid ${themes.primary.colors.comment}` : null};
@@ -437,8 +437,8 @@ export const AdminInput = styled(TextareaAutosize)<IAdminInput>`
   height: ${({ height }) => height};
   line-height: 160%;
 
-  margin-bottom: ${({ isAdminBlog }) =>
-    isAdminBlog ? "0" : themes.primary.spacing.primary};
+  margin-bottom: ${({ isadminblog }) =>
+    isadminblog ? "0" : themes.primary.spacing.primary};
 
   &::-webkit-scrollbar {
     display: none;
@@ -520,7 +520,7 @@ export const AdminCategoryDeleteBlockWrapper = styled.div`
   }
 `;
 
-export const AdminCategoryNameInput = styled.input<{ isError?: boolean }>`
+export const AdminCategoryNameInput = styled.input<{ iserror?: boolean }>`
   height: 56px;
   border: 1px solid ${themes.primary.colors.comment};
   font-family: ${themes.primary.font.family.namu};
@@ -557,7 +557,7 @@ export const AdminCategoryNameInput = styled.input<{ isError?: boolean }>`
     width: 318px;
     margin-bottom: 10px;
 
-    border: 1px solid ${({ isError }) => (isError ? "red" : "#8F8E93")};
+    border: 1px solid ${({ iserror }) => (iserror ? "red" : "#8F8E93")};
 
     &::placeholder {
       font-size: 16px;
@@ -578,10 +578,10 @@ export const AdminCategoryDescriptionInput = styled.input`
   max-width: 97%;
 `;
 
-export const AdminField = styled(Field)<{ isError?: boolean }>`
+export const AdminField = styled(Field)<{ iserror?: boolean }>`
   height: 56px;
   border: 1px solid
-    ${({ isError }) => (isError ? "red" : themes.primary.colors.comment)};
+    ${({ iserror }) => (iserror ? "red" : themes.primary.colors.comment)};
   font-family: ${themes.primary.font.family.namu};
   font-weight: ${themes.primary.font.weight.heavy};
   font-size: 16px;
@@ -592,7 +592,7 @@ export const AdminField = styled(Field)<{ isError?: boolean }>`
   min-width: 350px;
 `;
 
-export const AdminCheckboxField = styled(Field)<{ isError?: boolean }>`
+export const AdminCheckboxField = styled(Field)<{ iserror?: boolean }>`
   /* removing default appearance */
   -webkit-appearance: none;
   appearance: none;
@@ -600,7 +600,7 @@ export const AdminCheckboxField = styled(Field)<{ isError?: boolean }>`
   /* creating a custom design */
   border-radius: 0;
   border: 1px solid
-    ${({ isError }) => (isError ? "red" : themes.primary.colors.comment)};
+    ${({ iserror }) => (iserror ? "red" : themes.primary.colors.comment)};
   width: 19px;
   height: 19px;
   margin: 0;

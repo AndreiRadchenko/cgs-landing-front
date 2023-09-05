@@ -2,45 +2,45 @@ import styled from "styled-components";
 import themes from "../utils/themes";
 
 export const Wrapper = styled.div`
-    padding-block: 50px;
+  padding-block: 50px;
 `;
 
 export const HeadBlock = styled.div`
-    display: flex;
-    justify-content: space-between;
-    padding-inline: 50px;
+  display: flex;
+  justify-content: space-between;
+  padding-inline: 50px;
 `;
 
 export const TextHeadBlock = styled.div`
-    margin-top: 80px;
-    max-width: 60%;
+  margin-top: 80px;
+  max-width: 60%;
 `;
 
 export const Name = styled.div`
-    font-size: 66px;
-    font-family: ${themes.primary.font.family.namu};
-    font-weight: 400;
+  font-size: 66px;
+  font-family: ${themes.primary.font.family.namu};
+  font-weight: 400;
 `;
 
 export const Role = styled.div`
-    color: #5869DD;
-    font-size: 32px;
-    font-family: ${themes.primary.font.family.namu};
-    font-weight: 400;
-    margin-top: 8px;
+  color: #5869dd;
+  font-size: 32px;
+  font-family: ${themes.primary.font.family.namu};
+  font-weight: 400;
+  margin-top: 8px;
 `;
 
 export const Summary = styled.div`
-    font-size: 22px;
-    font-family: ${themes.primary.font.family.namu};
-    font-weight: 400;
-    margin-top: 16px;
+  font-size: 22px;
+  font-family: ${themes.primary.font.family.namu};
+  font-weight: 400;
+  margin-top: 16px;
 `;
 
 export const ImageWrapper = styled.div`
-    position: relative;
-    width: 400px;
-    height: 400px;
+  position: relative;
+  width: 400px;
+  height: 400px;
 `;
 
 export const ImageBackground = styled.div`
@@ -51,19 +51,19 @@ export const ImageBackground = styled.div`
   height: 400px;
   border: 1.56px solid ${themes.primary.colors.black};
   background-image: linear-gradient(
-      180deg,
-      white,
-      white 50%,
-      black 50%,
-      black 100%
-      );
+    180deg,
+    white,
+    white 50%,
+    black 50%,
+    black 100%
+  );
   z-index: -10;
 `;
 
 export const InfoBlock = styled.div`
-    position: relative;
-    margin-top: 100px;
-    display: flex;
+  position: relative;
+  margin-top: 100px;
+  display: flex;
 `;
 
 export const InfoTitle = styled.div`
@@ -82,24 +82,24 @@ export const InfoTitle = styled.div`
       90deg,
       rgba(214, 255, 187, 0.3) 0%,
       rgba(88, 105, 221, 0.3) 100%
-      ),
-      #f1efed;
+    ),
+    #f1efed;
 
-   p {
+  p {
     margin-top: 40px;
-   }
+  }
 `;
 
 export const InfoItemFlex = styled.div`
-    display: flex;
-    flex-direction: column;
-    position: relative;
-    flex: 1;
-    margin-left: 24px;
-    flex-wrap: wrap;
-    column-gap: 8px;
-    row-gap: 0;
-    max-height: 250px;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  flex: 1;
+  margin-left: 24px;
+  flex-wrap: wrap;
+  column-gap: 8px;
+  row-gap: 0;
+  max-height: 250px;
 `;
 
 export const InfoCard = styled.div`
@@ -125,8 +125,23 @@ export const InfoCardTitle = styled.div`
 
 export const InfoArrowContainer = styled.div`
   position: relative;
-  width: 36px;
-  height: 36px;
+  display: flex;
+  width: 90px !important;
+  height: 90px !important;
+
+  & > span {
+    /* height: 36px !important;
+    width: 36px !important; */
+    height: 40px !important;
+    width: 40px !important;
+    object-fit: contain !important;
+  }
+  & > img {
+    /* height: 36px !important;
+    width: 36px !important; */
+    height: 18px !important;
+    width: 18px !important;
+  }
 `;
 
 export const Line1 = styled.div`
@@ -155,7 +170,6 @@ export const Line3 = styled.div`
   font-weight: 600;
 `;
 
-
 export const InfoText = styled.div`
   color: ${themes.primary.colors.primary};
   font-family: ${themes.primary.font.family.namu};
@@ -174,22 +188,22 @@ export const InfoText = styled.div`
 `;
 
 export const SkillsBlock = styled.div`
-    position: relative;
-    margin-top: 100px;
+  position: relative;
+  margin-top: 100px;
 `;
 
 export const SkillsTitle = styled.div`
-    font-size: 40px;
-    margin-left: 55px;
-    text-transform: uppercase;
+  font-size: 40px;
+  margin-left: 55px;
+  text-transform: uppercase;
 `;
 
 export const SkillsCardWrapper = styled.div`
-    margin-top: 24px;
-    width: 100vw;
-    display: flex;
-    border-top: 1px solid ${themes.primary.colors.darkGrey};
-    border-bottom: 1px solid ${themes.primary.colors.darkGrey};
+  margin-top: 24px;
+  width: 100vw;
+  display: flex;
+  border-top: 1px solid ${themes.primary.colors.darkGrey};
+  border-bottom: 1px solid ${themes.primary.colors.darkGrey};
 `;
 
 export const SkillsCard = styled.div`
@@ -212,27 +226,27 @@ export const SkillsCard = styled.div`
 `;
 
 export const SkillsCardTitle = styled.div`
-    font-size: 30px;
-    letter-spacing: 1.5px;
-    color: ${themes.primary.colors.primary};
-    font-family: ${themes.primary.font.family.namu};
-    font-style: normal;
-    font-weight: 900;
-    line-height: 160%;
-    letter-spacing: 1.1px;
-    margin: 0;
-    padding-bottom: 40px;
-    padding-top: 10px;
+  font-size: 30px;
+  letter-spacing: 1.5px;
+  color: ${themes.primary.colors.primary};
+  font-family: ${themes.primary.font.family.namu};
+  font-style: normal;
+  font-weight: 900;
+  line-height: 160%;
+  letter-spacing: 1.1px;
+  margin: 0;
+  padding-bottom: 40px;
+  padding-top: 10px;
 `;
 
 export const SkillsCardStackWrapper = styled.ul`
-    margin: 0;
-    padding: 16px 20px 32px;
+  margin: 0;
+  padding: 16px 20px 32px;
 `;
 
 export const SkillsCardStack = styled.li`
-    display: flex;
-    align-items: center;
+  display: flex;
+  align-items: center;
 `;
 
 export const SkillsCardStackText = styled.p`
@@ -321,7 +335,6 @@ export const ProjectTitle = styled.div`
   color: ${themes.primary.colors.primary};
   font-size: 24px;
   line-height: normal;
-
 `;
 
 export const ProjectDate = styled.div`
@@ -432,11 +445,11 @@ export const AcLine1 = styled.div`
   transform: rotate(130deg);
   border: 1px solid black;
   background: linear-gradient(
-  90deg,
-  rgba(80, 95, 177, 0.8) 0%,
-  rgba(177, 212, 198, 0.8) 100%
-  ),
-  #f1efed;
+      90deg,
+      rgba(80, 95, 177, 0.8) 0%,
+      rgba(177, 212, 198, 0.8) 100%
+    ),
+    #f1efed;
   z-index: 1;
 `;
 
@@ -450,11 +463,11 @@ export const AcLine2 = styled.div`
   border: 1px solid black;
   border-right: none;
   background: linear-gradient(
-  90deg,
-  rgba(197, 236, 192, 0.8) 0%,
-  rgba(177, 212, 198, 0.8) 100%
-  ),
-  #f1efed;
+      90deg,
+      rgba(197, 236, 192, 0.8) 0%,
+      rgba(177, 212, 198, 0.8) 100%
+    ),
+    #f1efed;
   z-index: 2;
 `;
 
@@ -476,7 +489,7 @@ export const ProjectAchievementListShadow = styled.div`
   z-index: -1;
   border: 10px solid ${themes.primary.colors.primary};
   border-color: transparent transparent transparent
-  ${themes.primary.colors.primary};
+    ${themes.primary.colors.primary};
   right: -20px;
 `;
 

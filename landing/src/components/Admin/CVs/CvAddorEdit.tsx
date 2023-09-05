@@ -296,7 +296,7 @@ const CvAddOrEdit = ({ isNewCv }: ICvAddOrEditProps) => {
       </div>
       <div style={{ marginTop: 35, marginBottom: 35 }}>
         <CategoryDropdown
-          isError={!!errors.category && !values.category.length}
+          iserror={!!errors.category && !values.category.length}
           category={category?.categories}
           cvCategory={values.category}
           handleSelectCategory={handleSelectCategory}
@@ -304,7 +304,7 @@ const CvAddOrEdit = ({ isNewCv }: ICvAddOrEditProps) => {
         <AdminBlockDropDown title="1 BLOCK">
           <Styles.FieldsWrapper>
             <SubHeaderWithInput
-              isError={!!errors.personal?.name && !values.personal.name}
+              iserror={!!errors.personal?.name && !values.personal.name}
               inputValue={values.personal.name}
               onChangeFunction={handleChange}
               placeholder="NAME"
@@ -312,7 +312,7 @@ const CvAddOrEdit = ({ isNewCv }: ICvAddOrEditProps) => {
               header="Name"
             />
             <SubHeaderWithInput
-              isError={!!errors.personal?.summary && !values.personal.summary}
+              iserror={!!errors.personal?.summary && !values.personal.summary}
               inputValue={values.personal.summary}
               onChangeFunction={handleChange}
               placeholder="Text summary"
@@ -326,7 +326,7 @@ const CvAddOrEdit = ({ isNewCv }: ICvAddOrEditProps) => {
               </Styled.TextCounter>
             </Styled.BottomText>
             <SubHeaderWithInput
-              isError={!!errors.personal?.role && !values.personal.role}
+              iserror={!!errors.personal?.role && !values.personal.role}
               inputValue={values.personal.role}
               onChangeFunction={handleChange}
               name="personal.role"
@@ -344,7 +344,7 @@ const CvAddOrEdit = ({ isNewCv }: ICvAddOrEditProps) => {
         <AdminBlockDropDown title="2 BLOCK (INFO)">
           <Styles.FieldsWrapper>
             <SubHeaderWithInput
-              isError={!!errors.info?.title && !values.info.title}
+              iserror={!!errors.info?.title && !values.info.title}
               inputValue={values.info.title}
               onChangeFunction={handleChange}
               header="Title"
@@ -353,7 +353,7 @@ const CvAddOrEdit = ({ isNewCv }: ICvAddOrEditProps) => {
             {values?.info?.content?.map((item, idx) => (
               <Styles.InfoGrid key={idx}>
                 <SubHeaderWithInput
-                  isError={!!errors?.info?.content?.[idx] && !item.subtitle}
+                  iserror={!!errors?.info?.content?.[idx] && !item.subtitle}
                   inputValue={item.subtitle}
                   onChangeFunction={handleChange}
                   header={`Subtitle ${idx + 1}`}
@@ -385,7 +385,7 @@ const CvAddOrEdit = ({ isNewCv }: ICvAddOrEditProps) => {
                 ) : (
                   <div>
                     <SubHeaderWithInput
-                      isError={!!errors?.info?.content?.[idx] && !item.text}
+                      iserror={!!errors?.info?.content?.[idx] && !item.text}
                       inputValue={item.text}
                       onChangeFunction={handleChange}
                       header="Text"
@@ -395,10 +395,10 @@ const CvAddOrEdit = ({ isNewCv }: ICvAddOrEditProps) => {
                         idx === 1
                           ? "Location (ex.: Warsaw, Poland)"
                           : idx === 2
-                            ? "Level (ex.: Advanced)"
-                            : idx === 3
-                              ? "Years (ex.: 6+ years)"
-                              : ""
+                          ? "Level (ex.: Advanced)"
+                          : idx === 3
+                          ? "Years (ex.: 6+ years)"
+                          : ""
                       }
                     />
                     <Styled.BottomText className="portfolio-admin-description">
@@ -415,7 +415,7 @@ const CvAddOrEdit = ({ isNewCv }: ICvAddOrEditProps) => {
         <AdminBlockDropDown title="3 BLOCK (SKILLS)">
           <Styles.FieldsWrapper>
             <SubHeaderWithInput
-              isError={!!errors.skills?.title && !values.skills.title}
+              iserror={!!errors.skills?.title && !values.skills.title}
               inputValue={values.skills.title}
               onChangeFunction={handleChange}
               header="Title"
@@ -424,7 +424,7 @@ const CvAddOrEdit = ({ isNewCv }: ICvAddOrEditProps) => {
             {values?.skills?.card?.map((item, idx) => (
               <Styles.CardWrapper key={idx}>
                 <SubHeaderWithInput
-                  isError={
+                  iserror={
                     !!errors?.skills?.card?.[idx] &&
                     !values?.skills?.card[idx].subtitle &&
                     !values.skills.card.some((card) => !!card.subtitle?.trim())
@@ -472,13 +472,16 @@ const CvAddOrEdit = ({ isNewCv }: ICvAddOrEditProps) => {
         <AdminBlockDropDown title="4 BLOCK (PROJECTS)">
           <Styles.FieldsWrapper>
             <SubHeaderWithInput
-              isError={!!errors.projects?.title && !values.projects.title}
+              iserror={!!errors.projects?.title && !values.projects.title}
               inputValue={values.projects.title}
               onChangeFunction={handleChange}
               header="Title"
               name="projects.title"
             />
-            <SortableList onSortEnd={handleProjectDragEnd} allowDrag={isNewCv ? false : true}>
+            <SortableList
+              onSortEnd={handleProjectDragEnd}
+              allowDrag={isNewCv ? false : true}
+            >
               {values?.projects?.project?.map((project, idx) => (
                 <SortableItem key={idx}>
                   <Styles.ProjectWrapper>
@@ -496,8 +499,9 @@ const CvAddOrEdit = ({ isNewCv }: ICvAddOrEditProps) => {
                     <Styles.ProjectInfo>
                       <Styles.FirstProjectInfoBlock>
                         <SubHeaderWithInput
-                          isError={
-                            !!errors?.projects?.project?.[idx] && !project.projectName
+                          iserror={
+                            !!errors?.projects?.project?.[idx] &&
+                            !project.projectName
                           }
                           inputValue={project.projectName}
                           onChangeFunction={handleChange}
@@ -506,7 +510,9 @@ const CvAddOrEdit = ({ isNewCv }: ICvAddOrEditProps) => {
                           placeholder="NAME"
                         />
                         <SubHeaderWithInput
-                          isError={!!errors?.projects?.project?.[idx] && !project.role}
+                          iserror={
+                            !!errors?.projects?.project?.[idx] && !project.role
+                          }
                           inputValue={project.role}
                           onChangeFunction={handleChange}
                           header="Role"
@@ -514,7 +520,9 @@ const CvAddOrEdit = ({ isNewCv }: ICvAddOrEditProps) => {
                           placeholder="Role (ex.: Role: Full-stack developer)"
                         />
                         <SubHeaderWithInput
-                          isError={!!errors?.projects?.project?.[idx] && !project.date}
+                          iserror={
+                            !!errors?.projects?.project?.[idx] && !project.date
+                          }
                           inputValue={project.date}
                           onChangeFunction={handleChange}
                           header="Date"
@@ -523,7 +531,9 @@ const CvAddOrEdit = ({ isNewCv }: ICvAddOrEditProps) => {
                         />
                       </Styles.FirstProjectInfoBlock>
                       <SubHeaderWithInput
-                        isError={!!errors?.projects?.project?.[idx] && !project.summary}
+                        iserror={
+                          !!errors?.projects?.project?.[idx] && !project.summary
+                        }
                         inputValue={project.summary}
                         onChangeFunction={handleChange}
                         header="Summary"
@@ -545,8 +555,9 @@ const CvAddOrEdit = ({ isNewCv }: ICvAddOrEditProps) => {
                                 <Styles.AchievementsGrid key={achievementIdx}>
                                   <div>
                                     <Styled.AdminCategoryNameInput
-                                      isError={
-                                        !!errors?.projects?.project?.[idx] && !achievement
+                                      iserror={
+                                        !!errors?.projects?.project?.[idx] &&
+                                        !achievement
                                       }
                                       value={achievement}
                                       onChange={handleChange}
@@ -556,10 +567,13 @@ const CvAddOrEdit = ({ isNewCv }: ICvAddOrEditProps) => {
                                       onFocus={() =>
                                         setFocusedAchievementIdx(achievementIdx)
                                       }
-                                      onBlur={() => setFocusedAchievementIdx(-1)}
+                                      onBlur={() =>
+                                        setFocusedAchievementIdx(-1)
+                                      }
                                       maxLength={94}
                                     />
-                                    {achievementIdx === focusedAchievementIdx && (
+                                    {achievementIdx ===
+                                      focusedAchievementIdx && (
                                       <Styled.BottomText className="portfolio-admin-description">
                                         <Styled.TextCounter>
                                           {achievement.length}/94
@@ -570,7 +584,10 @@ const CvAddOrEdit = ({ isNewCv }: ICvAddOrEditProps) => {
                                   {achievementIdx === 0 ? null : (
                                     <Styled.AdminCategoryDeleteBlockWrapper
                                       onClick={() =>
-                                        handleDeleteAchievement(idx, achievementIdx)
+                                        handleDeleteAchievement(
+                                          idx,
+                                          achievementIdx
+                                        )
                                       }
                                       className="cvAchievement"
                                     >
@@ -579,7 +596,9 @@ const CvAddOrEdit = ({ isNewCv }: ICvAddOrEditProps) => {
                                   )}
                                 </Styles.AchievementsGrid>
                                 {achievementIdx ===
-                                  values.projects.project[idx].achievements.length - 1 ? (
+                                values.projects.project[idx].achievements
+                                  .length -
+                                  1 ? (
                                   <Styled.AdminCategoryAddBlockWrapper
                                     onClick={() => handleAddAchievement(idx)}
                                     className="cvAchievement"
@@ -596,8 +615,9 @@ const CvAddOrEdit = ({ isNewCv }: ICvAddOrEditProps) => {
                         <div>
                           <h2>Technologies</h2>
                           <TechnologyDropdown
-                            isError={
-                              !!errors?.projects?.project?.[idx] && !project.technology[idx]
+                            iserror={
+                              !!errors?.projects?.project?.[idx] &&
+                              !project.technology[idx]
                             }
                             technologies={technologies?.technologies}
                             cvTechnologies={project.technology}

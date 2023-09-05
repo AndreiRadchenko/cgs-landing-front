@@ -24,7 +24,13 @@ export const InfoItem = ({ subtitle, text, idx }: IProps) => {
       <Styled.Title>
         {subtitle}
         <Styled.ArrowContainer>
-          <Image src={Arrow} alt="an arrow" objectFit="contain" layout="fill" />
+          <Image
+            src={Arrow}
+            alt="an arrow"
+            width="36px"
+            height="36px"
+            objectPosition="top left"
+          />
         </Styled.ArrowContainer>
       </Styled.Title>
       <Styled.Text>{idx ? parsedText : parse(parsedText)}</Styled.Text>

@@ -15,7 +15,7 @@ export const ProjectsSection = ({
   },
 }: IProps) => {
   return (
-    <Styled.SectionContainer>
+    <Styled.SectionContainer className="cv-projects-container">
       <Styled.Title>{title}</Styled.Title>
       {project.map((e, idx) => (
         <Project {...e} idx={idx} key={idx} />

@@ -63,7 +63,7 @@ const TestimonialForm = ({
       <Styled.AdminStarsGrid>
         <Styled.AdminHeadingInput>
           <SubHeaderWithInput
-            isError={!!errors.slideTitle && !values.slideTitle}
+            iserror={!!errors.slideTitle && !values.slideTitle}
             inputValue={values.slideTitle}
             onChangeFunction={handleChange}
             placeholder="Name"
@@ -99,35 +99,35 @@ const TestimonialForm = ({
       <div style={{ marginTop: "24px" }}>
         <Styled.AdminSubTitle>Pop-up info</Styled.AdminSubTitle>
         <SubHeaderWithInput
-          isError={!!errors.name && !values.name}
+          iserror={!!errors.name && !values.name}
           inputValue={values.name}
           onChangeFunction={handleChange}
           placeholder="Name"
           name="name"
         />
         <SubHeaderWithInput
-          isError={!!errors.company && !values.company}
+          iserror={!!errors.company && !values.company}
           inputValue={values.company}
           onChangeFunction={handleChange}
           placeholder="Company"
           name="company"
         />
         <SubHeaderWithInput
-          isError={!!errors.videoUrl}
+          iserror={!!errors.videoUrl}
           inputValue={values.videoUrl}
           onChangeFunction={handleChange}
           placeholder="Video URL"
           name="videoUrl"
         />
         <SubHeaderWithInput
-          isError={!!errors.link && !values.link}
+          iserror={!!errors.link && !values.link}
           inputValue={values.link}
           onChangeFunction={handleChange}
           placeholder="Portfolio link"
           name="link"
         />
         <SubHeaderWithInput
-          isError={!!errors.text && !values.text}
+          iserror={!!errors.text && !values.text}
           inputValue={values.text}
           onChangeFunction={handleChange}
           placeholder="Text"

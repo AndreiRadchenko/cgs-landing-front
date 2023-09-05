@@ -62,41 +62,39 @@ const Badges = () => {
           ))}
         </Styled.BgiContainer>
         <Styled.BadgesData columnsNumber={data.badges.length}>
-          {data.badges.map((elem, idx) =>
-            elem.image ? (
-              <Styled.BadgeCard key={`${elem.link}${idx}`}>
-                <a href={elem.link} target={"_blank"} rel={"noreferrer"}>
-                  <Styled.BadgeImageWrapper>
-                    <Image
-                      src={elem.image.url}
-                      alt="free service image"
-                      layout="fill"
-                      objectFit="contain"
-                    />
-                  </Styled.BadgeImageWrapper>
-                </a>
-              </Styled.BadgeCard>
-            ) : (
-              <></>
-            )
+          {data.badges.map(
+            (elem, idx) =>
+              elem.image && (
+                <Styled.BadgeCard key={`${elem.link}${idx}`}>
+                  <a href={elem.link} target={"_blank"} rel={"noreferrer"}>
+                    <Styled.BadgeImageWrapper>
+                      <Image
+                        src={elem.image.url}
+                        alt="free service image"
+                        layout="fill"
+                        objectFit="contain"
+                      />
+                    </Styled.BadgeImageWrapper>
+                  </a>
+                </Styled.BadgeCard>
+              )
           )}
         </Styled.BadgesData>
       </Styled.BadgesContainer>
       <Styled.LogosContainer>
         {data.logos &&
-          data.logos.map((logo, idx) =>
-            logo.image ? (
-              <Styled.LogoImageWrapper key={idx}>
-                <Image
-                  src={logo.image.url}
-                  alt="logo image"
-                  layout="fill"
-                  objectFit="contain"
-                />
-              </Styled.LogoImageWrapper>
-            ) : (
-              <></>
-            )
+          data.logos.map(
+            (logo, idx) =>
+              logo.image && (
+                <Styled.LogoImageWrapper key={idx}>
+                  <Image
+                    src={logo.image.url}
+                    alt="logo image"
+                    layout="fill"
+                    objectFit="contain"
+                  />
+                </Styled.LogoImageWrapper>
+              )
           )}
       </Styled.LogosContainer>
     </Styled.BadgesBlockContainer>

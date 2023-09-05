@@ -76,7 +76,7 @@ const HeaderNavNew = ({
   DisableScrollBarHandler(isOpen);
 
   return (
-    <StyledThisComp.HeaderWrapper>
+    <StyledThisComp.HeaderWrapper className="navbar">
       <StyledThisComp.HeaderNavContainer>
         <StyledThisComp.NavBarWrapper
           className={isScrolled ? "scrolled" : undefined}

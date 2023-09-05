@@ -1,9 +1,9 @@
-import styled, {keyframes} from "styled-components";
+import styled, { keyframes } from "styled-components";
 import themes from "../utils/themes";
 
 export const AdminCvGrid = styled.div`
-    display: grid;
-    grid-template-columns: 1fr 3fr;
+  display: grid;
+  grid-template-columns: 1fr 3fr;
 `;
 
 export const AdminImageSubTitle = styled.h3`
@@ -13,10 +13,10 @@ export const AdminImageSubTitle = styled.h3`
 `;
 
 export const DropdownWrapper = styled.div`
-    margin-bottom: 24px;
+  margin-bottom: 24px;
 `;
 
-export const DropdownButton = styled.div<{ isError?: boolean }>`
+export const DropdownButton = styled.div<{ iserror?: boolean }>`
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -24,13 +24,11 @@ export const DropdownButton = styled.div<{ isError?: boolean }>`
   cursor: pointer;
   width: 347px;
   height: 56px;
-  color: #8F8E93;
+  color: #8f8e93;
   text-align: left;
   padding: 18px 14px;
   box-sizing: border-box;
-  border: 1px solid
-    ${({ isError }) =>
-    isError ? "red" : "#8F8E93"};
+  border: 1px solid ${({ iserror }) => (iserror ? "red" : "#8F8E93")};
   font-family: ${themes.primary.font.family.namu};
   font-weight: 900;
   font-size: 16px;
@@ -77,12 +75,12 @@ export const DropdownContent = styled.div`
 `;
 
 export const FieldsWrapper = styled.div`
-    width: 100%;
-    border-inline: 1px solid black;
-    border-bottom: 1px solid black;
-    padding: 16px;
-    margin-bottom: 24px;
-    margin-top: -22px;
+  width: 100%;
+  border-inline: 1px solid black;
+  border-bottom: 1px solid black;
+  padding: 16px;
+  margin-bottom: 24px;
+  margin-top: -22px;
 `;
 
 export const NewAchievementButton = styled.button`
@@ -97,7 +95,7 @@ export const NewAchievementButton = styled.button`
 export const InfoGrid = styled.div`
   display: grid;
   grid-template-columns: 1fr 3fr;
-  gap: 24px
+  gap: 24px;
 `;
 
 export const ErrorMsg = styled.div`
@@ -119,7 +117,7 @@ export const ErrorMsg = styled.div`
 
 export const CardWrapper = styled.div`
   margin-bottom: 24px;
-  border-top: 1px solid #8F8E93;
+  border-top: 1px solid #8f8e93;
   padding-top: 8px;
 
   &:last-child {
@@ -151,14 +149,14 @@ export const DeleteStack = styled.button`
 `;
 
 export const ProjectWrapper = styled.div`
-  border: 1px solid #8F8E93;
+  border: 1px solid #8f8e93;
   padding: 16px;
   margin-top: 16px;
 `;
 
 export const ProjectNumberWrapper = styled.div`
   padding-bottom: 16px;
-  border-bottom: 1px solid #8F8E93;
+  border-bottom: 1px solid #8f8e93;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -207,21 +205,21 @@ export const AddProjectBtn = styled.button`
 `;
 
 export const AdminCvItemFrame = styled.div`
-  border: 1px solid #8F8E93;
+  border: 1px solid #8f8e93;
   background-color: ${themes.primary.colors.blogBackground};
 
   &.fade {
     &::after {
-    content: "";
-    background-color: #F1EFED;
-    opacity: 0.6;
-    width: 1112px;
-    height: 246px;
-    z-index: 100;
-    margin-top: -245px;
-    margin-left: -1px;
-    position: absolute;
-  }
+      content: "";
+      background-color: #f1efed;
+      opacity: 0.6;
+      width: 1112px;
+      height: 246px;
+      z-index: 100;
+      margin-top: -245px;
+      margin-left: -1px;
+      position: absolute;
+    }
   }
 `;
 
@@ -250,7 +248,7 @@ export const AdminCvItemName = styled.div`
 `;
 
 export const AdminCvItemRole = styled.div`
-  color: #8F8E93;
+  color: #8f8e93;
   font-family: ${themes.primary.font.family.namu};
   font-size: 18px;
   font-style: normal;
@@ -277,7 +275,7 @@ export const AdminCvItemLink = styled.div`
 
 export const AdminCvItemExport = styled.div`
   p {
-    color: #5869DD;
+    color: #5869dd;
     font-size: 14px;
     font-style: normal;
     font-weight: 900;
@@ -292,7 +290,7 @@ export const AdminCvItemEditDelete = styled.div`
   display: flex;
   justify-content: space-between;
   padding: 14px 20px;
-  border-top: 1px solid  #8F8E93;
+  border-top: 1px solid #8f8e93;
   align-items: center;
 `;
 

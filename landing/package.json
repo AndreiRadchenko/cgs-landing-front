@@ -22,6 +22,7 @@
     "formik": "2.2.9",
     "html-react-parser": "2.0.0",
     "html2canvas": "1.4.1",
+    "html2pdf.js": "^0.9.0",
     "jspdf": "^2.5.1",
     "next": "~12.3.4",
     "react": "17.0.2",

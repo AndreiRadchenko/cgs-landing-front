@@ -18,10 +18,10 @@ import {
 
 interface IDropdownProps {
   technologies: ITechnology[] | undefined;
-  isError?: boolean;
+  iserror?: boolean;
 }
 
-const DropdownTechnology = ({ technologies, isError }: IDropdownProps) => {
+const DropdownTechnology = ({ technologies, iserror }: IDropdownProps) => {
   const queryClient = useQueryClient();
 
   const { values, setFieldValue } = useFormikContext<IPortfolioReview>();
@@ -91,7 +91,7 @@ const DropdownTechnology = ({ technologies, isError }: IDropdownProps) => {
     <>
       <Styled.DropdownWrapperTechnology>
         <Styled.DropdownBanner
-          isError={isError}
+          iserror={iserror}
           onClick={() => setIsOpen(!isOpen)}
           className={isOpen ? "open" : undefined}
         >

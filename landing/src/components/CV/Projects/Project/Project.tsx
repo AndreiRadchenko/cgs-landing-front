@@ -38,7 +38,7 @@ export const Project = ({
   return (
     <Styled.InfoCard
       ref={refProjectCard}
-      className={entry?.isIntersecting ? "intersecting" : ""}
+      className={`${entry?.isIntersecting ? "intersecting" : ""} cv-info-card`}
     >
       <Styled.NumberTitleWrapp>
         <Styled.Number>{idx + 1}</Styled.Number>

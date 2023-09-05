@@ -13,10 +13,10 @@ import { queryKeys } from "../../../consts/queryKeys";
 
 interface IDropdownProps {
   industries: string[];
-  isError?: boolean;
+  iserror?: boolean;
 }
 
-const DropdownIndustry = ({ industries, isError }: IDropdownProps) => {
+const DropdownIndustry = ({ industries, iserror }: IDropdownProps) => {
   const queryClient = useQueryClient();
   const [isOpen, setIsOpen] = useState<boolean>(false);
   const { values, setFieldValue } = useFormikContext<IPortfolioReview>();
@@ -39,7 +39,7 @@ const DropdownIndustry = ({ industries, isError }: IDropdownProps) => {
   return (
     <Styled.DropdownWrapper>
       <Styled.DropdownBanner
-        isError={isError}
+        iserror={iserror}
         onClick={() => setIsOpen(!isOpen)}
         className={isOpen ? "open" : undefined}
       >
