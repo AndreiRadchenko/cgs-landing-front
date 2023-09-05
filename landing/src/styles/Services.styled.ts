@@ -10,7 +10,9 @@ export const Container = styled.section`
     margin-top: 8.95rem;
     margin-bottom: 10.2em;
   }
-
+  &.cloudSolutions {
+    margin-top: 45px;
+  }
   &.mobileDev {
     margin-top: 7.3em;
   }
@@ -22,6 +24,9 @@ export const Container = styled.section`
     }
     &.mobileDev {
       margin-top: 30px;
+    }
+    &.cloudSolutions {
+      margin-top: 35px;
     }
     margin-top: 35px;
     margin-bottom: 60px;

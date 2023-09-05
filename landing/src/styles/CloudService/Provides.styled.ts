@@ -4,7 +4,7 @@ import themes from "../../utils/themes";
 import { slideRight } from "../Animations.styled";
 
 export const Container = styled.section`
-  margin-top: 6em;
+  margin-top: 6.2em;
   position: relative;
   margin-bottom: 10.2em;
 
@@ -48,7 +48,7 @@ export const BGImage = styled.img`
   }
 
   @media ${themes.primary.media.maxPCFullHD} {
-    top: -1.35em;
+    top: -0.9em;
   }
 
   @media (max-width: 1400px) {
@@ -80,7 +80,7 @@ export const BGImageMobile = styled.img`
 `;
 
 export const BlockWrapper = styled.div`
-  padding: 1.25em 0 0 11vw;
+  padding: 2em 0 0 11.5vw;
   position: relative;
   display: grid;
   row-gap: 50px;

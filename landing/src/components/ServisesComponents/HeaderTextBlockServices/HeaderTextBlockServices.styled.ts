@@ -58,7 +58,7 @@ export const Description = styled.div`
   max-width: 28em;
 
   &.cloud {
-    margin: 1.28em 0px 1.8185em;
+    margin: 0.8em 0px 1.8185em;
     max-width: 27.27em;
   }
 
