@@ -20,7 +20,7 @@ export const Skills = ({
   return (
     <Styled.SkillsContainer>
       <Styled.Title>{title}</Styled.Title>
-      <Styled.SkillsCardWrapper>
+      <Styled.SkillsCardWrapper className="skills-wrapper">
         {cardsToShow.map((e, idx) => (
           <SkillCard
             subtitle={e.subtitle}

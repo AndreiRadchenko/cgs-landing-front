@@ -10,7 +10,7 @@ export const DropdownWrapperTechnology = styled.div`
   width: 382px;
 `;
 
-export const DropdownBanner = styled.div<{ isError?: boolean }>`
+export const DropdownBanner = styled.div<{ iserror?: boolean }>`
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -22,8 +22,8 @@ export const DropdownBanner = styled.div<{ isError?: boolean }>`
   padding: 0 20px;
   box-sizing: border-box;
   border: 1px solid
-    ${({ isError }) =>
-      isError ? "red" : themes.primary.colors.adminInputBorder};
+    ${({ iserror }) =>
+      iserror ? "red" : themes.primary.colors.adminInputBorder};
   font-family: ${themes.primary.font.family.namu};
   font-size: 16px;
   letter-spacing: 0.03em;

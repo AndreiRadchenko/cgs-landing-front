@@ -152,7 +152,7 @@ const AddReview = ({
         <Styled.AdminPageReviewBlock>
           <Styled.AdminCategoryWrapper>
             <DropdownCategory
-              isError={!!errors.categories && !values.categories.length}
+              iserror={!!errors.categories && !values.categories.length}
               categories={categories}
             />
           </Styled.AdminCategoryWrapper>
@@ -161,14 +161,14 @@ const AddReview = ({
             <div>
               <Styled.AdminNDAWrapper>
                 <Styled.AdminField
-                  isError={!!errors.button && !values.button && !values.NDA}
+                  iserror={!!errors.button && !values.button && !values.NDA}
                   placeholder="Link"
                   value={values.button}
                   onChange={handleChange}
                   name="button"
                 />
                 <Styled.AdminCheckboxField
-                  isError={!!errors.NDA && !values.NDA && !values.button}
+                  iserror={!!errors.NDA && !values.NDA && !values.button}
                   checked={values.NDA}
                   type="checkbox"
                   id="NDA"
@@ -185,7 +185,7 @@ const AddReview = ({
               </Styled.AdminNDAWrapper>
 
               <Styled.AdminInput
-                isError={!!errors.title && !values.title}
+                iserror={!!errors.title && !values.title}
                 placeholder="Name project"
                 value={values.title}
                 onChange={handleChange}
@@ -198,7 +198,7 @@ const AddReview = ({
                 maxLength={1200}
                 onChange={handleChange}
                 name="text"
-                isError={!!errors.text && !values.text}
+                iserror={!!errors.text && !values.text}
                 className="withBottomButtons"
               />
               <Styled.BottomText className="portfolio-admin-description">
@@ -259,13 +259,13 @@ const AddReview = ({
                 </Styled.IndustryWrapper>
                 {errorMsg && <p style={{ color: "red" }}>{errorMsg}</p>}
                 <DropdownIndustry
-                  isError={!!errors.industry && !values.industry}
+                  iserror={!!errors.industry && !values.industry}
                   industries={industries}
                 />
               </div>
               <Styled.SmallProjectInfoWrapper>
                 <Styled.SmallInputWrapper
-                  isError={
+                  iserror={
                     !!errors.projectDuration &&
                     (values.projectDuration === "" ||
                       +values.projectDuration < 1 ||
@@ -279,7 +279,7 @@ const AddReview = ({
                   </label>
                 </Styled.SmallInputWrapper>
                 <Styled.SmallInputWrapper
-                  isError={
+                  iserror={
                     !!errors.projectTeam &&
                     (values.projectTeam === "" ||
                       +values.projectTeam < 1 ||
@@ -299,7 +299,7 @@ const AddReview = ({
             <h3 style={{ margin: "0 0 15px 0" }}>Add review</h3>
             <Styled.AdminPageThirdBlockFlex>
               <Styled.AdminInput
-                isError={!!errors.feedback?.name && !values.feedback.name}
+                iserror={!!errors.feedback?.name && !values.feedback.name}
                 placeholder="Name"
                 value={values.feedback.name}
                 onChange={handleChange}
@@ -315,7 +315,7 @@ const AddReview = ({
               />
             </Styled.AdminPageThirdBlockFlex>
             <Styled.AdminInput
-              isError={
+              iserror={
                 !!errors.feedback?.feedbackText &&
                 !values.feedback?.feedbackText
               }
@@ -337,7 +337,7 @@ const AddReview = ({
           <Styled.AdminPageFourthBlockLayout>
             <h3 style={{ margin: "0 0 15px 0" }}>Technology</h3>
             <DropdownTechnology
-              isError={!!errors.technologies && !values.technologies.length}
+              iserror={!!errors.technologies && !values.technologies.length}
               technologies={technologies}
             />
           </Styled.AdminPageFourthBlockLayout>

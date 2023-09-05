@@ -174,4 +174,8 @@ export const HeaderWrapper = styled.nav`
   @media ${themes.primary.media.maxMobile} {
     padding-bottom: 93px;
   }
+
+  @media print {
+    display: none;
+  }
 `;
