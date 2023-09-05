@@ -22,10 +22,6 @@ const CvPdf = ({ data }: CvPdfProps) => {
     groupedProjects.push(pair);
   }
 
-  useEffect(() => {
-    console.log("Data: ", data);
-  }, [data]);
-
   return (
     <>
       <Styles.Wrapper className="project-wrapper">
