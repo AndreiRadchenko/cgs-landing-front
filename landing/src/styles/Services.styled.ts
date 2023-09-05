@@ -7,7 +7,7 @@ export const Container = styled.section`
   margin-top: 140px;
   margin-bottom: 138px;
   &.mobileAudit {
-    margin-top: 8.95rem;
+    margin-top: 8rem;
     margin-bottom: 10.2em;
   }
   &.cloudSolutions {

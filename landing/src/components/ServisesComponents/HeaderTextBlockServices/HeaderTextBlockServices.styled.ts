@@ -13,6 +13,9 @@ export const Title = styled.h1`
   &.cloud {
     width: fit-content;
   }
+  &.mobileAudit {
+    letter-spacing: 3.3px;
+  }
 
   @media ${themes.primary.media.onlyTabletPortrait} {
     max-width: 10em;
