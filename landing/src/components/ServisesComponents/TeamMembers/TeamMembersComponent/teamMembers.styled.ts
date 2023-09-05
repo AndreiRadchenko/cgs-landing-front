@@ -16,7 +16,7 @@ export const Wrapper = styled.div`
   justify-content: space-between;
 
   &.mobileDev {
-    margin-top: 10.2em;
+    margin-top: 7.2em;
     margin-bottom: 13.75em;
   }
 
@@ -30,7 +30,7 @@ export const Wrapper = styled.div`
   }
 
   &.blockchainTeam {
-    margin-top: 11.65em;
+    margin-top: 12.85em;
     margin-bottom: 13.6em;
   }
 

@@ -54,12 +54,15 @@ export const Title = styled.h1`
 export const Description = styled.div`
   font-size: 1.375em;
   line-height: 160%;
-  margin: 1em 0 1.8185em;
+  margin: 0.9em 0 1.7em;
   max-width: 28em;
 
   &.cloud {
-    margin: 1.28em 0px 1.8185em;
+    margin: 0.8em 0px 1.8185em;
     max-width: 27.27em;
+  }
+  &.blockchain {
+    margin: 0.6em 0 1.7em;
   }
 
   @media ${themes.primary.media.minPCFullHD} {
