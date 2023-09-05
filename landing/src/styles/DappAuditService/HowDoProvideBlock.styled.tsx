@@ -2,7 +2,7 @@ import styled from "styled-components";
 import themes from "../../utils/themes";
 
 export const Wrapper = styled.section`
-  margin-block: 8.8em 7.75em;
+  margin-block: 10.5em 3.75em;
 
   @media ${themes.primary.media.maxTabletLandScape} {
     margin-top: calc(
@@ -180,7 +180,7 @@ export const BackgroundContainer = styled.div`
   position: relative;
   width: 100%;
   height: auto;
-  margin-top: ${themes.primary.spacing.tertiary};
+  margin-top: 1em;
 
   @media ${themes.primary.media.maxTabletLandScape} {
     height: 600px;

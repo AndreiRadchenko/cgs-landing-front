@@ -87,13 +87,15 @@ const DappAuditPage: NextPage = () => {
             </Layout>
             {data && <ShowCase projects={data.projects} />}
             <Layout>
-              <TeamMembers
-                className={"dappAuditTeam"}
-                teamMembers={data?.teamMembers}
-              />
-              <Styled.Layout>
-                <FooterBlock />
-              </Styled.Layout>
+              <div style={{ marginTop: "-10px" }}>
+                <TeamMembers
+                  className={"dappAuditTeam"}
+                  teamMembers={data?.teamMembers}
+                />
+                <Styled.Layout>
+                  <FooterBlock />
+                </Styled.Layout>
+              </div>
             </Layout>
           </>
           <FooterNew />

@@ -66,7 +66,8 @@ export const Description = styled.div`
     max-width: 27.27em;
   }
   &.blockchain,
-  &.uxUi {
+  &.uxUi,
+  &.dappAudit {
     margin: 0.6em 0 1.7em;
   }
 
