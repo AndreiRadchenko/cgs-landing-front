@@ -16,7 +16,7 @@ export const Wrapper = styled.div`
   justify-content: space-between;
 
   &.mobileDev {
-    margin-top: 10.2em;
+    margin-top: 7.2em;
     margin-bottom: 13.75em;
   }
 

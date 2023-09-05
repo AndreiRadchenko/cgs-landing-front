@@ -5,14 +5,14 @@ import { float } from "./Animations.styled";
 
 export const Container = styled.section`
   margin-top: 140px;
-  margin-bottom: 140px;
+  margin-bottom: 138px;
   &.mobileAudit {
     margin-top: 8.95rem;
     margin-bottom: 10.2em;
   }
 
   &.mobileDev {
-    margin-top: 11.7em;
+    margin-top: 7.3em;
   }
 
   @media ${themes.primary.media.maxMobile} {
@@ -183,7 +183,7 @@ export const WorthText = styled.p`
 
 export const WorthBlock = styled.div<ISlide>`
   position: relative;
-  padding-top: 76px;
+  padding-top: 102px;
   height: 325px;
 
   &:not(:last-child) {
@@ -224,6 +224,7 @@ export const WorthBlock = styled.div<ISlide>`
 
   @media ${themes.primary.media.maxMobile} {
     height: 240px;
+    padding-top: 65px;
 
     &:first-child .iconCard {
       width: 17px;
@@ -279,7 +280,7 @@ export const WhoNeedContainer = styled.div`
     ${themes.primary.colors.gradientColor1RateCard} 0%,
     ${themes.primary.colors.gradientColor2RateCard} 100%
   );
-  margin-bottom: 90px;
+  margin-bottom: 70px;
   display: flex;
   gap: 97px;
   align-items: center;
