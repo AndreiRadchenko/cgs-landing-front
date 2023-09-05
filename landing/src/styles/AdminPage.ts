@@ -43,7 +43,7 @@ interface IAdminInput {
   width?: string;
   isAdmin?: string;
   isadminblog?: boolean;
-  iserror: boolean;
+  iserror?: boolean;
 }
 
 interface IBox {
