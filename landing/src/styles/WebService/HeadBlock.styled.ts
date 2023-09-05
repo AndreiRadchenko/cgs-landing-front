@@ -46,7 +46,7 @@ export const ContentContainer = styled.div`
 
 export const ImageWrapper = styled.div`
   position: relative;
-  margin-top: 12px;
+  margin-top: 0px;
   width: 45.31em;
   height: 29.19em;
 

@@ -6,7 +6,7 @@ export const Card = styled.li`
   position: relative;
   box-sizing: border-box;
   margin: 0;
-  padding: 12px 21px 42px;
+  padding: 9px 21px 42px;
   width: 17vw;
   border: 1px solid #8f8e93;
   transform: translateY(0);
@@ -87,7 +87,7 @@ export const CardTitle = styled.p`
 `;
 
 export const CardText = styled.p`
-  font-size: 1.17em;
+  font-size: 1em;
   line-height: 150%;
   margin: 0;
   transform: translateY(0);
