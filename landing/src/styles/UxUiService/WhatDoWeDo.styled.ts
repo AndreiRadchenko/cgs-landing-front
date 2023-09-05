@@ -4,7 +4,7 @@ import themes from "../../utils/themes";
 import { slideRight } from "../Animations.styled";
 
 export const Container = styled.section`
-  margin-top: 14.75em;
+  margin-top: 14.65em;
   display: flex;
   position: relative;
   @media ${themes.primary.media.maxMobile} {
@@ -99,6 +99,7 @@ export const Svg = styled.img`
 export const Wrapper = styled.div<ISlide>`
   width: 17.5em;
   margin-left: 2.5em;
+  padding-top: 0.9em;
   position: relative;
   display: grid;
   grid-template-rows: 1fr 1fr;

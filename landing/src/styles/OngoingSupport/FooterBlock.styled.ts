@@ -2,7 +2,7 @@ import styled from "styled-components";
 import themes from "../../utils/themes";
 
 export const Container = styled.section`
-  margin-top: 8.8em;
+  margin-top: 8.6em;
   padding-bottom: 9.5em;
   position: relative;
 
@@ -29,9 +29,9 @@ export const Container = styled.section`
 
 export const Image = styled.img`
   position: absolute;
-  right: 0;
-  bottom: 3.81em;
-  width: 26.3em;
+  right: -10px;
+  bottom: 2.5em;
+  width: 27em;
   z-index: -1;
 
   @media ${themes.primary.media.onlyTabletPortrait} {
