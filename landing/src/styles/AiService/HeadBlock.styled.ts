@@ -3,7 +3,7 @@ import themes from "../../utils/themes";
 
 export const Wrapper = styled.section`
   position: relative;
-  margin-top: 7.8em;
+  margin-top: 7.6em;
 
   @media ${themes.primary.media.maxMobile} {
     margin-top: 1em;
@@ -14,10 +14,10 @@ export const Wrapper = styled.section`
 
 export const ImageWrapper = styled.div`
   position: absolute;
-  bottom: -2.5em;
-  right: 1.25em;
-  width: 597px;
-  height: 524px;
+  top: -5em;
+  right: -0.6em;
+  width: 565px;
+  height: 617px;
 
   @media ${themes.primary.media.minPCFullHD} {
     width: 50%;

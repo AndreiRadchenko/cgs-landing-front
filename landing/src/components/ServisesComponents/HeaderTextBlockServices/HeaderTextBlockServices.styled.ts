@@ -18,7 +18,8 @@ export const Title = styled.h1`
   &.webAudit {
     letter-spacing: 3.3px;
   }
-  &.server {
+  &.server,
+  &.ai {
     letter-spacing: 3.3px;
     line-height: 120%;
   }
