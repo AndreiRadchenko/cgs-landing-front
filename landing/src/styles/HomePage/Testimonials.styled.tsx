@@ -345,8 +345,8 @@ export const TestimonialsSwiperContainer = styled.div`
     margin-bottom: 8.34em;
 
     .swiper-wrapper {
-    column-gap: 32px;
-  }
+      column-gap: 32px;
+    }
 
     .swiper-slide {
       width: 36.1em;
@@ -360,7 +360,7 @@ export const TestimonialsSwiperContainer = styled.div`
     margin-inline: -1.925em;
 
     .swiper-wrapper {
-      column-gap: 0px;
+      column-gap: 24px;
     }
   }
 
@@ -368,6 +368,10 @@ export const TestimonialsSwiperContainer = styled.div`
     .swiper-slide {
       width: 100%;
       height: 293px;
+    }
+
+    .swiper-wrapper {
+      column-gap: 0px;
     }
   }
 
