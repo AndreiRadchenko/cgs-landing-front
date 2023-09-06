@@ -2,7 +2,7 @@ import styled from "styled-components";
 import themes from "../../utils/themes";
 
 export const Wrapper = styled.section`
-  margin-block: 10.5em 3.75em;
+  margin-block: 10.5em 6.6em;
 
   @media ${themes.primary.media.maxTabletLandScape} {
     margin-top: calc(
@@ -343,8 +343,8 @@ export const SecondSubtitleContainer = styled.div`
 
 export const ThirdSubtitleContainer = styled.div`
   position: relative;
-  top: -50px;
-  margin-left: 56%;
+  top: -56px;
+  margin-left: 55.5%;
 
   @media ${themes.primary.media.minPC} {
     top: -3%;
