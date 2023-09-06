@@ -2,7 +2,10 @@ import { EnhancedWithAuthHttpService } from "../httpAuth.service";
 import { HttpServiceFactory } from "../index";
 
 import { ICvPageData, CvData } from "../../types/Admin/AdminCv.types";
-import { ISwapCvProjectsData, ISwapData } from "../../types/Admin/Response.types";
+import {
+  ISwapCvProjectsData,
+  ISwapData,
+} from "../../types/Admin/Response.types";
 
 export class AdminCvService {
   constructor(private httpService: EnhancedWithAuthHttpService) {}
