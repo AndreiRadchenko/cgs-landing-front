@@ -42,7 +42,7 @@ const ProjectorBlock = () => {
 
   return (
     <Styled.ProjectorBlockWrapper ref={ref}>
-      {isMobile ? (
+      {isMobile && (
         <Styled.MobileWrapper>
           {!visibleContent ? (
             <Styled.ScreenBlock className={isMobile ? "mobile" : undefined}>
@@ -67,7 +67,8 @@ const ProjectorBlock = () => {
           )}
           <Styled.MobileCamera src={mobileCamera.src} alt="mobile camera" />
         </Styled.MobileWrapper>
-      ) : (
+      )}
+      {!isMobile && (
         <Styled.ScrollContent
           className={visibleContent ? "visibleText" : undefined}
         >
