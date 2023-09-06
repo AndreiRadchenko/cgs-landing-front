@@ -18,6 +18,10 @@ export const Title = styled.h1`
   &.webAudit {
     letter-spacing: 3.3px;
   }
+  &.server {
+    letter-spacing: 3.3px;
+    line-height: 120%;
+  }
 
   @media ${themes.primary.media.onlyTabletPortrait} {
     max-width: 10em;
