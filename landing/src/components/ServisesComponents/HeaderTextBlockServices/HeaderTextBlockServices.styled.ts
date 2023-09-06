@@ -14,7 +14,8 @@ export const Title = styled.h1`
     width: fit-content;
   }
   &.mobileAudit,
-  &.uxUi {
+  &.uxUi,
+  &.webAudit {
     letter-spacing: 3.3px;
   }
 
@@ -65,6 +66,11 @@ export const Description = styled.div`
     margin: 0.8em 0px 1.8185em;
     max-width: 27.27em;
   }
+
+  &.webAudit {
+    margin: 0.7em 0 1.7em;
+  }
+
   &.blockchain,
   &.uxUi,
   &.dappAudit {

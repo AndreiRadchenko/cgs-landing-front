@@ -21,8 +21,8 @@ export const Wrapper = styled.div`
   }
 
   &.webAudit {
-    margin-top: 11.8em;
-    margin-bottom: 9em;
+    margin-top: 11.5em;
+    margin-bottom: 8.5em;
   }
   &.dappAuditTeam,
   &.webDev {

@@ -2,7 +2,7 @@ import styled from "styled-components";
 import themes from "../../utils/themes";
 
 export const Wrapper = styled.section`
-  margin-top: ${themes.primary.spacing.servicesMarginBetweenBlocks};
+  margin-top: 12em;
   position: relative;
   z-index: 16;
   overflow-block: visible;
@@ -21,7 +21,7 @@ export const Subtitle = styled.h3`
   font-size: ${themes.primary.font.size.webAuditSubtitle};
   line-height: 140%;
   text-transform: uppercase;
-  margin: 0 0 0.775em 0;
+  margin: 0;
 
   @media ${themes.primary.media.minPC} {
     font-size: ${themes.primary.font.size.webAuditSubtitlePC};
@@ -43,8 +43,9 @@ export const Subtitle = styled.h3`
 export const TypesGrid = styled.div`
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  row-gap: 94px;
-  margin-top: 4.5em;
+  column-gap: 3em;
+  row-gap: 72px;
+  margin-top: 3.5em;
 
   @media ${themes.primary.media.maxTabletPortrait} {
     margin-top: 2.7em;

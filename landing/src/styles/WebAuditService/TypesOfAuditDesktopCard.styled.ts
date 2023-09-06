@@ -30,7 +30,7 @@ export const ImageWrapper = styled.div`
 `;
 
 export const TypeTitle = styled.div`
-  margin-top: 1.12em;
+  margin-top: 0.9em;
   font-size: 2.7em;
   color: ${themes.primary.colors.darkBlue};
   line-height: 160%;
