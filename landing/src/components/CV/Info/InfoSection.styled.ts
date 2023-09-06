@@ -3,7 +3,7 @@ import themes from "../../../utils/themes";
 
 export const InfoSectionContainer = styled.div`
   position: relative;
-  margin-top: 100px;
+  margin-top: 101px;
 
   @media ${themes.primary.media.minMobile} {
     margin-top: 140px;

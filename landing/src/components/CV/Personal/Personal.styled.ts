@@ -3,18 +3,31 @@ import themes from "../../../utils/themes";
 
 export const PersonalContainer = styled.div`
   position: relative;
-  margin-top: 8px;
+  margin-top: 53px;
   @media ${themes.primary.media.minMobile} {
     margin-top: 100px;
-    height: 21em;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
   }
 
   @media ${themes.primary.media.minPCFullHD} {
     height: 336px;
-    margin-top: 130px;
+    margin-top: 140px;
+  }
+`;
+
+export const PersonalContainerHeader = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  flex-direction: column;
+
+  @media ${themes.primary.media.minMobile} {
+    gap: 13.05em;
+    flex-direction: row;
+    align-items: center;
+  }
+
+  @media ${themes.primary.media.minPCFullHD} {
+    gap: 13em;
   }
 `;
 
@@ -28,31 +41,33 @@ export const Name = styled.h1`
   @media ${themes.primary.media.minMobile} {
     font-size: 56px;
     letter-spacing: 2.8px;
+    padding-top: 39px;
   }
 
   @media ${themes.primary.media.minPCFullHD} {
     font-size: 75px;
     letter-spacing: 3.7px;
+    padding-top: 47px;
   }
 `;
 
 export const Role = styled.h2`
   font-family: ${themes.primary.font.family.namu};
   font-size: 22px;
-  line-height: 99%;
+  line-height: normal;
   text-transform: uppercase;
   margin: 8px 0 0 0;
   color: ${themes.primary.colors.darkBlue};
 
   @media ${themes.primary.media.minMobile} {
+    line-height: 160%;
     font-size: 26px;
-    margin-top: 16px;
-    width: 50%;
+    letter-spacing: 1.3px;
   }
 
   @media ${themes.primary.media.minPCFullHD} {
     font-size: 35px;
-    margin-top: 21px;
+    letter-spacing: 1.733px;
   }
 `;
 
@@ -60,24 +75,26 @@ export const ImageWrapper = styled.div`
   position: relative;
   width: 215px;
   height: 215px;
-  margin: 16px auto;
   z-index: 5;
+  margin-left: 18%;
+  margin-top: 16px;
 
   @media ${themes.primary.media.minMobile} {
-    margin: 0;
-    position: absolute;
-    right: 6.7em;
-    max-width: 244px;
-    max-height: 244px;
-    width: 16.9vw;
-    height: 16.9vw;
+    max-width: 260px;
+    max-height: 260px;
+    width: 17.75vw;
+    height: 17.75vw;
+    margin-left: 0;
+    margin-top: 0;
+    margin-right: 42px;
   }
 
   @media ${themes.primary.media.minPCFullHD} {
-    max-width: 325px;
-    max-height: 325px;
-    width: 325px;
-    height: 325px;
+    max-width: 340px;
+    max-height: 340px;
+    width: 340px;
+    height: 340px;
+    margin-right: 57px;
   }
 `;
 
@@ -88,6 +105,8 @@ export const ImageContainer = styled.div`
   object-position: top left;
 
   @media ${themes.primary.media.minMobile} {
+    width: 98%;
+    height: 98%;
   }
 
   @media ${themes.primary.media.minPCFullHD} {
@@ -122,45 +141,42 @@ export const Summary = styled.p`
   font-family: ${themes.primary.font.family.namu};
   font-size: 16px;
   line-height: 1.6;
-  margin: 16px 0 0 0;
+  margin: 20px 0 0 32px;
   color: ${themes.primary.colors.primary};
 
   @media ${themes.primary.media.minMobile} {
     font-size: 18px;
-    max-width: 800px;
+    max-width: 720px;
     margin-top: 24px;
-    width: 55%;
+    margin-left: 22.8em;
   }
 
   @media ${themes.primary.media.minPCFullHD} {
     font-size: 24px;
-    margin-top: 32px;
+    margin-top: 31px;
     max-width: 1070px;
     width: 63%;
   }
 `;
 
 export const BgImageContainer = styled.div`
-  width: 564px;
-  height: 597px;
-  transform: rotateZ(5deg);
   position: absolute;
-  bottom: -138px;
-  right: -260px;
-  z-index: -1;
+  bottom: -125px;
+  width: 376px;
+  height: 297px;
+  left: -20px;
+
   @media ${themes.primary.media.minMobile} {
-    width: 564px;
-    height: 596px;
-    bottom: -160px;
-    right: -60px;
-    z-index: 2;
-    transform: rotateZ(0);
+    width: 485px;
+    height: 210px;
+    left: -79px;
+    top: 118px;
   }
 
   @media ${themes.primary.media.minPCFullHD} {
-    width: 39vw;
-    height: 42vw;
-    bottom: -11vw;
-    right: -70px;
+    width: 615px;
+    height: 280px;
+    left: -89px;
+    top: 155px;
   }
 `;
