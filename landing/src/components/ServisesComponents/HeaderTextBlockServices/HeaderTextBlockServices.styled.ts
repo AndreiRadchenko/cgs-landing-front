@@ -67,8 +67,9 @@ export const Description = styled.div`
   margin: 0.9em 0 1.7em;
   max-width: 28em;
 
-  &.cloud {
-    margin: 0.8em 0px 1.8185em;
+  &.cloud,
+  &.dappAudit {
+    margin: 0.8em 0px 1.75em;
     max-width: 27.27em;
   }
 
@@ -77,8 +78,7 @@ export const Description = styled.div`
   }
 
   &.blockchain,
-  &.uxUi,
-  &.dappAudit {
+  &.uxUi {
     margin: 0.6em 0 1.7em;
   }
 

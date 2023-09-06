@@ -36,7 +36,7 @@ export const Title = styled.div`
   font-weight: ${themes.primary.font.weight.heavy};
   line-height: 56px;
   text-transform: uppercase;
-  margin-bottom: 65px;
+  margin-bottom: 62px;
 
   @media (max-width: 768px) {
     font-size: 34px;
@@ -119,7 +119,7 @@ export const Numbers = styled.div`
   @media (max-width: 1560px) {
     div {
       p {
-        margin-left: 1.5em;
+        margin-left: 1.45em;
         bottom: 0;
       }
     }
@@ -206,7 +206,7 @@ export const BeforeBlock = styled.div<IsFirst>`
   }
 
   @media (max-width: 1560px) {
-    width: 8.4vw;
+    width: 8vw;
   }
 
   @media (max-width: 1200px) {
@@ -250,7 +250,7 @@ export const AfterBlock = styled.div`
   }
 
   @media (max-width: 1560px) {
-    width: 8.4vw;
+    width: 8.1vw;
   }
 
   @media (max-width: 1200px) {
@@ -312,7 +312,7 @@ export const ContentItems = styled.div<ISlide>`
 
   @media (max-width: 1440px) {
     &:not(:first-child) {
-      margin-left: 3.8vw;
+      margin-left: 2.5vw;
     }
   }
 
