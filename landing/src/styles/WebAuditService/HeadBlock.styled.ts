@@ -20,8 +20,8 @@ export const ContentContainer = styled.div`
 `;
 
 export const TextContainer = styled.div`
-  padding-top: 6em;
-  width: 50%;
+  padding-top: 8em;
+  width: 50.6%;
 
   @media ${themes.primary.media.maxTabletPortrait} {
     padding-top: 4em;

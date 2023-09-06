@@ -7,7 +7,7 @@ export const Container = styled.section`
 `;
 
 export const Content = styled.div`
-  padding-top: 8em;
+  padding-top: 7.6em;
 
   @media ${themes.primary.media.onlyTabletLandScape} {
     max-width: 75%;
@@ -29,9 +29,9 @@ export const Content = styled.div`
 
 export const Image = styled.img`
   position: absolute;
-  top: 2.3em;
-  right: 2.07em;
-  width: 36.43vw;
+  top: 1.4em;
+  right: 1.4em;
+  width: 41vw;
 
   @media ${themes.primary.media.maxTabletLandScape} {
     width: 28.3em;

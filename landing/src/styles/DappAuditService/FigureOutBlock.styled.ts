@@ -3,10 +3,9 @@ import themes from "../../utils/themes";
 
 export const ContentWrapper = styled.div`
   position: relative;
-  margin-top: ${themes.primary.font.size.secondary};
+  margin-top: 1.5em;
   display: flex;
   justify-content: flex-end;
-  margin-top: 40px;
 
   @media ${themes.primary.media.maxTabletPortrait} {
     flex-direction: column-reverse;

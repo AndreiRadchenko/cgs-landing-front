@@ -2,7 +2,7 @@ import styled from "styled-components";
 import themes from "../../utils/themes";
 
 export const Container = styled.section`
-  margin-top: 9.5em;
+  margin-top: 11.2em;
   position: relative;
   display: flex;
 
@@ -26,7 +26,7 @@ export const Content = styled.div`
 export const ImageWrapper = styled.div`
   position: absolute;
   top: -6em;
-  right: 3%;
+  right: 3.5%;
   width: 600px;
   height: 530px;
 
@@ -35,7 +35,7 @@ export const ImageWrapper = styled.div`
   }
 
   @media (max-width: 2200px) {
-    top: -6em;
+    top: -4.5em;
   }
 
   @media ${themes.primary.media.maxTabletLandScape} {

@@ -88,11 +88,16 @@ const WebDevelopment: NextPage = () => {
             </Layout>
             <ShowCase projects={data?.projects} />
             <Layout>
-              <TeamMembers className="webDev" teamMembers={data?.teamMembers} />
-              <FreeService freeServices={data?.freeServices} />
-              <Styled.Layout>
-                <FooterBlock />
-              </Styled.Layout>
+              <div style={{ marginTop: "-10px" }}>
+                <TeamMembers
+                  className="webDev"
+                  teamMembers={data?.teamMembers}
+                />
+                <FreeService freeServices={data?.freeServices} />
+                <Styled.Layout>
+                  <FooterBlock />
+                </Styled.Layout>
+              </div>
             </Layout>
           </>
           <FooterNew />

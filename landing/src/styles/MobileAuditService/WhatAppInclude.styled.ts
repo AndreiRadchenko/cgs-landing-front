@@ -4,7 +4,7 @@ import themes from "../../utils/themes";
 import { ILine } from "../../types/Decoration.types";
 
 export const Container = styled.section`
-  margin-top: 8.8em;
+  margin-top: 7.8em;
   position: relative;
   height: 805px;
 

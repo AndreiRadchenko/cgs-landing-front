@@ -29,7 +29,7 @@ export const Subtitle = styled.h3`
   font-size: 2.5rem;
   line-height: 140%;
   text-transform: uppercase;
-  margin: 0 0 0.775em 0;
+  margin: 0px 0 0.4em 0;
 
   @media ${themes.primary.media.maxTabletLandScape} {
     font-size: ${themes.primary.font.size.webAuditSubtitleTabletLandscape};
@@ -82,9 +82,9 @@ export const Image = styled.img`
 
 export const TextWrapper = styled.div`
   font-size: 2em;
-  margin: 0 auto;
   line-height: 160%;
   max-width: 26.1em;
+  margin-right: 5.3em;
 
   @media ${themes.primary.media.maxTabletLandScape} {
     font-size: ${themes.primary.font.size.tertiary};
@@ -93,6 +93,7 @@ export const TextWrapper = styled.div`
   @media ${themes.primary.media.maxMobile} {
     font-size: 16px;
     margin-bottom: 10px;
+    margin: 0 auto;
     white-space: pre-line;
     max-width: 100%;
     br {

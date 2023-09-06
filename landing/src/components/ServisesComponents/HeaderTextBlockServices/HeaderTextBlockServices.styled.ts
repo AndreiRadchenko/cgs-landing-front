@@ -13,6 +13,16 @@ export const Title = styled.h1`
   &.cloud {
     width: fit-content;
   }
+  &.mobileAudit,
+  &.uxUi,
+  &.webAudit {
+    letter-spacing: 3.3px;
+  }
+  &.server,
+  &.ai {
+    letter-spacing: 3.3px;
+    line-height: 120%;
+  }
 
   @media ${themes.primary.media.onlyTabletPortrait} {
     max-width: 10em;
@@ -61,7 +71,14 @@ export const Description = styled.div`
     margin: 0.8em 0px 1.8185em;
     max-width: 27.27em;
   }
-  &.blockchain {
+
+  &.webAudit {
+    margin: 0.7em 0 1.7em;
+  }
+
+  &.blockchain,
+  &.uxUi,
+  &.dappAudit {
     margin: 0.6em 0 1.7em;
   }
 

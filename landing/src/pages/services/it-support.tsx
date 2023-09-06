@@ -94,7 +94,7 @@ const OngoingSupport = () => {
             </Layout>
             <div
               style={{
-                marginBottom: is768px ? "0em" : "-17em",
+                marginBottom: is768px ? "0em" : "-17.1em",
                 marginTop: is768px ? "-1.8em" : "0em",
               }}
             >

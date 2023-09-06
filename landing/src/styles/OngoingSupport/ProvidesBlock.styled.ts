@@ -10,7 +10,7 @@ interface Moving {
 }
 
 export const Container = styled.section`
-  margin-block: 4em -0.8em;
+  margin-block: 1.5em -0.8em;
   position: relative;
   width: 100%;
 
@@ -30,7 +30,7 @@ export const BlockContainer = styled.div`
   position: relative;
   margin: 0 auto;
   justify-content: space-around;
-  row-gap: 2em;
+  row-gap: 3em;
   margin-top: -2em;
   margin-bottom: 3em;
   column-gap: 3em;
@@ -52,7 +52,7 @@ export const BlockContainer = styled.div`
 
   @media ${themes.primary.media.minMiniTabletLandScape} {
     & > div:nth-child(2) {
-      margin-top: 8rem;
+      margin-top: 5.3rem;
     }
   }
 
@@ -295,7 +295,7 @@ export const MarioBlock = styled.div`
   position: relative;
   margin: 0 auto;
   margin-top: 4em;
-  margin-bottom: 30%;
+  margin-bottom: 29.35%;
 `;
 
 export const FooterMarioBlock = styled.div`

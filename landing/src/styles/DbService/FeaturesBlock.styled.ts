@@ -170,7 +170,7 @@ export const TextContent = styled.div<ISlide>`
 `;
 
 export const ContentWrapper = styled.div`
-  padding-left: 6.5em;
+  padding-left: 7.4em;
   padding-right: 6.25em;
   display: flex;
   column-gap: 20vw;
@@ -256,9 +256,9 @@ export const ContentWrapper = styled.div`
 
 export const BgImage = styled.img`
   position: absolute;
-  top: -1.1em;
+  top: -1em;
   left: -9.5vw;
-  width: 115vw;
+  width: 116.5vw;
   z-index: -1;
 
   @media ${themes.primary.media.maxPCFullHD} {
