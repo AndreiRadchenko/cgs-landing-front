@@ -18,7 +18,7 @@ interface IProps {
 
 export const SkillCard = ({ subtitle, stack, idx }: IProps) => {
   return (
-    <Styled.InfoCard>
+    <Styled.InfoCard className="cv-skills-section">
       <Styled.TitleWrapp className="title-wrap">
         <Styled.Icon
           src={svg[idx]?.src}
