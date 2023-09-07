@@ -94,9 +94,9 @@ export const InfoSection = ({
               </Styled.NumberItems>
             ))}
           </Styled.Numbers>
-          <Styled.TextContent className="cv-points-desc-wrapper">
+          <Styled.TextContent>
             {content.map(({ subtitle, text }, idx) => (
-              <Styled.ContentItems key={idx}>
+              <Styled.ContentItems key={idx} className="cv-point-desc">
                 <Styled.Subtitle>{subtitle}</Styled.Subtitle>
                 <Styled.Text>{parse(text)}</Styled.Text>
               </Styled.ContentItems>
