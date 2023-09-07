@@ -53,7 +53,7 @@ export const InfoSection = ({
             {content.map((number, idx) => (
               <Styled.NumberItems key={idx}>
                 <p>0{idx + 1}</p>
-                <Styled.ImageWrapper>
+                <Styled.ImageWrapper className="cv-point-wrapper">
                   {idx === content.length - 1 ? (
                     <>
                       <Styled.BlockContainer>
@@ -62,7 +62,9 @@ export const InfoSection = ({
                           src={circle.src}
                           alt="Yellow Circle"
                         />
-                        <Styled.AfterBlock className={"long"} />
+                        <Styled.AfterBlock
+                          className={"cv-point-long-line long"}
+                        />
                         <img
                           className={"dot"}
                           src={smallCircle.src}
@@ -78,13 +80,13 @@ export const InfoSection = ({
                           src={circle.src}
                           alt="Yellow Circle"
                         />
-                        <Styled.AfterBlock />
+                        <Styled.AfterBlock className="cv-point-line" />
                         <img
                           className={"dot"}
                           src={smallCircle.src}
                           alt="Dot"
                         />
-                        <Styled.BeforeBlock />
+                        <Styled.BeforeBlock className="cv-point-line" />
                       </Styled.BlockContainer>
                     </>
                   )}
