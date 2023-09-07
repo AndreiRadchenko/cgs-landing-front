@@ -28,7 +28,7 @@ export const Personal = ({ data: { image, personal } }: IProps) => {
           </Styled.Role>
         </div>
         {image && (
-          <Styled.ImageWrapper>
+          <Styled.ImageWrapper className="cv-avatar-wrapper">
             <Styled.ImageBackground />
             <Styled.ImageContainer>
               <Image
