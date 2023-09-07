@@ -43,7 +43,7 @@ export const Personal = ({ data: { image, personal } }: IProps) => {
           </Styled.ImageWrapper>
         )}
       </Styled.PersonalContainerHeader>
-      <Styled.Summary>
+      <Styled.Summary className="cv-personal-summary">
         <SplitBrackets text={personal.summary} />
       </Styled.Summary>
       <Styled.BgImageContainer>

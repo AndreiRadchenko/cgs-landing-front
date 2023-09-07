@@ -134,6 +134,7 @@ export const ImageWrapper = styled.div`
   position: relative;
   display: flex;
   align-items: center;
+  width: 340px;
 
   @media (max-width: 475px) {
     img:first-child {
@@ -218,6 +219,11 @@ export const AfterBlock = styled.div`
   background-color: #8f8e93;
   top: 50%;
   margin: 0 8px 0 17px;
+  width: 116px;
+
+  &.long {
+    width: 240px !important;
+  }
 
   @media (min-width: 2561px) {
     width: 10vw;
