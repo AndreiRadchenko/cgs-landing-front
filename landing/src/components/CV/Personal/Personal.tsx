@@ -21,7 +21,7 @@ export const Personal = ({ data: { image, personal } }: IProps) => {
   return (
     <Styled.PersonalContainer>
       <Styled.PersonalContainerHeader>
-        <div>
+        <div className="cv-name-position">
           <Styled.Name>{personal.name}</Styled.Name>
           <Styled.Role>
             {isMobile ? personal.role : `// ${personal.role}`}
