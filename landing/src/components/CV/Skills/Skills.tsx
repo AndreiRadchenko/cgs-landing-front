@@ -6,6 +6,7 @@ import { SkillCard } from "./SkillCard/SkillCard";
 import * as Styled from "./Skills.styled";
 import { CvData } from "../../../types/Admin/AdminCv.types";
 import LineBG from "../../../../public/CV/03.svg";
+import TopLineBG from "../../../../public/CV/skills-top-dashed-line.svg";
 
 interface IProps {
   data: CvData;
@@ -20,6 +21,14 @@ export const Skills = ({
   return (
     <Styled.SkillsContainer>
       <Styled.Title>{title}</Styled.Title>
+      <Styled.TopBgImageContainer>
+        <Image
+          src={TopLineBG.src}
+          alt="dashed line"
+          layout="fill"
+          objectFit="contain"
+        />
+      </Styled.TopBgImageContainer>
       <Styled.SkillsCardWrapper className="skills-wrapper">
         {cardsToShow.map((e, idx) => (
           <SkillCard
@@ -30,14 +39,14 @@ export const Skills = ({
           />
         ))}
       </Styled.SkillsCardWrapper>
-      <Styled.BgImageContainer>
+      <Styled.BottomBgImageContainer>
         <Image
           src={LineBG.src}
           alt="dashed line"
           layout="fill"
           objectFit="contain"
         />
-      </Styled.BgImageContainer>
+      </Styled.BottomBgImageContainer>
     </Styled.SkillsContainer>
   );
 };
