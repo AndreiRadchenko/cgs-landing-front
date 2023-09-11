@@ -62,7 +62,28 @@ export const SkillsCardWrapper = styled.div`
   }
 `;
 
-export const BgImageContainer = styled.div`
+export const TopBgImageContainer = styled.div`
+  width: 690px;
+  height: 241px;
+  position: absolute;
+  z-index: 0;
+  left: -60px;
+  top: -78px;
+
+  @media ${themes.primary.media.maxMobile} {
+    z-index: -2;
+    left: -28px;
+  }
+
+  @media ${themes.primary.media.minPCFullHD} {
+    width: 49vw;
+    height: 17.1vw;
+    left: -4.3vw;
+    top: -5.5vw;
+  }
+`;
+
+export const BottomBgImageContainer = styled.div`
   width: 625px;
   height: 414px;
   transform: scale(1.07) rotateZ(-2deg);
@@ -70,6 +91,7 @@ export const BgImageContainer = styled.div`
   bottom: -240px;
   right: 0px;
   z-index: -2;
+
   @media ${themes.primary.media.minMobile} {
     bottom: -230px;
     right: -100px;
