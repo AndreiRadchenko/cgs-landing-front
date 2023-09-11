@@ -429,8 +429,8 @@ export const HeadBlockContent = styled.header`
 export const Tetris = styled.div`
   position: absolute;
   width: 33.7%;
-  right: 109px;
-  top: 20.5px;
+  right: 122px;
+  top: 18px;
 
   @media ${themes.primary.media.minPCFullHD} {
     top: 32px;
