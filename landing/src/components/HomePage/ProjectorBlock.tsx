@@ -5,7 +5,7 @@ import { useMediaQuery } from "@mui/material";
 import { queryKeys } from "../../consts/queryKeys";
 import { useOnScreen } from "../../hooks/useOnScreen";
 
-import * as Styled from "../../styles/HomePage/ProjectorBlock.styled";
+import * as Styled from "../../styles/HomePage/projectorBlock.styled";
 import projectorIcon from "../../../public/HomePageDecoration/ProjectorBlock/projectorIcon.svg";
 import light from "../../../public/HomePageDecoration/ProjectorBlock/light.svg";
 import mobileCamera from "../../../public/HomePageDecoration/ProjectorBlock/mobileCamera.svg";
