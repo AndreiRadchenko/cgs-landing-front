@@ -329,24 +329,18 @@ export const TestimonialsSlideContainer = styled.div`
 export const TestimonialsSwiperContainer = styled.div`
   margin-top: 2em;
   margin-bottom: 10em;
-  margin-right: -4.25em;
+  width: 100vw;
+  margin-left: -51px;
 
   .swiper-slide {
     width: 43.34em;
     height: 25em;
   }
 
-  .swiper-wrapper {
-    column-gap: 24px;
-  }
-
   @media ${themes.primary.media.minPCFullHD} {
     margin-top: 1.67em;
     margin-bottom: 8.34em;
-
-    .swiper-wrapper {
-      column-gap: 32px;
-    }
+    margin-left: -68px;
 
     .swiper-slide {
       width: 36.1em;
@@ -354,24 +348,28 @@ export const TestimonialsSwiperContainer = styled.div`
     }
   }
 
+  @media ${themes.primary.media.maxPCFullHD} {
+    margin-left: -58px;
+  }
+
+  @media ${themes.primary.media.maxLaptop} {
+    margin-left: -51px;
+  }
+
+  @media ${themes.primary.media.maxTabletLandScape} {
+    margin-left: -58px;
+  }
+
   @media ${themes.primary.media.maxMobile} {
     margin-top: 16px;
     margin-bottom: 90px;
     margin-inline: -1.925em;
-
-    .swiper-wrapper {
-      column-gap: 24px;
-    }
   }
 
   @media ${themes.primary.media.maxLowScreenMobile} {
     .swiper-slide {
       width: 100%;
       height: 293px;
-    }
-
-    .swiper-wrapper {
-      column-gap: 0px;
     }
   }
 
