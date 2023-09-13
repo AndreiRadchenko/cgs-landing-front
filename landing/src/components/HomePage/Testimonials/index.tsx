@@ -87,19 +87,52 @@ const Testimonials = () => {
 
       <Styled.TestimonialsSwiperContainer>
         <Swiper
-          slidesPerView={1}
+          slidesPerView="auto"
           navigation={{
             nextEl: ".swiper-button-next",
             prevEl: ".swiper-button-prev",
           }}
-          loop={true}
+          loop={false}
           autoplay={{ delay: 7000, disableOnInteraction: false }}
+          spaceBetween={24}
           className="mySwiper"
           breakpoints={{
+            375: {
+              slidesPerView: 1,
+            },
             640: {
               slidesPerView: "auto",
               autoplay: false,
-              loop: false,
+            },
+            768: {
+              slidesPerView: "auto",
+              slidesOffsetBefore: 51,
+              slidesOffsetAfter: 51,
+              autoplay: false,
+            },
+            992: {
+              slidesPerView: "auto",
+              slidesOffsetBefore: 58,
+              slidesOffsetAfter: 58,
+              autoplay: false,
+            },
+            1200: {
+              slidesPerView: "auto",
+              slidesOffsetBefore: 51,
+              slidesOffsetAfter: 51,
+              autoplay: false,
+            },
+            1500: {
+              slidesPerView: "auto",
+              slidesOffsetBefore: 58,
+              slidesOffsetAfter: 58,
+              autoplay: false,
+            },
+            1800: {
+              slidesPerView: data?.testimonials.length && "auto",
+              slidesOffsetBefore: 68,
+              slidesOffsetAfter: 68,
+              autoplay: false,
             },
           }}
         >
