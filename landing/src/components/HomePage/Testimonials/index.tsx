@@ -96,10 +96,8 @@ const Testimonials = () => {
           autoplay={{ delay: 7000, disableOnInteraction: false }}
           className="mySwiper"
           breakpoints={{
-            475: {
-              slidesPerView: "auto",
-            },
             640: {
+              slidesPerView: "auto",
               autoplay: false,
               loop: false,
             },
