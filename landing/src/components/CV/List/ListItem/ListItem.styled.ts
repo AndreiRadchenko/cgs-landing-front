@@ -6,7 +6,7 @@ export const ListItemWrapper = styled.div`
   position: relative;
   display: flex;
   justify-content: space-between;
-  border-bottom: 1.5px solid #8F8E93;
+  border-bottom: 1.5px solid #8f8e93;
   padding-bottom: 24px;
   padding-inline: 20px;
   margin-bottom: 52px;
@@ -44,15 +44,40 @@ export const ListItemWrapper = styled.div`
 `;
 
 export const ListItemTitle = styled.div``;
-export const ListItemLink = styled.a<{linkHover: boolean}>`
+
+export const ListItemActions = styled.div`
   display: flex;
-  gap: 6px;
-  align-items: center;
+  flex-direction: column;
+  justify-content: flex-start;
+  height: 66px;
+  gap: 8px;
+
+  @media ${themes.primary.media.maxMobile} {
+    height: auto;
+  }
+`;
+
+export const ListItemPDF = styled.div`
+  font-size: 14px;
+  color: #5869dd;
   cursor: pointer;
 
+  @media ${themes.primary.media.maxMobile} {
+    font-size: 13px;
+  }
+`;
+
+export const ListItemLink = styled.a<{ linkHover: boolean }>`
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  justify-content: flex-end;
+  cursor: pointer;
+  height: 40px;
+  padding-right: 2px;
+
   & path {
-    transition: ${({ linkHover }) =>
-    linkHover && "transform 1s ease-in-out"};
+    transition: ${({ linkHover }) => linkHover && "transform 1s ease-in-out"};
   }
   & path:nth-child(1) {
     transform: translate(-36px, 36px);
@@ -67,6 +92,7 @@ export const ListItemLink = styled.a<{linkHover: boolean}>`
   }
 
   p {
+    margin: 0;
     font-family: ${themes.primary.font.family.namu};
     font-size: 1.5em;
     font-weight: 900;
@@ -83,6 +109,8 @@ export const ListItemLink = styled.a<{linkHover: boolean}>`
   }
 
   @media ${themes.primary.media.maxMobile} {
+    height: 26px;
+
     p {
       font-size: 18px;
     }
@@ -90,8 +118,8 @@ export const ListItemLink = styled.a<{linkHover: boolean}>`
 `;
 
 export const ListItemArrowContainer = styled.div`
-  width: 32px;
-  height: 32px;
+  width: 34px;
+  height: 34px;
   background-color: ${themes.primary.colors.headerBorderHover};
   border: 1.7px solid ${themes.primary.colors.primary};
   border-radius: 50%;
@@ -123,7 +151,7 @@ export const ListItemName = styled.div<{ onHover: boolean }>`
   font-size: 2.5em;
   font-weight: 900;
   line-height: 130%;
-  color: ${(props) => props.onHover ? "#5869DD" : "#000"};
+  color: ${(props) => (props.onHover ? "#5869DD" : "#000")};
   transition: 0.1s all linear;
 
   @media ${themes.primary.media.minPCFullHD} {
@@ -140,7 +168,7 @@ export const ListItemName = styled.div<{ onHover: boolean }>`
   }
 `;
 export const ListItemPosition = styled.div`
-  color: #8F8E93;
+  color: #8f8e93;
   font-size: 1.5em;
   font-family: ${themes.primary.font.family.namu};
   font-weight: 900;
