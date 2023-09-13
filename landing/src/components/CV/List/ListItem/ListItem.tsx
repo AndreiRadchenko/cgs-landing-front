@@ -83,7 +83,7 @@ export const ListItem = ({ item, i }: ListItemProps) => {
             <ButtonArrow />
           </Styled.ListItemArrowContainer>
         </Styled.ListItemLink>
-        {pdfLoad ? (
+        {!pdfLoad ? (
           <Styled.ListItemPDF onClick={handleClick}>
             export as PDF
           </Styled.ListItemPDF>
