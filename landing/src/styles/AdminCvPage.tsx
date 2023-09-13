@@ -331,6 +331,19 @@ export const Loader = styled.img`
   margin-left: 5px;
   width: 22px;
   height: 22px;
-
   animation: ${rotate360} 1s linear infinite;
+
+  &.cv {
+    margin-top: 0;
+    width: 18px;
+    height: 18px;
+  }
+
+  @media ${themes.primary.media.maxMobile} {
+    &.cv {
+      margin-top: 0;
+      width: 16px;
+      height: 16px;
+    }
+  }
 `;
