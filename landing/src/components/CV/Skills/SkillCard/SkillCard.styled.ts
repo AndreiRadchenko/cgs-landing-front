@@ -89,9 +89,6 @@ export const TitleWrapp = styled.div`
     overflow: hidden;
   }
 
-  @media (max-width: 1331px) and (${themes.primary.media.minMobile}) {
-    height: 130px;
-  }
   @media ${themes.primary.media.minPCFullHD} {
     align-items: center;
   }

@@ -48,7 +48,7 @@ export const Title = styled.h2`
 `;
 
 export const SkillsCardWrapper = styled.div`
-  @media ${themes.primary.media.minMobile} {
+  @media (min-width: 769px) {
     margin-top: 24px;
     margin-left: -51px;
     width: 100vw;

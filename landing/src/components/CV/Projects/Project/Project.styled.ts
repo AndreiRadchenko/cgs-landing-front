@@ -218,7 +218,7 @@ export const AboutTitle = styled.h4`
   }
 `;
 
-export const AboutText = styled.p`
+export const AboutText = styled.div`
   margin: 8px 0 0 0;
   padding: 0;
   color: ${themes.primary.colors.primary};
