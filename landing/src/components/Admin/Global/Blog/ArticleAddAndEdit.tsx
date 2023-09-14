@@ -197,6 +197,14 @@ const ArticleAddAndEdit = ({
     }
   };
 
+  useEffect(() => {
+    console.log("Values: ", values);
+  }, [values]);
+
+  useEffect(() => {
+    console.log("Errors: ", errors);
+  }, [errors]);
+
   return (
     <>
       <Styled.AdminBlocksContent ref={ref}>
