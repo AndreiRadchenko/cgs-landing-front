@@ -64,7 +64,7 @@ export const InfoSection = ({
                           src={circle.src}
                           alt="Yellow Circle"
                         />
-                        <Styled.Test>
+                        <Styled.AfterBlockWrapper>
                           <Styled.AfterBlock
                             className={"cv-point-long-line long"}
                           />
@@ -73,7 +73,7 @@ export const InfoSection = ({
                             src={smallCircle.src}
                             alt="Dot"
                           />
-                        </Styled.Test>
+                        </Styled.AfterBlockWrapper>
                       </Styled.BlockContainer>
 
                       <Styled.ContentItems key={idx} className="cv-point-desc">
@@ -89,7 +89,7 @@ export const InfoSection = ({
                           src={circle.src}
                           alt="Yellow Circle"
                         />
-                        <Styled.Test>
+                        <Styled.AfterBlockWrapper>
                           <Styled.AfterBlock className="cv-point-line" />
                           <img
                             className={"dot"}
@@ -97,7 +97,7 @@ export const InfoSection = ({
                             alt="Dot"
                           />
                           <Styled.BeforeBlock className="cv-point-line" />
-                        </Styled.Test>
+                        </Styled.AfterBlockWrapper>
                       </Styled.BlockContainer>
                       <Styled.ContentItems key={idx} className="cv-point-desc">
                         <Styled.Subtitle>{subtitle}</Styled.Subtitle>

@@ -178,7 +178,7 @@ export const BlockContainer = styled.div`
   }
 `;
 
-export const Test = styled.div`
+export const AfterBlockWrapper = styled.div`
   display: flex;
   width: 100%;
   align-items: center;
