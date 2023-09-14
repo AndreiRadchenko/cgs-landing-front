@@ -8,8 +8,12 @@ export const Wrapper = styled.div`
     margin-top: 18em;
   }
 
+  @media ${themes.primary.media.onlyTabletPortrait} {
+    margin-top: 247px;
+  }
+
   @media ${themes.primary.media.maxMobile} {
-    margin-top: 9.8em;
+    margin-top: 251px;
   }
 `;
 
@@ -30,30 +34,34 @@ export const Title = styled.h2`
       rgba(88, 105, 221, 0.3) 100%
     ),
     #f1efed;
-  @media ${themes.primary.media.minMobile} {
+  @media (min-width: 769px) {
     display: none;
   }
 `;
 
 export const Content = styled.div`
   @media (max-width: 992px) {
-    display: grid;
-    grid-template-columns: 1fr 5fr;
+    display: flex;
   }
 
   @media (max-width: 475px) {
+    display: grid;
     grid-template-columns: 1fr 7fr;
   }
 `;
 
 export const NumberItems = styled.div`
-  p {
+  position: relative;
+  width: 25%;
+
+  & > p {
     font-family: ${themes.primary.font.family.namu};
     font-size: 2.667em;
     font-weight: ${themes.primary.font.weight.heavy};
     position: absolute;
-    bottom: 0em;
-    margin-left: 1.5em;
+    margin-top: 0;
+    left: 45px;
+    top: -24.5px;
   }
 
   img {
@@ -63,42 +71,35 @@ export const NumberItems = styled.div`
   @media (max-width: 768px) {
     opacity: 1;
   }
+
+  @media ${themes.primary.media.minPC} {
+    & > p {
+      top: -34px;
+      left: 60px;
+    }
+  }
+
+  @media ${themes.primary.media.onlyTabletPortrait} {
+    width: 100%;
+
+    & > p {
+      left: 23px;
+      top: -42.5px;
+    }
+  }
 `;
 
 export const Numbers = styled.div`
   display: flex;
   position: relative;
+  width: 100%;
+  column-gap: 16px;
 
-  @media (min-width: 2561px) {
-    div {
-      p {
-        margin-left: 1.2em;
-        bottom: -0.2em;
-      }
-    }
-  }
-
-  @media (max-width: 2560px) {
-    div {
-      p {
-        margin-left: 1.4em;
-        bottom: 2px;
-      }
-    }
-  }
-
-  @media (max-width: 1560px) {
-    div {
-      p {
-        margin-left: 1.4em;
-        bottom: 0;
-      }
-    }
-  }
-
-  @media (max-width: 992px) {
+  @media ${themes.primary.media.onlyTabletPortrait} {
     flex-direction: column;
-    div {
+    gap: 41px;
+
+    & + div {
       p {
         position: relative;
         margin: 0;
@@ -111,7 +112,7 @@ export const Numbers = styled.div`
   @media (max-width: 768px) {
     width: 50px;
 
-    div {
+    & + div {
       p {
         margin: 0;
         margin-left: 8px;
@@ -121,7 +122,7 @@ export const Numbers = styled.div`
 
   @media (max-width: 475px) {
     margin-left: -23px;
-    div {
+    & + div {
       p {
         font-size: 14px;
         margin-left: 16px;
@@ -130,10 +131,17 @@ export const Numbers = styled.div`
   }
 `;
 
-export const ImageWrapper = styled.div`
+export const SectionWrapper = styled.div`
   position: relative;
   display: flex;
   align-items: center;
+  flex-direction: column;
+  row-gap: 15px;
+  width: 100%;
+
+  @media ${themes.primary.media.onlyTabletPortrait} {
+    flex-direction: row;
+  }
 
   @media (max-width: 475px) {
     img:first-child {
@@ -150,6 +158,7 @@ export const BlockContainer = styled.div`
   display: flex;
   align-items: center;
   flex-grow: 1;
+  width: 100%;
 
   @media ${themes.primary.media.minPC} {
     .yellowCircle {
@@ -165,6 +174,20 @@ export const BlockContainer = styled.div`
 
   @media (max-width: 992px) {
     flex-direction: column;
+    width: 200px;
+  }
+`;
+
+export const AfterBlockWrapper = styled.div`
+  display: flex;
+  width: 100%;
+  align-items: center;
+  padding-left: 16px;
+  column-gap: 8px;
+
+  @media ${themes.primary.media.maxTabletPortrait} {
+    flex-direction: column;
+    padding-left: 0;
   }
 `;
 
@@ -173,43 +196,7 @@ export const BeforeBlock = styled.div`
   height: 1px;
   background-color: #8f8e93;
   top: 50%;
-  margin: 0 17px 0 8px;
-
-  @media (min-width: 2561px) {
-    width: 10vw;
-  }
-
-  @media (max-width: 2560px) {
-    width: 10vw;
-  }
-
-  @media (max-width: 1920px) {
-    width: 8.125vw;
-  }
-
-  @media (max-width: 1560px) {
-    width: 8.1vw;
-  }
-
-  @media (max-width: 1200px) {
-    width: 7vw;
-  }
-
-  @media (max-width: 1050px) {
-    width: 6vw;
-  }
-
-  @media (max-width: 992px) {
-    width: 2px;
-    height: 4em;
-    margin: 6px 0;
-  }
-
-  @media (max-width: 475px) {
-    width: 0.5px;
-    height: 24px;
-    margin: 3px 0;
-  }
+  width: 50%;
 `;
 
 export const AfterBlock = styled.div`
@@ -217,46 +204,21 @@ export const AfterBlock = styled.div`
   height: 1px;
   background-color: #8f8e93;
   top: 50%;
-  margin: 0 8px 0 17px;
+  width: 50%;
 
-  @media (min-width: 2561px) {
-    width: 10vw;
-    &.long {
-      width: 16.6vw;
-    }
-  }
-
-  @media (max-width: 2560px) {
-    width: 10vw;
-    &.long {
-      width: 16.6vw;
-    }
-  }
-
-  @media (max-width: 1920px) {
-    width: 8.125vw;
-  }
-
-  @media (max-width: 1560px) {
-    width: 8.1vw;
-
-    &.long {
-      width: 16.6vw;
-    }
-  }
-
-  @media (max-width: 1200px) {
-    width: 7vw;
-  }
-
-  @media (max-width: 1050px) {
-    width: 6vw;
+  &.long {
+    width: 100%;
   }
 
   @media (max-width: 992px) {
     width: 2px;
     height: 4em;
     margin: 6px 0;
+
+    &.long {
+      width: 2px;
+      height: 105px;
+    }
   }
 
   @media (max-width: 768px) {
@@ -267,55 +229,15 @@ export const AfterBlock = styled.div`
 `;
 
 export const ContentItems = styled.div`
-  width: 21vw;
+  width: 100%;
 
-  @media (min-width: 2561px) {
-    &:not(:first-child) {
-      margin-left: 3.1vw;
-    }
-  }
-
-  @media (max-width: 2560px) {
-    &:not(:first-child) {
-      margin-left: 3.1vw;
-    }
-  }
-
-  @media (max-width: 1920px) {
-    &:not(:first-child) {
-      margin-left: 2.5vw;
-    }
-  }
-
-  @media (max-width: 1560px) {
-    &:not(:first-child) {
-      margin-left: 2.6vw;
-    }
-  }
-
-  @media (max-width: 1440px) {
-    &:not(:first-child) {
-      margin-left: 2.5vw;
-    }
-  }
-
-  @media (max-width: 1200px) {
-    &:not(:first-child) {
-      margin-left: 1.85vw;
-    }
-  }
-
-  @media (max-width: 992px) {
-    width: 100%;
-    margin-bottom: 5em;
-
-    &:not(:first-child) {
-      margin-left: 0;
-    }
-  }
-
-  @media (max-width: 475px) {
-    margin-bottom: 1.75em;
+  @media ${themes.primary.media.onlyTabletPortrait} {
+    display: flex;
+    gap: 45px;
+    flex-direction: column;
+    position: relative;
+    left: -20px;
+    margin-bottom: 47px;
   }
 `;
 
@@ -348,17 +270,12 @@ export const Subtitle = styled.div`
     font-size: 21.5px;
   }
 
-  @media (max-width: 992px) {
-    margin-bottom: 30px;
+  @media ${themes.primary.media.maxTabletPortrait} {
     font-size: 30px;
+    line-height: normal;
   }
 
   @media ${themes.primary.media.maxMobile} {
-    font-size: 24px;
-    margin-bottom: 10px;
-  }
-
-  @media (max-width: 475px) {
     margin-bottom: 5px;
     font-size: 16px;
   }
@@ -379,15 +296,11 @@ export const Text = styled.div`
     font-size: 32px;
   }
 
-  @media (max-width: 992px) {
+  @media ${themes.primary.media.maxTabletPortrait} {
     font-size: 28px;
   }
 
   @media ${themes.primary.media.maxMobile} {
-    font-size: 20px;
-  }
-
-  @media (max-width: 475px) {
     font-size: 18px;
   }
 `;
@@ -417,75 +330,68 @@ export const TextMobileItem = styled.div`
 `;
 
 export const MobileNumber = styled.div`
-  font-size: 14px;
-  font-weight: ${themes.primary.font.weight.heavy};
-  line-height: 20px;
+  font-family: NAMU, sans-serif;
+  font-size: 2.667em;
+  font-weight: 900;
+  position: relative;
+  bottom: 0.1em;
 
-  &.last::before {
-    display: none;
-  }
-
-  &.last::after {
-    top: 55%;
-    height: 50%;
-  }
-
-  ::after {
-    content: "";
-    position: absolute;
-    top: 70%;
-    background-color: #8f8e93;
-    left: 10.5px;
-    height: 30%;
-    width: 1px;
-  }
-
-  ::before {
-    content: "";
-    position: absolute;
-    top: 50px;
-    background-color: #8f8e93;
-    left: 10.5px;
-    height: 100%;
-    width: 1px;
+  @media ${themes.primary.media.maxMobile} {
+    font-size: 14px;
+    font-weight: ${themes.primary.font.weight.heavy};
+    line-height: 20px;
   }
 `;
 
 export const Circle = styled.img`
-  width: 22px;
+  width: 46px;
+
+  @media ${themes.primary.media.maxMobile} {
+    width: 22px;
+  }
 `;
 
 export const SmallCircle = styled.img`
+  background: #f1efed;
+
+  @media ${themes.primary.media.maxTabletPortrait} {
+    width: 14px;
+    border: 4px solid #f1efed;
+    position: absolute;
+    top: 71%;
+    left: 4px;
+
+    &.last {
+      top: auto;
+      bottom: -9px;
+    }
+  }
+
   @media ${themes.primary.media.maxMobile} {
     width: 14px;
     border: 4px solid #f1efed;
     position: absolute;
-    top: 60%;
-    left: 0.55%;
-  }
-
-  @media (max-width: 650px) {
-    left: 0.7%;
-    width: 13px;
-  }
-
-  @media (max-width: 560px) {
-    left: 0.9%;
-  }
-
-  @media (max-width: 475px) {
-    width: 12px;
-    border: 4px solid #f1efed;
-    position: absolute;
-    top: 72%;
-    left: 1.2%;
+    top: 68%;
+    left: 5px;
 
     &.last {
-      top: 90%;
+      top: auto;
+      bottom: -9px;
     }
   }
 
-  @media (max-width: 400px) {
-    left: 1.5%;
+  @media (max-width: 650px) {
+    width: 12px;
+    border: 4px solid #f1efed;
+    left: 6px;
+    position: absolute;
   }
+`;
+
+export const MobileLine = styled.img`
+  height: 49px;
+  left: 0px;
+  position: relative;
+  top: 3px;
+  width: 2.5px;
 `;

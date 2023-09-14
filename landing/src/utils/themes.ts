@@ -239,7 +239,7 @@ const themes = {
       maxLowMobileHeight: "(max-height: 610px)",
       estiomationFormWidth: "(max-width: 570px)",
       maxMobile: "(max-width: 768px)",
-      minMobile: "(min-width: 767px)",
+      minMobile: "(min-width: 769px)",
       maxMobileHeight: "(max-height: 710px)",
       maxTabletPortrait: "(max-width: 992px)",
       maxTabletLandScape: "(max-width: 1200px)",

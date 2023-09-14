@@ -21,26 +21,28 @@ export const Personal = ({ data: { image, personal } }: IProps) => {
   return (
     <Styled.PersonalContainer>
       <Styled.PersonalContainerHeader>
-        <div className="cv-name-position">
+        <Styled.NamePosition className="cv-name-position">
           <Styled.Name>{personal.name}</Styled.Name>
           <Styled.Role>
             {isMobile ? personal.role : `// ${personal.role}`}
           </Styled.Role>
-        </div>
+        </Styled.NamePosition>
         {image && (
-          <Styled.ImageWrapper className="cv-avatar-wrapper">
-            <Styled.ImageBackground />
-            <Styled.ImageContainer>
-              <Image
-                src={image.url ? image.url : ""}
-                alt="Developers photo"
-                layout="fill"
-                objectFit="cover"
-                objectPosition="top left"
-                priority
-              />
-            </Styled.ImageContainer>
-          </Styled.ImageWrapper>
+          <Styled.ImageBlockWrapper>
+            <Styled.ImageWrapper className="cv-avatar-wrapper">
+              <Styled.ImageBackground />
+              <Styled.ImageContainer>
+                <Image
+                  src={image.url ? image.url : ""}
+                  alt="Developers photo"
+                  layout="fill"
+                  objectFit="cover"
+                  objectPosition="top left"
+                  priority
+                />
+              </Styled.ImageContainer>
+            </Styled.ImageWrapper>
+          </Styled.ImageBlockWrapper>
         )}
       </Styled.PersonalContainerHeader>
       <Styled.Summary className="cv-personal-summary">

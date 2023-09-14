@@ -8,7 +8,7 @@ export const CvLayout = styled.article`
   overflow: hidden;
   font-family: ${themes.primary.font.family.namu};
 
-  @media ${themes.primary.media.minMobile} {
+  @media (min-width: 769px) {
     padding-inline: 51px;
   }
 
