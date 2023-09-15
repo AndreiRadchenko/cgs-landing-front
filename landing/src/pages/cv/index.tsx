@@ -1,9 +1,10 @@
 import React, { useEffect, useRef, useState } from "react";
-import { useQuery } from "@tanstack/react-query";
-import { scroller } from "react-scroll";
-import parse from "html-react-parser";
 import Head from "next/head";
+import parse from "html-react-parser";
+import { useRouter } from "next/router";
+import { scroller } from "react-scroll";
 import { useMediaQuery } from "@mui/material";
+import { useQuery } from "@tanstack/react-query";
 
 import { Pagination } from "../../components/CV/Pagination";
 import { ListItem } from "../../components/CV/List/ListItem/ListItem";
@@ -26,7 +27,9 @@ const DevsInfo = () => {
 
   const { metaTitle, metaDescription, customHead } = { ...data?.meta };
 
+  const router = useRouter();
   const isMobile = useMediaQuery("(max-width: 768px)");
+  const categoryItemsRef = useRef<(HTMLDivElement | null)[]>([]);
   const [currentPage, setCurrentPage] = useState<number>(1);
   const [category, setCategory] = useState<string>("");
   const [isSearchTriggered, setIsSearchTriggered] = useState<boolean>(false);
@@ -35,7 +38,6 @@ const DevsInfo = () => {
   const [activeCategory, setActiveCategory] = useState<number>(0);
   const [isFirstLoad, setIsFirstLoad] = useState(true);
   const [isPaginationTriggered, setIsPaginationTriggered] = useState(true);
-  const categoryItemsRef = useRef<(HTMLDivElement | null)[]>([]);
   const [categoryItemWidths, setCategoryItemWidths] = useState<string[]>([]);
   const [categoryItemHeights, setCategoryItemHeights] = useState<string[]>([]);
   const [limit, setLimit] = useState(10);
@@ -78,6 +80,27 @@ const DevsInfo = () => {
     setIsSearchTriggered(false);
     setIsRequestRepeated(false);
     setIsPaginationTriggered(false);
+  };
+
+  const updateURLParams = ({ category, page }: any) => {
+    const queryParams: any = {};
+
+    if (category) {
+      queryParams.category = category;
+    }
+
+    if (page && page > 1) {
+      queryParams.page = page;
+    }
+
+    router.push(
+      {
+        pathname: "/cv",
+        query: queryParams,
+      },
+      undefined,
+      { shallow: true }
+    );
   };
 
   const handleCategoryItemRef =
@@ -134,6 +157,48 @@ const DevsInfo = () => {
       setIsRequestRepeated(false);
     }
   }, [searchTrigger]);
+
+  useEffect(() => {
+    const { category, page } = router.query;
+
+    if (category) {
+      if (typeof category === "string" && category.split(",").length > 1) {
+        setCategory("");
+        setActiveCategory(0);
+        return;
+      }
+
+      const activeCategoryIndex =
+        typeof category === "string"
+          ? data?.categories.findIndex((elem) => elem === category)
+          : 0;
+
+      if (typeof activeCategoryIndex !== "undefined")
+        setActiveCategory(activeCategoryIndex);
+
+      setCategory(category as string);
+    }
+
+    if (page && typeof page === "string") {
+      setCurrentPage(Number(page));
+    }
+  }, [router.query, data?.categories]);
+
+  useEffect(() => {
+    if (category) {
+      updateURLParams({ category, page: "" });
+    } else {
+      updateURLParams({ category: "", page: "" });
+    }
+  }, [category]);
+
+  useEffect(() => {
+    if (currentPage) {
+      updateURLParams({ category, page: currentPage });
+    } else {
+      updateURLParams({ category, page: "" });
+    }
+  }, [currentPage]);
 
   useEffect(() => {
     if (!isLoading && !cvsLoading) {
