@@ -197,6 +197,12 @@ export const BeforeBlock = styled.div`
   background-color: #8f8e93;
   top: 50%;
   width: 50%;
+
+  @media (max-width: 992px) {
+    width: 2px;
+    height: 4em;
+    margin: 6px 0;
+  }
 `;
 
 export const AfterBlock = styled.div`
