@@ -28,20 +28,32 @@ export const Title = styled.h2`
   width: 100vw;
   height: 56px;
   border-top: 1px solid ${themes.primary.colors.darkGrey};
+  border-bottom: 1px solid ${themes.primary.colors.darkGrey};
   background: linear-gradient(
       90deg,
       rgba(214, 255, 187, 0.3) 0%,
       rgba(88, 105, 221, 0.3) 100%
     ),
     #f1efed;
-  @media (min-width: 769px) {
+
+  @media (min-width: 993px) {
     display: none;
+  }
+
+  @media ${themes.primary.media.onlyTabletPortrait} {
+    margin-left: -51px;
+    font-size: 40px;
+    height: auto;
   }
 `;
 
 export const Content = styled.div`
   @media (max-width: 992px) {
     display: flex;
+  }
+
+  @media ${themes.primary.media.onlyTabletPortrait} {
+    padding-top: 70px;
   }
 
   @media (max-width: 475px) {
@@ -83,7 +95,7 @@ export const NumberItems = styled.div`
     width: 100%;
 
     & > p {
-      left: 23px;
+      left: 59px;
       top: -42.5px;
     }
   }
@@ -307,6 +319,7 @@ export const Text = styled.div`
   }
 
   @media ${themes.primary.media.maxMobile} {
+    margin-top: 9px;
     font-size: 18px;
   }
 `;
