@@ -251,7 +251,7 @@ export const ContentItems = styled.div`
 
   @media ${themes.primary.media.onlyTabletPortrait} {
     display: flex;
-    gap: 45px;
+    gap: 43px;
     flex-direction: column;
     position: relative;
     left: -20px;
@@ -315,7 +315,7 @@ export const Text = styled.div`
   }
 
   @media ${themes.primary.media.maxTabletPortrait} {
-    font-size: 28px;
+    font-size: 32px;
   }
 
   @media ${themes.primary.media.maxMobile} {
