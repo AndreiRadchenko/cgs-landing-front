@@ -13,10 +13,28 @@ export const CTAWrapper = styled.div`
   }
 `;
 
+export const CTAArrowWrapper = styled.span`
+  display: inline-block;
+  position: relative;
+  width: 250px;
+  height: 50px;
+  min-width: 97px;
+
+  @media ${themes.primary.media.minPC} {
+    width: 20%;
+  }
+
+  @media ${themes.primary.media.maxMobile} {
+    width: 160px;
+    height: 25px;
+  }
+`;
+
 export const CTATitle = styled.div`
   font-size: 74px;
   margin-bottom: 24px;
   height: 178px;
+  letter-spacing: 4px;
 
   & p {
     margin: 0;
@@ -26,14 +44,14 @@ export const CTATitle = styled.div`
     color: rgb(88, 105, 221);
   }
 
-  @media ${themes.primary.media.maxTabletLandScape} {
+  @media ${themes.primary.media.maxLaptop} {
     height: auto;
   }
 
   @media ${themes.primary.media.maxMobile} {
-    height: 155px;
     font-size: 32px;
     margin-bottom: 28px;
+    letter-spacing: 1px;
   }
 
   @media ${themes.primary.media.minPCFullHD} {
@@ -75,7 +93,6 @@ export const CTAButtonWrapper = styled.div`
       font-size: 30px;
       height: 77px;
       width: 251px;
-      /* padding: 1em 1.5em; */
     }
   }
 `;
