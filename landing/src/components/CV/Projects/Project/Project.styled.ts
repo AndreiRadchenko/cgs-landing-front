@@ -282,14 +282,15 @@ interface IPortfolioIconProps {
 
 export const PortfolioPageIconContainer = styled.div<IPortfolioIconProps>`
   width: 100%;
-  display: grid;
+  display: flex;
+  justify-content: center;
   margin-top: 16px;
   padding-bottom: 20px;
-  grid-template-columns: repeat(auto-fill, minmax(77px, 1fr));
   row-gap: 16px;
   column-gap: 8px;
   margin-left: 0;
   filter: invert(1) contrast(10);
+
   > span {
     position: unset !important;
   }
@@ -297,23 +298,26 @@ export const PortfolioPageIconContainer = styled.div<IPortfolioIconProps>`
   .image {
     object-fit: contain;
     position: relative;
-    width: 100%;
+    width: 78px;
     height: 66px;
   }
 
   @media ${themes.primary.media.minMobile} {
     margin-top: 16px;
     grid-template-columns: repeat(auto-fill, minmax(110px, 110px));
+
     .image {
+      width: 110px;
       height: 95px;
       margin: 4px;
     }
   }
+
   @media ${themes.primary.media.minPCFullHD} {
     margin-top: 21px;
-    grid-template-columns: repeat(auto-fill, minmax(148px, 148px));
     row-gap: 21px;
     column-gap: 10.67px;
+
     .image {
       height: 127px;
       margin: 5px;
