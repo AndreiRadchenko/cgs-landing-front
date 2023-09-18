@@ -219,7 +219,7 @@ const themes = {
       gradientColor2RateCard: "#5869dd4d",
     },
     media: {
-      minTabletPortrait: "(min-width: 768px)",
+      minTabletPortrait: "(min-width: 769px)",
       minTabletLandScape: "(min-width: 992px)",
       minMiniTabletLandScape: "(min-width: 840px)",
       minTablet: "(max-width: 625px)",
@@ -245,7 +245,7 @@ const themes = {
       maxTabletLandScape: "(max-width: 1200px)",
       maxLaptop: "(max-width: 1500px)",
       maxMobilePortrait: "(max-width: 550px)",
-      onlyTabletPortrait: "(min-width: 768px) and (max-width: 992px)",
+      onlyTabletPortrait: "(min-width: 769px) and (max-width: 992px)",
       onlyTabletLandScape: "(min-width: 992px) and (max-width: 1200px)",
       onlyLaptop: "(min-width: 1200px) and (max-width: 1500px)",
       onlyPC: "(min-width: 1500px) and (max-width: 1800px)",
