@@ -16,6 +16,18 @@ export const DropdownWrapper = styled.div`
   margin-bottom: 24px;
 `;
 
+export const CVCtaTitle = styled.div``;
+
+export const CVButtonInfo = styled.div`
+  display: flex;
+  gap: 20px;
+  margin-top: 20px;
+`;
+
+export const CVButtonWrapper = styled.div`
+  width: 50%;
+`;
+
 export const DropdownButton = styled.div<{ iserror?: boolean }>`
   display: flex;
   align-items: center;

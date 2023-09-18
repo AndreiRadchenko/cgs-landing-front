@@ -10,6 +10,12 @@ export const SectionContainer = styled.div`
   @media ${themes.primary.media.minPCFullHD} {
     margin-block: 180px;
   }
+
+  @media ${themes.primary.media.maxMobile} {
+    &.cv-projects-container {
+      margin-bottom: 80px;
+    }
+  }
 `;
 
 export const Title = styled.h2`
