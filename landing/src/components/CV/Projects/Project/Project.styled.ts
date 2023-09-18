@@ -283,6 +283,7 @@ interface IPortfolioIconProps {
 export const PortfolioPageIconContainer = styled.div<IPortfolioIconProps>`
   width: 100%;
   display: flex;
+  flex-wrap: wrap;
   justify-content: center;
   margin-top: 16px;
   padding-bottom: 20px;
@@ -309,7 +310,6 @@ export const PortfolioPageIconContainer = styled.div<IPortfolioIconProps>`
     .image {
       width: 110px;
       height: 95px;
-      margin: 4px;
     }
   }
 
@@ -320,7 +320,6 @@ export const PortfolioPageIconContainer = styled.div<IPortfolioIconProps>`
 
     .image {
       height: 127px;
-      margin: 5px;
     }
   }
 `;
