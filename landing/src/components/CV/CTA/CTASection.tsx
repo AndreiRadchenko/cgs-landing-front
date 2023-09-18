@@ -1,7 +1,9 @@
 import React, { useState } from "react";
 import axios from "axios";
+import Image from "next/image";
 import { useRouter } from "next/router";
 import { useQuery } from "@tanstack/react-query";
+import { useMediaQuery } from "@mui/material";
 import parse, { HTMLReactParserOptions, Element } from "html-react-parser";
 
 import { adminCvService } from "../../../services/adminCvPage";
@@ -13,10 +15,13 @@ import * as Style from "../List/ListItem/ListItem.styled";
 import * as Styles from "../../../styles/AdminCvPage";
 import { queryKeys } from "../../../consts/queryKeys";
 import { ICvResponse } from "../../../types/Admin/AdminCv.types";
+import rightArrow from "../../../../public/CV/cta-right-arrow.svg";
+import rightArrowMobile from "../../../../public/CV/cta-right-arrow_mobile.svg";
 import Loading from "../../../../public/CareerDecorations/loading.svg";
 
 export const CTASection = ({ name }: { name: string }) => {
   const router = useRouter();
+  const isMobile = useMediaQuery("(max-width: 768px)");
   const [pdfLoad, setPdfLoad] = useState(false);
 
   const { data }: ICvResponse = useQuery([queryKeys.getCvPage], () =>
@@ -25,6 +30,27 @@ export const CTASection = ({ name }: { name: string }) => {
 
   const options: HTMLReactParserOptions = {
     replace: (domNode) => {
+      if (
+        domNode instanceof Element &&
+        domNode.attribs &&
+        domNode.attribs.style &&
+        domNode.attribs.style.includes("color: rgb(88, 24, 14)")
+      ) {
+        return (
+          <>
+            <Styled.CTAArrowWrapper>
+              <Image
+                src={isMobile ? rightArrowMobile.src : rightArrow.src}
+                alt="wide tech long arrow"
+                layout="fill"
+                objectFit="contain"
+                priority
+              />
+            </Styled.CTAArrowWrapper>
+            <br />
+          </>
+        );
+      }
       if (
         domNode instanceof Element &&
         domNode.attribs &&
@@ -83,7 +109,8 @@ export const CTASection = ({ name }: { name: string }) => {
       {data && (
         <>
           <Styled.CTATitle>
-            {data.cta && parse(data.cta.title, options)}
+            {data.cta &&
+              parse(data.cta.title.replace(/<\/span>\s+/g, "</span>"), options)}
           </Styled.CTATitle>
 
           <Styled.CTAButtonWrapper>
