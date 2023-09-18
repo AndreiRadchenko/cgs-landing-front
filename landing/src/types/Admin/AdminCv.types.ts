@@ -1,10 +1,18 @@
-import { IMetaBlock } from './Response.types';
+import { IMetaBlock } from "./Response.types";
 import { ITechnology } from "./technologies.types";
+
+export interface ICvCta {
+  title: string;
+  buttonText: string;
+  buttonLink: string;
+}
+
 export interface ICvPageData {
   title: string;
   categories: string[];
   roles: string[];
-  meta: IMetaBlock
+  cta: ICvCta;
+  meta: IMetaBlock;
 }
 
 export interface ICvResponse {
@@ -55,11 +63,11 @@ export interface CvData {
 
 export interface ICvItem {
   item: CvData;
-  i: number
+  i: number;
 }
 
 export interface ICvDataResponse {
-  cvs: CvData [];
+  cvs: CvData[];
   currentPage: number;
   totalPages: number;
 }

@@ -3,24 +3,24 @@ import React, { useState } from "react";
 import { useQuery } from "@tanstack/react-query";
 import { scroller } from "react-scroll";
 
-import ButtonArrow from "../../../utils/ButtonArrow";
-import AdminBlockDropDown from "../Global/AdminBlockDropDown";
-import BlockDropdown from "../BlockDropdown";
-import SubHeaderWithInput from "../Global/SubHeaderWithInput";
-import CvCategory from "./CvCategory";
-import { queryKeys } from "../../../consts/queryKeys";
 import CvForm from "./CvForm";
+import CvCategory from "./CvCategory";
+import BlockDropdown from "../BlockDropdown";
 import { adminCvService } from "../../../services/adminCvPage";
 import { adminSitemapService } from "../../../services/adminSitemapPage";
+import CvCtaBlock from "./CvCtaBlock";
 import PublishedCvs from "./PublishedCvs";
 import MetaTagsBlock from "../MetaTagsBlock";
 
+import { queryKeys } from "../../../consts/queryKeys";
+import ButtonArrow from "../../../utils/ButtonArrow";
+import AdminBlockDropDown from "../Global/AdminBlockDropDown";
+import SubHeaderWithInput from "../Global/SubHeaderWithInput";
 import * as AdminPageStyled from "../../../styles/AdminPage";
 import {
   ArrowContainer,
   BlackButton,
 } from "../../../styles/HomePage/General.styled";
-
 import { ICvPageData } from "../../../types/Admin/AdminCv.types";
 
 const CvContentBlock = () => {
@@ -97,6 +97,14 @@ const CvContentBlock = () => {
             data={data}
             sitemap={sitemap}
             scrollFunc={scrollFunc}
+          />
+        </AdminBlockDropDown>
+        <AdminBlockDropDown title="CTA BLOCK">
+          <CvCtaBlock
+            cta={values.cta}
+            onChangeFunction={handleChange}
+            handleClick={handleClick}
+            setValues={setValues}
           />
         </AdminBlockDropDown>
       </AdminPageStyled.AdminContentBlock>
