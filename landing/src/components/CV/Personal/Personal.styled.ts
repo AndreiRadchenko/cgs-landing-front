@@ -85,6 +85,30 @@ export const NamePosition = styled.div`
   }
 `;
 
+export const Role = styled.h2`
+  font-family: ${themes.primary.font.family.namu};
+  font-size: 22px;
+  line-height: normal;
+  text-transform: uppercase;
+  margin: 8px 0 0 0;
+  color: ${themes.primary.colors.darkBlue};
+
+  @media (min-width: 769px) {
+    line-height: 160%;
+    font-size: 26px;
+    letter-spacing: 1.3px;
+  }
+
+  @media ${themes.primary.media.minPCFullHD} {
+    font-size: 35px;
+    letter-spacing: 1.733px;
+  }
+
+  @media ${themes.primary.media.maxMobile} {
+    margin-top: 6px;
+  }
+`;
+
 export const Name = styled.h1`
   font-family: ${themes.primary.font.family.namu};
   font-size: 32px;
@@ -112,30 +136,6 @@ export const Name = styled.h1`
 
   @media ${themes.primary.media.maxMobile} {
     padding-top: 0;
-  }
-`;
-
-export const Role = styled.h2`
-  font-family: ${themes.primary.font.family.namu};
-  font-size: 22px;
-  line-height: normal;
-  text-transform: uppercase;
-  margin: 8px 0 0 0;
-  color: ${themes.primary.colors.darkBlue};
-
-  @media (min-width: 769px) {
-    line-height: 160%;
-    font-size: 26px;
-    letter-spacing: 1.3px;
-  }
-
-  @media ${themes.primary.media.minPCFullHD} {
-    font-size: 35px;
-    letter-spacing: 1.733px;
-  }
-
-  @media ${themes.primary.media.maxMobile} {
-    margin-top: 6px;
   }
 `;
 
