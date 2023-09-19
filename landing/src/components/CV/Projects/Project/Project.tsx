@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import React, { useRef, useEffect, useState } from "react";
 import Image from "next/image";
 import { useMediaQuery } from "@mui/material";
 
@@ -30,10 +30,49 @@ export const Project = ({
   idx,
 }: IProps) => {
   const refProjectCard = useRef<HTMLDivElement>(null);
+  const refTechContainer = useRef<HTMLDivElement>(null);
+  const refTechBlockContainer = useRef<HTMLDivElement>(null);
+  const [isOneRow, setIsOneRow] = useState(true);
+
   const isMobile = useMediaQuery("(max-width:768px)");
   const entry = useIntersectionObserver(refProjectCard, {
     threshold: isMobile ? 0.3 : 0.7,
   });
+
+  useEffect(() => {
+    const adjustWidth = () => {
+      if (refTechBlockContainer.current && refTechContainer.current) {
+        const parentWidth = refTechBlockContainer.current.offsetWidth;
+        const childElement = refTechBlockContainer.current.querySelector(
+          ".image"
+        ) as HTMLElement;
+
+        if (childElement) {
+          const childWidth = childElement.offsetWidth + 8;
+
+          const maxItemsWithoutExtraSpace = Math.floor(
+            refTechBlockContainer.current.offsetWidth / childWidth
+          );
+
+          const optimalContainerWidth =
+            maxItemsWithoutExtraSpace * childWidth - 8;
+
+          refTechContainer.current.style.width = `${optimalContainerWidth}px`;
+
+          const itemsInFirstRow = Math.floor(parentWidth / childWidth);
+          const totalRows = Math.ceil(technology.length / itemsInFirstRow);
+
+          setIsOneRow(totalRows === 1);
+        }
+      }
+    };
+
+    adjustWidth();
+
+    window.addEventListener("resize", adjustWidth);
+
+    return () => window.removeEventListener("resize", adjustWidth);
+  }, [refTechContainer, technology]);
 
   return (
     <Styled.InfoCard
@@ -59,11 +98,15 @@ export const Project = ({
       </Styled.About>
       <Styled.AchievementsTechnologyWrapp>
         <AchievementsList achievements={achievements} />
-        <Styled.Technologies>
+        <Styled.Technologies ref={refTechBlockContainer}>
           <Styled.TechnologiesTitle>Technologies:</Styled.TechnologiesTitle>
-          <Styled.PortfolioPageIconContainer firstSet>
-            {technology.map((e, idx) => (
-              <div key={idx} className="image">
+          <Styled.PortfolioPageIconContainer
+            ref={refTechContainer}
+            firstSet
+            isOneRow={isOneRow}
+          >
+            {technology.map((e, idxTech) => (
+              <div key={idxTech} className="image">
                 <Image
                   src={e?.image?.url ? e.image.url : ""}
                   alt="tech"
