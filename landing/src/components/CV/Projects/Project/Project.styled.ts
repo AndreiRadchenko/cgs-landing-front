@@ -304,7 +304,7 @@ export const PortfolioPageIconContainer = styled.div<IPortfolioIconProps>`
   }
 
   @media ${themes.primary.media.minMobile} {
-    margin-top: 16px;
+    margin-top: 20px;
     grid-template-columns: repeat(auto-fill, minmax(110px, 110px));
 
     .image {
