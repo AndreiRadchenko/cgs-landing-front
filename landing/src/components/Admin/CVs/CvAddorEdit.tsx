@@ -359,7 +359,7 @@ const CvAddOrEdit = ({ isNewCv }: ICvAddOrEditProps) => {
                   header={`Subtitle ${idx + 1}`}
                   name={`info.content[${idx}].subtitle`}
                 />
-                {idx === 0 ? (
+                {idx <= 1 ? (
                   <div>
                     <TextEditor
                       header="Text"
@@ -392,9 +392,7 @@ const CvAddOrEdit = ({ isNewCv }: ICvAddOrEditProps) => {
                       name={`info.content[${idx}].text`}
                       maxLength={62}
                       placeholder={
-                        idx === 1
-                          ? "Location (ex.: Warsaw, Poland)"
-                          : idx === 2
+                        idx === 2
                           ? "Level (ex.: Advanced)"
                           : idx === 3
                           ? "Years (ex.: 6+ years)"

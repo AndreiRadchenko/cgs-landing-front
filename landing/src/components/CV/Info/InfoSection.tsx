@@ -44,7 +44,9 @@ export const InfoSection = ({
               </Styled.NumberMobileItem>
               <Styled.TextMobileItem>
                 <Styled.Subtitle>{item.subtitle}</Styled.Subtitle>
-                <Styled.Text>{parse(item.text)}</Styled.Text>
+                <Styled.Text>
+                  {parse(item.text.replace(/<span/g, "<br /><span"))}
+                </Styled.Text>
               </Styled.TextMobileItem>
             </Styled.AdvantagesItem>
           ))}
@@ -78,7 +80,9 @@ export const InfoSection = ({
 
                       <Styled.ContentItems key={idx} className="cv-point-desc">
                         <Styled.Subtitle>{subtitle}</Styled.Subtitle>
-                        <Styled.Text>{parse(text)}</Styled.Text>
+                        <Styled.Text>
+                          {parse(text.replace(/<span/g, "<br /><span"))}
+                        </Styled.Text>
                       </Styled.ContentItems>
                     </>
                   ) : (
@@ -101,7 +105,9 @@ export const InfoSection = ({
                       </Styled.BlockContainer>
                       <Styled.ContentItems key={idx} className="cv-point-desc">
                         <Styled.Subtitle>{subtitle}</Styled.Subtitle>
-                        <Styled.Text>{parse(text)}</Styled.Text>
+                        <Styled.Text>
+                          {parse(text.replace(/<span/g, "<br /><span"))}
+                        </Styled.Text>
                       </Styled.ContentItems>
                     </>
                   )}

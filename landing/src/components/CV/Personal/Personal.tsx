@@ -10,13 +10,14 @@ import { SplitBrackets } from "../../../utils/splitBrackets";
 
 import bgImageHeaderCv from "../../../../public/CV/header-bg-image-cv.svg";
 import bgImageHeaderMobileCv from "../../../../public/CV/header-bg-image-mobile-cv.svg";
+import avatarFrame from "../../../../public/CV/cv-avatar-frame.svg";
 
 interface IProps {
   data: CvData;
 }
 
 export const Personal = ({ data: { image, personal } }: IProps) => {
-  const isMobile = useMediaQuery("(max-width:768px)");
+  const isMobile = useMediaQuery("(max-width: 768px)");
 
   return (
     <Styled.PersonalContainer>
@@ -32,8 +33,13 @@ export const Personal = ({ data: { image, personal } }: IProps) => {
             <Styled.ImageWrapper className="cv-avatar-wrapper">
               <Styled.ImageBackground />
               <Styled.ImageContainer>
+                {!isMobile && (
+                  <Styled.AvatarFrame>
+                    <Image src={avatarFrame} alt="Avatar frame" layout="fill" />
+                  </Styled.AvatarFrame>
+                )}
                 <Image
-                  src={image.url ? image.url : ""}
+                  src={image.url || ""}
                   alt="Developers photo"
                   layout="fill"
                   objectFit="cover"

@@ -88,6 +88,8 @@ export const NamePosition = styled.div`
 export const Name = styled.h1`
   font-family: ${themes.primary.font.family.namu};
   font-size: 32px;
+  position: relative;
+  z-index: 6;
   line-height: 120%;
   text-transform: uppercase;
   margin: 0;
@@ -222,6 +224,48 @@ export const ImageBackground = styled.div`
   }
 
   @media ${themes.primary.media.minPCFullHD} {
+  }
+`;
+
+export const AvatarFrame = styled.div`
+  position: absolute;
+  width: 650px;
+  height: 450px;
+  left: -129px;
+  bottom: -96px;
+  z-index: 0;
+
+  @media (max-width: 1440px) {
+    transition: width 0.3s, height 0.3s, left 0.3s;
+
+    width: calc(
+      clamp(
+        540px,
+        540px + (100vw - 1200px) * ((650 - 540) / (1440 - 1200)),
+        650px
+      )
+    );
+    height: calc(
+      clamp(
+        405px,
+        405px + (100vw - 1200px) * ((450 - 405) / (1440 - 1200)),
+        450px
+      )
+    );
+    left: calc(-107px + (100vw - 1200px) * (-22 / 240));
+  }
+
+  @media ${themes.primary.media.maxTabletLandScape} {
+    height: 405px;
+    width: 540px;
+    left: -107px;
+  }
+
+  @media ${themes.primary.media.minPCFullHD} {
+    height: 600px;
+    width: 860px;
+    left: -171px;
+    bottom: -129px;
   }
 `;
 

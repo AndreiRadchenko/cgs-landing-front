@@ -251,11 +251,12 @@ export const ContentItems = styled.div`
 
   @media ${themes.primary.media.onlyTabletPortrait} {
     display: flex;
+    margin-bottom: auto;
+    top: 2px;
     gap: 43px;
     flex-direction: column;
     position: relative;
     left: -20px;
-    margin-bottom: 47px;
   }
 `;
 
@@ -294,14 +295,13 @@ export const Subtitle = styled.div`
   }
 
   @media ${themes.primary.media.maxMobile} {
-    margin-bottom: 5px;
     font-size: 16px;
   }
 `;
 
 export const Text = styled.div`
   font-family: ${themes.primary.font.family.namu};
-  font-size: 24px;
+  font-size: 22px;
   font-weight: ${themes.primary.font.weight.heavy};
   line-height: 160%;
 
@@ -310,17 +310,38 @@ export const Text = styled.div`
     margin: 0;
   }
 
+  & span {
+    position: relative;
+    top: -11px;
+    font-size: 16px;
+  }
+
   @media ${themes.primary.media.minPC} {
     font-size: 32px;
+
+    & span {
+      font-size: 22px;
+    }
   }
 
   @media ${themes.primary.media.maxTabletPortrait} {
     font-size: 32px;
+
+    & span {
+      position: relative;
+      top: auto;
+      font-size: 22px;
+    }
   }
 
   @media ${themes.primary.media.maxMobile} {
-    margin-top: 9px;
     font-size: 18px;
+
+    & span {
+      position: relative;
+      top: -11px;
+      font-size: 14px;
+    }
   }
 `;
 
@@ -345,7 +366,13 @@ export const NumberMobileItem = styled.div`
 `;
 
 export const TextMobileItem = styled.div`
-  padding-top: 18px;
+  display: flex;
+  margin-top: 18px;
+  margin-bottom: auto;
+  top: 2px;
+  gap: 9px;
+  flex-direction: column;
+  position: relative;
 `;
 
 export const MobileNumber = styled.div`
