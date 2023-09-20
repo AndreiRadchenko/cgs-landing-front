@@ -303,20 +303,22 @@ export const Text = styled.div`
   font-family: ${themes.primary.font.family.namu};
   font-size: 22px;
   font-weight: ${themes.primary.font.weight.heavy};
-  line-height: 160%;
+  line-height: 20px;
 
   p {
     padding: 0;
     margin: 0;
+    margin-top: 8px;
   }
 
   & span {
     position: relative;
-    top: -11px;
+    top: 7px;
     font-size: 16px;
   }
 
   @media ${themes.primary.media.minPC} {
+    line-height: 160%;
     font-size: 32px;
 
     & span {
@@ -325,6 +327,7 @@ export const Text = styled.div`
   }
 
   @media ${themes.primary.media.maxTabletPortrait} {
+    line-height: 160%;
     font-size: 32px;
 
     & span {

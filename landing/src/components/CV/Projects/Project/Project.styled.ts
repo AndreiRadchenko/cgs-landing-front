@@ -278,18 +278,18 @@ export const TechnologiesTitle = styled.h4`
 
 interface IPortfolioIconProps {
   readonly firstSet?: boolean;
+  readonly isOneRow?: boolean;
 }
 
 export const PortfolioPageIconContainer = styled.div<IPortfolioIconProps>`
-  width: 100%;
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
+  justify-content: ${({ isOneRow }) => (isOneRow ? "center" : "flex-start")};
   margin-top: 16px;
   padding-bottom: 20px;
   row-gap: 16px;
   column-gap: 8px;
-  margin-left: 0;
+  margin: 16px auto 0;
   filter: invert(1) contrast(10);
 
   > span {
@@ -301,6 +301,7 @@ export const PortfolioPageIconContainer = styled.div<IPortfolioIconProps>`
     position: relative;
     width: 78px;
     height: 66px;
+    flex-shrink: 0;
   }
 
   @media ${themes.primary.media.minMobile} {
