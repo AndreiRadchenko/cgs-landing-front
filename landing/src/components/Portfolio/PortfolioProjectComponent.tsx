@@ -306,25 +306,24 @@ const PortfolioProjectComponent = ({
             {/* eslint-disable-next-line react/jsx-no-comment-textnodes */}
             <p>// {project.industry}</p>
           </Styled.ProjectsContainerInfoHeaderTitle>
-          <Styled.ProjectsContainerHeaderLink
+          <Styled.ProjectHeaderLinkWrapper
             onClick={() => !!project.button && openInNewTab(project.button)}
-            isInfoCont={true}
-            isProjectLink={!!project.button}
           >
-            {project.button ? <p>project link</p> : <span>NDA</span>}
-            <Styled.ProjectsContainerArrowContainer
+            <Styled.ProjectsContainerHeaderLink
+              isInfoCont={true}
               isProjectLink={!!project.button}
             >
-              <ButtonArrow />
-            </Styled.ProjectsContainerArrowContainer>
-          </Styled.ProjectsContainerHeaderLink>
+              {project.button ? <p>project link</p> : <span>NDA</span>}
+              <Styled.ProjectsContainerArrowContainer
+                isProjectLink={!!project.button}
+              >
+                <ButtonArrow />
+              </Styled.ProjectsContainerArrowContainer>
+            </Styled.ProjectsContainerHeaderLink>
+          </Styled.ProjectHeaderLinkWrapper>
         </Styled.ProjectsContainerHeader>
         <Styled.ProjectsContainerInfoLower
-          onClick={() =>
-            width &&
-            width > 768 &&
-            navigateToProjectPage(project.title, project._id)
-          }
+          onClick={() => navigateToProjectPage(project.title, project._id)}
         >
           <Styled.ProjectsContainerInfoText>
             <p>{splited?.map((el) => el !== "" && el.replace(/[\^|]/g, ""))}</p>

@@ -61,20 +61,18 @@ export const ListItem = ({ item, i }: ListItemProps) => {
       onMouseMove={() => setOnHover(true)}
       onMouseLeave={() => setOnHover(false)}
     >
-      <Styled.ListItemTitle>
+      <Styled.ListItemTitle
+        href={`/cv/${item.personal.name.toLowerCase().replace(/\s+/g, "-")}-${
+          item._id
+        }`}
+        ref={linkRef}
+      >
         <Styled.ListItemName onHover={onHover}>
           {item.personal.name}
         </Styled.ListItemName>
-        <Styled.ListItemPosition>{item.personal.role}</Styled.ListItemPosition>
-      </Styled.ListItemTitle>
-      <Styled.ListItemActions>
         <Styled.ListItemLink
           onMouseMove={() => setLinkHover(true)}
           onMouseLeave={() => setLinkHover(false)}
-          href={`/cv/${item.personal.name.toLowerCase().replace(/\s+/g, "-")}-${
-            item._id
-          }`}
-          ref={linkRef}
           rel="noreferrer"
           linkHover={linkHover}
         >
@@ -83,6 +81,9 @@ export const ListItem = ({ item, i }: ListItemProps) => {
             <ButtonArrow />
           </Styled.ListItemArrowContainer>
         </Styled.ListItemLink>
+      </Styled.ListItemTitle>
+      <Styled.ListItemActions>
+        <Styled.ListItemPosition>{item.personal.role}</Styled.ListItemPosition>
         {!pdfLoad ? (
           <Styled.ListItemPDF onClick={handleClick}>
             export as PDF

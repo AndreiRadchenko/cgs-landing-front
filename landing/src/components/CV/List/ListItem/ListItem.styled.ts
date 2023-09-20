@@ -5,9 +5,9 @@ import { arrowOne, arrowTwo } from "../../../../styles/HomePage/General.styled";
 export const ListItemWrapper = styled.div`
   position: relative;
   display: flex;
-  justify-content: space-between;
+  flex-direction: column;
   border-bottom: 1.5px solid #8f8e93;
-  padding-bottom: 24px;
+  padding-bottom: 23px;
   padding-inline: 20px;
   margin-bottom: 52px;
 
@@ -20,8 +20,8 @@ export const ListItemWrapper = styled.div`
   @media ${themes.primary.media.maxMobile} {
     width: 116%;
     margin-left: -55px;
-    padding-bottom: 14px;
-    margin-bottom: 16px;
+    padding-bottom: 18px;
+    margin-bottom: 20.5px;
   }
 
   @media (max-width: 766px) {
@@ -43,17 +43,20 @@ export const ListItemWrapper = styled.div`
   }
 `;
 
-export const ListItemTitle = styled.div``;
+export const ListItemTitle = styled.a`
+  display: flex;
+  justify-content: space-between;
+`;
 
 export const ListItemActions = styled.div`
   display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  height: 66px;
-  gap: 8px;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-end;
 
   @media ${themes.primary.media.maxMobile} {
     height: auto;
+    margin-top: 4px;
   }
 `;
 
@@ -185,6 +188,7 @@ export const ListItemPosition = styled.div`
   }
 
   @media ${themes.primary.media.maxMobile} {
+    margin-top: 0;
     font-size: 14px;
   }
 `;
