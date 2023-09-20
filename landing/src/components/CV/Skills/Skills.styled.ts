@@ -8,6 +8,7 @@ export const SkillsContainer = styled.div`
 
   @media ${themes.primary.media.minMobile} {
     margin-top: 115px;
+    padding-bottom: 40px;
   }
 
   @media ${themes.primary.media.minPCFullHD} {
