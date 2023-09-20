@@ -105,7 +105,7 @@ export const CTASection = ({ name }: { name: string }) => {
   };
 
   return (
-    <Styled.CTAWrapper>
+    <Styled.CTAWrapper className="cv-cta-wrapper">
       {data && (
         <>
           <Styled.CTATitle>
