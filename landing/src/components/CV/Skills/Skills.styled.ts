@@ -3,15 +3,15 @@ import themes from "../../../utils/themes";
 
 export const SkillsContainer = styled.div`
   position: relative;
-  margin-top: 100px;
+  margin-top: 90px;
   background-color: ${themes.primary.colors.blogBackground};
 
   @media ${themes.primary.media.minMobile} {
-    margin-top: 140px;
+    margin-top: 115px;
   }
 
   @media ${themes.primary.media.minPCFullHD} {
-    margin-top: 180px;
+    margin-top: 149px;
   }
 `;
 
