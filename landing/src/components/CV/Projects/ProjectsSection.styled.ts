@@ -5,10 +5,12 @@ export const SectionContainer = styled.div`
   margin-block: 100px;
   @media ${themes.primary.media.minMobile} {
     margin-block: 140px;
+    margin-top: 100px;
   }
 
   @media ${themes.primary.media.minPCFullHD} {
     margin-block: 180px;
+    margin-top: 140px;
   }
 
   @media ${themes.primary.media.maxMobile} {
