@@ -75,49 +75,53 @@ export const Project = ({
   }, [refTechContainer, technology]);
 
   return (
-    <Styled.InfoCard
-      ref={refProjectCard}
-      className={`${entry?.isIntersecting ? "intersecting" : ""} cv-info-card`}
-    >
-      <Styled.NumberTitleWrapp>
-        <Styled.Number>{idx + 1}</Styled.Number>
-        <Styled.DesktopTitle>
-          <Styled.TitleWrapp>
-            <Styled.Title>{projectName}</Styled.Title>
-            <Styled.Date>{date}</Styled.Date>
-          </Styled.TitleWrapp>
-          <Styled.Role className="desktop">Role: {role}</Styled.Role>
-        </Styled.DesktopTitle>
-      </Styled.NumberTitleWrapp>
-      <Styled.Role className="mobile">Role: {role}</Styled.Role>
-      <Styled.About>
-        <Styled.AboutTitle>About project:</Styled.AboutTitle>
-        <Styled.AboutText>
-          <SplitBrackets text={summary} />
-        </Styled.AboutText>
-      </Styled.About>
-      <Styled.AchievementsTechnologyWrapp>
-        <AchievementsList achievements={achievements} />
-        <Styled.Technologies ref={refTechBlockContainer}>
-          <Styled.TechnologiesTitle>Technologies:</Styled.TechnologiesTitle>
-          <Styled.PortfolioPageIconContainer
-            ref={refTechContainer}
-            firstSet
-            isOneRow={isOneRow}
-          >
-            {technology.map((e, idxTech) => (
-              <div key={idxTech} className="image">
-                <Image
-                  src={e?.image?.url ? e.image.url : ""}
-                  alt="tech"
-                  layout="fill"
-                  objectFit="contain"
-                />
-              </div>
-            ))}
-          </Styled.PortfolioPageIconContainer>
-        </Styled.Technologies>
-      </Styled.AchievementsTechnologyWrapp>
-    </Styled.InfoCard>
+    <div className="cv-info-card-wrapper">
+      <Styled.InfoCard
+        ref={refProjectCard}
+        className={`${
+          entry?.isIntersecting ? "intersecting" : ""
+        } cv-info-card`}
+      >
+        <Styled.NumberTitleWrapp>
+          <Styled.Number>{idx + 1}</Styled.Number>
+          <Styled.DesktopTitle>
+            <Styled.TitleWrapp>
+              <Styled.Title>{projectName}</Styled.Title>
+              <Styled.Date>{date}</Styled.Date>
+            </Styled.TitleWrapp>
+            <Styled.Role className="desktop">Role: {role}</Styled.Role>
+          </Styled.DesktopTitle>
+        </Styled.NumberTitleWrapp>
+        <Styled.Role className="mobile">Role: {role}</Styled.Role>
+        <Styled.About>
+          <Styled.AboutTitle>About project:</Styled.AboutTitle>
+          <Styled.AboutText>
+            <SplitBrackets text={summary} />
+          </Styled.AboutText>
+        </Styled.About>
+        <Styled.AchievementsTechnologyWrapp>
+          <AchievementsList achievements={achievements} />
+          <Styled.Technologies ref={refTechBlockContainer}>
+            <Styled.TechnologiesTitle>Technologies:</Styled.TechnologiesTitle>
+            <Styled.PortfolioPageIconContainer
+              ref={refTechContainer}
+              firstSet
+              isOneRow={isOneRow}
+            >
+              {technology.map((e, idxTech) => (
+                <div key={idxTech} className="image">
+                  <Image
+                    src={e?.image?.url ? e.image.url : ""}
+                    alt="tech"
+                    layout="fill"
+                    objectFit="contain"
+                  />
+                </div>
+              ))}
+            </Styled.PortfolioPageIconContainer>
+          </Styled.Technologies>
+        </Styled.AchievementsTechnologyWrapp>
+      </Styled.InfoCard>
+    </div>
   );
 };
