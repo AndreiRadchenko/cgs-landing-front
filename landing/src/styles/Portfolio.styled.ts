@@ -271,7 +271,7 @@ export const PortfolioIndustryTagWrapper = styled.button<IPortfolioIndustryTag>`
 
   &:hover {
     background-color: ${(props) =>
-    props.isArticlePage && themes.primary.colors.hoveredBlogTag};
+      props.isArticlePage && themes.primary.colors.hoveredBlogTag};
     cursor: ${(props) => props.isArticlePage && "pointer"};
   }
 
@@ -473,8 +473,8 @@ export const PortfolioPaginationWrapper = styled.div`
     margin-bottom: 90px;
 
     @media ${themes.primary.media.minPCFullHD} {
-    margin-bottom: 112px;
-    margin-top: -15px;
+      margin-bottom: 112px;
+      margin-top: -15px;
     }
 
     @media ${themes.primary.media.maxMobile} {
@@ -573,7 +573,7 @@ export const ProjectsContainerHeaderLink = styled.div<IPortfolioInfoProps>`
 
   & path {
     transition: ${({ isProjectLink }) =>
-    isProjectLink && "transform 1s ease-in-out"};
+      isProjectLink && "transform 1s ease-in-out"};
     opacity: ${({ isProjectLink }) => (!isProjectLink ? 0.3 : 1)};
   }
   & path:nth-child(1) {
@@ -591,6 +591,20 @@ export const ProjectsContainerHeaderLink = styled.div<IPortfolioInfoProps>`
   @media ${themes.primary.media.maxTabletPortrait} {
     font-size: 12px;
     line-height: 130%;
+  }
+`;
+
+export const ProjectHeaderLinkWrapper = styled.div`
+  padding-right: 20px;
+  right: 0;
+  position: absolute;
+  display: flex;
+  width: 34%;
+  height: 100%;
+  justify-content: flex-end;
+
+  @media ${themes.primary.media.maxTabletPortrait} {
+    padding-right: 0;
   }
 `;
 
@@ -625,6 +639,7 @@ export const ProjectsContainerArrowContainer = styled.div<IPortfolioProjectLink>
 
 export const ProjectsContainerHeader = styled.div<IPortfolioInfoProps>`
   padding: 17px 20px;
+  position: relative;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -710,11 +725,11 @@ export const ProjectsContainer = styled.div<IPortfolioInfoProps>`
 
   &:hover ${ProjectsContainerArrowContainer} {
     background: ${({ isProjectLink }) =>
-    !isProjectLink ? "#6a6745" : themes.primary.colors.portfolioHover};
+      !isProjectLink ? "#6a6745" : themes.primary.colors.portfolioHover};
     border: ${({ isProjectLink }) =>
-    !isProjectLink
-      ? `2.26667px solid #181817`
-      : `2.26667px solid ${themes.primary.colors.primary}`};
+      !isProjectLink
+        ? `2.26667px solid #181817`
+        : `2.26667px solid ${themes.primary.colors.primary}`};
   }
 
   &:hover ${ProjectsContainerInfoBtn} {
