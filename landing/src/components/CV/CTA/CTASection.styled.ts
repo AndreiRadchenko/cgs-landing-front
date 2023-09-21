@@ -41,13 +41,16 @@ export const CTATitle = styled.div`
   }
 
   & .blue {
-    display: inline-block;
     line-height: 88px;
     color: rgb(88, 105, 221);
   }
 
   @media ${themes.primary.media.maxLaptop} {
     height: auto;
+
+    & br {
+      display: none;
+    }
   }
 
   @media ${themes.primary.media.maxMobile} {

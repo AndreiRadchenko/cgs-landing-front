@@ -109,8 +109,7 @@ export const CTASection = ({ name }: { name: string }) => {
       {data && (
         <>
           <Styled.CTATitle>
-            {data.cta &&
-              parse(data.cta.title.replace(/<\/span>\s+/g, "</span>"), options)}
+            {data.cta && parse(data.cta.title, options)}
           </Styled.CTATitle>
 
           <Styled.CTAButtonWrapper>
