@@ -41,6 +41,8 @@ export const CTATitle = styled.div`
   }
 
   & .blue {
+    display: inline-block;
+    line-height: 88px;
     color: rgb(88, 105, 221);
   }
 
@@ -52,6 +54,11 @@ export const CTATitle = styled.div`
     font-size: 32px;
     margin-bottom: 28px;
     letter-spacing: 1px;
+
+    & .blue {
+      display: inline;
+      line-height: 36px;
+    }
   }
 
   @media ${themes.primary.media.minPCFullHD} {
