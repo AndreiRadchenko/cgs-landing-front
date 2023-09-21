@@ -35,8 +35,10 @@ export const Project = ({
   const [isOneRow, setIsOneRow] = useState(true);
 
   const isMobile = useMediaQuery("(max-width:768px)");
+  const mobileHeight = window.innerHeight;
+  const blockHeight = refProjectCard.current?.offsetHeight;
   const entry = useIntersectionObserver(refProjectCard, {
-    threshold: isMobile ? 0.3 : 0.7,
+    threshold: blockHeight && isMobile ? mobileHeight / 2 / blockHeight : 0.7,
   });
 
   useEffect(() => {
