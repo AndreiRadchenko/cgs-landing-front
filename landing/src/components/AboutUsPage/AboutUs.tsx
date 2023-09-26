@@ -47,7 +47,7 @@ const AboutUs = ({ data }: IAboutUs) => {
 
   return (
     <>
-      <Styled.HeroAboutContainer>
+      {/* <Styled.HeroAboutContainer>
         <video
           loop
           playsInline
@@ -62,7 +62,7 @@ const AboutUs = ({ data }: IAboutUs) => {
             type="video/mp4"
           />
         </video>
-      </Styled.HeroAboutContainer>
+      </Styled.HeroAboutContainer> */}
       <Styled.Layout>
         <Styled.HeadlinesContainer>
           <Styled.HeadlineContainer>
