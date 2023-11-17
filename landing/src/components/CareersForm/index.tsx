@@ -6,11 +6,11 @@ import * as Styled from "./CareersForm.styled";
 
 import { ICareersForm } from "../../types/Company.types";
 
-const CareersForm: FC<ICareersForm> = ({ positions = [], data }) => {
+const CareersForm: FC<ICareersForm> = ({ positions = [], data, ourRef }) => {
   return (
     <>
       <Styled.FormContainter>
-        <Form positions={positions} data={data} />
+        <Form positions={positions} data={data} ourRef={ourRef} />
       </Styled.FormContainter>
     </>
   );

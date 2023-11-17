@@ -1,8 +1,6 @@
 import React, { useState } from "react";
 import { useFormikContext } from "formik";
-import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
-import { toast } from "react-toastify";
-import SortableList, { SortableItem } from "react-easy-sort";
+import { useQuery, useQueryClient } from "@tanstack/react-query";
 
 import PhotoBlockDashed from "../Global/PhotoBlockDashed";
 import useDeleteImageFunction from "../../../hooks/useDeleteImageFunction";
@@ -16,6 +14,7 @@ import SubHeaderWithInput from "../Global/SubHeaderWithInput";
 import { adminCvService } from "../../../services/adminCvPage";
 import TrashIcon from "../Portfolio/TrashIcon";
 import { technologiesService } from "../../../services/technologies";
+import { MonthRangePicker } from "./MonthRangePicker";
 
 import * as Styled from "../../../styles/AdminPage";
 import * as Styles from "../../../styles/AdminCvPage";
@@ -24,25 +23,19 @@ import {
   BlackButton,
 } from "../../../styles/HomePage/General.styled";
 
-import { CvData, CvProject } from "../../../types/Admin/AdminCv.types";
+import { CvData } from "../../../types/Admin/AdminCv.types";
 import { IImage } from "../../../types/Admin/Admin.types";
 import { ITechnology } from "../../../types/Admin/technologies.types";
 import TextEditor from "../../TextEditor/TextEditor";
-import { ISwapCvProjectsData } from "../../../types/Admin/Response.types";
+import sortCVProjects from "../../../utils/CVProject/sortCVProjects";
 
 interface ICvAddOrEditProps {
   isNewCv: boolean;
 }
 
-interface ICvProjectsProps {
-  idx: number;
-  project: CvProject;
-}
-
 const CvAddOrEdit = ({ isNewCv }: ICvAddOrEditProps) => {
   const { values, handleChange, errors, handleSubmit, setValues } =
     useFormikContext<CvData>();
-  const queryClient = useQueryClient();
 
   const [focusedAchievementIdx, setFocusedAchievementIdx] = useState(-1);
 
@@ -54,23 +47,8 @@ const CvAddOrEdit = ({ isNewCv }: ICvAddOrEditProps) => {
     technologiesService.getTechnologies()
   );
 
-  const { mutateAsync: swapCvProjects } = useMutation(
-    [queryKeys.swapCvProjects],
-    async (swapData: ISwapCvProjectsData) => {
-      return await toast.promise(adminCvService.swapCvProjects(swapData), {
-        pending: "Pending update",
-        success: "CV projects swapped successfully",
-        error: "Some things went wrong 🤯",
-      });
-    },
-    {
-      onSuccess: () => {
-        queryClient.invalidateQueries([queryKeys.getCvById]);
-      },
-    }
-  );
-
   const handleClick = () => {
+    values?.projects?.project?.sort(sortCVProjects);
     handleSubmit();
   };
 
@@ -259,26 +237,6 @@ const CvAddOrEdit = ({ isNewCv }: ICvAddOrEditProps) => {
     const textWithoutTags = htmlText.replace(/(<([^>]+)>)/gi, "");
     const textWithoutSpecialChars = textWithoutTags.replace(/[\^|]/g, "");
     return textWithoutSpecialChars.length;
-  };
-
-  const handleProjectDragEnd = async (oldIndex: number, newIndex: number) => {
-    const updatedProjects = [...values.projects.project];
-    const movedProject = updatedProjects.splice(oldIndex, 1)[0];
-    updatedProjects.splice(newIndex, 0, movedProject);
-
-    setValues((prevValues) => ({
-      ...prevValues,
-      projects: {
-        ...prevValues.projects,
-        project: updatedProjects,
-      },
-    }));
-
-    await swapCvProjects({
-      cvId: values._id,
-      desInd: oldIndex,
-      srcInd: newIndex,
-    });
   };
 
   return (
@@ -476,12 +434,9 @@ const CvAddOrEdit = ({ isNewCv }: ICvAddOrEditProps) => {
               header="Title"
               name="projects.title"
             />
-            <SortableList
-              onSortEnd={handleProjectDragEnd}
-              allowDrag={isNewCv ? false : true}
-            >
-              {values?.projects?.project?.map((project, idx) => (
-                <SortableItem key={idx}>
+            <div>
+              {values?.projects?.project.map((project, idx) => (
+                <div key={idx}>
                   <Styles.ProjectWrapper>
                     <Styles.ProjectNumberWrapper>
                       <Styles.ProjectNumber>#{idx + 1}</Styles.ProjectNumber>
@@ -517,16 +472,23 @@ const CvAddOrEdit = ({ isNewCv }: ICvAddOrEditProps) => {
                           name={`projects.project[${idx}].role`}
                           placeholder="Role (ex.: Role: Full-stack developer)"
                         />
-                        <SubHeaderWithInput
-                          iserror={
-                            !!errors?.projects?.project?.[idx] && !project.date
-                          }
-                          inputValue={project.date}
-                          onChangeFunction={handleChange}
-                          header="Date"
-                          name={`projects.project[${idx}].date`}
-                          placeholder="Date (ex.: Aug `22 - Jan `23 • (6 months))"
-                        />
+                        <div>
+                          <SubHeaderWithInput
+                            iserror={
+                              !!errors?.projects?.project?.[idx] &&
+                              !project.date
+                            }
+                            inputStyle={{ pointerEvents: "none" }}
+                            inputValue={project.date}
+                            onChangeFunction={() => {
+                              console.log("Date on change");
+                            }}
+                            header="Date"
+                            name={`projects.project[${idx}].date`}
+                            placeholder="Jan `23 - Feb `23 • ( 2 months )"
+                          />
+                          <MonthRangePicker idx={idx} />
+                        </div>
                       </Styles.FirstProjectInfoBlock>
                       <SubHeaderWithInput
                         iserror={
@@ -627,9 +589,9 @@ const CvAddOrEdit = ({ isNewCv }: ICvAddOrEditProps) => {
                       </Styles.LastProjectInfoBlock>
                     </Styles.ProjectInfo>
                   </Styles.ProjectWrapper>
-                </SortableItem>
+                </div>
               ))}
-            </SortableList>
+            </div>
             <Styles.AddProjectBtn
               type="button"
               onClick={() => handleAddProject()}

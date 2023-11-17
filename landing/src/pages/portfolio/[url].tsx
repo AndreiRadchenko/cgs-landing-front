@@ -5,7 +5,7 @@ import Image from "next/image";
 import ReactCountryFlag from "react-country-flag";
 import Link from "next/link";
 
-import { Loader, LoaderStub } from "../../components/Loader";
+import { Loader } from "../../components/Loader";
 import HeaderNavNew from "../../components/HeaderNavNew/HeaderNavNew";
 import FooterNew from "../../components/FooterNew/FooterNew";
 import TimeIcon from "../../components/Portfolio/svg/TimeIcon";
@@ -18,15 +18,15 @@ import CircleProjectPageMobile from "../../components/Portfolio/svg/CircleProjec
 import ProjectFeedback from "../../components/Portfolio/ProjectFeedback";
 import CalendlyInfoModal from "../../components/Calendly/CalendlyInfoModal";
 import { openInNewTab } from "../../utils/OpenInNewTab";
-import { SplitBrackets } from "../../utils/splitBrackets";
-import { useWindowDimension } from "../../hooks/useWindowDimension";
+import { SpanSplitBrackets } from "../../utils/splitBrackets";
 import { calendlyPopupInfoHandler } from "../../utils/calendlyPopupInfoHandler";
+
+import * as Styled from "../../styles/PortfolioPage.styled";
+import * as Styles from "../../styles/Portfolio.styled";
 
 import { adminPortfolioService } from "../../services/adminPortfolioPage";
 import { adminGlobalService } from "../../services/adminHomePage";
 import { PortfolioContainer } from "../../styles/Portfolio.styled";
-import * as Styled from "../../styles/PortfolioPage.styled";
-import * as Styles from "../../styles/Portfolio.styled";
 import ButtonArrow from "../../utils/ButtonArrow";
 import {
   IPortfolioProjectResponse,
@@ -35,6 +35,9 @@ import {
   ITechnology,
 } from "../../types/Admin/AdminPortfolio.types";
 import { queryKeys } from "../../consts/queryKeys";
+import { useMediaQuery } from "@mui/material";
+import { useCalendlyEventListener } from "react-calendly";
+import { useGetCelendlyMeetingData } from "../../hooks/useGetCelendlyMeetingData";
 
 export async function getServerSideProps() {
   const queryClient = new QueryClient();
@@ -62,26 +65,26 @@ const PortfolioProjectPage = () => {
   const [iconFirstSet, setIconFirstSet] = useState<ITechnology[]>([]);
   const [iconSecondSet, setIconSecondSet] = useState<ITechnology[]>([]);
   const [isCalendlySuccessfull, setIsCalendlySuccessfull] = useState(false);
-  const [isTechnolodyImagesLoaded, setIsTechnolodyImagesLoaded] =
-    useState(false);
   const [isMainImageLoaded, setIsMainImagesLoaded] = useState(false);
-  const [onLoadCount, setOnLoadCount] = useState(0);
-  const { width } = useWindowDimension();
+  const isMobile = useMediaQuery("(max-width:768px)");
+  const isTwoRows = useMediaQuery("(min-width:1351px)");
 
   const {
     data: project,
-    isLoading,
-    isFetching,
+    isLoading: isProjectLoading,
   }: IPortfolioProjectResponse = useQuery(
     [queryKeys.getPortfolioProjectPage, customId],
     () => adminPortfolioService.getProjectData(customId as string),
     { enabled: !!customId }
   );
-  const { data }: IPortfolioResponse = useQuery(
+  const { data, isLoading: isPortfolioLoading }: IPortfolioResponse = useQuery(
     [queryKeys.getPortfolioPageData],
     () => adminPortfolioService.getPageData()
   );
-  const { data: seeMoreProjIndustry }: { data?: IPortfolioReview[] } = useQuery(
+  const {
+    data: seeMoreProjIndustry,
+    isLoading: isIndustryLoading,
+  }: { data?: IPortfolioReview[]; isLoading: boolean } = useQuery(
     [queryKeys.getSeeMoreProjects, project?.title],
     () => adminPortfolioService.getByIndustry(project!.industry),
     {
@@ -89,7 +92,10 @@ const PortfolioProjectPage = () => {
       refetchOnWindowFocus: false,
     }
   );
-  const { data: seeMoreProjCategory }: { data?: IPortfolioReview[] } = useQuery(
+  const {
+    data: seeMoreProjCategory,
+    isLoading: isCategoryLoading,
+  }: { data?: IPortfolioReview[]; isLoading: boolean } = useQuery(
     [queryKeys.getSeeMoreProjectsCategory, project?.title],
     () => adminPortfolioService.getByCategory(project!.categories[0]),
     {
@@ -97,36 +103,6 @@ const PortfolioProjectPage = () => {
       refetchOnWindowFocus: false,
     }
   );
-
-  const loadImages = async () => {
-    const images = project?.technologies.map((item) => item.image.url) || [];
-    if (images.length <= 1) return;
-
-    try {
-      await Promise.all(images);
-      setIsTechnolodyImagesLoaded(true);
-    } catch (error) {
-      console.error("Failed to load some images:", error);
-    }
-  };
-
-  const onMainImageLoad = (e: any) => {
-    setOnLoadCount((prev) => prev + 1);
-    if (onLoadCount === 1) {
-      setIsMainImagesLoaded(true);
-    }
-  };
-
-  useEffect(() => {
-    setOnLoadCount(0);
-    setIsTechnolodyImagesLoaded(false);
-    setIsMainImagesLoaded(false);
-    loadImages();
-  }, [project?.technologies]);
-
-  useEffect(() => {
-    setIsMainImagesLoaded(false);
-  }, []);
 
   calendlyPopupInfoHandler(() => setIsCalendlySuccessfull(true));
 
@@ -147,12 +123,6 @@ const PortfolioProjectPage = () => {
     setCustomId(extractedId);
   }, [extractedId]);
 
-  useEffect(() => {
-    if (isFetching && !isLoading) {
-      setIsMainImagesLoaded(true);
-    }
-  }, [isFetching]);
-
   breadcrumbs.push(
     <Link key="home" href="/">
       <a>Homepage</a>
@@ -167,16 +137,30 @@ const PortfolioProjectPage = () => {
 
   breadcrumbs.push(<span key="project">{project?.title}</span>);
 
+  const { dateTime, joinLink } = useGetCelendlyMeetingData();
+
   return (
     <Loader
-      active={isLoading || !isTechnolodyImagesLoaded || !isMainImageLoaded}
+      active={
+        isProjectLoading ||
+        isPortfolioLoading ||
+        isIndustryLoading ||
+        isCategoryLoading ||
+        !isMainImageLoaded
+      }
+      className="portfolio"
     >
-      {isLoading ? (
-        <LoaderStub />
-      ) : (
+      {!(
+        isProjectLoading ||
+        isPortfolioLoading ||
+        isIndustryLoading ||
+        isCategoryLoading
+      ) && (
         <PortfolioContainer>
           {isCalendlySuccessfull && (
             <CalendlyInfoModal
+              celendlyUri={joinLink}
+              dateTime={dateTime}
               isOpen={isCalendlySuccessfull}
               setIsCalendlySuccessfull={setIsCalendlySuccessfull}
             />
@@ -200,6 +184,7 @@ const PortfolioProjectPage = () => {
                   <Styled.HeaderBottomSectionFlag>
                     {project?.flag ? (
                       <ReactCountryFlag
+                        alt="Country flag"
                         countryCode={project.flag}
                         svg
                         style={{
@@ -228,7 +213,7 @@ const PortfolioProjectPage = () => {
                 </Styled.HeaderBottomSection>
               </Styled.HeaderContainerBlock>
               <Styled.HeaderImageContainer>
-                {width && width > 769 ? (
+                {!isMobile ? (
                   <CircleProjectPage />
                 ) : (
                   <CircleProjectPageMobile />
@@ -244,7 +229,8 @@ const PortfolioProjectPage = () => {
                     height={600}
                     width={600}
                     objectFit="contain"
-                    onLoad={(e) => onMainImageLoad(e)}
+                    onLoad={() => setIsMainImagesLoaded(true)}
+                    priority
                   />
                 )}
               </Styled.HeaderImageContainer>
@@ -256,7 +242,7 @@ const PortfolioProjectPage = () => {
                 // {project?.industry}
               </Styled.InfoContainerIndustry>
               <Styled.InfoContainerText>
-                <SplitBrackets text={project?.text} />
+                <SpanSplitBrackets text={project?.text} />
               </Styled.InfoContainerText>
               <Styled.InfoWrapperTimeTeam>
                 <Styled.InfoContainerTimeTeam>
@@ -271,60 +257,46 @@ const PortfolioProjectPage = () => {
                 </Styled.InfoContainerTimeTeam>
               </Styled.InfoWrapperTimeTeam>
             </Styled.PortfolioPageInfoContainer>
-            {width && width > 768 ? (
-              project && project?.text.length > 350 ? (
+            {!isTwoRows ? (
+              <Styled.PortfolioPageIconContainer firstSet>
+                {project?.technologies.map((item) => (
+                  <div key={item.image.url} className="image">
+                    <Image
+                      src={item.image.url}
+                      alt="tech"
+                      layout="fill"
+                      objectFit="fill"
+                    />
+                  </div>
+                ))}
+              </Styled.PortfolioPageIconContainer>
+            ) : (
+              <>
                 <Styled.PortfolioPageIconContainer firstSet>
                   {iconFirstSet.map((item) => (
-                    <Image
-                      key={item.image.url}
-                      src={item.image.url}
-                      alt="tech"
-                      className="image"
-                      layout="fill"
-                    />
-                  ))}
-                </Styled.PortfolioPageIconContainer>
-              ) : (
-                <>
-                  <Styled.PortfolioPageIconContainer firstSet>
-                    {iconFirstSet.map((item) => (
+                    <div key={item.image.url} className="image">
                       <Image
-                        key={item.image.url}
                         src={item.image.url}
                         alt="tech"
-                        className="image"
                         layout="fill"
+                        objectFit="fill"
                       />
-                    ))}
-                  </Styled.PortfolioPageIconContainer>
-                  <Styled.PortfolioPageIconContainer>
-                    {iconSecondSet.map((item) => (
-                      <Image
-                        key={item.image.url}
-                        src={item.image.url}
-                        alt="tech"
-                        className="image"
-                        layout="fill"
-                      />
-                    ))}
-                  </Styled.PortfolioPageIconContainer>
-                </>
-              )
-            ) : (
-              project &&
-              project?.technologies && (
-                <Styled.PortfolioPageIconContainer firstSet>
-                  {project?.technologies.map((item) => (
-                    <Image
-                      key={item.image.url}
-                      src={item.image.url}
-                      alt="tech"
-                      className="image"
-                      layout="fill"
-                    />
+                    </div>
                   ))}
                 </Styled.PortfolioPageIconContainer>
-              )
+                <Styled.PortfolioPageIconContainer>
+                  {iconSecondSet.map((item) => (
+                    <div key={item.image.url} className="image">
+                      <Image
+                        src={item.image.url}
+                        alt="tech"
+                        layout="fill"
+                        objectFit="fill"
+                      />
+                    </div>
+                  ))}
+                </Styled.PortfolioPageIconContainer>
+              </>
             )}
           </Styled.PortfolioPageWrapper>
           {data?.individualProjectPage.cta && (

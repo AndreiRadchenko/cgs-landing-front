@@ -2,13 +2,7 @@ import React from "react";
 
 import * as Styled from "../../styles/BlockchainService/LinedText.styled";
 
-interface ILinedText {
-  text: string;
-  position: "top" | "bottom";
-  height: number;
-  ind: number;
-  isScrolled: boolean;
-}
+import { ILinedText } from "../../types/Services.types";
 
 const LinedText = ({
   text,

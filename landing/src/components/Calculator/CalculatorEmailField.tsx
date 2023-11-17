@@ -1,12 +1,10 @@
-import { useFormikContext } from "formik";
 import React, { useRef } from "react";
-import { TieUpInput } from "../../styles/Calculator/CalculatorAdmin.styled";
-import * as Styled from "../../styles/Calculator/CalculatorComponent.styled";
+import { useFormikContext } from "formik";
 
-interface ICalculatorEmailFieldProps {
-  email: string;
-  calculateIsClicked: boolean;
-}
+import * as Styled from "../../styles/Calculator/CalculatorComponent.styled";
+import { TieUpInput } from "../../styles/Calculator/CalculatorAdmin.styled";
+
+import { ICalculatorEmailFieldProps } from "../../types/Admin/Response.types";
 
 const CalculatorEmailField = ({
   email,

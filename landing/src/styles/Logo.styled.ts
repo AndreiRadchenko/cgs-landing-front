@@ -3,8 +3,9 @@ import styled from "styled-components";
 export const LogoWrapper = styled.div`
   display: flex;
   align-items: center;
-  width: 149px;
-  height: 38px;
+  width: 132px;
+  height: 42px;
+  padding-left: 10px;
 
   @media (max-width: 1799px) {
     width: 126px;
@@ -27,8 +28,8 @@ export const LogoWrapper = styled.div`
   }
 
   &.footer {
-    width: 149px;
-    height: 38px;
+    width: 180px;
+    height: 40px;
     @media (max-width: 1799px) {
       width: 126px;
       height: 32px;

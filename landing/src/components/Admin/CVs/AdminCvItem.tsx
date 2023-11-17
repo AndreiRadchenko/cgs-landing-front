@@ -117,7 +117,7 @@ const AdminCvItem = ({
           </Styles.AdminCvItemLeftFlex>
           <Styles.AdminCvItemRightFlex>
             <Styles.AdminCvItemLink>
-              <a ref={linkRef} href={link} target="_blank">
+              <a ref={linkRef} href={link} target="_blank" rel="noreferrer">
                 link
               </a>
               <ArrowContainer>

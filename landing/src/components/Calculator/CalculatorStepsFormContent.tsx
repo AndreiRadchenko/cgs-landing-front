@@ -1,37 +1,25 @@
-import React, { ReactNode, useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
+import { useFormikContext } from "formik";
+
 import CalcualtorResultForm from "./CalcualtorResultForm";
+import CalculatorPagination from "./CalculatorPagination";
 import CalculatorStepsModalComponent from "./CalculatorStepsModalComponent";
 import Logo from "./CalculatorLogo";
+
 import * as Styled from "../../styles/Calculator/CalculatorComponent.styled";
-import { useFormikContext } from "formik";
-import { ICalculatorFormValuesProps } from "../../types/Admin/Response.types";
-import { useWindowDimension } from "../../hooks/useWindowDimension";
-import CalculatorPagination from "./CalculatorPagination";
 import {
   ArrowContainer,
   BlackButton,
 } from "../../styles/HomePage/General.styled";
+
+import {
+  ICalculatorFormValuesProps,
+  ICalculatorStepsFormContentProps,
+} from "../../types/Admin/Response.types";
+import { useWindowDimension } from "../../hooks/useWindowDimension";
 import ButtonArrow from "../../utils/ButtonArrow";
-import { ICalendlyUserData } from "../../types/ModalCategory.types";
 
 const PAGINATION_STEPS_PER_PAGE = 8;
-
-interface ICalculatorStepsFormContentProps {
-  handleBackClick: () => void;
-  handleQuit: () => void;
-  step: number;
-  setStep: React.Dispatch<React.SetStateAction<number>>;
-  setPreviousSteps: React.Dispatch<React.SetStateAction<number[]>>;
-  stepsCount: number;
-  calculateIsClicked: boolean;
-  setCalculateIsClicked: React.Dispatch<React.SetStateAction<boolean>>;
-  warnIsShow: boolean;
-  setWarnIsShow: React.Dispatch<React.SetStateAction<boolean>>;
-  arrayChildren: Array<Exclude<ReactNode, boolean | null | undefined>>;
-  isBlockchain: boolean;
-  setIsCalendlyOpen: React.Dispatch<React.SetStateAction<boolean>>;
-  setCalendlyUserData: React.Dispatch<React.SetStateAction<ICalendlyUserData>>;
-}
 
 const CalculatorStepsFormContent = ({
   handleBackClick,
@@ -52,7 +40,7 @@ const CalculatorStepsFormContent = ({
   const { values, isValid, errors, handleSubmit, validateForm } =
     useFormikContext<ICalculatorFormValuesProps>();
 
-  const calendlyLink = "https://calendly.com/d/y5z-x7b-5ys/30min";
+  const calendlyLink = "https://calendly.com/rokhman-tanya/test-meet";
 
   const handleClick = () =>
     stepsCount <= 10 ? onButtonClick() : handlePaginationNextClick();

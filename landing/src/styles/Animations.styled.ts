@@ -376,7 +376,7 @@ export const prevArrowOne = keyframes`
     transform: translate(30px, 0);
   }
   100% {
-    transform: translate(0px, 0px);;
+    transform: translate(0px, 0px);
   }
 `;
 
@@ -385,7 +385,25 @@ export const prevArrowTwo = keyframes`
     transform: translate(0px, 0px);
   }
   100% {
-    transform: translate(-30px, 0px);;
+    transform: translate(-30px, 0px);
+  }
+`;
+
+export const prevChatArrowOne = keyframes`
+  0% {
+    transform: translateY(36px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+`;
+
+export const prevChatArrowTwo = keyframes`
+  0% {
+    transform: translateY(0px);
+  }
+  100% {
+    transform: translateY(-36px);
   }
 `;
 
@@ -400,6 +418,15 @@ export const slideUpProjector = keyframes`
      transform: translateY(0);
    }
  `}
+`;
+
+export const fadeIn = keyframes`
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
 `;
 
 export const opacityAppear = keyframes`

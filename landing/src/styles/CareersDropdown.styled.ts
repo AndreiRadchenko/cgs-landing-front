@@ -1,22 +1,16 @@
 import styled from "styled-components";
 import themes from "../utils/themes";
 
-export const DropdownButton = styled.button<{
-  isHeader?: boolean;
-  toFormError?: boolean;
-  toSelectPosition?: boolean;
-}>`
+export const DropdownButton = styled.button<{ isHeader?: boolean }>`
   cursor: pointer;
-  color: ${({ toFormError, toSelectPosition }) =>
-    toFormError ? "#F84A3F" : toSelectPosition ? "#000" : "#8F8E93"};
+  color: ${themes.primary.colors.primary};
   background-color: ${themes.primary.colors.blogBackground};
   box-sizing: border-box;
   border: ${(props) =>
     !props.isHeader &&
     `1px solid ${themes.primary.colors.comment} !important;`};
   font-family: ${themes.primary.font.family.namu};
-  font-size: 1.34em;
-  border-radius: none;
+  font-size: ${themes.primary.font.size.tertiary};
 
   display: inline-block;
   vertical-align: middle;
@@ -32,13 +26,27 @@ export const DropdownButton = styled.button<{
   &:hover &.open {
     border-bottom: 0 !important;
     border-right: 3px solid ${themes.primary.colors.primary} !important;
+
+    img {
+      transform: rotate(180deg);
+    }
   }
   &.open {
     border-bottom: 0 !important;
     border-right: 3px solid ${themes.primary.colors.primary} !important;
+
+    img {
+      transform: rotate(180deg);
+    }
   }
+  & > img,
   & > span {
     vertical-align: middle;
+  }
+
+  img {
+    margin-left: 10px;
+    transform: rotate(0deg);
   }
 
   @media ${themes.primary.media.maxLowScreenMobile} {
@@ -58,13 +66,10 @@ export const Dropdown = styled.div`
   position: relative;
   display: inline-block;
   background-color: ${themes.primary.colors.blogBackground};
-  border: 1.5px solid #000;
-  border-left: none;
-  box-shadow: 5px 5px 0 #000;
 `;
 
 export const DropdownContent = styled.div`
-  position: relative;
+  position: absolute;
   background-color: ${themes.primary.colors.blogBackground};
   min-width: 220px;
   z-index: 3;
@@ -79,67 +84,17 @@ export const DropdownContent = styled.div`
   div {
     color: ${themes.primary.colors.primary};
     font-family: ${themes.primary.font.family.namu};
-    font-size: 1.35em;
-    border-left: 1.5px solid black;
+    font-size: ${themes.primary.font.size.vistaco};
     border-bottom: 1px solid ${themes.primary.colors.comment};
-    padding: 23px 28px;
-    height: 65px;
+    padding: 30px 20px;
     text-decoration: none;
     text-align: left;
     cursor: pointer;
-
-    &:last-of-type {
-      border-bottom: 0;
-      color: #8f8e93;
-    }
-
     &:hover {
       background-color: ${themes.primary.colors.blogDropdownHover};
     }
-
-    &:nth-child(2) {
-      height: 65px;
+    &:last-child {
+      border-bottom: 0;
     }
   }
-
-  @media (max-width: 768px) {
-    div {
-      height: 55px;
-      padding: 16px 20px;
-
-      &:nth-child(2) {
-        &:nth-child(2) {
-          height: 55px;
-        }
-      }
-    }
-  }
-`;
-
-export const DropdownScrollbarContainer = styled.section`
-  width: 10px;
-  background-color: #f0efed;
-  z-index: 5;
-  height: 274px;
-  position: absolute;
-  top: 0;
-  right: 0;
-
-  @media (min-width: 769px) {
-    display: none;
-  }
-`;
-
-export const DropdownScrollbar = styled.section<{ top: number }>`
-  position: absolute;
-  top: 0;
-  transition: transform ease;
-  transform: translateY(${(props) => props.top}px);
-  right: 20%;
-  width: 4px;
-  margin-right: 1px;
-  height: 25px;
-  border-radius: 5px;
-  background-color: black;
-  z-index: 100;
 `;

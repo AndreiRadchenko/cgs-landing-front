@@ -1,11 +1,12 @@
 import React, { FC, useState } from "react";
 import { useFormikContext } from "formik";
 
+import Plus from "../../../public/plus.svg";
 import * as Styles from "../../../src/styles/BlogTags.styled";
-import * as Styled from "../Admin/FAQ/adminFaq.styled";
-import { VacancyInput } from "../../styles/AdminCareersPage";
-
 import { IDataCareersResponse } from "../../types/Admin/Response.types";
+import { VacancyInput } from "../../styles/AdminCareersPage";
+import * as Styled from "../Admin/FAQ/adminFaq.styled";
+
 import { IBlogTags } from "../../types/Blog.types";
 
 const CareerInfo: FC<IBlogTags> = ({
@@ -62,7 +63,6 @@ const CareerInfo: FC<IBlogTags> = ({
   return (
     <Styles.CareerInfo>
       <VacancyInput
-        style={{ width: "70%" }}
         type="text"
         name={
           isNewTicket
@@ -75,16 +75,14 @@ const CareerInfo: FC<IBlogTags> = ({
         }
         onChange={handleChange}
       />
-      <div style={{ width: "70%" }}>
-        <Styled.ButtonsContainer>
-          <Styled.AddButton onClick={() => addNextHeading()}>
-            [ + add next heading ]
-          </Styled.AddButton>
-          <Styled.DeleteButton onClick={() => deleteHeading()}>
-            delete
-          </Styled.DeleteButton>
-        </Styled.ButtonsContainer>
-      </div>
+      <Styled.ButtonsContainer>
+        <Styled.AddButton onClick={() => addNextHeading()}>
+          [ + add next heading ]
+        </Styled.AddButton>
+        <Styled.DeleteButton onClick={() => deleteHeading()}>
+          delete
+        </Styled.DeleteButton>
+      </Styled.ButtonsContainer>
       <Styles.TagsWrapper>
         {!isNewTicket
           ? values.vacancy.info[infoIndex].values.map((el, index) => (
@@ -104,7 +102,7 @@ const CareerInfo: FC<IBlogTags> = ({
               />
             ))}
         <Styles.AddTag onClick={addTagOnClick}>
-          <Styles.Plus>+</Styles.Plus>
+          <Styles.PlusIcon src={Plus.src} />
         </Styles.AddTag>
         <Styles.AddTag onClick={deleteItem}>
           <Styles.Minus>-</Styles.Minus>

@@ -18,7 +18,7 @@ interface IAdvantagesProps {
 const Advantages = ({ advantages, className }: IAdvantagesProps) => {
   const elRef = useRef<HTMLDivElement>(null);
   const isScrolled = useOnScreen(elRef, true);
-  const isMobile = useMediaQuery("(max-width: 768px)")
+  const isMobile = useMediaQuery("(max-width: 768px)");
 
   const advantagesCount =
     advantages?.content?.filter(
@@ -38,30 +38,36 @@ const Advantages = ({ advantages, className }: IAdvantagesProps) => {
   return (
     <Styled.Wrapper className={className}>
       <Styled.Title>{advantages?.title}</Styled.Title>
-      {isMobile ?
+      {isMobile ? (
         <Styled.MobileContent ref={elRef}>
           {combinedArray.map((item, idx) => (
             <Styled.AdvantagesItem key={idx}>
               <Styled.NumberMobileItem>
-                <Styled.MobileNumber className={idx === combinedArray.length - 1 ? "last" : ''}>{item.number}</Styled.MobileNumber>
-                <Styled.Circle
-                  src={circle.src}
-                  alt="Yellow Circle"
-                />
+                <Styled.MobileNumber
+                  className={idx === combinedArray.length - 1 ? "last" : ""}
+                >
+                  {item.number}
+                </Styled.MobileNumber>
+                <Styled.Circle src={circle.src} alt="Yellow Circle" />
                 <Styled.SmallCircle
                   src={smallCircle.src}
                   alt="Dot"
-                  className={item.text && item.text.length < 38 ? "oneLine" : undefined}
+                  className={
+                    item.text && item.text.length < 38 ? "oneLine" : undefined
+                  }
                 />
               </Styled.NumberMobileItem>
-              <Styled.TextMobileItem ind={idx} className={isScrolled ? "scrolled" : undefined}>
+              <Styled.TextMobileItem
+                ind={idx}
+                className={isScrolled ? "scrolled" : undefined}
+              >
                 <Styled.Subtitle>{item.subtitle}</Styled.Subtitle>
                 <Styled.Text>{item.text}</Styled.Text>
               </Styled.TextMobileItem>
             </Styled.AdvantagesItem>
           ))}
         </Styled.MobileContent>
-        :
+      ) : (
         <Styled.Content>
           <Styled.Numbers>
             {numbers.map((number, idx) => (
@@ -112,7 +118,7 @@ const Advantages = ({ advantages, className }: IAdvantagesProps) => {
               ))}
           </Styled.TextContent>
         </Styled.Content>
-      }
+      )}
     </Styled.Wrapper>
   );
 };

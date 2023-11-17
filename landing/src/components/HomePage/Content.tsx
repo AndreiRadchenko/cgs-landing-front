@@ -1,27 +1,33 @@
 import React, { useRef, useState } from "react";
-import { PopupModal } from "react-calendly";
+import dynamic from "next/dynamic";
+import { useMediaQuery } from "@mui/material";
 
-import HeadBlock from "./HeadBlock";
-import NextTech from "./NextTech";
-import CarouselFeedback from "../Feedback/CarouselFeedback";
-import Technologies from "../Technologies/Technologies";
-import CardsBlock from "../CardsBlock";
-import BookBlock from "../BookBlock";
-import MobilePartners from "../Partners/MobilePartners";
-import MobileNextTech from "./MobileNextTech";
-import CalcAndChatContainer from "../CalcAndChatContainer";
-
-import { Layout, PageArticle } from "../../styles/Layout.styled";
 import {
   LocalLayout,
   MobileReverseLayout,
 } from "../../styles/HomePage/General.styled";
+import HeadBlock from "./HeadBlock";
+
+import CarouselFeedback from "../Feedback/CarouselFeedback";
+import Technologies from "../Technologies/Technologies";
+import CardsBlock from "../CardsBlock";
+import BookBlock from "../BookBlock";
+import CalcAndChatContainer from "../CalcAndChatContainer";
+
+import { PopupModal } from "react-calendly";
+
+const NextTech = dynamic(() => import("./NextTech"));
+const MobilePartners = dynamic(() => import("../Partners/MobilePartners"));
+const MobileNextTech = dynamic(() => import("./MobileNextTech"));
+
+import { Layout, PageArticle } from "../../styles/Layout.styled";
 
 import { recoverLink } from "../../utils/recoverLink";
 
 import { ICalendlyUserData } from "../../types/ModalCategory.types";
 
 const Content = () => {
+  const isMobile = useMediaQuery("(max-width:768px)");
   const [isCalendlyOpen, setIsCalendlyOpen] = useState(false);
   const [calendlyUserData, setCalendlyUserData] = useState<ICalendlyUserData>({
     name: "",
@@ -42,7 +48,7 @@ const Content = () => {
   return (
     <>
       <PageArticle ref={elRef}>
-        {elRef && elRef.current && (
+        {isCalendlyOpen && elRef.current && (
           <PopupModal
             prefill={{
               email: calendlyUserData.email,
@@ -62,8 +68,7 @@ const Content = () => {
         <Layout>
           <LocalLayout>
             <HeadBlock />
-            <NextTech />
-            <MobileNextTech />
+            {isMobile ? <MobileNextTech /> : <NextTech />}
           </LocalLayout>
         </Layout>
         <Layout>
@@ -74,7 +79,7 @@ const Content = () => {
             </MobileReverseLayout>
             <CardsBlock />
             <BookBlock />
-            <MobilePartners />
+            {isMobile && <MobilePartners />}
           </LocalLayout>
         </Layout>
       </PageArticle>

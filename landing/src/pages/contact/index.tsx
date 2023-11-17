@@ -1,6 +1,7 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import Head from "next/head";
 import parse from "html-react-parser";
+import { useCalendlyEventListener } from "react-calendly";
 import { useQuery, dehydrate, QueryClient } from "@tanstack/react-query";
 
 import HeaderNavNew from "../../components/HeaderNavNew/HeaderNavNew";
@@ -12,6 +13,7 @@ import { queryKeys } from "../../consts/queryKeys";
 import { adminGlobalService } from "../../services/adminHomePage";
 import { adminContactService } from "../../services/adminContactPage";
 import { calendlyPopupInfoHandler } from "../../utils/calendlyPopupInfoHandler";
+import { useGetCelendlyMeetingData } from "../../hooks/useGetCelendlyMeetingData";
 
 export async function getServerSideProps() {
   const queryClient = new QueryClient();
@@ -29,6 +31,7 @@ export async function getServerSideProps() {
 
 const ContactPage = () => {
   const [isCalendlySuccessfull, setIsCalendlySuccessfull] = useState(false);
+
   useQuery([queryKeys.getFullHomePage], () => adminGlobalService.getFullPage());
 
   const { data } = useQuery([queryKeys.getContactPage], () =>
@@ -39,10 +42,13 @@ const ContactPage = () => {
 
   calendlyPopupInfoHandler(() => setIsCalendlySuccessfull(true));
 
+  const { dateTime, joinLink } = useGetCelendlyMeetingData();
   return (
     <>
       {isCalendlySuccessfull && (
         <CalendlyInfoModal
+          celendlyUri={joinLink}
+          dateTime={dateTime}
           isOpen={isCalendlySuccessfull}
           setIsCalendlySuccessfull={setIsCalendlySuccessfull}
         />

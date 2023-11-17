@@ -57,7 +57,8 @@ export interface InputWithHeader extends InputPropsInterface {
   height?: string;
   width?: string;
   id?: string;
-  inputStyle?: any;
+  inputStyle?: CSSProperties;
+  titleStyle?: CSSProperties;
   isadminblog?: boolean;
   iserror?: boolean;
   maxLength?: number;
@@ -104,4 +105,9 @@ export interface CareersProps {
 
 export interface TeamMembersProps {
   data: ITeamMembers | undefined;
+}
+
+export interface ILeftSideProps {
+  state: IEditInformation;
+  onChangeFunction: (e?: React.ChangeEvent<any> | string) => void;
 }

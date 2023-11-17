@@ -1,7 +1,8 @@
-﻿import { useFormikContext } from "formik";
-import dynamic from "next/dynamic";
 import React from "react";
+import { useFormikContext } from "formik";
 import { useQueryClient } from "@tanstack/react-query";
+
+import TextEditor from "../../../TextEditor/TextEditor";
 
 import { AdminHalfGrid, AdminPaddedBlock } from "../../../../styles/AdminPage";
 import SubHeaderWithInput from "../../Global/SubHeaderWithInput";
@@ -14,10 +15,6 @@ import HistoryLink from "../../HistoryLink";
 
 import { IServiceWeb } from "../../../../types/Admin/Response.types";
 import { queryKeys } from "../../../../consts/queryKeys";
-
-const TextEditor = dynamic(() => import("../../../TextEditor/TextEditor"), {
-  ssr: false,
-});
 
 const SolutionBlock = () => {
   const queryClient = useQueryClient();

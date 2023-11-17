@@ -1,6 +1,9 @@
 import * as yup from "yup";
 import { isEmailDomainPublic } from "../utils/checkEmailDomain";
 
+const phoneRegExp =
+  /^((\\+[1-9]{1,4}[ \\-]*)|(\\([0-9]{2,3}\\)[ \\-]*)|([0-9]{2,4})[ \\-]*)*?[0-9]{3,4}?[ \\-]*[0-9]{3,4}?$/;
+
 export const BookModalValidation = () => {
   return yup.object({
     name: yup
@@ -17,11 +20,12 @@ export const BookModalValidation = () => {
     country: yup.string(),
     phone: yup
       .string()
-      .matches(/^[+0-9-()]+$/, "The number can’t contain letters")
-      .when("email", {
-        is: (val: string) => isEmailDomainPublic(val),
-        then: yup.string().required("Enter your phone number"),
-        otherwise: yup.string().notRequired(),
-      }),
+      .matches(phoneRegExp, "Number must be a valid phone number")
+      .required("Enter your phone number"),
+    // .when("email", {
+    //   is: (val: string) => isEmailDomainPublic(val),
+    //   then: yup.string().required("Enter your phone number"),
+    //   otherwise: yup.string().notRequired(),
+    // }),
   });
 };

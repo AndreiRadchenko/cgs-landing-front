@@ -8,7 +8,7 @@ export const InfoCard = styled.div`
   margin-left: -20px;
   padding-inline: 20px;
   width: 100vw;
-  background: transparent;
+  background: ${themes.primary.colors.grey};
   transition: all 0.3s ease-in-out;
 
   &.intersecting {

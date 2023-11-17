@@ -1,5 +1,6 @@
 import React from "react";
 import Image from "next/image";
+
 import * as Styled from "../../styles/Calculator/CalculatorComponent.styled";
 
 import logoWithoutText from "../../../public/logoWithoutText.svg";

@@ -1,4 +1,9 @@
 /** @type {import('next').NextConfig} */
+// Run ANALYZE=true npm run build to create html report page
+// const withBundleAnalyzer = require("next-bundle-analyzer")({
+//   enabled: process.env.ANALYZE === "true",
+// });
+
 const nextConfig = {
   images: {
     domains: ["landing-cgs.s3.amazonaws.com", "d2qrnmx3qcgrup.cloudfront.net"],
@@ -27,4 +32,5 @@ const nextConfig = {
   },
 };
 
+// module.exports = withBundleAnalyzer(nextConfig);
 module.exports = nextConfig;

@@ -1,20 +1,21 @@
-import { useQueryClient } from "@tanstack/react-query";
 import React from "react";
-import { queryKeys } from "../../consts/queryKeys";
-import { useWindowDimension } from "../../hooks/useWindowDimension";
+import { useQueryClient } from "@tanstack/react-query";
+
+import CalculatorModalComponent from "./CalculatorPagerModalComponent";
+import CalculatorTitleField from "./CalculatorTitleField";
+
 import {
   Loader,
   LoaderWrapper,
 } from "../../styles/Calculator/CalculatorComponent.styled";
-import { ICalculator } from "../../types/Admin/Response.types";
-import CalculatorModalComponent from "./CalculatorPagerModalComponent";
-import CalculatorTitleField from "./CalculatorTitleField";
 
-interface ICalculatorQuittingPager {
-  handleClose: () => void;
-  handleQuitClick: () => void;
-  handleContinueClick: () => void;
-}
+import { useWindowDimension } from "../../hooks/useWindowDimension";
+import { queryKeys } from "../../consts/queryKeys";
+
+import {
+  ICalculator,
+  ICalculatorQuittingPager,
+} from "../../types/Admin/Response.types";
 
 const CalculatorQuittingPager = ({
   handleClose,

@@ -1,20 +1,17 @@
-import React, { ReactNode, useEffect, useRef } from "react";
-import * as Styled from "../../styles/Calculator/CalculatorComponent.styled";
+import React, { useEffect, useRef } from "react";
+
 import CalculatorResult from "./CalculatorResult";
 
-interface ICalculatorModalComponentProps {
-  children?: ReactNode;
-  lastPage?: boolean;
-  mobile?: boolean;
-  handleQuit: () => void;
-}
+import * as Styled from "../../styles/Calculator/CalculatorComponent.styled";
+
+import { ICalculatorModalComponentItemProps } from "../../types/Admin/Response.types";
 
 const CalculatorStepsModalComponent = ({
   children,
   lastPage,
   mobile,
   handleQuit,
-}: ICalculatorModalComponentProps) => {
+}: ICalculatorModalComponentItemProps) => {
   const modalRef = useRef<any>(null);
 
   useEffect(() => {

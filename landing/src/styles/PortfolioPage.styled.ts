@@ -213,12 +213,14 @@ export const PortfolioPageInfoContainer = styled.div`
 `;
 
 export const PortfolioPageIconContainer = styled.div<IPortfolioIconProps>`
-  width: 100%;
+  width: 100% + 20px;
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(110px, 110px));
   margin-top: ${({ firstSet }) => (firstSet ? "65px" : "20px")};
-  row-gap: 20px;
+
   margin-left: -20px;
+  row-gap: 16px;
+  column-gap: 8px;
 
   > span {
     position: unset !important;
@@ -226,11 +228,22 @@ export const PortfolioPageIconContainer = styled.div<IPortfolioIconProps>`
 
   .image {
     object-fit: contain;
-    width: 100% !important;
-    position: relative !important;
-    height: unset !important;
+    position: relative;
+    width: 77px;
+    height: 66px;
+    flex-shrink: 0;
   }
-
+  @media ${themes.primary.media.minMobile} {
+    .image {
+      width: 110px;
+      height: 95px;
+    }
+  }
+  @media ${themes.primary.media.minPCFullHD} {
+    .image {
+      height: 127px;
+    }
+  }
   @media ${themes.primary.media.maxMobile} {
     margin-top: 35px;
     grid-template-columns: repeat(auto-fill, minmax(67px, 1fr));

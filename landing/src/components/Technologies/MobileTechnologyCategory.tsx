@@ -1,11 +1,11 @@
 import React, { FC, MouseEvent, useState } from "react";
-import { useWindowDimension } from "../../hooks/useWindowDimension";
+import { getWindowDimension } from "../../utils/getWindowDimension";
 
 import TechModal from "./TechModal";
 
 import * as StyledThisComp from "../../styles/HomePage/MobileTechnologies.styled";
 
-import { SplitBrackets } from "../../utils/splitBrackets";
+import { SpanSplitBrackets } from "../../utils/splitBrackets";
 import { ITechnologyCategoryProps } from "../../types/Components.types";
 
 const MobileTechnologyCategory: FC<ITechnologyCategoryProps> = ({
@@ -15,7 +15,7 @@ const MobileTechnologyCategory: FC<ITechnologyCategoryProps> = ({
   className,
   idx,
 }) => {
-  const { width } = useWindowDimension();
+  const { width } = getWindowDimension();
   const [isOpen, setIsOpen] = useState<boolean>(false);
   const is410px = window.matchMedia("(max-width: 410px)").matches;
 
@@ -105,7 +105,7 @@ const MobileTechnologyCategory: FC<ITechnologyCategoryProps> = ({
           </StyledThisComp.Arrow>
         </StyledThisComp.TitleInnerWrapper>
         <StyledThisComp.CategorySubtitle className={className}>
-          <SplitBrackets text={text} />
+          <SpanSplitBrackets text={text} />
         </StyledThisComp.CategorySubtitle>
         <div style={{ marginTop: idx === 3 ? "-1.5em" : "-1em" }}>
           <TechModal data={stack} isOpen={isOpen} idx={idx} />

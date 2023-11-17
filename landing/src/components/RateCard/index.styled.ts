@@ -3,7 +3,9 @@ import themes from "../../utils/themes";
 import { keyframes } from "@emotion/react";
 
 export const WrapperStyledHRate = styled.div`
-  margin-top: 60px;
+  margin-top: calc(
+    clamp(77px, 77px + (100vw - 1440px) * ((108 - 77) / (1920 - 1440)), 108px)
+  );
   width: 100%;
   @media ${themes.primary.media.maxMobile} {
     display: none;
@@ -17,6 +19,9 @@ export const StyledHRate = styled.div`
   line-height: 47px;
   text-transform: uppercase;
   color: ${themes.primary.colors.black};
+  @media ${themes.primary.media.min4K} {
+    font-size: 66px;
+  }
 `;
 
 export const MarqueeRate = styled.div`
@@ -25,7 +30,7 @@ export const MarqueeRate = styled.div`
   overflow: hidden;
   user-select: none;
   gap: 20px;
-  height: 60px;
+  height: 56px;
 `;
 const scroll = keyframes`
   from {

@@ -1,27 +1,16 @@
 import React, { useEffect, useState } from "react";
-import * as Styled from "./adminFaq.styled";
-import { IQuestion } from "../../../types/Admin/AdminFaq.types";
-import SubHeaderWithInput from "../Global/SubHeaderWithInput";
-const TextEditor = dynamic(() => import("../../TextEditor/TextEditor"), {
-  ssr: false,
-});
-import PhotoBlockDashed from "../Global/PhotoBlockDashed";
+import { useFormikContext } from "formik";
+
 import useDeleteImageFunction from "../../../hooks/useDeleteImageFunction";
 import useUploadImageFunction from "../../../hooks/useUploadImageFunction";
-import { useFormikContext } from "formik";
+import TextEditor from "../../TextEditor/TextEditor";
+import PhotoBlockDashed from "../Global/PhotoBlockDashed";
+import SubHeaderWithInput from "../Global/SubHeaderWithInput";
+
+import * as Styled from "./adminFaq.styled";
 import { IFaqData } from "../../../types/Company.types";
 import { IImage } from "../../../types/Admin/Admin.types";
-import dynamic from "next/dynamic";
-
-interface IQuestionComponent {
-  question: IQuestion;
-  handleChange: (e?: string | React.ChangeEvent<any>) => void;
-  questionName: string;
-  questionText: string;
-  addQuestion: (index: number) => void;
-  deleteQuestion: (index: number) => void;
-  index: number;
-}
+import { IQuestionComponent } from "../../../types/Admin/AdminFaq.types";
 
 const Question = ({
   question,
@@ -48,6 +37,7 @@ const Question = ({
   useEffect(() => {
     setIsImage(values.questions[index].image !== undefined);
   }, [index, values.questions]);
+
   return (
     <Styled.ContentWrapper className={isImage ? "image" : undefined}>
       <Styled.QuestionContainer>

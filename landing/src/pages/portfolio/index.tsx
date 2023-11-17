@@ -6,21 +6,25 @@ import Head from "next/head";
 import { scroller } from "react-scroll";
 import { dehydrate, QueryClient, useQuery } from "@tanstack/react-query";
 import parse, { HTMLReactParserOptions, Element } from "html-react-parser";
+import { useMediaQuery } from "@mui/material";
 
 import HeaderNavNew from "../../components/HeaderNavNew/HeaderNavNew";
 import FooterNew from "../../components/FooterNew/FooterNew";
 import { adminGlobalService } from "../../services/adminHomePage";
 import PortfolioProjectComponent from "../../components/Portfolio/PortfolioProjectComponent";
-import { Loader, LoaderStub } from "../../components/Loader";
+import { Loader } from "../../components/Loader";
 import { adminPortfolioService } from "../../services/adminPortfolioPage";
 import { CTABlock } from "../../components/Portfolio/CTABlock";
 import ScrambleText from "../../components/HomePage/ScrambleText";
 import { Pagination } from "../../components/Portfolio/Pagination";
-import { useWindowDimension } from "../../hooks/useWindowDimension";
+import { getWindowDimension } from "../../utils/getWindowDimension";
+
 import Dropdown from "../../utils/Select/Dropdown";
 import { calendlyPopupInfoHandler } from "../../utils/calendlyPopupInfoHandler";
-import { highestPagePointDisplayer } from "../../utils/highestPagePointDisplayer";
 import CalendlyInfoModal from "../../components/Calendly/CalendlyInfoModal";
+
+import * as Styles from "../../styles/Portfolio.styled";
+import * as CSS from "../../styles/Portfolio/title.styled";
 
 import {
   IPortfolioResponse,
@@ -28,14 +32,14 @@ import {
 } from "../../types/Admin/AdminPortfolio.types";
 import { queryKeys } from "../../consts/queryKeys";
 import { PortfolioPageSize } from "../../consts";
-import * as Styled from "../../styles/AdminPage";
-import * as Styles from "../../styles/Portfolio.styled";
-import * as CSS from "../../styles/Portfolio/title.styled";
 import { DropdownContainer } from "../../styles/HomePage/General.styled";
 import longArrow from "../../../public/HomePageDecoration/longArrow.svg";
+import { useCalendlyEventListener } from "react-calendly";
+import { useGetCelendlyMeetingData } from "../../hooks/useGetCelendlyMeetingData";
 
 const PortfolioPage: NextPage = () => {
-  const { width } = useWindowDimension();
+  const { width } = getWindowDimension();
+  const isPortrait = useMediaQuery("(orientation: portrait)");
   const options: HTMLReactParserOptions = {
     replace: (domNode) => {
       if (
@@ -81,19 +85,18 @@ const PortfolioPage: NextPage = () => {
   const router = useRouter();
   const [currentPage, setCurrentPage] = useState<number>(1);
   const [category, setCategory] = useState<string>("");
+  const [selectedIndustries, setSelectedIndustries] = useState<string[]>([]);
+  const [searchTrigger, setSearchTrigger] = useState<string>("");
   const [isRequestRepeated, setIsRequestRepeated] = useState<boolean>(false);
   const [isSearchTriggered, setIsSearchTriggered] = useState<boolean>(false);
   const [isCategoryChange, setIsCategoryChange] = useState<boolean>(false);
   const [isCategoryWarning, setIsCategoryWarning] = useState<boolean>(false);
-  const [selectedIndustries, setSelectedIndustries] = useState<string[]>([]);
   const [searchText, setSearchText] = useState<string>("");
-  const [searchTrigger, setSearchTrigger] = useState<string>("");
   const [activeCategory, setActiveCategory] = useState<number>(0);
   const [isFirstLoad, setIsFirstLoad] = useState(true);
   const [isPaginationTriggered, setIsPaginationTriggered] = useState(true);
   const categoryItemsRef = useRef<(HTMLDivElement | null)[]>([]);
   const [categoryItemWidths, setCategoryItemWidths] = useState<string[]>([]);
-  const [categoryItemHeights, setCategoryItemHeights] = useState<string[]>([]);
   const [isSearchOpen, setIsSearchOpen] = useState(false);
   const [isImagesLoaded, setIsImagesLoaded] = useState(false);
   const [loadedImagesCount, setLoadedImagesCount] = useState(0);
@@ -150,19 +153,6 @@ const PortfolioPage: NextPage = () => {
     }
   };
 
-  const scrollFunction = () => {
-    if (window.innerWidth >= 992 && !isPaginationTriggered) return;
-
-    const topHeight = window.innerWidth > 768 ? -70 : -100;
-
-    scroller.scrollTo("portfolio-wrapper", {
-      duration: 0,
-      delay: 0,
-      smooth: false,
-      offset: topHeight,
-    });
-  };
-
   const filtersNullifier = () => {
     setSelectedIndustries([]);
     setCategory("");
@@ -212,7 +202,9 @@ const PortfolioPage: NextPage = () => {
 
     setLoadedImagesCount((prev) => prev + 1);
 
-    if (loadedImagesCount + 1 === reviewsCount) setIsImagesLoaded(true);
+    if (loadedImagesCount + 1 === reviewsCount) {
+      setIsImagesLoaded(true);
+    }
   };
 
   const imagesCountNullifier = () => {
@@ -241,7 +233,7 @@ const PortfolioPage: NextPage = () => {
   useEffect(() => {
     setCurrentPage(1);
     imagesCountNullifier();
-    scrollFunction();
+    // scrollFunction();
   }, [selectedIndustries.length, searchTrigger, category]);
 
   useEffect(() => {
@@ -253,16 +245,12 @@ const PortfolioPage: NextPage = () => {
               ? Math.round(parseFloat(getComputedStyle(item).width)) + 5 + "px"
               : "auto"
           );
-          const heights = categoryItemsRef.current.map((item) =>
-            item ? getComputedStyle(item).height : "auto"
-          );
 
           setCategoryItemWidths(widths);
-          setCategoryItemHeights(heights);
         };
         updateCategoryItemParams();
       } else {
-        scrollFunction();
+        // scrollFunction();
       }
     }
   }, [isLoading, reviewsIsLoading, isFirstLoad]);
@@ -276,7 +264,10 @@ const PortfolioPage: NextPage = () => {
     ) {
       setIsImagesLoaded(true);
     }
-  }, [reviewsIsFetching]);
+    if (isFirstLoad && reviewsData && !reviewsData?.reviews.length) {
+      setIsCategoryWarning(true);
+    }
+  }, [reviewsIsFetching, reviewsData, reviewsIsLoading, isFirstLoad]);
 
   useEffect(() => {
     setIsRequestRepeated(false);
@@ -340,23 +331,30 @@ const PortfolioPage: NextPage = () => {
     }
   }, [currentPage]);
 
-  highestPagePointDisplayer();
-
   calendlyPopupInfoHandler(() => setIsCalendlySuccessfull(true));
 
+  const { dateTime, joinLink } = useGetCelendlyMeetingData();
+
   return (
-    <Loader active={isLoading}>
+    <Loader
+      active={
+        (isLoading || reviewsIsLoading || !isImagesLoaded) &&
+        isFirstLoad &&
+        !isCategoryWarning
+      }
+      className="portfolio"
+    >
       <Head>
         <title>{metaTitle || "Portfolio | CGS-team"}</title>
         <meta name="description" content={metaDescription} />
         {customHead && parse(customHead)}
       </Head>
-      {isLoading ? (
-        <LoaderStub />
-      ) : data ? (
+      {data ? (
         <>
           {isCalendlySuccessfull && (
             <CalendlyInfoModal
+              celendlyUri={joinLink}
+              dateTime={dateTime}
               isOpen={isCalendlySuccessfull}
               setIsCalendlySuccessfull={setIsCalendlySuccessfull}
             />
@@ -368,39 +366,39 @@ const PortfolioPage: NextPage = () => {
                 {data && parse(data.SubtitleBlock.title, options)}
               </CSS.Subtitle>
               <Styles.PortfolioFiltersWrapper>
-                <Styles.PortfolioCategoryWrapper>
-                  <Styles.PortfolioCategoryItem
-                    ref={handleCategoryItemRef(0)}
-                    blockWidth={categoryItemWidths[0]}
-                    blockHeight={categoryItemHeights[0]}
-                    className={activeCategory === 0 ? "active" : ""}
-                    onClick={() => {
-                      categoryOrIndustryTrigger();
-                      setIsCategoryChange(true);
-                      setActiveCategory(0);
-                      setCategory("");
-                    }}
-                  >
-                    {"All projects"}
-                  </Styles.PortfolioCategoryItem>
-                  {data.categories.map(({ name }, i) => (
+                <Styles.PortfolioCategoryOutsideBox>
+                  <Styles.PortfolioCategoryWrapper>
                     <Styles.PortfolioCategoryItem
-                      key={i}
-                      ref={handleCategoryItemRef(i + 1)}
-                      blockWidth={categoryItemWidths[i + 1]}
-                      blockHeight={categoryItemHeights[i + 1]}
-                      className={i + 1 === activeCategory ? "active" : ""}
+                      ref={handleCategoryItemRef(0)}
+                      blockWidth={categoryItemWidths[0]}
+                      className={activeCategory === 0 ? "active" : ""}
                       onClick={() => {
                         categoryOrIndustryTrigger();
                         setIsCategoryChange(true);
-                        setActiveCategory(i + 1);
-                        setCategory(name);
+                        setActiveCategory(0);
+                        setCategory("");
                       }}
                     >
-                      {name.charAt(0).toUpperCase() + name.slice(1)}
+                      {"All projects"}
                     </Styles.PortfolioCategoryItem>
-                  ))}
-                </Styles.PortfolioCategoryWrapper>
+                    {data.categories.map(({ name }, i) => (
+                      <Styles.PortfolioCategoryItem
+                        key={i}
+                        ref={handleCategoryItemRef(i + 1)}
+                        blockWidth={categoryItemWidths[i + 1]}
+                        className={i + 1 === activeCategory ? "active" : ""}
+                        onClick={() => {
+                          categoryOrIndustryTrigger();
+                          setIsCategoryChange(true);
+                          setActiveCategory(i + 1);
+                          setCategory(name);
+                        }}
+                      >
+                        {name.charAt(0).toUpperCase() + name.slice(1)}
+                      </Styles.PortfolioCategoryItem>
+                    ))}
+                  </Styles.PortfolioCategoryWrapper>
+                </Styles.PortfolioCategoryOutsideBox>
                 <Styles.PortfolioSearchAndInductriesWrapper>
                   <Styles.PortfolioSearchAndInductries>
                     <Styles.PortfolioSearchWrapper>
@@ -446,6 +444,7 @@ const PortfolioPage: NextPage = () => {
                           dropdownName="// INDUSTRY"
                           isTag={true}
                           additionalLogic={categoryOrIndustryTrigger}
+                          pointsWrapperClassName="portfolio-dropdown"
                         />
                       </Styles.PortfolioDropdownWrapper>
                     </DropdownContainer>
@@ -485,10 +484,12 @@ const PortfolioPage: NextPage = () => {
               </Styles.PortfolioFiltersWrapper>
 
               <Styles.PortfolioProjectsWrapper id="portfolio-wrapper">
-                <Loader isPortfolio={true} className="portfolio" active={false}>
-                  {(isLoading || reviewsIsLoading) && !isFirstLoad ? (
-                    <LoaderStub />
-                  ) : reviewsData?.reviews && reviewsData.reviews.length > 0 ? (
+                <Loader
+                  isPortrait={isPortrait}
+                  isPortfolio={true}
+                  active={(isLoading || reviewsIsLoading) && !isFirstLoad}
+                >
+                  {reviewsData?.reviews && reviewsData.reviews.length > 0 ? (
                     <>
                       {isRequestRepeated && (
                         <Styles.PortfolioFilterWarning>
@@ -516,7 +517,7 @@ const PortfolioPage: NextPage = () => {
                         setCurrentPage={setCurrentPage}
                         scrollFunction={() => {
                           imagesCountNullifier();
-                          scrollFunction();
+                          // scrollFunction();
                         }}
                         setIsFirstLoad={setIsFirstLoad}
                         setIsPaginationTriggered={setIsPaginationTriggered}
@@ -547,11 +548,13 @@ const PortfolioPage: NextPage = () => {
                           {'"'}
                         </span>
                       </div>
-                      <div>Recommendations:</div>
-                      <ul>
-                        <li>Make sure all the words are properly spelled.</li>
-                        <li>Try using other keywords.</li>
-                      </ul>
+                      <div className="sorry-recommendations">
+                        <div>Recommendations:</div>
+                        <ul>
+                          <li>Make sure all the words are properly spelled.</li>
+                          <li>Try using other keywords.</li>
+                        </ul>
+                      </div>
                     </Styles.PortfolioSearchWarning>
                   ) : (
                     <Styles.PortfolioTemplateBlock />
@@ -564,9 +567,9 @@ const PortfolioPage: NextPage = () => {
           </Styles.PortfolioContainer>
         </>
       ) : (
-        <Styled.AdminUnauthorizedModal>
+        <Styles.AdminUnauthorizedModal>
           Something went wrong :(
-        </Styled.AdminUnauthorizedModal>
+        </Styles.AdminUnauthorizedModal>
       )}
     </Loader>
   );

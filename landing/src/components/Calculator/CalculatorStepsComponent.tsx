@@ -1,28 +1,9 @@
-import React, { Children, ReactNode } from "react";
+import React, { Children } from "react";
+
 import CalculatorStepsFormContent from "./CalculatorStepsFormContent";
 import CalculatorQuittingPager from "./CalculatorQuttingPager";
-import { ICalendlyUserData } from "../../types/ModalCategory.types";
 
-interface ICalculatorStepsComponentProps {
-  step: number;
-  previousSteps: number[];
-  stepsCount: number;
-  handleClose: () => void;
-  handleQuit: () => void;
-  setIsChosen: React.Dispatch<React.SetStateAction<boolean>>;
-  setStep: React.Dispatch<React.SetStateAction<number>>;
-  setPreviousSteps: React.Dispatch<React.SetStateAction<number[]>>;
-  calculateIsClicked: boolean;
-  isQuitting: boolean;
-  setIsQuitting: React.Dispatch<React.SetStateAction<boolean>>;
-  setCalculateIsClicked: React.Dispatch<React.SetStateAction<boolean>>;
-  warnIsShow: boolean;
-  setWarnIsShow: React.Dispatch<React.SetStateAction<boolean>>;
-  children: ReactNode;
-  isBlockchain: boolean;
-  setIsCalendlyOpen: React.Dispatch<React.SetStateAction<boolean>>;
-  setCalendlyUserData: React.Dispatch<React.SetStateAction<ICalendlyUserData>>;
-}
+import { ICalculatorStepsComponentProps } from "../../types/Admin/Response.types";
 
 const CalculatorStepsComponent = ({
   step,

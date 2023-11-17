@@ -73,8 +73,23 @@ export const BlackButton = styled.button`
     font-size: 22px;
     padding: 0;
     &.contactPage {
-      width: 196px;
-      height: 54px;
+      width: 252px;
+      height: 70px;
+
+      @media ${themes.primary.media.maxPCFullHD} {
+        width: 196px;
+        height: 54px;
+      }
+
+      @media ${themes.primary.media.maxMobile} {
+        width: 243px;
+        height: 58px;
+        text-transform: uppercase;
+      }
+
+      @media ${themes.primary.media.maxLowScreenMobile} {
+        text-transform: initial;
+      }
     }
   }
 
@@ -91,10 +106,11 @@ export const BlackButton = styled.button`
       width: 235.5px;
       height: 72px;
       font-size: 27.5px;
+
       &.contactPage {
         width: 252px;
-        height: 76px;
-        font-size: 26px;
+        height: 72px;
+        font-size: 28px;
       }
     }
   }

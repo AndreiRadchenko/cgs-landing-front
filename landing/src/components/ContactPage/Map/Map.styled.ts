@@ -14,9 +14,14 @@ export const MapContainer = styled.div`
     justify-content: center;
     height: 305px;
   }
+
   @media ${themes.primary.media.maxMobile} {
-    margin-left: -20px;
+    margin-left: -45px;
     border-top: 1px solid ${themes.primary.colors.loaderSpinner};
+  }
+
+  @media ${themes.primary.media.maxLowScreenMobile} {
+    margin-left: -20px;
   }
 `;
 
@@ -40,7 +45,13 @@ export const PointerImage = styled.div`
     height: 37px;
   }
   @media ${themes.primary.media.maxMobile} {
+    top: 54%;
+    left: 55.25%;
     font-size: 18px;
+  }
+  @media ${themes.primary.media.maxLowScreenMobile} {
+    top: 54%;
+    left: 58%;
     color: ${themes.primary.colors.darkBlue};
   }
 `;

@@ -1,9 +1,6 @@
-import React, { ReactNode } from "react";
+import React from "react";
 
-interface ICalculatorChooseLineProps {
-  mobile?: boolean;
-  children: ReactNode;
-}
+import { ICalculatorChooseLineProps } from "../../types/Admin/Response.types";
 
 const CalculatorChooseLine = ({
   mobile,

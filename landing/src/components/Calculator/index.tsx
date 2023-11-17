@@ -8,18 +8,12 @@ import React, {
 import { Formik, FormikHelpers } from "formik";
 import { useMutation, useQuery } from "@tanstack/react-query";
 
-import { queryKeys } from "../../consts/queryKeys";
-import { adminCalculatorService } from "../../services/adminCalculator";
-import { SplitBrackets } from "../../utils/splitBrackets";
 import BlackButtonComponent from "../BlackButtonWithArrow";
 import CalculatorPagerComponent from "./CalculatorPagerComponent";
 import CalculatorStepsComponent from "./CalculatorStepsComponent";
 import CalculatorField from "./CalculatorTitleField";
 import CalculatorInputField from "./CalculatorInputs";
 import CalculatorCompletedPager from "./CalculatorCompletedPager";
-import { getResults } from "../../utils/getCalculatorResults";
-import { DisableScrollBarHandler } from "../../utils/disableScrollBarHandler";
-import { CalculatorValidation } from "../../validations/CalculatorValidation";
 
 import {
   ICalculatorFormValuesProps,
@@ -31,7 +25,13 @@ import {
 } from "../../types/Admin/Response.types";
 import * as Styled from "../../styles/Calculator/CalculatorComponent.styled";
 
+import { queryKeys } from "../../consts/queryKeys";
 import { ICalendlyUserData } from "../../types/ModalCategory.types";
+import { adminCalculatorService } from "../../services/adminCalculator";
+import { SplitBrackets } from "../../utils/splitBrackets";
+import { getResults } from "../../utils/getCalculatorResults";
+import { DisableScrollBarHandler } from "../../utils/disableScrollBarHandler";
+import { CalculatorValidation } from "../../validations/CalculatorValidation";
 
 interface ICalculatorProps {
   isChatOpen: boolean;

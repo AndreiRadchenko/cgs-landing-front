@@ -11,14 +11,22 @@ import PlayTriangle from "../../../public/BlogDecorations/Podcast/PlayTriangle.s
 import StopButton from "../../../public/StopButton.svg";
 
 const PodcastItem = ({ data }: IPodcastItemProps) => {
+  const [isPlayerLoaded, setIsPlayerLoaded] = useState(false);
   const [playbackRate, setPlaybackRate] = useState(1);
   const [playing, setPlaying] = useState(false);
   const [, setSeeking] = useState(false);
   const [played, setPlayed] = useState(0);
   const [playedSeconds, setPlayedSeconds] = useState("0");
   const [duration, setDuration] = useState(0);
-  const [remainingTime, setRemainingTime] = useState("");
+  const [remainingTime, setRemainingTime] = useState("04:58");
   const playerRef = useRef<ReactPlayer>(null);
+
+  const handlePlayClick = async () => {
+    if (!isPlayerLoaded) {
+      await setIsPlayerLoaded(true);
+    }
+    setPlaying((prevState) => !prevState);
+  };
 
   const handlePlaybackRateClick = () =>
     playbackRate === 2 ? setPlaybackRate(1) : setPlaybackRate(2);
@@ -78,7 +86,7 @@ const PodcastItem = ({ data }: IPodcastItemProps) => {
         }}
         ref={playerRef}
         controls
-        url={data.link}
+        url={isPlayerLoaded ? data.link : "/"}
         playbackRate={playbackRate}
         playing={playing}
         played={0.5}
@@ -124,9 +132,7 @@ const PodcastItem = ({ data }: IPodcastItemProps) => {
                 <Styled.SecondsLeft>15</Styled.SecondsLeft>
               </Styled.LeftArrow>
               <Styled.PlayButton
-                onClick={() => {
-                  setPlaying((prevState) => !prevState);
-                }}
+                onClick={handlePlayClick}
                 src={playing ? StopButton.src : PlayButton.src}
               />
               <Styled.RightArrow onClick={handleForw}>

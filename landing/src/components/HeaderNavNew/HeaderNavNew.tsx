@@ -1,20 +1,14 @@
-import React, {
-  Dispatch,
-  SetStateAction,
-  useEffect,
-  useRef,
-  useState,
-} from "react";
+import React, { Dispatch, SetStateAction, useRef, useState } from "react";
 import Link from "next/link";
+import { useMediaQuery } from "@mui/material";
+import dynamic from "next/dynamic";
 
 import Logo from "./Logo";
 import HeaderDropdown from "./HeaderDropdown";
 import HeaderBurgerDropdown from "./HeaderBurgerDropdown";
 import BurgerButton from "../BurgerMenu/BurgerButton";
-import BurgerMenu from "../BurgerMenu/BurgerMenu";
-import ProgrammableSearchBar from "./ProgrammableSearchBar";
+const BurgerMenu = dynamic(() => import("../BurgerMenu/BurgerMenu"));
 
-import { useWindowDimension } from "../../hooks/useWindowDimension";
 import { DisableScrollBarHandler } from "../../utils/disableScrollBarHandler";
 
 import * as StyledThisComp from "./HeaderNav.styled";
@@ -29,51 +23,22 @@ const HeaderNavNew = ({
   setOpenFailedModal?: Dispatch<SetStateAction<boolean>>;
   clickFromEstimationForm?: boolean;
 }): JSX.Element => {
-  const headerRef = useRef<HTMLDivElement>(null);
   const burgerRef = useRef<HTMLDivElement>(null);
   const [isScrolled, setIsScrolled] = useState<boolean>(false);
   const [isOpen, setIsOpen] = useState<boolean>(false);
-  const { width } = useWindowDimension();
+  const isMobile = useMediaQuery("(max-width: 768px)");
 
   const toggleBurgerHandler = () => {
+    if (isMobile && window.scrollY) {
+      setIsScrolled(isOpen);
+    }
     setIsOpen((old) => !old);
-  };
-
-  const onScroll = () => {
-    const elBottom = headerRef?.current?.getBoundingClientRect().bottom || 0;
-    const scrollY = window.scrollY;
-
-    if (burgerRef.current?.classList[2] === "open") {
-      setIsScrolled(burgerRef.current?.scrollTop > 0);
-
-      return;
-    }
-
-    if (elBottom != scrollY) {
-      setIsScrolled(true);
-
-      return;
-    }
-
-    setIsScrolled(false);
   };
 
   const handlePortfolioClick = () => {
     if (window.location.pathname === "/portfolio")
       window.location.href = "/portfolio";
   };
-
-  useEffect(() => {
-    onScroll();
-    window.addEventListener("scroll", onScroll, true);
-
-    return window.removeEventListener("scroll", onScroll);
-  }, []);
-
-  useEffect(() => {
-    isOpen && width && width > 768 && setIsOpen(false);
-    width && width < 768 && onScroll();
-  }, [width, isOpen]);
 
   DisableScrollBarHandler(isOpen);
 
@@ -97,54 +62,62 @@ const HeaderNavNew = ({
           </StyledThisComp.LogoLinkWrapper>
           <BurgerButton isOpen={isOpen} onToggle={toggleBurgerHandler} />
         </StyledThisComp.NavBarWrapper>
-        {width && width > 768 && <ProgrammableSearchBar />}
-        <BurgerMenu isOpen={isOpen} burgerRef={burgerRef}>
-          {navigationRoutesNamesNew.map(({ route, withDropdown, tags }, ind) =>
-            withDropdown ? (
-              <HeaderBurgerDropdown
-                tags={tags ? tags : []}
-                dropdownName={route}
-                key={route + ind}
-              />
-            ) : (
-              <Link key={route + ind} href={routersNew[ind]} passHref>
-                <StyledThisComp.BurgerLinkText
-                  onClick={
-                    routersNew[ind] === "/portfolio"
-                      ? handlePortfolioClick
-                      : undefined
-                  }
-                >
-                  {route}
-                </StyledThisComp.BurgerLinkText>
-              </Link>
-            )
-          )}
-        </BurgerMenu>
-        <StyledThisComp.NavList>
-          {navigationRoutesNamesNew.map(({ route, withDropdown, tags }, ind) =>
-            !withDropdown ? (
-              <Link key={route + ind} href={routersNew[ind]} passHref>
-                <StyledThisComp.ListItemNav
-                  key={route + ind}
-                  onClick={
-                    routersNew[ind] === "/portfolio"
-                      ? handlePortfolioClick
-                      : undefined
-                  }
-                >
-                  <StyledThisComp.LinkText>{route}</StyledThisComp.LinkText>
-                </StyledThisComp.ListItemNav>
-              </Link>
-            ) : (
-              <HeaderDropdown
-                tags={tags ? tags : []}
-                dropdownName={route}
-                key={route + ind}
-              />
-            )
-          )}
-        </StyledThisComp.NavList>
+        {isMobile ? (
+          <BurgerMenu
+            isOpen={isOpen}
+            burgerRef={burgerRef}
+            setIsScrolled={setIsScrolled}
+          >
+            {navigationRoutesNamesNew.map(
+              ({ route, withDropdown, tags }, ind) =>
+                withDropdown ? (
+                  <HeaderBurgerDropdown
+                    tags={tags ? tags : []}
+                    dropdownName={route}
+                    key={route + ind}
+                  />
+                ) : (
+                  <Link key={route + ind} href={routersNew[ind]} passHref>
+                    <StyledThisComp.BurgerLinkText
+                      onClick={
+                        routersNew[ind] === "/portfolio"
+                          ? handlePortfolioClick
+                          : undefined
+                      }
+                    >
+                      {route}
+                    </StyledThisComp.BurgerLinkText>
+                  </Link>
+                )
+            )}
+          </BurgerMenu>
+        ) : (
+          <StyledThisComp.NavList>
+            {navigationRoutesNamesNew.map(
+              ({ route, withDropdown, tags }, ind) =>
+                !withDropdown ? (
+                  <Link key={route + ind} href={routersNew[ind]} passHref>
+                    <StyledThisComp.ListItemNav
+                      key={route + ind}
+                      onClick={
+                        routersNew[ind] === "/portfolio"
+                          ? handlePortfolioClick
+                          : undefined
+                      }
+                    >
+                      <StyledThisComp.LinkText>{route}</StyledThisComp.LinkText>
+                    </StyledThisComp.ListItemNav>
+                  </Link>
+                ) : (
+                  <HeaderDropdown
+                    tags={tags ? tags : []}
+                    dropdownName={route}
+                    key={route + ind}
+                  />
+                )
+            )}
+          </StyledThisComp.NavList>
+        )}
       </StyledThisComp.HeaderNavContainer>
     </StyledThisComp.HeaderWrapper>
   );

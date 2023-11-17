@@ -232,7 +232,7 @@ export const ScreenBlock = styled.div`
   width: 58em;
   height: 32.59em;
   background-size: contain;
-
+  position: relative;
   &.screenNew {
     position: relative;
     background: none;
@@ -348,7 +348,6 @@ export const projectorLoaderBg = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  z-index: 10;
   opacity: 1;
 
   &.isScrolled {
@@ -447,8 +446,8 @@ export const MobileCamera = styled.img`
   width: 430px;
   height: 452.5px;
   right: -30px;
-  margin-top: -150px;
-
+  margin-top: -100px;
+  z-index: -1;
   @media (max-width: 474px) {
     width: 430px;
     height: 392.5px;

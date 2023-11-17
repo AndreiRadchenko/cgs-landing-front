@@ -1,4 +1,4 @@
-import React from "react";
+import React, { CSSProperties } from "react";
 import dynamic from "next/dynamic";
 import { Field, FieldProps } from "formik";
 import { SunEditorReactProps } from "suneditor-react/dist/types/SunEditorReactProps";
@@ -11,13 +11,19 @@ interface ITextEditorProps {
   header?: string;
   name?: string;
   props?: SunEditorReactProps;
+  subtitleStyle?: CSSProperties;
 }
 
 const SunEditor = dynamic(() => import("suneditor-react"), {
   ssr: false,
 });
 
-const TextEditor = ({ name = "", header, props }: ITextEditorProps) => {
+const TextEditor = ({
+  name = "",
+  header,
+  props,
+  subtitleStyle,
+}: ITextEditorProps) => {
   const options: SetOptions = {
     font: ["NAMU"],
     linkRelDefault: {
@@ -45,7 +51,9 @@ const TextEditor = ({ name = "", header, props }: ITextEditorProps) => {
 
   return (
     <div>
-      <Styled.AdminSubTitle>{header}</Styled.AdminSubTitle>
+      <Styled.AdminSubTitle style={subtitleStyle}>
+        {header}
+      </Styled.AdminSubTitle>
       <Styled.TextEditorContainer>
         <Field name={name}>
           {({ field }: FieldProps) => (

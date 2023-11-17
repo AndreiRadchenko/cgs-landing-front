@@ -19,6 +19,8 @@ import * as Styled from "../../styles/CV/CV.styled";
 import { CvData } from "../../types/Admin/AdminCv.types";
 import { queryKeys } from "../../consts/queryKeys";
 import { calendlyPopupInfoHandler } from "../../utils/calendlyPopupInfoHandler";
+import { useCalendlyEventListener } from "react-calendly";
+import { useGetCelendlyMeetingData } from "../../hooks/useGetCelendlyMeetingData";
 
 export interface ICvResponse {
   data: CvData | undefined;
@@ -41,12 +43,16 @@ const CV = () => {
 
   calendlyPopupInfoHandler(() => setIsCalendlySuccessfull(true));
 
+  const { dateTime, joinLink } = useGetCelendlyMeetingData();
+
   return (
     <>
       {data && (
         <>
           {isCalendlySuccessfull && (
             <CalendlyInfoModal
+              celendlyUri={joinLink}
+              dateTime={dateTime}
               isOpen={isCalendlySuccessfull}
               setIsCalendlySuccessfull={setIsCalendlySuccessfull}
             />

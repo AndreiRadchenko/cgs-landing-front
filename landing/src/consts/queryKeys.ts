@@ -128,4 +128,6 @@ export const queryKeys = {
   getTechnologies: "getTechnologies",
   updateTechnologies: "updateTechnologies",
   removeTechnologies: "removeTechnologies",
+  // calendly
+  getCalendlyEvent: "getCalendlyEvent"
 };

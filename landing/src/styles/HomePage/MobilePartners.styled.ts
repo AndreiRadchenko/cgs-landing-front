@@ -22,20 +22,9 @@ export const Wrapper = styled.section`
 `;
 
 export const PartnerImageWrapper = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100%;
-`;
-
-export const Image = styled.img`
-  @media ${themes.primary.media.maxMobile} {
-    width: 75%;
-    max-height: 85%;
-    object-fit: contain;
-  }
-  @media ${themes.primary.media.maxLowestScreenMobile} {
-    width: 95%;
-    object-fit: contain;
-  }
+  position: relative;
+  width: calc(clamp(98px, calc(98px + (100vw - 375px) * 0.31), 220px));
+  height: calc(
+    clamp(71px, 71px + (100vw - 375px) * ((160 - 71) / (768 - 375)), 160px)
+  );
 `;

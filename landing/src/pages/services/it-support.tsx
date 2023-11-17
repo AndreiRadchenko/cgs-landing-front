@@ -26,6 +26,8 @@ import { adminSupportService } from "../../services/services/adminServiceSupport
 import { adminGlobalService } from "../../services/adminHomePage";
 
 import { calendlyPopupInfoHandler } from "../../utils/calendlyPopupInfoHandler";
+import { useCalendlyEventListener } from "react-calendly";
+import { useGetCelendlyMeetingData } from "../../hooks/useGetCelendlyMeetingData";
 
 export async function getServerSideProps() {
   const queryClient = new QueryClient();
@@ -59,6 +61,8 @@ const OngoingSupport = () => {
 
   calendlyPopupInfoHandler(() => setIsCalendlySuccessfull(true));
 
+  const { dateTime, joinLink } = useGetCelendlyMeetingData();
+
   return (
     <Loader active={isLoading}>
       {isLoading ? (
@@ -67,6 +71,8 @@ const OngoingSupport = () => {
         <>
           {isCalendlySuccessfull && (
             <CalendlyInfoModal
+              celendlyUri={joinLink}
+              dateTime={dateTime}
               isOpen={isCalendlySuccessfull}
               setIsCalendlySuccessfull={setIsCalendlySuccessfull}
             />

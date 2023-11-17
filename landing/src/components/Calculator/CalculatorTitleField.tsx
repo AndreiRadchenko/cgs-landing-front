@@ -1,4 +1,5 @@
 import React from "react";
+
 import * as Styled from "../../styles/Calculator/CalculatorComponent.styled";
 
 interface ICalculatorTitleField {

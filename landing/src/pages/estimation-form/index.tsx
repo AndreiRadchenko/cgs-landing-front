@@ -1,21 +1,21 @@
 import React, { useEffect, useState } from "react";
-import { Loader, LoaderStub } from "../../components/Loader";
+import { dehydrate, QueryClient, useQuery } from "@tanstack/react-query";
+import { useRouter } from "next/router";
 
+import { Loader, LoaderStub } from "../../components/Loader";
 import { HeaderText } from "../../components/EstimationForm/HeaderText";
 import {
   Container,
   ContainerDate,
 } from "../../components/EstimationForm/index.styled";
-
 import FooterNew from "../../components/FooterNew/FooterNew";
 import HeaderNavNew from "../../components/HeaderNavNew/HeaderNavNew";
 import EstimationPage from "../../components/EstimationForm/EstimationPage";
 import ImageBackground from "../../components/EstimationForm/ImageBackground";
-import { IFormData, IFormFileData } from "../../types/EstimationForm.types";
 import EstimationCongratsModal from "../../components/EstimationForm/EstimationCongratsModal";
 import EstimationFailModal from "../../components/EstimationForm/EstimationFailModal";
-import { useRouter } from "next/router";
-import { dehydrate, QueryClient, useQuery } from "@tanstack/react-query";
+
+import { IFormData, IFormFileData } from "../../types/EstimationForm.types";
 import { queryKeys } from "../../consts/queryKeys";
 import { adminGlobalService } from "../../services/adminHomePage";
 import { adminEstimationFormService } from "../../services/adminEstimationForm";

@@ -44,7 +44,6 @@ const TestimonialsAdmin = () => {
           onChangeFunction={handleChange}
         />
         <Formik
-          enableReinitialize
           key={`testimonialsBlock${isNewTestimonial}`}
           validateOnChange={false}
           validateOnBlur={false}

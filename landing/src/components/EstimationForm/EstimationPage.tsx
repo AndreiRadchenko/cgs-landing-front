@@ -10,6 +10,8 @@ import {
   ContainerEstimationForm,
   EstimateNavigation,
   EstimationButtonHelperText,
+  EstimationFormWrapper,
+  EstimationFormElementsWrapper,
 } from "../../styles/EstimationForm.styled";
 
 import Pagination from "./Pagination";
@@ -153,77 +155,82 @@ const EstimationPage = ({
       >
         {({ errors }) => {
           return (
-            <Form>
-              {data?.page.questions.map((question, index) => (
-                <EstimationQuestionField
-                  formData={formData}
-                  attachFilesArr={attachFiles}
-                  setAttachFiles={setAttachFiles}
-                  setFormData={setFormData}
-                  currentPage={pageN}
-                  index={index}
-                  key={question.questionKey}
-                  question={question}
-                  touched={touchedBtn}
-                />
-              ))}
-              {data?.pageCount && (
-                <EstimateNavigation>
-                  <Pagination
-                    pageCount={data?.pageCount}
-                    currentPage={pageN}
-                    setPage={setPage}
-                    setTouched={setTouched}
-                  />
-                  <div style={{ position: "relative" }}>
-                    {((errors.questionsArr && touchedBtn) ||
-                      (errors.username && touchedBtn) ||
-                      (errors.email && touchedBtn)) && (
-                      <EstimationButtonHelperText>
-                        {errors.questionsArr &&
-                          touchedBtn &&
-                          "Seems like you missed some fields. Let us know more about your project."}
-                        {((errors.username && touchedBtn) ||
-                          (errors.email && touchedBtn)) &&
-                          !errors.questionsArr &&
-                          "Seems like you enter invalid data. Please write it correctly."}
-                      </EstimationButtonHelperText>
-                    )}
-                    <StyledButton
-                      onClick={() => {
-                        if (
-                          errors.hasOwnProperty("username") ||
-                          errors.hasOwnProperty("email")
-                        ) {
-                          window.scrollTo({ top: 0, behavior: "smooth" });
-                        }
-                        if (
-                          Object.keys(errors).length !== 0 &&
-                          pageN === data?.pageCount
-                        ) {
-                          const questionWithError = formData.clientAnswers.find(
-                            (answer) =>
-                              answer.required &&
-                              answer.selectedOptions.length === 0
-                          );
+            <EstimationFormWrapper>
+              <Form>
+                <EstimationFormElementsWrapper>
+                  {data?.page.questions.map((question, index) => (
+                    <EstimationQuestionField
+                      formData={formData}
+                      attachFilesArr={attachFiles}
+                      setAttachFiles={setAttachFiles}
+                      setFormData={setFormData}
+                      currentPage={pageN}
+                      index={index}
+                      key={question.questionKey}
+                      question={question}
+                      touched={touchedBtn}
+                    />
+                  ))}
+                </EstimationFormElementsWrapper>
+                {data?.pageCount && (
+                  <EstimateNavigation>
+                    <Pagination
+                      pageCount={data?.pageCount}
+                      currentPage={pageN}
+                      setPage={setPage}
+                      setTouched={setTouched}
+                    />
+                    <div style={{ position: "relative" }}>
+                      {((errors.questionsArr && touchedBtn) ||
+                        (errors.username && touchedBtn) ||
+                        (errors.email && touchedBtn)) && (
+                        <EstimationButtonHelperText>
+                          {errors.questionsArr &&
+                            touchedBtn &&
+                            "Seems like you missed some fields. Let us know more about your project."}
+                          {((errors.username && touchedBtn) ||
+                            (errors.email && touchedBtn)) &&
+                            !errors.questionsArr &&
+                            "Seems like you enter invalid data. Please write it correctly."}
+                        </EstimationButtonHelperText>
+                      )}
+                      <StyledButton
+                        onClick={() => {
                           if (
-                            questionWithError &&
-                            pageN !== questionWithError.pageIndex
+                            errors.hasOwnProperty("username") ||
+                            errors.hasOwnProperty("email")
                           ) {
-                            setPage(questionWithError?.pageIndex as number);
+                            window.scrollTo({ top: 0, behavior: "smooth" });
                           }
-                        }
-                        setTouched(true);
-                      }}
-                      type="submit"
-                    >
-                      {data.page.buttonName}
-                    </StyledButton>
-                  </div>
-                </EstimateNavigation>
-              )}
-              <FocusError />
-            </Form>
+                          if (
+                            Object.keys(errors).length !== 0 &&
+                            pageN === data?.pageCount
+                          ) {
+                            const questionWithError =
+                              formData.clientAnswers.find(
+                                (answer) =>
+                                  answer.required &&
+                                  answer.selectedOptions.length === 0
+                              );
+                            if (
+                              questionWithError &&
+                              pageN !== questionWithError.pageIndex
+                            ) {
+                              setPage(questionWithError?.pageIndex as number);
+                            }
+                          }
+                          setTouched(true);
+                        }}
+                        type="submit"
+                      >
+                        {data.page.buttonName}
+                      </StyledButton>
+                    </div>
+                  </EstimateNavigation>
+                )}
+                <FocusError />
+              </Form>
+            </EstimationFormWrapper>
           );
         }}
       </Formik>

@@ -2,28 +2,26 @@ import styled from "styled-components";
 import LoadingOverlay from "react-loading-overlay-ts";
 import themes from "../../utils/themes";
 
-export const PortfolioStyledLoader = styled(LoadingOverlay)`
-  .MyLoader_overlay {
+interface ILoaderProps {
+  isPortrait?: boolean;
+}
+
+export const PortfolioStyledLoader = styled(LoadingOverlay)<ILoaderProps>`
+  .PortfolioLoader_overlay {
     position: absolute;
+    top: 0;
+    left: 0;
     z-index: 1;
     background: ${themes.primary.colors.blogBackground};
-    width: 100%;
-    min-height: 2130px;
   }
 
-  &.MyLoader_wrapper--active {
-    overflow: hidden;
-    width: 100%;
-    min-height: 2130px;
+  &.PortfolioLoader_wrapper--active {
   }
 
-  @media ${themes.primary.media.maxTabletPortrait} {
-    .MyLoader_overlay {
-      min-height: 2200px;
-    }
-
-    &.MyLoader_wrapper--active {
-      min-height: 2200px;
+  & .PortfolioLoader_content {
+    margin-top: ${({ isPortrait }) => (isPortrait ? "220" : "150px")};
+    @media ${themes.primary.media.maxMobile} {
+      margin-top: 80px;
     }
   }
 `;
@@ -89,22 +87,31 @@ export const StyledLoader = styled(LoadingOverlay)`
 
   .MyLoader_overlay {
     background: ${themes.primary.colors.blogBackground};
-    width: 100%;
-    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 1000;
   }
-  &.MyLoader_wrapper--active {
-    display: flex;
-    justify-content: center;
-    overflow: hidden;
-    width: 100%;
-    height: 100%;
+
+  &.MyLoader_wrapper--active.getEstimationButton {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 1000;
+    opacity: 0.5;
   }
+
   & .MyLoader_content {
+    position: fixed;
     display: flex;
     align-items: center;
     justify-content: center;
     margin: 0;
-    height: 100vh;
+    height: 100%;
     width: 100%;
   }
 

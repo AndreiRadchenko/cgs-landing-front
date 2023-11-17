@@ -22,8 +22,7 @@ export const Emails = ({ emails }: EmailProps) => {
             <PopupWrapper key={idx}>
               <ContactButton
                 key={idx}
-                style={{ width: "322px", height: "58px" }}
-                className={"email-button"}
+                className="email-button"
                 text={item.email}
                 link={"mailto: " + item.email}
               />

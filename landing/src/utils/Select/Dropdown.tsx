@@ -19,6 +19,7 @@ interface IDropdown {
   prefix?: string;
   additionalLogic?: () => void;
   setIsFirstLoad?: React.Dispatch<React.SetStateAction<boolean>>;
+  pointsWrapperClassName?: string;
 }
 
 const Dropdown = ({
@@ -34,10 +35,11 @@ const Dropdown = ({
   prefix = "",
   additionalLogic,
   setIsFirstLoad,
+  pointsWrapperClassName,
 }: IDropdown) => {
   const modalRef = useRef<any>(null);
   const [isOpen, setIsOpen] = useState<boolean>(false);
-  const minPcFullHD = useMediaQuery("(min-width: 1800px)")
+  const minPcFullHD = useMediaQuery("(min-width: 1800px)");
 
   const onBlur = () => {
     setIsOpen(false);
@@ -55,9 +57,18 @@ const Dropdown = ({
         type={type}
       >
         <span>{dropdownName}</span>
-        <Image width={minPcFullHD ? 12 : 9} height={minPcFullHD ? 8 : 5} src={Arrow.src} alt="Arrow" />
+        <Image
+          width={minPcFullHD ? 12 : 9}
+          height={minPcFullHD ? 8 : 5}
+          src={Arrow.src}
+          alt="Arrow"
+        />
       </Styled.DropdownButton>
-      <Styled.DropdownContent className={isOpen ? `open ` : undefined}>
+      <Styled.DropdownContent
+        className={
+          isOpen ? `open ${pointsWrapperClassName}` : pointsWrapperClassName
+        }
+      >
         {tags.map((tag) => (
           <div
             className={filters.includes(tag) ? "checked" : ""}

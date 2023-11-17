@@ -19,6 +19,8 @@ export const PointerPopup = styled.div`
   @media ${themes.primary.media.maxMobile} {
     width: 239px;
     height: 72px;
+  }
+  @media ${themes.primary.media.maxLowScreenMobile} {
     visibility: visible;
     opacity: 1;
   }

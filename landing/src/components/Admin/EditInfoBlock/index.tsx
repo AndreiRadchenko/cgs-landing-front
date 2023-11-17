@@ -1,5 +1,4 @@
 import React from "react";
-import dynamic from "next/dynamic";
 import { useFormikContext } from "formik";
 
 import LeftSideBlock from "./LeftSide";
@@ -7,6 +6,7 @@ import PhotoBlockDashed from "../Global/PhotoBlockDashed";
 import SubHeaderWithInput from "../Global/SubHeaderWithInput";
 import useUploadImageFunction from "../../../hooks/useUploadImageFunction";
 import useDeleteImageFunction from "../../../hooks/useDeleteImageFunction";
+import TextEditor from "../../TextEditor/TextEditor";
 
 import {
   ArrowContainer,
@@ -16,10 +16,6 @@ import * as Styled from "../../../styles/AdminPage";
 import ButtonArrow from "../../../utils/ButtonArrow";
 import { IImage } from "../../../types/Admin/Admin.types";
 import { IDataResponse } from "../../../types/Admin/Response.types";
-
-const TextEditor = dynamic(() => import("../../TextEditor/TextEditor"), {
-  ssr: false,
-});
 
 const EditInformationBlock = () => {
   const { values, handleChange, handleSubmit } =

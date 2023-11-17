@@ -12,7 +12,7 @@ export const FormMobileAlign = styled.div`
 
 export const FormFieldContainer = styled.div`
   position: relative;
-  width: 447px;
+  width: 424px;
 
   @media (max-width: 1799px) {
     width: 318px;
@@ -25,9 +25,19 @@ export const FormFieldContainer = styled.div`
     flex-direction: column;
   }
 
+  @media (max-width: 790px) {
+    width: 100%;
+    margin-bottom: 3px;
+    height: 71px;
+  }
+
+  @media (max-width: 475px) {
+    margin-bottom: 7px;
+  }
+
   .react-tel-input {
     box-sizing: border-box;
-    height: 76px;
+    height: 72px;
     width: 100%;
     background: none;
     border: 1px solid ${themes.primary.colors.inputGrey};
@@ -63,15 +73,17 @@ export const FormFieldContainer = styled.div`
       font-size: 16px;
       transition: transform 200ms ease 0ms;
       transform-origin: center left;
+
       @media ${themes.primary.media.minPCFullHD} {
-        font-size: 1.2em;
-        top: 18px;
-        left: 70px;
+        font-size: 20px;
+        top: 23px;
+        left: 85px;
       }
     }
 
     &:focus-within .special-label,
     &.filled .special-label {
+      z-index: 20;
       transform: translate(-45px, -27px) scale(0.75);
       @media ${themes.primary.media.minPCFullHD} {
         transform: translate(-60px, -37px) scale(0.75);
@@ -92,6 +104,7 @@ export const FormFieldContainer = styled.div`
     .flag-dropdown,
     .selected-flag,
     .flag-dropdown.open .selected-flag {
+      background-color: ${themes.primary.colors.blogBackground};
     }
 
     .flag-dropdown {
@@ -160,6 +173,18 @@ export const FormFieldContainer = styled.div`
           }
         }
       }
+      @media ${themes.primary.media.minPCFullHD} {
+        width: 363px;
+        font-size: 20px;
+
+        & .search > input {
+          font-size: 20px;
+        }
+      }
+    }
+
+    @media ${themes.primary.media.minPCFullHD} {
+      padding-left: 18.3px;
     }
   }
 `;
@@ -176,17 +201,21 @@ export const FormField = styled(TextField)`
   border-radius: 0;
 
   .MuiInputBase-root.MuiOutlinedInput-root {
-    height: 76px;
+    height: 72px;
     display: flex;
     align-items: center;
+
     font-family: ${themes.primary.font.family.namu};
     font-weight: 900;
+
     @media (max-width: 1799px) {
       height: 54px;
     }
   }
 
   .MuiOutlinedInput-notchedOutline {
+    display: flex;
+    align-items: center;
     border: 1px solid ${themes.primary.colors.inputGrey};
     border-radius: 0;
     width: 100%;
@@ -194,7 +223,8 @@ export const FormField = styled(TextField)`
 
   .MuiInputBase-input.MuiOutlinedInput-input {
     @media ${themes.primary.media.minPCFullHD} {
-      font-size: 1.65em;
+      font-size: 1.45em;
+      padding: inherit 18.67px;
     }
   }
 
@@ -231,7 +261,9 @@ export const FormField = styled(TextField)`
 
   .MuiFormLabel-root.MuiInputLabel-root {
     @media ${themes.primary.media.minPCFullHD} {
-      font-size: 1.2em;
+      margin-top: 4px;
+      margin-left: 4px;
+      font-size: 20px;
     }
   }
 
@@ -281,25 +313,45 @@ export const FormFieldWrapper = styled.div`
 
   &:nth-child(3) {
     margin-right: 9px;
+
+    @media ${themes.primary.media.maxPCFullHD} {
+      margin-right: 7px;
+    }
+
     @media ${themes.primary.media.maxTabletLandScape} {
       margin-right: 0px;
+      margin-bottom: 12px;
+    }
+
+    @media ${themes.primary.media.maxMobile} {
+      margin-bottom: 32px;
+    }
+
+    @media ${themes.primary.media.maxLowScreenMobile} {
       margin-bottom: 12px;
     }
   }
 
   @media ${themes.primary.media.maxServiceWeb} {
   }
+
+  @media (max-width: 790px) {
+    width: 100%;
+  }
 `;
 
 export const Form = styled.form`
   display: flex;
-  margin-top: 48px;
+  margin-top: 60px;
+  margin-left: 1.5px;
   align-items: flex-start;
-  gap: 20px;
+  gap: 17px;
   height: 95px;
 
   @media ${themes.primary.media.maxPCFullHD} {
+    margin-top: 48px;
     height: 73px;
+    gap: 20px;
   }
 
   @media ${themes.primary.media.maxLaptop} {
@@ -315,8 +367,12 @@ export const Form = styled.form`
     flex-wrap: nowrap;
     flex-direction: column;
     align-items: flex-start;
-    margin-top: 24px;
+    margin-top: 43px;
     gap: 0;
+  }
+
+  @media ${themes.primary.media.maxLowScreenMobile} {
+    margin-top: 24px;
   }
 `;
 
@@ -332,10 +388,11 @@ export const InputsWrapper = styled.div`
     flex-wrap: wrap;
   }
 
+  @media ${themes.primary.media.maxTabletPortrait} {
+    width: 100%;
+  }
+
   @media ${themes.primary.media.maxMobile} {
-    flex-wrap: nowrap;
-    flex-direction: column;
-    align-items: flex-start;
     gap: 0;
   }
 `;
@@ -347,7 +404,7 @@ export const FormSentContainer = styled.div`
   flex-direction: column;
   /* height: 102px; */
   padding: 0;
-  margin: 0 0 0 -2px;
+  margin-left: -2px;
 
   @media (max-width: 1799px) {
     /* height: 73px; */

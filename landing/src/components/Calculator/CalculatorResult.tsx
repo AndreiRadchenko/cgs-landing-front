@@ -1,11 +1,7 @@
-import React, { ReactNode, useEffect, useRef } from "react";
-import { ResultImageWrapper } from "../../styles/Calculator/CalculatorComponent.styled";
+import React, { useEffect, useRef } from "react";
 
-interface ICalculatorResultProps {
-  mobile?: boolean;
-  children: ReactNode;
-  handleQuit: () => void;
-}
+import { ResultImageWrapper } from "../../styles/Calculator/CalculatorComponent.styled";
+import { ICalculatorResultProps } from "../../types/Admin/Response.types";
 
 const CalculatorResult = ({
   mobile,

@@ -10,7 +10,9 @@ const RateCardContent = ({ services }: { services: IService[] }) => {
   return (
     <RateCardContentContainer>
       {services.map((service, idx) => (
-        <RateCardAccordion key={`${service.name}${idx}`} service={service} />
+        <div className="serviceWrapper" key={`${service.name}${idx}`}>
+          <RateCardAccordion service={service} />
+        </div>
       ))}
     </RateCardContentContainer>
   );

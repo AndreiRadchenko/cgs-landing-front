@@ -151,6 +151,7 @@ const MessageFormComponent = ({
         ) : (
           <TextareaAutosize
             maxRows={4}
+            maxLength={1024}
             name="text"
             placeholder="Write a message..."
             value={formik.values.text}

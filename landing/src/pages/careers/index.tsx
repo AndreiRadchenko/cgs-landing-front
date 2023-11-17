@@ -3,14 +3,17 @@ import Head from "next/head";
 import parse from "html-react-parser";
 import { NextPage } from "next";
 import { dehydrate, QueryClient, useQuery } from "@tanstack/react-query";
-import { queryKeys } from "../../consts/queryKeys";
-import { adminCareersService } from "../../services/adminCareersPage";
-import { CareersProps } from "../../types/Admin/Admin.types";
+
+import Careers from "../../components/Careers";
 import HeaderNavNew from "../../components/HeaderNavNew/HeaderNavNew";
 import FooterNew from "../../components/FooterNew/FooterNew";
+
 import { AdminUnauthorizedModal } from "../../styles/AdminPage";
 import { adminGlobalService } from "../../services/adminHomePage";
-import Careers from "../../components/Careers";
+
+import { queryKeys } from "../../consts/queryKeys";
+import { CareersProps } from "../../types/Admin/Admin.types";
+import { adminCareersService } from "../../services/adminCareersPage";
 
 export async function getServerSideProps() {
   const queryClient = new QueryClient();

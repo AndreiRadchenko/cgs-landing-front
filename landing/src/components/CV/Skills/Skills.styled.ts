@@ -49,6 +49,19 @@ export const Title = styled.h2`
 `;
 
 export const SkillsCardWrapper = styled.div`
+  position: relative;
+  &::after {
+    @media (max-width: 768px) {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      left: -20px;
+      width: 100vw;
+      height: 1px;
+      background-color: ${themes.primary.colors.darkGrey};
+    }
+  }
+
   @media (min-width: 769px) {
     margin-top: 24px;
     margin-left: -51px;
@@ -96,6 +109,7 @@ export const BottomBgImageContainer = styled.div`
   @media ${themes.primary.media.minMobile} {
     bottom: -230px;
     right: -100px;
+    z-index: 1;
   }
 
   @media ${themes.primary.media.minPCFullHD} {

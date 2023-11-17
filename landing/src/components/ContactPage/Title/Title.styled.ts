@@ -11,17 +11,24 @@ export const Subtitle = styled.div`
   margin: 0;
   font-family: "NAMU";
   font-style: normal;
-  font-weight: 900;
-  font-size: 96px;
-  line-height: 89px;
+  font-weight: ${themes.primary.font.weight.heavy};
+  line-height: normal;
   width: 100%;
   height: auto;
+  margin-top: calc(
+          clamp(106px, 106px + (100vw - 1800px) * ((114 - 106) / (1920 - 1800)), 114px)
+  );
+
+  font-size: calc(
+    clamp(64px, 64px + (100vw - 1800px) * ((82 - 64) / (1920 - 1800)), 82px)
+  );
 
   @media (max-width: 2310px) {
     width: 70%;
   }
 
   @media ${themes.primary.media.maxPCFullHD} {
+    line-height: 89px;
     font-size: 64px;
     line-height: 77px;
     margin: 77px 0 0;
@@ -38,10 +45,15 @@ export const Subtitle = styled.div`
   }
 
   @media ${themes.primary.media.maxTabletPortrait} {
-    font-size: 34px;
-    line-height: 41px;
-    margin: 0;
+    font-size: 64px;
+    margin-top: 25px;
     width: 100%;
+    
+    p {
+      margin-block-start: 0;
+      margin-block-end: 0;
+    }
+    
     span {
       &.tech {
         height: 5vw;
@@ -49,8 +61,21 @@ export const Subtitle = styled.div`
     }
   }
 
+  @media ${themes.primary.media.maxMobile} {
+    line-height: normal;
+    font-size: calc(
+      clamp(34px, 34px + (100vw - 375px) * ((64 - 34) / (768 - 375)), 64px)
+    );
+  }
+
   @media ${themes.primary.media.maxLowScreenMobile} {
-    width: 300px;
+    margin-top: 17px;
+
+    & p {
+      margin-block-start: 0em;
+      margin-block-end: 0em;
+    }
+
     & span {
       &.blue {
         height: 5vw;
@@ -65,9 +90,6 @@ export const Subtitle = styled.div`
   & p {
     margin-bottom: 0;
     margin-right: 0;
-    @media ${themes.primary.media.maxMobile} {
-      margin-top: 16px;
-    }
   }
 
   & u {

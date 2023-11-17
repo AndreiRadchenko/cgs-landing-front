@@ -12,7 +12,6 @@ import ArrowBtn from "./svg/ArrowBtn";
 import BtnPolyline from "./svg/BtnPolyline";
 
 import { openInNewTab } from "../../utils/OpenInNewTab";
-import { useWindowDimension } from "../../hooks/useWindowDimension";
 
 const PortfolioProjectComponent = ({
   project,
@@ -21,7 +20,6 @@ const PortfolioProjectComponent = ({
   project: IPortfolioReview;
   loadedImagesCounter?: () => void;
 }) => {
-  const { width } = useWindowDimension();
   const is768px = useMediaQuery("(max-width:768px)");
 
   const splited = is768px ? project.text?.split("^") : project.text?.split("|");
@@ -242,13 +240,8 @@ const PortfolioProjectComponent = ({
 
   const navigateToProjectPage = (url: string, id?: string) => {
     const newUrl = url.toLowerCase().replace(/\s+/g, "-");
-    push(
-      {
-        pathname: `/portfolio/${newUrl}-${id}`,
-        query: { projectId: id },
-      },
-      `/portfolio/${newUrl}-${id}`
-    );
+    const fullPath = `/portfolio/${newUrl}-${id}?projectId=${id}`;
+    window.open(fullPath, "_blank");
   };
 
   useEffect(() => {
@@ -293,8 +286,7 @@ const PortfolioProjectComponent = ({
           className={"image"}
           alt="project image"
           objectFit="cover"
-          height={341}
-          width={652}
+          layout="fill"
           loading="eager"
           onLoad={handleImageLoad}
         />
@@ -346,8 +338,7 @@ const PortfolioProjectComponent = ({
                       key={tech.image.url}
                       src={tech.image.url}
                       alt="tech"
-                      height={80}
-                      width={80}
+                      layout="fill"
                       style={{ filter: "brightness(0) invert(1)" }}
                     />
                   ))

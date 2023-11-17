@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useFormikContext } from "formik";
-import { IFeedback, IDataResponse } from "./../types/Admin/Response.types";
+import { IFeedback, IDataResponse } from "../types/Admin/Response.types";
 
 const useFeedbackLogic = () => {
   const { values, handleSubmit } = useFormikContext<IDataResponse>();

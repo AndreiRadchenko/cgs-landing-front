@@ -23,6 +23,8 @@ import { queryKeys } from "../../consts/queryKeys";
 import { adminCloudService } from "../../services/services/AdminServicesCloudSolution";
 import { adminGlobalService } from "../../services/adminHomePage";
 import { adminPortfolioService } from "../../services/adminPortfolioPage";
+import { useCalendlyEventListener } from "react-calendly";
+import { useGetCelendlyMeetingData } from "../../hooks/useGetCelendlyMeetingData";
 
 export async function getServerSideProps() {
   const queryClient = new QueryClient();
@@ -59,6 +61,8 @@ const CloudService = () => {
 
   calendlyPopupInfoHandler(() => setIsCalendlySuccessfull(true));
 
+  const { dateTime, joinLink } = useGetCelendlyMeetingData();
+
   return (
     <Loader active={isLoading}>
       {isLoading ? (
@@ -67,6 +71,8 @@ const CloudService = () => {
         <>
           {isCalendlySuccessfull && (
             <CalendlyInfoModal
+              celendlyUri={joinLink}
+              dateTime={dateTime}
               isOpen={isCalendlySuccessfull}
               setIsCalendlySuccessfull={setIsCalendlySuccessfull}
             />

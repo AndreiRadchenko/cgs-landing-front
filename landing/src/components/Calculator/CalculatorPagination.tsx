@@ -1,14 +1,8 @@
 import React from "react";
+
 import * as Styled from "../../styles/Calculator/CalculatorComponent.styled";
 
-interface ICalculatorPaginationProps {
-  buttonsPerPage: number;
-  startButtonNum: number;
-  handleStepButtonClick: (idx: number) => void;
-  stepButtonClassName: (idx: number) => string;
-  handleNextClick: () => void;
-  handleBackClick: () => void;
-}
+import { ICalculatorPaginationProps } from "../../types/Admin/Response.types";
 
 const CalculatorPagination = ({
   buttonsPerPage,

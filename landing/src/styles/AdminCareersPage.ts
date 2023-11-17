@@ -1,15 +1,22 @@
 import styled from "styled-components";
+
 import themes from "../utils/themes";
 
 export const MainContainer = styled.div`
   display: flex;
   align-items: center;
-  margin-bottom: 50px;
 `;
 
 export const CareersContainer = styled.div`
-  width: 90em;
-  margin-top: 20px;
+  width: 569px;
+  margin-right: 28px;
+`;
+
+export const Title = styled.h2`
+  font-size: 1.6rem;
+  line-height: 34px;
+  font-family: ${themes.primary.font.family.gilroy};
+  font-weight: ${themes.primary.font.weight.bold};
 `;
 
 export const SubTitle = styled.h3`
@@ -23,11 +30,26 @@ export const SubTitle = styled.h3`
   }
 `;
 
+export const MainTitle = styled.div`
+  width: 1080px;
+`;
+
+export const TitleInput = styled.input`
+  display: block;
+  width: 350px;
+  padding: 19px 14px;
+  border: none;
+  font-size: 1rem;
+  line-height: 19px;
+  font-family: ${themes.primary.font.family.gilroy};
+  font-weight: ${themes.primary.font.weight.normal};
+`;
+
 export const VacancyInput = styled.input`
   display: block;
   width: 100%;
   padding: 19px 14px;
-  border: 1px solid grey;
+  border: none;
   font-size: 1rem;
   line-height: 19px;
   font-family: ${themes.primary.font.family.gilroy};
@@ -35,53 +57,51 @@ export const VacancyInput = styled.input`
   margin-bottom: 15px;
 `;
 
-export const AboutWork = styled.div`
+export const TicketsContainer = styled.div`
   display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
 `;
 
-export const Location = styled.div`
-  width: 34.2%;
+export const TicketsLabel = styled.label`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  cursor: pointer;
 `;
 
-export const TypeOfWork = styled.div`
-  width: 34.2%;
-  margin-left: 15px;
+export const TicketsInput = styled.input`
+  margin-top: 20px;
+  transform: scale(1.8);
+  cursor: pointer;
 `;
 
 export const TicketsButton = styled.button`
   width: 100%;
-  font-family: ${themes.primary.font.family.namu};
-  background: ${themes.primary.colors.primary};
+  background: ${themes.primary.colors.cardDarkGreen};
   border: 0;
-  color: #fff;
-  font-size: 18px;
-  font-weight: 900;
-  line-height: 18px;
-  padding: 20px 50px;
+  font-size: ${themes.primary.font.size.buttonText};
+  font-weight: ${themes.primary.font.weight.semiBold};
+  padding: ${themes.primary.spacing.primary};
   cursor: pointer;
 `;
 
-export const TicketsButtonContainer = styled.div`
-  height: 58px;
-  width: 226px;
-  position: relative;
-  margin-top: 30px;
-  & path {
-    transition: all 1s ease-in-out;
-  }
-  & path:nth-child(1) {
-    z-index: -1;
-    transform: translate(-36px, 36px);
-  }
-  &:hover {
-    & path:nth-child(2) {
-      transform: translate(36px, -36px);
-    }
+export const TicketContainer = styled.div`
+  width: 476px;
+  height: 348px;
+  border: 1px solid black;
+`;
 
-    & path:nth-child(1) {
-      transform: translate(0px, 0px);
-    }
-  }
+export const TitleTextArea = styled.textarea`
+  display: block;
+  width: 350px;
+  overflow-y: hidden;
+  padding: 19px 14px;
+  border: none;
+  font-size: 1rem;
+  line-height: 19px;
+  font-family: ${themes.primary.font.family.gilroy};
+  font-weight: ${themes.primary.font.weight.normal};
 `;
 
 export const ContactFormContainer = styled.div`
@@ -92,7 +112,11 @@ export const ContactFormContainer = styled.div`
 export const FormContainer = styled.div`
   display: flex;
   flex-direction: column;
-  width: 420px;
+`;
+
+export const ImageContainer = styled.div`
+  width: 486px;
+  height: 440px;
 `;
 
 export const FormInput = styled.input`
@@ -100,7 +124,7 @@ export const FormInput = styled.input`
   width: 100%;
   margin-bottom: 10px;
   padding: 19px 14px;
-  border: 1px solid grey;
+  border: none;
   font-size: 1rem;
   line-height: 19px;
   font-family: ${themes.primary.font.family.gilroy};
@@ -113,7 +137,22 @@ export const CvInput = styled.input`
   margin-bottom: 10px;
   margin-right: 10px;
   padding: 19px 14px;
-  border: 1px solid grey;
+  border: none;
+  font-size: 1rem;
+  line-height: 19px;
+  font-family: ${themes.primary.font.family.gilroy};
+  font-weight: ${themes.primary.font.weight.normal};
+`;
+
+export const CvContainer = styled.div`
+  display: flex;
+`;
+
+export const FormTextArea = styled.textarea`
+  display: block;
+  overflow-y: hidden;
+  padding: 19px 14px;
+  border: none;
   font-size: 1rem;
   line-height: 19px;
   font-family: ${themes.primary.font.family.gilroy};
@@ -121,81 +160,24 @@ export const CvInput = styled.input`
 `;
 
 export const IconBox = styled.div`
+  margin-top: 10px;
+  margin-left: auto;
   width: 40px;
   height: 40px;
-  margin-top: 10px;
-`;
-
-export const TicketChange = styled.div`
-  width: 100%;
-`;
-
-export const TicketEditAndDeleteButtons = styled.div`
-  position: absolute;
-  left: 103em;
-  z-index: 10;
-  margin-top: 16em;
-  display: grid;
-  grid-template-columns: 1.5fr 1fr;
-
-  @media (max-width: 2560px) {
-    left: 113em;
-    margin-top: 10em;
-  }
-
-  @media (max-width: 2400px) {
-    left: 110em;
-  }
-
-  @media (max-width: 2125px) {
-    left: 108em;
-  }
-
-  @media (max-width: 1920px) {
-    left: 106em;
-  }
-
-  @media (max-width: 1850px) {
-    left: 103em;
-  }
-
-  @media (max-width: 1800px) {
-    margin-top: 12em;
-    left: 106em;
-  }
-
-  @media (max-width: 1620px) {
-    left: 103em;
-  }
-
-  @media (max-width: 1560px) {
-    left: 101.5em;
-    margin-top: 12em;
-  }
-
-  @media (max-width: 1500px) {
-    left: 103em;
-    margin-top: 13em;
-  }
-
-  @media (max-width: 1440px) {
-    left: 103em;
-    margin-top: 14em;
-  }
-
-  @media (max-width: 1200px) {
-    left: 104.5em;
-  }
+  cursor: pointer;
 `;
 
 export const DeleteBtn = styled.button`
+  padding: 3px;
   border: 0;
-  background: transparent;
-  padding: 0;
+  background-color: inherit;
+  margin-left: auto;
   color: red;
-  font-weight: ${themes.primary.font.weight.medium};
+  width: 110px;
+  font-weight: ${themes.primary.font.weight.semiBold};
   font-size: 16px;
   line-height: 19px;
+  cursor: pointer;
 `;
 
 export const TicketBox = styled.div`

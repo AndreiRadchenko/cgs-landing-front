@@ -26,6 +26,8 @@ import * as Styled from "../../styles/DbService/Layout";
 import { Layout, PageArticle } from "../../styles/Layout.styled";
 
 import { queryKeys } from "../../consts/queryKeys";
+import { useCalendlyEventListener } from "react-calendly";
+import { useGetCelendlyMeetingData } from "../../hooks/useGetCelendlyMeetingData";
 
 export async function getServerSideProps() {
   const queryClient = new QueryClient();
@@ -62,6 +64,8 @@ const DbSolutions: NextPage = () => {
 
   calendlyPopupInfoHandler(() => setIsCalendlySuccessfull(true));
 
+  const { dateTime, joinLink } = useGetCelendlyMeetingData();
+
   return (
     <Loader active={isLoading}>
       {isLoading ? (
@@ -70,6 +74,8 @@ const DbSolutions: NextPage = () => {
         <>
           {isCalendlySuccessfull && (
             <CalendlyInfoModal
+              celendlyUri={joinLink}
+              dateTime={dateTime}
               isOpen={isCalendlySuccessfull}
               setIsCalendlySuccessfull={setIsCalendlySuccessfull}
             />

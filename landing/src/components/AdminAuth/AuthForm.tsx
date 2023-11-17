@@ -1,16 +1,19 @@
+import React, { useState } from "react";
 import { Formik } from "formik";
-import React from "react";
-import AuthSubmitButton from "./AuthButton";
-import * as Styled from "../../styles/AdminAuth";
-import { AdminAuthValidation } from "../../validations/AdminAuthValidation";
-import { IAdmin, IRes } from "../../types/Admin/Admin.types";
-import { useState } from "react";
+import { useRouter } from "next/router";
 import { useMutation } from "@tanstack/react-query";
+
+import AuthSubmitButton from "./AuthButton";
+import AdminAuthFormInput from "./AdminAuthFormInput";
+
+import * as Styled from "../../styles/AdminAuth";
+
+import { IAdmin, IRes } from "../../types/Admin/Admin.types";
+
+import { AdminAuthValidation } from "../../validations/AdminAuthValidation";
 import { authService } from "../../services/login";
 import { initAdmin, storeKeys } from "../../consts";
 import { queryKeys } from "../../consts/queryKeys";
-import { useRouter } from "next/router";
-import AdminAuthFormInput from "./AdminAuthFormInput";
 
 const AdminAuthForm = () => {
   const [errorMessage, setErrorMessage] = useState("");

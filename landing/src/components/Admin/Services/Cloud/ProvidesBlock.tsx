@@ -1,20 +1,16 @@
 import React from "react";
 import { useFormikContext } from "formik";
-import dynamic from "next/dynamic";
 
-import { AdminPaddedBlock, AdminHalfGrid } from "../../../../styles/AdminPage";
+import TextEditor from "../../../TextEditor/TextEditor";
 import SubHeaderWithInput from "../../Global/SubHeaderWithInput";
 import ButtonArrow from "../../../../utils/ButtonArrow";
+
+import { AdminPaddedBlock, AdminHalfGrid } from "../../../../styles/AdminPage";
 import {
   ArrowContainer,
   BlackButton,
 } from "../../../../styles/HomePage/General.styled";
-
 import { ICloudService } from "../../../../types/Admin/Response.types";
-
-const TextEditor = dynamic(() => import("../../../TextEditor/TextEditor"), {
-  ssr: false,
-});
 
 const ProvidesBlock = () => {
   const { values, handleChange, handleSubmit } =

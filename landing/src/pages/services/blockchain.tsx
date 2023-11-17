@@ -24,6 +24,8 @@ import { adminBlockchainService } from "../../services/services/AdminServiceBloc
 import { adminGlobalService } from "../../services/adminHomePage";
 
 import { queryKeys } from "../../consts/queryKeys";
+import { useCalendlyEventListener } from "react-calendly";
+import { useGetCelendlyMeetingData } from "../../hooks/useGetCelendlyMeetingData";
 
 export async function getServerSideProps() {
   const queryClient = new QueryClient();
@@ -57,6 +59,8 @@ const BlockchainService = () => {
 
   calendlyPopupInfoHandler(() => setIsCalendlySuccessfull(true));
 
+  const { dateTime, joinLink } = useGetCelendlyMeetingData();
+
   return (
     <Loader active={isLoading}>
       {isLoading ? (
@@ -65,6 +69,8 @@ const BlockchainService = () => {
         <>
           {isCalendlySuccessfull && (
             <CalendlyInfoModal
+              celendlyUri={joinLink}
+              dateTime={dateTime}
               isOpen={isCalendlySuccessfull}
               setIsCalendlySuccessfull={setIsCalendlySuccessfull}
             />

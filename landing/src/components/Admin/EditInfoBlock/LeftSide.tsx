@@ -1,16 +1,9 @@
 import React from "react";
-import dynamic from "next/dynamic";
-import { IEditInformation } from "../../../types/Admin/Response.types";
+
+import TextEditor from "../../TextEditor/TextEditor";
 import SubHeaderWithInput from "../../../components/Admin/Global/SubHeaderWithInput";
 
-const TextEditor = dynamic(() => import("../../TextEditor/TextEditor"), {
-  ssr: false,
-});
-
-interface ILeftSideProps {
-  state: IEditInformation;
-  onChangeFunction: (e?: React.ChangeEvent<any> | string) => void;
-}
+import { ILeftSideProps } from "../../../types/Admin/Admin.types";
 
 const LeftSideBlock = ({ state, onChangeFunction }: ILeftSideProps) => {
   return (

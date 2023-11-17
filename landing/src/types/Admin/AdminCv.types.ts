@@ -30,6 +30,8 @@ export interface CvProject {
   projectName: string;
   role: string;
   date: string;
+  startDate?: Date;
+  endDate?: Date;
   summary: string;
   achievements: string[];
   technology: ITechnology[];

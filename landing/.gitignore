@@ -44,3 +44,6 @@ package-lock.json
 
 # typescript
 *.tsbuildinfo
+
+#prettierrc
+.prettierrc

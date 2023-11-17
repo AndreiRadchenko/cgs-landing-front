@@ -40,15 +40,11 @@ const PerksOfCoopComponent = ({
           Object.entries(dataWealth)
             .splice(0, 3)
             .map((el: any, idx) => (
-              <Styles.WorthBlock key={`${el[0]} ${idx}`} ind={idx}>
-                <Styles.WorthTitleContainer className={className}>
-                  <Styles.Icon
-                    src={titleIllustration[idx].src}
-                    alt="worth it title image"
-                    xOffset={handleRandomOffset()}
-                  />
-                  <p>{el[1].subtitle}</p>
-                </Styles.WorthTitleContainer>
+              <Styles.WorthBlock
+                className="card"
+                key={`${el[0]} ${idx}`}
+                ind={idx}
+              >
                 <Styles.WorthCardInfo>
                   <Styles.WorthCardTitle className={className}>
                     <Styles.Icon
@@ -62,6 +58,9 @@ const PerksOfCoopComponent = ({
                   <Styles.WorthText className={className}>
                     <SplitBrackets text={el[1].text} />
                   </Styles.WorthText>
+                  <Styles.ShadowContainer>
+                    <Styles.BlackShadow />
+                  </Styles.ShadowContainer>
                 </Styles.WorthCardInfo>
               </Styles.WorthBlock>
             ))}

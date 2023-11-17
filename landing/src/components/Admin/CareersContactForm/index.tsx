@@ -1,62 +1,85 @@
 import React from "react";
 import { useFormikContext } from "formik";
 
+import PhotoBlockDashed from "../Global/PhotoBlockDashed";
+import useDeleteImageFunction from "../../../hooks/useDeleteImageFunction";
+import useUploadImageFunction from "../../../hooks/useUploadImageFunction";
+
+import * as Styled from "../../../styles/AdminPage";
 import {
   MainContainer,
   CareersContainer,
+  Title,
   SubTitle,
+  TitleTextArea,
   ContactFormContainer,
   FormContainer,
   FormInput,
+  CvContainer,
   CvInput,
+  ImageContainer,
 } from "../../../styles/AdminCareersPage";
-import CareersSubtitleBlock from "./CareersSubtitleBlock";
-import ButtonArrow from "../../../utils/ButtonArrow";
-
-import * as Styled from "../../../styles/AdminCareersPage";
 import { IDataCareersResponse } from "../../../types/Admin/Response.types";
-import { ArrowContainer } from "../../../styles/HomePage/General.styled";
 
 const CareersContactForm = () => {
   const { values, handleChange } = useFormikContext<IDataCareersResponse>();
+
   const { CV, image, text, ...otheForm } = values.form;
+  const uploadImageFunction = useUploadImageFunction(values.form);
+  const deleteImageFunction = useDeleteImageFunction(values.form);
 
   return (
-    <MainContainer>
-      <CareersContainer>
-        <CareersSubtitleBlock />
-        <SubTitle>Form</SubTitle>
-        <ContactFormContainer>
-          <FormContainer>
-            {Object.entries(otheForm).map((el, idx) => (
-              <FormInput
-                key={idx}
-                type="text"
-                name={`form.${el[0]}`}
-                value={el[1]}
-                onChange={handleChange}
-              />
-            ))}
-            <CvInput
-              type="text"
-              name={`form.CV.place`}
-              value={CV.place}
-              onChange={handleChange}
-            />
-          </FormContainer>
-        </ContactFormContainer>
-        <div style={{ marginTop: 30 }}>
-          <Styled.TicketsButtonContainer>
-            <Styled.TicketsButton type="submit">
-              Save Changes
-              <ArrowContainer>
-                <ButtonArrow />
-              </ArrowContainer>
-            </Styled.TicketsButton>
-          </Styled.TicketsButtonContainer>
-        </div>
-      </CareersContainer>
-    </MainContainer>
+    <Styled.AdminPaddedBlock theme="dark">
+      <MainContainer>
+        <CareersContainer>
+          <SubTitle>Subtitle</SubTitle>
+
+          <TitleTextArea
+            name="subtitle2"
+            value={values.subtitle2}
+            placeholder={values.subtitle2}
+            onChange={handleChange}
+          />
+
+          <Title>Contact form</Title>
+
+          <ContactFormContainer>
+            <FormContainer>
+              {Object.entries(otheForm).map((el, idx) => (
+                <FormInput
+                  key={idx}
+                  type="text"
+                  name={`form.${el[0]}`}
+                  value={el[1]}
+                  onChange={handleChange}
+                />
+              ))}
+
+              <CvContainer>
+                {Object.entries(CV).map((el, idx) => (
+                  <CvInput
+                    key={idx}
+                    type="text"
+                    name={`form.CV.${el[0]}`}
+                    value={el[1]}
+                    onChange={handleChange}
+                  />
+                ))}
+              </CvContainer>
+            </FormContainer>
+          </ContactFormContainer>
+        </CareersContainer>
+
+        <ImageContainer>
+          <PhotoBlockDashed
+            photo={image}
+            deleteFlag={true}
+            uploadFunction={uploadImageFunction}
+            deleteFunction={async () => (await deleteImageFunction)()}
+          />
+        </ImageContainer>
+      </MainContainer>
+    </Styled.AdminPaddedBlock>
   );
 };
 

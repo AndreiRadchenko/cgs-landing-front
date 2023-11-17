@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { ElementRef, useEffect, useRef, useState } from "react";
 import SwiperCore, { Navigation, Autoplay } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { useQueryClient } from "@tanstack/react-query";
@@ -21,7 +21,7 @@ SwiperCore.use([Navigation, Autoplay]);
 const Testimonials = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [index, setIndex] = useState(0);
-
+  const prevButtonRef = useRef<HTMLDivElement>(null);
   const queryClient = useQueryClient();
   const data = queryClient.getQueryData<IDataResponse>([
     queryKeys.getFullHomePage,
@@ -32,6 +32,13 @@ const Testimonials = () => {
     else document.body.style.overflow = "unset";
   }, [isOpen]);
 
+  const removeInitialDisabledClassOnSlideChange = () => {
+    const prevButtonElement = prevButtonRef.current;
+    if (prevButtonElement) {
+      prevButtonElement.classList.remove("initialDisabled");
+    }
+  };
+
   return (
     <div>
       <MobileInfiniteText title={data?.title} withoutMargin />
@@ -40,7 +47,10 @@ const Testimonials = () => {
         <Styled.TestimonialsTitle>{data?.title}:</Styled.TestimonialsTitle>
         {data && data?.testimonials.length > 2 && (
           <Styled.TestimonialsSwiperArrowContainer>
-            <ArrowContainer className="prevBtn swiper-button-prev testimonial">
+            <ArrowContainer
+              className="prevBtn swiper-button-prev testimonial initialDisabled"
+              ref={prevButtonRef}
+            >
               <svg
                 width="20"
                 height="18"
@@ -60,7 +70,10 @@ const Testimonials = () => {
                 />
               </svg>
             </ArrowContainer>
-            <ArrowContainer className="nextBtn swiper-button-next testimonial">
+            <ArrowContainer
+              className="nextBtn swiper-button-next testimonial"
+              onClick={removeInitialDisabledClassOnSlideChange}
+            >
               <span>next</span>
               <svg
                 width="20"

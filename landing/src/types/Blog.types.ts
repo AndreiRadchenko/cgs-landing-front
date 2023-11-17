@@ -94,3 +94,8 @@ export interface IBlogTags {
   setInfo: Dispatch<SetStateAction<number>>;
   info: number;
 }
+
+export interface IArticleReadItemMore {
+  article: IArticle;
+  view: number | undefined;
+}

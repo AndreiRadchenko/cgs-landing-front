@@ -52,7 +52,7 @@ export const PaginationItemsWrapper = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: flex-end;
-  column-gap: 8px;
+  column-gap: 16px;
 
   @media ${themes.primary.media.minPCFullHD} {
     column-gap: 0.7em;

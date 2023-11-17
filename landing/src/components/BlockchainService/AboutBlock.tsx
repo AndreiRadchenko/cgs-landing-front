@@ -1,13 +1,17 @@
 import React from "react";
+import Image from "next/image";
 import { useQueryClient } from "@tanstack/react-query";
+import MobileImage from "next/future/image";
+
+import { MobileInfiniteText } from "../MobileInfiniteText/MobileInfiniteText";
+
+import * as Styled from "../../styles/BlockchainService/AboutBlock.styled";
+
 import { queryKeys } from "../../consts/queryKeys";
 import { IBlockchainService } from "../../types/Admin/Response.types";
-import * as Styled from "../../styles/BlockchainService/AboutBlock.styled";
+
 import BlockchainAbout from "../../../public/BlockchainServicePage/BlockchainAbout.svg";
 import MobileBlockchainAbout from "../../../public/BlockchainServicePage/MobileBlockchainAbout.svg";
-import Image from "next/image";
-import MobileImage from "next/future/image";
-import { MobileInfiniteText } from "../MobileInfiniteText/MobileInfiniteText";
 
 const AboutBlock = () => {
   const queryClient = useQueryClient();

@@ -116,7 +116,7 @@ export const Project = ({
                     src={e?.image?.url ? e.image.url : ""}
                     alt="tech"
                     layout="fill"
-                    objectFit="contain"
+                    objectFit="fill"
                   />
                 </div>
               ))}

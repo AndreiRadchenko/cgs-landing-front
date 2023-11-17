@@ -38,7 +38,7 @@ const BookForm = ({ header }: IFormProps) => {
   const [btnState, setBtnState] = useState({
     isDisabled: false,
     isClicked: false,
-    link: "https://calendly.com/d/y5h-6m9-mnr/get-to-know-meeting-with-cgs-team",
+    link: "https://calendly.com/rokhman-tanya/test-meet",
   });
 
   const { placeholders, button } = header;
@@ -69,7 +69,7 @@ const BookForm = ({ header }: IFormProps) => {
       sendTeamEmail.mutate({
         name: values.name,
         email: values.email,
-        phone: value,
+        phone: values.phone,
         country: country,
         service: "Mobile Development",
         details: "new contact form",

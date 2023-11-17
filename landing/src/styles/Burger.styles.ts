@@ -123,9 +123,10 @@ export const FooterIconsWrapper = styled.div`
   justify-content: space-between;
 `;
 
-export const Image = styled.img`
+export const ImageWrapper = styled.div`
+  position: relative;
   height: 32px;
-  max-width: 12vw;
+  width: 45px;
   object-fit: contain;
 `;
 
@@ -149,7 +150,7 @@ export const WhatsAppLink = styled.div`
 `;
 
 export const FooterLink = styled.a`
-  padding-right: 3.65em;
+  padding-right: 2.15em;
 `;
 
 export const MailsWrapper = styled.div``;

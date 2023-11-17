@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useRouter } from "next/router";
 import parse from "html-react-parser";
+import Image from "next/image";
 
 import * as Styled from "../../styles/Blog.styled";
 
@@ -42,11 +43,16 @@ const MainBlogItem = ({
   return (
     <>
       <Styled.MobileColumnReversedContainer>
-        <Styled.MainBlogItemImage
-          src={article.image?.url}
-          alt="main blog image"
-          onLoad={onMainImageLoad}
-        />
+        <Styled.MainBlogItemImage>
+          <Image
+            src={article.image ? article.image.url : "/"}
+            alt="main blog image"
+            layout="fill"
+            objectFit="contain"
+            onLoad={onMainImageLoad}
+          />
+        </Styled.MainBlogItemImage>
+
         <Styled.TechContainer>
           <Styled.MainBlogItemTag>{article.tags[0]}</Styled.MainBlogItemTag>
         </Styled.TechContainer>

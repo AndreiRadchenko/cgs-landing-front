@@ -60,7 +60,7 @@ const BookBlock = () => {
               buttonLink={data?.buttonLink}
               withEstimation
               buttonText={data.button}
-              buttonClassName="homePage"
+              buttonClassName="homePage homeFooter"
             />
             <ButtonShareComponent className="homePage footer" />
           </FooterButtonWrapper>

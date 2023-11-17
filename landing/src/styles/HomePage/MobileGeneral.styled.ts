@@ -199,6 +199,11 @@ export const Subtitle = styled.div`
         font-size: 5vw;
         width: 100%;
         line-height: 132%;
+        
+        & span:first-child > span {
+          display: inline-block;
+          min-width: 295px;
+        }
       }
     }
 
@@ -216,6 +221,10 @@ export const Subtitle = styled.div`
 
     & span {
       white-space: normal !important;
+      
+      &.nextTechMobile {
+        display: block;
+      }
 
       &.blue {
         height: 5vw;
@@ -261,6 +270,10 @@ export const Subtitle = styled.div`
         margin: 0;
         font-size: 32px;
         width: 353px;
+
+        & span:first-child > span {
+          display: inline;
+        }
       }
     }
 

@@ -20,10 +20,23 @@ export const PortfolioContainer = styled.div`
 
 export const PortfolioWrapper = styled.div`
   width: 100%;
-  padding: 0 50px;
+  padding: 0
+    calc(
+      clamp(51px, 51px + (100vw - 1440px) * ((68 - 51) / (1920 - 1440)), 68px)
+    );
+  line-height: 120%;
 
   @media ${themes.primary.media.maxTabletPortrait} {
-    padding: 0 20px;
+    padding: 0
+      calc(
+        clamp(20px, 20px + (100vw - 375px) * ((40 - 20) / (768 - 375)), 40px)
+      );
+  }
+`;
+
+export const PortfolioCategoryOutsideBox = styled.div`
+  @media (max-width: 690px) {
+    height: 108px;
   }
 `;
 
@@ -32,12 +45,17 @@ export const PortfolioCategoryWrapper = styled.div`
   display: flex;
   flex-wrap: wrap;
   justify-content: flex-start;
-  gap: 14px;
-  max-width: 50%;
+  height: calc(
+    clamp(41px, 41px + (100vw - 1440px) * ((54 - 41) / (1920 - 1440)), 54px)
+  );
+  gap: calc(
+    clamp(14px, 14px + (100vw - 1440px) * ((18.7 - 14) / (1920 - 1440)), 18.7px)
+  );
 
   @media ${themes.primary.media.maxTabletPortrait} {
     max-width: 100%;
-    column-gap: 16px;
+    gap: 16px;
+    height: 43px;
     margin-top: 6px;
     justify-content: flex-start;
   }
@@ -45,16 +63,18 @@ export const PortfolioCategoryWrapper = styled.div`
 
 interface IPortfolioCategoryItem {
   blockWidth: string;
-  blockHeight: string;
+  blockHeight?: string;
 }
 
 export const PortfolioCategoryItem = styled.div<IPortfolioCategoryItem>`
   font-family: ${themes.primary.font.family.namu};
-  height: ${({ blockHeight }) => blockHeight};
+  height: ${({ blockHeight }) => blockHeight || "100%"};
   width: ${({ blockWidth }) => blockWidth};
   white-space: nowrap;
   cursor: pointer;
-  font-size: 14px;
+  font-size: calc(
+    clamp(14px, 14px + (100vw - 1440px) * ((18 - 14) / (1920 - 1440)), 18px)
+  );
   color: black;
   display: flex;
   justify-content: center;
@@ -93,14 +113,8 @@ export const PortfolioCategoryItem = styled.div<IPortfolioCategoryItem>`
   }
 
   @media ${themes.primary.media.maxMobile} {
-    font-size: 14px;
-
     &.cv {
       font-size: 14px;
-      max-height: 42px;
-    }
-
-    &.active {
       max-height: 42px;
     }
   }
@@ -109,6 +123,10 @@ export const PortfolioCategoryItem = styled.div<IPortfolioCategoryItem>`
 export const PortfolioSearchWrapper = styled.div`
   display: flex;
   align-items: flex-end;
+
+  @media ${themes.primary.media.minPCFullHD} {
+    align-items: center;
+  }
 
   @media ${themes.primary.media.maxTabletPortrait} {
     align-items: start;
@@ -133,7 +151,9 @@ export const SelectedIndustriesWrapper = styled.div`
 
 export const IndustriesClearButton = styled.button`
   order: 1;
-  font-size: 14px;
+  font-size: calc(
+    clamp(14px, 14px + (100vw - 1440px) * ((18 - 14) / (1920 - 1440)), 18px)
+  );
   background-color: transparent;
   font-family: ${themes.primary.font.family.namu};
   cursor: pointer;
@@ -167,6 +187,11 @@ export const PortfolioSearch = styled.div<IPortfolioSearch>`
   margin-right: 14px;
   transition: 0.5s ease-in-out;
 
+  @media ${themes.primary.media.minPCFullHD} {
+    padding-bottom: 7px;
+    margin-right: 20px;
+  }
+
   @media ${themes.primary.media.maxTabletPortrait} {
     border-bottom: 1px solid #8f8e93;
     width: 334px;
@@ -198,7 +223,10 @@ export const PortfolioFilterWarning = styled.div`
 
 export const PortfolioSearchWarning = styled.div`
   font-family: ${themes.primary.font.family.namu};
-  font-size: 18px;
+  font-size: calc(
+    clamp(18px, 18px + (100vw - 1440px) * ((24 - 18) / (1920 - 1440)), 24px)
+  );
+  line-height: 120%;
   display: flex;
   flex-direction: column;
   color: #8f8e93;
@@ -226,11 +254,30 @@ export const PortfolioSearchWarning = styled.div`
   }
 
   & ul {
+    display: flex;
+    flex-direction: column;
     padding-left: 28px;
     margin: 8px 0 0 0;
+    gap: 6px;
+  }
 
-    & li {
-      padding-bottom: 6px;
+  @media ${themes.primary.media.maxTabletPortrait} {
+    font-size: 16px;
+    line-height: 120%;
+    padding-top: 12px;
+
+    & .sorry-message {
+      margin-bottom: 20px;
+    }
+
+    & .sorry-recommendations {
+      line-height: 29px;
+    }
+
+    & ul {
+      margin-top: 10px;
+      margin-bottom: 13px;
+      gap: 10px;
     }
   }
 `;
@@ -256,11 +303,24 @@ export const PortfolioIndustryTagWrapper = styled.button<IPortfolioIndustryTag>`
   align-items: center;
   color: #f1efed;
   background-color: ${themes.primary.colors.darkBlue};
-  padding: 7px 6px 7px 8px;
-  line-height: 16.8px;
+  padding: calc(
+      clamp(5px, 5px + (100vw - 1440px) * ((7.7 - 5) / (1920 - 1440)), 7.7px)
+    )
+    calc(
+      clamp(8px, 8px + (100vw - 1440px) * ((15.2 - 8) / (1920 - 1440)), 15.2px)
+    )
+    calc(
+      clamp(7px, 7px + (100vw - 1440px) * ((9.7 - 7) / (1920 - 1440)), 9.7px)
+    )
+    calc(
+      clamp(8px, 8px + (100vw - 1440px) * ((12.2 - 8) / (1920 - 1440)), 12.2px)
+    );
+  line-height: 120%;
   font-style: normal;
   font-weight: 900;
-  font-size: 14px;
+  font-size: calc(
+    clamp(14px, 14px + (100vw - 1440px) * ((18 - 14) / (1920 - 1440)), 18px)
+  );
   font-family: ${themes.primary.font.family.namu};
   z-index: 1;
   column-gap: 6px;
@@ -309,7 +369,9 @@ export const PortfolioInputWrapper = styled.div<IPortfolioSearch>`
   & input {
     outline: none;
     width: 100%;
-    font-size: 16px;
+    font-size: calc(
+      clamp(16px, 16px + (100vw - 1440px) * ((20 - 16) / (1920 - 1440)), 20px)
+    );
     border: none;
     background-color: transparent;
   }
@@ -321,6 +383,10 @@ export const PortfolioInputWrapper = styled.div<IPortfolioSearch>`
   & input::placeholder {
     font-family: ${themes.primary.font.family.namu};
     color: #a9a5a4;
+  }
+
+  @media ${themes.primary.media.minPCFullHD} {
+    margin-left: 5px;
   }
 
   @media ${themes.primary.media.maxTabletPortrait} {
@@ -369,6 +435,10 @@ export const PortfolioSearchIcon = styled.div<IPortfolioSearch>`
   opacity: ${({ isSearchOpen }) => (isSearchOpen ? "0.4" : "1")};
   transition: 0.5s ease-in-out;
 
+  @media ${themes.primary.media.minPCFullHD} {
+    transform: scale(1.35);
+  }
+
   @media ${themes.primary.media.maxTabletPortrait} {
     opacity: 0.4;
   }
@@ -378,18 +448,27 @@ export const PortfolioFiltersWrapper = styled.div`
   display: flex;
   align-items: flex-start;
   justify-content: space-between;
-  margin-top: 30px;
+  margin-top: calc(
+    clamp(30px, 30px + (100vw - 1440px) * ((44 - 30) / (1920 - 1440)), 44px)
+  );
 
   @media ${themes.primary.media.maxTabletPortrait} {
     flex-direction: column;
-    row-gap: 44px;
+    margin-top: calc(
+      clamp(18px, 18px + (100vw - 375px) * ((43 - 18) / (768 - 375)), 43px)
+    );
+    row-gap: calc(
+      clamp(40px, 50px - (100vw - 375px) * ((50 - 40) / (768 - 375)), 50px)
+    );
   }
 `;
 
 export const PortfolioProjectsWrapper = styled.div`
-  margin-top: 29px;
+  margin-top: calc(
+    clamp(17px, 17px + (100vw - 1440px) * ((33 - 17) / (1920 - 1440)), 33px)
+  );
 
-  @media ${themes.primary.media.maxMobile} {
+  @media ${themes.primary.media.maxTabletPortrait} {
     margin-top: 28px;
 
     & .portfolio {
@@ -443,15 +522,29 @@ export const PortfolioProjectsContainer = styled.div<{
 }>`
   display: grid;
   justify-content: center;
-  grid-template-columns: repeat(auto-fit, minmax(355px, 652px));
-  gap: 52px 34px;
+  grid-template-columns: repeat(auto-fit, minmax(632px, 1fr));
+  gap: calc(
+      clamp(52px, 52px + (100vw - 1440px) * ((69 - 52) / (1920 - 1440)), 69px)
+    )
+    calc(
+      clamp(
+        34px,
+        34px + (100vw - 1440px) * ((45.7 - 34) / (1920 - 1440)),
+        45.7px
+      )
+    );
   margin-top: ${({ isSeeMore }) => (isSeeMore ? "29px" : "0")};
   padding-top: ${({ isTagSelected }) => (isTagSelected ? "0" : "31px")};
   margin-bottom: ${({ isSeeMore }) => isSeeMore && "100px"};
 
+  @media ${themes.primary.media.maxServiceMobile} {
+    grid-template-columns: repeat(auto-fit, minmax(425px, 1fr));
+  }
   @media ${themes.primary.media.maxTabletPortrait} {
-    gap: 20px;
-    margin-inline: 10px;
+    grid-template-columns: repeat(1, minmax(355px, 1fr));
+    gap: calc(
+      clamp(20px, 20px + (100vw - 375px) * ((40 - 20) / (768 - 375)), 40px)
+    );
     padding-top: ${({ isSeeMore }) => isSeeMore && "30px"};
     margin-bottom: ${({ isSeeMore }) => isSeeMore && "60px"};
   }
@@ -460,12 +553,20 @@ export const PortfolioProjectsContainer = styled.div<{
     padding-top: ${({ isSeeMore }) => (isSeeMore ? "30px" : "0")};
     margin-top: ${({ isSeeMore }) => isSeeMore && "0"};
   }
+
+  @media (max-width: 376px) {
+    margin-left: -10px;
+    width: 355px;
+  }
 `;
 
 export const PortfolioPaginationWrapper = styled.div`
   display: flex;
   justify-content: center;
-  padding: 42px 0;
+  padding: calc(
+      clamp(42px, 42px + (100vw - 1440px) * ((56 - 42) / (1920 - 1440)), 56px)
+    )
+    0;
 
   &.cv {
     padding: 0;
@@ -485,13 +586,20 @@ export const PortfolioPaginationWrapper = styled.div`
   }
 
   @media ${themes.primary.media.maxTabletPortrait} {
-    padding: 30px 0 42px 0;
+    padding: calc(
+        clamp(28px, 28px + (100vw - 375px) * ((90 - 28) / (768 - 375)), 90px)
+      )
+      0 42px 0;
   }
 `;
 
 export const PortfolioPaginationItemsWrapper = styled.div`
   display: flex;
-  column-gap: 16px;
+  column-gap: clamp(
+    16px,
+    16px + (100vw - 1440px) * ((22 - 16) / (1920 - 1440)),
+    22px
+  );
 
   & .active {
     background-color: #000;
@@ -506,21 +614,45 @@ export const PortfolioPaginationItemsWrapper = styled.div`
 
 export const PortfolioPaginationDots = styled.div`
   display: flex;
-  height: 26px;
-  width: 26px;
+  height: clamp(
+    26px,
+    26px + (100vw - 1440px) * ((35 - 26) / (1920 - 1440)),
+    35px
+  );
+  width: clamp(
+    26px,
+    26px + (100vw - 1440px) * ((35 - 26) / (1920 - 1440)),
+    35px
+  );
   align-items: center;
   justify-content: center;
-  font-size: 16px;
+  font-size: clamp(
+    16px,
+    16px + (100vw - 1440px) * ((20 - 16) / (1920 - 1440)),
+    20px
+  );
   font-family: ${themes.primary.font.family.openSans};
 `;
 
 export const PortfolioPaginationButton = styled.div`
   display: flex;
-  height: 26px;
-  width: 26px;
+  height: clamp(
+    26px,
+    26px + (100vw - 1440px) * ((35 - 26) / (1920 - 1440)),
+    35px
+  );
+  width: clamp(
+    26px,
+    26px + (100vw - 1440px) * ((35 - 26) / (1920 - 1440)),
+    35px
+  );
   align-items: center;
   justify-content: center;
-  font-size: 16px;
+  font-size: clamp(
+    16px,
+    16px + (100vw - 1440px) * ((20 - 16) / (1920 - 1440)),
+    20px
+  );
   cursor: pointer;
   font-family: ${themes.primary.font.family.openSans};
 
@@ -550,10 +682,11 @@ export const ProjectsContainerHeaderLink = styled.div<IPortfolioInfoProps>`
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 5px;
+  gap: calc(
+    clamp(8px, 8px + (100vw - 1440px) * ((12 - 8) / (1920 - 1440)), 12px)
+  );
   font-family: ${themes.primary.font.family.namu};
   font-weight: ${themes.primary.font.weight.heavy};
-  font-size: 18px;
   line-height: 130%;
   color: ${({ isInfoCont }) =>
     isInfoCont
@@ -563,8 +696,19 @@ export const ProjectsContainerHeaderLink = styled.div<IPortfolioInfoProps>`
   cursor: ${({ isProjectLink }) => isProjectLink && "pointer"};
   pointer-events: ${({ isProjectLink }) => (isProjectLink ? "normal" : "none")};
 
-  p {
+  p,
+  span {
     margin: 0;
+    font-size: calc(
+      clamp(18px, 18px + (100vw - 1440px) * ((24 - 18) / (1920 - 1440)), 24px)
+    );
+  }
+
+  a {
+    margin: 0;
+    font-size: calc(
+      clamp(18px, 18px + (100vw - 1440px) * ((24 - 18) / (1920 - 1440)), 24px)
+    );
   }
 
   span {
@@ -589,31 +733,45 @@ export const ProjectsContainerHeaderLink = styled.div<IPortfolioInfoProps>`
   }
 
   @media ${themes.primary.media.maxTabletPortrait} {
-    font-size: 12px;
+    font-size: calc(
+      clamp(12px, 12px + (100vw - 375px) * ((18 - 12) / (768 - 375)), 18px)
+    );
     line-height: 130%;
+    margin-bottom: calc(
+      clamp(-4px, -4px + (100vw - 375px) * ((5 - -4) / (768 - 375)), 5px)
+    );
+    gap: calc(clamp(5px, 5px + (100vw - 375px) * ((8 - 5) / (768 - 375)), 8px));
+
+    a,
+    p,
+    span {
+      font-size: calc(
+        clamp(12px, 12px + (100vw - 375px) * ((18 - 12) / (768 - 375)), 18px)
+      );
+    }
+  }
+
+  @media (max-width: 376px) {
+    margin-right: 3px;
   }
 `;
 
 export const ProjectHeaderLinkWrapper = styled.div`
-  padding-right: 20px;
-  right: 0;
-  position: absolute;
   display: flex;
-  width: 34%;
   height: 100%;
   justify-content: flex-end;
-
-  @media ${themes.primary.media.maxTabletPortrait} {
-    padding-right: 0;
-  }
 `;
 
 export const ProjectsContainerArrowContainer = styled.div<IPortfolioProjectLink>`
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 38px;
-  height: 38px;
+  width: calc(
+    clamp(40px, 40px + (100vw - 1440px) * ((53 - 40) / (1920 - 1440)), 53px)
+  );
+  height: calc(
+    clamp(40px, 40px + (100vw - 1440px) * ((53 - 40) / (1920 - 1440)), 53px)
+  );
   background: ${({ isProjectLink }) =>
     !isProjectLink ? "#f1eece" : themes.primary.colors.portfolioHover};
   border: ${({ isProjectLink }) =>
@@ -626,32 +784,59 @@ export const ProjectsContainerArrowContainer = styled.div<IPortfolioProjectLink>
   transition: background 0.3s, border 0.3s;
 
   svg {
-    width: 35px;
-    height: 35px;
+    width: calc(
+      clamp(35px, 35px + (100vw - 1440px) * ((48 - 35) / (1920 - 1440)), 48px)
+    );
+    height: calc(
+      clamp(35px, 35px + (100vw - 1440px) * ((48 - 35) / (1920 - 1440)), 48px)
+    );
   }
 
   @media ${themes.primary.media.maxTabletPortrait} {
-    width: 26px;
-    height: 26px;
+    width: calc(
+      clamp(22px, 22px + (100vw - 375px) * ((40 - 22) / (768 - 375)), 40px)
+    );
+    height: calc(
+      clamp(22px, 22px + (100vw - 375px) * ((40 - 22) / (768 - 375)), 40px)
+    );
     border-width: 1.25px;
   }
 `;
 
 export const ProjectsContainerHeader = styled.div<IPortfolioInfoProps>`
-  padding: 17px 20px;
+  padding: calc(
+      clamp(16px, 16px + (100vw - 1440px) * ((22 - 16) / (1920 - 1440)), 22px)
+    )
+    calc(
+      clamp(25px, 25px + (100vw - 1440px) * ((31 - 25) / (1920 - 1440)), 31px)
+    )
+    calc(
+      clamp(15px, 15px + (100vw - 1440px) * ((22 - 15) / (1920 - 1440)), 22px)
+    )
+    calc(
+      clamp(20px, 20px + (100vw - 1440px) * ((27 - 20) / (1920 - 1440)), 27px)
+    );
   position: relative;
   display: flex;
   justify-content: space-between;
   align-items: center;
   border-bottom: ${({ isInfoCont }) =>
     isInfoCont
-      ? `1.5px solid #1d1c1d`
-      : `1.5px solid ${themes.primary.colors.headerBorder}`};
+      ? `2px solid #1d1c1d`
+      : `2px solid ${themes.primary.colors.headerBorder}`};
 
   @media ${themes.primary.media.maxTabletPortrait} {
-    margin: 7px 10px;
-    padding: 0 0 9px 0;
+    padding: calc(
+        clamp(6px, 6px + (100vw - 375px) * ((21 - 6) / (768 - 375)), 21px)
+      )
+      calc(clamp(1px, 1px + (100vw - 375px) * ((24 - 1) / (768 - 375)), 24px))
+      calc(clamp(8px, 8px + (100vw - 375px) * ((17 - 8) / (768 - 375)), 17px))
+      calc(clamp(1px, 1px + (100vw - 375px) * ((20 - 1) / (768 - 375)), 20px));
     border-bottom-width: 1px;
+  }
+
+  @media (max-width: 450px) {
+    margin-inline: 10px;
   }
 `;
 
@@ -660,17 +845,27 @@ export const ProjectsContainerInfoBtn = styled.div`
   align-items: center;
   justify-content: center;
   position: relative;
-  margin: 0 20px;
+  margin: 0
+    calc(
+      clamp(20px, 20px + (100vw - 1440px) * ((27 - 20) / (1920 - 1440)), 27px)
+    );
   font-family: ${themes.primary.font.family.namu};
   font-weight: ${themes.primary.font.weight.heavy};
-  font-size: 16px;
+  font-size: calc(
+    clamp(16px, 16px + (100vw - 1440px) * ((20 - 16) / (1920 - 1440)), 20px)
+  );
   line-height: 160%;
   color: ${themes.primary.colors.blogBackground};
   text-transform: uppercase;
-  padding: 5px 20px 7px;
+  padding: calc(
+      clamp(4px, 4px + (100vw - 1440px) * ((8 - 4) / (1920 - 1440)), 8px)
+    )
+    calc(
+      clamp(19px, 19px + (100vw - 1440px) * ((30 - 19) / (1920 - 1440)), 30px)
+    )
+    calc(clamp(6px, 6px + (100vw - 1440px) * ((9 - 6) / (1920 - 1440)), 9px));
   border: 1px solid ${themes.primary.colors.blogBackground};
-  width: 189px;
-  height: 39px;
+  max-width: fit-content;
   cursor: pointer;
   outline: none;
   transition: 1s ease-in-out;
@@ -679,12 +874,25 @@ export const ProjectsContainerInfoBtn = styled.div`
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 6px;
+    gap: calc(
+      clamp(6px, 6px + (100vw - 1440px) * ((8 - 6) / (1920 - 1440)), 8px)
+    );
+
+    svg {
+      margin-top: 3px;
+      height: calc(
+        clamp(8px, 8px + (100vw - 1440px) * ((10 - 8) / (1920 - 1440)), 10px)
+      );
+      width: calc(
+        clamp(18px, 18px + (100vw - 1440px) * ((24 - 18) / (1920 - 1440)), 24px)
+      );
+    }
   }
 
   & > svg {
     position: absolute;
-    left: -1.2px;
+    width: 106%;
+    height: 106%;
     top: -1.5px;
     fill: none;
     stroke-width: 4px;
@@ -699,24 +907,36 @@ export const ProjectsContainerInfoBtn = styled.div`
   }
 
   @media ${themes.primary.media.maxTabletPortrait} {
-    width: 145px;
-    height: 32px;
-    font-size: 12px;
+    font-size: calc(
+      clamp(12px, 12px + (100vw - 375px) * ((16 - 12) / (768 - 375)), 16px)
+    );
     line-height: 160%;
-    padding: 7px 10px;
-    margin: 0 10px;
+    padding: 4px
+      calc(
+        clamp(12px, 12px + (100vw - 375px) * ((20 - 12) / (768 - 375)), 20px)
+      )
+      6px;
+    margin: 0
+      calc(
+        clamp(10px, 10px + (100vw - 375px) * ((20 - 10) / (768 - 375)), 20px)
+      );
 
     & > svg {
-      width: 145px !important;
-      height: 50px !important;
-      top: -10px;
+      stroke-width: 6px;
+      left: -6px;
     }
   }
 `;
 
 export const ProjectsContainer = styled.div<IPortfolioInfoProps>`
   position: relative;
-  min-height: 441px;
+  min-height: calc(
+    clamp(
+      441px,
+      441px + (100vw - 1440px) * ((588 - 441) / (1920 - 1440)),
+      588px
+    )
+  );
 
   &:hover ${ProjectsContainerInfo} {
     opacity: 1;
@@ -748,10 +968,23 @@ export const ProjectsContainer = styled.div<IPortfolioInfoProps>`
 `;
 
 export const ProjectsContainerInfoText = styled.div`
-  padding: 20px 32px 33px 20px;
+  padding: calc(
+      clamp(20px, 20px + (100vw - 1440px) * ((24 - 20) / (1920 - 1440)), 24px)
+    )
+    calc(
+      clamp(32px, 32px + (100vw - 1440px) * ((42 - 32) / (1920 - 1440)), 42px)
+    )
+    calc(
+      clamp(33px, 33px + (100vw - 1440px) * ((46 - 33) / (1920 - 1440)), 46px)
+    )
+    calc(
+      clamp(20px, 20px + (100vw - 1440px) * ((27 - 20) / (1920 - 1440)), 27px)
+    );
   font-family: ${themes.primary.font.family.namu};
   font-weight: ${themes.primary.font.weight.heavy};
-  font-size: 18px;
+  font-size: calc(
+    clamp(18px, 18px + (100vw - 1440px) * ((24 - 18) / (1920 - 1440)), 24px)
+  );
   line-height: 160%;
   color: ${themes.primary.colors.secondary};
   overflow: hidden;
@@ -767,9 +1000,21 @@ export const ProjectsContainerInfoText = styled.div`
   }
 
   @media ${themes.primary.media.maxTabletPortrait} {
-    font-size: 14px;
-    line-height: 128%;
-    padding: 10px 16px 18px 10px;
+    font-size: calc(
+      clamp(14px, 14px + (100vw - 375px) * ((16 - 14) / (768 - 375)), 16px)
+    );
+    line-height: calc(
+      clamp(18px, 18px + (100vw - 375px) * ((25.6 - 18) / (768 - 375)), 25.6px)
+    );
+    padding: calc(
+        clamp(7px, 7px + (100vw - 375px) * ((20 - 7) / (768 - 375)), 20px)
+      )
+      calc(
+        clamp(10px, 10px + (100vw - 375px) * ((20 - 10) / (768 - 375)), 20px)
+      )
+      calc(
+        clamp(18px, 18px + (100vw - 375px) * ((40 - 18) / (768 - 375)), 40px)
+      );
   }
 `;
 
@@ -783,32 +1028,56 @@ export const ProjectsContainerInfoLower = styled.div`
 `;
 
 export const ProjectsContainerInfoIconsContainer = styled.div`
-  margin: 60px 50px 40px;
+  margin: calc(
+      clamp(64px, 64px + (100vw - 1440px) * ((85 - 64) / (1920 - 1440)), 85px)
+    )
+    20px
+    calc(
+      clamp(40px, 40px + (100vw - 1440px) * ((54 - 40) / (1920 - 1440)), 54px)
+    );
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 10px;
+  gap: calc(
+    clamp(28px, 28px + (100vw - 1440px) * ((36 - 28) / (1920 - 1440)), 36px)
+  );
+  position: relative;
+  height: calc(
+    clamp(60px, 60px + (100vw - 1440px) * ((83 - 60) / (1920 - 1440)), 83px)
+  );
 
-  svg {
-    height: 60px;
-    width: 60px;
-    path {
-      fill: ${themes.primary.colors.secondary};
-    }
+  & span {
+    position: relative !important;
+    height: calc(
+      clamp(60px, 60px + (100vw - 1440px) * ((83 - 60) / (1920 - 1440)), 83px)
+    ) !important;
+    width: calc(
+      clamp(60px, 60px + (100vw - 1440px) * ((83 - 60) / (1920 - 1440)), 83px)
+    ) !important;
   }
 
   @media ${themes.primary.media.maxTabletPortrait} {
-    margin: 18px 14px 22px;
-    gap: 3px;
-
-    svg {
-      height: 40px;
-      width: 40px;
-    }
+    margin: calc(
+        clamp(18px, 18px + (100vw - 375px) * ((60 - 18) / (768 - 375)), 60px)
+      )
+      20px
+      calc(
+        clamp(22px, 22px + (100vw - 375px) * ((45 - 22) / (768 - 375)), 45px)
+      );
+    gap: calc(
+      clamp(16px, 16px + (100vw - 375px) * ((28 - 16) / (768 - 375)), 28px)
+    );
+    height: calc(
+      clamp(40px, 40px + (100vw - 375px) * ((61 - 40) / (768 - 375)), 61px)
+    ) !important;
 
     span {
-      width: 47px !important;
-      height: 47px !important;
+      width: calc(
+        clamp(40px, 40px + (100vw - 375px) * ((61 - 40) / (768 - 375)), 61px)
+      ) !important;
+      height: calc(
+        clamp(40px, 40px + (100vw - 375px) * ((61 - 40) / (768 - 375)), 61px)
+      ) !important;
     }
   }
 `;
@@ -819,8 +1088,12 @@ export const ProjectsContainerHeaderTitle = styled.div`
   h4 {
     font-family: ${themes.primary.font.family.namu};
     font-weight: ${themes.primary.font.weight.heavy};
-    font-size: 30px;
-    line-height: 130%;
+    font-size: calc(
+      clamp(30px, 30px + (100vw - 1440px) * ((40 - 30) / (1920 - 1440)), 40px)
+    );
+    line-height: calc(
+      clamp(39px, 39px + (100vw - 1440px) * ((52 - 39) / (1920 - 1440)), 52px)
+    );
     margin: 0;
     color: ${themes.primary.colors.primary};
 
@@ -830,24 +1103,61 @@ export const ProjectsContainerHeaderTitle = styled.div`
     -webkit-line-clamp: 1;
     white-space: pre-wrap;
   }
+
   p {
     font-family: ${themes.primary.font.family.namu};
     font-weight: ${themes.primary.font.weight.heavy};
-    font-size: 18px;
+    font-size: calc(
+      clamp(18px, 18px + (100vw - 1440px) * ((24 - 18) / (1920 - 1440)), 24px)
+    );
     line-height: 130%;
     color: ${themes.primary.colors.comment};
     margin: 0;
+    margin-top: 5px;
+  }
+
+  @media ${themes.primary.media.maxTabletPortrait} {
+    p {
+      margin-top: 4px;
+    }
   }
 
   @media ${themes.primary.media.maxTabletPortrait} {
     h4 {
-      font-size: 16px;
-      line-height: 20.8px;
+      font-size: calc(
+        clamp(16px, 16px + (100vw - 375px) * ((24 - 16) / (768 - 375)), 24px)
+      );
+      line-height: calc(
+        clamp(
+          20.8px,
+          20.8px + (100vw - 375px) * ((31.2 - 20.8) / (768 - 375)),
+          31.2px
+        )
+      );
     }
+
     p {
-      font-size: 12px;
-      line-height: 15.6px;
+      margin: 0;
+      margin-top: calc(
+        clamp(2px, 2px + (100vw - 375px) * ((8 - 2) / (768 - 375)), 8px)
+      );
+      font-size: calc(
+        clamp(12px, 12px + (100vw - 375px) * ((17 - 12) / (768 - 375)), 17px)
+      );
+      line-height: calc(
+        clamp(
+          15.6px,
+          15.6px + (100vw - 375px) * ((22.1 - 15.6) / (768 - 375)),
+          22.1px
+        )
+      );
     }
+  }
+
+  @media (max-width: 376px) {
+    display: flex;
+    flex-direction: column;
+    gap: calc(clamp(2px, 2px + (100vw - 375px) * ((8 - 2) / (768 - 375)), 8px));
   }
 `;
 
@@ -857,8 +1167,12 @@ export const ProjectsContainerInfoHeaderTitle = styled.div`
   h4 {
     font-family: ${themes.primary.font.family.namu};
     font-weight: ${themes.primary.font.weight.light} !important;
-    font-size: 30px;
-    line-height: 130%;
+    font-size: calc(
+      clamp(30px, 30px + (100vw - 1440px) * ((40 - 30) / (1920 - 1440)), 40px)
+    );
+    line-height: calc(
+      clamp(39px, 39px + (100vw - 1440px) * ((52 - 39) / (1920 - 1440)), 52px)
+    );
     margin: 0;
     color: ${themes.primary.colors.blogBackground};
 
@@ -868,10 +1182,13 @@ export const ProjectsContainerInfoHeaderTitle = styled.div`
     -webkit-line-clamp: 1;
     white-space: pre-wrap;
   }
+
   p {
     font-family: ${themes.primary.font.family.namu};
     font-weight: ${themes.primary.font.weight.heavy};
-    font-size: 18px;
+    font-size: calc(
+      clamp(18px, 18px + (100vw - 1440px) * ((24 - 18) / (1920 - 1440)), 24px)
+    );
     line-height: 130%;
     background: linear-gradient(
       90deg,
@@ -881,55 +1198,128 @@ export const ProjectsContainerInfoHeaderTitle = styled.div`
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
-    text-fill-color: transparent;
     margin: 0;
+    margin-top: 5px;
+  }
+
+  @media ${themes.primary.media.maxTabletPortrait} {
+    p {
+      margin-top: 4px;
+    }
   }
 
   @media ${themes.primary.media.maxTabletPortrait} {
     h4 {
-      font-size: 16px;
-      line-height: 20.8px;
+      font-size: calc(
+        clamp(16px, 16px + (100vw - 375px) * ((24 - 16) / (768 - 375)), 24px)
+      );
+      line-height: calc(
+        clamp(
+          20.8px,
+          20.8px + (100vw - 375px) * ((31.2 - 20.8) / (768 - 375)),
+          31.2px
+        )
+      );
     }
     p {
-      font-size: 12px;
-      line-height: 15.6px;
+      margin: 0;
+      margin-top: calc(
+        clamp(2px, 2px + (100vw - 375px) * ((8 - 2) / (768 - 375)), 8px)
+      );
+      font-size: calc(
+        clamp(12px, 12px + (100vw - 375px) * ((17 - 12) / (768 - 375)), 17px)
+      );
+      line-height: calc(
+        clamp(
+          15.6px,
+          15.6px + (100vw - 375px) * ((22.1 - 15.6) / (768 - 375)),
+          22.1px
+        )
+      );
     }
+  }
+
+  @media (max-width: 376px) {
+    display: flex;
+    flex-direction: column;
+    gap: calc(clamp(2px, 2px + (100vw - 375px) * ((8 - 2) / (768 - 375)), 8px));
   }
 `;
 
 export const ProjectsContainerImage = styled.div`
+  position: relative;
   display: flex;
   justify-content: center;
+  height: calc(
+    clamp(
+      341px,
+      341px + (100vw - 1440px) * ((455 - 341) / (1920 - 1440)),
+      455px
+    )
+  );
+
   @media ${themes.primary.media.maxTabletPortrait} {
-    span {
-      width: 355px !important;
-      height: 185px !important;
-      object-fit: contain;
-    }
+    height: calc(
+      clamp(185px, 185px + (100vw - 375px) * ((341 - 185) / (768 - 375)), 341px)
+    );
+  }
+  & > span {
+    margin: 0 auto !important;
+    max-width: 652px;
   }
 `;
 
 export const CTACont = styled.div`
   position: relative;
-  margin: 98px 0 180px 0;
+  margin: clamp(
+      98px,
+      98px + (100vw - 1440px) * ((130 - 98) / (1920 - 1440)),
+      130px
+    )
+    0
+    clamp(
+      178px,
+      178px + (100vw - 1440px) * ((290 - 178) / (1920 - 1440)),
+      290px
+    )
+    0;
   font-family: "NAMU", sans-serif;
   padding: 0 50px;
 
   @media ${themes.primary.media.maxTabletLandScape} {
-    height: 466px;
-    margin: 53px 0 64px 0;
+    height: calc(
+      clamp(543px, 543px + (100vw - 375px) * ((756 - 543) / (768 - 375)), 756px)
+    );
+    margin: calc(
+        clamp(53px, 58px - (100vw - 375px) * ((58 - 53) / (768 - 375)), 58px)
+      )
+      0
+      calc(
+        clamp(65px, 65px + (100vw - 375px) * ((120 - 65) / (768 - 375)), 120px)
+      )
+      0;
   }
 
   @media ${themes.primary.media.maxTabletPortrait} {
-    height: 558px;
-    padding: 0 20px;
+    padding: 0
+      calc(
+        clamp(20px, 20px + (100vw - 375px) * ((40 - 20) / (768 - 375)), 40px)
+      );
   }
 `;
 
 export const BlockMainIcon = styled.div`
   position: absolute;
-  width: 412px;
-  height: 284px;
+  width: clamp(
+    412px,
+    412px + (100vw - 1440px) * ((551 - 412) / (1920 - 1440)),
+    551px
+  );
+  height: clamp(
+    284px,
+    284px + (100vw - 1440px) * ((379 - 284) / (1920 - 1440)),
+    379px
+  );
   bottom: 30%;
   right: 100px;
   transform: translateY(50%);
@@ -938,40 +1328,150 @@ export const BlockMainIcon = styled.div`
     width: 317px;
     height: 218px;
     bottom: 0;
-    right: 50%;
+    right: 49%;
     transform: translateX(50%);
+  }
+
+  @media ${themes.primary.media.maxTabletLandScape} {
+    width: calc(
+      clamp(317px, 317px + (100vw - 375px) * ((642 - 317) / (768 - 375)), 642px)
+    );
+    height: calc(
+      clamp(218px, 218px + (100vw - 375px) * ((441 - 218) / (768 - 375)), 441px)
+    );
   }
 `;
 
 export const CTAHeading = styled.div`
   font-family: ${themes.primary.font.family.namu};
-  font-size: ${themes.primary.font.size.portfolioCTATitle};
+  font-size: clamp(
+    40px,
+    40px + (100vw - 1440px) * ((52 - 40) / (1920 - 1440)),
+    52px
+  );
   font-weight: ${themes.primary.font.weight.heavy};
-  line-height: 48px;
+  line-height: clamp(
+    48px,
+    48px + (100vw - 1440px) * ((62.5 - 48) / (1920 - 1440)),
+    62.5px
+  );
   text-transform: uppercase;
-  margin-bottom: 15px;
+  margin-bottom: clamp(
+    15px,
+    15px + (100vw - 1440px) * ((21 - 15) / (1920 - 1440)),
+    21px
+  );
 
   @media ${themes.primary.media.maxTabletPortrait} {
-    font-size: 24px;
-    line-height: 32px;
+    font-size: calc(
+      clamp(24px, 24px + (100vw - 375px) * ((40 - 24) / (768 - 375)), 40px)
+    );
+    line-height: calc(
+      clamp(32px, 32px + (100vw - 375px) * ((53 - 32) / (768 - 375)), 53px)
+    );
+    margin-bottom: calc(
+      clamp(18px, 18px + (100vw - 375px) * ((20 - 18) / (768 - 375)), 20px)
+    );
   }
 `;
 
 export const CTAText = styled.div`
   font-family: ${themes.primary.font.family.namu};
-  font-size: ${themes.primary.font.size.smallPortfolioText};
+  font-size: clamp(
+    22px,
+    22px + (100vw - 1440px) * ((28 - 22) / (1920 - 1440)),
+    28px
+  );
   font-weight: ${themes.primary.font.weight.heavy};
-  max-width: 827px;
-  line-height: 26px;
-  margin-bottom: 40px;
+  max-width: 60vw;
+  line-height: clamp(
+    26px,
+    26px + (100vw - 1440px) * ((34 - 26) / (1920 - 1440)),
+    34px
+  );
+  margin-bottom: clamp(
+    38px,
+    38px + (100vw - 1440px) * ((40 - 38) / (1920 - 1440)),
+    40px
+  );
 
-  @media ${themes.primary.media.maxTabletPortrait} {
-    font-size: 18px;
-    line-height: 26px;
+  @media ${themes.primary.media.maxTabletLandScape} {
     max-width: 100%;
   }
 
-  @media ${themes.primary.media.maxMobile} {
-    margin-bottom: 28px;
+  @media ${themes.primary.media.maxTabletPortrait} {
+    font-size: calc(
+      clamp(18px, 18px + (100vw - 375px) * ((20 - 18) / (768 - 375)), 20px)
+    );
+    line-height: calc(
+      clamp(29px, 29px + (100vw - 375px) * ((32 - 29) / (768 - 375)), 32px)
+    );
+    margin-bottom: calc(
+      clamp(28px, 28px + (100vw - 375px) * ((32 - 28) / (768 - 375)), 32px)
+    );
+  }
+`;
+
+export const AdminUnauthorizedModal = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  background: ${themes.primary.colors.secondary};
+  font-size: ${themes.primary.font.size.tertiary};
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  z-index: 1;
+`;
+
+export const ButtonWrapper = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+
+  & .portfolio-button {
+    min-width: auto;
+    height: calc(
+      clamp(58px, 58px + (100vw - 1440px) * ((78 - 58) / (1920 - 1440)), 78px)
+    );
+    width: calc(
+      clamp(
+        225px,
+        225px + (100vw - 1440px) * ((275 - 225) / (1920 - 1440)),
+        275px
+      )
+    );
+    line-height: 100%;
+    font-size: calc(
+      clamp(18px, 18px + (100vw - 1440px) * ((30 - 18) / (1920 - 1440)), 30px)
+    );
+    margin-right: calc(
+      clamp(28px, 28px + (100vw - 1440px) * ((32 - 28) / (1920 - 1440)), 32px)
+    );
+  }
+
+  & .portfolio-share-button {
+    margin-left: 0;
+    margin-top: 0;
+  }
+
+  @media ${themes.primary.media.maxTabletPortrait} {
+    & .portfolio-button {
+      width: calc(
+        clamp(
+          178px,
+          178px + (100vw - 375px) * ((261 - 178) / (768 - 375)),
+          261px
+        )
+      );
+      height: calc(
+        clamp(54px, 54px + (100vw - 375px) * ((58 - 54) / (768 - 375)), 58px)
+      );
+      font-size: calc(
+        clamp(16px, 16px + (100vw - 375px) * ((22 - 16) / (768 - 375)), 22px)
+      );
+    }
   }
 `;

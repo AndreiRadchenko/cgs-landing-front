@@ -1,23 +1,21 @@
-import { useQueryClient } from "@tanstack/react-query";
 import React from "react";
-import { queryKeys } from "../../consts/queryKeys";
-import { ICalculator } from "../../types/Admin/Response.types";
-import { SplitBrackets } from "../../utils/splitBrackets";
-import CalculatorModalComponent from "./CalculatorPagerModalComponent";
-import * as Styled from "../../styles/Calculator/CalculatorComponent.styled";
-import CalculatorPager from "./CalculatorPager";
+import { useQueryClient } from "@tanstack/react-query";
 import Image from "next/image";
-import PressButtonArrow from "../../../public/Calculator/pressButtonArrow.svg";
-import { useWindowDimension } from "../../hooks/useWindowDimension";
 
-interface ICalculatorCompletedPagerProps {
-  finishClick: boolean;
-  handleClose: () => void;
-  handleButtonClick: () => void;
-  handlePagerLeftButtonClick: () => void;
-  handlePagerButtonsClick: () => void;
-  isCalendlyOpen: boolean;
-}
+import CalculatorPager from "./CalculatorPager";
+import CalculatorModalComponent from "./CalculatorPagerModalComponent";
+
+import * as Styled from "../../styles/Calculator/CalculatorComponent.styled";
+
+import {
+  ICalculator,
+  ICalculatorCompletedPagerProps,
+} from "../../types/Admin/Response.types";
+
+import { queryKeys } from "../../consts/queryKeys";
+import { SplitBrackets } from "../../utils/splitBrackets";
+import { useWindowDimension } from "../../hooks/useWindowDimension";
+import PressButtonArrow from "../../../public/Calculator/pressButtonArrow.svg";
 
 const CalculatorCompletedPager = ({
   finishClick,

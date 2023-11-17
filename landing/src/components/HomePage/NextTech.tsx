@@ -7,7 +7,6 @@ import Partners from "../Partners/Partners";
 import ButtonArrow from "../../utils/ButtonArrow";
 import ScrambleText from "./ScrambleText";
 import Badges from "./Badges";
-import TwistedBlock from "./TwistedBlock";
 import Testimonials from "./Testimonials";
 import ProjectorBlock from "./ProjectorBlock";
 
@@ -102,10 +101,8 @@ const NextTech = () => {
         {text && parse(text.title, options)}
       </Styled.Subtitle>
       <Badges />
-      {/* <TwistedBlock /> */}
       <ProjectorBlock />
       <Testimonials />
-      {/* <FreeServices /> */}
       <Styled.Subtitle className="textOnFilm">
         {data?.textOnFilm && parse(data?.textOnFilm, options2)}
       </Styled.Subtitle>

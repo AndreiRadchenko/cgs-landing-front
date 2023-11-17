@@ -1,18 +1,14 @@
 import React from "react";
-import dynamic from "next/dynamic";
 import { useFormikContext } from "formik";
 
+import TextEditor from "../../TextEditor/TextEditor";
 import useDeleteImageFunction from "../../../hooks/useDeleteImageFunction";
 import useUploadImageFunction from "../../../hooks/useUploadImageFunction";
 import PhotoBlockDashed from "../Global/PhotoBlockDashed";
+
 import { IImage } from "../../../types/Admin/Admin.types";
 import { IDataResponse } from "../../../types/Admin/Response.types";
-
 import * as Styled from "../../../styles/AdminPage";
-
-const TextEditor = dynamic(() => import("../../TextEditor/TextEditor"), {
-  ssr: false,
-});
 
 const FreeServicesBlock = () => {
   const deleteImageFunction = useDeleteImageFunction();

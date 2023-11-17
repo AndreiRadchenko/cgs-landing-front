@@ -4,6 +4,7 @@ import { Form } from "formik";
 import AboutBlock from "./AboutBlock";
 import NumbersBlock from "./NumbersBlock";
 import TeamBlock from "./TeamBlock";
+import FooterBlock from "./FooterBlock";
 import MetaTagsBlock from "../MetaTagsBlock";
 import AdminBlockDropDown from "../../Admin/Global/AdminBlockDropDown";
 
@@ -23,6 +24,9 @@ const AboutUsForm = () => {
           </AdminBlockDropDown>
           <AdminBlockDropDown title="OUR TEAM">
             <TeamBlock />
+          </AdminBlockDropDown>
+          <AdminBlockDropDown title="CTA">
+            <FooterBlock />
           </AdminBlockDropDown>
         </Styled.AdminBlocksContent>
         <Styled.MetaBlockWraper>

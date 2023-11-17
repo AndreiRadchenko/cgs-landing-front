@@ -1,13 +1,15 @@
 import React from "react";
 import parse from "html-react-parser";
 import { dehydrate, QueryClient, useQuery } from "@tanstack/react-query";
+import Head from "next/head";
+
 import Faq from "../../components/Faq";
 import FooterNew from "../../components/FooterNew/FooterNew";
 import HeaderNavNew from "../../components/HeaderNavNew/HeaderNavNew";
+
 import { queryKeys } from "../../consts/queryKeys";
 import { adminFaqService } from "../../services/adminFaqPage";
 import { adminGlobalService } from "../../services/adminHomePage";
-import Head from "next/head";
 
 export async function getServerSideProps() {
   const queryClient = new QueryClient();

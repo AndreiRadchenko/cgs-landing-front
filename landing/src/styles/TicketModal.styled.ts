@@ -32,19 +32,18 @@ export const TicketModalContentContainer = styled.div`
 
 export const TicketModalContent = styled.div`
   width: 535px;
-  height: 590px;
+  height: 675px;
   background: ${themes.primary.colors.blogBackground};
   border: 2px solid ${themes.primary.colors.primary};
   position: relative;
 
-  @media (min-width: 1920px) {
-    width: 585px;
-    height: 640px;
+  @media ${themes.primary.media.maxLaptop} {
+    height: 660px;
   }
 
   @media (max-width: 570px) {
     width: 345px;
-    height: 623px;
+    height: 647px;
   }
 
   @media ${themes.primary.media.maxLowestScreenMobile} {
@@ -63,49 +62,36 @@ export const TicketModalContent = styled.div`
 
 export const List = styled.ul`
   list-style-type: square;
-  margin: 24px 5px 0 0;
-
-  &:first-child {
-    margin: 50px 5px 0 0;
-  }
+  margin: 48px 5px 0 0;
 
   @media (max-width: 570px) {
     margin-top: 24px;
     padding-left: 11px;
   }
 `;
-
 export const ListTitle = styled.span`
-  position: relative;
-  bottom: 10px;
-  left: -3px;
-  font-size: 26px;
+  margin: 0 0 7px 0;
+  font-size: 28px;
   font-weight: ${themes.primary.font.weight.heavy};
   text-transform: uppercase;
-  line-height: 29px;
+  line-height: 33px;
 
   @media ${themes.primary.media.maxMobile} {
     font-size: 1.5rem;
   }
 `;
-
 export const ListItem = styled.li`
   margin: 0;
-  margin-top: 0px;
+  margin-top: 9px;
   margin-left: 22px;
   font-size: 16px;
   line-height: 28px;
   font-weight: ${themes.primary.font.weight.heavy};
-  color: #535557;
-
-  span {
-    position: relative;
-    top: -3px;
-  }
+  color: gray;
 
   &::marker {
     color: black;
-    font-size: 1.8em;
+    font-size: 1.2em;
     margin: 0;
   }
 
@@ -130,8 +116,7 @@ export const SubmitButtonContainer = styled.div`
   height: 50px;
   width: 172px;
   position: relative;
-  margin: 23px 0px 20px 36px;
-
+  margin: 38px 0 40px 36px;
   & path {
     transition: all 1s ease-in-out;
   }
@@ -159,8 +144,6 @@ export const SubmitButtonContainer = styled.div`
 `;
 
 export const SubmitButton = styled.button`
-  font-family: ${themes.primary.font.family.namu};
-  font-weight: ${themes.primary.font.weight.heavy};
   height: 100%;
   width: 100%;
   border: 0;
@@ -172,12 +155,22 @@ export const SubmitButton = styled.button`
 
   @media (max-width: 570px) {
     font-size: 1rem;
+    padding: 17px;
   }
 `;
 
+export const SubmitArrow = styled.img`
+  width: 35px;
+  height: 35px;
+  position: absolute;
+  right: -15px;
+  top: -12px;
+  cursor: pointer;
+`;
+
 export const CloseButton = styled.img`
-  width: 32px;
-  height: 32px;
+  width: 26px;
+  height: 26px;
   position: absolute;
   right: 0;
   top: 0;

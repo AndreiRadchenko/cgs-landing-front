@@ -39,31 +39,29 @@ const ArticleAddAndEdit = ({
   setArticle,
   scrollHandler,
 }: IArticleAddAndEdit) => {
-  const [, setDescLength] = useState(0);
-  const [, setTitleLength] = useState(0);
   const [shouldValidate, setShouldValidate] = useState(false);
   const [ref, scrollTo] = useScrollTo<HTMLDivElement>();
   const { mutateAsync } = useMutation([queryKeys.uploadImage], (data: any) =>
     adminGlobalService.uploadImage(data)
   );
-
+  const {
+    values,
+    handleSubmit,
+    handleChange,
+    resetForm,
+    setFieldValue,
+    errors,
+  } = useFormikContext<IArticle>();
+  const [tags, setTags] = useState<string[]>(values.tags);
   const [plugins, setPlugins] = useState<
     Array<Plugin> | Record<string, Plugin>
   >();
-  useEffect(() => {
-    let isMounted = true;
-    import("suneditor/src/plugins").then((plugs) => {
-      if (isMounted) {
-        setPlugins(plugs as any);
-      }
-    });
 
-    return () => {
-      isMounted = false;
-    };
-  }, []);
-
-  const handleImageUploadBefore = (files: File[], uploadHandler: any) => {
+  const handleImageUploadBefore = (
+    files: File[],
+    info: any,
+    uploadHandler: any
+  ) => {
     const formData = new FormData();
     formData.append("image", files[0], files[0].name);
     mutateAsync(formData).then((img) => {
@@ -76,7 +74,6 @@ const ArticleAddAndEdit = ({
           },
         ],
       };
-
       uploadHandler(response);
     });
   };
@@ -114,26 +111,6 @@ const ArticleAddAndEdit = ({
         ["codeView"],
       ],
     },
-  };
-
-  const {
-    values,
-    handleSubmit,
-    handleChange,
-    resetForm,
-    setFieldValue,
-    errors,
-  } = useFormikContext<IArticle>();
-
-  const [tags, setTags] = useState<string[]>(values.tags);
-
-  useEffect(() => {
-    setDescLength(values.description.length);
-    setTitleLength(values.title.length);
-  }, [isNewArticle, values]);
-
-  const handleTitle = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setTitleLength(e.target.value.length);
   };
 
   const deleteAuthor = useDeleteImageFunction(
@@ -198,12 +175,17 @@ const ArticleAddAndEdit = ({
   };
 
   useEffect(() => {
-    console.log("Values: ", values);
-  }, [values]);
+    let isMounted = true;
+    import("suneditor/src/plugins").then((plugs) => {
+      if (isMounted) {
+        setPlugins(plugs as any);
+      }
+    });
 
-  useEffect(() => {
-    console.log("Errors: ", errors);
-  }, [errors]);
+    return () => {
+      isMounted = false;
+    };
+  }, []);
 
   return (
     <>
@@ -332,7 +314,6 @@ const ArticleAddAndEdit = ({
           </Styles.AdminBlogGrid>
           <SubHeaderWithInput
             isadminblog={true}
-            onInputFunction={handleTitle}
             inputValue={values.title}
             onChangeFunction={handleChange}
             name="title"

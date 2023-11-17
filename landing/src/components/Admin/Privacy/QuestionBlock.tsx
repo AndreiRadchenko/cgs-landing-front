@@ -1,6 +1,10 @@
-import { useFormikContext } from "formik";
-import dynamic from "next/dynamic";
 import React from "react";
+import { useFormikContext } from "formik";
+
+import AdminBlockDropDown from "../Global/AdminBlockDropDown";
+import SubHeaderWithInput from "../Global/SubHeaderWithInput";
+import TextEditor from "../../TextEditor/TextEditor";
+
 import { TextEditorWrapper } from "../../../styles/AdminPage";
 import {
   ArrowContainer,
@@ -8,11 +12,6 @@ import {
 } from "../../../styles/HomePage/General.styled";
 import { IPrivacyPage } from "../../../types/Admin/Response.types";
 import ButtonArrow from "../../../utils/ButtonArrow";
-const TextEditor = dynamic(() => import("../../TextEditor/TextEditor"), {
-  ssr: false,
-});
-import AdminBlockDropDown from "../Global/AdminBlockDropDown";
-import SubHeaderWithInput from "../Global/SubHeaderWithInput";
 
 const QuestionBlock = () => {
   const { values, handleSubmit, handleChange } =

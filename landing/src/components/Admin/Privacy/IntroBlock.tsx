@@ -1,16 +1,15 @@
-import { useFormikContext } from "formik";
-import dynamic from "next/dynamic";
 import React from "react";
-import { AdminHeader, TextEditorWrapper } from "../../../styles/AdminPage";
+import { useFormikContext } from "formik";
+
+import TextEditor from "../../TextEditor/TextEditor";
+
 import {
   ArrowContainer,
   BlackButton,
 } from "../../../styles/HomePage/General.styled";
+import { AdminHeader, TextEditorWrapper } from "../../../styles/AdminPage";
 import { IPrivacyPage } from "../../../types/Admin/Response.types";
 import ButtonArrow from "../../../utils/ButtonArrow";
-const TextEditor = dynamic(() => import("../../TextEditor/TextEditor"), {
-  ssr: false,
-});
 
 const IntroBlock = () => {
   const { handleSubmit } = useFormikContext<IPrivacyPage>();

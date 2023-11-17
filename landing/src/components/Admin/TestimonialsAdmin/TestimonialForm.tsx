@@ -17,6 +17,7 @@ import useUploadImageFunction from "../../../hooks/useUploadImageFunction";
 import { IImage } from "../../../types/Admin/Admin.types";
 import ButtonArrow from "../../../utils/ButtonArrow";
 import usePushTestimonial from "../../../hooks/usePushTestimonial";
+import themes from "../../../utils/themes";
 
 interface ITestimonialsFormProps {
   setIsNewFeedback: React.Dispatch<React.SetStateAction<boolean>>;
@@ -92,7 +93,15 @@ const TestimonialForm = ({
           photo={values.slideBanner.image}
           deleteFunction={deleteFunc}
           uploadFunction={uploadFunc}
-          style={{ maxWidth: "364px", maxHeight: "364px" }}
+          style={{
+            maxWidth: "364px",
+            maxHeight: "364px",
+            border: `${
+              !!errors.slideBanner && !values.slideBanner.image
+                ? "2px solid red"
+                : `2px dashed ${themes.primary.colors.darkGrey}`
+            } `,
+          }}
           deleteFlag={true}
         />
       </Styled.MainPhoto>

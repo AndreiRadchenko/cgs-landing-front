@@ -1,32 +1,26 @@
 import React, { memo, useEffect, useState } from "react";
-import * as Styled from "../../../styles/EstimationForm.styled";
-import * as StyledCalc from "../../../styles/Calculator/CalculatorAdmin.styled";
-import * as AdminPageStyled from "../../../styles/AdminPage";
-import AdminBlackButton from "../Global/AdminBlackButton";
-import {
-  IEstimationFormQuestion,
-  IQuestionBlockProps,
-} from "../../../types/Admin/AdminEstimationForm.types";
-import dynamic from "next/dynamic";
-import AddOptionInput from "./AddOptionInput";
+import { Plugin } from "suneditor/src/plugins/Plugin";
 import { FieldArray, Formik } from "formik";
+
+import AdminBlackButton from "../Global/AdminBlackButton";
+import AddOptionInput from "./AddOptionInput";
 import EstimationDropdown from "./EstimationOptionsDropdown";
 import AdditinalAttributesBlock from "./AdditinalAttributesBlock";
 import SplitColumns from "./SplitColumns";
 import OptionElement from "./OptionElement";
 import IsRequired from "./IsRequired";
-import { EstimationDeleteQuestion } from "../../../styles/EstimationForm.styled";
-import { Plugin } from "suneditor/src/plugins/Plugin";
 import { letterCaseSubmenu } from "../Calculator/letterCaseSubmenuPlugin";
 import { letterWeightSubmenu } from "../Calculator/letterWeightSubmenuPlugin";
+import TextEditor from "../../TextEditor/TextEditor";
 
-const TextEditor = dynamic(() => import("../../TextEditor/TextEditor"), {
-  ssr: false,
-});
-
-export interface IFormikValues extends IEstimationFormQuestion {
-  isConditionsForAppearance: boolean;
-}
+import * as Styled from "../../../styles/EstimationForm.styled";
+import * as StyledCalc from "../../../styles/Calculator/CalculatorAdmin.styled";
+import * as AdminPageStyled from "../../../styles/AdminPage";
+import {
+  IEstimationFormQuestion,
+  IQuestionBlockProps,
+} from "../../../types/Admin/AdminEstimationForm.types";
+import { EstimationDeleteQuestion } from "../../../styles/EstimationForm.styled";
 
 const QuestionBlock = ({
   question,
@@ -65,6 +59,7 @@ const QuestionBlock = ({
   const onDeleteQuestion = () => {
     onRemoveHandler(index ? index : 0);
   };
+
   const onSubmitHandler = (values: IEstimationFormQuestion) => {
     saveQuestion(values, index ? index : 0);
   };

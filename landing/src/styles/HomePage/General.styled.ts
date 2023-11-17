@@ -69,6 +69,30 @@ export const BlackButton = styled.a<IFontSize>`
     height: 3.225em;
   }
 
+  &.about-us {
+    text-transform: uppercase;
+    font-size: calc(
+      clamp(22px, 22px + (100vw - 1440px) * ((30 - 22) / (1920 - 1440)), 30px)
+    );
+    padding: calc(
+        clamp(
+          18px,
+          18px + (100vw - 1440px) * ((22.5 - 18) / (1920 - 1440)),
+          22.5px
+        )
+      )
+      calc(
+        clamp(
+          17px,
+          17px + (100vw - 1440px) * ((21.1 - 17) / (1920 - 1440)),
+          21.1px
+        )
+      );
+    margin-right: calc(
+      clamp(28px, 28px + (100vw - 1440px) * ((32 - 28) / (1920 - 1440)), 32px)
+    );
+  }
+
   &.ai,
   &.cloudSolution,
   &.webDev,
@@ -226,10 +250,32 @@ export const BlackButton = styled.a<IFontSize>`
       font-size: 16px;
     }
 
+    &.about-us {
+      font-size: calc(
+        clamp(16px, 16px + (100vw - 375px) * ((22 - 16) / (768 - 375)), 22px)
+      );
+      line-height: 100%;
+      height: fit-content;
+      width: fit-content;
+      padding: 16.5px
+        calc(
+          clamp(
+            15.5px,
+            16.5px - (100vw - 375px) * ((16.5 - 15.5) / (768 - 375)),
+            16.5px
+          )
+        );
+    }
+
+    &.homeFooter {
+      margin-top: 0;
+      padding: 17.76px 33px;
+    }
+
     &.homePage {
       height: 54px;
       font-size: 16px;
-      padding: 17px 35px;
+      padding: 17px 31.1px;
     }
 
     &.portfolio-button {
@@ -335,10 +381,51 @@ export const Title = styled.h1`
 
 export const ButtonWrapper = styled.div`
   display: flex;
+  flex-wrap: wrap;
   width: 100%;
 
-  @media ${themes.primary.media.maxMobile} {
-    flex-direction: column;
+  & .portfolio-button {
+    min-width: auto;
+    height: calc(
+      clamp(58px, 58px + (100vw - 1440px) * ((78 - 58) / (1920 - 1440)), 78px)
+    );
+    width: calc(
+      clamp(
+        225px,
+        225px + (100vw - 1440px) * ((275 - 225) / (1920 - 1440)),
+        275px
+      )
+    );
+    line-height: 100%;
+    font-size: calc(
+      clamp(18px, 18px + (100vw - 1440px) * ((30 - 18) / (1920 - 1440)), 30px)
+    );
+    margin-right: calc(
+      clamp(28px, 28px + (100vw - 1440px) * ((32 - 28) / (1920 - 1440)), 32px)
+    );
+  }
+
+  & .portfolio-share-button {
+    margin-left: 0;
+    margin-top: 0;
+  }
+
+  @media ${themes.primary.media.maxTabletPortrait} {
+    & .portfolio-button {
+      width: calc(
+        clamp(
+          178px,
+          178px + (100vw - 375px) * ((261 - 178) / (768 - 375)),
+          261px
+        )
+      );
+      height: calc(
+        clamp(54px, 54px + (100vw - 375px) * ((58 - 54) / (768 - 375)), 58px)
+      );
+      font-size: calc(
+        clamp(16px, 16px + (100vw - 375px) * ((22 - 16) / (768 - 375)), 22px)
+      );
+    }
   }
 `;
 
@@ -353,7 +440,12 @@ export const MainSubtitle = styled.div`
   &.homePage {
     margin-top: 25px;
     p {
+      display: flex;
+      align-items: center;
       margin: 0;
+      :nth-child(2) {
+        margin-top: 5px;
+      }
     }
   }
 
@@ -406,8 +498,8 @@ export const MainSubtitle = styled.div`
     }
   }
 
-  @media (max-width: 360px) {
-    font-size: 4.7vw;
+  @media (max-width: 555px) {
+    font-size: 4.5vw;
   }
 `;
 
@@ -463,9 +555,20 @@ export const Tetris = styled.div`
   }
 `;
 
-export const TetrisGroup = styled.g<{ coinsTranslate: string }>`
-  transform: ${({ coinsTranslate }) => coinsTranslate};
-`;
+interface ITetrisGroupProps {
+  coinsTranslate: string[];
+}
+
+export const TetrisGroup = styled.g.attrs(
+  ({ coinsTranslate }: ITetrisGroupProps) => ({
+    style: {
+      transform: `translate(
+      ${coinsTranslate[0]}px,
+      ${coinsTranslate[1]}px
+    )`,
+    },
+  })
+)``;
 
 export const HeadBlockRow = styled.section`
   display: flex;
@@ -518,13 +621,13 @@ export const Subtitle = styled.div<ISubtitle>`
   }
 
   &.textOnFilm {
-    margin-bottom: 29px;
     p {
       margin: 0;
       line-height: 146%;
       span:first-child {
         display: inline-flex;
         height: 90px;
+        min-width: 370px;
       }
     }
   }
@@ -561,10 +664,38 @@ export const Subtitle = styled.div<ISubtitle>`
     }
   }
 
+  @media ${themes.primary.media.maxTabletPortrait} {
+    &.textOnFilm {
+      p {
+        span:first-child {
+          min-width: 300px;
+        }
+      }
+    }
+  }
+
+  @media ${themes.primary.media.minServiceWeb} {
+    &.textOnFilm {
+      p {
+        span:first-child {
+          min-width: 560px;
+        }
+      }
+    }
+  }
+
   @media ${themes.primary.media.minPCFullHD} {
     font-size: 5.105em;
     margin: 0;
 
+    &.textOnFilm {
+      p {
+        span:first-child {
+          height: auto;
+          min-width: 740px;
+        }
+      }
+    }
     span {
       &.tech {
         width: 5.79166em;
@@ -577,6 +708,16 @@ export const Subtitle = styled.div<ISubtitle>`
       margin-bottom: -7px;
       p {
         margin: 0;
+      }
+    }
+  }
+
+  @media (min-width: 2000px) {
+    &.textOnFilm {
+      p {
+        span:first-child {
+          min-width: 860px;
+        }
       }
     }
   }
@@ -762,14 +903,9 @@ export const ArrowContainer = styled.div`
     height: 25px;
   }
 
-  &.ticketModalArrowSubmit {
-    will-change: transform;
-  }
-
-  &.careersTicketArrow {
-    position: relative;
-    top: 0;
-    right: 0;
+  &.contactPage {
+    right: -13px;
+    top: -16px;
   }
 
   @media (min-width: 2200px) {
@@ -790,6 +926,11 @@ export const ArrowContainer = styled.div`
     right: -15px;
     top: -15px;
 
+    &.contactPage {
+      right: -15px;
+      top: -20px;
+    }
+
     &.mobileAudit {
       font-size: 1.5em;
     }
@@ -800,11 +941,25 @@ export const ArrowContainer = styled.div`
     }
   }
 
+  @media ${themes.primary.media.maxMobile} {
+    &.contactPage {
+      right: -13px;
+      top: -13px;
+    }
+  }
+
   @media ${themes.primary.media.maxLowScreenMobile} {
     width: 24px;
     height: 24px;
     right: -9px;
     top: -9px;
+
+    &.contactPage {
+      width: 25px;
+      height: 25px;
+      right: -10px;
+      top: -13px;
+    }
   }
 `;
 
@@ -822,6 +977,16 @@ export const ButtonShareTextWrapper = styled.div`
   font-family: ${themes.primary.font.family.namu};
   z-index: 10;
   margin-left: 28px;
+  gap: calc(
+    clamp(14px, 14px + (100vw - 1440px) * ((18 - 14) / (1920 - 1440)), 18px)
+  );
+
+  &.about-us {
+    gap: calc(
+      clamp(14px, 14px + (100vw - 1440px) * ((32 - 14) / (1920 - 1440)), 32px)
+    );
+    margin-left: 0;
+  }
 
   &.footer {
     margin-inline: 1.1666em 0;
@@ -835,12 +1000,22 @@ export const ButtonShareTextWrapper = styled.div`
     margin-top: 16px;
     margin-left: 1px;
 
+    &.about-us {
+      margin-top: 0;
+    }
+
     &.dappAuditShare a {
       padding: 0 !important;
     }
 
     &.footer {
       margin-inline: 0;
+    }
+  }
+
+  @media (max-width: 472px) {
+    &.portfolio-share-button {
+      margin-top: 20px;
     }
   }
 `;
@@ -853,6 +1028,15 @@ export const WhatsAppWrapper = styled.div`
   column-gap: 0.444em;
   color: ${themes.primary.colors.primary};
   font-size: 1.125em;
+
+  &.about-us {
+    font-size: calc(
+      clamp(18px, 18px + (100vw - 1440px) * ((24 - 18) / (1920 - 1440)), 24px)
+    );
+    gap: calc(
+      clamp(8px, 8px + (100vw - 1440px) * ((10.5 - 8) / (1920 - 1440)), 10.5px)
+    );
+  }
 
   &.homePage,
   &.webAudit,
@@ -904,7 +1088,7 @@ export const WhatsAppWrapper = styled.div`
     }
   }
 
-  @media (max-width: 992px) {
+  @media ${themes.primary.media.maxTabletPortrait} {
     &.webDev {
       font-size: 1.13em;
     }
@@ -925,11 +1109,31 @@ export const WhatsAppWrapper = styled.div`
     line-height: 19px;
     column-gap: 3px;
 
+    &.about-us {
+      font-size: calc(
+        clamp(16px, 16px + (100vw - 375px) * ((18 - 16) / (768 - 375)), 18px)
+      );
+      gap: calc(
+        clamp(3px, 3px + (100vw - 375px) * ((8 - 3) / (768 - 375)), 8px)
+      );
+    }
+
     &.cta-share-button,
-    &.portfolio-share-button,
     &.homePage,
     &.services {
       font-size: 16px;
+    }
+
+    &.portfolio-share-button {
+      font-size: calc(
+        clamp(16px, 16px + (100vw - 375px) * ((18 - 16) / (768 - 375)), 18px)
+      );
+      line-height: calc(
+        clamp(19px, 19px + (100vw - 375px) * ((22 - 19) / (768 - 375)), 22px)
+      );
+      gap: calc(
+        clamp(3px, 3px + (100vw - 375px) * ((8 - 3) / (768 - 375)), 8px)
+      );
     }
   }
 `;
@@ -942,6 +1146,16 @@ export const TelegramWrapper = styled.div`
   font-size: 1.125em;
   transition: color 0.3s;
   margin-left: 0.778em;
+
+  &.about-us {
+    font-size: calc(
+      clamp(18px, 18px + (100vw - 1440px) * ((24 - 18) / (1920 - 1440)), 24px)
+    );
+    gap: calc(
+      clamp(8px, 8px + (100vw - 1440px) * ((10.5 - 8) / (1920 - 1440)), 10.5px)
+    );
+    margin-left: 0;
+  }
 
   &.homePage,
   &.webAudit,
@@ -1015,11 +1229,31 @@ export const TelegramWrapper = styled.div`
     column-gap: 3px;
     margin-left: 0.875em;
 
+    &.about-us {
+      font-size: calc(
+        clamp(16px, 16px + (100vw - 375px) * ((18 - 16) / (768 - 375)), 18px)
+      );
+      gap: calc(
+        clamp(3px, 3px + (100vw - 375px) * ((8 - 3) / (768 - 375)), 8px)
+      );
+    }
+
     &.cta-share-button,
-    &.portfolio-share-button,
     &.homePage,
     &.services {
       font-size: 16px;
+    }
+
+    &.portfolio-share-button {
+      font-size: calc(
+        clamp(16px, 16px + (100vw - 375px) * ((18 - 16) / (768 - 375)), 18px)
+      );
+      line-height: calc(
+        clamp(19px, 19px + (100vw - 375px) * ((22 - 19) / (768 - 375)), 22px)
+      );
+      gap: calc(
+        clamp(3px, 3px + (100vw - 375px) * ((8 - 3) / (768 - 375)), 8px)
+      );
     }
   }
 `;
@@ -1033,29 +1267,30 @@ export const TelegramIconWrapper = styled.div`
   position: relative;
   width: 22px;
   height: 22px;
+
   @media ${themes.primary.media.minPCFullHD} {
     width: 1.22em;
     height: 1.22em;
   }
 
+  @media ${themes.primary.media.maxTabletPortrait} {
+    &.portfolio-share-button {
+      width: calc(
+        clamp(15px, 15px + (100vw - 375px) * ((22 - 15) / (768 - 375)), 22px)
+      );
+      height: calc(
+        clamp(14px, 14px + (100vw - 375px) * ((22 - 14) / (768 - 375)), 22px)
+      );
+    }
+  }
+
   @media ${themes.primary.media.maxMobile} {
-    width: 15px;
-    height: 15px;
-
-    span {
-      width: 14px !important;
-      height: 14px !important;
-    }
-
-    &.aiService {
-      width: 14px;
-      height: 14.5px;
-
-      span {
-        width: 14px !important;
-        height: 15px !important;
-      }
-    }
+    width: calc(
+      clamp(15px, 15px + (100vw - 375px) * ((22 - 15) / (768 - 375)), 22px)
+    );
+    height: calc(
+      clamp(14px, 14px + (100vw - 375px) * ((22 - 14) / (768 - 375)), 22px)
+    );
   }
 `;
 
@@ -1075,13 +1310,12 @@ export const WhatsAppIconWrapper = styled.div`
   }
 
   @media ${themes.primary.media.maxMobile} {
-    width: 15px;
-    height: 15px;
-
-    span {
-      width: 14px !important;
-      height: 14px !important;
-    }
+    width: calc(
+      clamp(15px, 15px + (100vw - 375px) * ((22 - 15) / (768 - 375)), 22px)
+    );
+    height: calc(
+      clamp(14px, 14px + (100vw - 375px) * ((22 - 14) / (768 - 375)), 22px)
+    );
   }
 `;
 
@@ -1092,7 +1326,7 @@ export const CalculatorAndChatWrapper = styled.div`
   right: 0;
   top: 44%;
 
-  display: grid;
+  display: flex;
   flex-direction: column;
   align-items: end;
   justify-content: center;
@@ -1105,7 +1339,6 @@ export const CalculatorAndChatWrapper = styled.div`
   }
 
   @media ${themes.primary.media.maxMobile} {
-    display: flex;
     height: auto;
     top: auto;
     bottom: 5px;
@@ -1124,6 +1357,41 @@ export const DropdownWrapper = styled.div`
     white-space: nowrap;
     font-size: 14px;
     padding: 0 10px;
+  }
+
+  & .portfolio-dropdown {
+    min-width: calc(
+      clamp(
+        198px,
+        198px + (100vw - 1440px) * ((260 - 198) / (1920 - 1440)),
+        260px
+      )
+    );
+
+    & div {
+      line-height: 120%;
+      font-size: calc(
+        clamp(14px, 14px + (100vw - 1440px) * ((18 - 14) / (1920 - 1440)), 18px)
+      );
+    }
+  }
+
+  @media ${themes.primary.media.minServiceWeb} {
+    & .portfolio_dropdown-element {
+      width: calc(
+        clamp(
+          160px,
+          160px + (100vw - 1440px) * ((213 - 160) / (1920 - 1440)),
+          213px
+        )
+      );
+      height: calc(
+        clamp(35px, 35px + (100vw - 1440px) * ((47 - 35) / (1920 - 1440)), 47px)
+      );
+      font-size: calc(
+        clamp(14px, 14px + (100vw - 1440px) * ((18 - 14) / (1920 - 1440)), 18px)
+      );
+    }
   }
 `;
 
@@ -1228,7 +1496,16 @@ export const DropdownContent = styled.div`
     font-family: ${themes.primary.font.family.namu};
     font-size: 1.167em;
     border-bottom: 1px solid ${themes.primary.colors.comment};
-    padding: 12px 10px 11px;
+    padding: calc(
+        clamp(
+          11.2px,
+          11.2px + (100vw - 1440px) * ((16 - 11.2) / (1920 - 1440)),
+          16px
+        )
+      )
+      calc(
+        clamp(10px, 10px + (100vw - 1440px) * ((12 - 10) / (1920 - 1440)), 12px)
+      );
     text-decoration: none;
     text-align: left;
     cursor: pointer;
@@ -1302,23 +1579,219 @@ export const CalendlyInfoModalContent = styled.div`
   position: relative;
   width: 100%;
   height: 100%;
-  padding: 0 36px;
+  padding: 58px 36px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 24px;
+  align-self: stretch;
 
   @media ${themes.primary.media.maxMobile} {
-    padding: 0 14px;
+    padding: 48px 16px 16px;
+    gap: 16px;
+  }
+`;
+
+export const CalendlyInfoModalLinkBlock = styled.div`
+  border: 2px dashed ${themes.primary.colors.darkBlue};
+  display: flex;
+  padding: 16px;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 16px;
+  align-self: stretch;
+
+  @media ${themes.primary.media.maxMobile} {
+    padding: 10px;
+    gap: 12px;
+  }
+`;
+export const CalendlyInfoModalDateTime = styled.div`
+  font-size: 16px;
+  font-family: NAMU;
+  width: 100%;
+  border: 1px solid ${themes.primary.colors.primary};
+  display: flex;
+  justify-content: space-between;
+  & > div:first-child {
+    padding: 8.5px 12px 10.5px;
+    height: 100%;
+  }
+  & > div:last-child {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 8.5px 12px 10.5px;
+    border-left: 1px solid ${themes.primary.colors.primary};
+    background-color: ${themes.primary.colors.chatMessageBgc};
+  }
+
+  @media ${themes.primary.media.maxMobile} {
+    font-size: 14px;
+    & > div:first-child {
+      padding: 5px 8px 7px;
+    }
+    & > div:last-child {
+      padding: 5px 8px 7px;
+    }
+  }
+`;
+export const CalendlyInfoModalLinkHeader = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+  width: 100%;
+
+  & > div:first-child {
+    font-family: NAMU;
+    font-size: 18px;
+    font-weight: 500;
+    white-space: nowrap;
+    background-color: ${themes.primary.colors.blogBackground};
+    padding-right: 12px;
+    z-index: 2;
+  }
+  & > img {
+    z-index: 1;
+    position: absolute;
+    top: 6px;
+    right: 0;
+  }
+
+  @media ${themes.primary.media.maxMobile} {
+    & > div:first-child {
+      font-size: 16px;
+    }
+    & > img {
+      z-index: 1;
+      position: absolute;
+      top: 2px;
+      right: 0;
+    }
+  }
+`;
+export const CalendlyInfoModalLinkMain = styled.div`
+  display: flex;
+  width: 100%;
+  height: 40px;
+
+  & > div:first-child {
+    background-color: ${themes.primary.colors.darkBlue};
+    color: ${themes.primary.colors.secondary};
+    padding: 12px;
+    font-size: 18px;
+    white-space: nowrap;
+    width: 78.1884%;
+    display: flex;
+    align-items: center;
+
+    & > p {
+      overflow: hidden;
+      margin: 0;
+      padding: 0;
+      width: 100%;
+    }
+  }
+  & > div:last-child {
+    display: flex;
+    width: 21.8116%;
+    background-color: ${themes.primary.colors.primary};
+    color: ${themes.primary.colors.secondary};
+    font-size: 16px;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    position: relative;
+  }
+
+  @media ${themes.primary.media.maxMobile} {
+    height: 32px;
+    & > div:first-child {
+      padding: 8px;
+      font-size: 14px;
+      width: 67.57%;
+    }
+    & > div:last-child {
+      font-size: 13px;
+      width: 32.43%;
+      position: relative;
+    }
+  }
+`;
+export const CalendlyInfoModalLinkFooter = styled.div`
+  font-family: NAMU;
+  font-size: 18px;
+  font-weight: 500;
+
+  @media ${themes.primary.media.maxMobile} {
+    font-size: 16px;
+  }
+`;
+export const CalendlyInfoModalLinkCopyImage = styled.img`
+  color: ${themes.primary.colors.secondary};
+  width: 14px;
+  height: 14px;
+
+  @media ${themes.primary.media.maxMobile} {
+    width: 12px;
+    height: 12px;
+  }
+`;
+export const CalendlyInfoModalLinkDoneImage = styled.img`
+  color: ${themes.primary.colors.secondary};
+  width: 18px;
+  height: 14px;
+`;
+export const CalendlyInfoModalLinkArrowImage = styled.img``;
+
+export const CalendlyInfoModalLinkHint = styled.div`
+  position: absolute;
+  bottom: 55px;
+  left: 50%;
+  transform: translate(-50%, 0);
+  z-index: 10;
+  white-space: nowrap;
+  background: ${themes.primary.colors.primary};
+  border-radius: 6px;
+  font-family: ${themes.primary.font.family.namu};
+  font-weight: ${themes.primary.font.weight.heavy};
+  color: ${themes.primary.colors.blogBackground};
+  font-size: 12px;
+  line-height: 18px;
+  padding: 16px;
+  text-align: center;
+
+  @media ${themes.primary.media.maxTabletLandScape} {
+    bottom: 45px;
+  }
+
+  @media ${themes.primary.media.maxMobile} {
+    padding: 12px;
+  }
+
+  &:after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    margin-left: -5px;
+    border-width: 8px;
+    border-style: solid;
+    border-color: black transparent transparent transparent;
   }
 `;
 
 export const CalendlyInfoModalTitle = styled.div`
-  margin-top: 58px;
+  /* margin-top: 58px; */
   line-height: 31.2px;
-  font-size: 26px;
+  font-size: 24px;
   font-family: ${themes.primary.font.family.namu};
   text-transform: uppercase;
 
   @media ${themes.primary.media.maxMobile} {
-    margin-top: 32px;
-    font-size: 18px;
+    /* margin-top: 32px; */
+    font-size: 17px;
     line-height: 21.6px;
   }
 `;
@@ -1326,11 +1799,9 @@ export const CalendlyInfoModalTitle = styled.div`
 export const CalendlyInfoModalNotice = styled.div`
   display: flex;
   column-gap: 12px;
-  margin-top: 20px;
+  /* margin-top: 20px; */
 
   @media ${themes.primary.media.maxMobile} {
-    margin-top: 18px;
-    column-gap: 7px;
   }
 `;
 
@@ -1370,12 +1841,10 @@ export const CalendlyInfoModalNoticeButtonWrapper = styled.div`
   display: flex;
   width: 100%;
   justify-content: flex-end;
-  margin-top: 22px;
-  margin-bottom: 20px;
+  /* margin-top: 22px; */
+  /* margin-bottom: 20px; */
 
   @media ${themes.primary.media.maxMobile} {
-    margin-top: 20px;
-    margin-bottom: 32px;
   }
 `;
 

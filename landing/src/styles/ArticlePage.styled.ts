@@ -189,7 +189,6 @@ export const BannerWrapper = styled.div`
     column-gap: 40px;
   }
 
-
   @media ${themes.primary.media.minPCFullHD} {
     max-width: 70.416em;
     column-gap: 10px;

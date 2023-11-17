@@ -17,3 +17,11 @@ export interface IHeaderFooterServicesProps {
   btnLink: string;
   className?: string;
 }
+
+export interface ILinedText {
+  text: string;
+  position: "top" | "bottom";
+  height: number;
+  ind: number;
+  isScrolled: boolean;
+}

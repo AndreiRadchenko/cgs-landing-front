@@ -1,6 +1,7 @@
+import React, { useCallback, useEffect } from "react";
 import { useFormikContext } from "formik";
 import parse from "html-react-parser";
-import React, { useCallback, useEffect } from "react";
+
 import {
   OptionWrapper,
   TieUpInput,
@@ -8,23 +9,12 @@ import {
   TieUpShadowWrapper,
 } from "../../styles/Calculator/CalculatorAdmin.styled";
 import * as Styled from "../../styles/Calculator/CalculatorComponent.styled";
+
 import {
+  ICalculatorFieldProps,
   ICalculatorFormValuesProps,
-  ICalculatorStep,
-  ICalculatorSubStep,
-  IStepOptions,
 } from "../../types/Admin/Response.types";
 import { stripHtmlFromString } from "../../utils/stripHtmlFromString";
-
-interface ICalculatorFieldProps {
-  stepInd: number;
-  options: IStepOptions[];
-  subStep?: ICalculatorSubStep[];
-  disabled?: boolean;
-  tieUpData?: { number: number | null; relatedAnswer: string | string[] };
-  data: ICalculatorStep[];
-  type: string;
-}
 
 const CalculatorInputs = ({
   options,

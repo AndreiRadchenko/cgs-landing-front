@@ -1,5 +1,6 @@
 import React, { FC } from "react";
 
+import BookModal from "../../BookModal";
 import BookForm from "../BookModalForm";
 
 import * as Styles from "../../../styles/BookModalForm/BookModalInput.styled";
@@ -13,7 +14,7 @@ const BookModalInputForms: FC<IModalProps> = ({
   isOpen,
 }: IModalProps) => {
   return (
-    <>
+    <BookModal isOpen={isOpen}>
       <Styles.ButtonWrapper>
         <Styles.CloseButton src={CloseButton.src} onClick={onClose} />
       </Styles.ButtonWrapper>
@@ -25,7 +26,7 @@ const BookModalInputForms: FC<IModalProps> = ({
           {isOpen && <BookForm onClose={onClose} isOpen={isOpen} />}
         </Styles.Content>
       </Styles.HiddenWrapper>
-    </>
+    </BookModal>
   );
 };
 

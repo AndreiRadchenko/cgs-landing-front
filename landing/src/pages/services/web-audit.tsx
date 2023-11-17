@@ -30,6 +30,8 @@ import { adminGlobalService } from "../../services/adminHomePage";
 import { adminWebAuditService } from "../../services/services/adminServiceWebAuditPage";
 
 import { calendlyPopupInfoHandler } from "../../utils/calendlyPopupInfoHandler";
+import { useCalendlyEventListener } from "react-calendly";
+import { useGetCelendlyMeetingData } from "../../hooks/useGetCelendlyMeetingData";
 
 export async function getServerSideProps() {
   const queryClient = new QueryClient();
@@ -60,6 +62,8 @@ const WebAuditPage: NextPage = () => {
 
   calendlyPopupInfoHandler(() => setIsCalendlySuccessfull(true));
 
+  const { dateTime, joinLink } = useGetCelendlyMeetingData();
+
   return (
     <Loader active={isLoading}>
       {isLoading ? (
@@ -68,6 +72,8 @@ const WebAuditPage: NextPage = () => {
         <>
           {isCalendlySuccessfull && (
             <CalendlyInfoModal
+              celendlyUri={joinLink}
+              dateTime={dateTime}
               isOpen={isCalendlySuccessfull}
               setIsCalendlySuccessfull={setIsCalendlySuccessfull}
             />

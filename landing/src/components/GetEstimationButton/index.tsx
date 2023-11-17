@@ -1,6 +1,21 @@
-import React, { CSSProperties, useRef, useState, MouseEvent } from "react";
-import BookModal from "../BookModal";
-import BookModalInputForms from "../BookModal/BookModalInput";
+import React, {
+  CSSProperties,
+  useRef,
+  useState,
+  MouseEvent,
+  memo,
+  MouseEventHandler,
+} from "react";
+import dynamic from "next/dynamic";
+
+import { Loader } from "../../components/Loader";
+
+const BookModalInputForms = dynamic(
+  () => import("../BookModal/BookModalInput"),
+  {
+    loading: () => <Loader active className="getEstimationButton"></Loader>,
+  }
+);
 
 import {
   ArrowContainer,
@@ -20,6 +35,7 @@ interface IGetEstimationButtonProps {
   buttonClassName?: string;
   style?: CSSProperties;
   withEstimation?: boolean;
+  extRef?: React.Ref<HTMLAnchorElement | null>;
 }
 
 const GetEstimationButton = ({
@@ -28,8 +44,11 @@ const GetEstimationButton = ({
   buttonClassName,
   style,
   withEstimation,
+  extRef,
 }: IGetEstimationButtonProps) => {
-  const elRef = useRef<HTMLAnchorElement>(null);
+  const elRef = useRef<HTMLAnchorElement | null>(null);
+
+  React.useImperativeHandle(extRef, () => elRef.current);
 
   const [isOpen, setIsOpen] = useState(false);
 
@@ -40,7 +59,8 @@ const GetEstimationButton = ({
     document.querySelector("body")?.classList.remove("disableScrollBar");
   };
 
-  const handleButtonClick = () => {
+  const handleButtonClick: MouseEventHandler<HTMLAnchorElement> = (event) => {
+    event.preventDefault();
     withEstimation && setIsOpen(true);
     if (typeof window !== "undefined") {
       window.dataLayer = window.dataLayer || [];
@@ -58,7 +78,7 @@ const GetEstimationButton = ({
         padding={"1.11em 1.5em"}
         rel="noopener noreferrer"
         className={buttonClassName}
-        href={withEstimation === true ? undefined : buttonLink}
+        href={withEstimation === true ? "https://cgsteam.io" : buttonLink}
         onClick={handleButtonClick}
         style={style}
         ref={elRef}
@@ -68,13 +88,11 @@ const GetEstimationButton = ({
           <ButtonArrow />
         </ArrowContainer>
       </BlackButton>
-      {withEstimation && elRef && elRef.current && (
-        <BookModal isOpen={isOpen}>
-          <BookModalInputForms isOpen={isOpen} onClose={onClose} />
-        </BookModal>
+      {isOpen && withEstimation && elRef && elRef.current && (
+        <BookModalInputForms isOpen={isOpen} onClose={onClose} />
       )}
     </>
   );
 };
 
-export default GetEstimationButton;
+export default memo(GetEstimationButton);

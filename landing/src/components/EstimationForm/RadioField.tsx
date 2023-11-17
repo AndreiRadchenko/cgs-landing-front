@@ -34,10 +34,11 @@ const RadioField = ({
   return (
     <>
       <EstimationFieldLabel
+        className={"radioField"}
         split={split!}
         dangerouslySetInnerHTML={{ __html: title }}
       />
-      <EstimateOptionContainer split={split!}>
+      <EstimateOptionContainer className={'radioField'} split={split!}>
         {options.map((option) => {
           return (
             <EstimationInputFlex key={option.optionKey}>

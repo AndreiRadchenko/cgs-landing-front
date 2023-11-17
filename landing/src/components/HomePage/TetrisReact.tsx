@@ -4,27 +4,32 @@ import { TetrisGroup } from "../../styles/HomePage/General.styled";
 const movementStrength = 20;
 
 const TetrisReact = () => {
-  const [tetrisTranslate, setTetrisTranslate] = useState<string>("");
-  const handleMouseMove = (e: MouseEvent) => {
-    const height = movementStrength / window.innerHeight;
-    const width = movementStrength / window.innerWidth;
-    const pageX = e.pageX - window.innerWidth / 2;
-    const pageY =
-      e.pageY >= window.innerHeight
-        ? window.innerHeight / 2
-        : e.pageY - window.innerHeight / 2;
-    const newvalueX = width * pageX * -1 - 25;
-    const newvalueY = height * pageY * -1;
-
-    setTetrisTranslate(`translate(${newvalueX}px, ${newvalueY}px)`);
-  };
+  const [tetrisTranslate, setTetrisTranslate] = useState<string[]>(["", ""]);
 
   useEffect(() => {
-    window.addEventListener("mousemove", handleMouseMove, true);
-    return () => window.removeEventListener("mousemove", handleMouseMove);
+    const handleReactMouseMove = (e: MouseEvent) => {
+      const height = movementStrength / window.innerHeight;
+      const width = movementStrength / window.innerWidth;
+      const pageX = e.pageX - window.innerWidth / 2;
+      const pageY =
+        e.pageY >= window.innerHeight
+          ? window.innerHeight / 2
+          : e.pageY - window.innerHeight / 2;
+      const newvalueX = width * pageX * -1;
+      const newvalueY = height * pageY * -1;
+
+      setTetrisTranslate([`${newvalueX}`, `${newvalueY}`]);
+    };
+
+    window.addEventListener("mousemove", handleReactMouseMove, true);
+
+    return () => {
+      window.removeEventListener("mousemove", handleReactMouseMove, true);
+    };
   }, []);
+
   return (
-    <TetrisGroup coinsTranslate={tetrisTranslate}>
+    <TetrisGroup {...{ coinsTranslate: tetrisTranslate }}>
       <path
         d="M328.201 98.8663C346.32 93.8292 356.426 73.269 350.773 52.9438C345.121 32.6186 325.851 20.2252 307.732 25.2623C289.614 30.2994 279.508 50.8596 285.16 71.1848C290.812 91.51 310.082 103.903 328.201 98.8663Z"
         fill="black"

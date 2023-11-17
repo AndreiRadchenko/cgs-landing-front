@@ -1,15 +1,15 @@
 import React, { useEffect, useState } from "react";
 import { useRouter } from "next/router";
 import parse from "html-react-parser";
+import { useMediaQuery } from "@mui/material";
 
 import * as Styled from "../../styles/Blog.styled";
 
 import { IBlogItem } from "../../types/Blog.types";
 
-import { useWindowDimension } from "../../hooks/useWindowDimension";
-
 import Watch from "../../../public/Watch.svg";
 import Timer from "../../../public/Timer.svg";
+import Image from "next/image";
 
 const BlogItem = ({
   article,
@@ -17,7 +17,7 @@ const BlogItem = ({
   loadedImagesCounter,
   setIsTagLoaded,
 }: IBlogItem) => {
-  const { width } = useWindowDimension();
+  const isMaxTabletPortrait = useMediaQuery("(max-width:992px)");
   const [isLoaded, setIsLoaded] = useState(false);
   const [displayedTag, setDisplayedTag] = useState("");
   const parseDate = (date: string) => {
@@ -68,7 +68,7 @@ const BlogItem = ({
               <Styled.ArticlePreview>
                 <Styled.BlogItemContent>
                   <Styled.FlexRowContainer className="blogItemTop">
-                    {(width && width <= 992 && (
+                    {(isMaxTabletPortrait && (
                       <Styled.FlexColumnContainer className="preview">
                         <Styled.SecondaryAuthor>{`By ${article.author.name} / ${article.author.specialization}`}</Styled.SecondaryAuthor>
                         <Styled.StatisticWrapper>
@@ -134,10 +134,15 @@ const BlogItem = ({
                   </Styled.BlogItemDescription>
                 </Styled.BlogItemContent>
                 {article.image?.url ? (
-                  <Styled.BlogItemImage
-                    src={article.image.url}
-                    onLoad={handleImageLoad}
-                  />
+                  <Styled.BlogItemImage>
+                    <Image
+                      src={article.image.url ? article.image.url : "/"}
+                      onLoad={handleImageLoad}
+                      alt="blog image"
+                      layout="fill"
+                      objectFit="contain"
+                    />
+                  </Styled.BlogItemImage>
                 ) : (
                   <Styled.NoBlogItemImage />
                 )}

@@ -1,6 +1,5 @@
 import styled from "styled-components";
 import themes from "../../../../utils/themes";
-
 import { Field } from "formik";
 
 export const FormField = styled(Field)`
@@ -9,21 +8,16 @@ export const FormField = styled(Field)`
   background: none;
   border: none;
   border-bottom: 1px solid black;
-  border-radius: 0;
   font-family: ${themes.primary.font.family.namu};
-  font-size: 1.34em;
+  font-size: 16px;
   color: black;
-  padding: 0 0 0 33px;
+  padding: 0 0 0 12px;
   &:focus {
     outline: none;
   }
 
-  &.formEmail {
-    color: ${({ toErrorEmail }) => (toErrorEmail ? "#F84A3F" : "black")};
-  }
-
   &::placeholder {
-    color: ${({ toError }) => (toError ? "#F84A3F" : "#8F8E93")};
+    color: ${themes.primary.colors.careersPlaceholder};
   }
 
   @media ${themes.primary.media.maxLowScreenMobile} {
@@ -36,28 +30,11 @@ export const FormField = styled(Field)`
 `;
 
 export const FormFieldContainer = styled.div`
-  height: 68px;
-  width: 46.45em;
-  background-color: ${themes.primary.colors.careerBackground};
+  width: 100%;
+  height: 78px;
   position: relative;
-  margin-top: 16px;
-  border: 1.5px solid #000;
-  box-shadow: 5px 5px 0 #000;
-
-  @media (max-width: 768px) {
-    width: 100%;
-  }
 
   @media ${themes.primary.media.maxLowScreenMobile} {
-    width: 90%;
-    height: 54px;
-  }
-
-  @media (max-width: 400px) {
-    width: 100%;
-  }
-
-  @media (max-width: 380px) {
-    width: 335px;
+    height: 66px;
   }
 `;

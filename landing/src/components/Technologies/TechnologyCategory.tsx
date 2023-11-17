@@ -1,8 +1,9 @@
 import Image from "next/image";
 import React, { FC, MouseEvent, useState } from "react";
 import { useWindowDimension } from "../../hooks/useWindowDimension";
+import { getWindowDimension } from "../../utils/getWindowDimension";
 import * as StyledThisComp from "../../styles/HomePage/Technologies.styled";
-import { SplitBrackets } from "../../utils/splitBrackets";
+import { SpanSplitBrackets } from "../../utils/splitBrackets";
 import TechModal from "./TechModal";
 
 interface ITechnologyCategoryProps {
@@ -24,7 +25,7 @@ const TechnologyCategory: FC<ITechnologyCategoryProps> = ({
   className,
   idx,
 }) => {
-  const { width } = useWindowDimension();
+  const { width } = getWindowDimension();
   const [isOpen, setIsOpen] = useState<boolean>(false);
 
   const onClose = (e: MouseEvent<HTMLDivElement>) => {
@@ -72,7 +73,7 @@ const TechnologyCategory: FC<ITechnologyCategoryProps> = ({
         </StyledThisComp.TitleWrapper>
       </StyledThisComp.CategoryTitle>
       <StyledThisComp.CategorySubtitle className={className}>
-        <SplitBrackets text={text} />
+        <SpanSplitBrackets text={text} />
       </StyledThisComp.CategorySubtitle>
       <TechModal data={stack} isOpen={isOpen} idx={idx} />
       <StyledThisComp.CategoryImgWrapper

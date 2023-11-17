@@ -1,36 +1,39 @@
+import React, { useEffect, useState } from "react";
 import parse from "html-react-parser";
-import ArticleAuthor from "../../components/ArticleAuthor/ArticleAuthor";
-import ArticleDescription from "../../components/ArticleDescription/ArticleDescription";
-import ShareOn from "../../components/ShareOn/ShareOn";
-import ArticleTags from "../../components/ArticleTags/ArticleTags";
 import {
   dehydrate,
   QueryClient,
   useMutation,
   useQuery,
 } from "@tanstack/react-query";
+import Head from "next/head";
+import Image from "next/image";
+import Link from "next/link";
+import { useRouter } from "next/router";
+
+import ArticleAuthor from "../../components/ArticleAuthor/ArticleAuthor";
+import ArticleDescription from "../../components/ArticleDescription/ArticleDescription";
+import ShareOn from "../../components/ShareOn/ShareOn";
+import ArticleTags from "../../components/ArticleTags/ArticleTags";
+import ArticleReadMore from "../../components/ArticleReadMore/ArticleReadMore";
+import HeaderNavNew from "../../components/HeaderNavNew/HeaderNavNew";
+import FooterNew from "../../components/FooterNew/FooterNew";
+import NotFoundPage from "../404";
+
+import * as Styled from "../../styles/AdminPage";
+import * as Style from "../../styles/PortfolioPage.styled";
+import * as Styles from "../../styles/ArticlePage.styled";
+
 import { IArticle } from "../../types/Admin/Response.types";
+import { IArticleData } from "../../types/Blog.types";
 import { queryKeys } from "../../consts/queryKeys";
 import titleBg from "../../../public/articleTitleBgImg.svg";
 import headerBottomBg from "../../../public/articleHeaderBottomBg.svg";
 import firstHeaderBg from "../../../public/articleFirstHeaderBg.svg";
 import secondHeaderBg from "../../../public/articleSecondHeaderBg.svg";
 import footerBg from "../../../public/articleFooterBg.svg";
-import React, { useEffect, useState } from "react";
-import * as Styles from "../../styles/ArticlePage.styled";
-import ArticleReadMore from "../../components/ArticleReadMore/ArticleReadMore";
-import { useRouter } from "next/router";
 import { adminBlogService } from "../../services/adminBlogPage";
-import * as Styled from "../../styles/AdminPage";
-import * as Style from "../../styles/PortfolioPage.styled";
 import { adminGlobalService } from "../../services/adminHomePage";
-import Head from "next/head";
-import Image from "next/image";
-import HeaderNavNew from "../../components/HeaderNavNew/HeaderNavNew";
-import FooterNew from "../../components/FooterNew/FooterNew";
-import NotFoundPage from "../404";
-import { IArticleData } from "../../types/Blog.types";
-import Link from "next/link";
 
 export async function getServerSideProps() {
   const queryClient = new QueryClient();

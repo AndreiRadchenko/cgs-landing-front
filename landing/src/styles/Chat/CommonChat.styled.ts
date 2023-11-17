@@ -5,10 +5,22 @@ import chatCloseButtonIcon from "../../../public/chatCloseButtonIcon.svg";
 import messageBubbleCloseIcon from "../../../public/messageBubbleCloseIcon.svg";
 import { glow, horizontalGlow } from "../Animations.styled";
 
-export const ChatWrapper = styled.div`
+export const ChatWrapper = styled.div<{ isChatWorking: boolean }>`
   position: relative;
 
+  width: 57px;
+
+  @media ${themes.primary.media.minMobile} {
+    width: 53px;
+  }
+
+  @media ${themes.primary.media.minPC} {
+    width: 70px;
+  }
+
   @media ${themes.primary.media.maxMobile} {
+    width: auto;
+
     &::after {
       content: "";
       left: 2px;
@@ -18,7 +30,10 @@ export const ChatWrapper = styled.div`
       height: 4px;
       border: 1.8px solid ${themes.primary.colors.primary};
 
-      background: ${themes.primary.colors.attachmentIcon};
+      background: ${({ isChatWorking }) =>
+        isChatWorking
+          ? themes.primary.colors.attachmentIcon
+          : themes.primary.colors.borderRateCard};
       transform: skew(45deg);
     }
   }
@@ -26,6 +41,7 @@ export const ChatWrapper = styled.div`
 
 interface IChatButton {
   isOpen?: boolean;
+  isChatWorking?: boolean;
 }
 
 export const ChatButton = styled.div<IChatButton>`
@@ -44,14 +60,13 @@ export const ChatButton = styled.div<IChatButton>`
   border-right: none;
   border-bottom: none;
   border-left: none;
-  background: ${({ isOpen }) =>
-    isOpen
-      ? themes.primary.colors.blogBackground
-      : `linear-gradient(
-    180deg,
-      ${themes.primary.colors.mainGradientColor1},
-      ${themes.primary.colors.mainGradientColor2},
-      ${themes.primary.colors.mainGradientColor1})`};
+  border-radius: 1px;
+  background: ${({ isOpen, isChatWorking }) =>
+    isChatWorking
+      ? isOpen
+        ? themes.primary.colors.blogBackground
+        : `linear-gradient(180deg, ${themes.primary.colors.mainGradientColor1}, ${themes.primary.colors.mainGradientColor2}, ${themes.primary.colors.mainGradientColor1})`
+      : themes.primary.colors.borderRateCard};
 
   transform-origin: top;
   background-size: auto 400%;
@@ -63,15 +78,17 @@ export const ChatButton = styled.div<IChatButton>`
     border: 1.8px solid ${themes.primary.colors.primary};
     border-right: 0;
     z-index: 10;
-    background: ${({ isOpen }) =>
-      isOpen
-        ? themes.primary.colors.blogBackground
-        : `linear-gradient(
+    background: ${({ isOpen, isChatWorking }) =>
+      isChatWorking
+        ? isOpen
+          ? themes.primary.colors.blogBackground
+          : `linear-gradient(
     90deg,
     ${themes.primary.colors.mainGradientColor1},
     ${themes.primary.colors.mainGradientColor2},
     ${themes.primary.colors.mainGradientColor1}
-  )`};
+  )`
+        : themes.primary.colors.borderRateCard};
     background-size: 200% auto;
     animation: ${horizontalGlow} 5s linear infinite;
   }
@@ -82,21 +99,27 @@ export const ChatButton = styled.div<IChatButton>`
     position: absolute;
     border: 1.8px solid ${themes.primary.colors.primary};
     border-radius: 1.5px;
-    background: ${themes.primary.colors.mainGradientColor2};
+    background: ${({ isChatWorking }) =>
+      isChatWorking
+        ? themes.primary.colors.mainGradientColor2
+        : themes.primary.colors.darkGrey};
     transform-origin: top;
   }
 
   &::before {
-    top: 1.3px;
+    top: 1px;
     left: -7px;
     width: 5px;
-    height: 98%;
+    height: 52.5px;
     transform: skewY(-45deg);
-    background-image: ${() => `linear-gradient(
+    background-image: ${({ isChatWorking }) =>
+      isChatWorking
+        ? `linear-gradient(
       180deg,
       ${themes.primary.colors.mainGradientColor1},
       ${themes.primary.colors.mainGradientColor2},
-      ${themes.primary.colors.mainGradientColor1})`};
+      ${themes.primary.colors.mainGradientColor1})`
+        : themes.primary.colors.darkGrey};
     transform-origin: top;
     background-size: auto 400%;
     animation: ${glow} 12s linear infinite;
@@ -104,40 +127,43 @@ export const ChatButton = styled.div<IChatButton>`
     @media ${themes.primary.media.maxMobile} {
       display: none;
     }
-    @media (min-width: 1500px) {
-      top: 2px;
-      height: 101%;
-    }
-    @media (max-width: 1024px) {
-      top: 1px;
+    @media ${themes.primary.media.maxPCFullHD} {
+      left: -6px;
+      height: 100%;
+      border-top-right-radius: 2.5px;
     }
   }
 
   &::after {
     border-right: none;
-    right: -8.5px;
+    right: -8px;
     bottom: -7px;
     width: 111.5%;
     height: 5px;
-    background: ${themes.primary.colors.attachmentIcon};
+    background: ${({ isChatWorking }) =>
+      isChatWorking
+        ? themes.primary.colors.attachmentIcon
+        : themes.primary.colors.darkGrey};
     transform: skew(-45deg);
 
     @media ${themes.primary.media.maxMobile} {
       display: none;
     }
-    @media (min-width: 1500px) {
-      bottom: -7.5px;
-      width: 112%;
-    }
-    @media (max-width: 1024px) {
-      width: 108.5%;
+    @media ${themes.primary.media.maxPCFullHD} {
+      width: 58px;
       right: -7.5px;
+      bottom: -7.5px;
+    }
+    @media (max-width: 991.5px) {
+      width: 108.5%;
+      bottom: -7.5px;
+      right: -7px;
     }
 
     @supports (-webkit-hyphens: none) {
       right: -7.5px;
       bottom: -7px;
-      width: 115%;
+      width: 112%;
 
       @media (max-width: 1024px) {
         bottom: -6.7px;
@@ -148,6 +174,19 @@ export const ChatButton = styled.div<IChatButton>`
         bottom: -7px;
         width: 111%;
       }
+    }
+  }
+
+  @media ${themes.primary.media.minPC} {
+    height: 70px;
+
+    &::before {
+      top: 2px;
+      height: 66.5px;
+    }
+
+    &::after {
+      width: 76px;
     }
   }
 `;
@@ -177,14 +216,15 @@ export const NewMessageCounter = styled.div`
   position: absolute;
   top: 0.3rem;
   right: 0.3rem;
-  width: 1.25rem;
-  height: 1.25rem;
+  width: 20px;
+  height: 20px;
   display: flex;
   align-items: center;
   justify-content: center;
 
   writing-mode: horizontal-tb;
-  font-size: 1rem;
+  font-size: 12px;
+  line-height: 150%;
   color: ${themes.primary.colors.primary};
 
   border-radius: 50%;
@@ -192,11 +232,11 @@ export const NewMessageCounter = styled.div`
   background-color: ${themes.primary.colors.portfolioHover};
 `;
 
-export const MessageBable = styled.div`
+export const MessageBable = styled.div<{ isChatWorking: boolean }>`
   position: absolute;
   bottom: -1rem;
   right: 6rem;
-  width: 215px;
+  width: ${({ isChatWorking }) => (isChatWorking ? "215px" : `315px`)};
   padding: 0.75rem 0.625rem;
 
   font-family: "NAMU";

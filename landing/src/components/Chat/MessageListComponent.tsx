@@ -51,11 +51,14 @@ const MessageListComponent = ({
       messageProps.messages.length > 0 &&
       messages[0].id !== messageProps.messages[0].id &&
       !messages.some((obj) => obj.id === messageProps.messages[0].id) &&
-      messages[messages.length - 1].id !== messageProps.messages[0].id &&
-      messageProps.messages[0].attachments.length !== 0
+      messages[messages.length - 1].id !== messageProps.messages[0].id
     ) {
       setMessages(
-        (messages) => messages && [...messages, messageProps.messages[0]]
+        (messages) =>
+          messages && [
+            ...[...messages.filter((msg) => msg.id)],
+            messageProps.messages[0],
+          ]
       );
       setNewMessageAmount((state) => ++state);
     }

@@ -20,9 +20,16 @@ const PrivacyContent = () => {
         <Styled.IntroWrapper>{data && parse(data.intro)}</Styled.IntroWrapper>
       </Styled.PrivacyHeader>
       <Styled.QuestionsWrapper>
-        {data?.content.map((question, idx) => (
-          <PrivacyQuestion key={idx} question={question} />
-        ))}
+        {data?.content.map((question, idx) => {
+          if (idx === data.content.length - 1) {
+            return (
+              <div key={idx} className="lastItem">
+                <PrivacyQuestion question={question} />
+              </div>
+            );
+          }
+          return <PrivacyQuestion key={idx} question={question} />;
+        })}
       </Styled.QuestionsWrapper>
     </FaqContainer>
   );

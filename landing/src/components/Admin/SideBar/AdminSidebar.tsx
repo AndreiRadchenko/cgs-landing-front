@@ -29,7 +29,7 @@ const AdminSidebar = () => {
   const pushEstimationForm = () => router.push(ROUTE_KEYS.AdminEstimationForm);
   const pushRateCard = () => router.push(ROUTE_KEYS.AdminRateCard);
   const pushSupportChat = () => router.push(ROUTE_KEYS.AdminSupportChat);
-  const pushCVs = () => router.push(ROUTE_KEYS.AdminCVs)
+  const pushCVs = () => router.push(ROUTE_KEYS.AdminCVs);
 
   const currentPath =
     router.pathname.split("/")[router.pathname.split("/").length - 1];

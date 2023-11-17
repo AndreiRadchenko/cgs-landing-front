@@ -1,57 +1,71 @@
-import styled, { css } from "styled-components";
+import styled from "styled-components";
 import themes from "../utils/themes";
 import { IIcon, ISlide } from "../types/Decoration.types";
-import { float } from "./Animations.styled";
 
 export const Container = styled.section`
   margin-top: 140px;
   margin-bottom: 138px;
+
   &.mobileAudit {
     margin-top: 8rem;
     margin-bottom: 10.2em;
   }
+
   &.cloudSolutions {
     margin-top: 45px;
   }
+
   &.mobileDev {
     margin-top: 7.3em;
+
+    & .card {
+      height: 231px;
+    }
+  }
+
+  @media ${themes.primary.media.minPCFullHD} {
+    &.mobileDev {
+      & .card {
+        height: 265px;
+      }
+    }
   }
 
   @media ${themes.primary.media.maxMobile} {
+    margin-top: 35px;
+    margin-bottom: 60px;
+
     &.mobileAudit {
       margin-top: 26px;
       margin-bottom: 108px;
     }
+
     &.mobileDev {
       margin-top: 30px;
+
+      & .card {
+        height: 182px;
+      }
     }
+
     &.cloudSolutions {
       margin-top: 35px;
     }
-    margin-top: 35px;
-    margin-bottom: 60px;
   }
 `;
 
 export const ContentLayout = styled.div`
-  margin-top: 29px;
-  margin-inline: -50px;
-  border-top: 1px solid ${themes.primary.colors.headerBorder};
-  border-bottom: 1px solid ${themes.primary.colors.headerBorder};
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(375px, 1fr));
+  margin-top: 29px;
+  gap: 32px;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
 
-  @media ${themes.primary.media.minPCFullHD} {
-    margin-inline: -75px;
+  @media ${themes.primary.media.maxTabletLandScape} {
+    grid-template-columns: repeat(1, minmax(300px, 1fr));
   }
-  @media (max-width: 1141px) {
-    margin-inline: -60px;
-    grid-template-columns: repeat(1, minmax(375px, 1fr));
-  }
+
   @media ${themes.primary.media.maxMobile} {
-    border-top: none;
-    margin-top: 0px;
-    margin-inline: -22px;
+    margin-top: 16px;
   }
 `;
 
@@ -83,14 +97,14 @@ export const WorthTitleContainer = styled.div`
 export const WorthCardTitle = styled.div`
   display: flex;
   align-items: center;
-  gap: 12px;
-  height: 121px;
+  gap: 16px;
+  height: 80px;
   background: linear-gradient(
     90deg,
     ${themes.primary.colors.gradientColor1RateCard} 0%,
     ${themes.primary.colors.gradientColor2RateCard} 100%
   );
-  padding-inline: 24px;
+  padding-inline: 16px;
 
   p {
     font-family: ${themes.primary.font.family.namu};
@@ -111,8 +125,8 @@ export const WorthCardTitle = styled.div`
   }
 
   @media ${themes.primary.media.maxMobile} {
-    padding-inline: 20px;
-    height: 80px;
+    height: 72px;
+    gap: 8px;
 
     &.cloudSolutions p,
     &.mobileAudit p,
@@ -132,19 +146,16 @@ export const WorthCardInfo = styled.div`
   height: 100%;
   top: 0;
   left: 0;
-  opacity: 0;
-  scale: 0;
-  transition: all 0.7s linear;
   background: ${themes.primary.colors.portfolioBg};
 `;
 
 export const WorthText = styled.p`
-  padding: 28px 24px;
+  padding: 29px 21px;
   margin: 0;
+  border-top: 3px solid black;
   font-weight: ${themes.primary.font.weight.heavy};
   font-size: 18px;
   line-height: 160%;
-  max-width: 440px;
 
   &.mobileDev {
     font-size: 1.5em;
@@ -155,8 +166,7 @@ export const WorthText = styled.p`
     font-size: 1.15em;
   }
 
-  @media ${themes.primary.media.minPCFullHD} {
-    max-width: 100%;
+  @media ${themes.primary.media.minPC} {
     & br {
       display: none;
     }
@@ -168,12 +178,9 @@ export const WorthText = styled.p`
     }
   }
 
-  @media ${themes.primary.media.maxTabletPortrait} {
-    margin-top: 5px;
-  }
   @media ${themes.primary.media.maxMobile} {
     margin: 0;
-    padding: 14px 20px;
+    padding: 16px;
     font-size: 16px;
     max-width: 100%;
 
@@ -186,95 +193,55 @@ export const WorthText = styled.p`
   }
 `;
 
+export const ShadowContainer = styled.div`
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  z-index: -1;
+  margin: 8px 0 0 8px;
+  border: 1px solid ${themes.primary.colors.black};
+`;
+
+export const BlackShadow = styled.div`
+  height: 80px;
+  width: 100%;
+  background: ${themes.primary.colors.black};
+  outline: 1px solid ${themes.primary.colors.black};
+
+  @media ${themes.primary.media.maxMobile} {
+    height: 72px;
+  }
+`;
+
 export const WorthBlock = styled.div<ISlide>`
   position: relative;
   padding-top: 102px;
-  height: 325px;
+  height: 260px;
+  border: 1px solid black;
 
-  &:not(:last-child) {
-    border-right: 1px solid ${themes.primary.colors.headerBorder};
-  }
-
-  &:hover ${WorthCardInfo} {
-    scale: 1;
-    opacity: 1;
-    transition: all 0.5s ease-in-out;
-  }
-  &:hover ${WorthTitleContainer} {
-    opacity: 0;
-  }
-  &:first-child ${WorthCardTitle} {
-    padding-inline: 51px;
-  }
-  &:first-child ${WorthText} {
-    padding: 28px 51px;
-    max-width: initial;
-  }
-  &:last-child ${WorthTitleContainer} {
-    &.mobileAudit {
-      padding-inline: 101px;
-      text-align: center;
-      line-height: 120%;
-    }
+  @media ${themes.primary.media.minPC} {
+    height: 245px;
   }
 
-  @media (max-width: 1141px) {
-    &:not(:last-child) {
-      border-right: none;
-    }
-    &:not(:first-child) {
-      border-top: 1px solid ${themes.primary.colors.headerBorder};
-    }
+  @media ${themes.primary.media.minPCFullHD} {
+    height: 265px;
   }
 
   @media ${themes.primary.media.maxMobile} {
-    height: 240px;
-    padding-top: 65px;
+    height: 208px;
+    padding: 65px;
 
-    &:first-child .iconCard {
-      width: 17px;
-      height: 29px;
-    }
-    &:nth-child(2) .iconCard {
-      width: 25px;
-      height: 25px;
-    }
-    &:last-child .iconCard {
-      width: 25px;
-      height: 35px;
-    }
-
-    &:first-child ${WorthCardTitle} {
-      padding-inline: 20px;
-    }
-    &:first-child ${WorthText} {
-      padding: 14px 20px;
-    }
-
-    &:last-child ${WorthTitleContainer} {
-      &.mobileAudit {
-        padding-inline: 61px;
-        text-align: center;
-      }
+    .iconCard {
+      width: 40px;
+      height: 40px;
     }
   }
 `;
 
 export const Icon = styled.img<IIcon>`
   display: flex;
-  margin-right: 0.3em;
-  animation: ${({ xOffset }) =>
-    css`
-      ${float(xOffset)} 3s infinite linear
-    `};
-
-  &.iconCard {
-    animation: none;
-  }
-
-  @media ${themes.primary.media.maxTabletLandScape} {
-    animation: none;
-  }
 `;
 
 export const WhoNeedContainer = styled.div`

@@ -89,7 +89,10 @@ export const ArrowContainer = styled.div`
   svg path {
     transition: transform 1s ease-in-out;
   }
-
+  &.prevBtn.initialDisabled {
+    opacity: 0.35;
+    pointer-events: none;
+  }
   &.prevBtn {
     width: 3.159em;
     height: 3.159em;
@@ -163,6 +166,20 @@ export const ArrowContainer = styled.div`
       }
     }
   }
+
+  @media ${themes.primary.media.maxLowScreenMobile} {
+    &.prevBtn {
+      width: 3.655em;
+      height: 3.655em;
+    }
+
+    &.nextBtn {
+      width: 7.643em;
+      height: 3.123em;
+      letter-spacing: 1px;
+      padding-left: 5px;
+    }
+  }
 `;
 
 export const SlideContainer = styled.div`
@@ -223,7 +240,7 @@ export const ContentWrapper = styled.div`
 export const ProjectTitle = styled.h2<{ isBig: boolean }>`
   font-family: ${themes.primary.font.family.namu};
   font-weight: ${themes.primary.font.weight.heavy};
-  font-size: ${({ isBig }) => (isBig ? "36px" : "40px")};
+  font-size: ${({ isBig }) => (isBig ? "30px" : "40px")};
   line-height: 140%;
   text-transform: uppercase;
   color: ${themes.primary.colors.primary};
@@ -249,6 +266,10 @@ export const ProjectTitle = styled.h2<{ isBig: boolean }>`
       opacity: 1;
       transition: all 0.5s 0.1s;
     }
+  }
+
+  @media (max-width: 450px) {
+    font-size: ${({ isBig }) => (isBig ? "22px" : "24px")};
   }
 
   @media ${themes.primary.media.minPCFullHD} {

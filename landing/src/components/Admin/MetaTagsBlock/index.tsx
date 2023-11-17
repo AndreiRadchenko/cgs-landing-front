@@ -2,7 +2,6 @@
 import { useFormikContext } from "formik";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { toast } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
 
 import SubHeaderWithInput from "../Global/SubHeaderWithInput";
 import HistoryLink from "../HistoryLink";
@@ -13,7 +12,7 @@ import {
   ArrowContainer,
   BlackButton,
 } from "../../../styles/HomePage/General.styled";
-
+import "react-toastify/dist/ReactToastify.css";
 import ButtonArrow from "../../../utils/ButtonArrow";
 
 import { IMetaBlock, ISitemapData } from "../../../types/Admin/Response.types";
@@ -123,8 +122,8 @@ const MetaTagsBlock = ({
   }, [nameBefore, values, meta.length]);
 
   return (
-    <Styled.MetaBlockWraper theme={theme}>
-      <div style={{ padding: "30px 30px" }}>
+    <Styled.AdminPaddedBlock theme={theme}>
+      <div>
         <SubHeaderWithInput
           header="Meta Title"
           minRows={5}
@@ -199,26 +198,19 @@ const MetaTagsBlock = ({
           }
           onChangeFunction={handleChange}
         />
-        {metaData?.lastModified && serviceName && (
-          <HistoryLink
-            sectionName="Meta"
-            lastModified={metaData?.lastModified}
-            link={`/history/${serviceName}/meta`}
-          />
-        )}
-        <BlackButton
-          type="submit"
-          size={"1.5em"}
-          padding={"1.11em 1.5em"}
-          onClick={handleClick}
-        >
-          Update meta tags
-          <ArrowContainer>
-            <ButtonArrow />
-          </ArrowContainer>
-        </BlackButton>
       </div>
-    </Styled.MetaBlockWraper>
+      <BlackButton
+        type="submit"
+        size={"1.5em"}
+        padding={"1.11em 1.5em"}
+        onClick={handleClick}
+      >
+        Update meta tags
+        <ArrowContainer>
+          <ButtonArrow />
+        </ArrowContainer>
+      </BlackButton>
+    </Styled.AdminPaddedBlock>
   );
 };
 

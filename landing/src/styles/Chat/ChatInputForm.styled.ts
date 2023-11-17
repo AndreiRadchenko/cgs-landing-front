@@ -1,6 +1,7 @@
 import styled, { css } from "styled-components";
 import themes from "../../utils/themes";
 import removeAttachButton from "../../../public/removeAttachButton.svg";
+import {  prevChatArrowOne, prevChatArrowTwo } from "../Animations.styled";
 
 export const InputEmailError = styled.p`
   margin: 0;
@@ -159,10 +160,10 @@ export const SubmitIconButton = styled(RemoveAttachButton)`
   }
   &:hover {
     & path:nth-child(1) {
-      transform: translateY(0px);
+      animation: ${prevChatArrowOne} 1s 1 forwards ease-in-out;
     }
     & path:nth-child(2) {
-      transform: translateY(-36px);
+      animation: ${prevChatArrowTwo} 1s 1 forwards ease-in-out;
     }
   }
 `;

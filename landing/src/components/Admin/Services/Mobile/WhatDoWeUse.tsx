@@ -1,8 +1,8 @@
-﻿import { useFormikContext } from "formik";
-import dynamic from "next/dynamic";
-import React from "react";
+﻿import React from "react";
+import { useFormikContext } from "formik";
 
 import SubHeaderWithInput from "../../Global/SubHeaderWithInput";
+import TextEditor from "../../../TextEditor/TextEditor";
 
 import { AdminHalfGrid, AdminPaddedBlock } from "../../../../styles/AdminPage";
 import {
@@ -13,10 +13,6 @@ import {
 import { IServiceMobile } from "../../../../types/Admin/Response.types";
 
 import ButtonArrow from "../../../../utils/ButtonArrow";
-
-const TextEditor = dynamic(() => import("../../../TextEditor/TextEditor"), {
-  ssr: false,
-});
 
 const WhatDoWeUse = () => {
   const { values, handleChange, handleSubmit } =

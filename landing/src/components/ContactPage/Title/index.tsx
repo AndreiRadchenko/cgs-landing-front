@@ -12,7 +12,7 @@ interface ITitle {
 }
 
 const Title = ({ title }: ITitle) => {
-  const isMobile = useMediaQuery("(max-width:474px)");
+  const isMobile = useMediaQuery("(max-width:768px)");
   const parsedTitle = splitBracketsAdvanced(title, isMobile);
 
   const options: HTMLReactParserOptions = {

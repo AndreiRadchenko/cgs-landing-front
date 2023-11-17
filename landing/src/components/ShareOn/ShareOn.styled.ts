@@ -41,7 +41,7 @@ export const Text = styled.div`
   font-weight: ${themes.primary.font.weight.semiBold};
   font-family: ${themes.primary.font.family.openSans};
   min-width: 125px;
-  color: #272C2F;
+  color: #272c2f;
 
   &.articleShare {
     font-size: 2.1em;

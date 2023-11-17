@@ -1,11 +1,11 @@
 import React from "react";
 import { useFormikContext } from "formik";
-import dynamic from "next/dynamic";
 import { useQueryClient } from "@tanstack/react-query";
 
 import ButtonArrow from "../../../utils/ButtonArrow";
 import SubHeaderWithInput from "../Global/SubHeaderWithInput";
 import HistoryLink from "../HistoryLink";
+import TextEditor from "../../TextEditor/TextEditor";
 
 import {
   ArrowContainer,
@@ -15,10 +15,6 @@ import * as Styles from "../../../styles/AdminContact.styled";
 import * as Styled from "../../../styles/AdminPage";
 import { IContactPageData } from "../../../types/Admin/AdminContact.types";
 import { queryKeys } from "../../../consts/queryKeys";
-
-const TextEditor = dynamic(() => import("../../TextEditor/TextEditor"), {
-  ssr: false,
-});
 
 const HeaderBlock = () => {
   const queryClient = useQueryClient();

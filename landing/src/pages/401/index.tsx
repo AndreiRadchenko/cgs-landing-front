@@ -1,6 +1,7 @@
 import React from "react";
-import * as Styled from "../../styles/SessionEnd.styled";
 import Router from "next/router";
+
+import * as Styled from "../../styles/SessionEnd.styled";
 
 const SessionEndPage = () => {
   return (

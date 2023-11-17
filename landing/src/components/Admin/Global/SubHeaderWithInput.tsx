@@ -18,13 +18,18 @@ const SubHeaderWithInput = ({
   width,
   id,
   inputStyle,
+  titleStyle,
   isMetaField = false,
   iserror = false,
   maxLength,
 }: InputWithHeader) => {
   return (
     <div>
-      <Styled.AdminSubTitle isadminblog={isadminblog} isBlog={isBlog}>
+      <Styled.AdminSubTitle
+        style={titleStyle}
+        isadminblog={isadminblog}
+        isBlog={isBlog}
+      >
         {header}
       </Styled.AdminSubTitle>
       <Styled.AdminInput

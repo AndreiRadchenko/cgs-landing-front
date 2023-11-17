@@ -1,4 +1,4 @@
-import { IAdmin } from "./../../types/Admin/Admin.types";
+import { IAdmin } from "../../types/Admin/Admin.types";
 import { IResponse } from "../../types/Admin";
 import { HttpService } from "../http.service";
 import { HttpServiceFactory } from "../index";

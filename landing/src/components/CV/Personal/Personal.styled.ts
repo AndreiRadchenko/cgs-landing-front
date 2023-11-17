@@ -236,8 +236,6 @@ export const AvatarFrame = styled.div`
   z-index: 0;
 
   @media (max-width: 1440px) {
-    transition: width 0.3s, height 0.3s, left 0.3s;
-
     width: calc(
       clamp(
         540px,

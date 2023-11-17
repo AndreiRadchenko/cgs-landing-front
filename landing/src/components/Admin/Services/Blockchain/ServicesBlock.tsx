@@ -1,9 +1,10 @@
 import React from "react";
-import dynamic from "next/dynamic";
 import { useFormikContext } from "formik";
 
 import SubHeaderWithInput from "../../Global/SubHeaderWithInput";
 import PhotoBlockDashed from "../../Global/PhotoBlockDashed";
+import ButtonArrow from "../../../../utils/ButtonArrow";
+import TextEditor from "../../../TextEditor/TextEditor";
 
 import {
   AdminPaddedBlock,
@@ -20,12 +21,6 @@ import useUploadImageFunction from "../../../../hooks/useUploadImageFunction";
 
 import { IImage } from "../../../../types/Admin/Admin.types";
 import { IBlockchainService } from "../../../../types/Admin/Response.types";
-
-import ButtonArrow from "../../../../utils/ButtonArrow";
-
-const TextEditor = dynamic(() => import("../../../TextEditor/TextEditor"), {
-  ssr: false,
-});
 
 const ServicesBlock = () => {
   const { values, handleChange, handleSubmit } =

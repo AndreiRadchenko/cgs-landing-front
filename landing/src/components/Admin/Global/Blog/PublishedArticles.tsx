@@ -142,7 +142,15 @@ const PublishedArticles: FC<IArticles> = ({
   const ArticleItem = ({ item, i }: IArticleItem) => {
     return (
       <AdminBlogItem isAdmin item={item}>
-        <Styles.Fade style={{display: isNewArticle ? "none" : !isNewArticle && article !== i ? "block" : "none"}}/>
+        <Styles.Fade
+          style={{
+            display: isNewArticle
+              ? "none"
+              : !isNewArticle && article !== i
+              ? "block"
+              : "none",
+          }}
+        />
         {item.draft && <Styles.DraftMark>DRAFT</Styles.DraftMark>}
         <Styles.ChangeIconWrapper onClick={() => toggleEditPost(i)}>
           <Styles.ChangeIcon

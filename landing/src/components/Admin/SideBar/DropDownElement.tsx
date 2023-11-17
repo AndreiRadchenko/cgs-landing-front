@@ -1,9 +1,10 @@
-import * as Styled from "../../../styles/AdminPage";
-import { useState } from "react";
-import React from "react";
-import { DropdownPropsInterface } from "../../../types/Admin/Admin.types";
+import React, { useState } from "react";
 import { useRouter } from "next/router";
+
 import { DownArrow } from "./ListItemImages";
+
+import { DropdownPropsInterface } from "../../../types/Admin/Admin.types";
+import * as Styled from "../../../styles/AdminPage";
 
 const DropDownElement = ({
   Icon,
@@ -37,11 +38,11 @@ const DropDownElement = ({
         {value + " "}
       </Styled.ListItemName>
       <DownArrow onClick={onClick} open={isShown} />
-      <Styled.AdminSidebarHiddenElement
+      <Styled.AdminSidebarHidenElement
         className={isShown ? undefined : "hidden"}
       >
         {children}
-      </Styled.AdminSidebarHiddenElement>
+      </Styled.AdminSidebarHidenElement>
     </Styled.AdminSidebarMenuElement>
   );
 };

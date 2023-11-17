@@ -1,7 +1,7 @@
 import React from "react";
 import { useFormikContext } from "formik";
 
-import { ComponentLoader } from "../../../components/Loader";
+import { ComponentLoader } from "../../Loader";
 
 import useDeleteVideoFuction from "../../../hooks/useDeleteVideoFunction";
 import useUploadVideoFunction from "../../../hooks/useUploadVideoFunction";
@@ -24,7 +24,7 @@ import { IImage } from "../../../types/Admin/Admin.types";
 const AboutBlock = () => {
   const { values, handleChange, handleSubmit } = useFormikContext<IAbout>();
 
-  const { video, image, codex, philosophy } = values.about ?? {
+  const { video, image, header, codex, philosophy } = values.about ?? {
     video: { image: "" },
     image: "",
     codex: { title: "", text: "" },
@@ -80,6 +80,16 @@ const AboutBlock = () => {
             />
           )}
         </div>
+        <div style={{ flexGrow: 1, textAlign: "left" }}>
+          <SubHeaderWithInput
+            placeholder="Header title"
+            header="Header"
+            inputValue={header}
+            onChangeFunction={handleChange}
+            name="about.header"
+            titleStyle={{ textAlign: "left" }}
+          />
+        </div>
       </Styles.ImagesWrapper>
 
       <Styles.Headlines>
@@ -90,6 +100,7 @@ const AboutBlock = () => {
             inputValue={codex.title}
             onChangeFunction={handleChange}
             name="about.codex.title"
+            titleStyle={{ textAlign: "left" }}
           />
           <SubHeaderWithInput
             placeholder="Text"
@@ -107,6 +118,7 @@ const AboutBlock = () => {
             inputValue={philosophy.title}
             onChangeFunction={handleChange}
             name="about.philosophy.title"
+            titleStyle={{ textAlign: "left" }}
           />
           <SubHeaderWithInput
             placeholder="Text"

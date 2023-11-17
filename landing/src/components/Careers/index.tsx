@@ -1,118 +1,27 @@
-import React, { FC, useRef } from "react";
-import Image from "next/image";
-import { useMediaQuery } from "@mui/material";
-import parse, { HTMLReactParserOptions, Element } from "html-react-parser";
+import React, { FC } from "react";
 
 import CareersTicket from "../../components/CareersTicket";
 import CareersForm from "../CareersForm";
-import ScrambleText from "../HomePage/ScrambleText";
+import { useScrollTo } from "../../hooks/useScrollTo";
+import { useWindowDimension } from "../../hooks/useWindowDimension";
 
 import * as Styles from "./Careers.styled";
-import * as CSS from "../../styles/Portfolio/title.styled";
+import Arrow from "../../../public/arrowRight.svg";
+import { IDataCareersResponse } from "../../types/Admin/Response.types";
+import ArrowMobile from "../../../public/CareerDecorations/ArrowMobile.svg";
+import MagnifiedGlass from "../../../public/magnifiedGlass.svg";
 
-import { ICareersProps } from "../../types/Company.types";
-
-import leftGlass from "../../../public/CareerDecorations/leftGlass.svg";
-import rightGlass from "../../../public/CareerDecorations/rightGlass.svg";
-import topRightText from "../../../public/CareerDecorations/topText.svg";
-import bottomLeftText from "../../../public/CareerDecorations/bottomLeftText.svg";
-import bottomRightText from "../../../public/CareerDecorations/bottomRightText.svg";
-import longArrow from "../../../public/HomePageDecoration/longArrow.svg";
-import shortArrow from "../../../public/HomePageDecoration/longArrow.svg";
-
+interface ICareersProps {
+  data: IDataCareersResponse;
+}
 const Careers: FC<ICareersProps> = ({ data }) => {
-  const [parsedSubtitle, setParsedSubtitle] = React.useState<any>("");
-  const is768px = useMediaQuery("(max-width: 768px)");
-  const ref = useRef<HTMLDivElement>(null);
-
-  const scrollTo = () => {
-    if (ref && ref.current) {
-      const element = ref.current;
-      const rect = element.getBoundingClientRect();
-      const lineHeight = parseInt(window.getComputedStyle(element).lineHeight);
-      const secondLineTop = rect.top + lineHeight - 150;
-
-      window.scroll({
-        top: window.pageYOffset + secondLineTop,
-        behavior: "smooth",
-      });
-    }
-  };
+  const { width } = useWindowDimension();
+  const [ref, scrollTo] = useScrollTo<HTMLDivElement>();
   const positions = data?.tickets?.length
     ? data.tickets.map(({ vacancy, position }) => `${position} ${vacancy}`)
     : [];
 
   positions.length && positions.push("None of the above");
-
-  const subtitle = data?.subtitle;
-  const subtitle2 = data?.subtitle2;
-
-  const options: HTMLReactParserOptions = {
-    replace: (domNode) => {
-      if (
-        domNode instanceof Element &&
-        domNode.attribs &&
-        domNode.attribs.style &&
-        domNode.attribs.style.includes("color: rgb(221, 105, 88)")
-      ) {
-        return (
-          <>
-            <CSS.ArrowWrapper>
-              <Image
-                src={longArrow.src}
-                alt="wide tech long arrow"
-                layout="fill"
-                objectFit="cover"
-                objectPosition="right"
-              />
-            </CSS.ArrowWrapper>
-          </>
-        );
-      }
-      if (
-        domNode instanceof Element &&
-        domNode.attribs &&
-        domNode.attribs.style &&
-        domNode.attribs.style.includes("color: rgb(88, 105, 221)")
-      ) {
-        return (
-          <span className="blue">
-            <ScrambleText
-              text={
-                domNode.children[0].type === "text" &&
-                (domNode.children[0] as any).data
-              }
-            />
-          </span>
-        );
-      }
-    },
-  };
-
-  const options2: HTMLReactParserOptions = {
-    replace: (domNode) => {
-      if (
-        domNode instanceof Element &&
-        domNode.attribs &&
-        domNode.attribs.style &&
-        domNode.attribs.style.includes("color: rgb(221, 105, 88)")
-      ) {
-        return (
-          <>
-            <CSS.ShortArrowWrapper>
-              <Image
-                src={shortArrow.src}
-                alt="wide tech long arrow"
-                layout="fill"
-                objectFit="cover"
-                objectPosition="right"
-              />
-            </CSS.ShortArrowWrapper>
-          </>
-        );
-      }
-    },
-  };
 
   const mapTickets = () => {
     return data?.tickets.map((ticket, idx) => (
@@ -120,39 +29,49 @@ const Careers: FC<ICareersProps> = ({ data }) => {
     ));
   };
 
-  React.useEffect(() => {
-    setParsedSubtitle(parse(data?.subtitle, options));
-  }, [data?.subtitle]);
-
   return (
     <Styles.Layout>
       <Styles.CareersContainer>
-        <Styles.TopRightImageText src={topRightText.src} />
-        <Styles.BottomRightImageText src={bottomRightText.src} />
-        <Styles.BottomRightImageGlass src={rightGlass.src} />
-        <Styles.Title>{parsedSubtitle}</Styles.Title>
+        <Styles.Title>
+          <Styles.TitleTextRow>
+            <Styles.TitleText>NEXT-GENERATION</Styles.TitleText>
+            <Styles.ArrowContainer>
+              {width && (
+                <Styles.TitleArrow
+                  src={width > 474 ? Arrow.src : ArrowMobile.src}
+                  alt="Arrow"
+                />
+              )}
+            </Styles.ArrowContainer>
+            <Styles.TitleText>PROJECTS&nbsp;</Styles.TitleText>
+          </Styles.TitleTextRow>
+          <Styles.TitleTextRow>
+            <Styles.TitleText>REQUIRE AN&nbsp;</Styles.TitleText>
+            <Styles.TitleText className={"blue"}>
+              OUTSTANDING TEAM.
+            </Styles.TitleText>
+          </Styles.TitleTextRow>
+        </Styles.Title>
         <Styles.TicketsWrapper>
           <Styles.TicketsContainer>{mapTickets()}</Styles.TicketsContainer>
         </Styles.TicketsWrapper>
-        {is768px ? (
-          <Styles.FormTitle ref={ref} className="mobile">
-            <h5>{"<"}</h5>
-            {data && parse(subtitle2, options2)}
-            <h4>{">"}</h4>
-          </Styles.FormTitle>
-        ) : (
-          <Styles.FormTitle ref={ref}>
-            {data && parse(subtitle2, options2)}
-          </Styles.FormTitle>
-        )}
+        <Styles.Separator />
+        <Styles.FormTitle>
+          &lt;Found your dream-job?
+          <br />
+          Let us discover you!&gt;
+        </Styles.FormTitle>
         <Styles.FormAndImageContainer>
-          <Styles.BottomLeftImageText src={bottomLeftText.src} />
-          <Styles.BottomLeftImageGlass src={leftGlass.src} />
           <Styles.FormContainer>
+            <Styles.FormContainer3D>
+              <Styles.TopCorner />
+              <Styles.BottomCorner />
+            </Styles.FormContainer3D>
             <Styles.Form>
-              <CareersForm positions={positions} data={data} />
+              <CareersForm positions={positions} data={data} ourRef={ref} />
             </Styles.Form>
           </Styles.FormContainer>
+          <Styles.FormImage src={MagnifiedGlass.src} alt="Magnified Glass" />
         </Styles.FormAndImageContainer>
       </Styles.CareersContainer>
     </Styles.Layout>

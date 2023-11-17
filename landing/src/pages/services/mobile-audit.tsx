@@ -29,6 +29,8 @@ import { IServiceMobileAudit } from "../../types/Admin/Response.types";
 
 import { adminMobileAuditService } from "../../services/services/adminServiceMobileAuditPage";
 import { adminGlobalService } from "../../services/adminHomePage";
+import { useCalendlyEventListener } from "react-calendly";
+import { useGetCelendlyMeetingData } from "../../hooks/useGetCelendlyMeetingData";
 
 export async function getServerSideProps() {
   const queryClient = new QueryClient();
@@ -66,6 +68,8 @@ const MobileAuditService = () => {
 
   calendlyPopupInfoHandler(() => setIsCalendlySuccessfull(true));
 
+  const { dateTime, joinLink } = useGetCelendlyMeetingData();
+
   return (
     <Loader active={isLoading}>
       {isLoading ? (
@@ -74,6 +78,8 @@ const MobileAuditService = () => {
         <>
           {isCalendlySuccessfull && (
             <CalendlyInfoModal
+              celendlyUri={joinLink}
+              dateTime={dateTime}
               isOpen={isCalendlySuccessfull}
               setIsCalendlySuccessfull={setIsCalendlySuccessfull}
             />

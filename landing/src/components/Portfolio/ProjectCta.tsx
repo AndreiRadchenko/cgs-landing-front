@@ -62,10 +62,10 @@ const ProjectCta = ({ projectInfo }: { projectInfo: IIPPData }) => {
           {width && width > 768
             ? newTitleArray.join(" ")
             : newTitleArray.map((el, idx) => (
-                <>
-                  <span key={`${el}${idx}`}>{el}</span>
+                <div key={`${el}${idx}`}>
+                  <span>{el}</span>
                   {idx !== newTitleArray.length - 1 && <br />}
-                </>
+                </div>
               ))}
         </h3>
         <Styles.ButtonWrapper>

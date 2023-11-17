@@ -42,7 +42,7 @@ const ContactPageButton = ({
         <Styled.BlackButtonAnchor ref={elRef} rel="noopener noreferrer">
           {buttonText}
         </Styled.BlackButtonAnchor>
-        <ArrowContainer>
+        <ArrowContainer className={buttonClassName}>
           <ButtonArrow />
         </ArrowContainer>
       </Styled.BlackButton>

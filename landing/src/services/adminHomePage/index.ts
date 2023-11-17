@@ -2,7 +2,6 @@ import { IResponse } from "../../types/Admin";
 import { IDataResponse } from "../../types/Admin/Response.types";
 import { EnhancedWithAuthHttpService } from "../httpAuth.service";
 import { HttpServiceFactory } from "../index";
-import { IClientMail } from "../../types/Mail.types";
 
 export class AdminHomePageService {
   constructor(private httpService: EnhancedWithAuthHttpService) {}
@@ -17,9 +16,6 @@ export class AdminHomePageService {
   }
   public deleteImage(url: string) {
     return this.httpService.delete("api/upload", { data: { url } });
-  }
-  public mailForm(data: IClientMail) {
-    return this.httpService.post("api/form/mail", data);
   }
 }
 

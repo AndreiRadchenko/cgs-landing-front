@@ -99,7 +99,7 @@ const CvForm = ({ isNewCv, setIsNewCv, cv, current }: CvAddOrEditProps) => {
       validate={validateForm}
     >
       <Form>
-        <CvAddOrEdit isNewCv={isNewCv}/>
+        <CvAddOrEdit isNewCv={isNewCv} />
       </Form>
     </Formik>
   );

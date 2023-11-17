@@ -17,3 +17,13 @@ export interface IFaqData {
   meta: IMetaBlock;
   questions: IQuestion[];
 }
+
+export interface IQuestionComponent {
+  question: IQuestion;
+  handleChange: (e?: string | React.ChangeEvent<any>) => void;
+  questionName: string;
+  questionText: string;
+  addQuestion: (index: number) => void;
+  deleteQuestion: (index: number) => void;
+  index: number;
+}

@@ -1,14 +1,13 @@
 import React, { useEffect, useRef, useState } from "react";
-import Image from "next/image";
 import parse, { HTMLReactParserOptions, Element } from "html-react-parser";
 import { useQueryClient } from "@tanstack/react-query";
 import { useMediaQuery } from "@mui/material";
 
 import ButtonShareComponent from "./ButtonShareComponent";
 import GetEstimationButton from "../GetEstimationButton";
+import { LeftArrow } from "./LeftArrow/LeftArrow";
 
 import * as Styled from "../../styles/HomePage/General.styled";
-import * as CSS from "../../styles/Portfolio/title.styled";
 
 import { queryKeys } from "../../consts/queryKeys";
 
@@ -16,14 +15,9 @@ import { IDataResponse } from "../../types/Admin/Response.types";
 
 import { useOnScreen } from "../../hooks/useOnScreen";
 
-import leftArrow from "../../../public/HomePageDecoration/leftArrow.svg";
-import boldRightArrowMobile from "../../../public/HomePageDecoration/boldArrowRightMobile.svg";
-import rightArrow from "../../../public/HomePageDecoration/rightArrow.svg";
 import Tetris from "./Tetris";
 
 const HeadBlock = () => {
-  const is768px = useMediaQuery("(max-width: 768px)");
-
   const queryClient = useQueryClient();
   const data = queryClient.getQueryData<IDataResponse>([
     queryKeys.getFullHomePage,
@@ -33,7 +27,7 @@ const HeadBlock = () => {
   const elRef = useRef<HTMLDivElement>(null);
   const isOnScreen = useOnScreen(elRef, true);
 
-  const optionsDesktop: HTMLReactParserOptions = {
+  const options: HTMLReactParserOptions = {
     replace: (domNode) => {
       if (
         domNode instanceof Element &&
@@ -41,19 +35,7 @@ const HeadBlock = () => {
         domNode.attribs.style &&
         domNode.attribs.style.includes("color: rgb(88, 24, 14)")
       ) {
-        return (
-          <>
-            <CSS.HomePageArrowWrapper className="homePageSubtitleLeftArrow">
-              <Image
-                src={leftArrow.src}
-                alt="wide tech long arrow"
-                layout="fill"
-                objectFit="contain"
-                priority
-              />
-            </CSS.HomePageArrowWrapper>
-          </>
-        );
+        return <LeftArrow />;
       }
       if (
         domNode instanceof Element &&
@@ -61,57 +43,10 @@ const HeadBlock = () => {
         domNode.attribs.style &&
         domNode.attribs.style.includes("color: rgb(221, 105, 88)")
       ) {
-        return (
-          <>
-            <CSS.HomePageArrowWrapper className="homePageSubtitleRightArrow">
-              <Image
-                src={rightArrow.src}
-                alt="wide tech long arrow"
-                layout="fill"
-                objectFit="contain"
-                priority
-              />
-            </CSS.HomePageArrowWrapper>
-          </>
-        );
+        return <LeftArrow isRight />;
       }
     },
   };
-
-  const optionsMobile: HTMLReactParserOptions = {
-    replace: (domNode) => {
-      if (
-        domNode instanceof Element &&
-        domNode.attribs &&
-        domNode.attribs.style &&
-        domNode.attribs.style.includes("color: rgb(88, 24, 14)")
-      ) {
-        return <></>;
-      }
-      if (
-        domNode instanceof Element &&
-        domNode.attribs &&
-        domNode.attribs.style &&
-        domNode.attribs.style.includes("color: rgb(221, 105, 88)")
-      ) {
-        return (
-          <>
-            <CSS.HomePageArrowWrapper className="homePageSubtitleRightArrow">
-              <Image
-                src={boldRightArrowMobile.src}
-                alt="wide tech long arrow"
-                layout="fill"
-                objectFit="contain"
-                priority
-              />
-            </CSS.HomePageArrowWrapper>
-          </>
-        );
-      }
-    },
-  };
-
-  const options = is768px ? optionsMobile : optionsDesktop;
 
   useEffect(() => {
     if (isOnScreen) {

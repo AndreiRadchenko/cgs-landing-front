@@ -1,26 +1,20 @@
 import React, { useState } from "react";
 import Image from "next/image";
+import { useQueryClient } from "@tanstack/react-query";
+
 import CalculatorModal from "./CalculatorPagerModalComponent";
-import PressButtonArrow from "../../../public/Calculator/pressButtonArrow.svg";
 import CalculatorPager from "./CalculatorPager";
 import CalculatorChooseLine from "./CalculatorChooseLine";
-import * as Styled from "../../styles/Calculator/CalculatorComponent.styled";
-import { useQueryClient } from "@tanstack/react-query";
-import { queryKeys } from "../../consts/queryKeys";
-import { ICalculator, ICalculatorStep } from "../../types/Admin/Response.types";
-import { useWindowDimension } from "../../hooks/useWindowDimension";
 
-interface ICalculatorPagerComponentProps {
-  buttonText: string;
-  isOpen: boolean;
-  startLoading: boolean;
-  classicStepsData?: ICalculatorStep[] | void;
-  blockchainStepsData?: ICalculatorStep[] | void;
-  handleButtonClick: () => void;
-  handleClose: () => void;
-  handleBlockchainClick: () => void;
-  handleClassicClick: () => void;
-}
+import * as Styled from "../../styles/Calculator/CalculatorComponent.styled";
+
+import PressButtonArrow from "../../../public/Calculator/pressButtonArrow.svg";
+import { queryKeys } from "../../consts/queryKeys";
+import {
+  ICalculator,
+  ICalculatorPagerComponentProps,
+} from "../../types/Admin/Response.types";
+import { useWindowDimension } from "../../hooks/useWindowDimension";
 
 const CalculatorPagerComponent = ({
   buttonText,

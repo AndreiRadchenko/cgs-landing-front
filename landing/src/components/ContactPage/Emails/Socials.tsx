@@ -4,6 +4,7 @@ import { ContactButton } from "../ContactButton";
 
 import * as Styled from "./Emails.styled";
 import { IContactPageData } from "../../../types/Admin/AdminContact.types";
+import { SocialsContainer } from "./Socials.styled";
 
 type MessengersProps = Pick<IContactPageData, "socials">;
 
@@ -12,23 +13,20 @@ export const Socials = ({ socials }: MessengersProps) => {
 
   return (
     <Styled.EmailsContainer>
-      <div>
+      <SocialsContainer>
         <Styled.EmailsTitle>{subtitle}</Styled.EmailsTitle>
         <Styled.ButtonWrapperHorizontal>
           {social.map((item, idx) => (
             <ContactButton
               key={idx}
-              style={{ width: "58px", height: "58px" }}
+              className="social-button"
               picture={item.image?.url ? item.image.url : ""}
-              pictureWidth="32px"
-              pictureHeight="32px"
-              //   text={item.name}
               link={item.link}
               newTab
             />
           ))}
         </Styled.ButtonWrapperHorizontal>
-      </div>
+      </SocialsContainer>
     </Styled.EmailsContainer>
   );
 };

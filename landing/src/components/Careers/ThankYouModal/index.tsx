@@ -1,6 +1,6 @@
 import React, { FC } from "react";
-import * as Styles from "./ThankYouModal.styled";
 
+import * as Styles from "./ThankYouModal.styled";
 import CloseButton from "../../../../public/CareerDecorations/close.svg";
 import Thing from "../../../../public/CareerDecorations/thankyouthing.svg";
 import Cube from "../../../../public/CareerDecorations/cube.svg";
@@ -17,7 +17,7 @@ const ThankYouModal: FC<ThankYouModalProps> = ({ isOpen, setIsOpen }) => {
     <>
       <Styles.ThankYouModal isOpen={isOpen} onClick={() => setIsOpen(false)}>
         <Styles.ThankYouModalContainer>
-          <Styles.ThankYouModalContent>
+          <Styles.ThankYouModalContent onClick={(e) => e.stopPropagation()}>
             <Styles.Container>
               <Styles.WhiteBox />
               <Styles.BlackBox />

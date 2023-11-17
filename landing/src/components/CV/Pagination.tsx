@@ -1,6 +1,6 @@
 import React, { useCallback, useMemo } from "react";
 
-import * as Styles from "../../styles/Portfolio.styled";
+import * as Styles from "../../styles/CV/DevsInfo.styled";
 
 import { IPaginationProps } from "../../types/Admin/AdminCv.types";
 
@@ -23,6 +23,7 @@ export const Pagination = ({
     (pageNumber: number) => {
       if (pageNumber !== currentPage) {
         handleClick(pageNumber);
+        Styles;
       }
     },
     [handleClick, currentPage]

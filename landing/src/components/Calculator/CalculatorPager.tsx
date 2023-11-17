@@ -1,4 +1,4 @@
-import React, { ReactNode } from "react";
+import React from "react";
 import {
   ImageWrapper,
   CalculatorPagerRightButton,
@@ -7,12 +7,7 @@ import {
   LeftButtonArrow,
 } from "../../styles/Calculator/CalculatorComponent.styled";
 
-interface ICalculatorPagerProps {
-  onPagerRightClick: () => void;
-  onPagerLeftClick: () => void;
-  mobile?: boolean;
-  children: ReactNode;
-}
+import { ICalculatorPagerProps } from "../../types/Admin/Response.types";
 
 const CalculatorPager = ({
   onPagerRightClick,

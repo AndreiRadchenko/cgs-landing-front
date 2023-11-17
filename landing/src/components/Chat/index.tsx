@@ -1,9 +1,12 @@
 import React, { useState, useEffect, useRef } from "react";
+import dynamic from "next/dynamic";
+
 import setMessageTime from "../../utils/setMessageTime";
-import ChatComponent from "./ChatComponent";
+const ChatComponent = dynamic(() => import("./ChatComponent"));
 
 import * as Styled from "../../styles/Chat/CommonChat.styled";
-import { useWindowDimension } from "../../hooks/useWindowDimension";
+import { getWindowDimension } from "../../utils/getWindowDimension";
+import { isChatAvailable } from "../../utils/chatAvailabilityUtil";
 
 interface IChatProps {
   isChatOpen: boolean;
@@ -26,13 +29,17 @@ const Chat = ({
   const [newMessageAmount, setNewMessageAmount] = useState<number>(0);
   const chatRef = useRef<HTMLDivElement>(null);
 
-  const { width } = useWindowDimension();
+  const { width } = getWindowDimension();
+
+  const isChatWorking = isChatAvailable();
 
   const toggleIsOpenChat = () => {
-    setIsShowingBubble(false);
-    setIsChatOpen((old) => !old);
-    newMessageAmount > 0 && setNewMessageAmount(0);
-    !openChatTime && setOpenChatTime(setMessageTime());
+    if (isChatWorking) {
+      setIsShowingBubble(false);
+      setIsChatOpen((old) => !old);
+      newMessageAmount > 0 && setNewMessageAmount(0);
+      !openChatTime && setOpenChatTime(setMessageTime());
+    }
   };
 
   const handleBubbleShow = () => {
@@ -41,7 +48,10 @@ const Chat = ({
   };
 
   const hadleCloseBubble = () => {
-    setIsShowingBubble(false);
+    if (isChatWorking) setIsShowingBubble(false);
+    else {
+      setTimeout(() => setIsShowingBubble(false), 3000);
+    }
   };
 
   useEffect(() => {
@@ -49,25 +59,48 @@ const Chat = ({
       document.body.style.overflow = "hidden";
     else document.body.style.overflow = "auto";
   }, [isChatOpen]);
+  useEffect(() => {
+    let timer = setTimeout(() => setNewMessageAmount(1), 3000);
+
+    return () => {
+      clearTimeout(timer);
+    };
+  }, []);
 
   return (
-    <Styled.ChatWrapper ref={chatRef}>
+    <Styled.ChatWrapper isChatWorking={isChatWorking} ref={chatRef}>
       {!isChatOpen && isShowingBubble && (
-        <Styled.MessageBable>
-          <p>Hi! Welcome to our website. How can we help you?</p>
+        <Styled.MessageBable isChatWorking={isChatWorking}>
+          {isChatWorking ? (
+            <p>Hi! Welcome to our website. How can we help you?</p>
+          ) : (
+            <p>
+              Oops, our chat is not available right now. <br />
+              Text us at{" "}
+              <a
+                style={{ color: "#5869DD", textDecoration: "underline" }}
+                href="mailto:contact@cgsteam.io"
+              >
+                contact@cgsteam.io
+              </a>
+            </p>
+          )}
           {isShowingCross && (
-            <Styled.MessageBubbleCloseIcon onClick={hadleCloseBubble} />
+            <Styled.MessageBubbleCloseIcon
+              onClick={() => setIsShowingBubble(false)}
+            />
           )}
         </Styled.MessageBable>
       )}
       <Styled.ChatButton
+        isChatWorking={isChatWorking}
         isOpen={isChatOpen}
         onClick={toggleIsOpenChat}
         onMouseOver={handleBubbleShow}
         onMouseLeave={hadleCloseBubble}
       >
         <Styled.ChatButtonIcon isOpen={isChatOpen} />
-        {newMessageAmount > 0 && !isChatOpen && (
+        {newMessageAmount > 0 && isChatWorking && !isChatOpen && (
           <Styled.NewMessageCounter>
             {newMessageAmount}
           </Styled.NewMessageCounter>

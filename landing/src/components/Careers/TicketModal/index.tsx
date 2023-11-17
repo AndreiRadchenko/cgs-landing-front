@@ -1,17 +1,21 @@
-import React, { FC } from "react";
+import React, { FC, MouseEvent, useEffect } from "react";
 
 import * as Styles from "../../../styles/TicketModal.styled";
 
-import { ITicketModalProps } from "../../../types/Company.types";
+interface ITicketModalProps {
+  isOpen?: boolean;
+  children: React.ReactNode;
+  onClose?: (e: MouseEvent<HTMLDivElement | HTMLButtonElement>) => void;
+}
 
-const TicketModal: FC<ITicketModalProps> = ({
-  isOpen,
-  onClose,
-  children,
-  ref,
-}) => {
+const TicketModal: FC<ITicketModalProps> = ({ isOpen, onClose, children }) => {
+  useEffect(() => {
+    if (isOpen) document.body.style.overflow = "hidden";
+    else document.body.style.overflow = "unset";
+  }, [isOpen]);
+
   return (
-    <Styles.TicketModal isOpen={isOpen} onClick={onClose} ref={ref}>
+    <Styles.TicketModal isOpen={isOpen} onClick={onClose}>
       <Styles.TicketModalContentContainer>
         <Styles.TicketModalContent onClick={(e) => e.stopPropagation()}>
           <Styles.Container>

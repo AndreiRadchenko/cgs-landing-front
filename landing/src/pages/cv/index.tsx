@@ -14,11 +14,12 @@ import { queryKeys } from "../../consts/queryKeys";
 import { Loader, LoaderStub } from "../../components/Loader";
 import { adminCvService } from "../../services/adminCvPage";
 
-import * as Styled from "../../styles/AdminPage";
+// import * as Styled from "../../styles/AdminPage";
 import * as Styles from "../../styles/CV/DevsInfo.styled";
-import * as PortfolioStyles from "../../styles/Portfolio.styled";
+// import * as PortfolioStyles from "../../styles/Portfolio.styled";
 
 import { ICvListResponse, ICvResponse } from "../../types/Admin/AdminCv.types";
+import { truncate } from "fs";
 
 const DevsInfo = () => {
   const { data, isLoading }: ICvResponse = useQuery([queryKeys.getCvPage], () =>
@@ -240,9 +241,9 @@ const DevsInfo = () => {
               <Styles.Layout>
                 <Styles.CvTitle>{data.title}</Styles.CvTitle>
                 <Styles.SettingsBlock>
-                  <PortfolioStyles.PortfolioCategoryWrapper>
+                  <Styles.PortfolioCategoryWrapper>
                     {data?.categories.map((name, i) => (
-                      <PortfolioStyles.PortfolioCategoryItem
+                      <Styles.PortfolioCategoryItem
                         key={i}
                         ref={handleCategoryItemRef(i)}
                         blockWidth={categoryItemWidths[i]}
@@ -256,9 +257,9 @@ const DevsInfo = () => {
                         }}
                       >
                         {name.charAt(0).toUpperCase() + name.slice(1)}
-                      </PortfolioStyles.PortfolioCategoryItem>
+                      </Styles.PortfolioCategoryItem>
                     ))}
-                  </PortfolioStyles.PortfolioCategoryWrapper>
+                  </Styles.PortfolioCategoryWrapper>
                   <Styles.CvSearchWrapper>
                     <Styles.CvSearchButton>
                       <Styles.CvSearchIcon
@@ -279,11 +280,11 @@ const DevsInfo = () => {
                   ) : cvData?.cvs && cvData.cvs.length > 0 ? (
                     <>
                       {isRequestRepeated && (
-                        <PortfolioStyles.PortfolioFilterWarning className="cv">
+                        <Styles.PortfolioFilterWarning className="cv">
                           <div className="sorry-message">
                             {`Sorry, there are no matches in the category chosen, but we found “${searchTrigger}” in the other categories`}
                           </div>
-                        </PortfolioStyles.PortfolioFilterWarning>
+                        </Styles.PortfolioFilterWarning>
                       )}
                       <Styles.ListWrapper>
                         {cvData?.cvs.map((item, i) => (
@@ -292,7 +293,7 @@ const DevsInfo = () => {
                       </Styles.ListWrapper>
                     </>
                   ) : isCategoryWarning && category ? null : !cvsLoading ? (
-                    <PortfolioStyles.PortfolioSearchWarning className="cv">
+                    <Styles.PortfolioSearchWarning className="cv">
                       <div className="sorry-message">
                         <span>
                           {'Sorry, no results were found for "'}
@@ -305,7 +306,7 @@ const DevsInfo = () => {
                         <li>Make sure all the words are properly spelled.</li>
                         <li>Try using other keywords.</li>
                       </ul>
-                    </PortfolioStyles.PortfolioSearchWarning>
+                    </Styles.PortfolioSearchWarning>
                   ) : (
                     <div style={{ height: 1900 }} />
                   )}
@@ -326,9 +327,9 @@ const DevsInfo = () => {
           </Styles.CvContainer>
         </>
       ) : (
-        <Styled.AdminUnauthorizedModal>
+        <Styles.AdminUnauthorizedModal>
           Something went wrong :(
-        </Styled.AdminUnauthorizedModal>
+        </Styles.AdminUnauthorizedModal>
       )}
     </Loader>
   );

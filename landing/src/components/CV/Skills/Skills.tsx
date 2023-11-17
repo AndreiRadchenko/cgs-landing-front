@@ -38,15 +38,15 @@ export const Skills = ({
             idx={idx}
           />
         ))}
+        <Styled.BottomBgImageContainer>
+          <Image
+            src={LineBG.src}
+            alt="dashed line"
+            layout="fill"
+            objectFit="contain"
+          />
+        </Styled.BottomBgImageContainer>
       </Styled.SkillsCardWrapper>
-      <Styled.BottomBgImageContainer>
-        <Image
-          src={LineBG.src}
-          alt="dashed line"
-          layout="fill"
-          objectFit="contain"
-        />
-      </Styled.BottomBgImageContainer>
     </Styled.SkillsContainer>
   );
 };

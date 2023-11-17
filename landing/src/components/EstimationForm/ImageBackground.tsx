@@ -55,13 +55,13 @@ const ImageBackground = ({ page }: { page: number }) => {
 
   return (
     <>
-      <EstimationImageContainer style={{ bottom: "15%", zIndex: -10 }}>
+      <EstimationImageContainer style={{ bottom: "15.75%", zIndex: -10 }}>
         <Image src={bgImage1For1} alt="Image" />
       </EstimationImageContainer>
-      <EstimationImageContainer style={{ top: "20%", right: 0, zIndex: -10 }}>
+      <EstimationImageContainer style={{ top: "16.35%", right: 0, zIndex: -10 }}>
         <Image src={bgImage2For1} alt="Image" />
       </EstimationImageContainer>
-      <EstimationImageContainer style={{ top: "25%", zIndex: -10 }}>
+      <EstimationImageContainer style={{ top: "24.25%", zIndex: -10 }}>
         <Image src={bgImageDecor1For1} alt="Image" />
       </EstimationImageContainer>
       <EstimationImageContainer

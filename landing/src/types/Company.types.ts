@@ -1,4 +1,4 @@
-import React, { MouseEvent } from "react";
+import React, { MouseEvent, RefObject } from "react";
 
 import {
   IDataCareersResponse,
@@ -38,7 +38,6 @@ export interface ICareersDropdown {
   type?: "button" | "submit";
   setEnable?: (val: boolean) => void;
   className?: string;
-  toFormError: boolean;
 }
 
 export interface ICareersProps {
@@ -56,14 +55,12 @@ export interface IField2Props {
   name: string;
   label: string;
   type?: string;
-  toFormError: boolean;
-  toFormErrorEmail: boolean;
-  className: string;
 }
 
 export interface FormProps {
   positions: string[];
   data: IDataCareersResponse;
+  ourRef: RefObject<HTMLDivElement>;
 }
 
 export interface FormState {
@@ -77,6 +74,7 @@ export interface FormState {
 export interface ICareersForm {
   positions: string[];
   data: IDataCareersResponse;
+  ourRef: RefObject<HTMLDivElement>;
 }
 
 export interface ITicketProps {

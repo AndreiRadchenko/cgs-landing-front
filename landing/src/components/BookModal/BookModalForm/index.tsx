@@ -29,12 +29,12 @@ const BookForm = ({ onClose, isOpen }: IFormProps) => {
   const [btnState, setBtnState] = useState({
     isDisabled: true,
     isClicked: false,
-    link: "https://calendly.com/d/y5z-x7b-5ys/30min",
+    link: "https://calendly.com/rokhman-tanya/test-meet",
   });
 
   const fieldContent = {
     name: "Your Name",
-    email: "Email",
+    email: "Work Email",
     phone: "Phone Number",
   };
 

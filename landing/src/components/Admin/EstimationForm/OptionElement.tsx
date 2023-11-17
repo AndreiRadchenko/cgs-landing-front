@@ -1,15 +1,17 @@
-import { IQuestionOptionElementProps } from "../../../types/Admin/AdminEstimationForm.types";
-import { AdminDeleteText, Box, TextWrapper } from "../../../styles/AdminPage";
 import { ErrorMessage } from "formik";
 import React, { useEffect, useState } from "react";
-import { letterCaseSubmenu } from "../Calculator/letterCaseSubmenuPlugin";
 import { Plugin } from "suneditor/src/plugins/Plugin";
-import dynamic from "next/dynamic";
-import * as StyledCalc from "../../../styles/Calculator/CalculatorAdmin.styled";
+
+import TextEditor from "../../TextEditor/TextEditor";
+import { letterCaseSubmenu } from "../Calculator/letterCaseSubmenuPlugin";
 import { letterWeightSubmenu } from "../Calculator/letterWeightSubmenuPlugin";
-const TextEditor = dynamic(() => import("../../TextEditor/TextEditor"), {
-  ssr: false,
-});
+
+import {
+  CheckBoxType,
+  IQuestionOptionElementProps,
+} from "../../../types/Admin/AdminEstimationForm.types";
+import { AdminDeleteText, Box, TextWrapper } from "../../../styles/AdminPage";
+import * as StyledCalc from "../../../styles/Calculator/CalculatorAdmin.styled";
 
 const OptionElement = ({
   option,
@@ -18,19 +20,9 @@ const OptionElement = ({
   optionsLength,
   optionsType,
 }: IQuestionOptionElementProps) => {
-  const removeItemHandle = () => {
-    if (optionsLength) {
-      remove && remove(i);
-    }
-  };
-
   const [plugins, setPlugins] = useState<
     Array<Plugin> | Record<string, Plugin>
   >();
-
-  useEffect(() => {
-    import("suneditor/src/plugins").then((plugs: any) => setPlugins(plugs));
-  }, []);
 
   const textEditorOptions = {
     font: ["NAMU"],
@@ -48,17 +40,33 @@ const OptionElement = ({
       ["codeView"],
     ],
   };
+
+  const removeItemHandle = () => {
+    if (optionsLength) {
+      remove && remove(i);
+    }
+  };
+
+  const getClassName = (optionsType: CheckBoxType) => {
+    switch (optionsType) {
+      case "RADIO_BUTTON":
+        return "radio_btn";
+      case "CHECKBOX":
+        return "checkbox_btn";
+      default:
+        return "";
+    }
+  };
+
+  useEffect(() => {
+    import("suneditor/src/plugins").then((plugs: any) => setPlugins(plugs));
+  }, []);
+
   return (
     <Box>
       <TextWrapper
         contentType={optionsType}
-        className={`${
-          optionsType === "RADIO_BUTTON"
-            ? "radio_btn"
-            : optionsType === "CHECKBOX"
-            ? "checkbox_btn"
-            : ""
-        }`}
+        className={getClassName(optionsType)}
       >
         <StyledCalc.TransparentTextEditorWrapper>
           <TextEditor

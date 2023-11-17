@@ -1,3 +1,5 @@
+import React, { ReactNode } from "react";
+
 import { IImage } from "./Admin.types";
 import {
   IOtherServicesComponent,
@@ -5,9 +7,11 @@ import {
   ITeamMembers,
   IAdvantagesServicesComponent,
   IBonusesComponent,
-} from "../../types/ServicesComponent.types";
+} from "../ServicesComponent.types";
 import { ITechnology } from "./AdminPortfolio.types";
 import { ITestimonial } from "../Components.types";
+import { ICalendlyUserData } from "../ModalCategory.types";
+
 export interface IEditInformation {
   title: string;
   subtitle: string;
@@ -54,19 +58,16 @@ export interface ICalendlyPopupBlock {
   buttonText: string;
 }
 
+export interface IAboutUs {
+  data: IAbout;
+}
+
 export interface ITech {
   category: string;
   link?: string;
   text: string;
   image: { url: string } | null;
   stack: string[];
-}
-
-export interface ITechnologyBlock {
-  item1: ITech;
-  item2: ITech;
-  item3: ITech;
-  item4: ITech;
 }
 
 export interface IFooterBlock {
@@ -95,6 +96,10 @@ interface IProjectorBlock {
   text: string;
   button: string;
   buttonLink: string;
+}
+
+export interface IAboutUs {
+  data: IAbout;
 }
 
 export interface IDataResponse {
@@ -159,24 +164,6 @@ export interface ITicket {
   stack: string[];
   stars: number;
   info: IInfo[];
-}
-
-export interface IForm {
-  link: string;
-  describe: string;
-  email: string;
-  name: string;
-  telegram: string;
-  socialMediaLink: string;
-  linksToProjects: string;
-  text: string;
-  CV: {
-    isSupported: string;
-    place: string;
-  };
-  image: {
-    url: string;
-  };
 }
 
 export interface IDataCareersResponse {
@@ -266,13 +253,6 @@ export interface IAuthor {
   image: { url: string } | null;
 }
 
-export interface ITextBlog {
-  tagName?: string;
-  text?: string;
-  subNumber?: string;
-  subtitle?: string;
-}
-
 export interface IArticle {
   _id: string;
   url: string;
@@ -290,25 +270,6 @@ export interface IArticle {
   disabled: boolean;
   draft: boolean;
   meta: IMetaBlock;
-}
-
-export interface IArticleWithoutId {
-  url: string;
-  image: { url: string } | null;
-  title: string;
-  description: string;
-  author: IAuthor;
-  updatedOn: string;
-  date: string;
-  minutesToRead: number;
-  content: ITextBlog[];
-  tags: string[];
-  disabled: boolean;
-  meta: IMetaBlock;
-}
-
-export interface IArticleWithInd {
-  article: IArticle;
 }
 
 export interface ISwapData {
@@ -334,6 +295,12 @@ export interface IBlogPageResponse {
 export interface IHomeData {
   data: IDataCareersResponse | undefined;
   isLoading: boolean;
+}
+
+export interface IView {
+  _id?: string;
+  views: number;
+  articleUrl: string;
 }
 
 export interface IAboutUsResponse {
@@ -363,6 +330,7 @@ export interface IAbout {
       image: { url: string };
     };
     image: { url: string };
+    header: string;
     codex: {
       title: string;
       text: string;
@@ -394,15 +362,13 @@ export interface IAbout {
     title: string;
     members: ITeammate[];
   };
-
-  title: string;
-  believe: IAboutText;
-  goal: IAboutText;
-  bonuses: {
-    subtitle: string;
-    text: string[];
+  footerBlock: {
+    title: string;
+    text: string;
+    button: string;
+    buttonLink: string;
+    image: { url: string };
   };
-  image: { url: string };
   meta: IMetaBlock;
 }
 
@@ -840,10 +806,6 @@ export interface ICalculatorQuestion {
   tieUpDisabled?: boolean;
 }
 
-export interface ICalculatorPostResultsProps {
-  answers: ICalculatorQuestion[];
-  isBlockchain: boolean;
-}
 export interface ILeadMailData {
   uxui: number;
   hours: number;
@@ -1130,4 +1092,140 @@ export interface SelectedMember {
   id: string;
   member: string;
   _id: string;
+}
+
+export interface ICalculatorResultForm {
+  calculateIsClicked: boolean;
+  isBlockchain: boolean;
+}
+
+export interface ICalculatorChooseLineProps {
+  mobile?: boolean;
+  children: ReactNode;
+}
+
+export interface ICalculatorCompletedPagerProps {
+  finishClick: boolean;
+  handleClose: () => void;
+  handleButtonClick: () => void;
+  handlePagerLeftButtonClick: () => void;
+  handlePagerButtonsClick: () => void;
+  isCalendlyOpen: boolean;
+}
+
+export interface ICalculatorEmailFieldProps {
+  email: string;
+  calculateIsClicked: boolean;
+}
+
+export interface ICalculatorFieldProps {
+  stepInd: number;
+  options: IStepOptions[];
+  subStep?: ICalculatorSubStep[];
+  disabled?: boolean;
+  tieUpData?: { number: number | null; relatedAnswer: string | string[] };
+  data: ICalculatorStep[];
+  type: string;
+}
+
+export interface ICalculatorNameFieldProps {
+  name: string;
+  calculateIsClicked: boolean;
+}
+
+export interface ICalculatorPagerProps {
+  onPagerRightClick: () => void;
+  onPagerLeftClick: () => void;
+  mobile?: boolean;
+  children: ReactNode;
+}
+
+export interface ICalculatorPagerComponentProps {
+  buttonText: string;
+  isOpen: boolean;
+  startLoading: boolean;
+  classicStepsData?: ICalculatorStep[] | void;
+  blockchainStepsData?: ICalculatorStep[] | void;
+  handleButtonClick: () => void;
+  handleClose: () => void;
+  handleBlockchainClick: () => void;
+  handleClassicClick: () => void;
+}
+
+export interface ICalculatorModalComponentProps {
+  buttonText: string;
+  onClose: () => void;
+  onButtonClick: () => void;
+  onQuitButtonClick?: () => void;
+  isQuiting?: boolean;
+  children: ReactNode;
+  mobile?: boolean;
+  startLoading?: boolean;
+  isData?: boolean;
+}
+
+export interface ICalculatorPaginationProps {
+  buttonsPerPage: number;
+  startButtonNum: number;
+  handleStepButtonClick: (idx: number) => void;
+  stepButtonClassName: (idx: number) => string;
+  handleNextClick: () => void;
+  handleBackClick: () => void;
+}
+
+export interface ICalculatorQuittingPager {
+  handleClose: () => void;
+  handleQuitClick: () => void;
+  handleContinueClick: () => void;
+}
+
+export interface ICalculatorResultProps {
+  mobile?: boolean;
+  children: ReactNode;
+  handleQuit: () => void;
+}
+
+export interface ICalculatorStepsComponentProps {
+  step: number;
+  previousSteps: number[];
+  stepsCount: number;
+  handleClose: () => void;
+  handleQuit: () => void;
+  setIsChosen: React.Dispatch<React.SetStateAction<boolean>>;
+  setStep: React.Dispatch<React.SetStateAction<number>>;
+  setPreviousSteps: React.Dispatch<React.SetStateAction<number[]>>;
+  calculateIsClicked: boolean;
+  isQuitting: boolean;
+  setIsQuitting: React.Dispatch<React.SetStateAction<boolean>>;
+  setCalculateIsClicked: React.Dispatch<React.SetStateAction<boolean>>;
+  warnIsShow: boolean;
+  setWarnIsShow: React.Dispatch<React.SetStateAction<boolean>>;
+  children: ReactNode;
+  isBlockchain: boolean;
+  setIsCalendlyOpen: React.Dispatch<React.SetStateAction<boolean>>;
+  setCalendlyUserData: React.Dispatch<React.SetStateAction<ICalendlyUserData>>;
+}
+
+export interface ICalculatorStepsFormContentProps {
+  handleBackClick: () => void;
+  handleQuit: () => void;
+  step: number;
+  setStep: React.Dispatch<React.SetStateAction<number>>;
+  setPreviousSteps: React.Dispatch<React.SetStateAction<number[]>>;
+  stepsCount: number;
+  calculateIsClicked: boolean;
+  setCalculateIsClicked: React.Dispatch<React.SetStateAction<boolean>>;
+  warnIsShow: boolean;
+  setWarnIsShow: React.Dispatch<React.SetStateAction<boolean>>;
+  arrayChildren: Array<Exclude<ReactNode, boolean | null | undefined>>;
+  isBlockchain: boolean;
+  setIsCalendlyOpen: React.Dispatch<React.SetStateAction<boolean>>;
+  setCalendlyUserData: React.Dispatch<React.SetStateAction<ICalendlyUserData>>;
+}
+
+export interface ICalculatorModalComponentItemProps {
+  children?: ReactNode;
+  lastPage?: boolean;
+  mobile?: boolean;
+  handleQuit: () => void;
 }

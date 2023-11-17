@@ -7,16 +7,14 @@ import "react-toastify/dist/ReactToastify.css";
 import Careers from "../Careers";
 import CareersContactForm from "../CareersContactForm";
 import MetaTagsBlock from "../MetaTagsBlock";
-import AdminBlockDropDown from "./AdminBlockDropDown";
-import CareersTitleBlock from "../Careers/CareersTitleBlock";
 import { CustomToast } from "../CustomToast";
 
-import * as AdminPageStyled from "../../../styles/AdminPage";
 import * as Styled from "../../../styles/AdminPage";
+
 import { adminCareersService } from "../../../services/adminCareersPage";
 import { queryKeys } from "../../../consts/queryKeys";
 import { IDataCareersResponse } from "../../../types/Admin/Response.types";
-import { newVacancy } from "../../../consts";
+
 interface IMainProps {
   data: IDataCareersResponse | undefined;
   isLoading: boolean;
@@ -53,13 +51,11 @@ const CareersMainContent = () => {
   return isLoading ? (
     <Styled.AdminUnauthorizedModal>Loading...</Styled.AdminUnauthorizedModal>
   ) : data !== undefined ? (
-    <AdminPageStyled.AdminPaddedBlock theme="light">
-      <Styled.AdminContentBlock>
-        <Formik key="careerPageData" initialValues={data} onSubmit={submitFunc}>
-          <Form>
-            <AdminPageStyled.AdminHeader>Careers</AdminPageStyled.AdminHeader>
-            <CareersTitleBlock />
-            <AdminBlockDropDown title="ADD A NEW VACANCY">
+    <Formik initialValues={data} onSubmit={(values) => submitFunc(values)}>
+      {() => {
+        return (
+          <Styled.AdminContentBlock>
+            <Form>
               <Careers
                 refetch={refetch}
                 isNewTicket={isNewTicket}
@@ -67,16 +63,19 @@ const CareersMainContent = () => {
                 ticket={ticket}
                 setTicket={setTicket}
               />
-            </AdminBlockDropDown>
-            <AdminBlockDropDown title="CONTACT FORM">
               <CareersContactForm />
-            </AdminBlockDropDown>
-            <MetaTagsBlock sitemap="careers" />
-          </Form>
-        </Formik>
-        <CustomToast />
-      </Styled.AdminContentBlock>
-    </AdminPageStyled.AdminPaddedBlock>
+              <MetaTagsBlock sitemap="careers" />
+              <Styled.AdminPaddedBlock>
+                <Styled.AdminBigButton type="submit">
+                  Submit
+                </Styled.AdminBigButton>
+              </Styled.AdminPaddedBlock>
+            </Form>
+            <CustomToast />
+          </Styled.AdminContentBlock>
+        );
+      }}
+    </Formik>
   ) : (
     <Styled.AdminUnauthorizedModal>
       Something went wrong :(

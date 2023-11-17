@@ -17,6 +17,7 @@ export interface ILoaderProps {
   isPortfolio?: boolean;
   className?: string;
   isBlog?: boolean;
+  isPortrait?: boolean;
 }
 
 export interface IPaginationBar {

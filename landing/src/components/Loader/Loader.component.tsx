@@ -16,14 +16,16 @@ export const Loader: FC<ILoaderProps> = ({
   isPortfolio = false,
   isBlog = false,
   className,
+  isPortrait,
 }) => {
   return isPortfolio ? (
     <PortfolioStyledLoader
       active={active}
       fadeSpeed={200}
       spinner={<StyledSpinner />}
-      classNamePrefix="MyLoader_"
+      classNamePrefix="PortfolioLoader_"
       className={className}
+      isPortrait={isPortrait}
     >
       {children}
     </PortfolioStyledLoader>

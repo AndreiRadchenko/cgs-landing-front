@@ -10,7 +10,7 @@ type BadgesData = {
 
 export const BadgesBlockContainer = styled.div`
   margin: 120px auto 5.58em;
-  
+
   @media ${themes.primary.media.minPCFullHD} {
     margin-block: 8.35em;
   }

@@ -32,7 +32,7 @@ export const TechTitle = styled.h2`
   @media ${themes.primary.media.minPCFullHD} {
     font-size: 2.8em;
   }
-  
+
   @media ${themes.primary.media.maxTabletLandScape} {
     font-size: ${themes.primary.font.size.reviewTitle};
   }
@@ -110,7 +110,7 @@ export const CategoryContainer = styled.article`
   display: flex;
   align-items: flex-start;
   flex-direction: column;
-  
+
   @media ${themes.primary.media.maxTabletLandScape} {
     width: 400px;
   }

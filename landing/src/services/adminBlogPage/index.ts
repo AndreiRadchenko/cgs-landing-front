@@ -32,9 +32,6 @@ export class AdminBlogPage {
     return this.httpService.get<IArticle[]>(`api/blog/swiper`);
   }
 
-  public getArticleByUrl(url: string) {
-    return this.httpService.get(`api/blog/article/${url}`);
-  }
   public postArticle(article: IArticle) {
     return this.httpService.post(`api/blog/article`, article);
   }
@@ -48,7 +45,8 @@ export class AdminBlogPage {
 
   public updateViewById(updatedArticle: IArticle) {
     return this.httpService.put(
-      `api/blog/article/view/${updatedArticle._id}`, updatedArticle
+      `api/blog/article/view/${updatedArticle._id}`,
+      updatedArticle
     );
   }
 

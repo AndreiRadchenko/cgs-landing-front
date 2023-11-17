@@ -4,28 +4,30 @@ import { TetrisGroup } from "../../styles/HomePage/General.styled";
 const movementStrength = 10;
 
 const TetrisFlutter = () => {
-  const [tetrisTranslate, setTetrisTranslate] = useState<string>("");
-  const handleMouseMove = (e: MouseEvent) => {
-    const height = movementStrength / window.innerHeight;
-    const width = movementStrength / window.innerWidth;
-    const pageX = e.pageX - window.innerWidth / 2;
-    const pageY =
-      e.pageY >= window.innerHeight
-        ? window.innerHeight / 2
-        : e.pageY - window.innerHeight / 2;
-    const newvalueX = width * pageX * -1 - 25;
-    const newvalueY = height * pageY * -1;
-
-    setTetrisTranslate(`translate(${newvalueX}px, ${newvalueY}px)`);
-  };
+  const [tetrisTranslate, setTetrisTranslate] = useState<string[]>(["", ""]);
 
   useEffect(() => {
+    const handleMouseMove = (e: MouseEvent) => {
+      const height = movementStrength / window.innerHeight;
+      const width = movementStrength / window.innerWidth;
+      const pageX = e.pageX - window.innerWidth / 2;
+      const pageY =
+        e.pageY >= window.innerHeight
+          ? window.innerHeight / 2
+          : e.pageY - window.innerHeight / 2;
+      const newvalueX = width * pageX * -1;
+      const newvalueY = height * pageY * -1;
+
+      setTetrisTranslate([`${newvalueX}`, `${newvalueY}`]);
+    };
+
     window.addEventListener("mousemove", handleMouseMove, true);
-    return () => window.removeEventListener("mousemove", handleMouseMove);
+
+    return () => window.removeEventListener("mousemove", handleMouseMove, true);
   }, []);
 
   return (
-    <TetrisGroup coinsTranslate={tetrisTranslate}>
+    <TetrisGroup {...{ coinsTranslate: tetrisTranslate }}>
       <path
         d="M441.633 63.9111C457.536 50.6847 462.985 31.0168 453.805 19.9815C444.624 8.94626 424.29 10.7225 408.387 23.9489C392.484 37.1753 387.034 56.8433 396.215 67.8786C405.396 78.9138 425.73 77.1375 441.633 63.9111Z"
         fill="#F2EA86"

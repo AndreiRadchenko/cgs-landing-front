@@ -28,14 +28,10 @@ const RateCardServiceInfo = ({ levels }: { levels: ILevel[] }) => {
           {tech}
         </span>
       ) : (
-        <>
-          <span key={`${tech}${idx}`} className={`tech${idx}`}>
-            {" "}
-            {tech}{" "}
-            {/* eslint-disable-next-line react/jsx-no-comment-textnodes */}
-          </span>
-          //
-        </>
+        <span key={`${tech}${idx}`} className="noHover">
+          <span className={`tech${idx}`}> {tech}</span>
+          {" //"}
+        </span>
       )
     );
   };
@@ -49,14 +45,10 @@ const RateCardServiceInfo = ({ levels }: { levels: ILevel[] }) => {
           {cost}
         </span>
       ) : (
-        <>
-          <span key={`${cost}${idx}`} className={`cost${idx}`}>
-            {" "}
-            {cost}{" "}
-            {/* eslint-disable-next-line react/jsx-no-comment-textnodes */}
-          </span>
-          //
-        </>
+        <span key={`${cost}${idx}`} className="noHover">
+          <span className={`cost${idx}`}> {cost}</span>
+          {" //"}
+        </span>
       )
     );
   };
@@ -78,21 +70,16 @@ const RateCardServiceInfo = ({ levels }: { levels: ILevel[] }) => {
                     className="mainSpanName"
                     rowSpan={levels.length}
                     style={{
-                      width: "19%",
                       textAlign: "center",
-                      pointerEvents: "none",
                     }}
                   >
                     {level.name}
                   </RateCardLevelData>
                 ) : null
               ) : (
-                <RateCardLevelData
-                  className={`rateName${idx} spanNameDefault`}
-                  style={{
-                    width: "19%",
-                  }}
-                >
+
+                <RateCardLevelData className={`rateName${idx} spanNameDefault`}>
+
                   {level.name}
                 </RateCardLevelData>
               )}
@@ -102,19 +89,14 @@ const RateCardServiceInfo = ({ levels }: { levels: ILevel[] }) => {
                     className={`rateTech${idx} mainSpanRate`}
                     rowSpan={levels.length}
                     style={{
-                      width: "59%",
                       textAlign: "center",
-                      pointerEvents: "none",
                     }}
                   >
                     {generateCellTech(level.values)}
                   </RateCardLevelData>
                 ) : null
               ) : (
-                <RateCardLevelData
-                  className={`rateTech${idx} spanRateDefault`}
-                  style={{ width: "59%" }}
-                >
+                <RateCardLevelData className={`rateTech${idx} spanRateDefault`}>
                   {generateCellTech(level.values)}
                 </RateCardLevelData>
               )}
@@ -123,7 +105,7 @@ const RateCardServiceInfo = ({ levels }: { levels: ILevel[] }) => {
                   <RateCardLevelData
                     className={`rateCost${idx} mainSpanCost`}
                     rowSpan={levels.length}
-                    style={{ textAlign: "center", pointerEvents: "none" }}
+                    style={{ textAlign: "center" }}
                   >
                     {generateCellCost(level.values)}
                   </RateCardLevelData>

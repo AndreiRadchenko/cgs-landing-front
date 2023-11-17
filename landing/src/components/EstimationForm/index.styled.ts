@@ -3,8 +3,11 @@ import styled from "@emotion/styled";
 import themes from "../../utils/themes";
 
 export const WrapperStyledH = styled.div`
-  margin-top: 60px;
+  margin-top: calc(
+    clamp(72px, 72px + (100vw - 1440px) * ((110 - 72) / (1920 - 1440)), 110px)
+  );
   width: 100%;
+
   @media ${themes.primary.media.maxMobile} {
     display: none;
   }
@@ -13,20 +16,22 @@ export const WrapperStyledH = styled.div`
 export const StyledH = styled.div`
   font-family: "NAMU";
   font-weight: 900;
-  font-size: ${themes.primary.font.size.ourWorkText};
+  font-size: calc(
+    clamp(52px, 52px + (100vw - 1440px) * ((66 - 52) / (1920 - 1440)), 66px)
+  );
   line-height: 47px;
   text-transform: uppercase;
   color: ${themes.primary.colors.black};
 `;
 
 export const Marquee = styled.div`
-  gap: 20px;
   display: flex;
   overflow: hidden;
   user-select: none;
   gap: 20px;
   height: 60px;
 `;
+
 const scroll = keyframes`
   from {
     transform: translateX(-100%);
@@ -42,7 +47,9 @@ export const MarqueeContent = styled.div`
   justify-content: space-around;
   align-items: center;
   min-width: 100%;
-  gap: 20px;
+  gap: calc(
+    clamp(54px, 54px + (100vw - 1440px) * ((80 - 54) / (1920 - 1440)), 80px)
+  );
   animation: ${scroll} 80s infinite linear;
   text-align: center;
   white-space: nowrap;
@@ -62,14 +69,21 @@ export const StyledButton = styled.button`
   border-radius: 10px;
   display: flex;
   justify-content: center;
-  height: 67px;
+  height: calc(
+          clamp(67px, 67px + (100vw - 1440px) * ((89 + 67) / (1920 - 1440)), 89px)
+  );
   align-items: center;
   font-family: "NAMU";
   font-weight: 900;
-  font-size: 19px;
+  font-size: calc(
+          clamp(19px, 19px + (100vw - 1440px) * ((19 + 24) / (1920 - 1440)), 24px)
+  );
   transition: box-shadow 1s ease-in-out;
   cursor: pointer;
   color: ${themes.primary.colors.black};
+  margin-top: calc(
+          clamp(-21px, -5px + (100vw - 1440px) * ((-21 + 5) / (1920 - 1440)), -5px)
+  );
 
   box-shadow: 7px 2px 0px ${themes.primary.colors.black};
 
@@ -81,8 +95,14 @@ export const StyledButton = styled.button`
   }
 
   @media ${themes.primary.media.maxMobile} {
-    font-size: 16px;
+    font-size: 19px;
     padding: 0 20px;
+    height: 67px;
+  }
+
+  @media ${themes.primary.media.maxLowScreenMobile} {
+    font-size: 16px;
+    height: 62px;
   }
 `;
 
@@ -99,10 +119,12 @@ export const ContainerDate = styled.div`
   }
 
   @media (max-width: 1097px) {
+    padding-top: 131px;
     min-height: calc(100vh - 57px - 39px);
   }
 
   @media (max-width: 767px) {
+    padding-top: 17px;
     min-height: calc(100vh - 93px - 101px);
   }
 `;

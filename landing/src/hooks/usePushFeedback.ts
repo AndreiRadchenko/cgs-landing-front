@@ -1,4 +1,5 @@
-import { feedbackInit } from "./../consts/index";
+import React from "react";
+import { feedbackInit } from "../consts";
 import { IFeedback } from "../types/Admin/Response.types";
 import { useFormikContext } from "formik";
 

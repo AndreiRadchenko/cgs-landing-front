@@ -1,4 +1,4 @@
-import React, { MouseEvent } from "react";
+import React, { Dispatch, MouseEvent, SetStateAction } from "react";
 
 export interface IServiceDropdown {
   setService: (val: string) => void;
@@ -28,7 +28,7 @@ export interface IModalProps {
 }
 
 export interface ITicketModalProps {
-  isOpen?: boolean;
+  isOpen: boolean;
   isCalendly?: boolean;
   children: React.ReactNode;
 }
@@ -37,4 +37,12 @@ export interface ICalendlyUserData {
   name: string;
   email: string;
   link: string;
+}
+
+export interface IBookModalFieldProps {
+  setCountry: Dispatch<SetStateAction<string>>;
+  name: keyof IFormState;
+  label: string;
+  btnIsClicked: boolean;
+  type?: string;
 }

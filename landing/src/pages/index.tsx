@@ -1,8 +1,9 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import type { NextPage } from "next";
 import parse from "html-react-parser";
 import Head from "next/head";
 import { dehydrate, QueryClient, useQuery } from "@tanstack/react-query";
+import { useMediaQuery } from "@mui/material";
 
 import HeaderNavNew from "../components/HeaderNavNew/HeaderNavNew";
 import FooterNew from "../components/FooterNew/FooterNew";
@@ -15,6 +16,7 @@ import { adminGlobalService } from "../services/adminHomePage";
 import { IDataResponse } from "../types/Admin/Response.types";
 
 import { calendlyPopupInfoHandler } from "../utils/calendlyPopupInfoHandler";
+import { useGetCelendlyMeetingData } from "../hooks/useGetCelendlyMeetingData";
 
 interface IHomeData {
   data: IDataResponse | undefined;
@@ -41,7 +43,9 @@ interface IHomeData {
 }
 
 const Home: NextPage = () => {
+  const isMobile = useMediaQuery("(max-width:768px)");
   const [isCalendlySuccessfull, setIsCalendlySuccessfull] = useState(false);
+
   const { data, isLoading }: IHomeData = useQuery(
     [queryKeys.getFullHomePage],
     () => adminGlobalService.getFullPage()
@@ -51,6 +55,8 @@ const Home: NextPage = () => {
 
   calendlyPopupInfoHandler(() => setIsCalendlySuccessfull(true));
 
+  const { dateTime, joinLink } = useGetCelendlyMeetingData();
+
   return (
     <>
       {isLoading ? (
@@ -59,6 +65,8 @@ const Home: NextPage = () => {
         <>
           {isCalendlySuccessfull && (
             <CalendlyInfoModal
+              celendlyUri={joinLink}
+              dateTime={dateTime}
               isOpen={isCalendlySuccessfull}
               setIsCalendlySuccessfull={setIsCalendlySuccessfull}
             />
@@ -70,7 +78,11 @@ const Home: NextPage = () => {
           </Head>
           <HeaderNavNew />
           <Content />
-          <FooterNew className="mobileDissapear" />
+          {!isMobile ? (
+            <FooterNew className="mobileDissapear" />
+          ) : (
+            <div style={{ height: "65px" }}></div>
+          )}
         </>
       )}
     </>

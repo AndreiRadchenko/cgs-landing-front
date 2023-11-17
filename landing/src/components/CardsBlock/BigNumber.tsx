@@ -1,4 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
+
 import { BigDigit } from "../../styles/HomePage/CardsBlock.styled";
 
 const BigNumber = ({ idx }: { idx: number }) => {

@@ -1,6 +1,7 @@
 import { useFormikContext } from "formik";
 import React, { Dispatch, FC, SetStateAction } from "react";
 import PhoneInput from "react-phone-input-2";
+import PhoneInputField from "../../BookModal/BookModalForm/PhoneInputField";
 
 import { IFormState } from "./";
 
@@ -39,19 +40,29 @@ const TextFieldWrapper: FC<IFieldProps> = ({
 
   return (
     <CSS.FormFieldWrapper>
-      {/* <CSS.FormFieldLabel htmlFor={label}>
-        {idx === 2 ? parse(label) : label}
-      </CSS.FormFieldLabel> */}
       <CSS.FormFieldContainer>
         {idx === 2 ? (
-          <PhoneInput
-            country={country}
+          // <PhoneInput
+          //   country={country}
+          //   specialLabel={label}
+          //   value={value}
+          //   onChange={handleOnChange}
+          //   enableSearch={true}
+          //   disableSearchIcon={true}
+          //   containerClass={value === "+1" || value === "" ? "empty" : "filled"}
+          // />
+          <PhoneInputField
+            className={
+              btnIsClicked && errors[name] ? "formikErrors" : "default"
+            }
+            placeholder={""}
+            name={name}
+            country={"us"}
+            setCountry={setCountry}
             specialLabel={label}
-            value={value}
-            onChange={handleOnChange}
-            enableSearch={true}
-            disableSearchIcon={true}
-            containerClass={value === "+1" || value === "" ? "empty" : "filled"}
+            containerClass={
+              values.phone === "+1" || values.phone === "" ? "empty" : "filled"
+            }
           />
         ) : (
           <CSS.FormField

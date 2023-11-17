@@ -1,18 +1,10 @@
-import React, { ReactNode, useEffect, useRef } from "react";
-import * as Styled from "../../styles/Calculator/CalculatorComponent.styled";
+import React, { useEffect, useRef } from "react";
+
 import Logo from "./CalculatorLogo";
 
-interface ICalculatorModalComponentProps {
-  buttonText: string;
-  onClose: () => void;
-  onButtonClick: () => void;
-  onQuitButtonClick?: () => void;
-  isQuiting?: boolean;
-  children: ReactNode;
-  mobile?: boolean;
-  startLoading?: boolean;
-  isData?: boolean;
-}
+import * as Styled from "../../styles/Calculator/CalculatorComponent.styled";
+
+import { ICalculatorModalComponentProps } from "../../types/Admin/Response.types";
 
 const CalculatorModalComponent = ({
   isData,

@@ -1,4 +1,9 @@
-import React, { CSSProperties, ReactNode, SetStateAction } from "react";
+import React, {
+  CSSProperties,
+  ReactNode,
+  SetStateAction,
+  Dispatch,
+} from "react";
 
 export interface IBaseButtonProps {
   children: React.ReactNode;
@@ -51,7 +56,8 @@ export interface IBurgerButtonProps {
 export interface IBurgerMenuProps {
   isOpen: boolean;
   children?: ReactNode[];
-  burgerRef?: React.RefObject<HTMLDivElement>;
+  burgerRef: React.RefObject<HTMLDivElement>;
+  setIsScrolled: Dispatch<SetStateAction<boolean>>;
 }
 
 export interface IContactButton {

@@ -42,7 +42,7 @@ const Advantages = <T extends IAdvantagesProps>() => {
       </AdminHalfGrid>
       <AdminQuarterGrid>
         {content.map((el, idx) => (
-          <div key={`${el.subtitle}${idx}`}>
+          <div key={idx}>
             <AdminSubTitle>Subtitle</AdminSubTitle>
             <AdminInput
               name={`advantages.content[${idx}].subtitle`}

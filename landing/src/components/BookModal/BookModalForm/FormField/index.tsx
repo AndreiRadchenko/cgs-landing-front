@@ -1,30 +1,25 @@
 import { useFormikContext } from "formik";
-import React, { Dispatch, FC, SetStateAction } from "react";
+import React, { FC } from "react";
 import "react-phone-input-2/lib/style.css";
 
 import PhoneInputField from "../PhoneInputField";
 
 import * as Styled from "../../../../styles/BookModalForm/FormField.styled";
 
-import { IFormState } from "../../../../types/ModalCategory.types";
+import {
+  IBookModalFieldProps,
+  IFormState,
+} from "../../../../types/ModalCategory.types";
 
 import { isEmailDomainPublic } from "../../../../utils/checkEmailDomain";
 
-export interface IFieldProps {
-  setCountry: Dispatch<SetStateAction<string>>;
-  name: keyof IFormState;
-  label: string;
-  btnIsClicked: boolean;
-  type?: string;
-}
-
-const TextFieldWrapper: FC<IFieldProps> = ({
+const TextFieldWrapper: FC<IBookModalFieldProps> = ({
   setCountry,
   name,
   label,
   btnIsClicked,
   type = "text",
-}: IFieldProps) => {
+}: IBookModalFieldProps) => {
   const { errors, values } = useFormikContext<IFormState>();
 
   const PHONE_OPTIONAL = "Phone Number";
@@ -33,7 +28,8 @@ const TextFieldWrapper: FC<IFieldProps> = ({
     <>
       <Styled.FormFieldLabel htmlFor={label}>
         {PHONE_OPTIONAL === label ? (
-          isEmailDomainPublic(values.email) ? (
+          // isEmailDomainPublic(values.email) ? (
+          true ? (
             <>
               {label}
               <span style={{ marginLeft: "2px", color: "black" }}>*</span>

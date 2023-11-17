@@ -1,16 +1,14 @@
 import React, { useEffect, useState } from "react";
-import { useRouter } from "next/router";
 import Head from "next/head";
+import { useRouter } from "next/router";
 import parse from "html-react-parser";
 import { QueryClient, dehydrate, useQuery } from "@tanstack/react-query";
 import { scroller } from "react-scroll";
 import { SwiperSlide } from "swiper/react";
+import { useMediaQuery } from "@mui/material";
 
 import PaginationBar from "../../components/PaginationBar/PaginationBar";
 import BlogItem from "../../components/Blog/BlogItem";
-import { adminBlogService } from "../../services/adminBlogPage";
-import { adminGlobalService } from "../../services/adminHomePage";
-import Dropdown from "../../utils/Select/Dropdown";
 import HeaderNavNew from "../../components/HeaderNavNew/HeaderNavNew";
 import FooterNew from "../../components/FooterNew/FooterNew";
 import PodcastItem from "../../components/Blog/PodcastItem";
@@ -18,6 +16,13 @@ import MainBlogItem from "../../components/Blog/MainBlogItem";
 import SmallArticleItem from "../../components/Blog/SmallArticleItem";
 import { BlogSwiper } from "../../components/Blog/BlogSlider/BlogSlider";
 import { Loader, LoaderStub } from "../../components/Loader";
+
+import * as Styled from "../../styles/Blog.styled";
+import { Tag, DropdownContainer } from "../../styles/HomePage/General.styled";
+
+import { adminBlogService } from "../../services/adminBlogPage";
+import { adminGlobalService } from "../../services/adminHomePage";
+import Dropdown from "../../utils/Select/Dropdown";
 import { highestPagePointDisplayer } from "../../utils/highestPagePointDisplayer";
 
 import {
@@ -27,12 +32,9 @@ import {
 } from "../../types/Blog.types";
 import { IArticle } from "../../types/Admin/Response.types";
 import { queryKeys } from "../../consts/queryKeys";
-import { Tag, DropdownContainer } from "../../styles/HomePage/General.styled";
 import leftLine from "../../../public/BlogDecorations/MainPage/leftLine.png";
 import rightLine from "../../../public/BlogDecorations/MainPage/rightLine.png";
-import * as Styled from "../../styles/Blog.styled";
 import { BlogPageSize } from "../../consts";
-import { useMediaQuery } from "@mui/material";
 
 const BlogPage = () => {
   const router = useRouter();
@@ -198,16 +200,19 @@ const BlogPage = () => {
                     </BlogSwiper>
                   )}
                 </Styled.MainContainer>
-                <Styled.FlexColumnContainer className="header">
-                  {swiperData &&
-                    swiperData.reviews.map((article) => (
-                      <SmallArticleItem
-                        filters={filters}
-                        article={article}
-                        key={article._id}
-                      />
-                    ))}
-                </Styled.FlexColumnContainer>
+
+                {!isMobile && (
+                  <Styled.FlexColumnContainer className="header">
+                    {swiperData &&
+                      swiperData.reviews.map((article) => (
+                        <SmallArticleItem
+                          filters={filters}
+                          article={article}
+                          key={article._id}
+                        />
+                      ))}
+                  </Styled.FlexColumnContainer>
+                )}
               </Styled.HeaderBlock>
               <PodcastItem data={data.podcast} />
               <Styled.BlogArticlesWrapper>

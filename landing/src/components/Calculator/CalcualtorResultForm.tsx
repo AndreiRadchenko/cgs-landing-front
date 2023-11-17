@@ -1,22 +1,20 @@
+import React, { useEffect, useState } from "react";
 import { useQueryClient } from "@tanstack/react-query";
 import { useFormikContext } from "formik";
-import React, { useEffect, useState } from "react";
+
+import CalculatorEmailField from "./CalculatorEmailField";
+import CalculatorNameField from "./CalculatorNameField";
+import CalculatorTitleField from "./CalculatorTitleField";
+
 import { queryKeys } from "../../consts/queryKeys";
 import {
   ICalculator,
   ICalculatorAnswersResults,
   ICalculatorFormValuesProps,
+  ICalculatorResultForm,
   ICalculatorStep,
 } from "../../types/Admin/Response.types";
 import { getResults } from "../../utils/getCalculatorResults";
-import CalculatorEmailField from "./CalculatorEmailField";
-import CalculatorNameField from "./CalculatorNameField";
-import CalculatorTitleField from "./CalculatorTitleField";
-
-interface ICalculatorResultForm {
-  calculateIsClicked: boolean;
-  isBlockchain: boolean;
-}
 
 const CalcualtorResultForm = ({
   calculateIsClicked,

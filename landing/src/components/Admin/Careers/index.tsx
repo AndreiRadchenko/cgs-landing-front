@@ -1,23 +1,43 @@
 import React, { useState } from "react";
 import Image from "next/image";
-import { useFormikContext } from "formik";
 import { toast } from "react-toastify";
+import { useFormikContext } from "formik";
+import { useMutation } from "@tanstack/react-query";
+import dynamic from "next/dynamic";
 
 import CareersTicket from "../../CareersTicket";
+import AdminCarousel from "../Global/AdminImageCarousel";
+import CareerInfo from "../../CareersStack/CareerInfo";
+import AdminStars from "../FeedbackBlock/AdminStars";
+import Stack from "../../CareersStack/Stack";
+import { adminCareersService } from "../../../services/adminCareersPage";
+
+import * as Styled from "../../../styles/AdminPage";
+import {
+  MainContainer,
+  CareersContainer,
+  SubTitle,
+  TitleInput,
+  VacancyInput,
+  TicketContainer,
+  TicketsButton,
+  TicketBox,
+  IconBox,
+  DeleteBtn,
+  MainTitle,
+} from "../../../styles/AdminCareersPage";
+import { queryKeys } from "../../../consts/queryKeys";
 import edit from "../../../../public/editIcon.svg";
 import close from "../../../../public/bigClose.svg";
 import {
   IDataCareersResponse,
   IVacancies,
 } from "../../../types/Admin/Response.types";
-import * as AdminPageStyled from "../../../styles/AdminPage";
-import * as Styled from "../../../styles/AdminCareersPage";
-import { useMutation } from "@tanstack/react-query";
-import { adminCareersService } from "../../../services/adminCareersPage";
-import { queryKeys } from "../../../consts/queryKeys";
-import CareerInfo from "../../CareersStack/CareerInfo";
 import { newVacancy } from "../../../consts";
-import { ArrowContainer } from "../../../styles/HomePage/General.styled";
+import {
+  ArrowContainer,
+  BlackButton,
+} from "../../../styles/HomePage/General.styled";
 import ButtonArrow from "../../../utils/ButtonArrow";
 
 interface ICareers {
@@ -28,6 +48,13 @@ interface ICareers {
   refetch: () => any;
 }
 
+const CareersTitleTextEditor = dynamic(
+  () => import("../../TextEditor/TextEditor"),
+  {
+    ssr: false,
+  }
+);
+
 const Careers = ({
   isNewTicket,
   setIsNewTicket,
@@ -37,9 +64,11 @@ const Careers = ({
 }: ICareers) => {
   const { values, setFieldValue, handleChange, handleSubmit } =
     useFormikContext<IDataCareersResponse>();
+  const starsChange = (newValue: number) =>
+    values.vacancy && (values.vacancy.stars = newValue);
+  const starsEditChange = (newValue: number) =>
+    values.vacancy && (values.tickets[ticket].stars = newValue);
   const [info, setInfo] = useState<number>(0);
-  const [ticketId, setTicketId] = useState<number | null>();
-  const isAdminPanel = true;
 
   const { mutateAsync } = useMutation(
     [queryKeys.deleteTicketAndVacancy],
@@ -55,17 +84,12 @@ const Careers = ({
     }
   );
 
-  const deleteTicket = async (index: number) => {
-    const id = values.tickets[index]?.id;
-    if (id) {
-      await mutateAsync(id.toString());
+  const deleteTicket = async () => {
+    const id = values.tickets[ticket]?.id;
+    id && (await mutateAsync(id));
 
-      const updatedTickets = [...values.tickets];
-      updatedTickets.splice(index, 1);
-
-      setTicket(0);
-      values.tickets = updatedTickets;
-    }
+    values.tickets.splice(ticket, 1);
+    setTicket(0);
   };
 
   const { mutateAsync: putData } = useMutation(
@@ -88,143 +112,121 @@ const Careers = ({
     }
   };
 
-  const editTicket = (index: number) => {
-    setIsNewTicket(!isNewTicket);
-    setTicketId(index);
-    setTicket(index);
-  };
-
   return (
-    <Styled.MainContainer>
-      <Styled.CareersContainer>
-        <Styled.SubTitle>Speciality</Styled.SubTitle>
-        <Styled.VacancyInput
-          style={{ width: "40%" }}
-          type="text"
-          name={isNewTicket ? `tickets[${ticket}].vacancy` : "vacancy.vacancy"}
-          placeholder="Speciality"
-          value={
-            isNewTicket
-              ? values.tickets[ticket].vacancy
-              : values.vacancy?.vacancy
-          }
-          onChange={handleChange}
-        />
-        <Styled.SubTitle>Small description</Styled.SubTitle>
-        <Styled.VacancyInput
-          style={{ width: "70%" }}
-          type="text"
-          name={
-            isNewTicket
-              ? `tickets[${ticket}].description`
-              : "vacancy.description"
-          }
-          placeholder="Small description"
-          value={
-            isNewTicket
-              ? values.tickets[ticket].description
-              : values.vacancy?.description
-          }
-          onChange={handleChange}
-        />
-        <Styled.AboutWork>
-          <Styled.Location>
-            <Styled.SubTitle>Work Location</Styled.SubTitle>
-            <Styled.VacancyInput
-              type="text"
-              name={
-                isNewTicket ? `tickets[${ticket}].location` : "vacancy.location"
-              }
-              placeholder="Work location"
-              value={
-                isNewTicket
-                  ? values.tickets[ticket].location
-                  : values.vacancy?.location
-              }
-              onChange={handleChange}
-            />
-          </Styled.Location>
-          <Styled.TypeOfWork>
-            <Styled.SubTitle>Type of work</Styled.SubTitle>
-            <Styled.VacancyInput
-              type="text"
-              name={isNewTicket ? `tickets[${ticket}].time` : "vacancy.time"}
-              placeholder="Time of work"
-              value={
-                isNewTicket ? values.tickets[ticket].time : values.vacancy?.time
-              }
-              onChange={handleChange}
-            />
-          </Styled.TypeOfWork>
-        </Styled.AboutWork>
-        <Styled.SubTitle>Info about vacancy</Styled.SubTitle>
-        {!isNewTicket
-          ? values.vacancy.info.map((el, i) => (
-              <CareerInfo
-                info={info}
-                setInfo={setInfo}
-                key={i}
-                isNewTicket={isNewTicket}
-                ticket={ticket}
-                infoIndex={i}
-              />
-            ))
-          : values.tickets[ticket].info.map((el, i) => (
-              <CareerInfo
-                info={info}
-                setInfo={setInfo}
-                key={i}
-                isNewTicket={isNewTicket}
-                ticket={ticket}
-                infoIndex={i}
-              />
-            ))}
-        <Styled.TicketsButtonContainer>
-          <Styled.TicketsButton type="button" onClick={addOrEditTicket}>
-            {isNewTicket ? "Edit ticket" : "Add ticket"}
-          </Styled.TicketsButton>
-          <ArrowContainer>
-            <ButtonArrow />
-          </ArrowContainer>
-        </Styled.TicketsButtonContainer>
-        {values.tickets.length ? (
-          <Styled.TicketBox>
-            <Styled.SubTitle>Editing</Styled.SubTitle>
-            {values.tickets.map((ticket, id) => (
-              <Styled.TicketChange key={id}>
-                <Styled.TicketEditAndDeleteButtons>
-                  <Styled.IconBox onClick={() => editTicket(id)}>
-                    <Image
-                      src={isNewTicket && ticketId == id ? close : edit}
-                      alt="icon"
-                    />
-                  </Styled.IconBox>
-                  <Styled.DeleteBtn
-                    onClick={() => deleteTicket(id)}
-                    type={"button"}
-                  >
-                    delete
-                  </Styled.DeleteBtn>
-                </Styled.TicketEditAndDeleteButtons>
-                <CareersTicket
-                  className="admin"
+    <Styled.AdminPaddedBlock theme="light">
+      <Styled.AdminHeader>Careers</Styled.AdminHeader>
+      <MainContainer>
+        <CareersContainer>
+          <MainTitle>
+            <div style={{ marginBottom: 50 }}>
+              <CareersTitleTextEditor header="Title" name="subtitle" />
+            </div>
+            <BlackButton
+              type="submit"
+              onClick={() => handleSubmit()}
+              size={"1.5em"}
+              padding={"1.11em 3em"}
+            >
+              Save changes
+              <ArrowContainer>
+                <ButtonArrow />
+              </ArrowContainer>
+            </BlackButton>
+          </MainTitle>
+          <SubTitle>Add a new ticket</SubTitle>
+          <VacancyInput
+            type="text"
+            name={
+              isNewTicket ? `tickets[${ticket}].vacancy` : "vacancy.vacancy"
+            }
+            placeholder="vacancy"
+            value={
+              isNewTicket
+                ? values.tickets[ticket].vacancy
+                : values.vacancy?.vacancy
+            }
+            onChange={handleChange}
+          />
+          <VacancyInput
+            type="text"
+            name={
+              isNewTicket ? `tickets[${ticket}].position` : "vacancy.position"
+            }
+            placeholder="position"
+            value={
+              isNewTicket
+                ? values.tickets[ticket].position
+                : values.vacancy?.position
+            }
+            onChange={handleChange}
+          />
+          <AdminStars
+            size={30}
+            value={Number(
+              isNewTicket ? values.tickets[ticket].stars : values.vacancy?.stars
+            )}
+            handleChange={isNewTicket ? starsEditChange : starsChange}
+            edit={true}
+          />
+          <SubTitle>Stack</SubTitle>
+          <Stack isNewTicket={isNewTicket} ticket={ticket} />
+          <SubTitle className={"info"}>Info about vacancy</SubTitle>
+          {!isNewTicket
+            ? values.vacancy.info.map((el, i) => (
+                <CareerInfo
+                  info={info}
+                  setInfo={setInfo}
+                  key={i}
+                  isNewTicket={isNewTicket}
                   ticket={ticket}
-                  isAdminPanel={isAdminPanel}
+                  infoIndex={i}
                 />
-              </Styled.TicketChange>
-            ))}
-          </Styled.TicketBox>
+              ))
+            : values.tickets[ticket].info.map((el, i) => (
+                <CareerInfo
+                  info={info}
+                  setInfo={setInfo}
+                  key={i}
+                  isNewTicket={isNewTicket}
+                  ticket={ticket}
+                  infoIndex={i}
+                />
+              ))}
+          <TicketsButton type="button" onClick={addOrEditTicket}>
+            {isNewTicket ? "Edit ticket" : "Add ticket"}
+          </TicketsButton>
+        </CareersContainer>
+
+        {values.tickets.length ? (
+          <TicketBox>
+            <TicketContainer>
+              <IconBox onClick={() => setIsNewTicket(!isNewTicket)}>
+                <Image src={isNewTicket ? close : edit} alt="icon" />
+              </IconBox>
+              <CareersTicket
+                className="admin"
+                ticket={values.tickets[ticket]}
+              />
+              <DeleteBtn onClick={deleteTicket} type={"button"}>
+                delete ticket
+              </DeleteBtn>
+            </TicketContainer>
+
+            <AdminCarousel
+              page={ticket}
+              setPage={setTicket}
+              length={values.tickets.length}
+            />
+          </TicketBox>
         ) : (
-          <AdminPageStyled.AdminPhotoGrid>
-            <AdminPageStyled.AdminCenteredDiv>
-              <AdminPageStyled.AdminSubTitle>
-                No tickets
-              </AdminPageStyled.AdminSubTitle>
-            </AdminPageStyled.AdminCenteredDiv>
-          </AdminPageStyled.AdminPhotoGrid>
+          <Styled.AdminPhotoGrid>
+            <Styled.AdminCenteredDiv>
+              <Styled.AdminSubTitle>No tickets</Styled.AdminSubTitle>
+            </Styled.AdminCenteredDiv>
+          </Styled.AdminPhotoGrid>
         )}
-      </Styled.CareersContainer>
-    </Styled.MainContainer>
+      </MainContainer>
+    </Styled.AdminPaddedBlock>
   );
 };
 

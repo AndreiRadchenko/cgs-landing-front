@@ -6,48 +6,51 @@ import parse from "html-react-parser";
 
 import { MobileInfiniteText } from "../MobileInfiniteText/MobileInfiniteText";
 import linkedInLocal from "../../../public/linkedIn.svg";
+import MobileTeamGallery from "./MobileTeamGallery";
+import DesktopTeamGallery from "./DesktopTeamGallery";
+import FooterBlock from "./FooterBlock";
 
 import * as Styled from "./AboutUs.styled";
-import { IAbout, IDataResponse } from "../../types/Admin/Response.types";
+import { IAboutUs, IDataResponse } from "../../types/Admin/Response.types";
 import { queryKeys } from "../../consts/queryKeys";
-
-interface IAboutUs {
-  data: IAbout;
-}
-
-interface IString {
-  text: string;
-}
-
-const ParsedText = ({ text }: IString) => {
-  const textArray = text.split("|");
-  return (
-    <>
-      {textArray.map((e: string, i: number) => {
-        const parsedString = "<span>" + e + "</span>";
-        return <p key={i}>{parse(parsedString)}</p>;
-      })}
-    </>
-  );
-};
+import { SpanSplitBrackets, SplitBrackets } from "../../utils/splitBrackets";
 
 const AboutUs = ({ data }: IAboutUs) => {
   const isMobile = useMediaQuery("(max-width:768px)");
   const {
-    about: { video, image, codex, philosophy },
+    about: { video, image, header, codex, philosophy },
     numbers: { years, employees, projects, customers },
     team: { title, members },
+    footerBlock,
   } = data;
 
   const queryClient = useQueryClient();
   const footerData = queryClient.getQueryData<IDataResponse>([
     queryKeys.getFullHomePage,
   ])?.FooterBlock;
-  const linkedInIcon = footerData?.images[2].image?.url;
+  const linkedInIcon = footerData?.images[3].image?.url;
+
+  const parsedText = (text: string) => {
+    const textArray = text.split("|");
+    return (
+      <>
+        {textArray.map((e: string, i: number) => {
+          const parsedString = "<span>" + e + "</span>";
+          return <p key={i}>{parse(parsedString)}</p>;
+        })}
+      </>
+    );
+  };
 
   return (
     <>
       <Styled.HeroAboutContainer>
+        <Styled.Layout style={{ position: "absolute", zIndex: 10 }}>
+          <Styled.HeroHeaderText>
+            <SpanSplitBrackets text={header} />
+          </Styled.HeroHeaderText>
+        </Styled.Layout>
+        <Styled.VideoFilter />
         <video
           loop
           playsInline
@@ -71,9 +74,7 @@ const AboutUs = ({ data }: IAboutUs) => {
             ) : (
               <MobileInfiniteText title={codex.title} />
             )}
-            <Styled.Text>
-              <ParsedText text={codex.text} />
-            </Styled.Text>
+            <Styled.Text>{parsedText(codex.text)}</Styled.Text>
           </Styled.HeadlineContainer>
           <Styled.HeadlineContainer>
             {!isMobile ? (
@@ -81,9 +82,7 @@ const AboutUs = ({ data }: IAboutUs) => {
             ) : (
               <MobileInfiniteText title={philosophy.title} />
             )}
-            <Styled.Text>
-              <ParsedText text={philosophy.text} />
-            </Styled.Text>
+            <Styled.Text>{parsedText(philosophy.text)}</Styled.Text>
           </Styled.HeadlineContainer>
         </Styled.HeadlinesContainer>
         <Styled.NumbersContainer>
@@ -106,46 +105,18 @@ const AboutUs = ({ data }: IAboutUs) => {
         </Styled.NumbersContainer>
         <Styled.OurTeamContainer>
           {!isMobile ? (
-            <Styled.Subtitle>{title}</Styled.Subtitle>
+            <DesktopTeamGallery
+              team={{ title, members }}
+              linkedInIcon={linkedInIcon ? linkedInIcon : linkedInLocal}
+            />
           ) : (
-            <MobileInfiniteText title={title} />
+            <MobileTeamGallery
+              team={{ title, members }}
+              linkedInIcon={linkedInIcon ? linkedInIcon : linkedInLocal}
+            />
           )}
-          <Styled.TeamGallery>
-            {members.map((member, index) => (
-              <Styled.Teammate key={index}>
-                <Styled.TeammateImageContainer>
-                  <Image
-                    src={member?.image?.url ? member.image.url : ""}
-                    alt="teammate image"
-                    layout="fill"
-                    objectFit="contain"
-                    objectPosition="top"
-                  />
-                  <Styled.LinkedIn
-                    href={member.linkedin}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    <Image
-                      priority
-                      src={linkedInIcon ? linkedInIcon : linkedInLocal}
-                      alt="Link to LinkedIn"
-                      width={32}
-                      height={32}
-                    />
-                  </Styled.LinkedIn>
-                </Styled.TeammateImageContainer>
-                <Styled.TeammateName>{member.name}</Styled.TeammateName>
-                <Styled.TeammatePosition>
-                  {member.position}
-                </Styled.TeammatePosition>
-                <Styled.TeammateAbout>
-                  <ParsedText text={member.about} />
-                </Styled.TeammateAbout>
-              </Styled.Teammate>
-            ))}
-          </Styled.TeamGallery>
         </Styled.OurTeamContainer>
+        <FooterBlock footerBlock={footerBlock} />
       </Styled.Layout>
     </>
   );

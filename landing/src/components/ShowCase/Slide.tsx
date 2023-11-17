@@ -42,7 +42,7 @@ const Slide = ({ review, isActive }: IReviewProps) => {
       <Styled.ContentWrapper>
         <Styled.TitleContainer>
           <Styled.ProjectTitle
-            isBig={review.showCaseTitle.length > 46}
+            isBig={review.showCaseTitle.length > 45}
             className={isActive ? "active" : undefined}
           >
             {review.showCaseTitle}

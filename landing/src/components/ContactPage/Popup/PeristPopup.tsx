@@ -1,6 +1,7 @@
 import React, { ReactNode, CSSProperties } from "react";
 
 import * as Styled from "./PersistPopup.styled";
+import { useWindowDimension } from "../../../hooks/useWindowDimension";
 
 interface Props {
   style?: CSSProperties;
@@ -12,8 +13,6 @@ export const PersistPopup = ({ children, style }: Props) => {
     <Styled.TextWrapper style={style} className="persist-popup">
       <Styled.PersistPopupText>{children}</Styled.PersistPopupText>
       <svg
-        width="60"
-        height="7"
         viewBox="0 0 60 7"
         fill="currentColor"
         xmlns="http://www.w3.org/2000/svg"
