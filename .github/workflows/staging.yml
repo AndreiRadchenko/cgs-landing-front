@@ -34,4 +34,4 @@ jobs:
           heroku_app_name: ${{ secrets.HEROKU_APP_STG_LANDING }}
           heroku_email: 'd4100kx@gmail.com'
         env:
-          HD_PROJECT_PATH: 'cgs-landing'
+          HD_PROJECT_PATH: 'landing'
