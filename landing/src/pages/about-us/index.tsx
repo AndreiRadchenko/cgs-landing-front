@@ -14,6 +14,10 @@ import { adminAboutUsService } from "../../services/adminAboutUsPage";
 export async function getServerSideProps() {
   const queryClient = new QueryClient();
 
+  await queryClient.prefetchQuery([queryKeys.getFullHomePage], () =>
+    adminGlobalService.getFullPage()
+  );
+
   await queryClient.prefetchQuery([queryKeys.getAboutUsPage], () =>
     adminAboutUsService.getAboutUsPage()
   );
