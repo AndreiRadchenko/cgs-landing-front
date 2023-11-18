@@ -34,7 +34,6 @@ jobs:
         run: |
           echo "machine api.heroku.com login ${{ secrets.HEROKU_API_KEY }}" >> ~/.netrc
           echo "machine git.heroku.com login ${{ secrets.HEROKU_API_KEY }}" >> ~/.netrc
-          cd landing
           git init
           git remote add heroku https://git.heroku.com/${{ secrets.HEROKU_APP_NAME }}.git
           git checkout -b main  # Create a new branch named 'main'
