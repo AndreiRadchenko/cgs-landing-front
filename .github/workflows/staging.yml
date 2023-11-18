@@ -37,7 +37,7 @@ jobs:
           git init
           git config --global user.email "d4100kx@gmail.com"
           git config --global user.name "andreiradchenko"
-          git remote add heroku https://git.heroku.com/${{ secrets.HEROKU_APP_NAME }}.git
+          git remote add heroku git@git.heroku.com/${{ secrets.HEROKU_APP_NAME }}.git
           git checkout -b main  # Create a new branch named 'main'
           git add .
           git commit -m "Deploy to Heroku from staging branch"
