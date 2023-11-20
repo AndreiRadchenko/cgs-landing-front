@@ -6,7 +6,7 @@
 
 const nextConfig = {
   images: {
-    unoptimized: true,
+    // unoptimized: true,
     domains: ["landing-cgs.s3.amazonaws.com", "d2qrnmx3qcgrup.cloudfront.net"],
     minimumCacheTTL: 3600,
   },
