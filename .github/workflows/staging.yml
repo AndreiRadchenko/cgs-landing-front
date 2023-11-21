@@ -43,12 +43,6 @@ jobs:
       #     git commit -m "Deploy to Heroku from staging branch"
       #     git push -f heroku main:main
 
-      - name: Login to Heroku
-        run: |
-          heroku git:remote -a radchenko-cgs-landing
-          echo ${{ secrets.HEROKU_API_KEY }} | heroku login --interactive
-          git push heroku staging
-
       - name: Check Heroku CLI Version
         run: heroku --version
 
