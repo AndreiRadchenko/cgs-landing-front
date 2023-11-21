@@ -24,9 +24,6 @@ jobs:
         with:
           node-version: 17.x
 
-      - name: Update Heroku CLI
-        run: heroku update
-
       - name: Install dependencies
         run: npm install
 
@@ -50,7 +47,7 @@ jobs:
         run: |
           heroku git:remote -a radchenko-cgs-landing
           echo ${{ secrets.HEROKU_API_KEY }} | heroku login --interactive
-          git push heroku main:main
+          git push heroku staging
 
       - name: Check Heroku CLI Version
         run: heroku --version
