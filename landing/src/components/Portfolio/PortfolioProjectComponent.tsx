@@ -288,6 +288,8 @@ const PortfolioProjectComponent = ({
           objectFit="cover"
           layout="fill"
           loading="eager"
+          priority
+          unoptimized
           onLoad={handleImageLoad}
         />
       </Styled.ProjectsContainerImage>
