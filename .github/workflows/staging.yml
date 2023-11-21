@@ -46,9 +46,6 @@ jobs:
       - name: Check Heroku CLI Version
         run: heroku --version
 
-      - name: Check Heroku CLI Info
-        run: heroku info
-
       - name: Enable debug logs
         run: echo "::set-env name=ACTIONS_STEP_DEBUG::true"
 
