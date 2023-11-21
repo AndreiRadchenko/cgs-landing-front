@@ -16,9 +16,6 @@ jobs:
         working-directory: ./landing
 
     steps:
-      - name: Update Heroku CLI
-        run: heroku update
-
       - name: Checkout code
         uses: actions/checkout@v2
 
@@ -26,6 +23,9 @@ jobs:
         uses: actions/setup-node@v1
         with:
           node-version: 17.x
+
+      - name: Update Heroku CLI
+        run: heroku update
 
       - name: Install dependencies
         run: npm install
