@@ -16,6 +16,9 @@ jobs:
         working-directory: ./landing
 
     steps:
+      - name: Update Heroku CLI
+        run: heroku update
+
       - name: Checkout code
         uses: actions/checkout@v2
 
@@ -42,6 +45,21 @@ jobs:
       #     git add .
       #     git commit -m "Deploy to Heroku from staging branch"
       #     git push -f heroku main:main
+
+      - name: Login to Heroku
+        run: |
+          heroku git:remote -a radchenko-cgs-landing
+          echo ${{ secrets.HEROKU_API_KEY }} | heroku login --interactive
+          git push heroku main:main
+
+      - name: Check Heroku CLI Version
+        run: heroku --version
+
+      - name: Check Heroku CLI Info
+        run: heroku info
+
+      - name: Enable debug logs
+        run: echo "::set-env name=ACTIONS_STEP_DEBUG::true"
 
       - name: Deploy to Heroku
         uses: akhileshns/heroku-deploy@v3.12.12
