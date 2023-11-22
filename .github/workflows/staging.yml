@@ -30,23 +30,9 @@ jobs:
       - name: Build
         run: npm run build
 
-      # - name: Deploy to Heroku
-      #   run: |
-      #     echo "machine api.heroku.com login ${{ secrets.HEROKU_API_KEY }}" >> ~/.netrc
-      #     echo "machine git.heroku.com login ${{ secrets.HEROKU_API_KEY }}" >> ~/.netrc
-      #     git init
-      #     git config --global user.email "d4100kx@gmail.com"
-      #     git config --global user.name "andreiradchenko"
-      #     git remote add heroku https://heroku:${{ secrets.HEROKU_API_KEY }}@git.heroku.com/radchenko-cgs-landing.git
-      #     git checkout -b main  # Create a new branch named 'main'
-      #     git add .
-      #     git commit -m "Deploy to Heroku from staging branch"
-      #     git push -f heroku main:main
-
       - name: Deploy to Heroku
         uses: akhileshns/heroku-deploy@v3.12.12
         with:
-          # args: deploy --dir=build --prod
           heroku_api_key: ${{ secrets.HEROKU_API_KEY }}
           heroku_app_name: 'cgs-landing-radchenko'
           heroku_email: 'd4100kx@gmail.com'
