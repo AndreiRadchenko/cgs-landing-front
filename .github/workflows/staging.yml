@@ -43,18 +43,12 @@ jobs:
       #     git commit -m "Deploy to Heroku from staging branch"
       #     git push -f heroku main:main
 
-      - name: Check Heroku CLI Version
-        run: heroku --version
-
-      - name: Enable debug logs
-        run: echo "::set-env name=ACTIONS_STEP_DEBUG::true"
-
       - name: Deploy to Heroku
         uses: akhileshns/heroku-deploy@v3.12.12
         with:
           # args: deploy --dir=build --prod
           heroku_api_key: ${{ secrets.HEROKU_API_KEY }}
-          heroku_app_name: 'radchenko-cgs-landing'
+          heroku_app_name: 'cgs-landing-radchenko'
           heroku_email: 'd4100kx@gmail.com'
         env:
           HD_PROJECT_PATH: 'landing'
