@@ -287,7 +287,6 @@ const PortfolioProjectComponent = ({
           alt="project image"
           objectFit="cover"
           layout="fill"
-          loading="eager"
           priority
           unoptimized
           onLoad={handleImageLoad}

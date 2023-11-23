@@ -230,6 +230,7 @@ const PortfolioProjectPage = () => {
                     width={600}
                     objectFit="contain"
                     onLoad={() => setIsMainImagesLoaded(true)}
+                    unoptimized
                     priority
                   />
                 )}
