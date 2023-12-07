@@ -1,6 +1,6 @@
 import styled, { css } from "styled-components";
-import { IValue } from "../types/Admin/AdminRateCard.types";
 import themes from "../utils/themes";
+import { IValue } from "../types/Admin/AdminRateCard.types";
 
 interface IActiveAccordion {
   readonly isActive?: boolean;
@@ -80,7 +80,7 @@ export const RateCardContentContainer = styled.div`
     }
   }
   @media ${themes.primary.media.min4K} {
-    padding: 77px 81.33px 190px 81.33px;
+    padding: 77px 81.33px 185px 81.33px;
     & .serviceWrapper {
       width: 100%;
     }
@@ -177,7 +177,6 @@ export const RateCardServiceDropDown = styled.div<IActiveAccordion>`
   }
   @media ${themes.primary.media.min4K} {
     width: 100%;
-    letter-spacing: 1.6px;
     padding: 21px 30px 21px 18px;
     svg {
       width: 24px;
@@ -257,10 +256,7 @@ export const RateCardLevelTable = styled.table`
   tbody:has(.rateRow .spanNameDefault:hover) .rateRow .mainSpanCost span {
     color: ${themes.primary.colors.darkBlue};
   }
-  tbody:has(.rateRow .mainSpanCost span:hover) .rateRow .spanRateDefault span {
-    color: ${themes.primary.colors.darkBlue};
-  }
-  tbody:has(.rateRow .mainSpanCost span:hover) .rateRow .mainSpanName {
+  tbody:has(.rateRow .mainSpanCost:hover) .rateRow {
     color: ${themes.primary.colors.darkBlue};
   }
 
@@ -386,6 +382,7 @@ export const RateCardLevelData = styled.td`
   @media ${themes.primary.media.min4K} {
     padding: 16px 18px;
     height: 56px;
+    letter-spacing: 1.2px;
   }
 
   &.spanCost {

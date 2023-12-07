@@ -13,7 +13,7 @@ export const ContentWrapper = styled.div`
   position: relative;
   border: 1.6px solid ${themes.primary.colors.primary};
   background-color: ${themes.primary.colors.blogBackground};
-  padding-bottom: 1.1em;
+  padding-bottom: 4.1em;
   z-index: 5;
 `;
 

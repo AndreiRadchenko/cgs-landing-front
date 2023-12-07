@@ -1,6 +1,5 @@
 import React, { FC, useEffect } from "react";
 
-import ButtonShareComponent from "../HomePage/ButtonShareComponent";
 import BurgerFooter from "./BurgerFooter";
 
 import * as StyledThisComp from "../../styles/Burger.styles";
@@ -27,29 +26,14 @@ const BurgerMenu: FC<IBurgerMenuProps> = ({
       ref={burgerRef}
       className={isOpen ? "open" : "hide"}
     >
-      <StyledThisComp.BurgerContent>
-        <div>
-          <StyledThisComp.BurgerContainer>
-            {children?.map((route, ind) => (
-              <StyledThisComp.BurgerRow
-                key={ind}
-                className={isOpen ? "open" : ""}
-              >
-                {route}
-              </StyledThisComp.BurgerRow>
-            ))}
-          </StyledThisComp.BurgerContainer>
-          <StyledThisComp.SocialLinksBurgerRow>
-            <BurgerFooter />
-          </StyledThisComp.SocialLinksBurgerRow>
-          <StyledThisComp.WhatsAppLink>
-            <ButtonShareComponent />
-          </StyledThisComp.WhatsAppLink>
-        </div>
-        <StyledThisComp.BurgerPrivacy href="/privacy-policy">
-          Privacy Policy
-        </StyledThisComp.BurgerPrivacy>
-      </StyledThisComp.BurgerContent>
+      <StyledThisComp.BurgerNavContainer>
+        {children?.map((route, ind) => (
+          <StyledThisComp.BurgerRow key={ind} className={isOpen ? "open" : ""}>
+            {route}
+          </StyledThisComp.BurgerRow>
+        ))}
+      </StyledThisComp.BurgerNavContainer>
+      <BurgerFooter />
     </StyledThisComp.BurgerWrapper>
   );
 };

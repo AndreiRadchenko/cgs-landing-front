@@ -15,7 +15,9 @@ export const Subtitle = styled.div`
   font-size: calc(
     clamp(74px, 74px + (100vw - 1440px) * ((92 - 74) / (1920 - 1440)), 92px)
   );
-  line-height: 89px;
+  line-height: calc(
+    clamp(89px, 89px + (100vw - 1440px) * ((110 - 89) / (1920 - 1440)), 110px)
+  );
 
   & p {
     margin-top: calc(
@@ -109,10 +111,16 @@ export const ArrowWrapper = styled.div`
   margin-right: 22px;
   margin-bottom: 12px;
 
+  &.careers {
+    margin-left: -5px;
+    width: 12vw;
+  }
+
   @media (max-width: 2560px) {
     font-size: 0.4em;
     width: 11vw;
-    margin: 0 0 12px;
+    margin: 0 10px;
+    margin-bottom: 12px;
   }
 
   @media (max-width: 1560px) {
@@ -138,6 +146,12 @@ export const ArrowWrapper = styled.div`
     margin-bottom: 2px;
     font-size: 0.7em;
     width: 10vw;
+
+    &.careers {
+      margin-left: -5px;
+      width: 14vw;
+      margin-bottom: -1.5px;
+    }
   }
 
   &.nextTech {
@@ -145,7 +159,7 @@ export const ArrowWrapper = styled.div`
     position: relative;
 
     @media (min-width: 2560px) {
-      width: 41vw;
+      width: 45vw;
     }
 
     @media (min-width: 1500px) and (max-width: 1597px) {
@@ -157,10 +171,10 @@ export const ArrowWrapper = styled.div`
     }
 
     @media (max-width: 768px) {
-      width: 33.5vw;
+      width: 38vw;
       height: 1.8em;
       margin-bottom: -1px;
-      margin-left: 10px;
+      margin-left: 0;
     }
 
     @media (max-width: 474px) {
@@ -177,12 +191,12 @@ export const HomePageArrowWrapper = styled.span`
   margin-bottom: 12px;
 
   &.homePageSubtitleLeftArrow {
-    width: 77px;
+    width: 138px;
     height: 2.2em;
     top: 8px;
     margin-left: -1px;
     margin-bottom: 5px;
-    min-width: 77px;
+    min-width: 97px;
   }
 
   &.homePageSubtitleRightArrow {
@@ -196,7 +210,7 @@ export const HomePageArrowWrapper = styled.span`
 
   @media (min-width: 1800px) {
     &.homePageSubtitleLeftArrow {
-      width: 105px;
+      width: 185px;
     }
 
     &.homePageSubtitleRightArrow {
@@ -222,10 +236,10 @@ export const HomePageArrowWrapper = styled.span`
     width: 10vw;
 
     &.homePageSubtitleLeftArrow {
-      width: 45px;
+      width: 70px;
       height: 2.2em;
       top: 6px;
-      min-width: 45px;
+      min-width: 70px;
     }
 
     &.homePageSubtitleRightArrow {

@@ -9,9 +9,9 @@ import {
   IBonusesComponent,
 } from "../ServicesComponent.types";
 import { ITechnology } from "./AdminPortfolio.types";
-import { ITestimonial } from "../Components.types";
 import { ICalendlyUserData } from "../ModalCategory.types";
 
+import { ITestimonial } from "../Components.types";
 export interface IEditInformation {
   title: string;
   subtitle: string;
@@ -81,7 +81,6 @@ export interface IMetaBlock {
   metaTitle: string;
   metaDescription: string;
   customHead: string;
-  lastModified?: string;
 }
 
 // completed
@@ -96,10 +95,6 @@ interface IProjectorBlock {
   text: string;
   button: string;
   buttonLink: string;
-}
-
-export interface IAboutUs {
-  data: IAbout;
 }
 
 export interface IDataResponse {
@@ -187,6 +182,13 @@ export interface IPointsData {
   _id: string;
 }
 
+export interface ITextBlog {
+  tagName?: string;
+  text?: string;
+  subNumber?: string;
+  subtitle?: string;
+}
+
 export interface IWorkerData {
   image: { url: string };
   title: string;
@@ -272,6 +274,25 @@ export interface IArticle {
   meta: IMetaBlock;
 }
 
+export interface IArticleWithoutId {
+  url: string;
+  image: { url: string } | null;
+  title: string;
+  description: string;
+  author: IAuthor;
+  updatedOn: string;
+  date: string;
+  minutesToRead: number;
+  content: ITextBlog[];
+  tags: string[];
+  disabled: boolean;
+  meta: IMetaBlock;
+}
+
+export interface IArticleWithInd {
+  article: IArticle;
+}
+
 export interface ISwapData {
   desInd: number;
   srcInd: number;
@@ -295,12 +316,6 @@ export interface IBlogPageResponse {
 export interface IHomeData {
   data: IDataCareersResponse | undefined;
   isLoading: boolean;
-}
-
-export interface IView {
-  _id?: string;
-  views: number;
-  articleUrl: string;
 }
 
 export interface IAboutUsResponse {
@@ -490,7 +505,6 @@ export interface ICloudService {
 export interface ISubtitleWithText {
   subtitle: string;
   text: string;
-  lastModified?: string;
 }
 
 export interface ISubtitleWithList {
@@ -505,34 +519,26 @@ export interface IServiceWeb {
     button: string;
     buttonLink: string;
     image: { url: string };
-    lastModified?: string;
   };
   comparisonBlock: {
     desktopColumn: ISubtitleWithList;
     webColumn: ISubtitleWithList;
-    lastModified?: string;
   };
   whyIsWebBlock: {
     subtitle: string;
     element1: ISubtitleWithText;
     element2: ISubtitleWithText;
     element3: ISubtitleWithText;
-    lastModified?: string;
   };
   solutionBlock: ISubtitleWithText;
   projects: string[];
-  perksBlock: {
-    subtitle: string;
-    list: string[];
-    lastModified?: string;
-  };
+  perksBlock: ISubtitleWithList;
   footerBlock: {
     subtitle: string;
     button: string;
     text: string;
     buttonLink: string;
     image: { url: string };
-    lastModified?: string;
   };
   teamMembers: ITeamMembers;
   freeServices: IFreeServicesComponent;
@@ -924,7 +930,7 @@ export interface IServiceWebAudit {
     problems: [string];
   };
   teamMembers: TeamMembers;
-  typesOfAuditBlock: { types: [{ _id: string; title: string; text: string }] };
+  typesOfAuditBlock: [{ _id: string; title: string; text: string }];
   projects: [string];
   howToDoAudit: {
     subtitle: string;

@@ -18,6 +18,7 @@ import {
 } from "../../types/Admin/Response.types";
 import { useWindowDimension } from "../../hooks/useWindowDimension";
 import ButtonArrow from "../../utils/ButtonArrow";
+import { adminCalculatorService } from "../../services/adminCalculator";
 
 const PAGINATION_STEPS_PER_PAGE = 8;
 
@@ -40,7 +41,8 @@ const CalculatorStepsFormContent = ({
   const { values, isValid, errors, handleSubmit, validateForm } =
     useFormikContext<ICalculatorFormValuesProps>();
 
-  const calendlyLink = "https://calendly.com/rokhman-tanya/test-meet";
+  const calendlyLink =
+    "https://calendly.com/d/z97-3sh-rc8/client-meets-cgs-team-ib";
 
   const handleClick = () =>
     stepsCount <= 10 ? onButtonClick() : handlePaginationNextClick();
@@ -106,6 +108,11 @@ const CalculatorStepsFormContent = ({
     if (lastStep) {
       setCalculateIsClicked(true);
       if (isValid) {
+        window.dataLayer.push({
+          event: "calculation_submition",
+          formType: "calculator",
+        });
+
         handleSubmit();
         setIsCalendlyOpen(true);
         setCalendlyUserData({
@@ -113,6 +120,10 @@ const CalculatorStepsFormContent = ({
           email: values.email,
           link: calendlyLink,
         });
+        adminCalculatorService.createCalculatorPipedriveReport(
+          values.name,
+          values.email
+        );
       }
     } else if (errors["questionsArr"] && errors["questionsArr"][step]) {
       setWarnIsShow(true);

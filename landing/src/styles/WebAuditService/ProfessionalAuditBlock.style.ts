@@ -2,8 +2,8 @@ import styled from "styled-components";
 import themes from "../../utils/themes";
 
 export const Wrapper = styled.section`
-  margin-top: 10.4em;
-  margin-bottom: 10.2em;
+  margin-top: ${themes.primary.spacing.servicesMarginBetweenBlocks};
+  margin-bottom: 5.2em;
 
   @media ${themes.primary.media.maxTabletPortrait} {
     margin-top: ${themes.primary.spacing.servicesMarginBetweenBlocksTablet};
@@ -40,7 +40,7 @@ export const ImageWrapper = styled.div`
   width: 500px;
   height: 250px;
   flex-shrink: 0;
-  margin-top: 2.1em;
+  margin-top: 7.1em;
 
   @media ${themes.primary.media.minPCFullHD} {
     width: 750px;

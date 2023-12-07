@@ -51,7 +51,10 @@ const CarouselFeedback: FC = () => {
   return (
     <StyledThisComp.FeedbackContainer>
       <div ref={feedbackRef}>
-        <MobileInfiniteText title={data?.subtitle} />
+        <MobileInfiniteText
+          className={"mobileFeedback"}
+          title={data?.subtitle}
+        />
         <StyledThisComp.FeedbackRow>
           <Swiper {...params} loop={true}>
             <Navigationwrapper>

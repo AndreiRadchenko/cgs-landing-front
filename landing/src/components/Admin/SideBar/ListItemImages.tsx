@@ -122,6 +122,25 @@ export const ServiceIcon = ({ open }: ISvg) => (
   </svg>
 );
 
+export const DownArrow = ({ onClick, open }: ISvg) => (
+  <span onClick={onClick}>
+    <RotateSvg
+      className={open ? "open" : undefined}
+      width="15"
+      height="9"
+      viewBox="0 0 15 9"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        id="arrow"
+        d="M1.00977 1L7.50977 8L14.0098 1"
+        stroke={open ? "#F2EA86" : "white"}
+      />
+    </RotateSvg>
+  </span>
+);
+
 export const EstimationFormIcon = ({ open }: ISvg) => (
   <svg
     style={{ marginRight: "0.5rem" }}
@@ -176,25 +195,6 @@ export const SupportChatIcon = ({ open }: ISvg) => (
       fill={open ? "#F2EA86" : "white"}
     />
   </svg>
-);
-
-export const DownArrow = ({ onClick, open }: ISvg) => (
-  <span onClick={onClick}>
-    <RotateSvg
-      className={open ? "open" : undefined}
-      width="15"
-      height="9"
-      viewBox="0 0 15 9"
-      fill="none"
-      xmlns="http://www.w3.org/2000/svg"
-    >
-      <path
-        id="arrow"
-        d="M1.00977 1L7.50977 8L14.0098 1"
-        stroke={open ? "#F2EA86" : "white"}
-      />
-    </RotateSvg>
-  </span>
 );
 
 export const CVsIcon = () => (

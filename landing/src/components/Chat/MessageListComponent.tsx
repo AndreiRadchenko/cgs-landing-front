@@ -12,8 +12,10 @@ interface IMessageListComponent {
   messages: MessageObject[];
   setMessages: React.Dispatch<React.SetStateAction<MessageObject[]>>;
   userEmail: string;
+  userName: string;
   openChatTime: string;
   sentEmailTime: string;
+  sentNameTime: string;
   isGreetingMeesageShow: boolean;
   messageProps: MessageListProps;
   setNewMessageAmount: React.Dispatch<React.SetStateAction<number>>;
@@ -25,8 +27,10 @@ const MessageListComponent = ({
   messages,
   setMessages,
   userEmail,
+  userName,
   openChatTime,
   sentEmailTime,
+  sentNameTime,
   messageProps,
   setNewMessageAmount,
   isGreetingMeesageShow,
@@ -106,8 +110,10 @@ const MessageListComponent = ({
     >
       <GreetingMessageComponent
         userEmail={userEmail}
+        userName={userName}
         openChatTime={openChatTime}
         sentEmailTime={sentEmailTime}
+        sentNameTime={sentNameTime}
         isGreetingMeesageShow={isGreetingMeesageShow}
       />
       {messages &&

@@ -2,7 +2,7 @@ import styled from "styled-components";
 import themes from "../../utils/themes";
 
 export const Wrapper = styled.section`
-  margin-block: 10.5em 6.6em;
+  margin-block: 8.8em 7.75em;
 
   @media ${themes.primary.media.maxTabletLandScape} {
     margin-top: calc(
@@ -97,7 +97,7 @@ export const OptionalContainer = styled.div`
   display: flex;
   flex-direction: column;
   margin-left: 1.375em;
-  margin-top: 15px;
+  margin-top: 5px;
   position: relative;
   top: 13px;
 
@@ -180,7 +180,7 @@ export const BackgroundContainer = styled.div`
   position: relative;
   width: 100%;
   height: auto;
-  margin-top: 1em;
+  margin-top: ${themes.primary.spacing.tertiary};
 
   @media ${themes.primary.media.maxTabletLandScape} {
     height: 600px;
@@ -343,8 +343,8 @@ export const SecondSubtitleContainer = styled.div`
 
 export const ThirdSubtitleContainer = styled.div`
   position: relative;
-  top: -56px;
-  margin-left: 55.5%;
+  top: -50px;
+  margin-left: 56%;
 
   @media ${themes.primary.media.minPC} {
     top: -3%;

@@ -39,8 +39,8 @@ export const TextContent = styled.div``;
 
 export const Image = styled.img`
   position: absolute;
-  right: -1.44em;
-  bottom: -2.7em;
+  right: 0.56em;
+  bottom: -2.2em;
 
   @media ${themes.primary.media.maxServiceWeb} {
     width: 17em;

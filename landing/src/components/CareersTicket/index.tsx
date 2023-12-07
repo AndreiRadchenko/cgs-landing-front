@@ -6,7 +6,6 @@ import { useWindowDimension } from "../../hooks/useWindowDimension";
 
 import * as Styled from "./CareersTicket.styled";
 import Background from "../../../public/CareerDecorations/background.svg";
-import Arrow from "../../../public/CareerDecorations/ticketArrow.svg";
 import { ITicket } from "../../types/Admin/Response.types";
 import * as Styles from "../../styles/TicketModal.styled";
 import CloseButton from "../../../public/CareerDecorations/close.svg";
@@ -18,18 +17,14 @@ interface ITicketProps {
   className?: string;
 }
 const CareersTicket: FC<ITicketProps> = ({
-  ticket: { position, vacancy, stack, stars, info },
+  ticket: { position, vacancy, stack, info },
   scrollTo,
   className,
 }: ITicketProps) => {
   const { width } = useWindowDimension();
   const [isOpen, setIsOpen] = useState(false);
 
-  // const starsArr = new Array(Math.ceil(stars)).fill(0);
-
   const onTicketView = () => setIsOpen(true);
-
-  // const uuid = (Math.random() + 1).toString(36).substring(7);
 
   const onClose = (e: MouseEvent<HTMLDivElement | HTMLButtonElement>) => {
     e.stopPropagation();
@@ -116,7 +111,9 @@ const CareersTicket: FC<ITicketProps> = ({
             </svg>
           </Styled.TicketDataBackground>
         </Styled.TicketInner>
-        <Styled.TicketArrow src={Arrow.src} alt="arrow" />
+        <Styled.ArrowContainer>
+          <ButtonArrow />
+        </Styled.ArrowContainer>
         <TicketModal isOpen={isOpen} onClose={onClose}>
           <Styles.ButtonWrapper>
             <Styles.CloseButton

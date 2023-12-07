@@ -6,7 +6,6 @@ export const Wrapper = styled.section`
   position: relative;
   display: flex;
   gap: 32px;
-  align-items: center;
 
   @media ${themes.primary.media.maxTabletPortrait} {
     margin-top: ${themes.primary.spacing.servicesMarginBetweenBlocksTablet};
@@ -80,7 +79,7 @@ export const TextContainer = styled.div`
 
 export const ProblemsContainer = styled.div`
   max-width: 69em;
-  padding: 5.6em 0.7em 5.6em 4em;
+  padding: 5.65em 0.7em 5.65em 4.2em;
   background: linear-gradient(
     90deg,
     ${themes.primary.colors.gradientColor1RateCard} 0%,
@@ -88,8 +87,7 @@ export const ProblemsContainer = styled.div`
   );
   display: flex;
   flex-wrap: wrap;
-  row-gap: 2.9em;
-  column-gap: 2.5em;
+  gap: 2.3em;
 
   @media ${themes.primary.media.maxMobile} {
     flex-direction: column;
@@ -103,6 +101,7 @@ export const ProblemContainer = styled.div`
   display: flex;
   align-items: center;
   gap: 14px;
+  width: 19.417em;
 
   span {
     font-size: 1.5em;

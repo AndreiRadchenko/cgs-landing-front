@@ -1,5 +1,4 @@
 import React from "react";
-import Image from "next/image";
 import useMediaQuery from "@mui/material/useMediaQuery";
 import { useQueryClient } from "@tanstack/react-query";
 import parse from "html-react-parser";
@@ -13,10 +12,11 @@ import FooterBlock from "./FooterBlock";
 import * as Styled from "./AboutUs.styled";
 import { IAboutUs, IDataResponse } from "../../types/Admin/Response.types";
 import { queryKeys } from "../../consts/queryKeys";
-import { SpanSplitBrackets, SplitBrackets } from "../../utils/splitBrackets";
+import { SpanSplitBrackets } from "../../utils/splitBrackets";
 
 const AboutUs = ({ data }: IAboutUs) => {
   const isMobile = useMediaQuery("(max-width:768px)");
+
   const {
     about: { video, image, header, codex, philosophy },
     numbers: { years, employees, projects, customers },
@@ -45,7 +45,7 @@ const AboutUs = ({ data }: IAboutUs) => {
   return (
     <>
       <Styled.HeroAboutContainer>
-        <Styled.Layout style={{ position: "absolute", zIndex: 10 }}>
+        <Styled.Layout className="hero-text">
           <Styled.HeroHeaderText>
             <SpanSplitBrackets text={header} />
           </Styled.HeroHeaderText>

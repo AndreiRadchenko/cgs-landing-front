@@ -1,114 +1,39 @@
-import styled, { css } from "styled-components";
+import styled from "styled-components";
 import themes from "../../utils/themes";
 import TicketButton from "./../TicketButton/index";
-
-interface IImageProps {
-  imgUrl?: string;
-}
+import { arrowOne, arrowTwo } from "../../styles/HomePage/General.styled";
 
 export const Wrapper = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-`;
+  width: calc(
+    clamp(
+      623px,
+      623px + (100vw - 1440px) * ((850 - 623) / (1920 - 1440)),
+      850px
+    )
+  );
+  height: calc(
+    clamp(
+      269px,
+      269px + (100vw - 1440px) * ((355 - 269) / (1920 - 1440)),
+      355px
+    )
+  );
 
-export const TicketWrapper = styled.div`
-  display: flex;
-  height: 15.938rem;
-
-  flex: 50%;
-
-  margin-bottom: 4.25rem;
-  @media ${themes.primary.media.onlyLaptop} {
-    margin-bottom: 0;
+  @media (max-width: 700px) {
+    width: 90%;
+    height: 215px;
   }
-  @media ${themes.primary.media.maxTabletLandScape} {
-    margin-bottom: 4.25rem;
-  }
 
-  @media ${themes.primary.media.maxMobile} {
-    margin-bottom: 0;
-  }
   @media ${themes.primary.media.maxLowScreenMobile} {
-    height: auto;
-    margin-bottom: 2rem;
+    width: 100%;
   }
 `;
 
 export const Button = styled(TicketButton)`
   -webkit-tap-highlight-color: transparent;
-`;
-
-export const BarcodeText = styled.p`
-  font-family: ${themes.primary.font.family.gilroy};
-  transform: rotate(-90deg);
-  position: absolute;
-  left: -4.1rem;
-  top: 5.125rem;
-  width: max-content;
-  text-size-adjust: none;
-  @media ${themes.primary.media.maxPCFullHD} {
-    top: 5.5rem;
-    left: -3.2rem;
-  }
-  @media ${themes.primary.media.maxLaptop} {
-    font-size: 0.6rem;
-    top: 3.813rem;
-    left: -2.6rem;
-  }
-  @media ${themes.primary.media.maxTabletLandScape} {
-    font-size: 0.8rem;
-    top: 5.5rem;
-    left: -2.9rem;
-  }
-  @media ${themes.primary.media.maxTabletPortrait} {
-    left: -2.888rem;
-  }
-  @media ${themes.primary.media.maxMobile} {
-    left: -2.2rem;
-    top: 3.813rem;
-    font-size: 0.55rem;
-  }
-  @media ${themes.primary.media.maxLowScreenMobile} {
-    font-size: 8px;
-    left: -2.1rem;
-    top: 2.9rem;
-  }
-`;
-
-export const RocketImg = styled.div.attrs(({ imgUrl }: IImageProps) => ({
-  imgUrl: imgUrl,
-}))`
-  ${(props) => css`
-    background-image: url(${props.imgUrl});
-  `}
-  width: 8.125rem;
-  background-size: auto;
-  background-repeat: no-repeat;
-  display: flex;
-  @media ${themes.primary.media.onlyLaptop} {
-    width: 5.938rem;
-    background-size: contain;
-  }
-  @media ${themes.primary.media.maxMobile} {
-    width: 5.938rem;
-    background-size: contain;
-  }
-  @media ${themes.primary.media.maxLowScreenMobile} {
-    width: 4.531rem;
-  }
-`;
-
-export const CareersHeader = styled.div`
-  display: flex;
-  justify-content: space-between;
-  margin-bottom: 1.813rem;
-  @media ${themes.primary.media.onlyLaptop} {
-    margin-bottom: 0.8rem;
-  }
-  @media ${themes.primary.media.maxMobile} {
-    margin-bottom: 0.8rem;
-  }
 `;
 
 export const Logo = styled.img`
@@ -118,65 +43,6 @@ export const Logo = styled.img`
     width: 5rem;
     height: 1rem;
   }
-`;
-
-export const HeaderText = styled.p`
-  font-size: ${themes.primary.font.size.quinary};
-  margin: 0;
-`;
-
-export const TicketText = styled.span`
-  border-top: 0.5px solid ${themes.primary.colors.lightBlue};
-  border-right: 0.5px solid ${themes.primary.colors.lightBlue};
-  text-transform: uppercase;
-  color: ${themes.primary.colors.lightBlue};
-  font-size: ${themes.primary.font.size.quinary};
-  padding-top: 0.25rem;
-  padding-right: 0.938rem;
-  font-weight: ${themes.primary.font.weight.extraBold};
-  @media ${themes.primary.media.maxLowScreenMobile} {
-    margin-bottom: 0.5rem;
-    font-size: ${themes.primary.font.size.hexadecimal};
-  }
-`;
-
-export const BottomTitle = styled.h2`
-  margin-bottom: 1.938rem;
-  text-transform: uppercase;
-  font-size: ${themes.primary.font.size.tertiary};
-  font-weight: ${themes.primary.font.weight.extraBold};
-  font-family: ${themes.primary.font.family.gilroy};
-  @media ${themes.primary.media.onlyLaptop} {
-    margin-bottom: 0.938rem;
-  }
-  @media ${themes.primary.media.maxMobile} {
-    margin-bottom: 0.938rem;
-  }
-  @media ${themes.primary.media.maxLowScreenMobile} {
-    margin-bottom: 0.5rem;
-    font-size: ${themes.primary.font.size.fourteenth};
-  }
-`;
-
-export const BottomText = styled(TicketText)`
-  display: flex;
-  flex-direction: column;
-  padding-right: 0;
-  margin-bottom: 0.313rem;
-  @media ${themes.primary.media.maxLowScreenMobile} {
-    font-size: ${themes.primary.font.size.hexadecimal};
-  }
-`;
-
-export const BottomList = styled.div`
-  display: flex;
-  justify-content: space-between;
-  margin-right: 1.25rem;
-`;
-
-export const ListWrapper = styled.div`
-  display: flex;
-  flex-direction: column;
 `;
 
 export const SubTitle = styled.span`
@@ -220,56 +86,6 @@ export const TicketInnerSvgWrapper = styled.div`
     height: 100%;
     width: 100%;
     position: absolute;
-  }
-`;
-
-export const TicketContainer = styled.div`
-  background-image: url(/CareerDecorations/outer.svg);
-  background-size: 100% 100%;
-  background-repeat: no-repeat;
-
-  width: 616px;
-  height: 265px;
-  padding: 16px;
-  position: relative;
-  right: 10px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  @media ${themes.primary.media.maxTabletLandScape} {
-    padding: 13px;
-  }
-
-  @media ${themes.primary.media.maxTabletPortrait} {
-    height: 265px;
-    padding: 16px;
-  }
-
-  @media (max-width: 710px) {
-    max-width: none;
-    width: 100%;
-  }
-
-  @media ${themes.primary.media.maxLowScreenMobile} {
-    width: 350px;
-    height: 209px;
-    background-image: url(/CareerDecorations/outerMobile.svg);
-    padding: 10px;
-    right: 0;
-  }
-
-  @media ${themes.primary.media.maxLowestScreenMobile} {
-    width: 300px;
-    height: 209px;
-    background-image: url(/CareerDecorations/outerMobile.svg);
-    padding: 10px;
-  }
-  &:hover ${TicketInnerSvgWrapper} {
-    svg,
-    path {
-      fill: none;
-    }
   }
 `;
 
@@ -319,8 +135,14 @@ export const TicketPosition = styled.div`
     width: 40px;
   }
 
+  @media (min-width: 1500px) {
+    width: 115px;
+  }
+
   @media ${themes.primary.media.minPCFullHD} {
-    width: 90px;
+    width: 138px;
+    margin-right: -5px;
+    font-size: 32px;
   }
 `;
 
@@ -415,12 +237,17 @@ export const TicketPositionTitle = styled.p`
     }
   }
 
+  @media ${themes.primary.media.minPCFullHD} {
+    font-size: 42px;
+    margin-top: 22px;
+  }
+
   @media ${themes.primary.media.maxTabletPortrait} {
     font-size: 34px;
   }
 
   @media (max-width: 710px) {
-    font-size: 4.79vw;
+    font-size: 4.2vw;
   }
 
   @media ${themes.primary.media.maxLowScreenMobile} {
@@ -438,18 +265,24 @@ export const TicketPositionStack = styled.p`
   margin-bottom: 0;
   text-transform: uppercase;
   font-size: 20px;
+  max-width: 418px;
+
+  @media ${themes.primary.media.minPCFullHD} {
+    font-size: 24px;
+  }
 
   @media ${themes.primary.media.maxTabletPortrait} {
     font-size: 20px;
   }
 
   @media (max-width: 710px) {
-    font-size: 3.41vw;
+    font-size: 3vw;
   }
 
   @media ${themes.primary.media.maxLowScreenMobile} {
     font-size: 0.875rem;
     margin-top: 4px;
+    max-width: 300px;
   }
 
   @media ${themes.primary.media.maxLowestScreenMobile} {
@@ -457,42 +290,10 @@ export const TicketPositionStack = styled.p`
   }
 `;
 
-export const TicketPositionStarsContainer = styled.div`
-  display: flex;
-  gap: 13px;
-  margin-top: 15px;
-
-  @media ${themes.primary.media.maxLowScreenMobile} {
-    margin-top: 17px;
-  }
-`;
-
-export const TicketPositionStars = styled.img`
-  width: 2.2vw;
-  height: auto;
-
-  @media (min-width: 1300px) {
-    width: 35px;
-    &.admin {
-      width: 20px;
-    }
-  }
-  @media ${themes.primary.media.maxTabletPortrait} {
-    width: 30px;
-  }
-
-  @media ${themes.primary.media.maxMobile} {
-    width: 25px;
-  }
-  @media ${themes.primary.media.maxLowScreenMobile} {
-    width: 20px;
-  }
-`;
-
 export const TicketDataBackground = styled.div`
   position: absolute;
   width: 70%;
-  bottom: 0%;
+  bottom: 0;
   right: 40px;
 
   @media ${themes.primary.media.maxTabletPortrait} {
@@ -530,35 +331,96 @@ export const TicketDataBackground = styled.div`
   }
 `;
 
-export const TicketArrow = styled.img`
-  width: 60px;
-  height: 60px;
+export const ArrowContainer = styled.div`
+  width: 50px;
+  height: 50px;
   position: absolute;
-  right: -27px;
-  top: 39%;
+  right: -23px;
+  top: 39.5%;
+  background-color: ${themes.primary.colors.headerBorderHover};
+  border: 1.7px solid ${themes.primary.colors.primary};
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
 
-  @media ${themes.primary.media.maxTabletLandScape} {
-    width: 45px;
-    height: 45px;
-    right: -17px;
+  @media ${themes.primary.media.minPCFullHD} {
+    width: 65px;
+    height: 65px;
+    top: 40.5%;
   }
 
   @media ${themes.primary.media.maxTabletPortrait} {
-    width: 60px;
-    height: 60px;
-    right: -27px;
+    right: -22px;
+    top: 40%;
   }
 
-  @media (max-width: 575px) {
-    width: 45px;
-    height: 45px;
-    right: -17px;
+  @media ${themes.primary.media.maxMobilePortrait} {
+    width: 30px;
+    height: 30px;
+    right: -6px;
+    top: 42.5%;
+  }
+`;
+
+export const TicketContainer = styled.div`
+  background-image: url(/CareerDecorations/outer.svg);
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  width: 100%;
+  height: 100%;
+  padding: calc(
+    clamp(16px, 16px + (100vw - 1440px) * ((23 - 16) / (1920 - 1440)), 23px)
+  );
+  position: relative;
+  right: -2px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  @media ${themes.primary.media.maxTabletLandScape} {
+    padding: 13px;
+  }
+
+  @media ${themes.primary.media.maxTabletPortrait} {
+    height: 265px;
+    padding: 16px;
+  }
+
+  @media (max-width: 710px) {
+    max-width: none;
+    width: 100%;
   }
 
   @media ${themes.primary.media.maxLowScreenMobile} {
-    width: 35px;
-    height: 35px;
-    right: -10px;
-    top: 43%;
+    width: 350px;
+    height: 209px;
+    background-image: url(/CareerDecorations/outerMobile.svg);
+    padding: 10px;
+    right: 0;
+  }
+
+  @media ${themes.primary.media.maxLowestScreenMobile} {
+    width: 300px;
+    height: 209px;
+    background-image: url(/CareerDecorations/outerMobile.svg);
+    padding: 10px;
+  }
+  &:hover ${TicketInnerSvgWrapper} {
+    svg,
+    path {
+      fill: none;
+    }
+  }
+  &:hover ${ArrowContainer} {
+    & path:nth-child(1) {
+      /* transform: translate(0px, 0px); */
+      animation: ${arrowOne} 1s 1 forwards ease-in-out;
+    }
+    & path:nth-child(2) {
+      /* transform: translate(36px, -36px); */
+      animation: ${arrowTwo} 1s 1 forwards ease-in-out;
+    }
   }
 `;

@@ -1,11 +1,12 @@
 import { Formik } from "formik";
 import React from "react";
-import { useMutation, useQuery } from "@tanstack/react-query";
 import { toast } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
+import { useMutation, useQuery } from "@tanstack/react-query";
 
 import AdminPortfolioContentBlock from "./ContentBlock";
 import { adminPortfolioService } from "../../../services/adminPortfolioPage";
+import "react-toastify/dist/ReactToastify.css";
+
 import { CustomToast } from "../CustomToast";
 
 import { queryKeys } from "../../../consts/queryKeys";

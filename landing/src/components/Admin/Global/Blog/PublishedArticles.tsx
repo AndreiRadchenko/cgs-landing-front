@@ -21,7 +21,6 @@ import close from "../../../../../public/bigClose.svg";
 import { AdminPaddedBlock } from "../../../../styles/AdminPage";
 import { adminSitemapService } from "../../../../services/adminSitemapPage";
 import { IArticleItem, IArticles } from "../../../../types/Admin/Blog.types";
-import { StyledButton } from "../../../BaseButton/BaseButton.styled";
 
 const PublishedArticles: FC<IArticles> = ({
   setIsNewArticle,

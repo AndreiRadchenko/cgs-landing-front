@@ -26,8 +26,8 @@ export const ContentWrapper = styled.div`
 
 export const Image = styled.img`
   position: absolute;
-  top: 4.61em;
-  right: 3.8em;
+  top: 4.31em;
+  right: 2.81em;
   width: 35vw;
 
   @media ${themes.primary.media.maxTabletLandScape} {

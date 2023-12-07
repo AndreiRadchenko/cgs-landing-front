@@ -37,7 +37,7 @@ export const Description = styled.p`
   font-family: ${themes.primary.font.family.namu};
   font-size: 1.5em;
   line-height: 24px;
-  margin-bottom: 1.3em;
+  margin-bottom: 1.5em;
 
   @media ${themes.primary.media.maxMobile} {
     width: 100%;
@@ -47,7 +47,7 @@ export const Description = styled.p`
 
 export const ListContainer = styled.div`
   display: flex;
-  column-gap: 52px;
+  column-gap: 26px;
   @media ${themes.primary.media.minPCFullHD} {
     column-gap: 52px;
     justify-content: center;
@@ -78,7 +78,7 @@ export const AuditBox = styled.div`
 
 export const ListWrapper = styled.div`
   width: 100%;
-  padding-bottom: 0px;
+  padding-bottom: 49px;
   border: 1.60133px solid ${themes.primary.colors.primary};
   position: relative;
 
@@ -175,6 +175,7 @@ export const ItemBottomLine = styled.div`
 `;
 
 export const Shadow = styled.div`
+  height: 558px;
   width: 1px;
   border-style: solid;
   border-color: transparent transparent transparent

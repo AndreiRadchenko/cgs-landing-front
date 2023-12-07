@@ -56,7 +56,7 @@ export const BlackButton = styled.a<IFontSize>`
   &.homePage {
     font-size: 1.835em;
     padding: 16px 15.4px;
-    font-weight: 400px;
+    font-weight: 400;
   }
 
   &.portfolio-button {
@@ -153,7 +153,7 @@ export const BlackButton = styled.a<IFontSize>`
     transition-delay: unset;
     font-size: 1.835em;
     padding: 16px 15.4px;
-    font-weight: 400px;
+    font-weight: 400;
   }
 
   &.scrolled {
@@ -164,7 +164,7 @@ export const BlackButton = styled.a<IFontSize>`
     animation: ${buttonHover} 1s steps(8) forwards;
     font-size: 1.835em;
     padding: 16px 15.4px;
-    font-weight: 400px;
+    font-weight: 400;
 
     &.removeBg {
       transition-delay: unset;
@@ -185,7 +185,7 @@ export const BlackButton = styled.a<IFontSize>`
     &.main,
     &.scrolled {
       padding: 0.757em 0.78em;
-      font-size: 1.52em;
+      font-size: 28px;
     }
 
     &.webDev {
@@ -273,9 +273,9 @@ export const BlackButton = styled.a<IFontSize>`
     }
 
     &.homePage {
-      height: 54px;
-      font-size: 16px;
-      padding: 17px 31.1px;
+      height: 58px;
+      font-size: 22px;
+      padding: 18px 15px;
     }
 
     &.portfolio-button {
@@ -322,28 +322,29 @@ export const BlackButton = styled.a<IFontSize>`
     }
   }
 
-  @media ${themes.primary.media.maxLowScreenMobile} {
+  @media ${themes.primary.media.minTablet} {
     &.seeAll {
       & > div {
         width: 25px;
         height: 25px;
       }
     }
+
+    &.homePage {
+      height: 54px;
+      font-size: 16px;
+      padding: 17px 19px;
+    }
   }
 
-  & path {
-    /* transition: transform 1s ease-in-out; */
-  }
   & path:nth-child(1) {
     transform: translate(-36px, 36px);
   }
   &:hover {
     & path:nth-child(1) {
-      /* transform: translate(0px, 0px); */
       animation: ${arrowOne} 1s 1 forwards ease-in-out;
     }
     & path:nth-child(2) {
-      /* transform: translate(36px, -36px); */
       animation: ${arrowTwo} 1s 1 forwards ease-in-out;
     }
   }
@@ -351,7 +352,7 @@ export const BlackButton = styled.a<IFontSize>`
 
 export const Title = styled.h1`
   font-size: ${themes.primary.font.size.homeHeader};
-  letter-spacing: 0.045em;
+  letter-spacing: 5px;
   line-height: 132%;
   text-shadow: -0.5px -0.5px 0 #000, 0.5px -0.5px 0 #000, -0.5px 0.5px 0 #000,
     0.5px 0.5px 0 #000;
@@ -365,6 +366,7 @@ export const Title = styled.h1`
   }
   @media ${themes.primary.media.minPCFullHD} {
     font-size: ${themes.primary.font.size.homeHeaderPcHd};
+    letter-spacing: 6.65px;
   }
   @media ${themes.primary.media.maxTabletLandScape} {
     font-size: 76px;
@@ -375,7 +377,13 @@ export const Title = styled.h1`
   }
 
   @media ${themes.primary.media.maxMobile} {
-    font-size: 15vw;
+    font-size: 13vw;
+  }
+
+  @media ${themes.primary.media.minTablet} {
+    font-size: 56px;
+    line-height: 132%; /* 73.92px */
+    letter-spacing: 2.8px;
   }
 `;
 
@@ -438,7 +446,7 @@ export const MainSubtitle = styled.div`
   margin: 17px 0 40px;
 
   &.homePage {
-    margin-top: 25px;
+    margin-top: 30px;
     p {
       display: flex;
       align-items: center;
@@ -451,6 +459,7 @@ export const MainSubtitle = styled.div`
 
   @media ${themes.primary.media.minPCFullHD} {
     &.homePage {
+      line-height: 106%;
       font-size: 1.803em;
       margin-top: 37px;
       margin-bottom: 53px;
@@ -485,21 +494,31 @@ export const MainSubtitle = styled.div`
   }
 
   @media ${themes.primary.media.maxMobile} {
-    font-size: 4.8vw;
+    font-size: 3.5vw;
     margin: 10px 0 35px;
     &.homePage {
       width: 100%;
-      margin-top: 10px;
-      margin-bottom: 27px;
+      margin-top: 15px;
+      margin-bottom: 40px;
 
       p {
-        line-height: 141%;
+        line-height: 99%;
       }
     }
   }
 
-  @media (max-width: 555px) {
+  @media ${themes.primary.media.minTablet} {
     font-size: 4.5vw;
+
+    &.homePage {
+      margin-top: 10px;
+      margin-bottom: 25px;
+
+      p {
+        font-size: 17px;
+        line-height: 141%;
+      }
+    }
   }
 `;
 
@@ -510,10 +529,15 @@ export const HeadBlockContent = styled.header`
   margin-top: 119px;
 
   @media ${themes.primary.media.minPCFullHD} {
-    margin-top: 158px;
+    margin-top: 165px;
   }
 
   @media ${themes.primary.media.maxMobile} {
+    margin-top: 40px;
+    width: 100%;
+  }
+
+  @media ${themes.primary.media.minTablet} {
     margin-top: 0;
   }
 `;
@@ -522,11 +546,12 @@ export const Tetris = styled.div`
   position: absolute;
   width: 33.7%;
   right: 122px;
-  top: 18px;
+  top: 24px;
 
   @media ${themes.primary.media.minPCFullHD} {
+    right: 162px;
     top: 32px;
-    width: 32.9em;
+    width: 33.9em;
   }
   @media (max-width: 1400px) {
     right: 70px;
@@ -543,15 +568,16 @@ export const Tetris = styled.div`
   }
   @media ${themes.primary.media.maxMobile} {
     width: 100%;
-    top: 0;
+    top: -30px;
     right: 0;
     position: relative;
-    transform: scale(0.9);
+    transform: scale(0.885);
   }
 
-  @media ${themes.primary.media.maxLowScreenMobile} {
+  @media ${themes.primary.media.minTablet} {
     transform: none;
     width: 101.74%;
+    top: 25px;
   }
 `;
 
@@ -586,11 +612,11 @@ export const HeadBlockRow = styled.section`
   @media ${themes.primary.media.maxMobile} {
     flex-direction: column;
     align-items: center;
-    row-gap: 43px;
+    row-gap: 0;
   }
 
-  @media ${themes.primary.media.maxLowScreenMobile} {
-    margin-top: 0.75rem;
+  @media ${themes.primary.media.minTablet} {
+    margin-top: 15px;
   }
 `;
 
@@ -621,6 +647,8 @@ export const Subtitle = styled.div<ISubtitle>`
   }
 
   &.textOnFilm {
+    margin-bottom: 15px;
+
     p {
       margin: 0;
       line-height: 146%;
@@ -633,6 +661,7 @@ export const Subtitle = styled.div<ISubtitle>`
   }
 
   &.nextTech {
+    line-height: 132%;
     height: 2.5em;
     p {
       margin: 0;
@@ -689,6 +718,8 @@ export const Subtitle = styled.div<ISubtitle>`
     margin: 0;
 
     &.textOnFilm {
+      margin-bottom: 40px;
+
       p {
         span:first-child {
           height: auto;
@@ -774,7 +805,11 @@ export const Subtitle = styled.div<ISubtitle>`
     }
 
     &.foooter {
-      margin-top: 60px;
+      margin-top: 12px;
+      font-size: 56px;
+      width: 470px;
+      line-height: 132%;
+      letter-spacing: 2.8px;
     }
 
     &.small {
@@ -803,6 +838,15 @@ export const Subtitle = styled.div<ISubtitle>`
     }
   }
 
+  @media ${themes.primary.media.minTablet} {
+    &.foooter {
+      width: 315px;
+      font-size: 32px;
+      line-height: 132%; /* 42.24px */
+      letter-spacing: 1.6px;
+    }
+  }
+
   @media ${themes.primary.media.maxLowScreenMobile} {
     font-size: 9.3vw;
 
@@ -822,10 +866,10 @@ export const Subtitle = styled.div<ISubtitle>`
 `;
 
 export const NextTech = styled.section`
-  margin-top: 24.5em;
+  margin-top: 24.7em;
 
   @media ${themes.primary.media.minPCFullHD} {
-    margin-top: 20.42em;
+    margin-top: 20.75em;
   }
   @media ${themes.primary.media.maxTabletLandScape} {
     margin-top: 10.5em;
@@ -844,7 +888,11 @@ export const NextTech = styled.section`
 export const RightContainer = styled.div`
   display: flex;
   justify-content: right;
-  margin-right: 25px;
+  margin-right: 0;
+
+  @media ${themes.primary.media.minPCFullHD} {
+    margin-right: 20px;
+  }
 `;
 
 export const FooterButtonWrapper = styled.span`
@@ -865,8 +913,12 @@ export const FooterButtonWrapper = styled.span`
 
   @media ${themes.primary.media.maxMobile} {
     &.btn {
-      margin-top: 28px;
-      justify-content: flex-end;
+      margin-top: 38px;
+    }
+  }
+
+  @media ${themes.primary.media.minTablet} {
+    &.btn {
       flex-direction: column;
     }
   }
@@ -988,12 +1040,21 @@ export const ButtonShareTextWrapper = styled.div`
     margin-left: 0;
   }
 
+  &.homePage {
+    gap: calc(
+      clamp(2px, 2px + (100vw - 1440px) * ((22 - 10) / (1920 - 1440)), 22px)
+    );
+  }
+
   &.footer {
     margin-inline: 1.1666em 0;
   }
 
   @media ${themes.primary.media.minPCFullHD} {
     margin-left: 37px;
+    &.homePage {
+      margin-left: 34px;
+    }
   }
 
   @media ${themes.primary.media.maxMobile} {
@@ -1004,12 +1065,26 @@ export const ButtonShareTextWrapper = styled.div`
       margin-top: 0;
     }
 
+    &.homePage {
+      margin-top: 2px;
+      margin-left: 29px;
+      gap: 0;
+    }
+
     &.dappAuditShare a {
       padding: 0 !important;
     }
 
     &.footer {
       margin-inline: 0;
+    }
+  }
+
+  @media ${themes.primary.media.minTablet} {
+    &.homePage {
+      margin-top: 15px;
+      margin-left: 0;
+      gap: 7px;
     }
   }
 
@@ -1119,9 +1194,13 @@ export const WhatsAppWrapper = styled.div`
     }
 
     &.cta-share-button,
-    &.homePage,
     &.services {
       font-size: 16px;
+    }
+
+    &.homePage {
+      gap: 8px;
+      font-size: 18px;
     }
 
     &.portfolio-share-button {
@@ -1134,6 +1213,13 @@ export const WhatsAppWrapper = styled.div`
       gap: calc(
         clamp(3px, 3px + (100vw - 375px) * ((8 - 3) / (768 - 375)), 8px)
       );
+    }
+  }
+
+  @media ${themes.primary.media.minTablet} {
+    &.homePage {
+      gap: 8px;
+      font-size: 16px;
     }
   }
 `;
@@ -1239,9 +1325,13 @@ export const TelegramWrapper = styled.div`
     }
 
     &.cta-share-button,
-    &.homePage,
     &.services {
       font-size: 16px;
+    }
+
+    &.homePage {
+      gap: 8px;
+      font-size: 18px;
     }
 
     &.portfolio-share-button {
@@ -1254,6 +1344,14 @@ export const TelegramWrapper = styled.div`
       gap: calc(
         clamp(3px, 3px + (100vw - 375px) * ((8 - 3) / (768 - 375)), 8px)
       );
+    }
+  }
+
+  @media ${themes.primary.media.minTablet} {
+    &.homePage {
+      gap: 8px;
+      font-size: 16px;
+      margin-left: 0;
     }
   }
 `;
@@ -1294,6 +1392,32 @@ export const TelegramIconWrapper = styled.div`
   }
 `;
 
+export const CalculatorAndChatWrapper = styled.div`
+  position: fixed;
+  right: 0;
+  top: 44%;
+
+  display: flex;
+  flex-direction: column;
+  align-items: end;
+  justify-content: center;
+  gap: 15px;
+
+  z-index: 37;
+
+  @media ${themes.primary.media.maxMobile} {
+    top: 27vw;
+  }
+
+  @media ${themes.primary.media.maxMobile} {
+    height: auto;
+    top: auto;
+    bottom: 5px;
+    flex-direction: row;
+    gap: 0;
+  }
+`;
+
 export const WhatsAppIconWrapper = styled.div`
   display: flex;
   justify-content: center;
@@ -1320,32 +1444,6 @@ export const WhatsAppIconWrapper = styled.div`
 `;
 
 export const FooterSection = styled.section``;
-
-export const CalculatorAndChatWrapper = styled.div`
-  position: fixed;
-  right: 0;
-  top: 44%;
-
-  display: flex;
-  flex-direction: column;
-  align-items: end;
-  justify-content: center;
-  gap: 15px;
-
-  z-index: 13;
-
-  @media ${themes.primary.media.maxMobile} {
-    top: 27vw;
-  }
-
-  @media ${themes.primary.media.maxMobile} {
-    height: auto;
-    top: auto;
-    bottom: 5px;
-    flex-direction: row;
-    gap: 0;
-  }
-`;
 
 export const DropdownWrapper = styled.div`
   position: relative;
@@ -1587,6 +1685,10 @@ export const CalendlyInfoModalContent = styled.div`
   align-self: stretch;
 
   @media ${themes.primary.media.maxMobile} {
+    padding: 58px 32px 20px;
+    gap: 24px;
+  }
+  @media ${themes.primary.media.estiomationFormWidth} {
     padding: 48px 16px 16px;
     gap: 16px;
   }
@@ -1602,8 +1704,11 @@ export const CalendlyInfoModalLinkBlock = styled.div`
   align-self: stretch;
 
   @media ${themes.primary.media.maxMobile} {
-    padding: 10px;
+    padding: 16px;
     gap: 12px;
+  }
+  @media ${themes.primary.media.estiomationFormWidth} {
+    padding: 10px;
   }
 `;
 export const CalendlyInfoModalDateTime = styled.div`
@@ -1627,13 +1732,16 @@ export const CalendlyInfoModalDateTime = styled.div`
   }
 
   @media ${themes.primary.media.maxMobile} {
-    font-size: 14px;
+    font-size: 16px;
     & > div:first-child {
       padding: 5px 8px 7px;
     }
     & > div:last-child {
       padding: 5px 8px 7px;
     }
+  }
+  @media ${themes.primary.media.estiomationFormWidth} {
+    font-size: 14px;
   }
 `;
 export const CalendlyInfoModalLinkHeader = styled.div`
@@ -1660,14 +1768,17 @@ export const CalendlyInfoModalLinkHeader = styled.div`
   }
 
   @media ${themes.primary.media.maxMobile} {
-    & > div:first-child {
-      font-size: 16px;
-    }
     & > img {
+      transform: translateY(25%);
       z-index: 1;
       position: absolute;
       top: 2px;
       right: 0;
+    }
+  }
+  @media ${themes.primary.media.estiomationFormWidth} {
+    & > div:first-child {
+      font-size: 16px;
     }
   }
 `;
@@ -1705,7 +1816,7 @@ export const CalendlyInfoModalLinkMain = styled.div`
     position: relative;
   }
 
-  @media ${themes.primary.media.maxMobile} {
+  @media (max-width: 640px) {
     height: 32px;
     & > div:first-child {
       padding: 8px;
@@ -1715,7 +1826,6 @@ export const CalendlyInfoModalLinkMain = styled.div`
     & > div:last-child {
       font-size: 13px;
       width: 32.43%;
-      position: relative;
     }
   }
 `;
@@ -1783,7 +1893,6 @@ export const CalendlyInfoModalLinkHint = styled.div`
 `;
 
 export const CalendlyInfoModalTitle = styled.div`
-  /* margin-top: 58px; */
   line-height: 31.2px;
   font-size: 24px;
   font-family: ${themes.primary.font.family.namu};
@@ -1791,18 +1900,17 @@ export const CalendlyInfoModalTitle = styled.div`
 
   @media ${themes.primary.media.maxMobile} {
     /* margin-top: 32px; */
-    font-size: 17px;
+    font-size: 26px;
     line-height: 21.6px;
+  }
+  @media ${themes.primary.media.estiomationFormWidth} {
+    font-size: 17px;
   }
 `;
 
 export const CalendlyInfoModalNotice = styled.div`
   display: flex;
   column-gap: 12px;
-  /* margin-top: 20px; */
-
-  @media ${themes.primary.media.maxMobile} {
-  }
 `;
 
 export const CalendlyInfoModalImageWrapper = styled.div``;
@@ -1832,6 +1940,9 @@ export const CalendlyInfoModalNoticeText = styled.div`
 
   @media ${themes.primary.media.maxMobile} {
     margin-top: 0;
+    font-size: 18px;
+  }
+  @media ${themes.primary.media.estiomationFormWidth} {
     font-size: 16px;
     line-height: 25.6px;
   }
@@ -1841,8 +1952,6 @@ export const CalendlyInfoModalNoticeButtonWrapper = styled.div`
   display: flex;
   width: 100%;
   justify-content: flex-end;
-  /* margin-top: 22px; */
-  /* margin-bottom: 20px; */
 
   @media ${themes.primary.media.maxMobile} {
   }

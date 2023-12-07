@@ -5,7 +5,8 @@ export const Container = styled.section`
   width: 100%;
   display: flex;
   justify-content: space-between;
-  padding: 3.4em 0 0 0;
+  padding: 3.15em 0 1.6em 0;
+  padding: 4.2em 0 0 0;
 
   @media ${themes.primary.media.maxMobile} {
     flex-direction: column;
@@ -20,7 +21,7 @@ export const ContentContainer = styled.div`
   justify-content: flex-start;
   align-items: flex-start;
   width: 45.5%;
-  margin-top: 4.3em;
+  margin-top: 4.7em;
 
   & > a {
     font-size: 1.54em;
@@ -36,7 +37,7 @@ export const ContentContainer = styled.div`
 
 export const Telephone = styled.img`
   margin-bottom: 0.2rem;
-  margin-right: 2.3rem;
+  margin-right: 2rem;
   width: 36.7em;
   height: 38.1em;
 

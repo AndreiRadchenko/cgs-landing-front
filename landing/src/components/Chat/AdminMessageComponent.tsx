@@ -3,6 +3,9 @@ import { MessageObject } from "react-chat-engine-advanced";
 import setMessageTime from "../../utils/setMessageTime";
 
 import * as Styled from "../../styles/Chat/ChatMessagesComponent.styled";
+import { makeLinksClickable } from "../../utils/getLinksFromMessage";
+import { fileNameRegex, imageExtensionPattern } from "../../consts";
+import Image from "next/image";
 
 interface IAdminMessageComponentProps {
   msgIdx: number;
@@ -24,6 +27,8 @@ const AdminMessageComponent = ({
     previousMessage.sender?.username !== message.sender_username;
   const isLastMessage =
     !nextMessage || nextMessage.sender_username !== message.sender_username;
+
+  const match = message.attachments[0]?.file.match(fileNameRegex);
 
   const handleDownload = () => {
     const link = document.createElement("a");
@@ -49,16 +54,39 @@ const AdminMessageComponent = ({
         {isFirstMessage && (
           <Styled.MessageSender>{message.sender_username}</Styled.MessageSender>
         )}
-        {message.attachments.length > 0 ? (
-          <Styled.AdminMessageAttachment onClick={handleDownload}>
-            atch
-          </Styled.AdminMessageAttachment>
-        ) : (
+        {message.attachments.length > 0 &&
+          (imageExtensionPattern.test(message.attachments[0].file) ? (
+            <Styled.AdminMessageAttachment
+              style={{ marginBottom: `${message.text ? "0.5em" : "0"}` }}
+              onClick={handleDownload}
+            >
+              <Image
+                style={{ borderRadius: "5px" }}
+                src={message.attachments[0].file}
+                height={"250px"}
+                width={"250px"}
+              />
+            </Styled.AdminMessageAttachment>
+          ) : (
+            <Styled.AdminMessageAttachmentFile
+              style={{ marginBottom: `${message.text ? "0.5em" : "0"}` }}
+            >
+              <Styled.UserMessageFileExt>
+                {match && match[2]}
+              </Styled.UserMessageFileExt>
+              <Styled.UserMessageFileName>
+                {match && match[1]}
+              </Styled.UserMessageFileName>
+            </Styled.AdminMessageAttachmentFile>
+          ))}
+
+        {message.text && (
           <Styled.RecivedMessageBox
             className={msgIdx === msgsCount ? "msgAnimate" : ""}
-          >
-            {message.text}
-          </Styled.RecivedMessageBox>
+            dangerouslySetInnerHTML={{
+              __html: makeLinksClickable(message.text),
+            }}
+          />
         )}
         {isLastMessage && (
           <Styled.RecievdMessageTime>

@@ -141,6 +141,11 @@ export const RecivedMessageBox = styled.p`
   :not(:last-of-type) {
     margin-bottom: 0.5em;
   }
+
+  a {
+    color: ${themes.primary.colors.darkBlue};
+    text-decoration: underline;
+  }
 `;
 
 export const SendedMessageBox = styled(RecivedMessageBox)`
@@ -169,11 +174,54 @@ export const SendedMessageTime = styled(RecievdMessageTime)`
   margin-left: auto;
 `;
 
-export const AdminMessageAttachment = styled(AttachmentIcon)`
-  width: 4.66em;
-  height: 4.66em;
+export const UserMessageAttachment = styled.div`
+  margin-left: auto;
+  border-radius: 5px;
+  background-color: ${themes.primary.colors.attachmentIcon};
+  padding: 2px;
+  display: grid;
+  place-items: center;
 `;
 
-export const UserMessageAttachment = styled(AdminMessageAttachment)`
+export const AdminMessageAttachment = styled(UserMessageAttachment)`
+  background-color: ${themes.primary.colors.chatMessageBgc};
+`;
+
+export const UserMessageAttachmentFile = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
   margin-left: auto;
+
+  border-radius: 6px 0 6px 6px;
+  background-color: ${themes.primary.colors.chatSendedMessageBgc};
+  padding: 0.67em;
+
+  line-height: 19px;
+  font-weight: ${themes.primary.font.weight.normal};
+  font-size: 14px;
+  font-family: ${themes.primary.font.family.openSans};
+`;
+
+export const AdminMessageAttachmentFile = styled(UserMessageAttachmentFile)`
+  background-color: ${themes.primary.colors.chatMessageBgc};
+`;
+
+export const UserMessageFileExt = styled.div`
+  background: ${themes.primary.colors.darkBlue};
+  color: ${themes.primary.colors.secondary};
+  height: 45px;
+  width: 45px;
+  border-radius: 5px;
+  display: grid;
+  place-items: center;
+`;
+
+export const UserMessageFileName = styled.div`
+  width: fit-content;
+  max-width: 70%;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 `;

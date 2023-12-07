@@ -36,7 +36,7 @@ export const Title = styled.div`
   font-weight: ${themes.primary.font.weight.heavy};
   line-height: 56px;
   text-transform: uppercase;
-  margin-bottom: 62px;
+  margin-bottom: 65px;
 
   @media (max-width: 768px) {
     font-size: 34px;
@@ -119,7 +119,7 @@ export const Numbers = styled.div`
   @media (max-width: 1560px) {
     div {
       p {
-        margin-left: 1.45em;
+        margin-left: 1.5em;
         bottom: 0;
       }
     }
@@ -206,7 +206,7 @@ export const BeforeBlock = styled.div<IsFirst>`
   }
 
   @media (max-width: 1560px) {
-    width: 8vw;
+    width: 8.4vw;
   }
 
   @media (max-width: 1200px) {
@@ -250,7 +250,7 @@ export const AfterBlock = styled.div`
   }
 
   @media (max-width: 1560px) {
-    width: 8.1vw;
+    width: 8.4vw;
   }
 
   @media (max-width: 1200px) {
@@ -267,7 +267,7 @@ export const AfterBlock = styled.div`
     margin: 6px 0;
   }
 
-  @media (max-width: 768px) {
+  @media (max-width: 475px) {
     width: 0.5px;
     height: 24px;
     margin: 3px 0;
@@ -312,7 +312,7 @@ export const ContentItems = styled.div<ISlide>`
 
   @media (max-width: 1440px) {
     &:not(:first-child) {
-      margin-left: 2.5vw;
+      margin-left: 3.8vw;
     }
   }
 
@@ -372,11 +372,6 @@ export const Subtitle = styled.div`
     font-size: 30px;
   }
 
-  @media ${themes.primary.media.maxMobile} {
-    font-size: 24px;
-    margin-bottom: 10px;
-  }
-
   @media (max-width: 475px) {
     margin-bottom: 5px;
     font-size: 18px;
@@ -392,112 +387,7 @@ export const Text = styled.div`
   @media (max-width: 992px) {
     font-size: 28px;
   }
-
-  @media ${themes.primary.media.maxMobile} {
-    font-size: 20px;
-  }
-
   @media (max-width: 475px) {
     font-size: 16px;
-  }
-`;
-
-export const MobileContent = styled.div``;
-
-export const AdvantagesItem = styled.div`
-  display: flex;
-  column-gap: 11px;
-  height: auto;
-  position: relative;
-`;
-
-export const NumberMobileItem = styled.div`
-  height: 100%;
-  border: 1px solid ${themes.primary.colors.blogBackground};
-  background-color: ${themes.primary.colors.blogBackground};
-`;
-
-export const TextMobileItem = styled.div<ISlide>`
-  margin-bottom: 18px;
-  &.scrolled {
-    transform-origin: left center;
-    animation: ${({ ind }) =>
-      css`
-        ${slideDownText} 700ms ${ind * 100}ms ease-in forwards
-      `};
-  }
-`;
-
-export const MobileNumber = styled.div`
-  font-size: 14px;
-  font-weight: ${themes.primary.font.weight.heavy};
-  line-height: 20px;
-  margin-left: 1px;
-
-  &.last::after {
-    display: none;
-  }
-
-  ::after {
-    content: "";
-    position: absolute;
-    top: 70%;
-    background-color: #8f8e93;
-    left: 10.5px;
-    height: 30%;
-    width: 1px;
-  }
-
-  ::before {
-    content: "";
-    position: absolute;
-    top: 50px;
-    background-color: #8f8e93;
-    left: 10.5px;
-    height: 50%;
-    width: 1px;
-  }
-`;
-
-export const Circle = styled.img`
-  width: 22px;
-`;
-
-export const SmallCircle = styled.img`
-  @media ${themes.primary.media.maxMobile} {
-    width: 14px;
-    border: 4px solid #f1efed;
-    position: absolute;
-    top: 60%;
-    left: 0.55%;
-
-    &.oneLine {
-      top: 65%;
-    }
-  }
-
-  @media (max-width: 650px) {
-    left: 0.7%;
-    width: 13px;
-  }
-
-  @media (max-width: 560px) {
-    left: 0.9%;
-  }
-
-  @media (max-width: 475px) {
-    width: 12px;
-    border: 4px solid #f1efed;
-    position: absolute;
-    top: 62%;
-    left: 1.2%;
-
-    &.oneLine {
-      top: 75%;
-    }
-  }
-
-  @media (max-width: 400px) {
-    left: 1.5%;
   }
 `;

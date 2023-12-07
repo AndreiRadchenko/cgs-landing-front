@@ -11,13 +11,13 @@ import screenNew from "../../../public/HomePageDecoration/ProjectorBlock/screenN
 import mobileScreen from "../../../public/HomePageDecoration/ProjectorBlock/mobileScreen.svg";
 
 export const ProjectorBlockWrapper = styled.div`
-  margin-block: 120px;
+  margin-block: 115px 118px;
   display: flex;
   justify-content: space-between;
   min-height: 390px;
 
   @media ${themes.primary.media.minPCFullHD} {
-    margin-block: 160px;
+    margin-block: 147px 179px;
   }
 
   @media (max-width: 1250px) {
@@ -25,7 +25,11 @@ export const ProjectorBlockWrapper = styled.div`
   }
 
   @media ${themes.primary.media.maxTabletPortrait} {
-    margin-block: 90px;
+    margin-block: 250px 275px;
+  }
+
+  @media ${themes.primary.media.minTablet} {
+    margin-block: 30px 145px;
   }
 `;
 
@@ -128,7 +132,7 @@ export const Title = styled.div`
 export const Text = styled.div`
   color: #000;
   font-family: ${themes.primary.font.family.namu};
-  font-size: 1.85em;
+  font-size: 1.83em;
   font-style: normal;
   font-weight: ${themes.primary.font.weight.heavy};
   line-height: 160%; /* 35.2px */
@@ -313,7 +317,7 @@ export const TimerNumber = styled.div`
   font-style: normal;
   font-weight: ${themes.primary.font.weight.heavy};
   line-height: 140%; /* 219.622px */
-  z-index: 2000;
+  z-index: 35;
   opacity: 1;
   transition: opacity 0.3s linear;
 
@@ -443,15 +447,16 @@ export const MobileWrapper = styled.div`
 
 export const MobileCamera = styled.img`
   position: absolute;
-  width: 430px;
-  height: 452.5px;
+  width: 485px;
+  height: 740px;
   right: -30px;
-  margin-top: -100px;
-  z-index: -1;
-  @media (max-width: 474px) {
-    width: 430px;
-    height: 392.5px;
+  margin-top: -222px;
+  z-index: 1;
+
+  @media ${themes.primary.media.minTablet} {
+    width: 461px;
+    height: 418.5px;
     right: -110px;
-    margin-top: -110px;
+    margin-top: -121px;
   }
 `;

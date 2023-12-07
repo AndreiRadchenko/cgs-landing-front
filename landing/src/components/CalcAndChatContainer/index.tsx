@@ -3,6 +3,7 @@ import { CalculatorAndChatWrapper } from "../../styles/HomePage/General.styled";
 import Calculator from "../Calculator";
 import Chat from "../Chat";
 import { ICalendlyUserData } from "../../types/ModalCategory.types";
+import ChatIcon from "../Chat/ChatIcon";
 
 interface ICalcAndChatContainer {
   setIsCalendlyOpen: React.Dispatch<React.SetStateAction<boolean>>;

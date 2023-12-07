@@ -1,4 +1,4 @@
-import * as yup from "yup";
+import * as yup from 'yup';
 
 export const AdminCvValidation = yup.object().shape({
   image: yup.object().shape({
@@ -52,10 +52,17 @@ export const AdminCvValidation = yup.object().shape({
           role: yup.string().required(),
           date: yup.string().required(),
           summary: yup.string().required(),
-          achievements: yup.array().of(yup.string().required()).required(),
+          achievements: yup
+            .array()
+            .of(
+              yup.string().required()
+            )
+            .required(),
           technology: yup
             .array()
-            .of(yup.object().shape({}).required())
+            .of(
+              yup.object().shape({}).required()
+            )
             .required(),
         })
       )

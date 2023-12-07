@@ -70,7 +70,7 @@ const HeadBlock = () => {
               buttonLink={data?.buttonLink}
               buttonText={data?.button}
               withEstimation
-              buttonClassName={buttonClassName}
+              buttonClassName={`${buttonClassName} homePage`}
             />
             <ButtonShareComponent className="homePage" />
           </Styled.ButtonWrapper>

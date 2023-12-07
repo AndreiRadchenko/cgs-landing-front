@@ -6,6 +6,7 @@ import { storeKeys } from "../../consts";
 
 import * as Styled from "../../styles/Chat/ChatComponent.styled";
 import { useWindowDimension } from "../../hooks/useWindowDimension";
+import ChatNameForm from "./ChatNameForm";
 
 interface IChatComponentProps {
   isChatOpen: boolean;
@@ -21,6 +22,8 @@ const ChatComponent = ({
   let dragCounter = 0;
   const [userEmail, setUserEmail] = useState<string>("");
   const [sentEmailTime, setSentEmailTime] = useState<string>("");
+  const [userName, setUserName] = useState<string>("");
+  const [sentNameTime, setSentNameTime] = useState<string>("");
   const [chatUserInfo, setChatUserInfo] = useState<IChatUserInfo | null>(null);
   const [operator, setOperator] = useState<string | null>(null);
   const [isGreetingMeesageShow, setIsGreetingMessageShow] =
@@ -51,6 +54,7 @@ const ChatComponent = ({
     const chatUserData = localStorage.getItem(storeKeys.chatUserData);
     setChatUserInfo(chatUserData ? JSON.parse(chatUserData) : chatUserData);
     setUserEmail(chatUserData ? JSON.parse(chatUserData).userName : "");
+    setUserName(chatUserData ? JSON.parse(chatUserData).firstName : "");
   }, []);
 
   useEffect(() => {
@@ -81,22 +85,23 @@ const ChatComponent = ({
         </Styled.OperatorStatus>
       </Styled.ChatHeader>
       <Styled.ChatBody ref={chatAreaRef}>
-        <Styled.ChatMessagesContainer
-          isMessagesDisplayed={Boolean(chatUserInfo)}
-        >
+        <Styled.ChatMessagesContainer isMessagesDisplayed={Boolean(userName)}>
           <ChatMessagesComponent
             dragging={dragging}
             setDragging={setDragging}
             userEmail={userEmail}
+            userName={userName}
             openChatTime={openChatTime}
             isGreetingMeesageShow={isGreetingMeesageShow}
             setIsGreetingMessageShow={setIsGreetingMessageShow}
             sentEmailTime={sentEmailTime}
+            sentNameTime={sentNameTime}
             chatUserInfo={chatUserInfo}
             setOperator={setOperator}
             setNewMessageAmount={setNewMessageAmount}
             setChatUserInfo={setChatUserInfo}
             setUserEmail={setUserEmail}
+            setUserName={setUserName}
           />
         </Styled.ChatMessagesContainer>
         {!chatUserInfo && (
@@ -104,7 +109,20 @@ const ChatComponent = ({
             <ChatRegisterForm
               isChatOpen={isChatOpen}
               setUserEmail={setUserEmail}
+              setUserName={setUserName}
+              setSentNameTime={setSentNameTime}
               setSentEmailTime={setSentEmailTime}
+              setChatUserInfo={setChatUserInfo}
+              setIsGreetingMessageShow={setIsGreetingMessageShow}
+            />
+          </Styled.ChatFormContainer>
+        )}
+        {!userName && chatUserInfo && (
+          <Styled.ChatFormContainer>
+            <ChatNameForm
+              isChatOpen={isChatOpen}
+              setUserName={setUserName}
+              setSentNameTime={setSentNameTime}
               setChatUserInfo={setChatUserInfo}
               setIsGreetingMessageShow={setIsGreetingMessageShow}
             />

@@ -94,7 +94,6 @@ export const StyledLoader = styled(LoadingOverlay)`
     height: 100vh;
     z-index: 1000;
   }
-
   &.MyLoader_wrapper--active.getEstimationButton {
     position: fixed;
     top: 0;

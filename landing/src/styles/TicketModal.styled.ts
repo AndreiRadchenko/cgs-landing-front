@@ -37,6 +37,11 @@ export const TicketModalContent = styled.div`
   border: 2px solid ${themes.primary.colors.primary};
   position: relative;
 
+  @media ${themes.primary.media.minPCFullHD} {
+    height: 877.5px;
+    width: 695.5px;
+  }
+
   @media ${themes.primary.media.maxLaptop} {
     height: 660px;
   }
@@ -69,6 +74,7 @@ export const List = styled.ul`
     padding-left: 11px;
   }
 `;
+
 export const ListTitle = styled.span`
   margin: 0 0 7px 0;
   font-size: 28px;
@@ -80,6 +86,7 @@ export const ListTitle = styled.span`
     font-size: 1.5rem;
   }
 `;
+
 export const ListItem = styled.li`
   margin: 0;
   margin-top: 9px;
@@ -157,15 +164,6 @@ export const SubmitButton = styled.button`
     font-size: 1rem;
     padding: 17px;
   }
-`;
-
-export const SubmitArrow = styled.img`
-  width: 35px;
-  height: 35px;
-  position: absolute;
-  right: -15px;
-  top: -12px;
-  cursor: pointer;
 `;
 
 export const CloseButton = styled.img`

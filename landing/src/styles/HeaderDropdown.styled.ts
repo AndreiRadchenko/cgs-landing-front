@@ -41,37 +41,22 @@ export const DropdownButton = styled.button`
   background-color: ${themes.primary.colors.blogBackground};
   box-sizing: border-box;
   font-family: ${themes.primary.font.family.namu};
-  font-size: ${themes.primary.font.size.headerLinkText};
+  font-size: 20px;
   display: flex;
   justify-content: center;
-  column-gap: 10px;
+  column-gap: 12px;
   align-items: center;
   border-bottom: 0;
   border-right: 0;
   border-left: 1px solid ${themes.primary.colors.comment} !important;
-  width: 100%;
+  width: fit-content;
+
+  transition: all 0.3s;
+  padding: 0 68px;
 
   button,
   &:first-child {
     border: none;
-    height: 56px;
-
-    @media ${themes.primary.media.minPCFullHD} {
-      height: 70px;
-    }
-  }
-  div {
-    &:nth-child(2) {
-      min-width: 21.7vw;
-    }
-  }
-  button {
-    font-size: ${themes.primary.font.size.headerLinkText};
-    border-left: 1px solid grey;
-
-    @media ${themes.primary.media.maxTabletLandScape} {
-      font-size: 14px;
-    }
   }
   @media ${themes.primary.media.maxMobile} {
     display: none;
@@ -82,10 +67,6 @@ export const DropdownButton = styled.button`
   @media ${themes.primary.media.maxMobile} {
     display: none;
   }
-  @media ${themes.primary.media.maxTabletLandScape} {
-    font-size: 13px;
-  }
-  transition: all 0.3s;
   &:hover {
     border-right: 2px solid ${themes.primary.colors.primary} !important;
     border-bottom: 7px solid ${themes.primary.colors.primary} !important;
@@ -96,7 +77,7 @@ export const DropdownButton = styled.button`
   }
   &.open {
     border-bottom: 0 !important;
-    border-right: 2px solid ${themes.primary.colors.primary} !important;
+    border-right: 0px solid ${themes.primary.colors.primary} !important;
 
     img {
       transform: rotate(180deg);
@@ -116,16 +97,30 @@ export const DropdownButton = styled.button`
   img {
     transform: rotate(0deg);
     margin-top: 3px;
+    width: 12px;
+    height: 6.67px;
   }
-
-  padding: 0;
+  @media (max-width: 1440px) {
+    padding: 0 42px;
+    column-gap: 10px;
+    font-size: 16px;
+    & > img {
+      width: 9px;
+      height: 5px;
+    }
+  }
+  @media ${themes.primary.media.maxTabletLandScape} {
+    padding: 0px 27px;
+  }
+  @media ${themes.primary.media.maxTabletPortrait} {
+    padding: 0px 20px;
+  }
 `;
 
 export const Dropdown = styled.div`
   position: relative;
   display: flex;
   background-color: ${themes.primary.colors.blogBackground};
-  width: 11.11vw;
 `;
 
 export const Link = styled.a`

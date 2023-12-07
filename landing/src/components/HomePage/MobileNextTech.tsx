@@ -3,8 +3,10 @@ import parse, { HTMLReactParserOptions, Element } from "html-react-parser";
 import Image from "next/image";
 import { useQueryClient } from "@tanstack/react-query";
 
+import ScrambleText from "./ScrambleText";
 import MobileServices from "./MobileServices";
 import Badges from "./Badges";
+import Testimonials from "./Testimonials";
 import ButtonArrow from "../../utils/ButtonArrow";
 import ProjectorBlock from "./ProjectorBlock";
 
@@ -14,8 +16,6 @@ import { ArrowContainer } from "../../styles/HomePage/General.styled";
 import longArrowMobile from "../../../public/HomePageDecoration/longArrowMobile.svg";
 import { queryKeys } from "../../consts/queryKeys";
 import { IDataResponse } from "../../types/Admin/Response.types";
-import ScrambleText from "./ScrambleText";
-import Testimonials from "./Testimonials";
 
 const MobileNextTech = () => {
   const options: HTMLReactParserOptions = {
@@ -98,7 +98,6 @@ const MobileNextTech = () => {
         {text && parse(text.title, options)}
       </Styled.Subtitle>
       <Badges />
-      <MobileServices />
       <Styled.Subtitle className="mobileTextOnFilm">
         {data?.textOnFilm && parse(data?.textOnFilm, options2)}
       </Styled.Subtitle>
@@ -117,6 +116,7 @@ const MobileNextTech = () => {
           </ArrowContainer>
         </Styled.BlackButton>
       </Styled.SideOppositeContainer>
+      <MobileServices />
       <ProjectorBlock />
       <Testimonials />
     </Styled.NextTech>

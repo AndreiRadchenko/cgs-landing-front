@@ -151,7 +151,6 @@ export const ReadMoreButton = styled.button`
   outline: 0;
   padding: 3.3px 16px;
   background-color: ${themes.primary.colors.primary};
-  color: ${themes.primary.colors.secondary} !important;
   font-family: ${themes.primary.font.family.openSans};
   font-weight: ${themes.primary.font.weight.semiBold};
   letter-spacing: 0.7px;
@@ -160,14 +159,14 @@ export const ReadMoreButton = styled.button`
   font-size: 1.335em;
   transition: all 0.3s;
 
-  a {
+  & > .read-more-button {
     border: 0;
     color: ${themes.primary.colors.secondary};
   }
 
   &:hover {
     background-color: transparent;
-    a {
+    .read-more-button {
       color: ${themes.primary.colors.primary};
     }
   }

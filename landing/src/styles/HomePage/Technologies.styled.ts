@@ -9,14 +9,18 @@ export const TechnologyContainer = styled.section`
   position: relative;
   user-select: none;
   font-family: ${themes.primary.font.family.namu};
-  margin-bottom: 14.167em;
+  margin-bottom: 10.5em;
 
   @media ${themes.primary.media.minPCFullHD} {
-    margin-bottom: 160px;
+    margin-bottom: 170px;
   }
 
   @media ${themes.primary.media.maxMobile} {
     margin-bottom: 1.3rem;
+  }
+
+  @media ${themes.primary.media.minTablet} {
+    margin-bottom: 2.5em;
   }
 `;
 
@@ -32,7 +36,7 @@ export const TechTitle = styled.h2`
   @media ${themes.primary.media.minPCFullHD} {
     font-size: 2.8em;
   }
-
+  
   @media ${themes.primary.media.maxTabletLandScape} {
     font-size: ${themes.primary.font.size.reviewTitle};
   }
@@ -70,11 +74,14 @@ export const TechnologyRow = styled.div`
   display: grid;
   width: 96%;
   grid-template-columns: repeat(2, 1fr);
-  row-gap: 40px;
-  column-gap: 260px;
+  row-gap: 20px;
+  column-gap: 267px;
 
   @media ${themes.primary.media.minPCFullHD} {
-    column-gap: 364px;
+    width: 100%;
+    margin-inline: 2em;
+    column-gap: 285px;
+    margin-top: 48px;
   }
 
   @media (max-width: 1350px) {
@@ -98,11 +105,15 @@ export const TechnologyRow = styled.div`
     grid-template-columns: 1fr;
     row-gap: 0;
     column-gap: 0;
-    margin-top: 14.5em;
+    margin-top: 13.5em;
 
     & > article:last-child > div:nth-child(5) {
       padding-bottom: 0;
     }
+  }
+
+  @media ${themes.primary.media.minTablet} {
+    margin-top: 14.5em;
   }
 `;
 
@@ -110,7 +121,7 @@ export const CategoryContainer = styled.article`
   display: flex;
   align-items: flex-start;
   flex-direction: column;
-
+  
   @media ${themes.primary.media.maxTabletLandScape} {
     width: 400px;
   }
@@ -151,6 +162,7 @@ export const CategoryTitle = styled.h2<PropsWithId>`
 
   @media ${themes.primary.media.minPCFullHD} {
     font-size: 2.35em;
+    margin: 0 0 28px 0;
   }
 
   @media ${themes.primary.media.maxTabletLandScape} {

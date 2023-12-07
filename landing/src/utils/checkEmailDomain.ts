@@ -1,4 +1,3 @@
-// const publickDomainList = ["gmail", "yahoo", "outlook", "icloud"];
 const publickDomainList: string[] = [];
 
 export const isEmailDomainPublic = (email: string) => {

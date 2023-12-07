@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
-import Head from "next/head";
 import { useRouter } from "next/router";
+import Head from "next/head";
 import parse from "html-react-parser";
 import { QueryClient, dehydrate, useQuery } from "@tanstack/react-query";
 import { scroller } from "react-scroll";
@@ -54,17 +54,39 @@ const BlogPage = () => {
   const [isImagesLoaded, setIsImagesLoaded] = useState(false);
   const [isTagsLoaded, setIsTagLoaded] = useState(false);
   const [loading, setLoading] = useState(true);
+  const [routeFilter, setRouteFilter] = useState(false);
 
-  const { data }: IBlogPageData = useQuery([queryKeys.getBlogPage], () =>
-    adminBlogService.getBlogPageData()
+  const {
+    data,
+    isFetching: isBlogDataFetching,
+    isSuccess,
+  }: IBlogPageData = useQuery(
+    [queryKeys.getBlogPage],
+    () => adminBlogService.getBlogPageData(),
+    {
+      refetchOnWindowFocus: false,
+    }
   );
 
-  const { data: swiperData }: ISwiperArticlesDataResponse = useQuery(
+  const {
+    data: swiperData,
+    isFetching: isFetchingSwiperData,
+    isSuccess: isSuccessSwiperData,
+  }: ISwiperArticlesDataResponse = useQuery(
     [queryKeys.getBlogSwiperData],
-    () => adminBlogService.getBlogSwiperData()
+    () => adminBlogService.getBlogSwiperData(),
+    {
+      refetchOnWindowFocus: false,
+    }
   );
 
-  useQuery([queryKeys.getFullHomePage], () => adminGlobalService.getFullPage());
+  useQuery(
+    [queryKeys.getFullHomePage],
+    () => adminGlobalService.getFullPage(),
+    {
+      refetchOnWindowFocus: false,
+    }
+  );
 
   const {
     data: articles,
@@ -95,7 +117,7 @@ const BlogPage = () => {
       duration: 0,
       delay: 0,
       smooth: false,
-      offset: 0,
+      offset: -150,
     });
   };
 
@@ -147,6 +169,11 @@ const BlogPage = () => {
     const { tag } = router.query;
     if (typeof tag === "string") {
       setFilters([tag]);
+      setRouteFilter(true);
+
+      setTimeout(() => {
+        setRouteFilter(false);
+      }, 4000);
     }
   };
 
@@ -159,24 +186,18 @@ const BlogPage = () => {
     }
   }, []);
 
-  useEffect(() => {
-    if (!isLoading && isMobile && pageReloaded) {
-      window.scrollTo(0, 0);
-      setPageReloaded(false);
-    }
-  }, [isMobile, pageReloaded, isLoading]);
-
   return (
-    <Loader active={isLoading}>
+    <Loader active={!isMainSliderImageLoaded && isFirstLoad}>
       <Head>
         <title>{metaTitle}</title>
         <meta name="description" content={metaDescription} />
         {customHead && parse(customHead)}
       </Head>
-      {isLoading ? (
+      {isBlogDataFetching && isLoading ? (
         <LoaderStub />
       ) : (
-        data && (
+        isSuccess &&
+        !isBlogDataFetching && (
           <>
             <HeaderNavNew />
             <Styled.BlogContainer>
@@ -184,9 +205,9 @@ const BlogPage = () => {
               <Styled.RightLine src={rightLine.src} />
               <Styled.HeaderBlock>
                 <Styled.MainContainer>
-                  {swiperData && (
+                  {!isFetchingSwiperData && isSuccessSwiperData && (
                     <BlogSwiper>
-                      {swiperData.reviews.map((article, idx) => (
+                      {swiperData!.reviews.map((article, idx) => (
                         <SwiperSlide key={idx}>
                           <MainBlogItem
                             article={article}
@@ -203,8 +224,9 @@ const BlogPage = () => {
 
                 {!isMobile && (
                   <Styled.FlexColumnContainer className="header">
-                    {swiperData &&
-                      swiperData.reviews.map((article) => (
+                    {!isFetchingSwiperData &&
+                      isSuccessSwiperData &&
+                      swiperData!.reviews.map((article) => (
                         <SmallArticleItem
                           filters={filters}
                           article={article}
@@ -214,7 +236,7 @@ const BlogPage = () => {
                   </Styled.FlexColumnContainer>
                 )}
               </Styled.HeaderBlock>
-              <PodcastItem data={data.podcast} />
+              <PodcastItem data={data!.podcast} />
               <Styled.BlogArticlesWrapper>
                 {
                   <Loader
@@ -238,6 +260,13 @@ const BlogPage = () => {
                         {articles && articles.tags && articles.tags.length && (
                           <DropdownContainer className="blog">
                             <>
+                              {filters.length > 1 && (
+                                <Styled.ClearButton
+                                  onClick={() => setFilters([])}
+                                >
+                                  {"clear all"}
+                                </Styled.ClearButton>
+                              )}
                               {filters.length > 0 &&
                                 filters.map((filter, index) => (
                                   <Tag key={index}>

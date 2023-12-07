@@ -3,7 +3,12 @@ import themes from "../../utils/themes";
 
 import { fadeIn } from "../../styles/Animations.styled";
 
-export const Layout = styled.div`
+interface DivWithChildrenProps {
+  className?: string;
+  children: React.ReactNode;
+}
+
+export const Layout = styled.div<DivWithChildrenProps>`
   box-sizing: border-box;
   position: relative;
   width: 100%;
@@ -16,6 +21,11 @@ export const Layout = styled.div`
 
   overflow: hidden;
   font-family: ${themes.primary.font.family.namu};
+
+  &.hero-text {
+    position: absolute;
+    z-index: 10;
+  }
 
   @media (min-width: 2560px) {
     max-width: 2560px;
@@ -61,10 +71,6 @@ export const HeroAboutContainer = styled.div`
 
 export const VideoContainer = styled.div`
   position: relative;
-  *::-webkit-media-controls-start-playback-button {
-    display: none !important;
-    -webkit-appearance: none;
-  }
 `;
 
 export const VideoFilter = styled.div`

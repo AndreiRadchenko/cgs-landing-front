@@ -420,7 +420,6 @@ export const TieUpInput = styled(Field)`
     background-size: contain;
     background-repeat: no-repeat;
     position: relative;
-    top: -2px;
 
     &::before {
       content: "";
@@ -496,7 +495,8 @@ export const TieUpLabel = styled.label`
 
   & > span {
     margin-left: 12px;
-
+    display: flex;
+    align-items: center;
     ${css`
       &:has(> div) {
         margin-top: 1px;

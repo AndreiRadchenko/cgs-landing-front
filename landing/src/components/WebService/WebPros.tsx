@@ -28,34 +28,31 @@ const WebPros = () => {
     <Styled.Container ref={elRef}>
       <Styled.ContentWrapper>
         {data &&
-          Object.values(data).map(
-            (category, idx) =>
-              typeof category !== "string" && (
-                <div key={`${category} ${idx}`}>
-                  <Styled.BgMobileImage
-                    src={bgMobileImage.src}
-                    alt="mobile image"
-                  />
-                  <Styled.CategorySubtitle>
-                    {category.subtitle}
-                  </Styled.CategorySubtitle>
-                  <MobileInfiniteText
-                    className="webDev"
-                    title={category.subtitle}
-                  />
+          Object.values(data).map((category, idx) => (
+            <div key={`${category} ${idx}`}>
+              <Styled.BgMobileImage
+                src={bgMobileImage.src}
+                alt="mobile image"
+              />
+              <Styled.CategorySubtitle>
+                {category.subtitle}
+              </Styled.CategorySubtitle>
+              <MobileInfiniteText
+                className="webDev"
+                title={category.subtitle}
+              />
 
-                  {category.list.map((e, index) => (
-                    <Styled.CategoryListItem
-                      key={`list item ${index}`}
-                      ind={index}
-                      className={isScrolled ? "scrolled" : undefined}
-                    >
-                      {e}
-                    </Styled.CategoryListItem>
-                  ))}
-                </div>
-              )
-          )}
+              {category.list.map((el, index) => (
+                <Styled.CategoryListItem
+                  key={`list item ${index}`}
+                  ind={index}
+                  className={isScrolled ? "scrolled" : undefined}
+                >
+                  {el}
+                </Styled.CategoryListItem>
+              ))}
+            </div>
+          ))}
       </Styled.ContentWrapper>
       <Styled.BgImage src={bgImage.src} alt="second block image" />
     </Styled.Container>

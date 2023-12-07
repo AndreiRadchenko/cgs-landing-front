@@ -12,7 +12,6 @@ import * as Styled from "../../../../styles/AdminPage";
 import { queryKeys } from "../../../../consts/queryKeys";
 
 import { adminMobileService } from "../../../../services/services/adminServicesMobilePage";
-
 import { IServiceMobile } from "../../../../types/Admin/Response.types";
 
 const AdminServiceMobileContent = () => {

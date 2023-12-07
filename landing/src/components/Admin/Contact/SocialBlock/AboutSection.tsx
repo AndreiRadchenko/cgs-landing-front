@@ -59,7 +59,7 @@ const AboutSection = () => {
   };
 
   return (
-    <Styles.ContentWrapper>
+    <Styled.ContentWrapper>
       <SubHeaderWithInput
         width="48%"
         placeholder="About subtitle"
@@ -113,7 +113,7 @@ const AboutSection = () => {
           </Styles.EmailList>
         )}
       </FieldArray>
-    </Styles.ContentWrapper>
+    </Styled.ContentWrapper>
   );
 };
 

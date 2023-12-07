@@ -3,11 +3,9 @@ import themes from "../../utils/themes";
 
 export const ContentWrapper = styled.section`
   position: relative;
-  margin-top: -1em;
   padding-bottom: 9.45em;
 
   @media ${themes.primary.media.maxMobile} {
-    margin-top: 0;
     padding: 0;
     & > div > a {
       padding: 1.3em 2.4em;

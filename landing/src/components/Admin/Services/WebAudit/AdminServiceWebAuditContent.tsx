@@ -2,17 +2,16 @@ import { Formik } from "formik";
 import React from "react";
 import { useMutation, useQuery } from "@tanstack/react-query";
 import { toast } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
 
 import ServiceWebAuditContentBlock from ".";
 import { CustomToast } from "../../CustomToast";
 
+import "react-toastify/dist/ReactToastify.css";
 import * as Styled from "../../../../styles/AdminPage";
 
 import { queryKeys } from "../../../../consts/queryKeys";
 
 import { adminWebAuditService } from "../../../../services/services/adminServiceWebAuditPage";
-
 import { IServiceWebAudit } from "../../../../types/Admin/Response.types";
 
 const AdminServiceWebAuditContent = () => {

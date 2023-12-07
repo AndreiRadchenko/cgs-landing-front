@@ -12,6 +12,8 @@ export const useGetCelendlyMeetingData = () => {
   useCalendlyEventListener({
     onDateAndTimeSelected: () => {
       setCelendlyUri("");
+      setDateTime("");
+      setJoinLink("");
     },
     onEventScheduled: (e) => {
       setCelendlyUri(e.data.payload.event.uri);

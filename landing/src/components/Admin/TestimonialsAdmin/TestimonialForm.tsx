@@ -52,7 +52,6 @@ const TestimonialForm = ({
   const uploadFunc = (image: IImage) => uploadImageFunction(image);
   const deleteFunc = async () => (await deleteImageFunction)();
   const starsChange = (newValue: number) => (values.stars = newValue);
-
   const submitForm = (e: React.SyntheticEvent) => {
     submitFunc(e, submit);
     setIsEditing(true);

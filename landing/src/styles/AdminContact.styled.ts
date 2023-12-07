@@ -17,7 +17,7 @@ export const Headlines = styled.div`
 `;
 
 export const EmailList = styled.ul`
-  margin: 0 0 0px;
+  margin: 0 0 30px;
   padding: 0;
   list-style: none;
   display: flex;
@@ -54,8 +54,4 @@ export const LocationTextlItem = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-`;
-
-export const ContentWrapper = styled.div`
-  margin: 0;
 `;

@@ -4,8 +4,12 @@ import themes from "../utils/themes";
 import { slideDown, slideUp } from "./Animations.styled";
 
 export const DropDownWrapper = styled.div`
-  padding: 1.125rem 1.25rem;
+  padding: 18px 40px;
   display: block;
+
+  @media ${themes.primary.media.maxMobilePortrait} {
+    padding: 18px 20px;
+  }
 
   & :hover {
     cursor: pointer;
@@ -32,8 +36,11 @@ export const DropDownHeader = styled.div`
   display: flex;
   font-family: ${themes.primary.font.family.namu};
   font-weight: ${themes.primary.font.weight.heavy};
-  font-size: 1.125rem;
+  font-size: 20px;
   transition: all 0.2s;
+  @media ${themes.primary.media.maxMobilePortrait} {
+    font-size: 16px;
+  }
 `;
 
 export const DropDownContent = styled.div`

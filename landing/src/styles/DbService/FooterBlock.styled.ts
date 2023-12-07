@@ -37,10 +37,10 @@ export const TextContent = styled.div`
 
 export const Image = styled.img`
   position: relative;
-  right: 22px;
+  right: 0;
   width: 22em;
   height: auto;
-  bottom: 2.7em;
+  bottom: 2.2em;
 
   @media ${themes.primary.media.maxTabletLandScape} {
     width: 20em;

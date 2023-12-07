@@ -2,10 +2,11 @@ import React, { CSSProperties } from "react";
 import dynamic from "next/dynamic";
 import { Field, FieldProps } from "formik";
 import { SunEditorReactProps } from "suneditor-react/dist/types/SunEditorReactProps";
-import SetOptions from "suneditor-react/dist/types/SetOptions";
 
 import * as Styled from "../../styles/AdminPage";
 import "suneditor/dist/css/suneditor.min.css";
+
+import { options } from "../../consts";
 
 interface ITextEditorProps {
   header?: string;
@@ -24,31 +25,6 @@ const TextEditor = ({
   props,
   subtitleStyle,
 }: ITextEditorProps) => {
-  const options: SetOptions = {
-    font: ["NAMU"],
-    linkRelDefault: {
-      default: undefined,
-      check_new_window: "nofollow noopener",
-    },
-    buttonList: [
-      [
-        "formatBlock",
-        "font",
-        "fontSize",
-        "fontColor",
-        "align",
-        "paragraphStyle",
-        "blockquote",
-      ],
-      ["bold", "underline", "italic", "strike", "subscript", "superscript"],
-      ["removeFormat"],
-      ["outdent", "indent"],
-      ["list"],
-      ["link", "image", "video"],
-      ["codeView"],
-    ],
-  };
-
   return (
     <div>
       <Styled.AdminSubTitle style={subtitleStyle}>

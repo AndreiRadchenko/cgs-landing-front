@@ -1,6 +1,5 @@
 import React from "react";
 import { useFormikContext } from "formik";
-
 import {
   AdminInput,
   AdminSubTitle,
@@ -11,9 +10,7 @@ import {
   ArrowContainer,
   BlackButton,
 } from "../../../../styles/HomePage/General.styled";
-
 import ButtonArrow from "../../../../utils/ButtonArrow";
-
 import { IAdvantagesServicesComponent } from "../../../../types/ServicesComponent.types";
 
 interface IAdvantagesProps {

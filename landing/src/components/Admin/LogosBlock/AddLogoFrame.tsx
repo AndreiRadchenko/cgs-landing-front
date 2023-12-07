@@ -32,7 +32,9 @@ const AddLogoFrame = ({ state, submit }: ILogosProps) => {
           + Add Logo
         </Styled.AdminSubTitle>
       </Styled.AdminPointer>
-      <Styled.AdminComment>Supports: JPG, PNG</Styled.AdminComment>
+      <Styled.AdminComment>
+        Supports: JPG, JPEG, PNG, SVG, GIF
+      </Styled.AdminComment>
     </Styled.AdminAddLogoBlock>
   );
 };

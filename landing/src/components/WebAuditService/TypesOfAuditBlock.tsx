@@ -22,10 +22,10 @@ const TypesOfAuditBlock = () => {
     queryKeys.getServiceWebAuditPage,
   ])?.typesOfAuditBlock;
 
-  const deskCards = data?.types.map((item, idx) => (
+  const deskCards = data?.map((item, idx) => (
     <TypesOfAuditDesktopCard key={idx + "desk"} idx={idx} item={item} />
   ));
-  const mobileCards = data?.types.map((item, idx) => (
+  const mobileCards = data?.map((item, idx) => (
     <TypesOfAuditMobileCard key={idx + "mobile"} idx={idx} item={item} />
   ));
 

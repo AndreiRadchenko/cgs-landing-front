@@ -6,6 +6,11 @@ export const FeedbackContainer = styled.section`
 
   @media ${themes.primary.media.maxMobile} {
     padding-top: 2em;
+    margin-bottom: 3px;
+  }
+  @media ${themes.primary.media.minTablet} {
+    padding-top: 2em;
+    margin-bottom: 13px;
   }
 `;
 
@@ -65,14 +70,15 @@ export const FeedbackRow = styled.div`
   justify-content: space-between;
   position: relative;
   align-items: baseline;
-  margin-bottom: 180px;
+  margin-bottom: 120px;
   & .swiper {
     display: flex;
     flex-direction: column-reverse;
   }
 
   @media ${themes.primary.media.minPCFullHD} {
-    margin-bottom: 160px;
+    margin-top: 15px;
+    margin-bottom: 162px;
   }
 
   @media ${themes.primary.media.maxMobile} {

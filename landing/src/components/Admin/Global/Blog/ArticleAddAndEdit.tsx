@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useFormikContext } from "formik";
-import { useMutation } from "@tanstack/react-query";
+import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { Plugin } from "suneditor/src/plugins/Plugin";
 import { SunEditorReactProps } from "suneditor-react/dist/types/SunEditorReactProps";
 
@@ -23,7 +23,10 @@ import TextEditor from "../../../TextEditor/TextEditor";
 
 import * as Styles from "../../../../styles/AdminBlogPage";
 import * as Styled from "../../../../styles/AdminPage";
-import { IArticle } from "../../../../types/Admin/Response.types";
+import {
+  IArticle,
+  IBlogPageResponse,
+} from "../../../../types/Admin/Response.types";
 import { IImage } from "../../../../types/Admin/Admin.types";
 import {
   ArrowContainer,
@@ -31,6 +34,7 @@ import {
 } from "../../../../styles/HomePage/General.styled";
 import { queryKeys } from "../../../../consts/queryKeys";
 import { IArticleAddAndEdit } from "../../../../types/Admin/Blog.types";
+import { adminBlogService } from "../../../../services/adminBlogPage";
 
 const ArticleAddAndEdit = ({
   isNewArticle,
@@ -52,10 +56,57 @@ const ArticleAddAndEdit = ({
     setFieldValue,
     errors,
   } = useFormikContext<IArticle>();
-  const [tags, setTags] = useState<string[]>(values.tags);
+  const [chosenTags, setChosenTags] = useState<string[]>(values.tags);
+  const [dropdownTags, setDropdownTags] = useState(possibleTags);
+
   const [plugins, setPlugins] = useState<
     Array<Plugin> | Record<string, Plugin>
   >();
+
+  const queryClient = useQueryClient();
+
+  const data = queryClient.getQueryData<IBlogPageResponse | undefined>([
+    queryKeys.getBlogPage,
+  ]);
+
+  const { mutateAsync: updateBlogPageData } = useMutation(
+    [queryKeys.updateBlogPage],
+    (dataToUpdate: IBlogPageResponse) =>
+      adminBlogService.updateBlogPageData(dataToUpdate),
+    {
+      onSuccess() {
+        queryClient.invalidateQueries([queryKeys.getBlogPage]);
+      },
+    }
+  );
+
+  const handleRemoveTag = (tag: string) => {
+    setDropdownTags((prevTags) => prevTags.filter((t) => t !== tag));
+    setChosenTags((prevTags) => prevTags.filter((t) => t !== tag));
+  };
+  const handleChooseTag = (tag: string) => {
+    if (!chosenTags.includes(tag)) {
+      setChosenTags((prevTags) => [...prevTags, tag]);
+    }
+  };
+  const handleDeclineTag = (tag: string) => {
+    setChosenTags((prevTags) => prevTags.filter((t) => t !== tag));
+  };
+  const handleCreateTag = (tag: string) => {
+    if (!dropdownTags.includes(tag)) {
+      setDropdownTags((prevTags) => [...prevTags, tag]);
+    }
+  };
+
+  useEffect(() => {
+    if (data) {
+      updateBlogPageData({
+        possibleTags: dropdownTags,
+        meta: data.meta,
+        podcast: data.podcast,
+      });
+    }
+  }, [chosenTags, dropdownTags]);
 
   const handleImageUploadBefore = (
     files: File[],
@@ -74,7 +125,10 @@ const ArticleAddAndEdit = ({
           },
         ],
       };
+      console.log(info);
+      // if (!info.element) {
       uploadHandler(response);
+      // }
     });
   };
 
@@ -298,12 +352,14 @@ const ArticleAddAndEdit = ({
               </Styled.ExtraMargin>
               <Styled.TagContainer>
                 <Styles.AdminSubTitle>Tags</Styles.AdminSubTitle>
-                <AddTag possibleTags={possibleTags} />
+                <AddTag handleCreateTag={handleCreateTag} />
               </Styled.TagContainer>
               <BlogTags
-                tags={tags}
-                setTags={setTags}
-                possibleTags={possibleTags}
+                chosenTags={chosenTags}
+                dropdownTags={dropdownTags}
+                handleRemoveTag={handleRemoveTag}
+                handleChooseTag={handleChooseTag}
+                handleDeclineTag={handleDeclineTag}
               />
               {errors.tags && shouldValidate && (
                 <Styled.AdminBlogErrorMessage>
@@ -365,7 +421,7 @@ const ArticleAddAndEdit = ({
               onClick={
                 isNewArticle
                   ? () => {
-                      setTags([]);
+                      setChosenTags([]);
                       reset();
                     }
                   : cancelArticle

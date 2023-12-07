@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import themes from "../../../utils/themes";
+import { RefObject } from "react";
 
 export const Subtitle = styled.div`
   font-size: 3.33em;
@@ -34,7 +35,12 @@ export const Subtitle = styled.div`
   }
 `;
 
-export const TeamGallery = styled.ul`
+interface UlWithChildrenProps {
+  ref?: RefObject<HTMLUListElement>;
+  children: React.ReactNode;
+}
+
+export const TeamGallery = styled.ul<UlWithChildrenProps>`
   list-style: none;
   margin: calc(
       clamp(56px, 56px + (100vw - 1440px) * ((77 - 56) / (1920 - 1440)), 77px)

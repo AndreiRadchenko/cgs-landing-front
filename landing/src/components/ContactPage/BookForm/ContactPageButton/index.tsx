@@ -10,6 +10,7 @@ import { recoverLink } from "../../../../utils/recoverLink";
 interface IBookACallButtonProps {
   name: string;
   email: string;
+  phoneNumber: string;
   buttonText?: string;
   buttonLink: string;
   buttonClassName?: string;
@@ -22,6 +23,7 @@ interface IBookACallButtonProps {
 const ContactPageButton = ({
   name,
   email,
+  phoneNumber,
   buttonLink,
   buttonText = "BOOK A CALL",
   buttonClassName,
@@ -48,7 +50,7 @@ const ContactPageButton = ({
       </Styled.BlackButton>
       {elRef && elRef.current && (
         <PopupModal
-          prefill={{ email, name }}
+          prefill={{ email, name, smsReminderNumber: phoneNumber }}
           url={recoverLink(buttonLink)}
           rootElement={elRef.current}
           onModalClose={handleCalendyClose}

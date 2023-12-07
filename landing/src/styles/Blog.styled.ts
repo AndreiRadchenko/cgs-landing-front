@@ -82,6 +82,7 @@ export const BlogContainer = styled.article`
   font-family: ${themes.primary.font.family.openSans};
   font-weight: ${themes.primary.font.weight.normal};
   color: ${themes.primary.colors.blogDarkText};
+  margin-top: 15px;
   display: flex;
   position: relative;
   flex-direction: column;
@@ -95,6 +96,22 @@ export const BlogContainer = styled.article`
 
   @media ${themes.primary.media.minPCFullHD} {
     font-size: 1.5em;
+  }
+`;
+
+export const ClearButton = styled.div`
+  font-size: calc(
+    clamp(14px, 14px + (100vw - 1440px) * ((18 - 14) / (1920 - 1440)), 18px)
+  );
+  background-color: transparent;
+  font-family: ${themes.primary.font.family.namu};
+  cursor: pointer;
+  color: #8f8e93;
+  border: none;
+  padding: 0;
+  white-space: nowrap;
+  &:hover {
+    color: black;
   }
 `;
 
@@ -434,6 +451,38 @@ export const BlogItemDescription = styled.p`
     overflow: hidden;
   }
 `;
+export const BlogMainItemDescription = styled.div`
+  font-size: ${themes.primary.font.size.secondaryArticleDescription};
+  margin: 0;
+  margin-top: 16px;
+  margin-bottom: 0;
+  line-height: 160%;
+
+  height: 58px;
+  overflow: hidden;
+
+  p {
+    margin: 0;
+  }
+
+  @media ${themes.primary.media.minPCFullHD} {
+    font-size: 1em;
+    margin-top: 20px;
+    height: 70px;
+  }
+
+  @media ${themes.primary.media.maxTabletPortrait} {
+    margin-top: 1.125rem;
+    font-size: 1rem;
+    height: auto;
+  }
+
+  @media ${themes.primary.media.maxLowScreenMobile} {
+    max-width: 337px;
+    overflow: hidden;
+    height: auto;
+  }
+`;
 
 export const LoopText = styled.div`
   font-size: 1.35em;
@@ -474,8 +523,8 @@ export const LoopContainer = styled.div`
 
 export const GrayText = styled.div`
   color: #8f8e93;
-  font-size: ${themes.primary.font.size.articleViews};
   font-weight: 600;
+  font-size: ${themes.primary.font.size.articleViews};
   &.big {
     font-size: 1.34em;
   }
@@ -494,10 +543,6 @@ export const GrayText = styled.div`
     &.big {
       font-size: 0.712em;
     }
-  }
-
-  @media (min-width: 2400px) {
-    font-size: 1.1em;
   }
 
   @media ${themes.primary.media.onlyTabletLandScape} {
@@ -555,7 +600,7 @@ export const ArrowIconLink = styled.div`
 `;
 
 export const MainBlogAuthor = styled(GrayText)`
-  font-weight: ${themes.primary.font.weight.semiBold};
+  font-weight: 600;
   font-size: ${themes.primary.font.size.articleViews};
 
   @media ${themes.primary.media.minPCFullHD} {
@@ -568,7 +613,7 @@ export const MainBlogAuthor = styled(GrayText)`
 `;
 
 export const SecondaryAuthor = styled(GrayText)`
-  font-weight: ${themes.primary.font.weight.semiBold};
+  font-weight: 600;
   font-size: 1.17em;
 
   @media ${themes.primary.media.minPCFullHD} {
@@ -627,7 +672,6 @@ export const ArticleWatchContainer = styled.div`
 
 export const WatchCount = styled(GrayText)`
   font-size: 1.17em;
-  font-weight: 600;
   .article {
     font-size: ${themes.primary.font.size.articleViews};
   }
@@ -746,6 +790,14 @@ export const RightLine = styled.img`
   }
 
   @media ${themes.primary.media.maxMobile} {
+    /* transform-origin: 100% 50%; */
+    /* transform: scale(0.55); */
+    width: 430px;
+    height: 700px;
+    bottom: -20px;
+  }
+
+  @media ${themes.primary.media.maxMobile} {
     width: 430px;
     height: 930px;
     bottom: -40px;
@@ -753,7 +805,7 @@ export const RightLine = styled.img`
 `;
 
 export const PodcastContainer = styled.section`
-  padding: 70px 50px;
+  padding: 70px 51px;
   width: 100%;
   display: flex;
   align-items: center;
@@ -904,12 +956,12 @@ export const SmallNavigation = styled.div`
   font-size: 1.5em;
   color: #000;
   display: flex;
-  align-items: flex-start;
+  align-items: center;
 
   right: 1px;
   width: 12px;
   justify-content: center;
-  height: 27px;
+  height: 49px;
   cursor: pointer;
 
   &.activated {
@@ -921,10 +973,12 @@ export const SmallNavigation = styled.div`
     width: auto;
     font-size: 1em;
     padding-bottom: 12px;
+    height: 63px;
   }
 
   @media ${themes.primary.media.maxMobile} {
     font-size: 1.125rem;
+    height: 47px;
   }
 `;
 
@@ -998,7 +1052,7 @@ export const PlayedTrack = styled.input<ITrack>`
   left: -2px;
   height: 100%;
   width: 100%;
-
+  background: ${themes.primary.colors.separator};
   &::-webkit-slider-runnable-track {
     cursor: pointer;
     border-radius: 50px;
@@ -1104,6 +1158,10 @@ export const PodcastIcon = styled.img`
   @media ${themes.primary.media.minPCFullHD} {
     width: 30px;
     height: 30px;
+  }
+  @media ${themes.primary.media.maxLowScreenMobile} {
+    width: 17px;
+    height: 17px;
   }
 `;
 
@@ -1282,7 +1340,7 @@ export const MainBlogItemTag = styled(Tag)`
   }
 `;
 
-export const MainBlogItemDescription = styled(BlogItemDescription)`
+export const MainBlogItemDescription = styled(BlogMainItemDescription)`
   margin-top: 8px;
   font-size: ${themes.primary.font.size.oneAndHalf};
   max-width: 870px;
@@ -1308,6 +1366,10 @@ export const MainBlogItemDescription = styled(BlogItemDescription)`
 export const SmallArticleItemTitle = styled(BlogItemTitle)`
   font-size: 1.75em;
   margin-top: 0px;
+
+  & a {
+    line-height: 27.3px;
+  }
 
   &:hover {
     color: ${themes.primary.colors.darkBlue};
@@ -1366,10 +1428,11 @@ export const SmallArticleItemDescription = styled(BlogItemDescription)`
 export const SmallArticleContainer = styled.div`
   width: 33.264vw;
   min-height: 33vh;
-  height: auto;
+  height: 33.33333%;
   padding: 40px 51px 40px 32px;
   display: flex;
   flex-direction: column;
+  justify-content: center;
   border-bottom: 1px solid ${themes.primary.colors.comment};
   &:last-child {
     border-bottom: 0;
@@ -1377,10 +1440,6 @@ export const SmallArticleContainer = styled.div`
 
   @media ${themes.primary.media.onlyPC} {
     min-height: 15vh;
-  }
-
-  @media ${themes.primary.media.minPC} {
-    padding: 40px 60px 40px 40px;
   }
 
   @media ${themes.primary.media.minPCFullHD} {
@@ -1392,6 +1451,7 @@ export const SmallArticleContainer = styled.div`
   @media ${themes.primary.media.maxTabletLandScape} {
     padding: 18px 25px 18px 20px;
   }
+
   @media (min-height: 800px) and (max-width: 1500px) {
     min-height: 200px;
   }

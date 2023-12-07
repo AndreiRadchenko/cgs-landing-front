@@ -3,11 +3,10 @@ import { useRouter } from "next/router";
 
 import * as Styles from "./ArticleReadMoreItem.styled";
 
-import { IArticleReadMoreProps } from "../../types/Blog.types";
-
+import { IArticleReadItemMore } from "../../types/Blog.types";
 import viewsIcon from "../../../public/Watch.svg";
 
-const ArticleReadMoreItem = ({ article }: IArticleReadMoreProps) => {
+const ArticleReadMoreItem = ({ article }: IArticleReadItemMore) => {
   const router = useRouter();
 
   const handleClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
@@ -46,7 +45,11 @@ const ArticleReadMoreItem = ({ article }: IArticleReadMoreProps) => {
         dangerouslySetInnerHTML={{ __html: article.description }}
       />
       <Styles.ReadMoreButton>
-        <a href={`/blog/${article.url}`} onClick={handleClick}>
+        <a
+          className="read-more-button"
+          href={`/blog/${article.url}`}
+          onClick={handleClick}
+        >
           Read more
         </a>
       </Styles.ReadMoreButton>

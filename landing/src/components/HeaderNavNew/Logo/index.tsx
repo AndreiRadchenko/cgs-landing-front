@@ -1,4 +1,4 @@
-import React from "react";
+import React, { CSSProperties } from "react";
 import Image from "next/image";
 
 import * as Styled from "../../../styles/Logo.styled";

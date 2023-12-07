@@ -2,7 +2,7 @@ import styled from "styled-components";
 import themes from "../../utils/themes";
 
 export const Wrapper = styled.section`
-  margin-block: 21.2em 10.75em;
+  margin-block: 10.4em 7.75em;
 
   @media ${themes.primary.media.maxTabletLandScape} {
     margin-top: calc(
@@ -19,7 +19,7 @@ export const ItemContainer = styled.div`
   z-index: 2;
 
   &.first {
-    margin-top: 1.7em;
+    margin-top: 0.3em;
   }
 
   @media (min-width: 1650px) {

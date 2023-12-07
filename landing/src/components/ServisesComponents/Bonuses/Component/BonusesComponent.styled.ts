@@ -39,7 +39,7 @@ export const Title = styled.h2`
   margin: 0;
   margin-left: -1.276em;
   width: 36.7vw;
-  padding: 0.72em 0 0.72em 1.276em;
+  padding: 5px 0 5px 1.276em;
   font-size: 3.33em;
   line-height: 1.4;
   text-transform: uppercase;
@@ -71,12 +71,16 @@ export const RelativePositioner = styled.div`
 `;
 
 export const ListsWrapper = styled.div`
+  position: absolute;
+  top: 15px;
+  left: 0;
   width: 100%;
   display: flex;
   @media ${themes.primary.media.maxTabletLandScape} {
     justify-content: flex-start;
   }
   @media ${themes.primary.media.maxMobile} {
+    position: static;
     justify-content: center;
   }
 `;

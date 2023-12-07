@@ -2,7 +2,6 @@ import { Formik } from "formik";
 import React from "react";
 import { useMutation, useQuery } from "@tanstack/react-query";
 import { toast } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
 
 import ServiceDbContentBlock from "./";
 import { CustomToast } from "../../CustomToast";
@@ -10,6 +9,7 @@ import { CustomToast } from "../../CustomToast";
 import * as Styled from "../../../../styles/AdminPage";
 
 import { queryKeys } from "../../../../consts/queryKeys";
+import "react-toastify/dist/ReactToastify.css";
 
 import { IServiceDb } from "../../../../types/Admin/Response.types";
 

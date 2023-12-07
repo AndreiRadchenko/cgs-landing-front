@@ -1,5 +1,4 @@
 import React from "react";
-import { useQuery } from "@tanstack/react-query";
 import Link from "next/link";
 import Image from "next/image";
 import { useQueryClient } from "@tanstack/react-query";
@@ -11,6 +10,7 @@ import { queryKeys } from "../../consts/queryKeys";
 import { IDataResponse } from "../../types/Admin/Response.types";
 
 import { SplitBrackets } from "../../utils/splitBrackets";
+import ButtonShareComponent from "../HomePage/ButtonShareComponent";
 
 const BurgerFooter = () => {
   const queryClient = useQueryClient();
@@ -21,7 +21,7 @@ const BurgerFooter = () => {
   return (
     <StyledThisComp.FooterWrapper>
       <StyledThisComp.MailsWrapper>
-        <StyledThisComp.Mail href={`mailto:${data?.email}`} className="upper">
+        <StyledThisComp.Mail href={`mailto:${data?.email}`}>
           <SplitBrackets text={data?.email} />
         </StyledThisComp.Mail>
         <StyledThisComp.Mail href={`mailto:${data?.hrEmail}`}>
@@ -38,12 +38,19 @@ const BurgerFooter = () => {
                   alt="burger footer icon image"
                   layout="fill"
                   objectFit="contain"
+                  objectPosition="left"
                 />
               </StyledThisComp.ImageWrapper>
             </StyledThisComp.FooterLink>
           </Link>
         ))}
       </StyledThisComp.FooterIconsWrapper>
+      <ButtonShareComponent />
+      <StyledThisComp.PrivacyPolicyContainer>
+        <StyledThisComp.BurgerPrivacy href="/privacy-policy">
+          Privacy Policy
+        </StyledThisComp.BurgerPrivacy>
+      </StyledThisComp.PrivacyPolicyContainer>
     </StyledThisComp.FooterWrapper>
   );
 };

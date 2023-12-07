@@ -9,7 +9,6 @@ import SolutionBlock from "./SolutionBlock";
 import FreeServices from "../../../ServisesComponents/FreeServices/AdminComponent";
 import AdminBlockDropDown from "../../Global/AdminBlockDropDown";
 import TeamMembers from "../../../ServisesComponents/TeamMembers/AdminTeamMembers";
-import { queryKeys } from "../../../../consts/queryKeys";
 
 import { AdminHeader, AdminPaddedBlock } from "../../../../styles/AdminPage";
 
@@ -35,29 +34,18 @@ const ServiceMobileContentBlock = () => {
         </AdminBlockDropDown>
 
         <AdminBlockDropDown title="TEAM MEMBERS">
-          <TeamMembers
-            serviceName={"web"}
-            queryKey={queryKeys.getServiceWebPage}
-          />
+          <TeamMembers />
         </AdminBlockDropDown>
 
         <AdminBlockDropDown title="FREE SERVICES">
-          <FreeServices
-            serviceName={"web"}
-            queryKey={queryKeys.getServiceWebPage}
-          />
+          <FreeServices />
         </AdminBlockDropDown>
 
         <AdminBlockDropDown title="Footer block">
           <AdminFooterBlockWeb />
         </AdminBlockDropDown>
       </AdminPaddedBlock>
-      <MetaTagsBlock
-        theme="dark"
-        sitemap="services/web-development"
-        queryKey={queryKeys.getServiceWebPage}
-        serviceName={"web"}
-      />
+      <MetaTagsBlock theme="dark" sitemap="services/web-development" />
     </div>
   );
 };

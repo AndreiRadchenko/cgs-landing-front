@@ -42,15 +42,6 @@ const TextFieldWrapper: FC<IFieldProps> = ({
     <CSS.FormFieldWrapper>
       <CSS.FormFieldContainer>
         {idx === 2 ? (
-          // <PhoneInput
-          //   country={country}
-          //   specialLabel={label}
-          //   value={value}
-          //   onChange={handleOnChange}
-          //   enableSearch={true}
-          //   disableSearchIcon={true}
-          //   containerClass={value === "+1" || value === "" ? "empty" : "filled"}
-          // />
           <PhoneInputField
             className={
               btnIsClicked && errors[name] ? "formikErrors" : "default"

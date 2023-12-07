@@ -128,6 +128,7 @@ export const FeedbackCardDescription = styled.p`
   overflow: hidden;
   font-size: ${themes.primary.font.size.oneAndHalf};
   margin-top: 0;
+  margin-bottom: 25px;
 
   line-height: 160%;
 

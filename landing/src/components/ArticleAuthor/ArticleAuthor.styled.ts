@@ -73,10 +73,7 @@ export const Container = styled.div`
   width: 100%;
 `;
 
-export const DatesContainer = styled.div`
-  @media ${themes.primary.media.maxMobile} {
-  }
-`;
+export const DatesContainer = styled.div``;
 
 export const StatisticWrapper = styled.div`
   display: flex;
@@ -96,7 +93,7 @@ export const SpaceBetween = styled.div`
   column-gap: 16px;
   align-items: center;
   flex-wrap: wrap;
-  width: 322px;
+  width: 325px;
   margin-top: 6px;
 
   & > div:not(:first-child) div {
@@ -136,5 +133,61 @@ export const SpaceBetween = styled.div`
   @media (max-width: 374px) {
     flex-direction: column;
     align-items: flex-start;
+  }
+`;
+
+export const AuthorMetaInfoWrapper = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+`;
+
+export const AuthorViewsWrapper = styled.div`
+  display: flex;
+  align-items: center;
+  width: 62px;
+`;
+
+export const AuthorViewsImage = styled.img``;
+
+export const AuthorViews = styled.p`
+  font-family: ${themes.primary.font.family.openSans};
+  font-size: ${themes.primary.font.size.authorDate};
+  font-weight: ${themes.primary.font.weight.normal};
+  color: ${themes.primary.colors.authorGrey};
+  margin: 0;
+  margin-left: 3px;
+  @media ${themes.primary.media.minPCFullHD} {
+    font-size: ${themes.primary.font.size.quinary};
+  }
+`;
+
+export const AuthorDate = styled.div`
+  font-weight: ${themes.primary.font.weight.normal};
+  color: ${themes.primary.colors.authorGrey};
+  font-family: ${themes.primary.font.family.openSans};
+  font-size: ${themes.primary.font.size.authorDate};
+  @media ${themes.primary.media.minPCFullHD} {
+    font-size: ${themes.primary.font.size.quinary};
+  }
+`;
+
+export const TimeWrapper = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 110px;
+`;
+
+export const TimerImage = styled.img``;
+
+export const Time = styled.p`
+  font-family: ${themes.primary.font.family.openSans};
+  font-size: ${themes.primary.font.size.authorDate};
+  font-weight: ${themes.primary.font.weight.normal};
+  color: ${themes.primary.colors.authorGrey};
+  margin: 0;
+  @media ${themes.primary.media.minPCFullHD} {
+    font-size: ${themes.primary.font.size.quinary};
   }
 `;

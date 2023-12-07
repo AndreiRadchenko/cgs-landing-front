@@ -26,7 +26,7 @@ export const HeaderNavContainer = styled.footer`
     }
   }
 
-  @media ${themes.primary.media.maxLowScreenMobile} {
+  @media ${themes.primary.media.estiomationFormWidth} {
     height: 103px;
   }
 `;
@@ -41,8 +41,7 @@ export const FlexRowContainer = styled.div`
     align-items: flex-start;
     justify-content: center;
   }
-
-  @media ${themes.primary.media.maxLowScreenMobile} {
+  @media ${themes.primary.media.estiomationFormWidth} {
     padding-top: 18px;
   }
 `;
@@ -97,9 +96,9 @@ export const Email = styled.a`
 
   & svg {
     width: 22px;
-    height: 16px;  
+    height: 16px;
   }
-  
+
   & span {
     transition: color 0.1s;
   }
@@ -138,6 +137,10 @@ export const Email = styled.a`
     font-size: 12px;
   }
 
+  @media (max-width: 870px) {
+    margin: 0;
+  }
+
   @media ${themes.primary.media.maxMobile} {
     font-weight: ${themes.primary.font.weight.heavy};
     font-size: 20px;
@@ -150,8 +153,8 @@ export const Email = styled.a`
     }
   }
 
-  @media ${themes.primary.media.maxMobilePortrait} {
-    font-size: ${themes.primary.font.size.articleViews};
+  @media ${themes.primary.media.estiomationFormWidth} {
+    font-size: 12px;
 
     & svg {
       width: 21px;
@@ -192,12 +195,12 @@ export const LogoLinkWrapper = styled.a`
   @media ${themes.primary.media.minPCFullHD} {
     height: 73px;
     width: 384px;
-    
+
     img {
       transform: scale(1.05);
     }
   }
-  
+
   @media (max-width: 1280px) {
     height: 47px;
     width: 177px;
@@ -247,13 +250,14 @@ export const ListItemNav = styled.a`
   @media ${themes.primary.media.maxTabletLandScape} {
     width: 60px;
   }
-
+  @media (max-width: 870px) {
+    width: 55px;
+  }
   @media ${themes.primary.media.maxMobile} {
     border: none;
     height: 40px;
     width: auto;
     transform: scale(1.8);
-    
 
     &:nth-child(n) {
       padding: 0;
@@ -265,21 +269,66 @@ export const ListItemNav = styled.a`
     }
   }
 
-  @media ${themes.primary.media.maxMobilePortrait} {
+  @media ${themes.primary.media.estiomationFormWidth} {
     height: 22px;
     transform: scale(1);
   }
 `;
 
 export const NavList = styled.nav`
-  margin: 20px 0 0 0;
   display: flex;
   justify-content: center;
   gap: 16px;
 
-  @media (min-width: 474px) {
-    margin: 36px 0 0 0;
-    gap: 53px;
+  @media (max-width: 769px) {
+    margin-top: 35px;
+    gap: 43px;
+    & > a {
+      transform: scale(1) !important;
+      height: 40px;
+      & > div {
+        width: 100%;
+        height: 100%;
+      }
+    }
+    & > a:nth-child(1) {
+      width: 48px;
+    }
+    & > a:nth-child(2) {
+      width: 43px;
+    }
+    & > a:nth-child(3) {
+      width: 34px;
+    }
+    & > a:nth-child(4) {
+      width: 40px;
+    }
+    & > a:nth-child(5) {
+      width: 56.4px;
+    }
+  }
+
+  @media ${themes.primary.media.estiomationFormWidth} {
+    margin-top: 20px;
+    gap: 24px;
+    & > a {
+      height: 22px;
+    }
+    & > a:nth-child(1) {
+      width: 25.5px;
+    }
+    & > a:nth-child(2) {
+      width: 24px;
+    }
+    & > a:nth-child(3) {
+      width: 19px;
+    }
+    & > a:nth-child(4) {
+      width: 22px;
+    }
+    & > a:nth-child(5) {
+      width: 31px;
+    }
   }
 
   @media (min-width: 769px) {
@@ -338,7 +387,7 @@ export const FooterImageWrapper = styled.div`
     width: 45px;
     height: 45px;
   }
-  
+
   @media (max-width: 1280px) {
     width: 22px;
   }
@@ -385,7 +434,11 @@ export const PrivacyPolicy = styled.a`
     font-size: 12px;
   }
 
-  @media ${themes.primary.media.maxTabletPortrait} {
+  @media (max-width: 870px) {
+    width: 43px;
+    margin: 0;
+  }
+  @media ${themes.primary.media.maxMobile} {
     display: none;
   }
 `;
@@ -395,6 +448,9 @@ export const MiddleTextWrapper = styled.div`
   justify-content: space-between;
   width: 100%;
 
+  @media (max-width: 870px) {
+    justify-content: space-around;
+  }
   @media ${themes.primary.media.maxMobile} {
     justify-content: center;
   }
@@ -406,8 +462,17 @@ export const MailsWrapper = styled.div`
   @media ${themes.primary.media.maxMobile} {
     column-gap: 56px;
   }
-  
+
   @media ${themes.primary.media.maxLowScreenMobile} {
     column-gap: 22px;
+  }
+  @media (max-width: 870px) {
+    gap: 10px;
+  }
+  @media ${themes.primary.media.maxMobile} {
+    gap: 58px;
+  }
+  @media ${themes.primary.media.estiomationFormWidth} {
+    gap: 24px;
   }
 `;

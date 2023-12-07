@@ -12,10 +12,10 @@ export const MovingText = styled.div`
   display: flex;
   flex-direction: row;
   z-index: -5;
-  background: linear-gradient(90deg, #c7ecc0 0%, #89a3d1 130.27%);
   height: calc(
     clamp(56px, 56px + (100vw - 375px) * ((80 - 56) / (768 - 375)), 80px)
   );
+  background: linear-gradient(90deg, #c7ecc0 0%, #89a3d1 130.27%);
   align-items: center;
   background-size: cover;
   font-size: 2.5em;
@@ -41,6 +41,21 @@ export const MovingText = styled.div`
       margin-top: 15px;
     }
   }
+
+  /* @media ${themes.primary.media.maxMobile} {
+    font-size: 24px;
+    line-height: 233% !important;
+    margin-bottom: 30px !important;
+
+    &.withoutMargin {
+      margin-bottom: 0 !important;
+    }
+
+    &.webDev {
+      margin-left: -35%;
+      width: 150%;
+    }
+  } */
 
   @media ${themes.primary.media.minMobile} {
     display: none;

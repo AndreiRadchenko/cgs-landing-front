@@ -122,6 +122,7 @@ export const AddOptionInputWrapper = styled.div<IWrapperInput>`
 `;
 
 export const ContainerEstimationForm = styled.div`
+  padding: 0px 282px 0px;
   display: flex;
   justify-content: center;
   margin-block: calc(
@@ -135,8 +136,13 @@ export const ContainerEstimationForm = styled.div`
       )
     );
 
+  @media ${themes.primary.media.maxTabletLandScape} {
+    padding: 0px 100px 0px;
+  }
+
   @media ${themes.primary.media.maxMobile} {
     margin-block: 90px;
+    padding: 0px 20px 0px;
   }
 
   @media ${themes.primary.media.maxLowScreenMobile} {
@@ -145,6 +151,7 @@ export const ContainerEstimationForm = styled.div`
 `;
 
 export const EstimationFormWrapper = styled.div`
+  margin: 0;
   width: calc(
     clamp(
       875px,
@@ -155,11 +162,11 @@ export const EstimationFormWrapper = styled.div`
 
   @media ${themes.primary.media.maxMobile} {
     width: 100%;
-    margin: 0 41px;
+    margin: 0 21px;
   }
 
   @media ${themes.primary.media.maxLowScreenMobile} {
-    margin: 0 20px;
+    margin: 0;
   }
 `;
 

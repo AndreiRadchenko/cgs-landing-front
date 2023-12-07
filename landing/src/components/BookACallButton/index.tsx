@@ -12,6 +12,7 @@ import { recoverLink } from "../../utils/recoverLink";
 const BookACallButton = ({
   name,
   email,
+  phoneNumber,
   buttonLink,
   buttonText = "BOOK A CALL",
   buttonClassName,
@@ -38,7 +39,11 @@ const BookACallButton = ({
       </Styled.BlackButton>
       {elRef && elRef.current && (
         <PopupModal
-          prefill={{ email, name }}
+          prefill={{
+            email,
+            name,
+            smsReminderNumber: phoneNumber,
+          }}
           url={recoverLink(buttonLink)}
           rootElement={elRef.current}
           onModalClose={handleCalendyClose}

@@ -4,20 +4,21 @@ import { useQueryClient } from "@tanstack/react-query";
 import parse, { HTMLReactParserOptions, Element } from "html-react-parser";
 
 import Partners from "../Partners/Partners";
-import ButtonArrow from "../../utils/ButtonArrow";
-import ScrambleText from "./ScrambleText";
 import Badges from "./Badges";
+import ScrambleText from "./ScrambleText";
 import Testimonials from "./Testimonials";
 import ProjectorBlock from "./ProjectorBlock";
 
 import * as CSS from "../../styles/Portfolio/title.styled";
 import * as Styled from "../../styles/HomePage/General.styled";
 
+import { queryKeys } from "../../consts/queryKeys";
+
 import { IDataResponse } from "../../types/Admin/Response.types";
 
 import longArrow from "../../../public/HomePageDecoration/longArrow.svg";
 
-import { queryKeys } from "../../consts/queryKeys";
+import ButtonArrow from "../../utils/ButtonArrow";
 
 const NextTech = () => {
   const options: HTMLReactParserOptions = {

@@ -139,12 +139,8 @@ export const TextContent = styled.div<ISlide>`
       padding-top: 2.1em;
     }
 
-    &:nth-child(n + 3) {
-      padding-top: 3em;
-    }
-
     &:nth-child(2) {
-      padding-top: 1.5em;
+      padding-top: 1em;
     }
 
     & span:not(:first-child) {
@@ -170,16 +166,13 @@ export const TextContent = styled.div<ISlide>`
 `;
 
 export const ContentWrapper = styled.div`
-  padding-left: 7.4em;
+  padding-left: 6.5em;
   padding-right: 6.25em;
   display: flex;
   column-gap: 20vw;
   z-index: 5;
 
   @media (min-width: 1550px) {
-    padding-left: 7em;
-    column-gap: 12vw;
-    padding-top: 7px;
     & span:not(:first-child) br {
       display: none;
     }
@@ -188,14 +181,10 @@ export const ContentWrapper = styled.div`
   @media ${themes.primary.media.minPCFullHD} {
     font-size: 0.8em;
     padding-top: 0px;
-    padding-left: 7em;
+    padding-left: 9.25em;
     padding-right: 5.25em;
     font-size: 0.9em;
-  }
-
-  @media (min-width: 1900px) {
-    padding-top: 5px;
-    column-gap: 11vw;
+    column-gap: 15vw;
   }
 
   @media (min-width: 2200px) {
@@ -203,6 +192,11 @@ export const ContentWrapper = styled.div`
     padding-left: 9.25em;
     column-gap: 15vw;
     padding-top: 1.5em;
+  }
+
+  @media (max-width: 1920px) {
+    column-gap: 14vw;
+    padding-left: 8em;
   }
 
   @media (max-width: 1450px) {
@@ -229,9 +223,8 @@ export const ContentWrapper = styled.div`
   @media ${themes.primary.media.maxTabletLandScape} {
     padding-inline: 0;
     column-gap: 15%;
-    padding-top: 11px;
 
-    padding-left: 2.5em;
+    padding-left: 2em;
   }
 
   @media (max-width: 1100px) {
@@ -256,9 +249,9 @@ export const ContentWrapper = styled.div`
 
 export const BgImage = styled.img`
   position: absolute;
-  top: -1em;
+  top: -1.1em;
   left: -9.5vw;
-  width: 116.5vw;
+  width: 115vw;
   z-index: -1;
 
   @media ${themes.primary.media.maxPCFullHD} {
@@ -292,6 +285,6 @@ export const BgImageMobile = styled.img`
     position: absolute;
     display: block;
     left: -1.3em;
-    top: 1.26em;
+    top: 1.2em;
   }
 `;

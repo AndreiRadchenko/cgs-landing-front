@@ -4,12 +4,12 @@ import themes from "../../utils/themes";
 
 export const Container = styled.section`
   position: relative;
-  margin-top: 8.5em;
-  padding-bottom: 12%;
+  margin-top: 8.75em;
+  padding-bottom: 13%;
   background-image: url(${solutionBg.src});
   background-size: 100% 100%;
   background-repeat: no-repeat;
-  margin-bottom: 7.5em;
+  margin-bottom: 6.5em;
 
   @media ${themes.primary.media.maxServiceWeb} {
     margin-top: 6.4em;
@@ -98,7 +98,7 @@ export const RightSideContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: flex-end;
-  margin-top: 12.875em;
+  margin-top: 14.875em;
   line-height: 160%;
 
   width: 100%;

@@ -1,4 +1,5 @@
 import React from "react";
+import dynamic from "next/dynamic";
 
 import ButtonArrow from "../../../utils/ButtonArrow";
 
@@ -10,8 +11,11 @@ import {
 } from "../../../styles/HomePage/General.styled";
 
 import { ICvCta, ICvPageData } from "../../../types/Admin/AdminCv.types";
-import TextEditor from "../../TextEditor/TextEditor";
 import SubHeaderWithInput from "../Global/SubHeaderWithInput";
+
+const TextEditor = dynamic(() => import("../../TextEditor/TextEditor"), {
+  ssr: false,
+});
 
 interface ICvCtaProps {
   cta: ICvCta;

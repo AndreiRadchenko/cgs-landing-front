@@ -42,8 +42,8 @@ export const BookModalContent = styled.div<IBookModalContent>`
   position: relative;
 
   @media ${themes.primary.media.maxMobile} {
-    width: ${({ isCalendly }) => (isCalendly ? "345px" : "699px")};
-
+    ${({ isCalendly }) => (isCalendly ? "min-width:345px;" : "width:699px;")}
+    margin: 0 50px;
     @media (orientation: landscape) {
       margin-top: 40px;
       height: 100vh;
@@ -56,6 +56,8 @@ export const BookModalContent = styled.div<IBookModalContent>`
   }
 
   @media ${themes.primary.media.estiomationFormWidth} {
+    margin: 0;
+
     width: 345px;
   }
 `;

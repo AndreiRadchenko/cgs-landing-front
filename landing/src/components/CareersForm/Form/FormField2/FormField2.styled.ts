@@ -20,8 +20,18 @@ export const FormField = styled(Field)`
     color: ${themes.primary.colors.careersPlaceholder};
   }
 
-  @media ${themes.primary.media.maxLowScreenMobile} {
+  @media ${themes.primary.media.minPCFullHD} {
+    padding: 0 0 0 18px;
+    font-size: 20px;
+  }
+
+  @media ${themes.primary.media.maxMobile} {
+    padding: 0 0 0 22px;
+  }
+
+  @media ${themes.primary.media.minTablet} {
     font-size: 0.875rem;
+    padding: 0 0 0 12.5px;
   }
 
   @media ${themes.primary.media.maxLowestScreenMobile} {
@@ -31,10 +41,14 @@ export const FormField = styled(Field)`
 
 export const FormFieldContainer = styled.div`
   width: 100%;
-  height: 78px;
+  height: 76px;
   position: relative;
 
+  @media ${themes.primary.media.minPCFullHD} {
+    height: 101.5px;
+  }
+
   @media ${themes.primary.media.maxLowScreenMobile} {
-    height: 66px;
+    height: 64px;
   }
 `;

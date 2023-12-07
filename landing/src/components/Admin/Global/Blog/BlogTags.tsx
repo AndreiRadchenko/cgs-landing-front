@@ -8,24 +8,36 @@ import * as Styles from "../../../../styles/BlogTags.styled";
 import { IArticle } from "../../../../types/Admin/Response.types";
 
 interface IBlogTags {
-  tags: string[];
-  setTags: React.Dispatch<React.SetStateAction<string[]>>;
-  possibleTags: string[];
+  chosenTags: string[];
+  dropdownTags: string[];
+  handleChooseTag: (tag: string) => void;
+  handleRemoveTag: (tag: string) => void;
+  handleDeclineTag: (tag: string) => void;
 }
 
-const BlogTags: FC<IBlogTags> = ({ tags, setTags, possibleTags }) => {
+const BlogTags: FC<IBlogTags> = ({
+  chosenTags,
+  dropdownTags,
+  handleChooseTag,
+  handleRemoveTag,
+  handleDeclineTag,
+}) => {
   const { setFieldValue } = useFormikContext<IArticle>();
 
   useEffect(() => {
-    setFieldValue("tags", tags);
-  }, [tags, setFieldValue]);
+    setFieldValue("tags", chosenTags);
+  }, [chosenTags, setFieldValue]);
 
   return (
     <Styles.TagsWrapper>
-      <Dropdown chosenTags={tags} tags={possibleTags} setTags={setTags} />
+      <Dropdown
+        dropdownTags={dropdownTags}
+        handleRemoveTag={handleRemoveTag}
+        handleChooseTag={handleChooseTag}
+      />
       <Styles.Container>
-        {tags.map((tag, idx) => (
-          <TagItem tag={tag} key={`${idx} `} setTags={setTags} />
+        {chosenTags.map((tag, idx) => (
+          <TagItem tag={tag} key={idx} onClick={() => handleDeclineTag(tag)} />
         ))}
       </Styles.Container>
     </Styles.TagsWrapper>

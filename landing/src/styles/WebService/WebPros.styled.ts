@@ -28,7 +28,7 @@ export const Container = styled.section`
 export const BgImage = styled.img`
   position: absolute;
   width: 106.25em;
-  top: -2.1em;
+  top: -2.53em;
   left: -7.81em;
 
   @media ${themes.primary.media.minPC} {
@@ -111,7 +111,7 @@ export const CategorySubtitle = styled.h3`
 export const CategoryListItem = styled.p<ISlide>`
   font-size: 1.125em;
   line-height: 160%;
-  margin-top: 1.6em;
+  margin-top: 1.5em;
   margin-bottom: 0;
   opacity: 0;
 
@@ -153,9 +153,9 @@ export const CategoryListItem = styled.p<ISlide>`
 `;
 
 export const ContentWrapper = styled.div`
-  padding-left: 10%;
+  padding-left: 10.5%;
   display: flex;
-  column-gap: 35.2em;
+  column-gap: 35em;
 
   @media ${themes.primary.media.minPC} {
     column-gap: 45em;

@@ -1,7 +1,15 @@
 export interface IChatUser {
   username: string;
   secret: string;
-  email: string;
+  first_name?: string;
+}
+
+export interface IChatUpd {
+  title: string;
+}
+
+export interface IUpdatedChatUser {
+  data: { username: string; secret: string; first_name?: string };
 }
 
 export interface ICurrentMessage {
@@ -12,6 +20,16 @@ export interface ICurrentMessage {
 export interface IChatUserResponse {
   username: string;
   secret: string;
+  id: number;
+  first_name: string;
+}
+
+export interface IUpdateUserResponse {
+  data: {
+    username: string;
+    secret: string;
+    id: number;
+  };
 }
 
 export interface IChat {
@@ -31,4 +49,5 @@ export interface IChatUserInfo {
   chatId: string;
   accessKey: string;
   expiredTime: number;
+  firstName?: string;
 }

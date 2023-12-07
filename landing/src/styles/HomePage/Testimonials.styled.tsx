@@ -57,11 +57,9 @@ export const TestimonialsCrossWrapper = styled.div`
 `;
 
 export const TestimonialsModalVideoContainer = styled.div`
-  box-shadow: 0 0 0 0.5px black;
   padding: 1.5em 2em 2em;
 
   @media ${themes.primary.media.maxMobile} {
-    box-shadow: none;
     padding: 0.67em;
     padding-top: 0.77em;
   }
@@ -90,7 +88,7 @@ export const TestimonialsTitle = styled.div`
   text-transform: uppercase;
 
   @media ${themes.primary.media.minPCFullHD} {
-    font-size: 2.755em;
+    font-size: 52px;
   }
 `;
 
@@ -328,7 +326,7 @@ export const TestimonialsSlideContainer = styled.div`
 
 export const TestimonialsSwiperContainer = styled.div`
   margin-top: 2em;
-  margin-bottom: 10em;
+  margin-bottom: 9.25em;
   width: 100vw;
   margin-left: -51px;
 
@@ -339,12 +337,13 @@ export const TestimonialsSwiperContainer = styled.div`
 
   @media ${themes.primary.media.minPCFullHD} {
     margin-top: 1.67em;
-    margin-bottom: 8.34em;
+    margin-bottom: 8em;
     margin-left: -68px;
 
     .swiper-slide {
       width: 36.1em;
       height: 20.815em;
+      margin-right: 32px !important;
     }
   }
 
@@ -361,9 +360,15 @@ export const TestimonialsSwiperContainer = styled.div`
   }
 
   @media ${themes.primary.media.maxMobile} {
-    margin-top: 16px;
-    margin-bottom: 90px;
-    margin-inline: -1.925em;
+    margin-top: 43px;
+    margin-bottom: 102px;
+    margin-inline: -4.25em;
+  }
+
+  @media ${themes.primary.media.minTablet} {
+    margin-top: 18px;
+    margin-bottom: 7px;
+    margin-inline: -20px;
   }
 
   @media ${themes.primary.media.maxLowScreenMobile} {
@@ -376,7 +381,6 @@ export const TestimonialsSwiperContainer = styled.div`
   @media (max-width: 380px) {
     .swiper-slide {
       width: 100%;
-      height: 243px;
     }
   }
 `;

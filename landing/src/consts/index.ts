@@ -2,6 +2,8 @@ import LinkedIn from "../../public/linkedIn.svg";
 import Twitter from "../../public/twitter.svg";
 import Facebook from "../../public/facebook.svg";
 
+import SetOptions from "suneditor-react/dist/types/SetOptions";
+
 export enum ErrorMessage {
   DEFAULT = "Oops, something went wrong!",
 }
@@ -15,6 +17,40 @@ export enum storeKeys {
 export enum chat {
   privateKey = "Private-Key",
 }
+
+export const urlPattern =
+  /https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,4}\b([-a-zA-Z0-9@:%_\+.~#?&//=]*)/g;
+
+// Regular expression pattern
+export const imageExtensionPattern =
+  /\.(jpg|jpeg|png|gif|bmp|svg|webp|tiff|avif)(\?.*)?$/i;
+
+export const fileNameRegex = /\/([^\/?#]+)\.([a-zA-Z0-9]+)(\?.*)?$/;
+
+export const options: SetOptions = {
+  font: ["NAMU"],
+  linkRelDefault: {
+    default: undefined,
+    check_new_window: "nofollow noopener",
+  },
+  buttonList: [
+    [
+      "formatBlock",
+      "font",
+      "fontSize",
+      "fontColor",
+      "align",
+      "paragraphStyle",
+      "blockquote",
+    ],
+    ["bold", "underline", "italic", "strike", "subscript", "superscript"],
+    ["removeFormat"],
+    ["outdent", "indent"],
+    ["list"],
+    ["link", "image", "video"],
+    ["codeView"],
+  ],
+};
 
 export const icons = [
   { src: LinkedIn.src },
@@ -189,6 +225,8 @@ export const conditionsToAppearanceQuestion = [
 export const BlogPageSize = 4;
 
 export const PortfolioPageSize = 8;
+
+export const AdminPortfolioPageSize = 6;
 
 export const META_TITLE_MAX = 60;
 export const META_DESCRIPTION_MAX = 160;

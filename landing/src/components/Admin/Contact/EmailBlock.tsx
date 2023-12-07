@@ -5,7 +5,6 @@ import { useQueryClient } from "@tanstack/react-query";
 import ButtonArrow from "../../../utils/ButtonArrow";
 import SubHeaderWithInput from "../Global/SubHeaderWithInput";
 import PhotoBlockAddRemove from "../Global/PhotoBlockAddRemove";
-import HistoryLink from "../HistoryLink";
 
 import {
   ArrowContainer,
@@ -24,9 +23,6 @@ const EmailBlock = () => {
   const data = queryClient.getQueryData<IContactPageData>([
     queryKeys.getContactPage,
   ])?.emails;
-  const messengersData = queryClient.getQueryData<IContactPageData>([
-    queryKeys.getContactPage,
-  ])?.messengers;
 
   const { values, handleChange, handleSubmit } =
     useFormikContext<IContactPageData>();
@@ -62,6 +58,7 @@ const EmailBlock = () => {
 
   return (
     <Styled.ContentWrapper>
+      <p>{`Last modified: ${data?.lastModified}`}</p>
       <SubHeaderWithInput
         width="48%"
         placeholder="Emails subtitle"
@@ -70,7 +67,6 @@ const EmailBlock = () => {
         onChangeFunction={handleChange}
         name="emails.subtitle"
       />
-
       <FieldArray name="email">
         {() => (
           <Styles.EmailList>
@@ -96,14 +92,6 @@ const EmailBlock = () => {
           </Styles.EmailList>
         )}
       </FieldArray>
-      {data?.lastModified && (
-        <HistoryLink
-          sectionName="Emails"
-          lastModified={data?.lastModified}
-          link={"/history/contacts/emails"}
-        />
-      )}
-
       <SubHeaderWithInput
         width="48%"
         placeholder="Messengers subtitle"
@@ -152,13 +140,6 @@ const EmailBlock = () => {
           </Styles.EmailList>
         )}
       </FieldArray>
-      {messengersData?.lastModified && (
-        <HistoryLink
-          sectionName="Messengers"
-          lastModified={messengersData?.lastModified}
-          link={"/history/contacts/messengers"}
-        />
-      )}
       <div>
         <BlackButton
           size={"1.5em"}

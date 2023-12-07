@@ -17,7 +17,8 @@ WORKDIR /cd-landing-frontend-stg
 ARG PORT
 ENV PORT=$PORT
 
-ARG NEXT_PUBLIC_BASE_URL=https://code-landing-2022.herokuapp.com
+# ARG NEXT_PUBLIC_BASE_URL=https://code-landing-2022.herokuapp.com
+ARG NEXT_PUBLIC_BASE_URL=https://cgsland-api-test.herokuapp.com
 ENV NEXT_PUBLIC_BASE_URL=$NEXT_PUBLIC_BASE_URL
 
 COPY --from=builder /cd-landing-frontend-stg/next.config.js ./

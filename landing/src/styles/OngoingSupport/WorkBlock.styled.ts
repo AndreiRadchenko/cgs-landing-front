@@ -94,7 +94,6 @@ export const Wrapper = styled.div<ISlide>`
   margin-left: 2.5em;
   position: relative;
   display: grid;
-  padding-top: 13px;
   grid-template-rows: 1fr 2fr;
 
   @media (max-width: 1200px) {

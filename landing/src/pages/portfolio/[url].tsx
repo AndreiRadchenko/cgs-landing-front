@@ -36,7 +36,6 @@ import {
 } from "../../types/Admin/AdminPortfolio.types";
 import { queryKeys } from "../../consts/queryKeys";
 import { useMediaQuery } from "@mui/material";
-import { useCalendlyEventListener } from "react-calendly";
 import { useGetCelendlyMeetingData } from "../../hooks/useGetCelendlyMeetingData";
 
 export async function getServerSideProps() {
@@ -230,8 +229,8 @@ const PortfolioProjectPage = () => {
                     width={600}
                     objectFit="contain"
                     onLoad={() => setIsMainImagesLoaded(true)}
-                    unoptimized
                     priority
+                    unoptimized
                   />
                 )}
               </Styled.HeaderImageContainer>

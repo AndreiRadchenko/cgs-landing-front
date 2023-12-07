@@ -5,6 +5,8 @@ import { IArticle, IAuthor, IBlogPageResponse } from "./Admin/Response.types";
 export interface IBlogPageData {
   data: IBlogPageResponse | undefined;
   isLoading: boolean;
+  isSuccess: boolean;
+  isFetching: boolean;
 }
 
 export interface IArticlesData {
@@ -34,6 +36,7 @@ export interface ISwiperArticlesDataResponse {
   data?: ISwiperArticlesData;
   isLoading: boolean;
   isFetching: boolean;
+  isSuccess: boolean;
 }
 
 export interface IMainBlogItem {
@@ -97,5 +100,4 @@ export interface IBlogTags {
 
 export interface IArticleReadItemMore {
   article: IArticle;
-  view: number | undefined;
 }

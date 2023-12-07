@@ -9,10 +9,8 @@ import { CustomToast } from "../../CustomToast";
 
 import * as Styled from "../../../../styles/AdminPage";
 
-import { IServiceSupport } from "../../../../types/Admin/Response.types";
-
 import { queryKeys } from "../../../../consts/queryKeys";
-
+import { IServiceSupport } from "../../../../types/Admin/Response.types";
 import { adminSupportService } from "../../../../services/services/adminServiceSupportPage";
 
 const AdminServiceSupportContent = () => {

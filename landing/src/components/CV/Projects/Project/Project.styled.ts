@@ -299,7 +299,7 @@ export const PortfolioPageIconContainer = styled.div<IPortfolioIconProps>`
   .image {
     object-fit: contain;
     position: relative;
-    width: 78px;
+    width: 77px;
     height: 66px;
     flex-shrink: 0;
   }

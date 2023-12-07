@@ -32,7 +32,7 @@ export const PaginationItem = styled(FontSettings)`
   }
 
   &.active {
-    background-color: ${themes.primary.colors.blogDarkText};
+    background-color: ${themes.primary.colors.primary};
     border: 1px solid ${themes.primary.colors.primary};
     color: ${themes.primary.colors.secondary};
   }

@@ -7,7 +7,11 @@
 const nextConfig = {
   images: {
     // unoptimized: true,
-    domains: ["landing-cgs.s3.amazonaws.com", "d2qrnmx3qcgrup.cloudfront.net"],
+    domains: [
+      "landing-cgs.s3.amazonaws.com",
+      "api-chat-engine-io.s3.amazonaws.com",
+      "d2qrnmx3qcgrup.cloudfront.net",
+    ],
     minimumCacheTTL: 3600,
   },
   reactStrictMode: true,

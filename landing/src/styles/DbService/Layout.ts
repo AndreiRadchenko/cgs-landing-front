@@ -31,8 +31,8 @@ export const Subtitle = styled.h2`
 
 export const BonusesAlign = styled.div`
   @media ${themes.primary.media.maxPCFullHD} {
-    margin-top: -12em;
-    margin-bottom: -2.5em;
+    margin-top: -8em;
+    margin-bottom: -2em;
   }
   @media (max-width: 1050px) {
     margin-top: -6em;

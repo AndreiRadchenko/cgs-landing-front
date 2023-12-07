@@ -2,7 +2,7 @@ import styled from "styled-components";
 import themes from "../../utils/themes";
 
 export const FaqContainer = styled.article`
-  padding: 105px 22% 0 68px;
+  padding: 105px 22% 90px 68px;
   background-color: ${themes.primary.colors.blogBackground};
   font-family: ${themes.primary.font.family.namu};
   position: relative;
@@ -11,8 +11,10 @@ export const FaqContainer = styled.article`
   @media (max-width: 1440px) {
     padding-top: 77px;
     padding-left: 51px;
+    padding-bottom: 200px;
     & .privacy {
       padding-left: 41px;
+      padding-bottom: 200px;
     }
   }
 
@@ -25,7 +27,7 @@ export const FaqContainer = styled.article`
   }
   @media ${themes.primary.media.maxLowScreenMobile} {
     &.privacy {
-      padding-bottom: 90px;
+      padding-bottom: 80px;
     }
   }
 

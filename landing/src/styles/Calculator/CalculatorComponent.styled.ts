@@ -122,7 +122,7 @@ export const CalculatorButton = styled.div<ICalculatorButton>`
     `}
 
   @media ${themes.primary.media.maxMobile} {
-    padding: 0.54em 0 1em;
+    padding: 0;
     writing-mode: horizontal-tb;
     height: 60px;
     border-width: 1.8px 0 1.8px 0;

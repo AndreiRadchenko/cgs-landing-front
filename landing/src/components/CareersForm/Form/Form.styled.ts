@@ -37,11 +37,15 @@ interface IEnableGlare {
 
 export const FormFieldContainer = styled.div`
   width: 100%;
-  height: 78px;
+  height: 74px;
   position: relative;
 
+  @media ${themes.primary.media.minPCFullHD} {
+    height: 101.5px;
+  }
+
   @media ${themes.primary.media.maxLowScreenMobile} {
-    height: 66px;
+    height: 64px;
   }
 `;
 
@@ -64,12 +68,19 @@ export const FormField = styled(Field)<IFormField>`
     color: ${themes.primary.colors.careersPlaceholder};
   }
 
-  @media ${themes.primary.media.maxMobile} {
-    font-size: 0.875rem;
+  @media ${themes.primary.media.minPCFullHD} {
+    font-size: 20px;
+    padding: 0 0 0 19px;
   }
 
-  @media ${themes.primary.media.maxLowestScreenMobile} {
-    font-size: 0.75rem;
+  @media ${themes.primary.media.maxMobile} {
+    font-size: 16px;
+    padding: 0 0 0 23px;
+  }
+
+  @media ${themes.primary.media.minTablet} {
+    font-size: 14px;
+    padding: 0 0 0 12.5px;
   }
 `;
 
@@ -219,8 +230,13 @@ export const FormSentButton = styled.button<ISentButton>`
   cursor: pointer;
   background: ${themes.primary.colors.blogBackground};
 
-  &:nth-child(1) {
+  span {
     color: ${({ isDisabled }) => (isDisabled ? "grey" : "black")};
+  }
+
+  @media ${themes.primary.media.minPCFullHD} {
+    width: 370px;
+    height: 75px;
   }
 
   @media ${themes.primary.media.maxMobile} {
@@ -242,11 +258,23 @@ export const FormSentFillText = styled.span<IFillAllFields>`
   position: absolute;
   bottom: 0;
   margin-bottom: 6px;
+  text-align: center;
+
+  @media ${themes.primary.media.minPCFullHD} {
+    margin-bottom: 12px;
+  }
+  @media ${themes.primary.media.minPC} {
+    font-size: 14px;
+  }
 `;
 
 export const FormSentWrap = styled.span`
   color: grey;
   margin: 0;
+
+  @media ${themes.primary.media.minPCFullHD} {
+    font-size: 20px;
+  }
 
   @media ${themes.primary.media.maxLowScreenMobile} {
     font-size: 0.875rem;
@@ -261,6 +289,10 @@ export const FormSentText = styled.span`
     text-transform: capitalize;
   }
 
+  @media ${themes.primary.media.minPCFullHD} {
+    font-size: 20px;
+  }
+
   @media ${themes.primary.media.maxLowScreenMobile} {
     font-size: 0.875rem;
   }
@@ -271,13 +303,14 @@ export const FormSentContainer = styled.div`
   align-items: center;
   justify-content: center;
   width: 100%;
-  height: 102px;
+  height: 111px;
   flex-direction: column;
+  position: relative;
 
   background: linear-gradient(
     75.6deg,
-    ${themes.primary.colors.mainGradientColor1} -9.39%,
-    ${themes.primary.colors.mainGradientColor2} 110.45%
+    ${themes.primary.colors.infiniteTextGradientColor1} -9.39%,
+    ${themes.primary.colors.infiniteTextGradientColor2} 110.45%
   );
 
   button {
@@ -291,8 +324,12 @@ export const FormSentContainer = styled.div`
     font-family: ${themes.primary.font.family.namu};
   }
 
+  @media ${themes.primary.media.minPCFullHD} {
+    height: 144px;
+  }
+
   @media ${themes.primary.media.maxLowScreenMobile} {
-    height: 94px;
+    height: 101px;
   }
 `;
 
@@ -310,7 +347,7 @@ export const Shadow = styled.div<IEnableGlare>`
 `;
 
 export const PositionSelect = styled.div<IEnableGlare>`
-  height: 78px;
+  height: 75px;
   width: 100%;
 
   div {
@@ -326,7 +363,7 @@ export const PositionSelect = styled.div<IEnableGlare>`
       border-bottom: 1px solid black !important;
       display: flex;
       align-items: center;
-      padding: 0 18px;
+      padding: 0 18px 0 12px;
       height: 100%;
       width: 100%;
       position: relative;
@@ -346,8 +383,11 @@ export const PositionSelect = styled.div<IEnableGlare>`
 
       img {
         position: absolute;
+        width: 12.6px;
+        height: 7px;
+        aspect-ratio: 1 / 1;
         right: 0;
-        margin: 0 18px 0 0;
+        margin: 8px 21px 0 0;
       }
     }
   }
@@ -367,8 +407,35 @@ export const PositionSelect = styled.div<IEnableGlare>`
     }
   }
 
-  @media ${themes.primary.media.maxLowScreenMobile} {
-    height: 66px;
+  @media ${themes.primary.media.minPCFullHD} {
+    height: 101.5px;
+
+    div {
+      button {
+        padding: 0 17px;
+        font-size: 20px;
+      }
+    }
+  }
+
+  @media ${themes.primary.media.maxMobile} {
+    div {
+      button {
+        padding: 0 22px;
+        font-size: 16px;
+      }
+    }
+  }
+
+  @media ${themes.primary.media.minTablet} {
+    height: 65px;
+
+    div {
+      button {
+        padding: 0 13px;
+        font-size: 14px;
+      }
+    }
   }
 `;
 
@@ -404,36 +471,55 @@ export const Label = styled.label<ILabelOptions>`
   display: ${({ inCvInput, cvlink }) =>
     inCvInput || cvlink ? "none" : "inline-block"};
   height: 100%;
-  width: 77px;
+  width: 79px;
   border-left: 1px solid black;
   position: absolute;
   right: 0;
   color: gray;
   cursor: pointer;
 
-  @media ${themes.primary.media.maxLowScreenMobile} {
-    width: 61px;
+  @media ${themes.primary.media.minPCFullHD} {
+    width: 100px;
+  }
+
+  @media ${themes.primary.media.maxMobile} {
+    width: 75px;
+  }
+
+  @media ${themes.primary.media.minTablet} {
+    width: 57px;
   }
 `;
 
 export const LabelTitle = styled.span`
-  margin: 0;
-  margin-left: 10%;
+  margin: 0 0 0 10%;
   font-size: 12px;
 
-  @media ${themes.primary.media.maxLowScreenMobile} {
+  @media ${themes.primary.media.minPCFullHD} {
+    font-size: 16px;
+    margin: 0 0 0 12%;
+  }
+
+  @media ${themes.primary.media.minTablet} {
     font-size: 10px;
   }
 `;
 
 export const Clip = styled.img`
-  margin-top: 17px;
+  margin-block: 15px 5px;
   display: flex;
   margin-left: 35%;
   width: 25px;
   height: 25px;
 
-  @media ${themes.primary.media.maxLowScreenMobile} {
+  @media ${themes.primary.media.minPCFullHD} {
+    width: 32px;
+    height: 32px;
+    margin-top: 20px;
+    margin-bottom: 5px;
+  }
+
+  @media ${themes.primary.media.minTablet} {
     width: 17px;
     height: 17px;
     margin-bottom: 5px;
@@ -475,14 +561,14 @@ const rotate360 = keyframes`
   }
 `;
 
-export const Loading = styled.img<ISpinner>`
-  width: 34px;
-  height: 34px;
+export const Loading = styled.div<ISpinner>`
+  width: 100%;
+  height: 100%;
 
-  margin-top: 20px;
-  margin-left: 20px;
+  justify-content: center;
+  align-items: center;
 
   animation: ${rotate360} 1s linear infinite;
 
-  display: ${({ isLoading }) => (isLoading ? "inline-block" : "none")};
+  display: ${({ isLoading }) => (isLoading ? "flex" : "none")};
 `;

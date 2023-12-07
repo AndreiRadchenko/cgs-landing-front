@@ -4,7 +4,6 @@ import { useQueryClient } from "@tanstack/react-query";
 
 import ButtonArrow from "../../../utils/ButtonArrow";
 import SubHeaderWithInput from "../Global/SubHeaderWithInput";
-import HistoryLink from "../HistoryLink";
 import TextEditor from "../../TextEditor/TextEditor";
 
 import {
@@ -25,7 +24,10 @@ const HeaderBlock = () => {
   const { values, handleChange, handleSubmit } =
     useFormikContext<IContactPageData>();
 
+  values.header.lastModified = data?.lastModified;
+
   const {
+    lastModified = "",
     placeholders: { name, email, service },
     button: { name: buttonName, calendly },
   } = values.header ?? {
@@ -37,6 +39,7 @@ const HeaderBlock = () => {
   const handleClick = () => handleSubmit();
   return (
     <Styled.ContentWrapper>
+      <p>{`Last modified: ${data?.lastModified}`}</p>
       <Styles.TitleWrapper>
         <TextEditor header="Title" name="header.title" />
       </Styles.TitleWrapper>
@@ -87,13 +90,6 @@ const HeaderBlock = () => {
           />
         </div>
       </Styles.Headlines>
-      {data?.lastModified && (
-        <HistoryLink
-          sectionName="Header"
-          lastModified={data?.lastModified}
-          link={"/history/contacts/header"}
-        />
-      )}
       <div>
         <BlackButton
           size={"1.5em"}

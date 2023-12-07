@@ -38,7 +38,7 @@ const BookForm = ({ header }: IFormProps) => {
   const [btnState, setBtnState] = useState({
     isDisabled: false,
     isClicked: false,
-    link: "https://calendly.com/rokhman-tanya/test-meet",
+    link: "https://calendly.com/d/y5h-6m9-mnr/get-to-know-meeting-with-cgs-team",
   });
 
   const { placeholders, button } = header;
@@ -76,13 +76,25 @@ const BookForm = ({ header }: IFormProps) => {
       });
 
       setCalendlyIsOpen(true);
+      if (typeof window !== "undefined") {
+        window.dataLayer = window.dataLayer || [];
+        window.dataLayer.push({
+          event: "launch_our_cooperation_form",
+          formType: "Contact us",
+        });
+      }
+      adminBookService.createCalendlyPipedriveLead(
+        values.name,
+        values.email,
+        `${country} ${values.phone}`
+      );
 
       resetForm();
       setErrors({});
       setName(values.name);
       setEmail(values.email);
-      setCountry("us");
-      setValue("");
+      setCountry(country);
+      setValue(values.phone);
     },
   });
 
@@ -140,6 +152,7 @@ const BookForm = ({ header }: IFormProps) => {
               <ContactPageButton
                 name={name}
                 email={email}
+                phoneNumber={country + value}
                 buttonText={button.name}
                 buttonLink={button.calendly}
                 buttonClassName={"calendly contactPage"}

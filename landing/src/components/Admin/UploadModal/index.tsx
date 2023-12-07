@@ -87,6 +87,7 @@ const AdminUploadModal = ({ back, func }: IUploadProps) => {
         </Styled.AdminUploadModuleCloseButton>
         <Styled.AdminUploadInput
           type="file"
+          accept="image/png, image/jpeg, image/gif, image/svg+xml"
           onChange={handleChange}
           ref={hiddenFileInput}
         />

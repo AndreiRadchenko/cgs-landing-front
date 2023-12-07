@@ -1,10 +1,11 @@
 import { Formik } from "formik";
 import React from "react";
 import { useMutation, useQuery } from "@tanstack/react-query";
+
+import ServiceAiSolutionsContentBlock from ".";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
-import ServiceAiSolutionsContentBlock from ".";
 import { CustomToast } from "../../CustomToast";
 
 import * as Styled from "../../../../styles/AdminPage";

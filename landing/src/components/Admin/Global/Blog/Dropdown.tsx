@@ -3,23 +3,24 @@ import Image from "next/image";
 
 import * as Styled from "../../../../styles/BlogTags.styled";
 import Arrow from "../../../../../public/upArrowSidebar.svg";
+import Basket from "../../../../../public/basket.svg";
 
 interface IDropdownProps {
-  chosenTags: string[];
-  tags: string[];
-  setTags: React.Dispatch<React.SetStateAction<string[]>>;
+  dropdownTags: string[];
+  handleRemoveTag: (tag: string) => void;
+  handleChooseTag: (tag: string) => void;
 }
 
-const Dropdown = ({ tags, setTags, chosenTags }: IDropdownProps) => {
+const Dropdown = ({
+  dropdownTags,
+  handleRemoveTag,
+  handleChooseTag,
+}: IDropdownProps) => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
 
   const onBlur = () => {
     setIsOpen(false);
   };
-  const handleTagClick = (tag: string) => {
-    if (!chosenTags.includes(tag)) setTags((old) => [...old, tag]);
-  };
-
   return (
     <Styled.DropdownWrapper onBlur={onBlur}>
       <Styled.DropdownBanner
@@ -30,18 +31,24 @@ const Dropdown = ({ tags, setTags, chosenTags }: IDropdownProps) => {
         <Image width={12} height={12} src={Arrow.src} alt="Arrow" />
       </Styled.DropdownBanner>
       <Styled.Content className={isOpen ? "open" : undefined}>
-        {tags.map((tag) => (
-          <div
-            onClick={() => {
-              setIsOpen(false);
-
-              handleTagClick(tag);
-            }}
+        {dropdownTags.map((tag) => (
+          <Styled.TagItemDropdown
             key={tag}
             onMouseDown={(e) => e.preventDefault()}
           >
-            {tag}
-          </div>
+            <span
+              onClick={() => {
+                setIsOpen(false);
+
+                handleChooseTag(tag);
+              }}
+            >
+              {tag}
+            </span>
+            <div onClick={() => handleRemoveTag(tag)}>
+              <Image width={11} height={14} src={Basket.src} alt="Basket" />
+            </div>
+          </Styled.TagItemDropdown>
         ))}
       </Styled.Content>
     </Styled.DropdownWrapper>

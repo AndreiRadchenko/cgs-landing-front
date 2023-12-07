@@ -5,6 +5,7 @@ import React, {
   Dispatch,
 } from "react";
 
+
 export interface IBaseButtonProps {
   children: React.ReactNode;
   className?: string;
@@ -39,6 +40,7 @@ export interface IBlackButtonProps {
 export interface IBookACallButtonProps {
   name: string;
   email: string;
+  phoneNumber: string;
   buttonText?: string;
   buttonLink: string;
   buttonClassName?: string;

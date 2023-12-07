@@ -97,4 +97,16 @@ export const DropdownContent = styled.div`
       border-bottom: 0;
     }
   }
+
+  @media ${themes.primary.media.maxMobile} {
+    div {
+      font-size: 16px;
+    }
+  }
+
+  @media ${themes.primary.media.maxLowScreenMobile} {
+    div {
+      font-size: 14px;
+    }
+  }
 `;

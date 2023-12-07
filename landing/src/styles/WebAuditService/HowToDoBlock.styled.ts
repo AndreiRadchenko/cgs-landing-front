@@ -2,7 +2,6 @@ import styled from "styled-components";
 import themes from "../../utils/themes";
 
 export const Wrapper = styled.section`
-  margin-top: -1.5em;
   @media ${themes.primary.media.maxMobile} {
     margin-top: 25px;
   }
@@ -39,7 +38,7 @@ export const ContentWrapper = styled.div`
   margin-top: 2.5em;
   position: relative;
   display: flex;
-  gap: 55px;
+  gap: 35px;
 
   @media ${themes.primary.media.maxMobile} {
     margin-top: 0;

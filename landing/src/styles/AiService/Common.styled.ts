@@ -14,7 +14,7 @@ export const Layout = styled.div`
 `;
 
 export const Wrapper = styled.section`
-  margin-top: 16em;
+  margin-top: 9.8em;
   margin-bottom: 250px;
 
   @media ${themes.primary.media.maxTabletPortrait} {

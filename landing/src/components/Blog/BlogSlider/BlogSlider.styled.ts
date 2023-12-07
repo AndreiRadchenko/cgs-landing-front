@@ -6,12 +6,12 @@ export const SliderWrapper = styled("div")`
   overflow: hidden;
   display: flex;
   padding: 40px 32px 30px 51px;
-  width: 67vw;
+  width: 66.738vw;
   height: 100%;
 
   @media ${themes.primary.media.minPCFullHD} {
     padding: 50px 40px 40px 51px;
-    width: 68.8vw;
+    width: 67.85vw;
     height: 100%;
   }
 
@@ -55,6 +55,10 @@ export const SliderWrapper = styled("div")`
     opacity: 10;
     :nth-child(1) {
       margin-left: 0;
+    }
+    @media ${themes.primary.media.minPCFullHD} {
+      height: 12px;
+      width: 12px;
     }
     @media ${themes.primary.media.maxTabletPortrait} {
       height: 8.5px;

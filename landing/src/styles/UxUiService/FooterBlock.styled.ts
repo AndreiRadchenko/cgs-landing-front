@@ -41,8 +41,8 @@ export const ContentWrapper = styled.div`
 
 export const Image = styled.img`
   position: absolute;
-  top: -5px;
-  right: -0.1em;
+  top: 0;
+  right: 2.56em;
 
   @media ${themes.primary.media.maxTabletPortrait} {
     position: relative;

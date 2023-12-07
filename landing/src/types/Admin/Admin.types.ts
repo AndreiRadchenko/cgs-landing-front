@@ -13,6 +13,7 @@ export interface IRes {
   accessToken: string;
 }
 
+
 export interface IPhotoBlock extends IPropsWithImage {
   photo: any;
   emptyHeader?: string;

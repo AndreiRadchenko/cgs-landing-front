@@ -2,7 +2,7 @@ import styled from "styled-components";
 import themes from "../../utils/themes";
 
 export const Container = styled.section`
-  margin: 19.65em 0 10.4em 1.75em;
+  margin: 19.65em 0 11em 1.75em;
   position: relative;
   padding-bottom: 8em;
 
@@ -63,8 +63,8 @@ export const TextContent = styled.div`
 
 export const Image = styled.img`
   position: absolute;
-  top: -7.81em;
-  right: 3.5em;
+  top: -5.81em;
+  right: 5.125em;
   width: 34.625em;
   height: 29.06em;
 

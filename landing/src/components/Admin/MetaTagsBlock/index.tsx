@@ -4,10 +4,12 @@ import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { toast } from "react-toastify";
 
 import SubHeaderWithInput from "../Global/SubHeaderWithInput";
-import HistoryLink from "../HistoryLink";
 
 import * as Styled from "../../../styles/AdminPage";
+import { IMetaBlock, ISitemapData } from "../../../types/Admin/Response.types";
 import { Counter, Message, Text } from "../../../styles/AdminBlogPage";
+import { queryKeys } from "../../../consts/queryKeys";
+import { adminSitemapService } from "../../../services/adminSitemapPage";
 import {
   ArrowContainer,
   BlackButton,
@@ -15,25 +17,11 @@ import {
 import "react-toastify/dist/ReactToastify.css";
 import ButtonArrow from "../../../utils/ButtonArrow";
 
-import { IMetaBlock, ISitemapData } from "../../../types/Admin/Response.types";
-
-import { queryKeys } from "../../../consts/queryKeys";
-
-import { adminSitemapService } from "../../../services/adminSitemapPage";
-
-interface IMetaHistory {
-  meta: {
-    lastModified?: string;
-  };
-}
-
 interface IMetaBlockProps {
   theme?: string;
   nestedMeta?: { meta: IMetaBlock };
   nameBefore?: string;
   sitemap?: string;
-  queryKey?: string;
-  serviceName?: string;
 }
 
 const META_TITLE_MIN = 10;
@@ -46,15 +34,8 @@ const MetaTagsBlock = ({
   nestedMeta,
   nameBefore = "",
   sitemap,
-  queryKey = "",
-  serviceName = "",
 }: IMetaBlockProps) => {
   const queryClient = useQueryClient();
-  let metaData = null;
-  if (queryKey !== "") {
-    metaData = queryClient.getQueryData<IMetaHistory>([queryKey])?.meta;
-  }
-
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const { values, handleChange, handleSubmit } = useFormikContext<any>();
   const { meta } = nestedMeta ? nestedMeta : values;

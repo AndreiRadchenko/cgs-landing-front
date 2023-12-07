@@ -240,6 +240,13 @@ const PortfolioProjectComponent = ({
 
   const navigateToProjectPage = (url: string, id?: string) => {
     const newUrl = url.toLowerCase().replace(/\s+/g, "-");
+    // push(
+    //   {
+    //     pathname: `/portfolio/${newUrl}-${id}`,
+    //     query: { projectId: id },
+    //   },
+    //   `/portfolio/${newUrl}-${id}`
+    // );
     const fullPath = `/portfolio/${newUrl}-${id}?projectId=${id}`;
     window.open(fullPath, "_blank");
   };
@@ -287,8 +294,8 @@ const PortfolioProjectComponent = ({
           alt="project image"
           objectFit="cover"
           layout="fill"
-          priority
           unoptimized
+          priority
           onLoad={handleImageLoad}
         />
       </Styled.ProjectsContainerImage>

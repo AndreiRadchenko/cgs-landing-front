@@ -7,7 +7,7 @@ export const Container = styled.section`
   margin-bottom: 138px;
 
   &.mobileAudit {
-    margin-top: 8rem;
+    margin-top: 8.95rem;
     margin-bottom: 10.2em;
   }
 
@@ -167,6 +167,10 @@ export const WorthText = styled.p`
   }
 
   @media ${themes.primary.media.minPC} {
+    &.mobileAudit {
+      font-size: 1em;
+    }
+
     & br {
       display: none;
     }
@@ -252,7 +256,7 @@ export const WhoNeedContainer = styled.div`
     ${themes.primary.colors.gradientColor1RateCard} 0%,
     ${themes.primary.colors.gradientColor2RateCard} 100%
   );
-  margin-bottom: 70px;
+  margin-bottom: 90px;
   display: flex;
   gap: 97px;
   align-items: center;

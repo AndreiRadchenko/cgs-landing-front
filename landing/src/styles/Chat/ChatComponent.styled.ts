@@ -20,6 +20,7 @@ export const ChatContainer = styled.div<IChatContainer>`
   bottom: 0;
   width: 26vw;
   height: 37vw;
+  z-index: 10000;
 
   display: flex;
   flex-direction: column;

@@ -62,12 +62,12 @@ const Careers = ({
   setTicket,
   refetch,
 }: ICareers) => {
-  const { values, setFieldValue, handleChange, handleSubmit } =
-    useFormikContext<IDataCareersResponse>();
   const starsChange = (newValue: number) =>
     values.vacancy && (values.vacancy.stars = newValue);
   const starsEditChange = (newValue: number) =>
     values.vacancy && (values.tickets[ticket].stars = newValue);
+  const { values, setFieldValue, handleChange, handleSubmit } =
+    useFormikContext<IDataCareersResponse>();
   const [info, setInfo] = useState<number>(0);
 
   const { mutateAsync } = useMutation(

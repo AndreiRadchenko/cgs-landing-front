@@ -18,8 +18,10 @@ interface IChatMessagesComponentProps {
   dragging: boolean;
   setDragging: React.Dispatch<React.SetStateAction<boolean>>;
   userEmail: string;
+  userName: string;
   openChatTime: string;
   sentEmailTime: string;
+  sentNameTime: string;
   chatUserInfo: IChatUserInfo | null;
   isGreetingMeesageShow: boolean;
   setIsGreetingMessageShow: React.Dispatch<React.SetStateAction<boolean>>;
@@ -27,14 +29,18 @@ interface IChatMessagesComponentProps {
   setNewMessageAmount: React.Dispatch<React.SetStateAction<number>>;
   setChatUserInfo: React.Dispatch<React.SetStateAction<IChatUserInfo | null>>;
   setUserEmail: React.Dispatch<React.SetStateAction<string>>;
+  setUserName: React.Dispatch<React.SetStateAction<string>>;
 }
 
 const ChatMessagesComponent = ({
   dragging,
   setDragging,
   userEmail,
+  userName,
   openChatTime,
   sentEmailTime,
+  setUserName,
+  sentNameTime,
   chatUserInfo,
   setOperator,
   setNewMessageAmount,
@@ -66,12 +72,19 @@ const ChatMessagesComponent = ({
       setOperator(chatProps.chat?.people[0].person.first_name);
     }
 
+    const chatUserData = JSON.parse(
+      localStorage.getItem(storeKeys.chatUserData) || "{}"
+    );
+
+    chatProps && setIsGreetingMessageShow(true);
+
     const currentTime = new Date();
 
-    if (chatUserInfo && currentTime.getTime() >= chatUserInfo.expiredTime) {
+    if (chatUserInfo && currentTime.getTime() >= chatUserData?.expiredTime) {
       setMessages([]);
       setChatUserInfo(null);
       setUserEmail("");
+      setUserName("");
       setIsGreetingMessageShow(false);
       localStorage.removeItem(storeKeys.chatUserData);
     }
@@ -81,7 +94,7 @@ const ChatMessagesComponent = ({
 
   return (
     <>
-      {chatUserInfo ? (
+      {chatUserInfo && userName && userEmail ? (
         <>
           <ChatFeed
             {...chatProps}
@@ -98,8 +111,10 @@ const ChatMessagesComponent = ({
                   messages={messages}
                   setMessages={setMessages}
                   userEmail={userEmail}
+                  userName={userName}
                   openChatTime={openChatTime}
                   sentEmailTime={sentEmailTime}
+                  sentNameTime={sentNameTime}
                   isGreetingMeesageShow={isGreetingMeesageShow}
                   messageProps={messageProps}
                   setNewMessageAmount={setNewMessageAmount}
@@ -126,8 +141,10 @@ const ChatMessagesComponent = ({
       ) : (
         <GreetingMessageComponent
           userEmail={userEmail}
+          userName={userName}
           openChatTime={openChatTime}
           sentEmailTime={sentEmailTime}
+          sentNameTime={sentNameTime}
           isGreetingMeesageShow={isGreetingMeesageShow}
         />
       )}

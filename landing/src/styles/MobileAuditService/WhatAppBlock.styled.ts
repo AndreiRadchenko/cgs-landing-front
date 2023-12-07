@@ -2,7 +2,7 @@ import styled from "styled-components";
 import themes from "../../utils/themes";
 
 export const Container = styled.section`
-  margin-top: 24em;
+  margin-top: 24.5em;
   @media ${themes.primary.media.maxMobile} {
     margin-block: 4em 60px;
   }
@@ -80,13 +80,12 @@ export const ItemApp = styled.div`
   max-width: 23.6em;
   font-family: ${themes.primary.font.family.namu};
   font-weight: ${themes.primary.font.weight.heavy};
-  padding: 20px 0 0 17px;
 
   h3 {
     font-weight: ${themes.primary.font.weight.heavy};
     font-size: 1.85em;
     line-height: 120%;
-    margin: 13px 0 16px;
+    margin-bottom: 16px;
   }
   p {
     margin-top: 11px;

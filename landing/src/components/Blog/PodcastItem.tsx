@@ -16,9 +16,9 @@ const PodcastItem = ({ data }: IPodcastItemProps) => {
   const [playing, setPlaying] = useState(false);
   const [, setSeeking] = useState(false);
   const [played, setPlayed] = useState(0);
-  const [playedSeconds, setPlayedSeconds] = useState("0");
+  const [playedSeconds, setPlayedSeconds] = useState("00 : 00");
   const [duration, setDuration] = useState(0);
-  const [remainingTime, setRemainingTime] = useState("04:58");
+  const [remainingTime, setRemainingTime] = useState("04 : 58");
   const playerRef = useRef<ReactPlayer>(null);
 
   const handlePlayClick = async () => {

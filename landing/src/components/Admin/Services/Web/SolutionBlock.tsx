@@ -1,27 +1,20 @@
-import React from "react";
+﻿import React from "react";
 import { useFormikContext } from "formik";
-import { useQueryClient } from "@tanstack/react-query";
 
+import SubHeaderWithInput from "../../Global/SubHeaderWithInput";
 import TextEditor from "../../../TextEditor/TextEditor";
 
 import { AdminHalfGrid, AdminPaddedBlock } from "../../../../styles/AdminPage";
-import SubHeaderWithInput from "../../Global/SubHeaderWithInput";
 import {
   ArrowContainer,
   BlackButton,
 } from "../../../../styles/HomePage/General.styled";
-import ButtonArrow from "../../../../utils/ButtonArrow";
-import HistoryLink from "../../HistoryLink";
 
 import { IServiceWeb } from "../../../../types/Admin/Response.types";
-import { queryKeys } from "../../../../consts/queryKeys";
+
+import ButtonArrow from "../../../../utils/ButtonArrow";
 
 const SolutionBlock = () => {
-  const queryClient = useQueryClient();
-  const data = queryClient.getQueryData<IServiceWeb>([
-    queryKeys.getServiceWebPage,
-  ])?.solutionBlock;
-
   const { values, handleChange, handleSubmit } =
     useFormikContext<IServiceWeb>();
 
@@ -41,13 +34,6 @@ const SolutionBlock = () => {
           <TextEditor header="Text" name="solutionBlock.text" />
         </div>
       </AdminHalfGrid>
-      {data?.lastModified && (
-        <HistoryLink
-          sectionName="Solution Block"
-          lastModified={data?.lastModified}
-          link={"/history/web/solutionBlock"}
-        />
-      )}
       <BlackButton
         size={"1.5em"}
         padding={"1.11em 3em"}

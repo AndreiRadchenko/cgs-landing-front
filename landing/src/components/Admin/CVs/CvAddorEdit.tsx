@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useFormikContext } from "formik";
-import { useQuery, useQueryClient } from "@tanstack/react-query";
+import { useQuery } from "@tanstack/react-query";
 
 import PhotoBlockDashed from "../Global/PhotoBlockDashed";
 import useDeleteImageFunction from "../../../hooks/useDeleteImageFunction";

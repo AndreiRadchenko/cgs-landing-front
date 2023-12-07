@@ -25,7 +25,6 @@ const HeadBlockWebAudit = () => {
               text={data.text}
               btnText={data.button}
               btnLink={data.buttonLink}
-              className={"webAudit"}
             />
           )}
         </Styled.TextContainer>

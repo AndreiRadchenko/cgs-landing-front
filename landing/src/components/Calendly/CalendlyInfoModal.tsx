@@ -27,7 +27,7 @@ const CalendlyInfoModal = ({
   isOpen,
   dateTime,
 }: ICalendlyInfoModal) => {
-  const isMobile = useMediaQuery("(max-width:768px)");
+  const isMobile = useMediaQuery("(max-width:570px)");
   const [isCopied, setCopied] = React.useState(false);
   const queryClient = useQueryClient();
   const data = queryClient.getQueryData<IDataResponse>([

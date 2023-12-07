@@ -22,10 +22,5 @@ export const BookModalValidation = () => {
       .string()
       .matches(phoneRegExp, "Number must be a valid phone number")
       .required("Enter your phone number"),
-    // .when("email", {
-    //   is: (val: string) => isEmailDomainPublic(val),
-    //   then: yup.string().required("Enter your phone number"),
-    //   otherwise: yup.string().notRequired(),
-    // }),
   });
 };

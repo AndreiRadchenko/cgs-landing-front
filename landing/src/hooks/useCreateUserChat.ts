@@ -20,7 +20,9 @@ interface IGetOrCreateChat {
 interface IUseCreateUserChatParams {
   setChatUserInfo: React.Dispatch<React.SetStateAction<IChatUserInfo | null>>;
   setUserEmail: React.Dispatch<React.SetStateAction<string>>;
+  setUserName: React.Dispatch<React.SetStateAction<string>>;
   setSentEmailTime: React.Dispatch<React.SetStateAction<string>>;
+  setSentNameTime: React.Dispatch<React.SetStateAction<string>>;
   setIsGreetingMessageShow: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
@@ -32,7 +34,9 @@ interface IUseCreateUserChat {
 
 export const useCreateUserChat = ({
   setUserEmail,
+  setUserName,
   setSentEmailTime,
+  setSentNameTime,
   setChatUserInfo,
   setIsGreetingMessageShow,
 }: IUseCreateUserChatParams): IUseCreateUserChat => {
@@ -57,12 +61,16 @@ export const useCreateUserChat = ({
       data: {
         username: values.email,
         secret: values.email,
-        email: values.email,
       },
       config: {
         headers: { "Private-Key": privateKey },
       },
     });
+
+    if (userResult?.first_name) {
+      setUserName(userResult.first_name);
+      setSentNameTime(setMessageTime());
+    }
 
     const chatResult = await getOrCreateChat({
       data: {
@@ -86,6 +94,8 @@ export const useCreateUserChat = ({
 
     const chatUserInfo = {
       userName: userResult?.username || "",
+      userId: userResult?.id || "",
+      firstName: userResult?.first_name || "",
       userSecret: userResult?.secret || "",
       chatId: String(chatResult?.id) || "",
       accessKey: chatResult?.access_key || "",

@@ -28,10 +28,14 @@ const RateCardServiceInfo = ({ levels }: { levels: ILevel[] }) => {
           {tech}
         </span>
       ) : (
-        <span key={`${tech}${idx}`} className="noHover">
-          <span className={`tech${idx}`}> {tech}</span>
-          {" //"}
-        </span>
+        <>
+          <span key={`${tech}${idx}`} className={`tech${idx}`}>
+            {" "}
+            {tech}{" "}
+            {/* eslint-disable-next-line react/jsx-no-comment-textnodes */}
+          </span>
+          //
+        </>
       )
     );
   };
@@ -45,10 +49,14 @@ const RateCardServiceInfo = ({ levels }: { levels: ILevel[] }) => {
           {cost}
         </span>
       ) : (
-        <span key={`${cost}${idx}`} className="noHover">
-          <span className={`cost${idx}`}> {cost}</span>
-          {" //"}
-        </span>
+        <>
+          <span key={`${cost}${idx}`} className={`cost${idx}`}>
+            {" "}
+            {cost}{" "}
+            {/* eslint-disable-next-line react/jsx-no-comment-textnodes */}
+          </span>
+          //
+        </>
       )
     );
   };
@@ -77,9 +85,7 @@ const RateCardServiceInfo = ({ levels }: { levels: ILevel[] }) => {
                   </RateCardLevelData>
                 ) : null
               ) : (
-
                 <RateCardLevelData className={`rateName${idx} spanNameDefault`}>
-
                   {level.name}
                 </RateCardLevelData>
               )}

@@ -16,13 +16,13 @@ export const Wrapper = styled.div`
   justify-content: space-between;
 
   &.mobileDev {
-    margin-top: 7.2em;
+    margin-top: 10.2em;
     margin-bottom: 13.75em;
   }
 
   &.webAudit {
-    margin-top: 11.5em;
-    margin-bottom: 8.5em;
+    margin-top: 11.8em;
+    margin-bottom: 9em;
   }
   &.dappAuditTeam,
   &.webDev {
@@ -30,7 +30,7 @@ export const Wrapper = styled.div`
   }
 
   &.blockchainTeam {
-    margin-top: 12.85em;
+    margin-top: 11.65em;
     margin-bottom: 13.6em;
   }
 

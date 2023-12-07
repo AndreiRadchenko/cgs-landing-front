@@ -5,15 +5,14 @@ export const Navigationwrapper = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: end;
-  margin-bottom: 3.125rem;
-  margin-right: 10px;
+  margin-bottom: 3.4rem;
 
   & .swiper-button-prev {
     margin-right: 2.5rem;
   }
 
   @media ${themes.primary.media.minPCFullHD} {
-    margin-bottom: 66px;
+    margin-bottom: 75px;
   }
 
   @media ${themes.primary.media.maxTabletLandScape} {

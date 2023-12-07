@@ -1,23 +1,21 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
+import { useCalendlyEventListener } from "react-calendly";
+
+import { adminBookService } from "../services/adminBookServiceModal";
 
 export const calendlyPopupInfoHandler = (callback: () => void) => {
-  const calendlyStatusFinder = (e: any) => {
-    window.dataLayer = window.dataLayer || [];
-
-    if (
-      e.data.event &&
-      e.data.event.indexOf("calendly") === 0 &&
-      e.data.event === "calendly.event_scheduled"
-    ) {
-      callback();
-    }
-  };
+  const [scheduled, setScheduled] = useState(false);
+  useCalendlyEventListener({
+    onEventScheduled: () => {
+      setScheduled(true);
+    },
+  });
 
   useEffect(() => {
-    window.addEventListener("message", calendlyStatusFinder);
-
-    return () => {
-      window.removeEventListener("message", calendlyStatusFinder);
-    };
-  }, []);
+    if (scheduled) {
+      callback();
+      adminBookService.createCalendlyCallForPipeDriveLead();
+      setScheduled(false);
+    }
+  }, [scheduled]);
 };

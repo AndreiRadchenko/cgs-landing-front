@@ -384,10 +384,8 @@ const Calculator = ({
   };
 
   const handleCloseChat = () => {
-    if (window.innerWidth < 768) {
-      setIsCalculatorOpen((prev) => !prev);
-      setIsHovered((prev) => !prev);
-    }
+    setIsCalculatorOpen((prev) => !prev);
+    setIsHovered((prev) => !prev);
 
     setIsChatOpen(false);
   };

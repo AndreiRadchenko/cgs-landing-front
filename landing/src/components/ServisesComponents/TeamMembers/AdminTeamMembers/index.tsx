@@ -1,8 +1,5 @@
 import React, { useState } from "react";
 import { useFormikContext } from "formik";
-import { useQueryClient } from "@tanstack/react-query";
-
-import HistoryLink from "../../../Admin/HistoryLink";
 
 import * as Styled from "./adminTeamMembers.styled";
 import { AdminShowCaseServiceButton } from "../../../../styles/AdminPage";
@@ -10,27 +7,20 @@ import {
   ArrowContainer,
   BlackButton,
 } from "../../../../styles/HomePage/General.styled";
+
 import TrashIcon from "../../../Admin/Portfolio/TrashIcon";
 
-import {
-  ITeamMembers,
-  IServiceHistory,
-} from "../../../../types/ServicesComponent.types";
+import { ITeamMembers } from "../../../../types/ServicesComponent.types";
 
 import ButtonArrow from "../../../../utils/ButtonArrow";
+
 import Arrow from "../../../../../public/upArrowSidebar.svg";
 
 interface ITeamMembersComponent {
   teamMembers: ITeamMembers;
 }
 
-const TeamMembers = <T extends ITeamMembersComponent>({
-  serviceName = "",
-  queryKey = "",
-}: IServiceHistory) => {
-  const queryClient = useQueryClient();
-  const data = queryClient.getQueryData<T>([queryKey])?.teamMembers;
-
+const TeamMembers = <T extends ITeamMembersComponent>() => {
   const { values, handleChange, handleSubmit } = useFormikContext<T>();
   const [newMember, setNewMember] = useState("");
   const [isOpen, setIsOpen] = useState(false);
@@ -196,13 +186,6 @@ const TeamMembers = <T extends ITeamMembersComponent>({
           </Styled.MembersDropdown>
         </Styled.MembersBlock>
       </Styled.Wrapper>
-      {data?.lastModified && (
-        <HistoryLink
-          sectionName="Team Members"
-          lastModified={data?.lastModified}
-          link={`/history/${serviceName}/teamMembers`}
-        />
-      )}
       <BlackButton
         size={"1.5em"}
         padding={"1.11em 3em"}

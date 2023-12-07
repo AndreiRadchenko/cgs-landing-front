@@ -59,8 +59,14 @@ export const FormContainter = styled.div`
   width: 446px;
   height: 417px;
 
+  @media ${themes.primary.media.minPCFullHD} {
+    width: 590px;
+    height: 555px;
+  }
+
   @media ${themes.primary.media.maxMobile} {
-    width: 395px;
+    max-width: 675px;
+    width: 100%;
   }
 
   @media ${themes.primary.media.maxLowScreenMobile} {

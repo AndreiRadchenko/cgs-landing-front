@@ -24,6 +24,7 @@ const CareersDropdown = ({
       <Styled.DropdownButton
         className={isOpen ? "open" : "className"}
         onClick={() => setIsOpen(!isOpen)}
+        type="button"
       >
         <span>{dropdownName}</span>
         <img width={9} height={5} src={Arrow.src} alt="Arrow" />

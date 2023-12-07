@@ -1,12 +1,14 @@
 import styled, { css } from "styled-components";
 import themes from "../../utils/themes";
 import removeAttachButton from "../../../public/removeAttachButton.svg";
-import {  prevChatArrowOne, prevChatArrowTwo } from "../Animations.styled";
+import { prevChatArrowOne, prevChatArrowTwo } from "../Animations.styled";
 
 export const InputEmailError = styled.p`
-  margin: 0;
-  font-style: italic;
+  font-family: ${themes.primary.font.family.namu};
   color: ${themes.primary.colors.validationErrorText};
+  font-size: 11px;
+  position: absolute;
+  margin: 1px 0 0 0;
 `;
 
 const FieldSample = css`
@@ -32,9 +34,11 @@ const FieldSample = css`
   }
 `;
 
-export const InputField = styled.input`
+export const InputField = styled.input<{ error?: string | false | undefined }>`
   height: 33px;
-  ${FieldSample}
+  ${FieldSample};
+
+  border: ${({ error }) => (error ? "1px solid #F80909" : "1px solid #d1d1d6")};
 `;
 
 export const MessageFormWrapper = styled.div`

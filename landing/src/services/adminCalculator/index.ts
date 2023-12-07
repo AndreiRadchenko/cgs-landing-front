@@ -46,6 +46,14 @@ export class AdminCalculatorService {
     return this.httpService.post("api/calculator/lead-mail", answers);
   }
 
+  public createCalculatorPipedriveReport(name: string, email: string) {
+    return this.httpService.post("api/calculator/pipedrive", { name, email });
+  }
+
+  public deleteClassicSubStepById(id: string) {
+    return this.httpService.delete(`api/calculator/classic/sub/${id}`);
+  }
+
   public getCalculatorBlockchainSteps() {
     return this.httpService.get<ICalculatorStep[]>(
       "api/calculator/blockchain/step"

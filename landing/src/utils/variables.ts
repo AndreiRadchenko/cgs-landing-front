@@ -108,7 +108,7 @@ export const mobileServicesRoutes = [
   "ux-ui-design",
   "web-audit",
   "mobile-audit",
-  "smart-contract-audit",
+  "ai",
 ];
 
 export const webAuditTypesOfAuditImages = [

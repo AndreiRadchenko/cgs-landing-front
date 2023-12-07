@@ -15,7 +15,11 @@ export const Layout = styled.article`
   }
 
   @media ${themes.primary.media.maxMobile} {
-    padding: 0 1.925em;
+    padding: 0 40px;
+  }
+
+  @media ${themes.primary.media.minTablet} {
+    padding: 0 20px;
   }
 `;
 

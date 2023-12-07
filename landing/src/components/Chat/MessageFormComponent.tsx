@@ -7,6 +7,7 @@ import { formatChatAttachName } from "../../utils/formatChatAttachName";
 
 import * as Styled from "../../styles/Chat/ChatInputForm.styled";
 import { ICurrentMessage } from "../../types/SupportChat.types";
+import { storeKeys } from "../../consts";
 interface IMessageFormComponentProps {
   dragging: boolean;
   setDragging: React.Dispatch<React.SetStateAction<boolean>>;
@@ -28,23 +29,38 @@ const MessageFormComponent = ({
   publicKey,
   setCurrentMessage,
 }: IMessageFormComponentProps) => {
-  const [fileSizeError, setFileSizeError] = useState<string>("");
-  const [file, setFile] = useState<FileList | null>(null);
-
-  const inputRef = useRef<HTMLInputElement | null>(null);
-
   const formik = useFormik<IMessageFormValues>({
     initialValues: {
       text: "",
     },
     onSubmit: (values, actions) => {
-      handleSubmit(values);
+      handleSubmit();
+      setMessage("");
       actions.resetForm();
     },
   });
 
-  const handleSubmit = (values: IMessageFormValues) => {
-    const text = values.text.trim();
+  const [fileSizeError, setFileSizeError] = useState<string>("");
+  const [file, setFile] = useState<FileList | null>(null);
+  const [message, setMessage] = useState("");
+
+  const inputRef = useRef<HTMLInputElement | null>(null);
+
+  const handleSubmit = () => {
+    const chatUserData = JSON.parse(
+      localStorage.getItem(storeKeys.chatUserData) || "{}"
+    );
+    const text = message.trim().replace(/\n/g, "<br/>");
+
+    const currentDate = new Date();
+    const expiredTime =
+      currentDate.getTime() +
+        Number(process.env.NEXT_PUBLIC_CHAT_EXPIRED_TIME) || 0;
+
+    localStorage.setItem(
+      storeKeys.chatUserData,
+      JSON.stringify({ ...chatUserData, expiredTime })
+    );
 
     if (file && file[0].size > 20000000) {
       setFileSizeError("not more than 20 MB");
@@ -87,6 +103,10 @@ const MessageFormComponent = ({
   };
 
   const handleInput = (event: React.KeyboardEvent<HTMLTextAreaElement>) => {
+    if (event.key === "Enter" && event.shiftKey) {
+      event.preventDefault();
+      setMessage(message + "\n");
+    }
     if (event.key === "Enter" && !event.shiftKey) {
       event.preventDefault();
       formik.handleSubmit();
@@ -154,8 +174,8 @@ const MessageFormComponent = ({
             maxLength={1024}
             name="text"
             placeholder="Write a message..."
-            value={formik.values.text}
-            onChange={formik.handleChange}
+            value={message}
+            onChange={(e) => setMessage(e.target.value)}
             onKeyDown={handleInput}
           />
         )}

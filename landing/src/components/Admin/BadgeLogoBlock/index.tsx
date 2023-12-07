@@ -13,10 +13,6 @@ import { IDataResponse } from "../../../types/Admin/Response.types";
 import removeLink from "../../../../public/linkIcon.svg";
 import SubHeaderWithInput from "../Global/SubHeaderWithInput";
 
-// const TextEditor = dynamic(() => import("../../TextEditor/TextEditor"), {
-//   ssr: false,
-// });
-
 const BadgeLogoBlock = () => {
   const deleteImageFunction = useDeleteImageFunction();
   const uploadImageFunction = useUploadImageFunction();

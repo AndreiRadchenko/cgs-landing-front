@@ -73,7 +73,6 @@ const EstimationsForm = () => {
       router.events.off("routeChangeStart", handleBrowseAway);
     };
   }, []);
-
   useEffect(() => {
     if (openSuccessModal || openFailedModal)
       document.body.style.overflow = "hidden";

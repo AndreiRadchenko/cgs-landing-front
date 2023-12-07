@@ -1,6 +1,7 @@
 ﻿import { useFormikContext } from "formik";
 import React from "react";
-import { useQueryClient } from "@tanstack/react-query";
+
+import SubHeaderWithInput from "../../Global/SubHeaderWithInput";
 
 import {
   AdminHalfGrid,
@@ -8,24 +9,16 @@ import {
   AdminPaddedBlock,
   AdminSubtitleGrid,
 } from "../../../../styles/AdminPage";
-import SubHeaderWithInput from "../../Global/SubHeaderWithInput";
 import {
   ArrowContainer,
   BlackButton,
 } from "../../../../styles/HomePage/General.styled";
 
-import ButtonArrow from "../../../../utils/ButtonArrow";
-import HistoryLink from "../../HistoryLink";
-
 import { IServiceWeb } from "../../../../types/Admin/Response.types";
-import { queryKeys } from "../../../../consts/queryKeys";
+
+import ButtonArrow from "../../../../utils/ButtonArrow";
 
 const ComparisonBlock = () => {
-  const queryClient = useQueryClient();
-  const data = queryClient.getQueryData<IServiceWeb>([
-    queryKeys.getServiceWebPage,
-  ])?.comparisonBlock;
-
   const { values, handleChange, handleSubmit } =
     useFormikContext<IServiceWeb>();
 
@@ -71,13 +64,6 @@ const ComparisonBlock = () => {
           ))}
         </div>
       </AdminSubtitleGrid>
-      {data?.lastModified && (
-        <HistoryLink
-          sectionName="Comparition"
-          lastModified={data?.lastModified}
-          link={"/history/web/comparisonBlock"}
-        />
-      )}
       <BlackButton
         size={"1.5em"}
         padding={"1.11em 3em"}

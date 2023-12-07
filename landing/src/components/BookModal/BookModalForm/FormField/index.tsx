@@ -1,17 +1,15 @@
-import { useFormikContext } from "formik";
 import React, { FC } from "react";
-import "react-phone-input-2/lib/style.css";
+import { useFormikContext } from "formik";
 
 import PhoneInputField from "../PhoneInputField";
 
+import "react-phone-input-2/lib/style.css";
 import * as Styled from "../../../../styles/BookModalForm/FormField.styled";
 
 import {
   IBookModalFieldProps,
   IFormState,
 } from "../../../../types/ModalCategory.types";
-
-import { isEmailDomainPublic } from "../../../../utils/checkEmailDomain";
 
 const TextFieldWrapper: FC<IBookModalFieldProps> = ({
   setCountry,
@@ -28,7 +26,6 @@ const TextFieldWrapper: FC<IBookModalFieldProps> = ({
     <>
       <Styled.FormFieldLabel htmlFor={label}>
         {PHONE_OPTIONAL === label ? (
-          // isEmailDomainPublic(values.email) ? (
           true ? (
             <>
               {label}

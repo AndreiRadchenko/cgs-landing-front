@@ -49,7 +49,7 @@ export const SubTitle = styled.div`
   }
 
   @media ${themes.primary.media.maxMobile} {
-    margin-top: 18px;
+    margin-top: 24px;
     font-size: 1rem;
   }
 `;
@@ -269,7 +269,7 @@ export const HeaderBottomBg = styled.div`
 
 export const FirstHeaderBg = styled.figure`
   position: absolute;
-  top: 11.3%;
+  top: 900px;
   left: -780px;
   margin: 0;
 

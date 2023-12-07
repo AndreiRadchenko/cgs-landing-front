@@ -70,19 +70,19 @@ export const StyledButton = styled.button`
   display: flex;
   justify-content: center;
   height: calc(
-          clamp(67px, 67px + (100vw - 1440px) * ((89 + 67) / (1920 - 1440)), 89px)
+    clamp(67px, 67px + (100vw - 1440px) * ((89 + 67) / (1920 - 1440)), 89px)
   );
   align-items: center;
   font-family: "NAMU";
   font-weight: 900;
   font-size: calc(
-          clamp(19px, 19px + (100vw - 1440px) * ((19 + 24) / (1920 - 1440)), 24px)
+    clamp(19px, 19px + (100vw - 1440px) * ((19 + 24) / (1920 - 1440)), 24px)
   );
   transition: box-shadow 1s ease-in-out;
   cursor: pointer;
   color: ${themes.primary.colors.black};
   margin-top: calc(
-          clamp(-21px, -5px + (100vw - 1440px) * ((-21 + 5) / (1920 - 1440)), -5px)
+    clamp(-21px, -5px + (100vw - 1440px) * ((-21 + 5) / (1920 - 1440)), -5px)
   );
 
   box-shadow: 7px 2px 0px ${themes.primary.colors.black};
@@ -119,7 +119,7 @@ export const ContainerDate = styled.div`
   }
 
   @media (max-width: 1097px) {
-    padding-top: 131px;
+    /* padding-top: 131px; */
     min-height: calc(100vh - 57px - 39px);
   }
 

@@ -1,25 +1,9 @@
-import styled, { keyframes } from "styled-components";
+import styled from "styled-components";
+
 import themes from "../../utils/themes";
 import buttonHoverBg from "../../../public/HomePageDecoration/buttonHoverBg.png";
 import { buttonHover } from "../Animations.styled";
-
-export const arrowOne = keyframes`
-  0% {
-    transform: translate(-36px, 36px);
-  }
-  100% {
-    transform: translate(0px, 0px);;
-  }
-`;
-
-export const arrowTwo = keyframes`
-  0% {
-    transform: translate(0px, 0px);
-  }
-  100% {
-    transform: translate(36px, -36px);;
-  }
-`;
+import { arrowOne, arrowTwo } from "../HomePage/General.styled";
 
 export const BlackButton = styled.button`
   font-family: inherit;
@@ -106,7 +90,6 @@ export const BlackButton = styled.button`
       width: 235.5px;
       height: 72px;
       font-size: 27.5px;
-
       &.contactPage {
         width: 252px;
         height: 72px;
@@ -148,18 +131,15 @@ export const BlackButton = styled.button`
   }
 
   & path {
-    /* transition: transform 1s ease-in-out; */
   }
   & path:nth-child(1) {
     transform: translate(-36px, 36px);
   }
   &:hover {
     & path:nth-child(1) {
-      /* transform: translate(0px, 0px); */
       animation: ${arrowOne} 1s 1 forwards ease-in-out;
     }
     & path:nth-child(2) {
-      /* transform: translate(36px, -36px); */
       animation: ${arrowTwo} 1s 1 forwards ease-in-out;
     }
   }

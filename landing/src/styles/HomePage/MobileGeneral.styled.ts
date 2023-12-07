@@ -62,6 +62,15 @@ export const BlackButton = styled.a<IFontSize>`
 
   @media ${themes.primary.media.maxMobile} {
     padding: 1.25rem 1.375rem;
+
+    &.seeAll {
+      padding: 17px 15px;
+      width: 203px;
+      height: 58px;
+      font-size: 22px;
+      line-height: 99%;
+      text-align: center;
+    }
   }
 
   @media ${themes.primary.media.maxLowScreenMobile} {
@@ -174,7 +183,8 @@ export const Subtitle = styled.div`
 
   @media ${themes.primary.media.maxMobile} {
     font-size: 6.5vw;
-    row-gap: 0px;
+    row-gap: 0;
+    margin-top: 30px;
 
     & u {
       text-decoration-thickness: 1px;
@@ -182,24 +192,29 @@ export const Subtitle = styled.div`
     }
 
     &.techMobile {
-      line-height: 113%;
       br {
         display: none;
       }
       p {
-        width: 450px;
+        line-height: 111%;
+        width: 500px;
+        margin: 0;
+        font-size: 56px;
+        letter-spacing: 2.8px;
       }
     }
 
     &.mobileTextOnFilm {
-      margin-top: 66px;
-      margin-bottom: 27px;
+      margin-top: 77px;
+      margin-bottom: 30px;
+
       p {
         margin: 0;
-        font-size: 5vw;
         width: 100%;
+        font-size: 56px;
         line-height: 132%;
-        
+        letter-spacing: 2.8px;
+
         & span:first-child > span {
           display: inline-block;
           min-width: 295px;
@@ -221,7 +236,7 @@ export const Subtitle = styled.div`
 
     & span {
       white-space: normal !important;
-      
+
       &.nextTechMobile {
         display: block;
       }
@@ -237,10 +252,28 @@ export const Subtitle = styled.div`
     }
   }
 
-  @media (max-width: 600px) {
+  @media ${themes.primary.media.minTablet} {
     &.techMobile {
       p {
         width: 340px;
+        font-size: 32px;
+        line-height: 111%; /* 35.52px */
+        letter-spacing: 1.6px;
+      }
+    }
+
+    &.mobileTextOnFilm {
+      margin-top: 67px;
+      margin-bottom: 27px;
+      p {
+        font-size: 32px;
+        line-height: 132%; /* 35.52px */
+        letter-spacing: 1.6px;
+
+        & span:first-child > span {
+          display: inline-block;
+          min-width: 295px;
+        }
       }
     }
   }
@@ -320,12 +353,12 @@ export const NextTech = styled.section`
   display: none;
 
   @media ${themes.primary.media.maxMobile} {
-    margin-top: 5.5em;
+    margin-top: 0;
     display: block;
   }
 
-  @media ${themes.primary.media.maxLowScreenMobile} {
-    margin-top: 8.7em;
+  @media ${themes.primary.media.minTablet} {
+    margin-top: 11.25em;
   }
 `;
 

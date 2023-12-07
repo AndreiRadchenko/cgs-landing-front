@@ -1,2 +1,5 @@
 User-agent: *
-Disallow: /
+Allow: /
+Disallow: /Admin
+Disallow: /blog?page=
+Sitemap: https://cgsteam.io/sitemap.xml

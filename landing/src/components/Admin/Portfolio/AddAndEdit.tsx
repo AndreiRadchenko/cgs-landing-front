@@ -7,7 +7,6 @@ import "react-toastify/dist/ReactToastify.css";
 import AddReview from "../PortfolioReview/AddReview";
 import { adminPortfolioService } from "../../../services/adminPortfolioPage";
 import { AdminPortfolioValidation } from "../../../validations/AdminPortfolioValidator";
-import { queryKeys } from "../../../consts/queryKeys";
 
 import { newPageReviewInit } from "../../../consts";
 import {
@@ -15,6 +14,7 @@ import {
   IPortfolioPageData,
   IPortfolioReview,
 } from "../../../types/Admin/AdminPortfolio.types";
+import { queryKeys } from "../../../consts/queryKeys";
 
 const AddAndEdit = ({
   current,

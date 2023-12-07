@@ -4,7 +4,7 @@ import themes from "../../utils/themes";
 import { float } from "../Animations.styled";
 
 export const StrongContainer = styled.section`
-  margin-top: 138px;
+  margin-top: 140px;
 
   @media ${themes.primary.media.maxTabletPortrait} {
     margin-top: 8em;
@@ -22,7 +22,7 @@ export const StrongContainer = styled.section`
 export const ContentContainer = styled.div`
   display: flex;
   justify-content: space-between;
-  margin: 17px -0.25em 0 -2.6em;
+  margin: 35px 1.75em 0 -2.6em;
 
   @media ${themes.primary.media.maxTabletLandScape} {
     flex-direction: column;
@@ -88,7 +88,7 @@ export const BlockTextContainer = styled.div`
 export const BlockTitle = styled.h3`
   text-transform: uppercase;
   text-decoration: underline;
-  text-underline-offset: 15px;
+  text-underline-offset: 10px;
   text-decoration-thickness: 1.39388px;
   margin-top: 1rem;
   font-size: ${themes.primary.font.size.secondary};
@@ -99,7 +99,6 @@ export const BlockTitle = styled.h3`
 
   @media ${themes.primary.media.maxServiceMobile} {
     font-size: 1.6em;
-    text-underline-offset: 10px;
   }
 
   @media ${themes.primary.media.maxLowScreenMobile} {
@@ -119,7 +118,6 @@ export const BlockText = styled.p`
   line-height: 160%;
   width: 84%;
   margin-bottom: 10px;
-  margin-top: 30px;
 
   @media ${themes.primary.media.maxTabletLandScape} {
     & br {
@@ -130,6 +128,5 @@ export const BlockText = styled.p`
   @media ${themes.primary.media.maxLowScreenMobile} {
     width: 100%;
     font-size: 1rem;
-    margin-top: 16px;
   }
 `;

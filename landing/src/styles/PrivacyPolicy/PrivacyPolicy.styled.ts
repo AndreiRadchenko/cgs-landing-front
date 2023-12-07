@@ -65,7 +65,7 @@ export const IntroWrapper = styled.div`
   @media ${themes.primary.media.min4K} {
     margin-block: 54px 40px;
     gap: 25px;
-    line-height: 159%;
+    line-height: 161%;
   }
 `;
 
@@ -75,7 +75,7 @@ export const QuestionsWrapper = styled.ol`
   list-style-type: none;
   font-size: 20px;
   line-height: 160%;
-  margin-bottom: 200px;
+  margin-bottom: 0;
   margin-top: 0;
   & ol {
     padding: 0;
@@ -97,7 +97,7 @@ export const QuestionsWrapper = styled.ol`
     padding: 0 20px;
   }
   @media ${themes.primary.media.min4K} {
-    margin-bottom: 90px;
+    margin-bottom: 0px;
   }
   & .lastItem article div:last-child {
     padding-bottom: 0;

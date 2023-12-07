@@ -3,7 +3,6 @@ import { NextPage } from "next";
 import { useRouter } from "next/router";
 import Image from "next/image";
 import Head from "next/head";
-import { scroller } from "react-scroll";
 import { dehydrate, QueryClient, useQuery } from "@tanstack/react-query";
 import parse, { HTMLReactParserOptions, Element } from "html-react-parser";
 import { useMediaQuery } from "@mui/material";
@@ -34,12 +33,12 @@ import { queryKeys } from "../../consts/queryKeys";
 import { PortfolioPageSize } from "../../consts";
 import { DropdownContainer } from "../../styles/HomePage/General.styled";
 import longArrow from "../../../public/HomePageDecoration/longArrow.svg";
-import { useCalendlyEventListener } from "react-calendly";
 import { useGetCelendlyMeetingData } from "../../hooks/useGetCelendlyMeetingData";
 
 const PortfolioPage: NextPage = () => {
   const { width } = getWindowDimension();
   const isPortrait = useMediaQuery("(orientation: portrait)");
+
   const options: HTMLReactParserOptions = {
     replace: (domNode) => {
       if (

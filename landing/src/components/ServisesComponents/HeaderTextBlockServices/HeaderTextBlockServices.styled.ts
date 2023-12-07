@@ -13,15 +13,8 @@ export const Title = styled.h1`
   &.cloud {
     width: fit-content;
   }
-  &.mobileAudit,
-  &.uxUi,
-  &.webAudit {
-    letter-spacing: 3.3px;
-  }
-  &.server,
-  &.ai {
-    letter-spacing: 3.3px;
-    line-height: 120%;
+  &.uxUi {
+    letter-spacing: 0.05em;
   }
 
   @media ${themes.primary.media.onlyTabletPortrait} {
@@ -64,22 +57,12 @@ export const Title = styled.h1`
 export const Description = styled.div`
   font-size: 1.375em;
   line-height: 160%;
-  margin: 0.9em 0 1.7em;
+  margin: 1em 0 1.8185em;
   max-width: 28em;
 
-  &.cloud,
-  &.dappAudit {
-    margin: 0.8em 0px 1.75em;
+  &.cloud {
+    margin: 1.28em 0px 1.8185em;
     max-width: 27.27em;
-  }
-
-  &.webAudit {
-    margin: 0.7em 0 1.7em;
-  }
-
-  &.blockchain,
-  &.uxUi {
-    margin: 0.6em 0 1.7em;
   }
 
   @media ${themes.primary.media.minPCFullHD} {

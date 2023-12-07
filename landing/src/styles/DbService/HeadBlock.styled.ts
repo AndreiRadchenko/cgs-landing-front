@@ -38,10 +38,10 @@ export const ContentContainer = styled.div`
 
 export const Image = styled.img`
   position: absolute;
-  top: 7.25em;
-  right: -4em;
+  top: 8em;
+  right: -3.5em;
   max-width: 55em;
-  width: 45.2vw;
+  width: 45vw;
 
   @media (max-width: 1350px) {
     width: 32em;

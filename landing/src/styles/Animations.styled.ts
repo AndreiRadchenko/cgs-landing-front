@@ -341,14 +341,14 @@ ${css`
 export const messageShow = keyframes`
 ${css`
   0% {
-    max-height: 100vmax;
+    max-height: fit-content;
   }
   80% {
     transform: scale(1.1);
   }
   100% {
     transform: scale(1);
-    max-height: 100vmax;
+    max-height: fit-content;
     overflow: visible;
   }
 `}`;
@@ -376,7 +376,7 @@ export const prevArrowOne = keyframes`
     transform: translate(30px, 0);
   }
   100% {
-    transform: translate(0px, 0px);
+    transform: translate(0px, 0px);;
   }
 `;
 
@@ -385,7 +385,7 @@ export const prevArrowTwo = keyframes`
     transform: translate(0px, 0px);
   }
   100% {
-    transform: translate(-30px, 0px);
+    transform: translate(-30px, 0px);;
   }
 `;
 

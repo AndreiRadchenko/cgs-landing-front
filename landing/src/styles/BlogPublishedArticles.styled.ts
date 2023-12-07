@@ -136,5 +136,5 @@ export const Fade = styled.div`
   left: 0;
   opacity: 0.6;
   z-index: 10;
-  background-color: #f1efed;
+  background-color: #F1EFED;
 `;

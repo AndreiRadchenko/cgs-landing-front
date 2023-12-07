@@ -10,6 +10,7 @@ import Arrow from "../../../public/arrowRight.svg";
 import { IDataCareersResponse } from "../../types/Admin/Response.types";
 import ArrowMobile from "../../../public/CareerDecorations/ArrowMobile.svg";
 import MagnifiedGlass from "../../../public/magnifiedGlass.svg";
+import ScrambleText from "../HomePage/ScrambleText";
 
 interface ICareersProps {
   data: IDataCareersResponse;
@@ -38,7 +39,7 @@ const Careers: FC<ICareersProps> = ({ data }) => {
             <Styles.ArrowContainer>
               {width && (
                 <Styles.TitleArrow
-                  src={width > 474 ? Arrow.src : ArrowMobile.src}
+                  src={width > 768 ? Arrow.src : ArrowMobile.src}
                   alt="Arrow"
                 />
               )}
@@ -48,7 +49,7 @@ const Careers: FC<ICareersProps> = ({ data }) => {
           <Styles.TitleTextRow>
             <Styles.TitleText>REQUIRE AN&nbsp;</Styles.TitleText>
             <Styles.TitleText className={"blue"}>
-              OUTSTANDING TEAM.
+              <ScrambleText text={"OUTSTANDING TEAM."} />
             </Styles.TitleText>
           </Styles.TitleTextRow>
         </Styles.Title>

@@ -8,8 +8,7 @@ export const BigDigit = styled.p`
   font-size: 150px;
   line-height: 150px;
 
-  margin: 0;
-  margin-right: 25px;
+  margin: 0 25px 0 0;
   color: ${themes.primary.colors.blogBackground};
   -webkit-text-stroke: 2px ${themes.primary.colors.primary};
   filter: drop-shadow(7px 2px 0px ${themes.primary.colors.primary});
@@ -40,6 +39,9 @@ export const BigDigit = styled.p`
 
   @media ${themes.primary.media.maxMobile} {
     transform: translateY(4px);
+    line-height: 130px;
+    font-size: 150px;
+    margin-left: 10px;
   }
 
   @media ${themes.primary.media.maxLowScreenMobile} {
@@ -449,6 +451,9 @@ export const CardTitle = styled.div`
 export const CardSubtitle = styled.div`
   line-height: 110%;
 
+  @media ${themes.primary.media.maxMobile} {
+    font-size: 56px;
+  }
   @media ${themes.primary.media.maxLowScreenMobile} {
     font-size: 34px;
   }
@@ -485,8 +490,8 @@ export const CardContent = styled.div`
   @media ${themes.primary.media.maxMobile} {
     margin-bottom: 0;
     max-width: 800px;
-    margin-top: 22px;
-    font-size: 1rem;
+    margin-top: 25px;
+    font-size: 22px;
   }
 
   @media ${themes.primary.media.maxLowScreenMobile} {

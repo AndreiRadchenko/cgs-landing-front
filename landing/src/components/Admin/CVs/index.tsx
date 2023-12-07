@@ -109,7 +109,7 @@ const CvContentBlock = () => {
         </AdminBlockDropDown>
       </AdminPageStyled.AdminContentBlock>
       <AdminPageStyled.MetaBlockWraper>
-        <MetaTagsBlock sitemap="/" queryKey={queryKeys.getCvPage} />
+        <MetaTagsBlock sitemap="/" />
       </AdminPageStyled.MetaBlockWraper>
     </AdminPageStyled.AdminPaddedBlock>
   );

@@ -1,7 +1,7 @@
 import React from "react";
 import { useFormikContext } from "formik";
-import dynamic from "next/dynamic";
 
+import TextEditor from "../../../TextEditor/TextEditor";
 import ButtonArrow from "../../../../utils/ButtonArrow";
 import SubHeaderWithInput from "../../Global/SubHeaderWithInput";
 import PhotoBlockDashed from "../../Global/PhotoBlockDashed";
@@ -15,10 +15,6 @@ import {
 import * as Styled from "../../../../styles/AdminPage";
 import { IAbout } from "../../../../types/Admin/Response.types";
 import { IImage } from "../../../../types/Admin/Admin.types";
-
-const TextEditor = dynamic(() => import("../../../TextEditor/TextEditor"), {
-  ssr: false,
-});
 
 const FooterBlock = () => {
   const { values, handleChange, handleSubmit } = useFormikContext<IAbout>();

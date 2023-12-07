@@ -1,9 +1,7 @@
 import React from "react";
 import { useFormikContext, FieldArray } from "formik";
-import { useQueryClient } from "@tanstack/react-query";
 
 import ButtonArrow from "../../../../utils/ButtonArrow";
-import HistoryLink from "../../../Admin/HistoryLink";
 
 import SubHeaderWithInput from "../../../Admin/Global/SubHeaderWithInput";
 
@@ -12,22 +10,13 @@ import {
   BlackButton,
 } from "../../../../styles/HomePage/General.styled";
 import * as Styles from "./FreeServices.styled";
-import {
-  IFreeServicesComponent,
-  IServiceHistory,
-} from "../../../../types/ServicesComponent.types";
+import { IFreeServicesComponent } from "../../../../types/ServicesComponent.types";
 
 interface IFreeService {
   freeServices: IFreeServicesComponent;
 }
 
-const FreeService = <T extends IFreeService>({
-  serviceName = "",
-  queryKey = "",
-}: IServiceHistory) => {
-  const queryClient = useQueryClient();
-  const data = queryClient.getQueryData<T>([queryKey])?.freeServices;
-
+const FreeService = <T extends IFreeService>() => {
   const { values, handleChange, handleSubmit } = useFormikContext<T>();
 
   const { title, services } = values.freeServices ?? {
@@ -79,13 +68,6 @@ const FreeService = <T extends IFreeService>({
         )}
       </FieldArray>
       <div>
-        {data?.lastModified && (
-          <HistoryLink
-            sectionName="Free services"
-            lastModified={data?.lastModified}
-            link={`/history/${serviceName}/freeServices`}
-          />
-        )}
         <BlackButton
           size={"1.5em"}
           padding={"1.11em 3em"}

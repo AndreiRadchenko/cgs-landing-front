@@ -1,6 +1,6 @@
 import React from "react";
 import { useFormik } from "formik";
-import { ChatEmailSchema } from "../../validations/ChatEmailValidation";
+import { ChatEmailSchema } from "../../validations/ChatValidation";
 import { useCreateUserChat } from "../../hooks/useCreateUserChat";
 
 import * as Styled from "../../styles/Chat/ChatInputForm.styled";
@@ -14,20 +14,26 @@ interface IChatRegisterFormProps {
   isChatOpen: boolean;
   setChatUserInfo: React.Dispatch<React.SetStateAction<IChatUserInfo | null>>;
   setUserEmail: React.Dispatch<React.SetStateAction<string>>;
+  setUserName: React.Dispatch<React.SetStateAction<string>>;
   setSentEmailTime: React.Dispatch<React.SetStateAction<string>>;
+  setSentNameTime: React.Dispatch<React.SetStateAction<string>>;
   setIsGreetingMessageShow: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
 const ChatRegisterForm = ({
   isChatOpen,
   setUserEmail,
+  setUserName,
   setSentEmailTime,
+  setSentNameTime,
   setChatUserInfo,
   setIsGreetingMessageShow,
 }: IChatRegisterFormProps) => {
   const { handleSubmit } = useCreateUserChat({
     setUserEmail,
+    setUserName,
     setSentEmailTime,
+    setSentNameTime,
     setChatUserInfo,
     setIsGreetingMessageShow,
   });
@@ -63,12 +69,13 @@ const ChatRegisterForm = ({
       </span>
       <div>
         <Styled.InputField
-          type="emai"
+          type="text"
           name="email"
           value={formik.values.email}
           onChange={formik.handleChange}
           placeholder="Input your email"
-          autoFocus={!!isChatOpen}
+          error={formik.touched.email && formik.errors.email}
+          autoFocus={isChatOpen}
         />
         <Styled.InputEmailError>
           {formik.touched.email && formik.errors.email}

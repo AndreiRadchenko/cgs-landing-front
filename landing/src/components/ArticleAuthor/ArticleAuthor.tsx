@@ -1,4 +1,5 @@
 import React, { FC } from "react";
+import { useWindowDimension } from "../../hooks/useWindowDimension";
 
 import * as Styles from "./ArticleAuthor.styled";
 import * as Styled from "../../styles/Blog.styled";

@@ -216,11 +216,9 @@ const Form: FC<FormProps> = ({ positions, data, ourRef: scrollToRef }) => {
                   />
                 )}
               </Field>
-              <Styled.Loading
-                src={Loading.src}
-                alt="Load in progress"
-                isLoading={isLoading}
-              />
+              <Styled.Loading isLoading={isLoading}>
+                <img src={Loading.src} alt="Load in progress" />
+              </Styled.Loading>
               <Styled.LabelWithClipContainer isLoading={isLoading}>
                 <Styled.Clip src={Clip.src} alt="Staple" />
                 <Styled.LabelTitle>.pdf, .jpeg</Styled.LabelTitle>

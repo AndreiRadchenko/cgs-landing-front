@@ -58,7 +58,7 @@ const HeaderNavNew = ({
             }}
             href={"/"}
           >
-            <Logo />
+            <Logo cssClass={"header"} />
           </StyledThisComp.LogoLinkWrapper>
           <BurgerButton isOpen={isOpen} onToggle={toggleBurgerHandler} />
         </StyledThisComp.NavBarWrapper>
