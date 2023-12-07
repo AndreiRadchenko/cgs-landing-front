@@ -4,7 +4,7 @@ import parse from "html-react-parser";
 import { useRouter } from "next/router";
 import { scroller } from "react-scroll";
 import { useMediaQuery } from "@mui/material";
-import { useQuery, dehydrate, QueryClient } from "@tanstack/react-query";
+import { useQuery } from "@tanstack/react-query";
 
 import { Pagination } from "../../components/CV/Pagination";
 import { ListItem } from "../../components/CV/List/ListItem/ListItem";
@@ -13,25 +13,10 @@ import HeaderNavNew from "../../components/HeaderNavNew/HeaderNavNew";
 import { queryKeys } from "../../consts/queryKeys";
 import { Loader, LoaderStub } from "../../components/Loader";
 import { adminCvService } from "../../services/adminCvPage";
-import { adminGlobalService } from "../../services/adminHomePage";
 
 import * as Styles from "../../styles/CV/DevsInfo.styled";
 
 import { ICvListResponse, ICvResponse } from "../../types/Admin/AdminCv.types";
-
-export async function getServerSideProps() {
-  const queryClient = new QueryClient();
-
-  await queryClient.prefetchQuery([queryKeys.getFullHomePage], () =>
-    adminGlobalService.getFullPage()
-  );
-
-  return {
-    props: {
-      dehydratedState: dehydrate(queryClient),
-    },
-  };
-}
 
 const DevsInfo = () => {
   const { data, isLoading }: ICvResponse = useQuery([queryKeys.getCvPage], () =>

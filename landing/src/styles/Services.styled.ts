@@ -167,10 +167,6 @@ export const WorthText = styled.p`
   }
 
   @media ${themes.primary.media.minPC} {
-    &.mobileAudit {
-      font-size: 1em;
-    }
-
     & br {
       display: none;
     }

@@ -82,7 +82,6 @@ export const BlogContainer = styled.article`
   font-family: ${themes.primary.font.family.openSans};
   font-weight: ${themes.primary.font.weight.normal};
   color: ${themes.primary.colors.blogDarkText};
-  margin-top: 15px;
   display: flex;
   position: relative;
   flex-direction: column;

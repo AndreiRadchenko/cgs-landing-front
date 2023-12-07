@@ -118,7 +118,7 @@ export const CareerInfo = styled.div`
 export const Content = styled.div`
   position: absolute;
   min-width: 274.5px;
-  max-height: 236px;
+  height: 236px;
   overflow-y: scroll;
   ms-overflow-y: scroll;
   z-index: 10;
@@ -145,20 +145,7 @@ export const Content = styled.div`
     }
   }
 `;
-export const TagItemDropdown = styled.div`
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 0 !important;
-  & > span {
-    display: block;
-    width: 100%;
-    padding: 10px 0 10px 16px;
-  }
-  & > div:last-child {
-    padding-right: 16px;
-  }
-`;
+
 export const Container = styled.div`
   display: flex;
   column-gap: 10px;

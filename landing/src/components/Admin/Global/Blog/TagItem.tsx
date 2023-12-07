@@ -4,14 +4,18 @@ import { TagWrapper } from "../../../../styles/AdminBlogPage";
 
 interface ITagItemProps {
   tag: string;
-  onClick: () => void;
+  setTags: React.Dispatch<React.SetStateAction<string[]>>;
 }
 
-const TagItem = ({ tag, onClick }: ITagItemProps) => {
+const TagItem = ({ tag, setTags }: ITagItemProps) => {
+  const handleDelete = () => {
+    setTags((old) => old.filter((item) => item !== tag));
+  };
+
   return (
     <TagWrapper>
       {tag}
-      <span onClick={onClick}>x</span>
+      <span onClick={handleDelete}>x</span>
     </TagWrapper>
   );
 };

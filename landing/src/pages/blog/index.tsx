@@ -56,37 +56,16 @@ const BlogPage = () => {
   const [loading, setLoading] = useState(true);
   const [routeFilter, setRouteFilter] = useState(false);
 
-  const {
-    data,
-    isFetching: isBlogDataFetching,
-    isSuccess,
-  }: IBlogPageData = useQuery(
-    [queryKeys.getBlogPage],
-    () => adminBlogService.getBlogPageData(),
-    {
-      refetchOnWindowFocus: false,
-    }
+  const { data }: IBlogPageData = useQuery([queryKeys.getBlogPage], () =>
+    adminBlogService.getBlogPageData()
   );
 
-  const {
-    data: swiperData,
-    isFetching: isFetchingSwiperData,
-    isSuccess: isSuccessSwiperData,
-  }: ISwiperArticlesDataResponse = useQuery(
+  const { data: swiperData }: ISwiperArticlesDataResponse = useQuery(
     [queryKeys.getBlogSwiperData],
-    () => adminBlogService.getBlogSwiperData(),
-    {
-      refetchOnWindowFocus: false,
-    }
+    () => adminBlogService.getBlogSwiperData()
   );
 
-  useQuery(
-    [queryKeys.getFullHomePage],
-    () => adminGlobalService.getFullPage(),
-    {
-      refetchOnWindowFocus: false,
-    }
-  );
+  useQuery([queryKeys.getFullHomePage], () => adminGlobalService.getFullPage());
 
   const {
     data: articles,
@@ -117,7 +96,7 @@ const BlogPage = () => {
       duration: 0,
       delay: 0,
       smooth: false,
-      offset: -150,
+      offset: routeFilter ? -320 : 0,
     });
   };
 
@@ -186,6 +165,13 @@ const BlogPage = () => {
     }
   }, []);
 
+  useEffect(() => {
+    if (!isLoading && isMobile && pageReloaded) {
+      window.scrollTo(0, 0);
+      setPageReloaded(false);
+    }
+  }, [isMobile, pageReloaded, isLoading]);
+
   return (
     <Loader active={!isMainSliderImageLoaded && isFirstLoad}>
       <Head>
@@ -193,11 +179,10 @@ const BlogPage = () => {
         <meta name="description" content={metaDescription} />
         {customHead && parse(customHead)}
       </Head>
-      {isBlogDataFetching && isLoading ? (
+      {isLoading && isFirstLoad ? (
         <LoaderStub />
       ) : (
-        isSuccess &&
-        !isBlogDataFetching && (
+        data && (
           <>
             <HeaderNavNew />
             <Styled.BlogContainer>
@@ -205,9 +190,9 @@ const BlogPage = () => {
               <Styled.RightLine src={rightLine.src} />
               <Styled.HeaderBlock>
                 <Styled.MainContainer>
-                  {!isFetchingSwiperData && isSuccessSwiperData && (
+                  {swiperData && (
                     <BlogSwiper>
-                      {swiperData!.reviews.map((article, idx) => (
+                      {swiperData.reviews.map((article, idx) => (
                         <SwiperSlide key={idx}>
                           <MainBlogItem
                             article={article}
@@ -224,9 +209,8 @@ const BlogPage = () => {
 
                 {!isMobile && (
                   <Styled.FlexColumnContainer className="header">
-                    {!isFetchingSwiperData &&
-                      isSuccessSwiperData &&
-                      swiperData!.reviews.map((article) => (
+                    {swiperData &&
+                      swiperData.reviews.map((article) => (
                         <SmallArticleItem
                           filters={filters}
                           article={article}
@@ -236,7 +220,7 @@ const BlogPage = () => {
                   </Styled.FlexColumnContainer>
                 )}
               </Styled.HeaderBlock>
-              <PodcastItem data={data!.podcast} />
+              <PodcastItem data={data.podcast} />
               <Styled.BlogArticlesWrapper>
                 {
                   <Loader

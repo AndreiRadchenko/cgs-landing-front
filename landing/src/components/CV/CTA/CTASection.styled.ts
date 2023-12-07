@@ -52,18 +52,6 @@ export const CTATitle = styled.div`
       display: none;
     }
   }
-  @media (max-width: 1050px) {
-    font-size: 68px;
-    & .blue {
-      white-space: nowrap;
-    }
-  }
-  @media (max-width: 992px) {
-    font-size: 60px;
-  }
-  @media (max-width: 870px) {
-    font-size: 50px;
-  }
 
   @media ${themes.primary.media.maxMobile} {
     font-size: 32px;
@@ -73,7 +61,6 @@ export const CTATitle = styled.div`
     & .blue {
       display: inline;
       line-height: 36px;
-      white-space: normal;
     }
   }
 

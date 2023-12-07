@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { NextPage } from "next";
 import parse from "html-react-parser";
 import {
   dehydrate,
@@ -6,65 +7,65 @@ import {
   useQuery,
   useQueryClient,
 } from "@tanstack/react-query";
-import { queryKeys } from "../../consts/queryKeys";
 import Head from "next/head";
 
+import HeadBlock from "../../components/MobileService/HeadBlockMobileDev";
 import HeaderNavNew from "../../components/HeaderNavNew/HeaderNavNew";
 import FooterNew from "../../components/FooterNew/FooterNew";
-import HeadBlock from "../../components/MobileAuditService/HeadBlockMobileAudit";
-import WhatAppBlock from "../../components/MobileAuditService/WhatAppBlock";
-import WhatAppIncludeBlock from "../../components/MobileAuditService/WhatAppIncludeBlock";
+import StrongBlock from "../../components/MobileService/StrongBlock";
+import WhoNeedAppBlock from "../../components/MobileService/WhoNeedAppBlock";
+import HowDoWeWork from "../../components/MobileService/HowDoWeWork";
+import FooterBlock from "../../components/MobileService/FooterBlockMobileDev";
 import ShowCase from "../../components/ShowCase";
-import FooterBlock from "../../components/MobileAuditService/FooterBlockMobileAudit";
-import HowDoWeAuditBlock from "../../components/MobileAuditService/HowDoWeAuditBlock";
+import TeamMembers from "../../components/ServisesComponents/TeamMembers/TeamMembersComponent";
 import CalendlyInfoModal from "../../components/Calendly/CalendlyInfoModal";
 import PerksOfCoopComponent from "../../components/ServisesComponents/PerksOfCoopComponent";
 import { Loader, LoaderStub } from "../../components/Loader";
-import { calendlyPopupInfoHandler } from "../../utils/calendlyPopupInfoHandler";
 
-import * as Styled from "../../styles/MobileAuditService/Layout";
+import * as Styled from "../../styles/WebService/Layout";
 import { Layout } from "../../styles/Layout.styled";
 
-import { IServiceMobileAudit } from "../../types/Admin/Response.types";
+import { IServiceMobile } from "../../types/Admin/Response.types";
 
-import { adminMobileAuditService } from "../../services/services/adminServiceMobileAuditPage";
+import { queryKeys } from "../../consts/queryKeys";
+
 import { adminGlobalService } from "../../services/adminHomePage";
+import { adminMobileService } from "../../services/services/adminServicesMobilePage";
+
+import { calendlyPopupInfoHandler } from "../../utils/calendlyPopupInfoHandler";
 import { useCalendlyEventListener } from "react-calendly";
 import { useGetCelendlyMeetingData } from "../../hooks/useGetCelendlyMeetingData";
 
 export async function getServerSideProps() {
   const queryClient = new QueryClient();
 
-  await queryClient.prefetchQuery([queryKeys.getServiceMobileAuditPage], () =>
-    adminMobileAuditService.getMobileAuditServicePage()
+  await queryClient.prefetchQuery([queryKeys.getServiceMobilePage], () =>
+    adminMobileService.getMobileServicePage()
   );
 
   await queryClient.prefetchQuery([queryKeys.getFullHomePage], () =>
     adminGlobalService.getFullPage()
   );
-
   return {
     props: {
       dehydratedState: dehydrate(queryClient),
     },
   };
 }
-
-const MobileAuditService = () => {
+const MobileAppDevelopment: NextPage = () => {
   const queryClient = useQueryClient();
-  const dataAudit = queryClient.getQueryData<IServiceMobileAudit>([
-    queryKeys.getServiceMobileAuditPage,
-  ])?.whenDoYouNeed;
 
-  const { data, isLoading } = useQuery(
-    [queryKeys.getServiceMobileAuditPage],
-    () => adminMobileAuditService.getMobileAuditServicePage()
+  const { data, isLoading } = useQuery([queryKeys.getServiceMobilePage], () =>
+    adminMobileService.getMobileServicePage()
   );
+
+  const dataPerks = queryClient.getQueryData<IServiceMobile>([
+    queryKeys.getServiceMobilePage,
+  ])?.worthBlock;
+
   const [isCalendlySuccessfull, setIsCalendlySuccessfull] = useState(false);
-
   useQuery([queryKeys.getFullHomePage], () => adminGlobalService.getFullPage());
-
-  const { customHead, metaDescription, metaTitle } = { ...data?.meta };
+  const { metaTitle, metaDescription, customHead } = { ...data?.meta };
 
   calendlyPopupInfoHandler(() => setIsCalendlySuccessfull(true));
 
@@ -95,23 +96,26 @@ const MobileAuditService = () => {
               <Styled.Layout>
                 <HeadBlock />
               </Styled.Layout>
-              <WhatAppBlock />
-              <Styled.Layout>
-                <WhatAppIncludeBlock />
-                {dataAudit && (
-                  <PerksOfCoopComponent
-                    className={"mobileAudit"}
-                    data={dataAudit as any}
-                  />
-                )}
-              </Styled.Layout>
+              {dataPerks && (
+                <PerksOfCoopComponent className="mobileDev" data={dataPerks} />
+              )}
+              <StrongBlock />
+              <WhoNeedAppBlock
+                className={`${
+                  data && data.projects.length === 0
+                    ? "withoutShowcase"
+                    : undefined
+                } mobileDev`}
+              />
+              <TeamMembers
+                className="mobileDev"
+                teamMembers={data?.teamMembers}
+              />
             </Layout>
             <ShowCase projects={data?.projects} />
             <Layout>
-              <Styled.Layout>
-                <HowDoWeAuditBlock />
-                <FooterBlock />
-              </Styled.Layout>
+              <HowDoWeWork />
+              <FooterBlock />
             </Layout>
           </>
           <FooterNew />
@@ -120,5 +124,4 @@ const MobileAuditService = () => {
     </Loader>
   );
 };
-
-export default MobileAuditService;
+export default MobileAppDevelopment;

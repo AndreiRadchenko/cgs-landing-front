@@ -97,7 +97,7 @@ export const OptionalContainer = styled.div`
   display: flex;
   flex-direction: column;
   margin-left: 1.375em;
-  margin-top: 5px;
+  margin-top: 15px;
   position: relative;
   top: 13px;
 

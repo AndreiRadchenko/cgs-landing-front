@@ -1,29 +1,66 @@
-﻿import React, { useState } from "react";
+﻿import React, { useRef, useState } from "react";
+import { useMutation, useQueryClient } from "@tanstack/react-query";
+
+import { adminBlogService } from "../../../../services/adminBlogPage";
+
 import * as Styled from "../../../../styles/BlogTags.styled";
+import { queryKeys } from "../../../../consts/queryKeys";
 import { AdminInput } from "../../../../styles/AdminPage";
+import { IBlogPageResponse } from "../../../../types/Admin/Response.types";
 
 interface IAddTag {
-  handleCreateTag: (tag: string) => void;
+  possibleTags: string[];
 }
 
-const AddTag = ({ handleCreateTag }: IAddTag) => {
+const AddTag = ({ possibleTags }: IAddTag) => {
   const [inputVal, setInputVal] = useState<string>("");
+  const ref = useRef<HTMLTextAreaElement>(null);
+  const queryClient = useQueryClient();
+
+  const data = queryClient.getQueryData<IBlogPageResponse | undefined>([
+    queryKeys.getBlogPage,
+  ]);
+
+  const { mutateAsync: updateBlogPageData } = useMutation(
+    [queryKeys.updateBlogPage],
+    (dataToUpdate: IBlogPageResponse) =>
+      adminBlogService.updateBlogPageData(dataToUpdate),
+    {
+      onSuccess() {
+        queryClient.invalidateQueries([queryKeys.getBlogPage]);
+      },
+    }
+  );
 
   const handleClick = () => {
-    if (inputVal) {
-      handleCreateTag(inputVal);
+    if (
+      ref.current &&
+      inputVal.length > 0 &&
+      !possibleTags.includes(inputVal)
+    ) {
+      const newTags = possibleTags;
+      newTags.push(inputVal);
       setInputVal("");
+      ref.current.value = "";
+      data &&
+        updateBlogPageData({
+          possibleTags: newTags,
+          meta: data.meta,
+          podcast: data.podcast,
+        });
     }
   };
 
-  const handleChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
-    setInputVal(e.target.value);
+  const handleChange = () => {
+    if (ref.current) {
+      setInputVal(ref.current.value);
+    }
   };
   return (
     <Styled.TagInputWrapper>
       <AdminInput
-        value={inputVal}
-        onChange={(e) => handleChange(e)}
+        onChange={handleChange}
+        ref={ref}
         style={{ marginBottom: "0px" }}
         placeholder="Add new tag"
       />
